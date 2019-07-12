@@ -25,6 +25,16 @@
         "build": {
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
+      },
+      "DevHiringChallenge.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "compile": {
+          "bin/placeholder/DevHiringChallenge.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DevHiringChallenge.Domain.dll": {}
+        }
       }
     }
   },
@@ -170,10 +180,16 @@
         "netstandard.library.2.0.3.nupkg.sha512",
         "netstandard.library.nuspec"
       ]
+    },
+    "DevHiringChallenge.Domain/1.0.0": {
+      "type": "project",
+      "path": "../DevHiringChallenge.Domain/DevHiringChallenge.Domain.csproj",
+      "msbuildProject": "../DevHiringChallenge.Domain/DevHiringChallenge.Domain.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.0": [
+      "DevHiringChallenge.Domain >= 1.0.0",
       "NETStandard.Library >= 2.0.3"
     ]
   },
@@ -209,7 +225,11 @@
       },
       "frameworks": {
         "netstandard2.0": {
-          "projectReferences": {}
+          "projectReferences": {
+            "D:\\Projetos\\Git\\Ateliware\\dev-hiring-challenge\\DevHiringChallenge.Domain\\DevHiringChallenge.Domain.csproj": {
+              "projectPath": "D:\\Projetos\\Git\\Ateliware\\dev-hiring-challenge\\DevHiringChallenge.Domain\\DevHiringChallenge.Domain.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
