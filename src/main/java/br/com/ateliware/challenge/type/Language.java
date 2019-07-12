@@ -1,4 +1,4 @@
-package br.com.ateliware.challenge;
+package br.com.ateliware.challenge.type;
 
 public enum Language {
 
