@@ -20,9 +20,9 @@ namespace DevHiringChallenge.App.Controllers
             Client = client;
         }
 
-        public async Task<IEnumerable<GitHub>> ObterRepositories()
+        public async Task<IEnumerable<GitHub>> ObterRepositories(string language)
         {
-            var response = await Client.GetAsync("/repos/aspnet/AspNetCore.Docs/issues?state=open&sort=created&direction=desc");
+            var response = await Client.GetAsync($"/search/repositories?q=stars:>=10000+language:{language}&sort=stars&order=desc");
 
             response.EnsureSuccessStatusCode();
 

@@ -684,6 +684,7 @@
           "DevHiringChallenge.Infrastructure": "1.0.0",
           "Ninject": "3.3.4",
           "Ninject.Extensions.NamedScope": "3.3.0",
+          "System.Data.SqlClient": "4.6.1",
           "System.Runtime": "4.3.1",
           "System.Runtime.CompilerServices.Unsafe": "4.5.2"
         },
