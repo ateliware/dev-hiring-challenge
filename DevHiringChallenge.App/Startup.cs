@@ -31,6 +31,7 @@ namespace DevHiringChallenge.App
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            Servicos.CarregarKernel();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }

@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using DevHiringChallenge.App.Models;
 using Microsoft.AspNetCore.Mvc;
-using DevHiringChallenge.App.Models;
+using System.Diagnostics;
 
 namespace DevHiringChallenge.App.Controllers
 {
