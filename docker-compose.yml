@@ -1,0 +1,14 @@
+version: '3.2'
+services:
+  githubdb:
+    image: postgres
+    ports:
+      - 5432:5432
+volumes:
+      - type: volume
+        source: pgdata
+        target: /var/lib/postgresql/data
+        volume:
+          nocopy: true
+volumes:
+  pgdata:  
