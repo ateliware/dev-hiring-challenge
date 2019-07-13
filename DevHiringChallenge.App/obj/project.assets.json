@@ -2894,18 +2894,6 @@
           "lib/netstandard2.0/Ninject.dll": {}
         }
       },
-      "Ninject.Extensions.NamedScope/3.3.0": {
-        "type": "package",
-        "dependencies": {
-          "Ninject": "3.3.3"
-        },
-        "compile": {
-          "lib/netstandard2.0/Ninject.Extensions.NamedScope.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/Ninject.Extensions.NamedScope.dll": {}
-        }
-      },
       "NuGet.Frameworks/4.7.0": {
         "type": "package",
         "dependencies": {
@@ -3379,7 +3367,7 @@
           "ref/netstandard1.3/System.Console.dll": {}
         }
       },
-      "System.Data.SqlClient/4.6.1": {
+      "System.Data.SqlClient/4.6.0": {
         "type": "package",
         "dependencies": {
           "Microsoft.Win32.Registry": "4.5.0",
@@ -4013,17 +4001,17 @@
           "ref/netstandard1.0/System.Resources.ResourceManager.dll": {}
         }
       },
-      "System.Runtime/4.3.1": {
+      "System.Runtime/4.3.0": {
         "type": "package",
         "dependencies": {
-          "Microsoft.NETCore.Platforms": "1.1.1",
-          "Microsoft.NETCore.Targets": "1.1.3"
+          "Microsoft.NETCore.Platforms": "1.1.0",
+          "Microsoft.NETCore.Targets": "1.1.0"
         },
         "compile": {
           "ref/netstandard1.5/System.Runtime.dll": {}
         }
       },
-      "System.Runtime.CompilerServices.Unsafe/4.5.2": {
+      "System.Runtime.CompilerServices.Unsafe/4.5.1": {
         "type": "package",
         "compile": {
           "ref/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll": {}
@@ -4744,62 +4732,6 @@
         },
         "runtime": {
           "lib/netstandard1.3/System.Xml.XPath.XDocument.dll": {}
-        }
-      },
-      "DevHiringChallenge.AppService/1.0.0": {
-        "type": "project",
-        "framework": ".NETStandard,Version=v2.0",
-        "dependencies": {
-          "DevHiringChallenge.Domain": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/DevHiringChallenge.AppService.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/DevHiringChallenge.AppService.dll": {}
-        }
-      },
-      "DevHiringChallenge.Domain/1.0.0": {
-        "type": "project",
-        "framework": ".NETStandard,Version=v2.0",
-        "compile": {
-          "bin/placeholder/DevHiringChallenge.Domain.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/DevHiringChallenge.Domain.dll": {}
-        }
-      },
-      "DevHiringChallenge.Infrastructure/1.0.0": {
-        "type": "project",
-        "framework": ".NETStandard,Version=v2.0",
-        "dependencies": {
-          "DevHiringChallenge.Domain": "1.0.0",
-          "System.Data.SqlClient": "4.6.1",
-          "System.Runtime": "4.3.1"
-        },
-        "compile": {
-          "bin/placeholder/DevHiringChallenge.Infrastructure.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/DevHiringChallenge.Infrastructure.dll": {}
-        }
-      },
-      "DevHiringChallenge.IoC/1.0.0": {
-        "type": "project",
-        "framework": ".NETStandard,Version=v2.0",
-        "dependencies": {
-          "DevHiringChallenge.Infrastructure": "1.0.0",
-          "Ninject": "3.3.4",
-          "Ninject.Extensions.NamedScope": "3.3.0",
-          "System.Data.SqlClient": "4.6.1",
-          "System.Runtime": "4.3.1",
-          "System.Runtime.CompilerServices.Unsafe": "4.5.2"
-        },
-        "compile": {
-          "bin/placeholder/DevHiringChallenge.IoC.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/DevHiringChallenge.IoC.dll": {}
         }
       }
     }
@@ -8178,21 +8110,6 @@
         "ninject.nuspec"
       ]
     },
-    "Ninject.Extensions.NamedScope/3.3.0": {
-      "sha512": "2uj8nXnUBjbbr2bD+9B1PvEgkaDIZDWkWhuGpVEAxbZDEyCDImi0Gp3+izwYyVjUGTVYUZ1TNMPJm+OEzD1gXg==",
-      "type": "package",
-      "path": "ninject.extensions.namedscope/3.3.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/net45/Ninject.Extensions.NamedScope.dll",
-        "lib/net45/Ninject.Extensions.NamedScope.xml",
-        "lib/netstandard2.0/Ninject.Extensions.NamedScope.dll",
-        "lib/netstandard2.0/Ninject.Extensions.NamedScope.xml",
-        "ninject.extensions.namedscope.3.3.0.nupkg.sha512",
-        "ninject.extensions.namedscope.nuspec"
-      ]
-    },
     "NuGet.Frameworks/4.7.0": {
       "sha512": "qbXaB76XYUVLocLBs8Z9TS/ERGK2wm797feO+0JEPFvT7o7MRadOR77mqaSD4J1k8G+DlZQyq+MlkCuxrkr3ag==",
       "type": "package",
@@ -9024,10 +8941,10 @@
         "system.console.nuspec"
       ]
     },
-    "System.Data.SqlClient/4.6.1": {
-      "sha512": "7MTJhBFt4/tSJ2VRpG+TQNPcDdbCnWuoYzbe0kD5O3mQ7aZ2Q+Q3D9Y5Y3/aper5Gp3Lrs+8edk9clvxyPYXPw==",
+    "System.Data.SqlClient/4.6.0": {
+      "sha512": "cppLAiY36su7Hr9dOaeDXRkndLKtnh7HgQgOfAgV0oN764BQXShll7yBZ8OwPtdYUSuwTT0re7eDQPGhwnojVQ==",
       "type": "package",
-      "path": "system.data.sqlclient/4.6.1",
+      "path": "system.data.sqlclient/4.6.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -9092,7 +9009,7 @@
         "runtimes/win/lib/netstandard1.3/System.Data.SqlClient.dll",
         "runtimes/win/lib/netstandard2.0/System.Data.SqlClient.dll",
         "runtimes/win/lib/uap10.0.16299/System.Data.SqlClient.dll",
-        "system.data.sqlclient.4.6.1.nupkg.sha512",
+        "system.data.sqlclient.4.6.0.nupkg.sha512",
         "system.data.sqlclient.nuspec",
         "useSharedDesignerContext.txt",
         "version.txt"
@@ -11028,13 +10945,12 @@
         "system.resources.resourcemanager.nuspec"
       ]
     },
-    "System.Runtime/4.3.1": {
-      "sha512": "abhfv1dTK6NXOmu4bgHIONxHyEqFjW8HwXPmpY9gmll+ix9UNo4XDcmzJn6oLooftxNssVHdJC1pGT9jkSynQg==",
+    "System.Runtime/4.3.0": {
+      "sha512": "JufQi0vPQ0xGnAczR13AUFglDyVYt4Kqnz1AZaiKZ5+GICq0/1MH/mO/eAJHt/mHW1zjKBJd7kV26SrxddAhiw==",
       "type": "package",
-      "path": "system.runtime/4.3.1",
+      "path": "system.runtime/4.3.0",
       "files": [
         ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -11116,14 +11032,14 @@
         "ref/xamarinmac20/_._",
         "ref/xamarintvos10/_._",
         "ref/xamarinwatchos10/_._",
-        "system.runtime.4.3.1.nupkg.sha512",
+        "system.runtime.4.3.0.nupkg.sha512",
         "system.runtime.nuspec"
       ]
     },
-    "System.Runtime.CompilerServices.Unsafe/4.5.2": {
-      "sha512": "wprSFgext8cwqymChhrBLu62LMg/1u92bU+VOwyfBimSPVFXtsNqEWC92Pf9ofzJFlk4IHmJA75EDJn1b2goAQ==",
+    "System.Runtime.CompilerServices.Unsafe/4.5.1": {
+      "sha512": "Zh8t8oqolRaFa9vmOZfdQm/qKejdqz0J9kr7o2Fu0vPeoH3BL1EOXipKWwkWtLT1JPzjByrF19fGuFlNbmPpiw==",
       "type": "package",
-      "path": "system.runtime.compilerservices.unsafe/4.5.2",
+      "path": "system.runtime.compilerservices.unsafe/4.5.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -11139,7 +11055,7 @@
         "ref/netstandard1.0/System.Runtime.CompilerServices.Unsafe.xml",
         "ref/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll",
         "ref/netstandard2.0/System.Runtime.CompilerServices.Unsafe.xml",
-        "system.runtime.compilerservices.unsafe.4.5.2.nupkg.sha512",
+        "system.runtime.compilerservices.unsafe.4.5.1.nupkg.sha512",
         "system.runtime.compilerservices.unsafe.nuspec",
         "useSharedDesignerContext.txt",
         "version.txt"
@@ -13030,32 +12946,10 @@
         "system.xml.xpath.xdocument.4.3.0.nupkg.sha512",
         "system.xml.xpath.xdocument.nuspec"
       ]
-    },
-    "DevHiringChallenge.AppService/1.0.0": {
-      "type": "project",
-      "path": "../DevHiringChallenge.AppService/DevHiringChallenge.AppService.csproj",
-      "msbuildProject": "../DevHiringChallenge.AppService/DevHiringChallenge.AppService.csproj"
-    },
-    "DevHiringChallenge.Domain/1.0.0": {
-      "type": "project",
-      "path": "../DevHiringChallenge.Domain/DevHiringChallenge.Domain.csproj",
-      "msbuildProject": "../DevHiringChallenge.Domain/DevHiringChallenge.Domain.csproj"
-    },
-    "DevHiringChallenge.Infrastructure/1.0.0": {
-      "type": "project",
-      "path": "../DevHiringChallenge.Infrastructure/DevHiringChallenge.Infrastructure.csproj",
-      "msbuildProject": "../DevHiringChallenge.Infrastructure/DevHiringChallenge.Infrastructure.csproj"
-    },
-    "DevHiringChallenge.IoC/1.0.0": {
-      "type": "project",
-      "path": "../DevHiringChallenge.IoC/DevHiringChallenge.IoC.csproj",
-      "msbuildProject": "../DevHiringChallenge.IoC/DevHiringChallenge.IoC.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.2": [
-      "DevHiringChallenge.AppService >= 1.0.0",
-      "DevHiringChallenge.IoC >= 1.0.0",
       "Microsoft.AspNetCore.App >= 2.2.0",
       "Microsoft.AspNetCore.Razor.Design >= 2.2.0",
       "Microsoft.NETCore.App >= 2.2.0",
@@ -13095,14 +12989,7 @@
       },
       "frameworks": {
         "netcoreapp2.2": {
-          "projectReferences": {
-            "D:\\Projetos\\Git\\Ateliware\\dev-hiring-challenge\\DevHiringChallenge.AppService\\DevHiringChallenge.AppService.csproj": {
-              "projectPath": "D:\\Projetos\\Git\\Ateliware\\dev-hiring-challenge\\DevHiringChallenge.AppService\\DevHiringChallenge.AppService.csproj"
-            },
-            "D:\\Projetos\\Git\\Ateliware\\dev-hiring-challenge\\DevHiringChallenge.IoC\\DevHiringChallenge.IoC.csproj": {
-              "projectPath": "D:\\Projetos\\Git\\Ateliware\\dev-hiring-challenge\\DevHiringChallenge.IoC\\DevHiringChallenge.IoC.csproj"
-            }
-          }
+          "projectReferences": {}
         }
       },
       "warningProperties": {
