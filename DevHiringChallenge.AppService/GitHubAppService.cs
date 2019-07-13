@@ -1,6 +1,6 @@
 ﻿using DevHiringChallenge.Domain.Entities;
-using System.Collections.Generic;
 using DevHiringChallenge.Domain.Repositories;
+using System.Collections.Generic;
 
 namespace DevHiringChallenge.AppService
 {
