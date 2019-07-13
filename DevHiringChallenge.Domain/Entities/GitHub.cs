@@ -1,8 +1,8 @@
-﻿using DevHiringChallenge.Domain.ValueObjects;
-using System;
-using DevHiringChallenge.Domain.Resources;
+﻿using DevHiringChallenge.Domain.Resources;
+using DevHiringChallenge.Domain.ValueObjects;
 using prmToolkit.NotificationPattern;
 using prmToolkit.NotificationPattern.Extensions;
+using System;
 
 namespace DevHiringChallenge.Domain.Entities
 {

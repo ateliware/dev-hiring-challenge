@@ -176,8 +176,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GitHubRepository.cs" />
+    <Compile Include="DataContexts\DataContext.cs" />
+    <Compile Include="Repositories\GitHubRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UoW\IUnitOfWork.cs" />
+    <Compile Include="UoW\UnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DevHiringChallenge.Domain\DevHiringChallenge.Domain.csproj">
