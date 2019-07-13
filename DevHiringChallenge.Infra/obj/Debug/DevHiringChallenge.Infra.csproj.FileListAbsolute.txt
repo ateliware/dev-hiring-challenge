@@ -1,0 +1,13 @@
+D:\Projetos\Git\Ateliware\dev-hiring-challenge\DevHiringChallenge.Infra\bin\DevHiringChallenge.Infra.dll
+D:\Projetos\Git\Ateliware\dev-hiring-challenge\DevHiringChallenge.Infra\bin\DevHiringChallenge.Infra.pdb
+D:\Projetos\Git\Ateliware\dev-hiring-challenge\DevHiringChallenge.Infra\bin\DevHiringChallenge.Domain.dll
+D:\Projetos\Git\Ateliware\dev-hiring-challenge\DevHiringChallenge.Infra\bin\prmToolkit.NotificationPattern.dll
+D:\Projetos\Git\Ateliware\dev-hiring-challenge\DevHiringChallenge.Infra\bin\System.Diagnostics.DiagnosticSource.dll
+D:\Projetos\Git\Ateliware\dev-hiring-challenge\DevHiringChallenge.Infra\bin\DevHiringChallenge.Domain.pdb
+D:\Projetos\Git\Ateliware\dev-hiring-challenge\DevHiringChallenge.Infra\bin\System.Diagnostics.DiagnosticSource.xml
+D:\Projetos\Git\Ateliware\dev-hiring-challenge\DevHiringChallenge.Infra\bin\en-US\prmToolkit.NotificationPattern.resources.dll
+D:\Projetos\Git\Ateliware\dev-hiring-challenge\DevHiringChallenge.Infra\obj\Debug\DevHiringChallenge.Infra.csprojAssemblyReference.cache
+D:\Projetos\Git\Ateliware\dev-hiring-challenge\DevHiringChallenge.Infra\obj\Debug\DevHiringChallenge.Infra.csproj.CoreCompileInputs.cache
+D:\Projetos\Git\Ateliware\dev-hiring-challenge\DevHiringChallenge.Infra\obj\Debug\DevHiringChallenge.Infra.csproj.CopyComplete
+D:\Projetos\Git\Ateliware\dev-hiring-challenge\DevHiringChallenge.Infra\obj\Debug\DevHiringChallenge.Infra.dll
+D:\Projetos\Git\Ateliware\dev-hiring-challenge\DevHiringChallenge.Infra\obj\Debug\DevHiringChallenge.Infra.pdb

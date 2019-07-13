@@ -1,0 +1,8 @@
+D:\Projetos\Git\Ateliware\dev-hiring-challenge\DevHiringChallenge.IoC\bin\DevHiringChallenge.IoC.dll
+D:\Projetos\Git\Ateliware\dev-hiring-challenge\DevHiringChallenge.IoC\bin\DevHiringChallenge.IoC.pdb
+D:\Projetos\Git\Ateliware\dev-hiring-challenge\DevHiringChallenge.IoC\bin\System.Diagnostics.DiagnosticSource.dll
+D:\Projetos\Git\Ateliware\dev-hiring-challenge\DevHiringChallenge.IoC\bin\System.Diagnostics.DiagnosticSource.xml
+D:\Projetos\Git\Ateliware\dev-hiring-challenge\DevHiringChallenge.IoC\obj\Debug\DevHiringChallenge.IoC.csproj.CoreCompileInputs.cache
+D:\Projetos\Git\Ateliware\dev-hiring-challenge\DevHiringChallenge.IoC\obj\Debug\DevHiringChallenge.IoC.csproj.CopyComplete
+D:\Projetos\Git\Ateliware\dev-hiring-challenge\DevHiringChallenge.IoC\obj\Debug\DevHiringChallenge.IoC.dll
+D:\Projetos\Git\Ateliware\dev-hiring-challenge\DevHiringChallenge.IoC\obj\Debug\DevHiringChallenge.IoC.pdb

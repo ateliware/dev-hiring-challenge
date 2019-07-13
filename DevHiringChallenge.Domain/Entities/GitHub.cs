@@ -1,6 +1,8 @@
 ﻿using DevHiringChallenge.Domain.ValueObjects;
 using System;
+using DevHiringChallenge.Domain.Resources;
 using prmToolkit.NotificationPattern;
+using prmToolkit.NotificationPattern.Extensions;
 
 namespace DevHiringChallenge.Domain.Entities
 {
@@ -9,7 +11,7 @@ namespace DevHiringChallenge.Domain.Entities
         public GitHub()
         {
             new AddNotifications<GitHub>(this)
-                .IfNullOrEmpty(x => x.Html_Url.Html_Url, "Não foi possível buscar a url!");
+                .IfNullOrEmpty(x => x.Html_Url.Html_Url, Mensagem.NaoFoiPossivelBuscar.ToFormat($"o url"));
         }
 
         public Guid Codigo { get; set; }
