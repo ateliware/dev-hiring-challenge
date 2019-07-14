@@ -40,8 +40,13 @@ A API de busca no GitHub não é rápida, por isso o método de carga é assínc
 * _Home_ - lista os repositórios armazenados 
 * _Import Start_ - inicia o import dos repositórios, informando o critério de busca (é sugerido "freeze" )
 * _Import Status_ - acompanha o status de execução da importação de repositórios do GitHub
-* _Purge Database_ - remove todos os repositórios armazenados 
+* _Purge Database_
+ - remove todos os repositórios armazenados 
 
 # Deploy
 
 O sistema está disponível em https://dev-hiring-challenge-ateliware.herokuapp.com
+
+# TODO
+
+Aumentar a cobertura de testes, atualmente apenas cobrem a página inicial.
