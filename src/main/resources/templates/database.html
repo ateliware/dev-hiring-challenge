@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="layout">
+<body>
+	<h1 layout:fragment="header">Purge Database</h1>
+	<div layout:fragment="content" class="container">
+ 
+		<table class="table table-bordered table-striped">
+			<tbody>
+				<tr th:each="st : ${status}">
+					<td th:text="${st}">Database purged. </td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>

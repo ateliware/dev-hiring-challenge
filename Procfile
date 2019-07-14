@@ -1,0 +1,1 @@
+web java -Dserver.port=$PORT $JAVA_OPTS -jar target/dev-challenge-1.0.0-SNAPSHOT.jar  -Dspring.profiles.active=heroku

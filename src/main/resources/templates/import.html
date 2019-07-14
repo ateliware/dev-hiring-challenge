@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="layout">
+<body>
+	<h1 layout:fragment="header">GitHub Import</h1>
+	<div layout:fragment="content" class="container">
+		<div class="well" th:if="${!isRunning}">
+			<form id="githubForm" th:action="@{/import/(form)}" th:object="${query}" action="#" method="post"
+				class="form-horizontal">
+			<div class="form-group">  
+			 <label class="control-label col-sm-2" for="text">Search</label>
+			 <input class="col-sm-10" type="text" id="data" th:field="*{string}"/>
+			</div>
+			<div class="col-sm-offset-2 col-sm-10">
+				<input type="submit" value="Run" />
+			</div>
+			<br/>
+		 </form>
+    	</div>
+
+		<table class="table table-bordered table-striped">
+			<tbody>
+				<tr th:each="st : ${status}">
+					<td th:text="${st}">Running </td>
+				</tr>
+			</tbody>
+		</table>
+		<script>document.getElementById('data').focus()</script>  
+	</div>
+</body>
+</html>

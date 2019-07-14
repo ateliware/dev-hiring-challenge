@@ -1,34 +1,32 @@
 <!DOCTYPE HTML>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Ateliware Dev Challenge</title>
-    <link rel="stylesheet" th:href="@{webjars/bootstrap/4.2.1/css/bootstrap.min.css}"/>
-    <link rel="stylesheet" th:href="@{/css/main.css}"/>
-</head>
-
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="layout">
 <body>
-
-<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-    <a class="navbar-brand" href="#">Ateliware Dev Challenge</a>
-</nav>
-
-<main role="main" class="container">
-
-    <div class="starter-template">
-        <h1>Ateliware Dev Challenge</h1>
- 
-    </div>
-
-    <ol>
-        <li th:each="repository : ${repos}" th:text="${repository.name}"></li>
-        <li th:each="repository : ${repos}" th:text="${repository.lang}"></li>
-    </ol>
-
-</main>
-<!-- /.container -->
-
-<script type="text/javascript" th:src="@{webjars/bootstrap/4.2.1/js/bootstrap.min.js}"></script>
+	<h1 layout:fragment="header">Ateliwware Dev Challenge</h1>
+	<div layout:fragment="content" class="container">
+		<h2 th:text="'Stored repositories: '+${size}">Stored repositories: 1</h2>
+		<table class="table table-bordered table-striped">
+			<thead>
+				<tr>
+					<td>ID</td>
+					<td>Language</td>
+					<td>Name</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:if="${repos.empty}">
+					<td colspan="3">No repositories</td>
+				</tr>
+				<tr th:each="repository : ${repos}">
+			
+					<td th:text="${repository.id}">1</td>
+					<td th:text="${repository.language}">Java</td>
+					<td><a href="view.html" th:href="@{'/repository/' + ${repository.id}}" th:text="${repository.name}">
+							name </a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
 </body>
 </html>

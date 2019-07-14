@@ -1,0 +1,76 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="layout">
+
+<body>
+	<h1 layout:fragment="header">Ateliware Dev Challenge</h1>
+	<div layout:fragment="content" class="container">
+		<h1>Repository detail</h1>
+		<table class="table table-bordered table-striped">
+			<tbody>
+				<tr>
+					<th>ID</th>
+					<td th:text="${repository.id}">1</td>
+				</tr>
+				<tr>
+					<th>Language</th>
+					<td th:text="${repository.language}">Java</td>
+				</tr>
+				<tr>
+					<th>Name</th>
+					<td th:text="${repository.name}">Name</td>
+				</tr>
+				<tr>
+					<th>Description</th>
+					<td th:text="${repository.description}">Description</td>
+				</tr>
+				<tr>
+					<th>homepage</th>
+					<td>
+						<a href="http://github.com" target="_BLANK" th:href="${repository.homepage}" th:text="${repository.homepage}">
+							homepage </a>
+					</td>
+				</tr>
+				<tr>
+					<th>full name</th>
+					<td th:text="${repository.fullName}">fullName</td>
+				</tr>
+				<tr>
+					<th>forks count</th>
+					<td th:text="${repository.forksCount}">forksCount</td>
+				</tr>
+				<tr>
+					<th>stargazers count</th>
+					<td th:text="${repository.stargazersCount}">stargazersCount</td>
+				</tr>
+				<tr>
+					<th>watchers count</th>
+					<td th:text="${repository.watchersCount}">watchersCount</td>
+				</tr>
+				<tr>
+					<th>size</th>
+					<td th:text="${repository.size}">size</td>
+				</tr>
+				<tr>
+					<th>open issues count</th>
+					<td th:text="${repository.openIssuesCount}">openIssuesCount</td>
+				</tr>
+				<tr>
+					<th>subscribers count</th>
+					<td th:text="${repository.subscribersCount}">subscribersCount</td>
+				</tr>
+				<tr>
+					<th>pushed at</th>
+					<td th:text="${repository.pushedAt}">pushedAt</td>
+				</tr>
+				<tr>
+					<th>default branch</th>
+					<td th:text="${repository.defaultBranch}">defaultBranch</td>
+				</tr>
+			</tbody>
+		</table>
+		<button type="button" class="btn btn-secondary btn-lg" onclick="history.back()">back</button>
+	</div>
+</body>
+
+</html>
