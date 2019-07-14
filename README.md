@@ -1,20 +1,47 @@
-# Desafio técnico para desenvolvedores
 
-Construa uma nova aplicação, utilizando o framework de sua preferência (Rails, ASP.NET, Phoenix, etc), a qual deverá conectar na API do GitHub e disponibilizar as seguintes funcionalidades:
+# Desafio técnico Ateliware
 
-- Botão para buscar e armazenar os repositórios destaques de 5 linguagens à sua escolha;
-- Listar os repositórios encontrados;
-- Visualizar os detalhes de cada repositório.
+## Application Design
 
-Alguns requisitos:
+  A aplicação foi feita em Java, em seguida listo e justifico a escolha de cada um 
+  dos componentes:  
 
-- Deve ser uma aplicação totalmente nova;
-- A solução deve estar em um repositório público do GitHub;
-- A aplicação deve armazenar as informações encontradas;
-- Utilizar Postgres, MySQL ou SQL Server;
-- O deploy deve ser realizado, preferencialmente, no Heroku ou no Azure;
-- A aplicação precisa ter testes automatizados.
+* _Spring Boot 2_ (framework principal) - escolhido pela facilidade de desenvolvimento 
+  e sua alta portabilidade desse sistema.  
+  
+* _Maven_ (ferramenta de build) - padrão bem usado e consolidado de build, inclusive 
+  usado também pelas principais ferramentas DevOps.
+  
+* _Lombok_ (biblioteca) - para gerar os getters,setters,builders e loggers.
 
-Quando terminar, faça um Pull Request neste repo e avise-nos por email.
+* _Thymeleaf_ - template padrão de páginas web
 
-**IMPORTANTE:** se você não conseguir finalizar o teste, por favor nos diga o motivo e descreva quais foram as suas dificuldades. Claro que você também pode sugerir uma outra abordagem para avaliarmos seus skills técnicos, mas é com você para vender seu peixe, mostrar-nos do que é capaz.
+* _GitHub API for Java_ - biblioteca ( http://github-api.kohsuke.org ) indicada pelo GitHub Developer Guide ( https://developer.github.com/v3/libraries/ )
+
+## Application Architecture
+
+* A aplicação usa o padrão: _Controller -> Service -> Repository_ ;
+* Pela simplicidade do sistema não foram usados _Facades_;
+* O banco de dados escolhido foi o _PostgreSQL_.
+
+## Conventions
+
+Foram escolhidas 5 linguagens para importar os repositórios: Java, JavaScript, Python e Ruby.
+
+De cada linguagem serão importadas apenas as 5 primeiras com mais votos (stars).
+
+Toda vez que o sistema sobe, ele remove os dados anteriores armazenados. 
+
+A API de busca no GitHub não é rápida, por isso o método de carga é assíncrono, 
+é possível iniciar o processo e depois acompanhar o seu status. 
+
+## Opções do sistema
+
+* _Home_ - lista os repositórios armazenados 
+* _Import Start_ - inicia o import dos repositórios, informando o critério de busca (é sugerido "freeze" )
+* _Import Status_ - acompanha o status de execução da importação de repositórios do GitHub
+* _Purge Database_ - remove todos os repositórios armazenados 
+
+# Deploy
+
+O sistema está disponível em https://dev-hiring-challenge-ateliware.herokuapp.com
