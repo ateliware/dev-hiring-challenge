@@ -1,0 +1,117 @@
+﻿@font-face {
+    font-family: Abel;
+    src: url('../Framework/fonts/Abel-Regular.ttf');
+    font-weight: 400;
+    font-style: normal;
+}
+
+body {
+    background-color: #fafafa;
+    font-family: Abel;
+}
+
+.masthead {
+    background-color: #E72742;
+    color: #fafafa;
+    box-shadow: 0px 1px 5px 0px rgba(33, 33, 33, 0.5);
+}
+
+.mastfoot {
+    background-color: #424242;
+    color: #fafafa;
+    box-shadow: 0px -1px 5px 0px rgba(33, 33, 33, 0.5);
+}
+
+.ColunaAnimacao {
+    background: linear-gradient(295deg, #fafafa, rgba(188, 188, 188, 0.30), #fafafa);
+    background-size: 600% 600%;
+    -webkit-animation: BackGrad 7s ease infinite;
+    -moz-animation: BackGrad 7s ease infinite;
+    animation: BackGrad 7s ease infinite;
+    border-radius: 5px;
+}
+
+@-webkit-keyframes BackGrad {
+    0% {
+        background-position: 0% 52%
+    }
+
+    50% {
+        background-position: 100% 49%
+    }
+
+    100% {
+        background-position: 0% 52%
+    }
+}
+
+@-moz-keyframes BackGrad {
+    0% {
+        background-position: 0% 52%
+    }
+
+    50% {
+        background-position: 100% 49%
+    }
+
+    100% {
+        background-position: 0% 52%
+    }
+}
+
+@keyframes BackGrad {
+    0% {
+        background-position: 0% 52%
+    }
+
+    50% {
+        background-position: 100% 49%
+    }
+
+    100% {
+        background-position: 0% 52%
+    }
+}
+
+.LinguagemNome strong {
+    font-size: 2em;
+}
+
+.LinguagemCartao {
+    min-width: 15rem;
+}
+
+.card {
+    box-shadow: 0px 0px 3px -2px;
+}
+
+.card-title {
+    font-weight: bold;
+}
+
+.card-subtitle {
+    font-style: italic;
+    font-size: 0.95em;
+}
+
+.card-text {
+    font-size: 0.8em;
+}
+
+.CarregandoCards {
+    color: rgba(66, 66, 66, 0.70);
+}
+
+.modal-content {
+    background-color: #fafafa;
+    border-radius: 5px;
+    box-shadow: 0px 0px 3px -2px;
+}
+
+.ModalHead strong {
+    font-size: 2.5em;
+}
+
+.InfoModal {
+    font-size: 0.9em;
+}

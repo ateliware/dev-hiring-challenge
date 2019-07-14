@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29102.190
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AteliwareChallenge", "AteliwareChallenge.csproj", "{E6087940-BA39-4EDB-8184-775571CBBB84}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AteliwareChallenge.Tests", "AteliwareChallenge.Tests\AteliwareChallenge.Tests.csproj", "{1EEC33EF-714B-4555-9DF0-2230D6324A17}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E6087940-BA39-4EDB-8184-775571CBBB84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6087940-BA39-4EDB-8184-775571CBBB84}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6087940-BA39-4EDB-8184-775571CBBB84}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6087940-BA39-4EDB-8184-775571CBBB84}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1EEC33EF-714B-4555-9DF0-2230D6324A17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1EEC33EF-714B-4555-9DF0-2230D6324A17}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1EEC33EF-714B-4555-9DF0-2230D6324A17}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1EEC33EF-714B-4555-9DF0-2230D6324A17}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C30E492D-99E0-4E42-88A6-21C468B9CDEF}
+	EndGlobalSection
+EndGlobal
