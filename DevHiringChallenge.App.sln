@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevHiringChallenge.Infra", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevHiringChallenge.IoC", "DevHiringChallenge.IoC\DevHiringChallenge.IoC.csproj", "{35E229EE-A065-4584-ABFF-39240184B22C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevHiringChallenge.Api", "DevHiringChallenge.Api\DevHiringChallenge.Api.csproj", "{8C99D113-FB5C-47F7-89C0-1121398EA53B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{35E229EE-A065-4584-ABFF-39240184B22C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{35E229EE-A065-4584-ABFF-39240184B22C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{35E229EE-A065-4584-ABFF-39240184B22C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C99D113-FB5C-47F7-89C0-1121398EA53B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C99D113-FB5C-47F7-89C0-1121398EA53B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C99D113-FB5C-47F7-89C0-1121398EA53B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C99D113-FB5C-47F7-89C0-1121398EA53B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
