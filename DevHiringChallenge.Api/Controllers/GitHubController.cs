@@ -1,15 +1,12 @@
 ﻿using DevHiringChallenge.Api.Controllers.Base;
 using DevHiringChallenge.AppService.Interface;
-using DevHiringChallenge.Domain.Entities;
-using DevHiringChallenge.Infra.UoW;
+using DevHiringChallenge.Domain.Interfaces;
+using DevHiringChallenge.Domain.Results;
 using Newtonsoft.Json;
 using System;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
-using DevHiringChallenge.Domain.Command.Inputs;
-using DevHiringChallenge.Domain.Interfaces;
-using DevHiringChallenge.Domain.Results;
 
 namespace DevHiringChallenge.Api.Controllers
 {

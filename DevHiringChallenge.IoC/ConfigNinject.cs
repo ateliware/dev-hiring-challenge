@@ -1,11 +1,11 @@
-﻿using DevHiringChallenge.Domain.Repositories;
-using DevHiringChallenge.Infra;
+﻿using DevHiringChallenge.Domain.Interfaces;
+using DevHiringChallenge.Domain.Repositories;
 using DevHiringChallenge.Infra.DataContexts;
+using DevHiringChallenge.Infra.Repositories;
 using DevHiringChallenge.Infra.UoW;
 using Ninject;
 using Ninject.Extensions.NamedScope;
 using System.Data.SqlClient;
-using DevHiringChallenge.Infra.Repositories;
 
 namespace DevHiringChallenge.IoC
 {
