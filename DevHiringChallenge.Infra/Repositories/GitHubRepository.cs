@@ -1,18 +1,12 @@
-﻿using DevHiringChallenge.Domain.Entities;
-using DevHiringChallenge.Domain.Repositories;
+﻿using DevHiringChallenge.Domain.Repositories;
+using DevHiringChallenge.Domain.Results;
 using System;
-using System.Collections.Generic;
 
-namespace DevHiringChallenge.Infra
+namespace DevHiringChallenge.Infra.Repositories
 {
     public class GitHubRepository : IGitHubRepository
     {
-        public void Gravar(GitHub gitHub)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<GitHub> ObterRepositorios(string linguagem)
+        public void Gravar(GitHubResult gitHub)
         {
             throw new NotImplementedException();
         }

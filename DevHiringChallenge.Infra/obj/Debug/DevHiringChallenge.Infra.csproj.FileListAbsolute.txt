@@ -11,3 +11,5 @@ D:\Projetos\Git\Ateliware\dev-hiring-challenge\DevHiringChallenge.Infra\obj\Debu
 D:\Projetos\Git\Ateliware\dev-hiring-challenge\DevHiringChallenge.Infra\obj\Debug\DevHiringChallenge.Infra.csproj.CopyComplete
 D:\Projetos\Git\Ateliware\dev-hiring-challenge\DevHiringChallenge.Infra\obj\Debug\DevHiringChallenge.Infra.dll
 D:\Projetos\Git\Ateliware\dev-hiring-challenge\DevHiringChallenge.Infra\obj\Debug\DevHiringChallenge.Infra.pdb
+D:\Projetos\Git\Ateliware\dev-hiring-challenge\DevHiringChallenge.Infra\bin\RestSharp.dll
+D:\Projetos\Git\Ateliware\dev-hiring-challenge\DevHiringChallenge.Infra\bin\RestSharp.xml

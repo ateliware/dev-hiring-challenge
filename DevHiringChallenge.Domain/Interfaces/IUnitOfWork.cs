@@ -1,12 +1,11 @@
 ﻿using System;
 
-namespace DevHiringChallenge.Infra.UoW
+namespace DevHiringChallenge.Domain.Interfaces
 {
     public interface IUnitOfWork : IDisposable
     {
         void BeginTransaction();
         void Commit();
         void Rollback();
-
     }
 }

@@ -5,6 +5,7 @@ using DevHiringChallenge.Infra.UoW;
 using Ninject;
 using Ninject.Extensions.NamedScope;
 using System.Data.SqlClient;
+using DevHiringChallenge.Infra.Repositories;
 
 namespace DevHiringChallenge.IoC
 {
@@ -13,9 +14,6 @@ namespace DevHiringChallenge.IoC
         public static StandardKernel Registrar(SqlConnection connection)
         {
             var kernel = new StandardKernel(new NinjectSettings { AllowNullInjection = true });
-
-            //var mapperConfiguration = AutoMapperConfiguration.RegisterMappings();
-            //kernel.Bind<IMapper>().ToConstructor(c => new Mapper(mapperConfiguration)).InSingletonScope();
 
             kernel.Bind<SqlConnection>().ToConstant(connection);
             kernel.Bind<DataContext>().ToSelf().InCallScope();
