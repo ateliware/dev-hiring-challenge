@@ -37,6 +37,7 @@ namespace DevHiringChallenge.AppService.GitHubs
                     Name = item.Name,
                     Node_Id = item.Node_Id,
                     Updated_At = item.Updated_At,
+                    Language =  item.Language,
                     Owner = new Owner(item.Owner.Login, item.Owner.Id, item.Owner.Node_Id, item.Owner.Avatar_Url,
                         item.Owner.Gravatar_Id, item.Owner.Type, item.Owner.Url)
                 };
@@ -73,8 +74,6 @@ namespace DevHiringChallenge.AppService.GitHubs
                 resposta.StatusCode = (int)retornoApi.StatusCode;
 
                 resposta.Sucesso = (resposta.StatusCode >= 200 && resposta.StatusCode < 210);
-
-
             }
             catch (Exception ex)
             {

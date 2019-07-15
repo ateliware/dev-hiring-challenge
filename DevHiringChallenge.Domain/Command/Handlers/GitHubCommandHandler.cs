@@ -21,9 +21,9 @@ namespace DevHiringChallenge.Domain.Command.Handlers
 
             try
             {
-                var git = new GitHub(command.Id, command.Node_Id, command.Name, command.Full_Name, command.Description, command.Pushed_At, command.Created_At, command.Updated_At, command.Owner, command.Html_Url);
+                var git = new GitHub(command.Id, command.Node_Id, command.Name, command.Full_Name, command.Description, command.Pushed_At, command.Created_At, command.Updated_At, command.Owner, command.Html_Url, command.Language);
 
-                var codigoOwner = new Guid();
+                var codigoOwner = Guid.NewGuid();
 
                 _repository.GravarOwner(git.Owner, codigoOwner);
 

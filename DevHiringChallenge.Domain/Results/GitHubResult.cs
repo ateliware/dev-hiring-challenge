@@ -33,5 +33,6 @@ namespace DevHiringChallenge.Domain.Results
         public string Branches_Url { get; set; }
         public string Browser_Download_Url { get; set; }
         public string Received_Events_Url { get; set; }
+        public string Language { get; set; }
     }
 }

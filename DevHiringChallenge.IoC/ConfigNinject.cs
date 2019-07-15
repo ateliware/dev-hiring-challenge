@@ -6,6 +6,7 @@ using DevHiringChallenge.Infra.UoW;
 using Ninject;
 using Ninject.Extensions.NamedScope;
 using System.Data.SqlClient;
+using DevHiringChallenge.AppService.Interface;
 
 namespace DevHiringChallenge.IoC
 {
@@ -17,8 +18,8 @@ namespace DevHiringChallenge.IoC
 
             kernel.Bind<SqlConnection>().ToConstant(connection);
             kernel.Bind<DataContext>().ToSelf().InCallScope();
-            kernel.Bind<IUnitOfWork>().To<UnitOfWork>();
 
+            kernel.Bind<IUnitOfWork>().To<UnitOfWork>().WithConstructorArgument(connection);
             kernel.Bind<IGitHubRepository>().To<GitHubRepository>();
 
             return kernel;

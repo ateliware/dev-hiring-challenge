@@ -205,6 +205,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DevHiringChallenge.AppService\DevHiringChallenge.AppService.csproj">
+      <Project>{7D4484AA-4506-4366-AEA7-596A2E3F5956}</Project>
+      <Name>DevHiringChallenge.AppService</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DevHiringChallenge.Domain\DevHiringChallenge.Domain.csproj">
       <Project>{AE9D709A-580C-4B7A-BF36-6D470EA7F164}</Project>
       <Name>DevHiringChallenge.Domain</Name>

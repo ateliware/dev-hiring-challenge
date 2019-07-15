@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using DevHiringChallenge.Domain.Entities;
+﻿using DevHiringChallenge.Domain.Entities;
 using prmToolkit.NotificationPattern;
-using RestSharp.Extensions;
 
 namespace DevHiringChallenge.Domain.Command.Inputs
 {
@@ -18,12 +15,14 @@ namespace DevHiringChallenge.Domain.Command.Inputs
         public string Updated_At { get; set; }
         public Owner Owner { get; set; }
         public string Html_Url { get; set; }
+        public string Language { get; set; }
 
         public void Validar()
         {
             var notificacao = new AddNotifications<CriarGitHubCommand>(this)
                 .IfNull(x => x.Owner, "Owner não informado!")
-                .IfNullOrEmpty(Html_Url, "Url não foi informado!")
+                .IfNullOrEmpty(x => x.Language, "Linguagem não informada!")
+                .IfNullOrEmpty(x => x.Html_Url, "Url não foi informado!")
                 .IfNullOrEmpty(x => x.Name, "Nome do repositório não informado!")
                 .IfNullOrEmpty(x => x.Description, "Descrição do repositório não informado!");
         }

@@ -5,7 +5,6 @@ namespace DevHiringChallenge.Infra.UoW
 {
     public class UnitOfWork : IUnitOfWork
     {
-
         private readonly DataContext _dataContext;
 
         public UnitOfWork(DataContext dataContext)

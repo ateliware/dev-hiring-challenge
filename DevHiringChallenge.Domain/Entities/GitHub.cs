@@ -4,9 +4,9 @@ namespace DevHiringChallenge.Domain.Entities
 {
     public class GitHub
     {
-        public GitHub(int id, string nodeId, string name, string fullName, string description, string pushedAt, string createdAt, string updatedAt, Owner owner, string htmlUrl)
+        public GitHub(int id, string nodeId, string name, string fullName, string description, string pushedAt, string createdAt, string updatedAt, Owner owner, string htmlUrl, string language)
         {
-            Codigo = new Guid();
+            CodigoGitHub = Guid.NewGuid();
             Id = id;
             Node_Id = nodeId;
             Name = name;
@@ -17,9 +17,10 @@ namespace DevHiringChallenge.Domain.Entities
             Updated_At = updatedAt;
             Owner = owner;
             Html_Url = htmlUrl;
+            Language = language;
         }
 
-        public Guid Codigo { get; private set; }
+        public Guid CodigoGitHub { get; private set; }
         public int Id { get; private set; }
         public string Node_Id { get; private set; }
         public string Name { get; private set; }
@@ -30,5 +31,6 @@ namespace DevHiringChallenge.Domain.Entities
         public string Updated_At { get; private set; }
         public Owner Owner { get; private set; }
         public string Html_Url { get; private set; }
+        public string Language { get; private set; }
     }
 }

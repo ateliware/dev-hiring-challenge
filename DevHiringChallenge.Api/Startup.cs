@@ -9,6 +9,7 @@ using System;
 using System.Data.SqlClient;
 using System.Net.Http.Extensions.Compression.Core.Compressors;
 using System.Web.Http;
+using DevHiringChallenge.Infra.DataContexts;
 
 namespace DevHiringChallenge.Api
 {
@@ -21,6 +22,7 @@ namespace DevHiringChallenge.Api
 
             var connection = new SqlConnection(@"Data Source=LOCALHOST\SQLEXPRESS;Initial Catalog=ATELIWARE;Trusted_Connection=True;");
             Servicos.CarregarKernel(connection);
+
             //config.DependencyResolver = Servicos.CarregarKernel(connection);
 
             ConfigureWebApi(config);

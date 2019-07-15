@@ -6,19 +6,19 @@ namespace DevHiringChallenge.Infra.DataContexts
     public class DataContext
     {
         private string SqlConnectionString { get; set; }
-        private SqlConnection PsConnection { get; set; }
+        private SqlConnection SqlConnection { get; set; }
         public SqlTransaction Transaction { get; private set; }
 
-        public DataContext(string psConnectionString)
-        => SqlConnectionString = psConnectionString;
+        public DataContext(SqlConnection connectionString)
+            => SqlConnectionString = connectionString.ConnectionString;
 
         public SqlConnection Connection
-        => PsConnection ?? (PsConnection = new SqlConnection(SqlConnectionString));
+            => SqlConnection ?? (SqlConnection = new SqlConnection(SqlConnectionString));
 
         private void OpenConnection()
         {
             if (Connection.State != ConnectionState.Open)
-                PsConnection.Open();
+                SqlConnection.Open();
         }
 
         public void BeginTransaction()
@@ -54,8 +54,8 @@ namespace DevHiringChallenge.Infra.DataContexts
 
         public void Dispose()
         {
-            if (PsConnection != null && PsConnection.State == ConnectionState.Open)
-                PsConnection.Close();
+            if (SqlConnection != null && SqlConnection.State == ConnectionState.Open)
+                SqlConnection.Close();
         }
     }
 }

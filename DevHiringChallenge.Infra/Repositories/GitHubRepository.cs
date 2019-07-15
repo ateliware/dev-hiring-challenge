@@ -17,10 +17,9 @@ namespace DevHiringChallenge.Infra.Repositories
         {
             try
             {
-                var sql = $"Inter Into GitHub (Codigo, Id, Node_Id, Name, Full_Name, Description, Pushed_At, Created_At, Updated_At, Html_Url, Url, Owner) Values ({gitHub.Codigo}, {gitHub.Id}, {gitHub.Node_Id}, {gitHub.Name}, {gitHub.Full_Name}, {gitHub.Description}, {gitHub.Pushed_At}, {gitHub.Created_At}, {gitHub.Updated_At}, {gitHub.Html_Url}, {codigoOwner} )";
+                var sql = $"Insert Into GitHub (CodigoGitHub, Id, Node_Id, Name, Full_Name, Description, Pushed_At, Created_At, Updated_At, Html_Url, CodigoOwner, Language) Values ('{gitHub.CodigoGitHub}', {gitHub.Id}, '{gitHub.Node_Id}', '{gitHub.Name}', '{gitHub.Full_Name}', '{gitHub.Description}', '{gitHub.Pushed_At}', '{gitHub.Created_At}', '{gitHub.Updated_At}', '{gitHub.Html_Url}', '{codigoOwner}', '{gitHub.Language}')";
 
                 _context.Connection.Execute(sql);
-
             }
             catch (Exception ex)
             {
@@ -32,7 +31,7 @@ namespace DevHiringChallenge.Infra.Repositories
         {
             try
             {
-                var sql = $"Inter Into Owner (Login, Id, Node_Id, Avatar_Url, Gravatar_Id, Type, Url, Codigo) Values({owner.Login}, {owner.Id}, {owner.Node_Id}, {owner.Avatar_Url}, {owner.Gravatar_Id}, {owner.Type}, {owner.Url}, {codigoOwner})";
+                var sql = $"Insert Into Owner (Login, Id, Node_Id, Avatar_Url, Gravatar_Id, Type, Url, CodigoOwner) Values('{owner.Login}', {owner.Id}, '{owner.Node_Id}', '{owner.Avatar_Url}', '{owner.Gravatar_Id}', '{owner.Type}', '{owner.Url}', '{codigoOwner}')";
 
                 _context.Connection.Execute(sql);
             }

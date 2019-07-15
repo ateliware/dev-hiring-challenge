@@ -3,6 +3,7 @@ using Ninject;
 using System;
 using System.Data.SqlClient;
 using DevHiringChallenge.AppService.GitHubs;
+using DevHiringChallenge.Infra.DataContexts;
 
 namespace DevHiringChallenge.Api
 {
@@ -18,15 +19,14 @@ namespace DevHiringChallenge.Api
             {
                 if (KernelNinject == null)
                 {
-                    var connection = _connectionString ?? new SqlConnection("");
+                    var connection = _connectionString;
 
                     KernelNinject = ConfigNinject.Registrar(connection);
                 }
-
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                //
+                throw  new Exception($"Não foi possível iniciar o Kernel! Exception - {ex}");
             }
 
             return KernelNinject;

@@ -12,3 +12,4 @@ D:\Projetos\Git\Ateliware\dev-hiring-challenge\DevHiringChallenge.Domain\obj\Deb
 D:\Projetos\Git\Ateliware\dev-hiring-challenge\DevHiringChallenge.Domain\obj\Debug\DevHiringChallenge.Domain.csproj.CopyComplete
 D:\Projetos\Git\Ateliware\dev-hiring-challenge\DevHiringChallenge.Domain\obj\Debug\DevHiringChallenge.Domain.dll
 D:\Projetos\Git\Ateliware\dev-hiring-challenge\DevHiringChallenge.Domain\obj\Debug\DevHiringChallenge.Domain.pdb
+D:\Projetos\Git\Ateliware\dev-hiring-challenge\DevHiringChallenge.Domain\obj\Debug\DevHiringChallenge.Domain.csprojAssemblyReference.cache

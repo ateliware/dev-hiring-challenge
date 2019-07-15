@@ -6,7 +6,6 @@ namespace DevHiringChallenge.Domain.Entities
     {
         public Owner(string login, int id, string nodeId, string avatarUrl, string gravatarId, string type, string url)
         {
-            Codigo = new Guid();
             Login = login;
             Id = id;
             Node_Id = nodeId;
@@ -16,7 +15,7 @@ namespace DevHiringChallenge.Domain.Entities
             Url = url;
         }
 
-        public Guid Codigo { get; set; }
+        public Guid CodigoOwner { get; set; }
         public string Login { get; set; }
         public int Id { get; set; }
         public string Node_Id { get; set; }
