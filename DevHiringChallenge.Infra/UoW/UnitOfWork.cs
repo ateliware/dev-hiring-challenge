@@ -1,4 +1,5 @@
-﻿using DevHiringChallenge.Infra.DataContexts;
+﻿using DevHiringChallenge.Domain.Interfaces;
+using DevHiringChallenge.Infra.DataContexts;
 
 namespace DevHiringChallenge.Infra.UoW
 {

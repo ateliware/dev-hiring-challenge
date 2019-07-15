@@ -2,13 +2,12 @@
 using DevHiringChallenge.Domain.Command.Handlers;
 using DevHiringChallenge.Domain.Command.Inputs;
 using DevHiringChallenge.Domain.Entities;
-using DevHiringChallenge.Domain.Interfaces;
 using DevHiringChallenge.Domain.Repositories;
+using DevHiringChallenge.Domain.Results;
 using Newtonsoft.Json;
 using prmToolkit.NotificationPattern;
 using RestSharp;
 using System;
-using DevHiringChallenge.Domain.Results;
 
 namespace DevHiringChallenge.AppService.GitHubs
 {
@@ -30,44 +29,23 @@ namespace DevHiringChallenge.AppService.GitHubs
                 var command = new CriarGitHubCommand()
                 {
                     Full_Name = item.Full_Name,
-                    Following_Url = item.Following_Url,
                     Description = item.Description,
-                    Starred_Url = item.Starred_Url,
-                    Fork = item.Fork,
                     Pushed_At = item.Pushed_At,
-                    Subscriptions_Url = item.Subscriptions_Url,
                     Created_At = item.Created_At,
-                    Avatar_Url = item.Avatar_Url,
-                    Branches_Url = item.Branches_Url,
-                    Browser_Download_Url = item.Browser_Download_Url,
-                    Content_Type = item.Content_Type,
-                    Events_Url = item.Events_Url,
-                    Followers_Url = item.Followers_Url,
-                    Gists_Url = item.Gists_Url,
                     Html_Url = item.Html_Url,
                     Id = item.Id,
-                    Label = item.Label,
                     Name = item.Name,
                     Node_Id = item.Node_Id,
-                    Organizations_Url = item.Organizations_Url,
-                    Received_Events_Url = item.Received_Events_Url,
-                    Repos_Url = item.Repos_Url,
-                    Size = item.Size,
-                    State = item.State,
                     Updated_At = item.Updated_At,
-                    Url = item.Url,
                     Owner = new Owner(item.Owner.Login, item.Owner.Id, item.Owner.Node_Id, item.Owner.Avatar_Url,
-                        item.Owner.Gravatar_Id, item.Owner.Type, item.Owner.Site_Admin, item.Owner.Url,
-                        item.Owner.Html_Url, item.Owner.Followers_Url, item.Owner.Following_Url, item.Owner.Gists_Url,
-                        item.Owner.Starred_Url, item.Owner.Subscriptions_Url, item.Owner.Organizations_Url,
-                        item.Owner.Repos_Url, item.Owner.Events_Url, item.Owner.Received_Events_Url)
+                        item.Owner.Gravatar_Id, item.Owner.Type, item.Owner.Url)
                 };
 
                 Gravar(command);
             }
         }
 
-        private ICommandResult Gravar(CriarGitHubCommand command)
+        private void Gravar(CriarGitHubCommand command)
                 => _handler.Handle(command);
 
         public ApiReply RequisicaoHttp(string url, string parametros, string contentType)

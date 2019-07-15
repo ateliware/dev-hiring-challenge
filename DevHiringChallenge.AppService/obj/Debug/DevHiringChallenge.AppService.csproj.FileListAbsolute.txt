@@ -17,3 +17,5 @@ D:\Projetos\Git\Ateliware\dev-hiring-challenge\DevHiringChallenge.AppService\obj
 D:\Projetos\Git\Ateliware\dev-hiring-challenge\DevHiringChallenge.AppService\obj\Debug\DevHiringChallenge.AppService.pdb
 D:\Projetos\Git\Ateliware\dev-hiring-challenge\DevHiringChallenge.AppService\bin\RestSharp.dll
 D:\Projetos\Git\Ateliware\dev-hiring-challenge\DevHiringChallenge.AppService\bin\RestSharp.xml
+D:\Projetos\Git\Ateliware\dev-hiring-challenge\DevHiringChallenge.AppService\bin\DevHiringChallenge.AppService.dll.config
+D:\Projetos\Git\Ateliware\dev-hiring-challenge\DevHiringChallenge.AppService\bin\Newtonsoft.Json.xml

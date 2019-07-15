@@ -21,11 +21,13 @@ namespace DevHiringChallenge.Domain.Command.Handlers
 
             try
             {
-                var git = new GitHub(command.Id, command.Node_Id, command.Name, command.Full_Name, command.Description, command.Fork, command.Pushed_At, command.Created_At, command.Updated_At, command.Size, command.Content_Type, command.State, command.Label, command.Owner, command.Html_Url, command.Url, command.Followers_Url, command.Following_Url, command.Gists_Url, command.Starred_Url, command.Subscriptions_Url, command.Organizations_Url, command.Repos_Url, command.Events_Url, command.Avatar_Url, command.Branches_Url, command.Browser_Download_Url, command.Received_Events_Url);
+                var git = new GitHub(command.Id, command.Node_Id, command.Name, command.Full_Name, command.Description, command.Pushed_At, command.Created_At, command.Updated_At, command.Owner, command.Html_Url);
 
-                _repository.GravarOwner(git.Owner);
+                var codigoOwner = new Guid();
 
-                _repository.Gravar(git);
+                _repository.GravarOwner(git.Owner, codigoOwner);
+
+                _repository.Gravar(git, codigoOwner);
 
                 retorno = Sucesso(null);
             }

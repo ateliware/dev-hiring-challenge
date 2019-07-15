@@ -1,5 +1,8 @@
-﻿using DevHiringChallenge.Domain.Entities;
+﻿using System;
+using System.Collections.Generic;
+using DevHiringChallenge.Domain.Entities;
 using prmToolkit.NotificationPattern;
+using RestSharp.Extensions;
 
 namespace DevHiringChallenge.Domain.Command.Inputs
 {
@@ -10,28 +13,19 @@ namespace DevHiringChallenge.Domain.Command.Inputs
         public string Name { get; set; }
         public string Full_Name { get; set; }
         public string Description { get; set; }
-        public bool Fork { get; set; }
         public string Pushed_At { get; set; }
         public string Created_At { get; set; }
         public string Updated_At { get; set; }
-        public int Size { get; set; }
-        public string Content_Type { get; set; }
-        public string State { get; set; }
-        public string Label { get; set; }
         public Owner Owner { get; set; }
         public string Html_Url { get; set; }
-        public string Url { get; set; }
-        public string Followers_Url { get; set; }
-        public string Following_Url { get; set; }
-        public string Gists_Url { get; set; }
-        public string Starred_Url { get; set; }
-        public string Subscriptions_Url { get; set; }
-        public string Organizations_Url { get; set; }
-        public string Repos_Url { get; set; }
-        public string Events_Url { get; set; }
-        public string Avatar_Url { get; set; }
-        public string Branches_Url { get; set; }
-        public string Browser_Download_Url { get; set; }
-        public string Received_Events_Url { get; set; }
+
+        public void Validar()
+        {
+            var notificacao = new AddNotifications<CriarGitHubCommand>(this)
+                .IfNull(x => x.Owner, "Owner não informado!")
+                .IfNullOrEmpty(Html_Url, "Url não foi informado!")
+                .IfNullOrEmpty(x => x.Name, "Nome do repositório não informado!")
+                .IfNullOrEmpty(x => x.Description, "Descrição do repositório não informado!");
+        }
     }
 }

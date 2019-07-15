@@ -30,3 +30,5 @@ D:\Projetos\Git\Ateliware\dev-hiring-challenge\DevHiringChallenge.IoC\obj\Debug\
 D:\Projetos\Git\Ateliware\dev-hiring-challenge\DevHiringChallenge.IoC\obj\Debug\DevHiringChallenge.IoC.pdb
 D:\Projetos\Git\Ateliware\dev-hiring-challenge\DevHiringChallenge.IoC\bin\RestSharp.dll
 D:\Projetos\Git\Ateliware\dev-hiring-challenge\DevHiringChallenge.IoC\bin\RestSharp.xml
+D:\Projetos\Git\Ateliware\dev-hiring-challenge\DevHiringChallenge.IoC\bin\prmToolkit.NotificationPattern.dll
+D:\Projetos\Git\Ateliware\dev-hiring-challenge\DevHiringChallenge.IoC\bin\en-US\prmToolkit.NotificationPattern.resources.dll
