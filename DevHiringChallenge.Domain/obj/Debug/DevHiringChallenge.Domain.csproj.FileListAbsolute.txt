@@ -1,0 +1,15 @@
+D:\Projetos\Git\Ateliware\dev-hiring-challenge\DevHiringChallenge.Domain\bin\DevHiringChallenge.Domain.dll
+D:\Projetos\Git\Ateliware\dev-hiring-challenge\DevHiringChallenge.Domain\bin\DevHiringChallenge.Domain.pdb
+D:\Projetos\Git\Ateliware\dev-hiring-challenge\DevHiringChallenge.Domain\bin\prmToolkit.NotificationPattern.dll
+D:\Projetos\Git\Ateliware\dev-hiring-challenge\DevHiringChallenge.Domain\bin\RestSharp.dll
+D:\Projetos\Git\Ateliware\dev-hiring-challenge\DevHiringChallenge.Domain\bin\System.Diagnostics.DiagnosticSource.dll
+D:\Projetos\Git\Ateliware\dev-hiring-challenge\DevHiringChallenge.Domain\bin\RestSharp.xml
+D:\Projetos\Git\Ateliware\dev-hiring-challenge\DevHiringChallenge.Domain\bin\System.Diagnostics.DiagnosticSource.xml
+D:\Projetos\Git\Ateliware\dev-hiring-challenge\DevHiringChallenge.Domain\bin\en-US\prmToolkit.NotificationPattern.resources.dll
+D:\Projetos\Git\Ateliware\dev-hiring-challenge\DevHiringChallenge.Domain\obj\Debug\DevHiringChallenge.Domain.csprojAssemblyReference.cache
+D:\Projetos\Git\Ateliware\dev-hiring-challenge\DevHiringChallenge.Domain\obj\Debug\DevHiringChallenge.Domain.Resources.Mensagem.resources
+D:\Projetos\Git\Ateliware\dev-hiring-challenge\DevHiringChallenge.Domain\obj\Debug\DevHiringChallenge.Domain.csproj.GenerateResource.cache
+D:\Projetos\Git\Ateliware\dev-hiring-challenge\DevHiringChallenge.Domain\obj\Debug\DevHiringChallenge.Domain.csproj.CoreCompileInputs.cache
+D:\Projetos\Git\Ateliware\dev-hiring-challenge\DevHiringChallenge.Domain\obj\Debug\DevHiringChallenge.Domain.csproj.CopyComplete
+D:\Projetos\Git\Ateliware\dev-hiring-challenge\DevHiringChallenge.Domain\obj\Debug\DevHiringChallenge.Domain.dll
+D:\Projetos\Git\Ateliware\dev-hiring-challenge\DevHiringChallenge.Domain\obj\Debug\DevHiringChallenge.Domain.pdb
