@@ -1,5 +1,4 @@
 ﻿using DevHiringChallenge.Domain.Interfaces;
-using prmToolkit.NotificationPattern;
 
 namespace DevHiringChallenge.Domain.Command
 {

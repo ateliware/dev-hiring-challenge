@@ -1,13 +1,9 @@
-﻿using RestSharp;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using prmToolkit.NotificationPattern;
+using RestSharp;
 
 namespace DevHiringChallenge.Domain.Entities
 {
-    public class ApiReply
+    public class ApiReply : Notifiable
     {
         public object Data { get; set; }
         public string Mensagem { get; set; } = "";
@@ -42,9 +38,38 @@ namespace DevHiringChallenge.Domain.Entities
                     {
                         return Method.PATCH;
                     }
+
+                case "MERGE":
+                    {
+                        return Method.MERGE;
+                    }
+
+                case "HEAD":
+                    {
+                        return Method.HEAD;
+                    }
+
+                case "COPY":
+                    {
+                        return Method.COPY;
+                    }
+
+                case "OPTIONS":
+                    {
+                        return Method.OPTIONS;
+                    }
             }
 
             return Method.GET;
+        }
+
+        public void Validar()
+        {
+            new AddNotifications<ApiReply>(this)
+                .IfNull(x => x.Data)
+                .IfNullOrEmpty(x => x.Mensagem)
+                .IfEqualsZero(x => x.StatusCode)
+                .IfFalse(x => x.Sucesso);
         }
     }
 }

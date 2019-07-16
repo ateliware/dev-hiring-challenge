@@ -1,8 +1,9 @@
 ﻿using System;
+using prmToolkit.NotificationPattern;
 
 namespace DevHiringChallenge.Domain.Entities
 {
-    public class GitHub
+    public class GitHub : Notifiable
     {
         public GitHub(int id, string nodeId, string name, string fullName, string description, string pushedAt, string createdAt, string updatedAt, Owner owner, string htmlUrl, string language)
         {
@@ -32,5 +33,21 @@ namespace DevHiringChallenge.Domain.Entities
         public Owner Owner { get; private set; }
         public string Html_Url { get; private set; }
         public string Language { get; private set; }
+
+        public void Validar()
+        {
+            new AddNotifications<GitHub>(this)
+                .IfNullOrEmpty(x => x.Node_Id)
+                .IfNullOrEmpty(x => x.Pushed_At)
+                .IfNullOrEmpty(x => x.Created_At)
+                .IfNullOrEmpty(x => x.Updated_At)
+                .IfNullOrEmpty(x => x.Html_Url)
+                .IfNullOrEmpty(x => x.Language)
+                .IfNullOrEmpty(x => x.Description)
+                .IfNullOrEmpty(x => x.Name)
+                .IfNullOrEmpty(x => x.Full_Name)
+                .IfNull(x => x.Owner)
+                .IfEqualsZero(x => x.Id);
+        }
     }
 }
