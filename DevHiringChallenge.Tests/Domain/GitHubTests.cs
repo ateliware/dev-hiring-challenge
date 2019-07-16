@@ -21,7 +21,7 @@ namespace DevHiringChallenge.Tests.Domain
                 Name = "Hello-World",
                 Node_Id = "MDEwOlJlcG9zaXRvcnkxMjk2MjY5",
                 Updated_At = "",
-                Owner = new Owner("octocat", 1, "MDQ6VXNlcjE=", "https://github.com/images/error/octocat_happy.gif", "", "User", "https://api.github.com/users/octocat")
+                Owner = new Owner("octocat", 1, "MDQ6VXNlcjE=", "https://github.com/images/error/octocat_happy.gif", "User", "https://api.github.com/users/octocat")
             };
 
             command.Validar();

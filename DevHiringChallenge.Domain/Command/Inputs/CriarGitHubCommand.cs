@@ -19,12 +19,12 @@ namespace DevHiringChallenge.Domain.Command.Inputs
 
         public void Validar()
         {
-            var notificacao = new AddNotifications<CriarGitHubCommand>(this)
-                .IfNull(x => x.Owner, "Owner não informado!")
-                .IfNullOrEmpty(x => x.Language, "Linguagem não informada!")
-                .IfNullOrEmpty(x => x.Html_Url, "Url não foi informado!")
-                .IfNullOrEmpty(x => x.Name, "Nome do repositório não informado!")
-                .IfNullOrEmpty(x => x.Description, "Descrição do repositório não informado!");
+            new AddNotifications<CriarGitHubCommand>(this)
+               .IfNull(x => x.Owner, "Owner não informado!")
+               .IfNullOrEmpty(x => x.Language, "Linguagem não informada!")
+               .IfNullOrEmpty(x => x.Html_Url, "Url não foi informado!")
+               .IfNullOrEmpty(x => x.Name, "Nome do repositório não informado!")
+               .IfNullOrEmpty(x => x.Description, "Descrição do repositório não informado!");
         }
     }
 }

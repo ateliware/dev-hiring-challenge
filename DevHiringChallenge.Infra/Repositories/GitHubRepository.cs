@@ -31,7 +31,7 @@ namespace DevHiringChallenge.Infra.Repositories
         {
             try
             {
-                var sql = $"Insert Into Owner (Login, Id, Node_Id, Avatar_Url, Gravatar_Id, Type, Url, CodigoOwner) Values('{owner.Login}', {owner.Id}, '{owner.Node_Id}', '{owner.Avatar_Url}', '{owner.Gravatar_Id}', '{owner.Type}', '{owner.Url}', '{codigoOwner}')";
+                var sql = $"Insert Into Owner (Login, Id, Node_Id, Avatar_Url, Type, Url, CodigoOwner) Values('{owner.Login}', {owner.Id}, '{owner.Node_Id}', '{owner.Avatar_Url}', '{owner.Type}', '{owner.Url}', '{codigoOwner}')";
 
                 _context.Connection.Execute(sql);
             }

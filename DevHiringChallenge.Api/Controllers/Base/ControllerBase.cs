@@ -1,12 +1,11 @@
 ﻿using DevHiringChallenge.AppService.Interface.Base;
-using DevHiringChallenge.Infra.UoW;
+using DevHiringChallenge.Domain.Interfaces;
 using System;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
-using DevHiringChallenge.Domain.Interfaces;
 
 #pragma warning disable 1998
 

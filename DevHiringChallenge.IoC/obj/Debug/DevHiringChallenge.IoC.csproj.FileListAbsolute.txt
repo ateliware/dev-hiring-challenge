@@ -1,6 +1,7 @@
 D:\Projetos\Git\Ateliware\dev-hiring-challenge\DevHiringChallenge.IoC\bin\DevHiringChallenge.IoC.dll.config
 D:\Projetos\Git\Ateliware\dev-hiring-challenge\DevHiringChallenge.IoC\bin\DevHiringChallenge.IoC.dll
 D:\Projetos\Git\Ateliware\dev-hiring-challenge\DevHiringChallenge.IoC\bin\DevHiringChallenge.IoC.pdb
+D:\Projetos\Git\Ateliware\dev-hiring-challenge\DevHiringChallenge.IoC\bin\DevHiringChallenge.AppService.dll
 D:\Projetos\Git\Ateliware\dev-hiring-challenge\DevHiringChallenge.IoC\bin\DevHiringChallenge.Domain.dll
 D:\Projetos\Git\Ateliware\dev-hiring-challenge\DevHiringChallenge.IoC\bin\DevHiringChallenge.Infra.dll
 D:\Projetos\Git\Ateliware\dev-hiring-challenge\DevHiringChallenge.IoC\bin\Newtonsoft.Json.dll
@@ -12,9 +13,11 @@ D:\Projetos\Git\Ateliware\dev-hiring-challenge\DevHiringChallenge.IoC\bin\System
 D:\Projetos\Git\Ateliware\dev-hiring-challenge\DevHiringChallenge.IoC\bin\System.Web.Http.dll
 D:\Projetos\Git\Ateliware\dev-hiring-challenge\DevHiringChallenge.IoC\bin\Unity.Abstractions.dll
 D:\Projetos\Git\Ateliware\dev-hiring-challenge\DevHiringChallenge.IoC\bin\Unity.Container.dll
-D:\Projetos\Git\Ateliware\dev-hiring-challenge\DevHiringChallenge.IoC\bin\RestSharp.dll
 D:\Projetos\Git\Ateliware\dev-hiring-challenge\DevHiringChallenge.IoC\bin\prmToolkit.NotificationPattern.dll
+D:\Projetos\Git\Ateliware\dev-hiring-challenge\DevHiringChallenge.IoC\bin\RestSharp.dll
 D:\Projetos\Git\Ateliware\dev-hiring-challenge\DevHiringChallenge.IoC\bin\Dapper.dll
+D:\Projetos\Git\Ateliware\dev-hiring-challenge\DevHiringChallenge.IoC\bin\DevHiringChallenge.AppService.pdb
+D:\Projetos\Git\Ateliware\dev-hiring-challenge\DevHiringChallenge.IoC\bin\DevHiringChallenge.AppService.dll.config
 D:\Projetos\Git\Ateliware\dev-hiring-challenge\DevHiringChallenge.IoC\bin\DevHiringChallenge.Domain.pdb
 D:\Projetos\Git\Ateliware\dev-hiring-challenge\DevHiringChallenge.IoC\bin\DevHiringChallenge.Infra.pdb
 D:\Projetos\Git\Ateliware\dev-hiring-challenge\DevHiringChallenge.IoC\bin\Newtonsoft.Json.xml
@@ -34,6 +37,3 @@ D:\Projetos\Git\Ateliware\dev-hiring-challenge\DevHiringChallenge.IoC\obj\Debug\
 D:\Projetos\Git\Ateliware\dev-hiring-challenge\DevHiringChallenge.IoC\obj\Debug\DevHiringChallenge.IoC.csproj.CopyComplete
 D:\Projetos\Git\Ateliware\dev-hiring-challenge\DevHiringChallenge.IoC\obj\Debug\DevHiringChallenge.IoC.dll
 D:\Projetos\Git\Ateliware\dev-hiring-challenge\DevHiringChallenge.IoC\obj\Debug\DevHiringChallenge.IoC.pdb
-D:\Projetos\Git\Ateliware\dev-hiring-challenge\DevHiringChallenge.IoC\bin\DevHiringChallenge.AppService.dll
-D:\Projetos\Git\Ateliware\dev-hiring-challenge\DevHiringChallenge.IoC\bin\DevHiringChallenge.AppService.pdb
-D:\Projetos\Git\Ateliware\dev-hiring-challenge\DevHiringChallenge.IoC\bin\DevHiringChallenge.AppService.dll.config

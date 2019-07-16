@@ -18,7 +18,7 @@ namespace DevHiringChallenge.Api.Controllers
 
         public GitHubController()
         {
-            var handler = new HttpClientHandler {UseDefaultCredentials = true};
+            var handler = new HttpClientHandler { UseDefaultCredentials = true };
 
             Client = new HttpClient(handler);
         }

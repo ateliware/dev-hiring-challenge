@@ -13,12 +13,12 @@ namespace DevHiringChallenge.AppService.GitHubs
 {
     public class GitHubAppService : Notifiable, IServiceGitHub
     {
-        private readonly IGitHubRepository _repository;
+        public IGitHubRepository Repository { get; }
         private readonly GitHubCommandHandler _handler;
 
         public GitHubAppService(IGitHubRepository repository, GitHubCommandHandler handler)
         {
-            _repository = repository;
+            Repository = repository;
             _handler = handler;
         }
 
@@ -38,16 +38,12 @@ namespace DevHiringChallenge.AppService.GitHubs
                     Node_Id = item.Node_Id,
                     Updated_At = item.Updated_At,
                     Language =  item.Language,
-                    Owner = new Owner(item.Owner.Login, item.Owner.Id, item.Owner.Node_Id, item.Owner.Avatar_Url,
-                        item.Owner.Gravatar_Id, item.Owner.Type, item.Owner.Url)
+                    Owner = new Owner(item.Owner.Login, item.Owner.Id, item.Owner.Node_Id, item.Owner.Avatar_Url, item.Owner.Type, item.Owner.Url)
                 };
 
-                Gravar(command);
+                _handler.Handle(command);
             }
         }
-
-        private void Gravar(CriarGitHubCommand command)
-                => _handler.Handle(command);
 
         public ApiReply RequisicaoHttp(string url, string parametros, string contentType)
         {

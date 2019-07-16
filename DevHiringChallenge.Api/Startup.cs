@@ -6,10 +6,10 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using Owin;
 using System;
+using System.Configuration;
 using System.Data.SqlClient;
 using System.Net.Http.Extensions.Compression.Core.Compressors;
 using System.Web.Http;
-using DevHiringChallenge.Infra.DataContexts;
 
 namespace DevHiringChallenge.Api
 {
@@ -20,7 +20,7 @@ namespace DevHiringChallenge.Api
             var config = new HttpConfiguration();
             SwaggerConfig.Registrar(config);
 
-            var connection = new SqlConnection(@"Data Source=LOCALHOST\SQLEXPRESS;Initial Catalog=ATELIWARE;Trusted_Connection=True;");
+            var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString);
             Servicos.CarregarKernel(connection);
 
             //config.DependencyResolver = Servicos.CarregarKernel(connection);
