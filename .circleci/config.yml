@@ -1,0 +1,38 @@
+version: 2.1
+
+commands:
+  build_project:
+    description: "Execute project tests and build jar"
+    steps:
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "build.gradle" }}
+            # fallback to using the latest cache if no exact match is found
+            - v1-dependencies-
+      - run: ./gradlew dependencies
+      - save_cache:
+          paths:
+            - ~/.gradle
+          key: v1-dependencies-{{ checksum "build.gradle" }}
+      - run: ./gradlew clean build
+      - store_test_results:
+          path: /home/circleci/user-service/build/test-results/test
+      - store_artifacts:
+          path: /home/circleci/user-service/build/reports/tests
+
+jobs:
+  build:
+    working_directory: ~/user-service
+    docker:
+      - image: circleci/openjdk:8
+    environment:
+      IMAGE_NAME: marioalvial/library-user-service
+      JVM_OPTS: -Xmx3200m
+    steps:
+      - checkout
+      - build_project
+
+workflows:
+  "Project workflow":
+    jobs:
+      - build

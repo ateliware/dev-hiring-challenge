@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+
+  dev-hiring-challenge:
+    container_name: dev-hiring-challenge
+    restart: always
+    build:
+      context: .
+    ports:
+      - 8080:8080
+    depends_on:
+      - mysql-dev-hiring-challenge
+    environment:
+      PORT: 8080
+      JDBC_URL: jdbc:mysql://mysql-dev-hiring-challenge/repos
+      MYSQL_USERNAME: root
+      MYSQL_PASSWORD: root
+      GITHUB_API_BASE_URL: https://api.github.com
+
+  mysql-dev-hiring-challenge:
+    container_name: mysql-dev-hiring-challenge
+    image: mysql:5.7.21
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: repos
