@@ -1,10 +1,10 @@
-package dev.hiring.challenge.application.repository
+package dev.hiring.challenge.application.repo
 
 import com.github.kittinunf.fuel.Fuel
 import dev.hiring.challenge.application.setup.EnvironmentConfig
-import dev.hiring.challenge.core.RepoService
-import dev.hiring.challenge.core.RepoRepository
-import dev.hiring.challenge.core.RepositoryPlatform
+import dev.hiring.challenge.core.repo.RepoService
+import dev.hiring.challenge.core.repo.RepoRepository
+import dev.hiring.challenge.core.repo.RepositoryPlatform
 import dev.hiring.challenge.infrastructure.repo.GithubPlatformAdapter
 import dev.hiring.challenge.infrastructure.repo.RepoRepositoryAdapter
 import org.koin.dsl.module

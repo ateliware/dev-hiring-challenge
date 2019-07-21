@@ -1,4 +1,4 @@
-package dev.hiring.challenge.application.repository
+package dev.hiring.challenge.application.repo
 
 import io.ktor.application.call
 import io.ktor.routing.Routing

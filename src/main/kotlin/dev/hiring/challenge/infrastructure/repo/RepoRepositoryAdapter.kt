@@ -1,8 +1,8 @@
 package dev.hiring.challenge.infrastructure.repo
 
 import dev.hiring.challenge.commons.VARCHAR_MAX_LENGTH
-import dev.hiring.challenge.core.Repo
-import dev.hiring.challenge.core.RepoRepository
+import dev.hiring.challenge.core.repo.Repo
+import dev.hiring.challenge.core.repo.RepoRepository
 import org.jetbrains.exposed.sql.Column
 import org.jetbrains.exposed.sql.ResultRow
 import org.jetbrains.exposed.sql.Table

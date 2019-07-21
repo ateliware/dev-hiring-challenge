@@ -2,8 +2,8 @@ package dev.hiring.challenge
 
 import dev.hiring.challenge.application.health.HealthModule
 import dev.hiring.challenge.application.health.healthRoutes
-import dev.hiring.challenge.application.repository.RepoModule
-import dev.hiring.challenge.application.repository.repoRoutes
+import dev.hiring.challenge.application.repo.RepoModule
+import dev.hiring.challenge.application.repo.repoRoutes
 import dev.hiring.challenge.application.setup.ConfigModules
 import dev.hiring.challenge.commons.errors.exception.HiringChallengeException
 import io.ktor.application.Application

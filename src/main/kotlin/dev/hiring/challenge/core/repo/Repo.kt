@@ -1,4 +1,4 @@
-package dev.hiring.challenge.core
+package dev.hiring.challenge.core.repo
 
 data class Repo(
         val id: Long = 0,

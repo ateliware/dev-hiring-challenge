@@ -1,17 +1,18 @@
-package dev.hiring.challenge.application.repository
+package dev.hiring.challenge.application.repo
 
 import dev.hiring.challenge.commons.errors.exception.ParameterCaptureException
-import dev.hiring.challenge.core.RepoService
+import dev.hiring.challenge.core.repo.Repo
+import dev.hiring.challenge.core.repo.RepoService
 import io.ktor.application.ApplicationCall
 import io.ktor.http.HttpStatusCode
 import io.ktor.request.receive
 import io.ktor.response.respond
 
 class RepoController(
-    private val repoService: RepoService
+        private val repoService: RepoService
 ) {
 
-    suspend fun load(call: ApplicationCall){
+    suspend fun load(call: ApplicationCall) {
         repoService.load(call.receive())
 
         call.respond(HttpStatusCode.Created)
@@ -23,5 +24,12 @@ class RepoController(
         call.respond(HttpStatusCode.OK, repoService.findById(id))
     }
 
-    suspend fun list(call: ApplicationCall) = call.respond(HttpStatusCode.OK, repoService.list())
+    suspend fun list(call: ApplicationCall) {
+        val response = repoService
+                .list()
+                .map { MinifiedRepoResponse(it) }
+                .sortedByDescending { it.numberOfStars }
+
+        call.respond(HttpStatusCode.OK, response)
+    }
 }

@@ -1,4 +1,4 @@
-package dev.hiring.challenge.application.repository
+package dev.hiring.challenge.application.repo
 
 class RepoRequest(
         val languages: List<String>
