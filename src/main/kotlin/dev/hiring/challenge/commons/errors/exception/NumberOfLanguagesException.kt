@@ -9,7 +9,7 @@ class NumberOfLanguagesException(
 ) : HiringChallengeException() {
 
     override fun response() = ErrorResponse.create(
-        "Number of languages sent in request not match mandatory number: $NUMBER_OF_LANGUAGES",
+        "Number of languages sent in request does not match mandatory number: $NUMBER_OF_LANGUAGES",
         "number_of_languages" to numberOfLanguages
     )
 

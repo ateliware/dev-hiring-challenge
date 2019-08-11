@@ -2,16 +2,13 @@ package dev.hiring.challenge.application.repo
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.module.kotlin.readValue
-import dev.hiring.challenge.commons.NUMBER_OF_LANGUAGES
 import dev.hiring.challenge.commons.errors.exception.ParameterCaptureException
-import dev.hiring.challenge.commons.extensions.validation
 import dev.hiring.challenge.core.repo.RepoService
 import io.ktor.application.ApplicationCall
 import io.ktor.http.HttpStatusCode
 import io.ktor.request.receiveText
 import io.ktor.response.respond
 import org.slf4j.LoggerFactory
-import org.valiktor.functions.hasSize
 
 class RepoController(
     private val repoService: RepoService,
@@ -25,9 +22,7 @@ class RepoController(
 
         logger.info("Starting load repositories process with json $json")
 
-        val request = mapper
-                .readValue<RepoRequest>(json)
-                .validation { validate(RepoRequest::languages).hasSize(NUMBER_OF_LANGUAGES, NUMBER_OF_LANGUAGES) }
+        val request = mapper.readValue<RepoRequest>(json)
 
         logger.info("Json deserialized to $request")
 
