@@ -13,9 +13,9 @@ import kotlinx.coroutines.coroutineScope
 import org.slf4j.LoggerFactory
 
 class GithubPlatformAdapter(
-        private val fuel: Fuel,
-        githubBaseUrl: String,
-        private val mapper: ObjectMapper
+    private val fuel: Fuel,
+    githubBaseUrl: String,
+    private val mapper: ObjectMapper
 ) : RepositoryPlatform {
 
     private val url = "$githubBaseUrl/search/repositories"

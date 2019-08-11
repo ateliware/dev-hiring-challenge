@@ -2,11 +2,11 @@ package dev.hiring.challenge.commons.extensions
 
 import dev.hiring.challenge.commons.errors.ErrorObject
 import dev.hiring.challenge.commons.errors.exception.MethodArgumentNotValidException
+import java.util.Properties
 import org.valiktor.Constraint
 import org.valiktor.ConstraintViolationException
 import org.valiktor.Validator
 import org.valiktor.validate
-import java.util.Properties
 
 private val properties = Properties().apply { load(ClassLoader.getSystemResourceAsStream("messages.properties")) }
 

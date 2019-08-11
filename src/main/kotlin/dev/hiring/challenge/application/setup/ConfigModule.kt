@@ -1,8 +1,8 @@
 package dev.hiring.challenge.application.setup
 
 import com.typesafe.config.ConfigFactory
-import org.koin.dsl.module
 import javax.sql.DataSource
+import org.koin.dsl.module
 
 object ConfigModule {
 

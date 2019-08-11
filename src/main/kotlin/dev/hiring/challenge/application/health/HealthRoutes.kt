@@ -7,4 +7,3 @@ import io.ktor.routing.get
 fun Routing.healthRoutes(healthHandler: HealthHandler) {
     get("/health") { healthHandler.health(call) }
 }
-

@@ -17,12 +17,12 @@ import io.ktor.jackson.JacksonConverter
 import io.ktor.response.respond
 import io.ktor.routing.routing
 import io.ktor.server.netty.EngineMain
+import javax.sql.DataSource
 import org.flywaydb.core.Flyway
 import org.jetbrains.exposed.sql.Database
 import org.koin.core.logger.PrintLogger
 import org.koin.ktor.ext.Koin
 import org.koin.ktor.ext.get
-import javax.sql.DataSource
 
 fun Application.mainModule() {
     install(Koin) {

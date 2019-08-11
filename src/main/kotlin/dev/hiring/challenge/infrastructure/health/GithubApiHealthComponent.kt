@@ -7,8 +7,8 @@ import io.github.marioalvial.kealth.core.HealthComponent
 import io.github.marioalvial.kealth.core.HealthStatus
 
 class GithubApiHealthComponent(
-        private val fuel: Fuel,
-        private val githubUrl: String
+    private val fuel: Fuel,
+    private val githubUrl: String
 ) : HealthComponent {
 
     override val criticalLevel = CriticalLevel.HIGH
@@ -17,7 +17,7 @@ class GithubApiHealthComponent(
     override fun doHealthCheck(): HealthStatus {
         val (_, _, result) = fuel.get(githubUrl).responseString()
 
-        return when(result){
+        return when (result) {
             is Result.Success -> HealthStatus.HEALTHY
             is Result.Failure -> throw result.error
         }

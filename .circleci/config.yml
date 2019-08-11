@@ -15,33 +15,37 @@ commands:
             - ~/.gradle
           key: v1-dependencies-{{ checksum "build.gradle" }}
       - run: ./gradlew clean assemble
-      - store_test_results:
-          path: /home/circleci/user-service/build/test-results/test
       - store_artifacts:
-          path: /home/circleci/user-service/build/reports/tests
+          path: /home/circleci/dev-challenge/build/reports/tests
 
   execute_test:
     description: "Execute application tests"
     steps:
       - run: ./gradlew check
+      - run:
+          name: Code coverage
+          command: |
+            ./gradlew jacocoTestReport
+            ./gradlew jacocoTestCoverageVerification
+            bash <(curl -s https://codecov.io/bash)
+      - store_test_results:
+        path: /home/circleci/dev-challenge/build/test-results/test
 
 jobs:
   build:
-    working_directory: ~/user-service
+    working_directory: ~/dev-challenge
     docker:
       - image: circleci/openjdk:8
     environment:
-      IMAGE_NAME: marioalvial/library-user-service
       JVM_OPTS: -Xmx3200m
     steps:
       - checkout
       - build_project
   test:
-    working_directory: ~/user-service
+    working_directory: ~/dev-challenge
     docker:
       - image: circleci/openjdk:8
     environment:
-      IMAGE_NAME: marioalvial/library-user-service
       JVM_OPTS: -Xmx3200m
     steps:
       - checkout

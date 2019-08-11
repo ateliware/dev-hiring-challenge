@@ -2,7 +2,7 @@ package dev.hiring.challenge.application.setup
 
 import com.zaxxer.hikari.HikariConfig
 import com.zaxxer.hikari.HikariDataSource
-import java.util.*
+import java.util.Properties
 
 object DataSourceProvider {
 

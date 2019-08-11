@@ -3,11 +3,11 @@ package dev.hiring.challenge.infrastructure.health
 import io.github.marioalvial.kealth.core.CriticalLevel
 import io.github.marioalvial.kealth.core.HealthComponent
 import io.github.marioalvial.kealth.core.HealthStatus
-import org.slf4j.LoggerFactory
 import javax.sql.DataSource
+import org.slf4j.LoggerFactory
 
 class MySQLHealthComponent(
-        private val datasource: DataSource
+    private val datasource: DataSource
 ) : HealthComponent {
 
     override val name = "mysql-component"

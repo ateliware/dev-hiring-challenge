@@ -6,8 +6,8 @@ import dev.hiring.challenge.commons.errors.exception.NumberOfLanguagesException
 import dev.hiring.challenge.commons.errors.exception.RepoNotFoundException
 
 class RepoService(
-        private val repoRepository: RepoRepository,
-        private val repositoryPlatform: RepositoryPlatform
+    private val repoRepository: RepoRepository,
+    private val repositoryPlatform: RepositoryPlatform
 ) {
 
     suspend fun load(request: RepoRequest) {

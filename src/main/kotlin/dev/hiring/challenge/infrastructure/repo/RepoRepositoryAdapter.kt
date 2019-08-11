@@ -28,7 +28,6 @@ internal object RepoTable : Table("repos") {
     val createdAt: Column<String> = varchar("created_at", VARCHAR_MAX_LENGTH)
     val updatedAt: Column<String> = varchar("updated_at", VARCHAR_MAX_LENGTH)
 
-
     fun toDomain(resultRow: ResultRow) = Repo(
             id = resultRow[id],
             name = resultRow[name],

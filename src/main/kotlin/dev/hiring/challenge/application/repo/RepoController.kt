@@ -14,8 +14,8 @@ import org.slf4j.LoggerFactory
 import org.valiktor.functions.hasSize
 
 class RepoController(
-        private val repoService: RepoService,
-        private val mapper: ObjectMapper
+    private val repoService: RepoService,
+    private val mapper: ObjectMapper
 ) {
 
     private val logger = LoggerFactory.getLogger(this::class.java)
