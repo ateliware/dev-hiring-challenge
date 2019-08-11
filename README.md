@@ -1,20 +1,61 @@
-# Desafio técnico para desenvolvedores
+```                                                                                          
+,------.                         ,-----. ,--.               ,--. ,--.                                  
+|  .-.  \   ,---.  ,--.  ,--.   '  .--./ |  ,---.   ,--,--. |  | |  |  ,---.  ,--,--,   ,---.   ,---.  
+|  |  \  : | .-. :  \  `'  /    |  |     |  .-.  | ' ,-.  | |  | |  | | .-. : |      \ | .-. | | .-. : 
+|  '--'  / \   --.   \    /     '  '--'\ |  | |  | \ '-'  | |  | |  | \   --. |  ||  | ' '-' ' \   --. 
+`-------'   `----'    `--'       `-----' `--' `--'  `--`--' `--' `--'  `----' `--''--' .`-  /   `----' 
+                                                                                       `---'           
+```
+[![CircleCI](https://circleci.com/gh/marioalvial/dev-hiring-challenge.svg?style=svg)](https://circleci.com/gh/marioalvial/dev-hiring-challenge)
+[![codecov](https://codecov.io/gh/marioalvial/dev-hiring-challenge/branch/master/graph/badge.svg)](https://codecov.io/gh/marioalvial/dev-hiring-challenge)
 
-Construa uma nova aplicação, utilizando o framework de sua preferência (Rails, ASP.NET, Phoenix, etc), a qual deverá conectar na API do GitHub e disponibilizar as seguintes funcionalidades:
+Technical challenge for Ateliware selective process
 
-- Botão para buscar e armazenar os repositórios destaques de 5 linguagens à sua escolha;
-- Listar os repositórios encontrados;
-- Visualizar os detalhes de cada repositório.
+## Requirements
 
-Alguns requisitos:
+For building and running the application you need:
 
-- Deve ser uma aplicação totalmente nova;
-- A solução deve estar em um repositório público do GitHub;
-- A aplicação deve armazenar as informações encontradas;
-- Utilizar Postgres, MySQL ou SQL Server;
-- O deploy deve ser realizado, preferencialmente, no Heroku ou no Azure;
-- A aplicação precisa ter testes automatizados.
+- [Docker](https://www.docker.com/)
 
-Quando terminar, faça um Pull Request neste repo e avise-nos por email.
+## Documentation
+[Postman](https://documenter.getpostman.com/view/2673922/SVYuqcp7?version=latest)
 
-**IMPORTANTE:** se você não conseguir finalizar o teste, por favor nos diga o motivo e descreva quais foram as suas dificuldades. Claro que você também pode sugerir uma outra abordagem para avaliarmos seus skills técnicos, mas é com você para vender seu peixe, mostrar-nos do que é capaz.
+## Executing requests
+
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/ff78a0d7841fbc312457)
+
+## Running
+
+First, clone the project:
+
+```shell
+git clone https://github.com/marioalvial/dev-hiring-challenge.git
+cd dev-hiring-challenge
+```
+
+#### Running with docker
+
+```shell
+./gradlew build && docker-compose up --build
+```
+
+## Continuous Integration and Test Coverage
+
+Test Coverage configured on CodeCov. Checkout the [test coverage here](https://codecov.io/gh/marioalvial/dev-hiring-challenge).
+
+Continuous Integration is configured on CircleCI. Checkout the [continuous integration here](https://circleci.com/gh/marioalvial/dev-hiring-challenge)
+
+##  Testing
+
+```shell
+./gradlew test
+```
+
+## Built With
+
+- [Kotlin](https://kotlinlang.org/) - Programming language
+- [IntelliJ](https://www.jetbrains.com/idea/) - IDE
+- [Ktor](https://ktor.io/) - Web Framework
+- [MySQL](https://www.mysql.com/) - Database
+- [Gradle](https://gradle.org/) - Dependency Management
+- [Docker](https://www.docker.com/) - Containerization Platform
