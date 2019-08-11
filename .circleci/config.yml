@@ -16,20 +16,21 @@ commands:
           key: v1-dependencies-{{ checksum "build.gradle" }}
       - run: ./gradlew clean assemble
       - store_artifacts:
-          path: /home/circleci/dev-challenge/build/reports/tests
+          path: build/libs/dev-hiring-challenge.jar
+          destination: /home/circleci/dev-challenge/build/*
 
   execute_test:
     description: "Execute application tests"
     steps:
       - run: ./gradlew check
+      - store_test_results:
+          path: /home/circleci/dev-challenge/build/test-results/test
       - run:
           name: Code coverage
           command: |
             ./gradlew jacocoTestReport
             ./gradlew jacocoTestCoverageVerification
             bash <(curl -s https://codecov.io/bash)
-      - store_test_results:
-        path: /home/circleci/dev-challenge/build/test-results/test
 
 jobs:
   build:
