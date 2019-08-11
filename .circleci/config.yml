@@ -19,7 +19,6 @@ commands:
   execute_test:
     description: "Execute application tests"
     steps:
-      - run: apt-get install libaio1
       - run: sudo apt-get install libaio1
       - run: ./gradlew check
       - run:
