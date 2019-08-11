@@ -1,6 +1,13 @@
 package dev.hiring.challenge.testing
 
+import com.github.kittinunf.fuel.core.FuelError
+import com.github.kittinunf.fuel.core.Method.GET
+import com.github.kittinunf.fuel.core.Response
+import com.github.kittinunf.fuel.core.ResponseResultOf
+import com.github.kittinunf.fuel.core.requests.DefaultRequest
+import com.github.kittinunf.result.Result
 import dev.hiring.challenge.core.repo.Repo
+import java.net.URL
 import org.skyscreamer.jsonassert.Customization
 import org.skyscreamer.jsonassert.JSONCompareMode
 import org.skyscreamer.jsonassert.comparator.CustomComparator
@@ -26,3 +33,21 @@ fun createMinifiedRepo(id: Long, name: String, language: String, stars: Int, cre
         stargazersCount = stars,
         createdAt = createdAt
 )
+
+fun fuelSuccessResponse(): ResponseResultOf<String> {
+    val url = URL("https://api.github.com")
+    val request = DefaultRequest(GET, url)
+    val response = Response(url, 200)
+    val result = Result.success("")
+
+    return Triple(request, response, result)
+}
+
+fun fuelFailResponse(): ResponseResultOf<String> {
+    val url = URL("https://api.github.com")
+    val request = DefaultRequest(GET, url)
+    val response = Response(url, 503)
+    val result = Result.error(FuelError.wrap(RuntimeException("Service not available"), response))
+
+    return Triple(request, response, result)
+}
