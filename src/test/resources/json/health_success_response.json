@@ -1,0 +1,12 @@
+{
+  "github-api-component" : {
+    "status" : "HEALTHY",
+    "critical_level" : "HIGH",
+    "duration" : 1362
+  },
+  "mysql-component" : {
+    "status" : "HEALTHY",
+    "critical_level" : "HIGH",
+    "duration" : 19
+  }
+}

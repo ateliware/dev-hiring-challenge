@@ -21,12 +21,15 @@ import javax.sql.DataSource
 import org.flywaydb.core.Flyway
 import org.jetbrains.exposed.sql.Database
 import org.koin.core.logger.PrintLogger
+import org.koin.core.module.Module
 import org.koin.ktor.ext.Koin
 import org.koin.ktor.ext.get
 
-fun Application.mainModule() {
+fun Application.mainModule(overrideModule: Module? = null) {
     install(Koin) {
-        modules(listOf(ConfigModule.module, HealthModule.module, RepoModule.module))
+        val modules = mutableListOf(ConfigModule.module, HealthModule.module, RepoModule.module)
+        if (overrideModule != null) modules.add(overrideModule)
+        modules(modules)
         logger(PrintLogger())
     }
     install(CallLogging)

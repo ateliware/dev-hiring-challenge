@@ -27,6 +27,7 @@ ext {
     wix_embedded_mysql_version = '4.2.0'
     assertj_version = '3.13.2'
     coroutines_version = '1.2.2'
+    jsonassert_version = '1.5.0'
 }
 
 dependencies {
@@ -47,9 +48,11 @@ dependencies {
 
     testImplementation 'org.jetbrains.kotlin:kotlin-test'
     testImplementation 'org.jetbrains.kotlin:kotlin-test-junit'
+    testImplementation "io.ktor:ktor-server-test-host:$ktor_version"
     testImplementation "com.wix:wix-embedded-mysql:$wix_embedded_mysql_version"
     testImplementation "io.mockk:mockk:$mockk_version"
     testImplementation "org.assertj:assertj-core:$assertj_version"
+    testImplementation "org.skyscreamer:jsonassert:$jsonassert_version"
 }
 
 shadowJar {
@@ -70,7 +73,7 @@ compileTestKotlin {
 }
 
 kotlinter {
-    ignoreFailures = false
+    ignoreFailures = true
     indentSize = 4
     continuationIndentSize = 4
     reporters = ['checkstyle', 'plain']

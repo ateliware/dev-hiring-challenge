@@ -1,0 +1,6 @@
+{
+  "message" : "No repo with requested ID was found in database",
+  "details" : {
+    "id" : 1234714
+  }
+}

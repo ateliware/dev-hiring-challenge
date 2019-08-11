@@ -1,0 +1,6 @@
+{
+  "message" : "Number of languages sent in request does not match mandatory number: 5",
+  "details" : {
+    "number_of_languages" : 4
+  }
+}
