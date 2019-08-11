@@ -1,5 +1,5 @@
 package dev.hiring.challenge.application.repo
 
-class RepoRequest(
-        val languages: List<String>
+data class RepoRequest(
+        val languages: Set<String>
 )

@@ -11,31 +11,41 @@ ext {
     ktor_version = '1.2.2'
     koin_version = '2.0.1'
     jackson_version = '2.9.+'
-    ulidj_version = '1.0.0'
-    jasypt_version = '1.9.3'
     config_version = '1.3.4'
     mongo_java_driver_version = '3.10.2'
     kmongo_version = '3.10.2'
     logback_classic_vesion = '1.2.3'
+    valiktor_version = '0.8.0'
     fuel_version = '2.1.0'
+    mockk_version = '1.9.3.kotlin12'
+    exposed_version = '0.16.1'
+    hikari_version = '3.3.1'
+    mysql_connector_version = '8.0.16'
+    flyway_version = '5.2.4'
+    kealth_version = '1.0.9.5'
+    wix_embedded_mysql_version = '4.2.0'
+    assertj_version = '3.13.2'
 }
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
-    implementation "io.azam.ulidj:ulidj:$ulidj_version"
-    implementation "org.jasypt:jasypt:$jasypt_version"
     implementation "org.koin:koin-ktor:$koin_version"
     implementation "io.ktor:ktor-jackson:$ktor_version"
     implementation "io.ktor:ktor-server-netty:$ktor_version"
     implementation "com.fasterxml.jackson.module:jackson-module-kotlin:$jackson_version"
     implementation "com.typesafe:config:$config_version"
     implementation "com.github.kittinunf.fuel:fuel:$fuel_version"
-    implementation 'org.jetbrains.exposed:exposed:0.16.1'
-    implementation 'com.zaxxer:HikariCP:3.3.1'
-    implementation 'mysql:mysql-connector-java:8.0.16'
-    implementation 'org.flywaydb:flyway-core:5.2.4'
-    implementation 'io.github.marioalvial:kealth-core:1.0.9.5'
+    implementation "org.valiktor:valiktor-core:$valiktor_version"
+    implementation "org.jetbrains.exposed:exposed:$exposed_version"
+    implementation "com.zaxxer:HikariCP:$hikari_version"
+    implementation "mysql:mysql-connector-java:$mysql_connector_version"
+    implementation "org.flywaydb:flyway-core:$flyway_version"
+    implementation "io.github.marioalvial:kealth-core:$kealth_version"
     api "ch.qos.logback:logback-classic:$logback_classic_vesion"
+
+    testImplementation "com.wix:wix-embedded-mysql:$wix_embedded_mysql_version"
+    testImplementation "io.mockk:mockk:$mockk_version"
+    testImplementation "org.assertj:assertj-core:$assertj_version"
 }
 
 shadowJar {
@@ -55,3 +65,24 @@ compileTestKotlin {
     kotlinOptions.jvmTarget = "1.8"
 }
 
+tasks.withType(Test) {
+    testLogging {
+        events "failed", "passed", "skipped", "standard_out"
+
+        exceptionFormat "full"
+        showExceptions true
+        showCauses true
+        showStackTraces true
+        info.events = debug.events
+        info.exceptionFormat = debug.exceptionFormat
+
+        afterSuite { desc, result ->
+            if (!desc.parent) { // will match the outermost suite
+                def output = "Results: ${result.resultType} (${result.testCount} tests, ${result.successfulTestCount} successes, ${result.failedTestCount} failures, ${result.skippedTestCount} skipped)"
+                def startItem = '|  ', endItem = '  |'
+                def repeatLength = startItem.length() + output.length() + endItem.length()
+                println('\n' + ('-' * repeatLength) + '\n' + startItem + output + endItem + '\n' + ('-' * repeatLength))
+            }
+        }
+    }
+}

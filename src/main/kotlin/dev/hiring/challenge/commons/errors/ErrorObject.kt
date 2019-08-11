@@ -1,11 +1,7 @@
-package br.com.library.user.service.commons.errors
+package dev.hiring.challenge.commons.errors
 
-class ErrorObject(
+data class ErrorObject(
     val message: String,
-    val details: Map<String, Any> = mapOf()
-) {
-    companion object {
-        fun create(message: String, vararg detail: Pair<String, Any>) =
-            ErrorObject(message, detail.toMap())
-    }
-}
+    val field: String,
+    val invalidParameter: Any? = null
+)

@@ -10,6 +10,7 @@ import dev.hiring.challenge.core.repo.RepositoryPlatform
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.coroutineScope
+import org.slf4j.LoggerFactory
 
 class GithubPlatformAdapter(
         private val fuel: Fuel,
@@ -18,17 +19,32 @@ class GithubPlatformAdapter(
 ) : RepositoryPlatform {
 
     private val url = "$githubBaseUrl/search/repositories"
+    private val logger = LoggerFactory.getLogger(this::class.java)
 
-    override suspend fun loadSpotlightRepositoryByLanguage(languages: List<String>) = coroutineScope {
-        languages
-                .map { async(Dispatchers.IO) { executeRequest(it) } }
-                .flatMap { it.await() }
+    override suspend fun loadSpotlightRepositoryByLanguage(languages: Set<String>): List<Repo> {
+        logger.info("Searching in Github API for repositories of languages ${languages.joinToString(",", "[", "]")}")
+
+        val repos = coroutineScope {
+            languages
+                    .map { async(Dispatchers.IO) { executeRequest(it) } }
+                    .flatMap { it.await() }
+        }
+
+        logger.info("Found following results from Github API: $repos")
+
+        return repos
     }
 
     private fun executeRequest(language: String): List<Repo> {
         val params = buildParams(language)
-        val (_, _, result) = fuel.get(url, params).responseString()
-                .also { println(it) }
+
+        logger.info("Starting call to $url with params $params")
+
+        val (_, response, result) = fuel
+                .get(url, params)
+                .responseString()
+
+        logger.info("Call to $url completed with status ${response.statusCode} and response ${String(response.data)}")
 
         return when (result) {
             is Result.Success -> handleSuccess(result)
@@ -49,7 +65,10 @@ class GithubPlatformAdapter(
             .items
 
     private fun handleFailure(result: Result.Failure<FuelError>): Nothing {
-        println("Something bad happen")
-        throw result.getException()
+        val exception = result.getException()
+
+        logger.error("Call to $url failed. Error message: ${exception.message}", exception)
+
+        throw exception
     }
 }

@@ -1,11 +1,11 @@
 package dev.hiring.challenge.commons.errors.exception
 
-import br.com.library.user.service.commons.errors.ErrorObject
+import dev.hiring.challenge.commons.errors.ErrorResponse
 import io.ktor.http.HttpStatusCode
 
 abstract class HiringChallengeException : RuntimeException() {
 
-    abstract fun response(): ErrorObject
+    abstract fun response(): ErrorResponse
 
     abstract fun statusCode(): HttpStatusCode
 }

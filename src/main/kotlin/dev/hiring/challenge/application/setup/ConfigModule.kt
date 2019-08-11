@@ -4,9 +4,9 @@ import com.typesafe.config.ConfigFactory
 import org.koin.dsl.module
 import javax.sql.DataSource
 
-object ConfigModules {
+object ConfigModule {
 
-    val modules = module {
+    val module = module {
         single { EnvironmentConfig(ConfigFactory.load()) }
         single { ObjectMapperProvider.provide() }
         single<DataSource> {
