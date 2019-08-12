@@ -1,0 +1,241 @@
+{
+	"info": {
+		"_postman_id": "dc0f35a2-b1f4-4121-a58c-3557426532ba",
+		"name": "Ateliware Dev Challenge",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Load Repos",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"languages\": [\"javascript\", \"kotlin\", \"elixir\", \"ruby\", \"clojure\"]\n}"
+				},
+				"url": {
+					"raw": "{{prod}}/repos",
+					"host": [
+						"{{prod}}"
+					],
+					"path": [
+						"repos"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Load Repos",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"languages\": [\"javascript\", \"kotlin\", \"elixir\", \"ruby\", \"clojure\"]\n}"
+						},
+						"url": {
+							"raw": "{{local}}/repos",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"repos"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "0"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "List Repos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{prod}}/repos",
+					"host": [
+						"{{prod}}"
+					],
+					"path": [
+						"repos"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "List Repos",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local}}/repos",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"repos"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "717"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 28457823,\n        \"name\": \"freeCodeCamp\",\n        \"language\": \"JavaScript\",\n        \"number_of_stars\": 304238,\n        \"created_at\": \"2014-12-24T17:49:19Z\"\n    },\n    {\n        \"id\": 8514,\n        \"name\": \"rails\",\n        \"language\": \"Ruby\",\n        \"number_of_stars\": 43803,\n        \"created_at\": \"2008-04-11T02:19:47Z\"\n    },\n    {\n        \"id\": 26500787,\n        \"name\": \"FiraCode\",\n        \"language\": \"Clojure\",\n        \"number_of_stars\": 37500,\n        \"created_at\": \"2014-11-11T19:32:38Z\"\n    },\n    {\n        \"id\": 51148780,\n        \"name\": \"android-architecture\",\n        \"language\": \"Kotlin\",\n        \"number_of_stars\": 33691,\n        \"created_at\": \"2016-02-05T13:42:07Z\"\n    },\n    {\n        \"id\": 1234714,\n        \"name\": \"elixir\",\n        \"language\": \"Elixir\",\n        \"number_of_stars\": 15713,\n        \"created_at\": \"2011-01-09T08:43:57Z\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Find Repo by ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{prod}}/repos/8514",
+					"host": [
+						"{{prod}}"
+					],
+					"path": [
+						"repos",
+						"8514"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Find Repo by ID",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local}}/repos/8514",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"repos",
+								"8514"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "441"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 8514,\n    \"name\": \"rails\",\n    \"full_name\": \"rails/rails\",\n    \"description\": \"Ruby on Rails\",\n    \"language\": \"Ruby\",\n    \"default_branch\": \"master\",\n    \"private\": false,\n    \"size\": 190267,\n    \"html_url\": \"https://github.com/rails/rails\",\n    \"stargazers_count\": 43803,\n    \"watchers_count\": 43803,\n    \"forks_count\": 17671,\n    \"open_issues_count\": 1099,\n    \"created_at\": \"2008-04-11T02:19:47Z\",\n    \"updated_at\": \"2019-08-11T09:52:25Z\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Health Check",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{prod}}/health",
+					"host": [
+						"{{prod}}"
+					],
+					"path": [
+						"health"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Health Check",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local}}/health",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"health"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "221"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"github-api-component\": {\n        \"status\": \"HEALTHY\",\n        \"critical_level\": \"HIGH\",\n        \"duration\": 1388\n    },\n    \"mysql-component\": {\n        \"status\": \"HEALTHY\",\n        \"critical_level\": \"HIGH\",\n        \"duration\": 25\n    }\n}"
+				}
+			]
+		}
+	]
+}
