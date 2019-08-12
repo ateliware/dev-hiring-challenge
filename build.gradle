@@ -62,7 +62,7 @@ shadowJar {
 }
 build.dependsOn shadowJar
 
-task('stage', dependsOn: ['build', 'clean'])
+task('stage', dependsOn: ['assemble', 'clean'])
 build.mustRunAfter clean
 
 compileKotlin {
