@@ -7,10 +7,10 @@ import com.github.kittinunf.fuel.core.ResponseResultOf
 import com.github.kittinunf.fuel.core.requests.DefaultRequest
 import com.github.kittinunf.result.Result
 import dev.hiring.challenge.core.repo.Repo
+import java.net.URL
 import org.skyscreamer.jsonassert.Customization
 import org.skyscreamer.jsonassert.JSONCompareMode
 import org.skyscreamer.jsonassert.comparator.CustomComparator
-import java.net.URL
 
 fun loadJson(fileName: String) = ClassLoader.getSystemResource("json/$fileName").readText()
 
