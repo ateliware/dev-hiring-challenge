@@ -65,7 +65,7 @@ class GithubPlatformAdapter(
             .items
 
     private fun handleFailure(result: Result.Failure<FuelError>): Nothing {
-        val exception = result.getException()
+        val exception = result.error.exception
 
         logger.error("Call to $url failed. Error message: ${exception.message}", exception)
 
