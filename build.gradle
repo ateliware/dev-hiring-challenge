@@ -60,10 +60,10 @@ shadowJar {
         attributes 'Main-Class': 'io.ktor.server.netty.EngineMain'
     }
 }
-build.dependsOn shadowJar
+assemble.dependsOn shadowJar
 
 task('stage', dependsOn: ['assemble', 'clean'])
-build.mustRunAfter clean
+assemble.mustRunAfter clean
 
 compileKotlin {
     kotlinOptions.jvmTarget = "1.8"
@@ -81,8 +81,6 @@ kotlinter {
     disabledRules = []
     fileBatchSize = 30
 }
-
-assemble.dependsOn formatKotlin
 
 jacocoTestReport {
     reports {
