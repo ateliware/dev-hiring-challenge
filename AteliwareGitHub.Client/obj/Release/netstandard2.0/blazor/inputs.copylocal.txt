@@ -1,0 +1,8 @@
+/Users/cleversongallego/.nuget/packages/microsoft.aspnetcore.blazor/0.7.0/lib/netstandard2.0/Microsoft.AspNetCore.Blazor.dll
+/Users/cleversongallego/.nuget/packages/microsoft.aspnetcore.blazor.browser/0.7.0/lib/netstandard2.0/Microsoft.AspNetCore.Blazor.Browser.dll
+/Users/cleversongallego/.nuget/packages/microsoft.aspnetcore.blazor.build/0.7.0/lib/netstandard1.0/Microsoft.AspNetCore.Blazor.TagHelperWorkaround.dll
+/Users/cleversongallego/.nuget/packages/microsoft.extensions.dependencyinjection/2.1.0/lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.dll
+/Users/cleversongallego/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/2.1.0/lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll
+/Users/cleversongallego/.nuget/packages/microsoft.jsinterop/0.7.0/lib/netstandard2.0/Microsoft.JSInterop.dll
+/Users/cleversongallego/.nuget/packages/mono.webassembly.interop/0.7.0/lib/netstandard2.0/Mono.WebAssembly.Interop.dll
+/Users/cleversongallego/Projects/DevHiring/dev-hiring-challenge/AteliwareGitHub.Shared/bin/Release/netstandard2.0/AteliwareGitHub.Shared.dll

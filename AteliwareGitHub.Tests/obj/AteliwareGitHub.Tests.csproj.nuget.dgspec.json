@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/cleversongallego/Projects/Ateliware/AteliwareGitHub.Tests/AteliwareGitHub.Tests.csproj": {}
+    "/Users/cleversongallego/Projects/DevHiring/dev-hiring-challenge/AteliwareGitHub.Tests/AteliwareGitHub.Tests.csproj": {}
   },
   "projects": {
-    "/Users/cleversongallego/Projects/Ateliware/AteliwareGitHub.Client/AteliwareGitHub.Client.csproj": {
+    "/Users/cleversongallego/Projects/DevHiring/dev-hiring-challenge/AteliwareGitHub.Client/AteliwareGitHub.Client.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/cleversongallego/Projects/Ateliware/AteliwareGitHub.Client/AteliwareGitHub.Client.csproj",
+        "projectUniqueName": "/Users/cleversongallego/Projects/DevHiring/dev-hiring-challenge/AteliwareGitHub.Client/AteliwareGitHub.Client.csproj",
         "projectName": "AteliwareGitHub.Client",
-        "projectPath": "/Users/cleversongallego/Projects/Ateliware/AteliwareGitHub.Client/AteliwareGitHub.Client.csproj",
+        "projectPath": "/Users/cleversongallego/Projects/DevHiring/dev-hiring-challenge/AteliwareGitHub.Client/AteliwareGitHub.Client.csproj",
         "packagesPath": "/Users/cleversongallego/.nuget/packages/",
-        "outputPath": "/Users/cleversongallego/Projects/Ateliware/AteliwareGitHub.Client/obj/",
+        "outputPath": "/Users/cleversongallego/Projects/DevHiring/dev-hiring-challenge/AteliwareGitHub.Client/obj/",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
@@ -28,8 +28,8 @@
         "frameworks": {
           "netstandard2.0": {
             "projectReferences": {
-              "/Users/cleversongallego/Projects/Ateliware/AteliwareGitHub.Shared/AteliwareGitHub.Shared.csproj": {
-                "projectPath": "/Users/cleversongallego/Projects/Ateliware/AteliwareGitHub.Shared/AteliwareGitHub.Shared.csproj"
+              "/Users/cleversongallego/Projects/DevHiring/dev-hiring-challenge/AteliwareGitHub.Shared/AteliwareGitHub.Shared.csproj": {
+                "projectPath": "/Users/cleversongallego/Projects/DevHiring/dev-hiring-challenge/AteliwareGitHub.Shared/AteliwareGitHub.Shared.csproj"
               }
             }
           }
@@ -67,14 +67,14 @@
         }
       }
     },
-    "/Users/cleversongallego/Projects/Ateliware/AteliwareGitHub.Server/AteliwareGitHub.Server.csproj": {
+    "/Users/cleversongallego/Projects/DevHiring/dev-hiring-challenge/AteliwareGitHub.Server/AteliwareGitHub.Server.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/cleversongallego/Projects/Ateliware/AteliwareGitHub.Server/AteliwareGitHub.Server.csproj",
+        "projectUniqueName": "/Users/cleversongallego/Projects/DevHiring/dev-hiring-challenge/AteliwareGitHub.Server/AteliwareGitHub.Server.csproj",
         "projectName": "AteliwareGitHub.Server",
-        "projectPath": "/Users/cleversongallego/Projects/Ateliware/AteliwareGitHub.Server/AteliwareGitHub.Server.csproj",
+        "projectPath": "/Users/cleversongallego/Projects/DevHiring/dev-hiring-challenge/AteliwareGitHub.Server/AteliwareGitHub.Server.csproj",
         "packagesPath": "/Users/cleversongallego/.nuget/packages/",
-        "outputPath": "/Users/cleversongallego/Projects/Ateliware/AteliwareGitHub.Server/obj/",
+        "outputPath": "/Users/cleversongallego/Projects/DevHiring/dev-hiring-challenge/AteliwareGitHub.Server/obj/",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
@@ -91,11 +91,11 @@
         "frameworks": {
           "netcoreapp2.1": {
             "projectReferences": {
-              "/Users/cleversongallego/Projects/Ateliware/AteliwareGitHub.Client/AteliwareGitHub.Client.csproj": {
-                "projectPath": "/Users/cleversongallego/Projects/Ateliware/AteliwareGitHub.Client/AteliwareGitHub.Client.csproj"
+              "/Users/cleversongallego/Projects/DevHiring/dev-hiring-challenge/AteliwareGitHub.Client/AteliwareGitHub.Client.csproj": {
+                "projectPath": "/Users/cleversongallego/Projects/DevHiring/dev-hiring-challenge/AteliwareGitHub.Client/AteliwareGitHub.Client.csproj"
               },
-              "/Users/cleversongallego/Projects/Ateliware/AteliwareGitHub.Shared/AteliwareGitHub.Shared.csproj": {
-                "projectPath": "/Users/cleversongallego/Projects/Ateliware/AteliwareGitHub.Shared/AteliwareGitHub.Shared.csproj"
+              "/Users/cleversongallego/Projects/DevHiring/dev-hiring-challenge/AteliwareGitHub.Shared/AteliwareGitHub.Shared.csproj": {
+                "projectPath": "/Users/cleversongallego/Projects/DevHiring/dev-hiring-challenge/AteliwareGitHub.Shared/AteliwareGitHub.Shared.csproj"
               }
             }
           }
@@ -138,14 +138,14 @@
         }
       }
     },
-    "/Users/cleversongallego/Projects/Ateliware/AteliwareGitHub.Shared/AteliwareGitHub.Shared.csproj": {
+    "/Users/cleversongallego/Projects/DevHiring/dev-hiring-challenge/AteliwareGitHub.Shared/AteliwareGitHub.Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/cleversongallego/Projects/Ateliware/AteliwareGitHub.Shared/AteliwareGitHub.Shared.csproj",
+        "projectUniqueName": "/Users/cleversongallego/Projects/DevHiring/dev-hiring-challenge/AteliwareGitHub.Shared/AteliwareGitHub.Shared.csproj",
         "projectName": "AteliwareGitHub.Shared",
-        "projectPath": "/Users/cleversongallego/Projects/Ateliware/AteliwareGitHub.Shared/AteliwareGitHub.Shared.csproj",
+        "projectPath": "/Users/cleversongallego/Projects/DevHiring/dev-hiring-challenge/AteliwareGitHub.Shared/AteliwareGitHub.Shared.csproj",
         "packagesPath": "/Users/cleversongallego/.nuget/packages/",
-        "outputPath": "/Users/cleversongallego/Projects/Ateliware/AteliwareGitHub.Shared/obj/",
+        "outputPath": "/Users/cleversongallego/Projects/DevHiring/dev-hiring-challenge/AteliwareGitHub.Shared/obj/",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
@@ -188,14 +188,14 @@
         }
       }
     },
-    "/Users/cleversongallego/Projects/Ateliware/AteliwareGitHub.Tests/AteliwareGitHub.Tests.csproj": {
+    "/Users/cleversongallego/Projects/DevHiring/dev-hiring-challenge/AteliwareGitHub.Tests/AteliwareGitHub.Tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/cleversongallego/Projects/Ateliware/AteliwareGitHub.Tests/AteliwareGitHub.Tests.csproj",
+        "projectUniqueName": "/Users/cleversongallego/Projects/DevHiring/dev-hiring-challenge/AteliwareGitHub.Tests/AteliwareGitHub.Tests.csproj",
         "projectName": "AteliwareGitHub.Tests",
-        "projectPath": "/Users/cleversongallego/Projects/Ateliware/AteliwareGitHub.Tests/AteliwareGitHub.Tests.csproj",
+        "projectPath": "/Users/cleversongallego/Projects/DevHiring/dev-hiring-challenge/AteliwareGitHub.Tests/AteliwareGitHub.Tests.csproj",
         "packagesPath": "/Users/cleversongallego/.nuget/packages/",
-        "outputPath": "/Users/cleversongallego/Projects/Ateliware/AteliwareGitHub.Tests/obj/",
+        "outputPath": "/Users/cleversongallego/Projects/DevHiring/dev-hiring-challenge/AteliwareGitHub.Tests/obj/",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
@@ -212,8 +212,8 @@
         "frameworks": {
           "netcoreapp2.1": {
             "projectReferences": {
-              "/Users/cleversongallego/Projects/Ateliware/AteliwareGitHub.Server/AteliwareGitHub.Server.csproj": {
-                "projectPath": "/Users/cleversongallego/Projects/Ateliware/AteliwareGitHub.Server/AteliwareGitHub.Server.csproj"
+              "/Users/cleversongallego/Projects/DevHiring/dev-hiring-challenge/AteliwareGitHub.Server/AteliwareGitHub.Server.csproj": {
+                "projectPath": "/Users/cleversongallego/Projects/DevHiring/dev-hiring-challenge/AteliwareGitHub.Server/AteliwareGitHub.Server.csproj"
               }
             }
           }

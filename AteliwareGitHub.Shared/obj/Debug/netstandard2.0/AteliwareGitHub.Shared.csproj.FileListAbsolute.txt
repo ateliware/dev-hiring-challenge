@@ -16,3 +16,11 @@
 /Users/cleversongallego/Projects/Ateliware/AteliwareGitHub.Shared/obj/Debug/netstandard2.0/AteliwareGitHub.Shared.AssemblyInfo.cs
 /Users/cleversongallego/Projects/Ateliware/AteliwareGitHub.Shared/obj/Debug/netstandard2.0/AteliwareGitHub.Shared.dll
 /Users/cleversongallego/Projects/Ateliware/AteliwareGitHub.Shared/obj/Debug/netstandard2.0/AteliwareGitHub.Shared.pdb
+/Users/cleversongallego/Projects/DevHiring/dev-hiring-challenge/AteliwareGitHub.Shared/bin/Debug/netstandard2.0/AteliwareGitHub.Shared.deps.json
+/Users/cleversongallego/Projects/DevHiring/dev-hiring-challenge/AteliwareGitHub.Shared/bin/Debug/netstandard2.0/AteliwareGitHub.Shared.dll
+/Users/cleversongallego/Projects/DevHiring/dev-hiring-challenge/AteliwareGitHub.Shared/bin/Debug/netstandard2.0/AteliwareGitHub.Shared.pdb
+/Users/cleversongallego/Projects/DevHiring/dev-hiring-challenge/AteliwareGitHub.Shared/obj/Debug/netstandard2.0/AteliwareGitHub.Shared.csproj.CoreCompileInputs.cache
+/Users/cleversongallego/Projects/DevHiring/dev-hiring-challenge/AteliwareGitHub.Shared/obj/Debug/netstandard2.0/AteliwareGitHub.Shared.AssemblyInfoInputs.cache
+/Users/cleversongallego/Projects/DevHiring/dev-hiring-challenge/AteliwareGitHub.Shared/obj/Debug/netstandard2.0/AteliwareGitHub.Shared.AssemblyInfo.cs
+/Users/cleversongallego/Projects/DevHiring/dev-hiring-challenge/AteliwareGitHub.Shared/obj/Debug/netstandard2.0/AteliwareGitHub.Shared.dll
+/Users/cleversongallego/Projects/DevHiring/dev-hiring-challenge/AteliwareGitHub.Shared/obj/Debug/netstandard2.0/AteliwareGitHub.Shared.pdb

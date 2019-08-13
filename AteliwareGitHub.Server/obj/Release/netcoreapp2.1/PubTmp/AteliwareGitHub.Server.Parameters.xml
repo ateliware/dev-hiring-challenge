@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="AteliwareGitHub-Server" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^/Users/cleversongallego/Projects/DevHiring/dev-hiring-challenge/AteliwareGitHub\.Server/obj/Release/netcoreapp2\.1/PubTmp/Out/$" />
+  </parameter>
+</parameters>

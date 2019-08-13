@@ -5,4 +5,4 @@
 /Users/cleversongallego/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/2.1.0/lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll
 /Users/cleversongallego/.nuget/packages/microsoft.jsinterop/0.7.0/lib/netstandard2.0/Microsoft.JSInterop.dll
 /Users/cleversongallego/.nuget/packages/mono.webassembly.interop/0.7.0/lib/netstandard2.0/Mono.WebAssembly.Interop.dll
-/Users/cleversongallego/Projects/Ateliware/AteliwareGitHub.Shared/bin/Debug/netstandard2.0/AteliwareGitHub.Shared.dll
+/Users/cleversongallego/Projects/DevHiring/dev-hiring-challenge/AteliwareGitHub.Shared/bin/Debug/netstandard2.0/AteliwareGitHub.Shared.dll

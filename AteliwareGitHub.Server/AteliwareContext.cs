@@ -10,7 +10,7 @@ namespace AteliwareGitHub.Server
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Data Source=localhost;Initial Catalog=ateliwaregit;User Id=sa;Password=Ateliware1406!;");
+            optionsBuilder.UseSqlServer("Server=tcp:ateliwaregit.database.windows.net,1433;Initial Catalog=ateliwaregit;Persist Security Info=False;User ID=ateliwaregit;Password=ateliware1406!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
         }
     }
 }

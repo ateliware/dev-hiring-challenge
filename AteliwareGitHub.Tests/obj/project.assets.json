@@ -13685,11 +13685,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/cleversongallego/Projects/Ateliware/AteliwareGitHub.Tests/AteliwareGitHub.Tests.csproj",
+      "projectUniqueName": "/Users/cleversongallego/Projects/DevHiring/dev-hiring-challenge/AteliwareGitHub.Tests/AteliwareGitHub.Tests.csproj",
       "projectName": "AteliwareGitHub.Tests",
-      "projectPath": "/Users/cleversongallego/Projects/Ateliware/AteliwareGitHub.Tests/AteliwareGitHub.Tests.csproj",
+      "projectPath": "/Users/cleversongallego/Projects/DevHiring/dev-hiring-challenge/AteliwareGitHub.Tests/AteliwareGitHub.Tests.csproj",
       "packagesPath": "/Users/cleversongallego/.nuget/packages/",
-      "outputPath": "/Users/cleversongallego/Projects/Ateliware/AteliwareGitHub.Tests/obj/",
+      "outputPath": "/Users/cleversongallego/Projects/DevHiring/dev-hiring-challenge/AteliwareGitHub.Tests/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
@@ -13706,8 +13706,8 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "/Users/cleversongallego/Projects/Ateliware/AteliwareGitHub.Server/AteliwareGitHub.Server.csproj": {
-              "projectPath": "/Users/cleversongallego/Projects/Ateliware/AteliwareGitHub.Server/AteliwareGitHub.Server.csproj"
+            "/Users/cleversongallego/Projects/DevHiring/dev-hiring-challenge/AteliwareGitHub.Server/AteliwareGitHub.Server.csproj": {
+              "projectPath": "/Users/cleversongallego/Projects/DevHiring/dev-hiring-challenge/AteliwareGitHub.Server/AteliwareGitHub.Server.csproj"
             }
           }
         }

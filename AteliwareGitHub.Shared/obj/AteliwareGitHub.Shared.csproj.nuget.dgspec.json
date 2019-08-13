@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/cleversongallego/Projects/Ateliware/AteliwareGitHub.Shared/AteliwareGitHub.Shared.csproj": {}
+    "/Users/cleversongallego/Projects/DevHiring/dev-hiring-challenge/AteliwareGitHub.Shared/AteliwareGitHub.Shared.csproj": {}
   },
   "projects": {
-    "/Users/cleversongallego/Projects/Ateliware/AteliwareGitHub.Shared/AteliwareGitHub.Shared.csproj": {
+    "/Users/cleversongallego/Projects/DevHiring/dev-hiring-challenge/AteliwareGitHub.Shared/AteliwareGitHub.Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/cleversongallego/Projects/Ateliware/AteliwareGitHub.Shared/AteliwareGitHub.Shared.csproj",
+        "projectUniqueName": "/Users/cleversongallego/Projects/DevHiring/dev-hiring-challenge/AteliwareGitHub.Shared/AteliwareGitHub.Shared.csproj",
         "projectName": "AteliwareGitHub.Shared",
-        "projectPath": "/Users/cleversongallego/Projects/Ateliware/AteliwareGitHub.Shared/AteliwareGitHub.Shared.csproj",
+        "projectPath": "/Users/cleversongallego/Projects/DevHiring/dev-hiring-challenge/AteliwareGitHub.Shared/AteliwareGitHub.Shared.csproj",
         "packagesPath": "/Users/cleversongallego/.nuget/packages/",
-        "outputPath": "/Users/cleversongallego/Projects/Ateliware/AteliwareGitHub.Shared/obj/",
+        "outputPath": "/Users/cleversongallego/Projects/DevHiring/dev-hiring-challenge/AteliwareGitHub.Shared/obj/",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"

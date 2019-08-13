@@ -678,11 +678,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/cleversongallego/Projects/Ateliware/AteliwareGitHub.Client/AteliwareGitHub.Client.csproj",
+      "projectUniqueName": "/Users/cleversongallego/Projects/DevHiring/dev-hiring-challenge/AteliwareGitHub.Client/AteliwareGitHub.Client.csproj",
       "projectName": "AteliwareGitHub.Client",
-      "projectPath": "/Users/cleversongallego/Projects/Ateliware/AteliwareGitHub.Client/AteliwareGitHub.Client.csproj",
+      "projectPath": "/Users/cleversongallego/Projects/DevHiring/dev-hiring-challenge/AteliwareGitHub.Client/AteliwareGitHub.Client.csproj",
       "packagesPath": "/Users/cleversongallego/.nuget/packages/",
-      "outputPath": "/Users/cleversongallego/Projects/Ateliware/AteliwareGitHub.Client/obj/",
+      "outputPath": "/Users/cleversongallego/Projects/DevHiring/dev-hiring-challenge/AteliwareGitHub.Client/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
@@ -699,8 +699,8 @@
       "frameworks": {
         "netstandard2.0": {
           "projectReferences": {
-            "/Users/cleversongallego/Projects/Ateliware/AteliwareGitHub.Shared/AteliwareGitHub.Shared.csproj": {
-              "projectPath": "/Users/cleversongallego/Projects/Ateliware/AteliwareGitHub.Shared/AteliwareGitHub.Shared.csproj"
+            "/Users/cleversongallego/Projects/DevHiring/dev-hiring-challenge/AteliwareGitHub.Shared/AteliwareGitHub.Shared.csproj": {
+              "projectPath": "/Users/cleversongallego/Projects/DevHiring/dev-hiring-challenge/AteliwareGitHub.Shared/AteliwareGitHub.Shared.csproj"
             }
           }
         }

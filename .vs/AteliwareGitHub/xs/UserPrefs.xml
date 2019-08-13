@@ -1,0 +1,28 @@
+﻿<Properties StartupConfiguration="{C79E7EE0-364C-443D-9125-B7C7A035803E}|Default">
+  <MonoDevelop.Ide.ItemProperties.AteliwareGitHub.Server PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="AteliwareGitHub" expanded="True">
+            <Node name="AteliwareGitHub.Client" expanded="True" />
+            <Node name="AteliwareGitHub.Server" expanded="True" selected="True">
+              <Node name="Controllers" expanded="True" />
+              <Node name="EFModels" expanded="True" />
+            </Node>
+            <Node name="AteliwareGitHub.Shared" expanded="True" />
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
