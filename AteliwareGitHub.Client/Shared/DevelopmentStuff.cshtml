@@ -1,0 +1,52 @@
+﻿
+<div class="alert alert-secondary mt-4" role="alert">
+    <span class="oi oi-pencil mr-2" aria-hidden="true"></span>
+    <strong>@Title</strong>
+        @if ( showSpecs )
+        {
+            <span class="text-nowrap">
+                <div id="container" style="line-height:40px">
+                    <div id="row">
+                        <div id="left"><b>OS:</b></div>
+                        <div id="right">MacOS Mojave 10.14.5</div>
+                    </div>
+                    <div id="row">
+                        <div id="left"><b>IDE:</b></div>
+                        <div id="right">Visual Studio Community 8.2.2 (build 21)</div>
+                    </div>
+                    <div id="row">
+                        <div id="left"><b>Lang:</b></div>
+                        <div id="right">C#</div>
+                    </div>
+                    <div id="row">
+                        <div id="left"><b>FW:</b></div>
+                        <div id="right">.net core 2.1, Blazor 0.7.0</div>
+                    </div>
+                    <div id="row">
+                        <div id="left"><b>DB:</b></div>
+                        <div id="right">Microsoft SQL Server</div>
+                    </div>
+                    <div id="row">
+                        <div id="left"><b>OR/M:</b></div>
+                        <div id="right">Entity Framework 2.1.11</div>
+                    </div>
+                    <div id="row">
+                        <div id="left"><b>Pattern:</b></div>
+                        <div id="right">SPA</div>
+                    </div>
+                    <div id="row">
+                        <div id="left"><b>Tests:</b></div>
+                        <div id="right">XUnit</div>
+                    </div>
+                </div>
+            </span>        
+        }
+</div>
+
+@functions {
+    [Parameter]
+    string Title { get; set; } 
+
+    [Parameter]
+    bool showSpecs { get; set; }
+}

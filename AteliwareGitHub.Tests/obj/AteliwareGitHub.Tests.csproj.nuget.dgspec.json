@@ -1,0 +1,262 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/cleversongallego/Projects/Ateliware/AteliwareGitHub.Tests/AteliwareGitHub.Tests.csproj": {}
+  },
+  "projects": {
+    "/Users/cleversongallego/Projects/Ateliware/AteliwareGitHub.Client/AteliwareGitHub.Client.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/cleversongallego/Projects/Ateliware/AteliwareGitHub.Client/AteliwareGitHub.Client.csproj",
+        "projectName": "AteliwareGitHub.Client",
+        "projectPath": "/Users/cleversongallego/Projects/Ateliware/AteliwareGitHub.Client/AteliwareGitHub.Client.csproj",
+        "packagesPath": "/Users/cleversongallego/.nuget/packages/",
+        "outputPath": "/Users/cleversongallego/Projects/Ateliware/AteliwareGitHub.Client/obj/",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "/Users/cleversongallego/.config/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "projectReferences": {
+              "/Users/cleversongallego/Projects/Ateliware/AteliwareGitHub.Shared/AteliwareGitHub.Shared.csproj": {
+                "projectPath": "/Users/cleversongallego/Projects/Ateliware/AteliwareGitHub.Shared/AteliwareGitHub.Shared.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "dependencies": {
+            "Microsoft.AspNetCore.Blazor.Browser": {
+              "target": "Package",
+              "version": "[0.7.0, )"
+            },
+            "Microsoft.AspNetCore.Blazor.Build": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[0.7.0, )"
+            },
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    },
+    "/Users/cleversongallego/Projects/Ateliware/AteliwareGitHub.Server/AteliwareGitHub.Server.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/cleversongallego/Projects/Ateliware/AteliwareGitHub.Server/AteliwareGitHub.Server.csproj",
+        "projectName": "AteliwareGitHub.Server",
+        "projectPath": "/Users/cleversongallego/Projects/Ateliware/AteliwareGitHub.Server/AteliwareGitHub.Server.csproj",
+        "packagesPath": "/Users/cleversongallego/.nuget/packages/",
+        "outputPath": "/Users/cleversongallego/Projects/Ateliware/AteliwareGitHub.Server/obj/",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "/Users/cleversongallego/.config/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.1"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.1": {
+            "projectReferences": {
+              "/Users/cleversongallego/Projects/Ateliware/AteliwareGitHub.Client/AteliwareGitHub.Client.csproj": {
+                "projectPath": "/Users/cleversongallego/Projects/Ateliware/AteliwareGitHub.Client/AteliwareGitHub.Client.csproj"
+              },
+              "/Users/cleversongallego/Projects/Ateliware/AteliwareGitHub.Shared/AteliwareGitHub.Shared.csproj": {
+                "projectPath": "/Users/cleversongallego/Projects/Ateliware/AteliwareGitHub.Shared/AteliwareGitHub.Shared.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.1": {
+          "dependencies": {
+            "Microsoft.AspNetCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.1.1, )",
+              "autoReferenced": true
+            },
+            "Microsoft.AspNetCore.Blazor.Server": {
+              "target": "Package",
+              "version": "[0.7.0, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[2.1.11, )"
+            },
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.1.0, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    },
+    "/Users/cleversongallego/Projects/Ateliware/AteliwareGitHub.Shared/AteliwareGitHub.Shared.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/cleversongallego/Projects/Ateliware/AteliwareGitHub.Shared/AteliwareGitHub.Shared.csproj",
+        "projectName": "AteliwareGitHub.Shared",
+        "projectPath": "/Users/cleversongallego/Projects/Ateliware/AteliwareGitHub.Shared/AteliwareGitHub.Shared.csproj",
+        "packagesPath": "/Users/cleversongallego/.nuget/packages/",
+        "outputPath": "/Users/cleversongallego/Projects/Ateliware/AteliwareGitHub.Shared/obj/",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "/Users/cleversongallego/.config/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "dependencies": {
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    },
+    "/Users/cleversongallego/Projects/Ateliware/AteliwareGitHub.Tests/AteliwareGitHub.Tests.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/cleversongallego/Projects/Ateliware/AteliwareGitHub.Tests/AteliwareGitHub.Tests.csproj",
+        "projectName": "AteliwareGitHub.Tests",
+        "projectPath": "/Users/cleversongallego/Projects/Ateliware/AteliwareGitHub.Tests/AteliwareGitHub.Tests.csproj",
+        "packagesPath": "/Users/cleversongallego/.nuget/packages/",
+        "outputPath": "/Users/cleversongallego/Projects/Ateliware/AteliwareGitHub.Tests/obj/",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "/Users/cleversongallego/.config/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.1"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.1": {
+            "projectReferences": {
+              "/Users/cleversongallego/Projects/Ateliware/AteliwareGitHub.Server/AteliwareGitHub.Server.csproj": {
+                "projectPath": "/Users/cleversongallego/Projects/Ateliware/AteliwareGitHub.Server/AteliwareGitHub.Server.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.1": {
+          "dependencies": {
+            "Microsoft.AspNetCore.App": {
+              "target": "Package",
+              "version": "[2.1.1, )"
+            },
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[15.9.0, )"
+            },
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.1.0, )",
+              "autoReferenced": true
+            },
+            "xunit": {
+              "target": "Package",
+              "version": "[2.4.0, )"
+            },
+            "xunit.runner.visualstudio": {
+              "target": "Package",
+              "version": "[2.4.0, )"
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    }
+  }
+}

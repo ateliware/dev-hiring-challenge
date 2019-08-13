@@ -1,0 +1,64 @@
+﻿@using AteliwareGitHub.Shared
+@page "/fetchdata"
+@page "/fetchdata/{langs}"
+@inject HttpClient Http
+@inject IJSRuntime JsRuntime;
+
+<h1>Github Repositories</h1>
+
+<DevelopmentStuff Title="Listing repositories most fancy (stars)" showSpecs="false" />
+
+@if (repos == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Stars Count</th>
+                <th>Details</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var repo in repos)
+            {
+                @foreach (var item in repo.items)
+                {
+                    <tr>
+                        <td>@item.name</td>
+                        <td>@item.stargazers_count.ToString()</td>
+                        <td><button class="btn green" onclick=@(()=>showDetails(item.id))>Show</button></td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+}
+
+@functions {
+    GitRepoDTO[] repos;
+    Item repoUnit;
+
+
+    [Parameter]
+    private string langs { get; set; }
+
+    protected override async Task OnInitAsync()
+    {
+        if (langs == null)
+        {
+            await JsRuntime.InvokeAsync<bool>("utilJSFunctions.showMessage", "At least one language should be selected to get the results.");
+            return;
+        }
+        repos = await Http.GetJsonAsync<GitRepoDTO[]>($"api/GitHub/GitRepositories?{langs}");
+    }
+
+    private async Task showDetails(int id)
+    {
+        repoUnit = await Http.GetJsonAsync<Item>($"api/GitHub/RepositoryDetails?id={id}");
+        await JsRuntime.InvokeAsync<bool>("utilJSFunctions.showRepoDetail", repoUnit);
+    }
+}
