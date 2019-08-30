@@ -1,0 +1,76 @@
+﻿@model IEnumerable<GitHubWebApi.Domain.Models.GitHub>
+@{
+    ViewBag.Title = "Top Repositórios por Linguagem";
+}
+
+<script type="text/javascript">
+    function GetDetail(id) {
+        $('#ModalCenter').modal('show')
+        $.get('/Home/GetDetail?id=' + id, {}, function (data) {
+            $('#giturl').html(data.GitUrl);
+            $('#owner').html(data.Owner);
+            $('#date').html(ToJavaScriptDate(data.CreationDate));
+        });
+    }
+
+    function ToJavaScriptDate(value) {
+        var pattern = /Date\(([^)]+)\)/;
+        var results = pattern.exec(value);
+        var dt = new Date(parseFloat(results[1]));
+        return (dt.getMonth() + 1) + "/" + dt.getDate() + "/" + dt.getFullYear();
+    }
+</script>
+
+<div class="row" style="margin-top: 50px;">
+    <h2>Top Repositórios por Linguagem</h2>
+    <table class="table">
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.IdGitHub)</th>
+            <th>@Html.DisplayNameFor(model => model.RepositoryName)</th>
+            <th>@Html.DisplayNameFor(model => model.Language)</th>
+            <th>@Html.DisplayNameFor(model => model.Stars)</th>
+            <th></th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.IdGitHub)</td>
+                <td>@Html.DisplayFor(modelItem => item.RepositoryName)</td>
+                <td>@Html.DisplayFor(modelItem => item.Language)</td>
+                <td>@Html.DisplayFor(modelItem => item.Stars)</td>
+                <td>
+                    <button type="button" onclick="GetDetail(@Html.DisplayFor(modelItem => item.Id))" class="btn btn-primary">Detalhes</button>
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+
+<div class="modal fade" id="ModalCenter" tabindex="-1" role="dialog" aria-labelledby="ModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="exampleModalLongTitle">Detalhes</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="ml-2 px-2" style="margin-left: 10px;">
+                    <div class="row ml-1">
+                        <label>GitUrl:</label>  <span id="giturl"></span>
+                    </div>
+                    <div class="row ml-1">
+                        <label>Owner:</label> <span id="owner"></span>
+                    </div>
+                    <div class="row ml-1">
+                        <label>Creation Date:</label> <span id="date"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer ml-1">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>

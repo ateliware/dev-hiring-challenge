@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<script type="text/javascript">
+    function GetRepositories() {
+         $('#loading').show();
+        $.get('/Home/GetRepositories', {}, function (data) {
+            
+            if (data == "OK") {
+                $('#success').show();
+            } else {
+                $('#error').show();
+            }
+
+            $('#loading').hide();
+        });
+    }
+
+</script>
+
+<div style="margin-top: 100px;">
+    <button type="button" onclick="GetRepositories();" class="btn btn-primary">Buscar Repositórios</button>
+</div>
+
+<div id="loading" style="margin-top: 10px; display: none;" class="alert alert-info" role="alert">
+    Carregando... Aguarde
+</div>
+
+<div id="success" style="margin-top: 10px; display: none;" class="alert alert-success" role="alert">
+    Repositórios carregados com sucesso.
+</div>
+
+<div id="error" style="margin-top: 10px; display: none;" id="error" class="alert alert-danger" role="alert">
+    Ocorreu um erro ao carregar dados.
+</div>
