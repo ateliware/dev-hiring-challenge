@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <setParameter name="IIS Web Application Name" value="Default Web Site/" />
+  <setParameter name="DBConnection-Web.config Connection String" value="Data Source=aasafdclp1ctzi.ckkuupkjoq6h.us-west-2.rds.amazonaws.com,1433;Initial Catalog=ATELIWARE;User Id=sa;Password=12345678;" />
+</parameters>

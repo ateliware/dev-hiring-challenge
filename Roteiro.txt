@@ -1,0 +1,18 @@
+ateliware process
+
+Passo 1
+Instalar packages.config em ambos projetos
+Passo 2
+Instalar sql server (caso não instalado)
+Passo 3
+Apontar no arquivo web.config do projeto ateliware-ws para o banco local da maquina alem do usuário e senha
+Passo 4
+Executar o script DB dentro da pasta raiz
+Passo 5
+Configurar token github para o usuario no arquivo web.config ateliware-ws
+Passo 6
+Configurar linguagens de busca no github separados por |
+Passo 7
+Configurar rota para o acesso do webservice no arquivo home.js dentro do projeto ateliware-app
+Passo 8
+Só rodar....

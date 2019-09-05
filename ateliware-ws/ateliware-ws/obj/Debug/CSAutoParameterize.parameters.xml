@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="DBConnection-Web.config Connection String" description="DBConnection Connection String used in web.config by the application to access the database." defaultValue="Data Source=aasafdclp1ctzi.ckkuupkjoq6h.us-west-2.rds.amazonaws.com,1433;Initial Catalog=ATELIWARE;User Id=sa;Password=12345678;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Dahlen\\Documents\\Ateliware\\ateliware-ws\\ateliware-ws\\obj\\Debug\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DBConnection']/@connectionString" />
+  </parameter>
+</parameters>
