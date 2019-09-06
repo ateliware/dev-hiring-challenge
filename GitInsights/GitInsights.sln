@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29215.179
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GitInsights", "GitInsights\GitInsights.csproj", "{A71B1286-E1B0-4B70-8ABC-5804642888F1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A71B1286-E1B0-4B70-8ABC-5804642888F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A71B1286-E1B0-4B70-8ABC-5804642888F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A71B1286-E1B0-4B70-8ABC-5804642888F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A71B1286-E1B0-4B70-8ABC-5804642888F1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A3645AD1-1107-4218-8078-8F3BB36AED27}
+	EndGlobalSection
+EndGlobal
