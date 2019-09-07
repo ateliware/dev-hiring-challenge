@@ -17,6 +17,8 @@
     </environment>
     <link rel="stylesheet" href="~/css/site.css" />
     <script src="https://kit.fontawesome.com/3ac3b983e2.js"></script>
+    <link href="~/lib/toastr/toastr.min.css" rel="stylesheet" />
+    <script src="~/lib/toastr/toastr.min.js"></script>
 </head>
 <body>
     <header>
@@ -34,7 +36,6 @@
         </nav>
     </header>
     <div class="container">
-        <partial name="_CookieConsentPartial" />
         <main role="main" class="pb-3">
             @RenderBody()
         </main>

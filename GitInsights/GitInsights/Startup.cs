@@ -13,6 +13,10 @@ using Microsoft.EntityFrameworkCore;
 using GitInsights.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using NToastNotify;
+using Microsoft.AspNetCore.Mvc.Authorization;
+using Microsoft.AspNetCore.Authorization;
 
 namespace GitInsights
 {
@@ -35,14 +39,45 @@ namespace GitInsights
 				options.MinimumSameSitePolicy = SameSiteMode.None;
 			});
 
-			services.AddDbContext<ApplicationDbContext>(options =>
-				options.UseSqlServer(
-					Configuration.GetConnectionString("DefaultConnection")));
+			services.AddDbContext<ApplicationDbContext>();
 			services.AddDefaultIdentity<IdentityUser>()
 				.AddDefaultUI(UIFramework.Bootstrap4)
 				.AddEntityFrameworkStores<ApplicationDbContext>();
 
-			services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+			services.AddMvc(options =>
+			{
+				var policyAuthAllControllers = new AuthorizationPolicyBuilder()
+					.RequireAuthenticatedUser()
+					.Build();
+
+				options.Filters.Add(new AuthorizeFilter(policyAuthAllControllers));
+			})
+				.SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
+				.AddNToastNotifyToastr(new ToastrOptions
+				{
+					ProgressBar = false,
+					PositionClass = ToastPositions.TopCenter,
+					TimeOut = 5000
+				});
+
+			services.ConfigureApplicationCookie(options =>
+			{
+				options.Cookie.MaxAge = TimeSpan.FromMinutes(30);
+
+				options.AccessDeniedPath = "/Account/AccessDenied";
+
+				options.Cookie.Name = "SigurCookie";
+
+				options.Cookie.Expiration = TimeSpan.FromHours(2);
+
+				options.ExpireTimeSpan = TimeSpan.FromHours(2);
+
+				options.LoginPath = "/Account/Login";
+
+				options.ReturnUrlParameter = CookieAuthenticationDefaults.ReturnUrlParameter;
+
+				options.SlidingExpiration = true;
+			});
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -65,6 +100,8 @@ namespace GitInsights
 			app.UseCookiePolicy();
 
 			app.UseAuthentication();
+
+			app.UseNToastNotify();
 
 			app.UseMvc(routes =>
 			{

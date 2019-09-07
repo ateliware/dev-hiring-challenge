@@ -12,5 +12,13 @@ namespace GitInsights.Data
 			: base(options)
 		{
 		}
+		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+		{
+			optionsBuilder.UseNpgsql(Environment.GetEnvironmentVariable("CONN_STRING"));
+		}
+		protected override void OnModelCreating(ModelBuilder modelBuilder)
+		{
+			modelBuilder.ForNpgsqlUseIdentityColumns();
+		}
 	}
 }
