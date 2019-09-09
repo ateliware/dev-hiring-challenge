@@ -1,9 +1,9 @@
-#GitHUB Challenge
+# GitHUB Challenge
 
 This is an exam made for ateliware that I thought interesting and i would like to share in my github. I have used .net blazor (webassembly) in the very beginning version 0.7.0.
 
 
-###Tools used
+### Tools used
 OS:         MacOS Mojave 10.14.5
 
 IDE:        Visual studio community 
