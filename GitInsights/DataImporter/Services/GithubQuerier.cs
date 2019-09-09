@@ -1,3 +1,6 @@
+using System.Globalization;
+using System.Runtime.CompilerServices;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using DataImporter.Interfaces;
@@ -37,7 +40,11 @@ namespace DataImporter.Services
 
             foreach (var item in response.Items)
             {
-                var repository = new Repository(item.Name, item.HtmlUrl, item.Description, item.CreatedAt, item.UpdatedAt, item.StargazersCount, item.Language);
+                DateTime.TryParse(item.CreatedAt, out var createdAt);
+
+                DateTime.TryParse(item.UpdatedAt, out var updatedAt);
+
+                var repository = new Repository(item.Name, item.HtmlUrl, item.Description, createdAt, updatedAt, item.StargazersCount, item.Language);
 
                 repositories.Add(repository);
             }

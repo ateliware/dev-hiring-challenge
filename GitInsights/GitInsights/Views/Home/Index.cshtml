@@ -1,8 +1,15 @@
-﻿@{
+﻿@model GitInsights.Models.Home.HomeViewModel
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <div class="form-group">
+        <label asp-for="LanguageFilter"></label>
+        <select asp-for="LanguageFilter" asp-items="ViewBag.LanguageList" class="form-control">
+            <option disabled selected>Pick a language</option>
+        </select>
+    </div>
 </div>
