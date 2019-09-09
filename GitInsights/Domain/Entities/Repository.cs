@@ -15,6 +15,10 @@ namespace Domain.Entities
         public string Language { get; set; }
         public ICollection<UserRepository> UserRepository { get; set; }
 
+        public Repository()
+        {
+            
+        }
         public Repository(string name, string htmlUrl, string description, DateTime createdAt, DateTime updatedAt, int stargazersCount, string language)
         {
             Name = name;

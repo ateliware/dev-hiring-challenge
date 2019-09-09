@@ -11,9 +11,13 @@ namespace Domain.Entities
         public string Password { get; set; }
         public string Salt { get; set; }
         public DateTime CreatedAt { get; set; }
-        public DateTime UpdatedAt { get; set; }
+        public DateTime? UpdatedAt { get; set; }
         public ICollection<UserRepository> UserRepository { get; set; }
 
+        public User()
+        {
+            
+        }
         public User(string name, string email, string password, string salt)
         {
             Name = name;
