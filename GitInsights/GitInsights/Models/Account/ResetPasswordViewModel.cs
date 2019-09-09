@@ -1,12 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations;
 
 namespace GitInsights.Models.Account
 {
-	public class RegisterViewModel
-	{
-		[Required]
-		public string Name { get; set; }
-		[Required]
+    public class ResetPasswordViewModel
+    {
+        [Required]
 		[Display(Name = "Email")]
 		[EmailAddress]
 		public string Email { get; set; }
@@ -18,5 +16,5 @@ namespace GitInsights.Models.Account
 		[Display(Name = "Confirm password")]
 		[Compare("Password")]
 		public string ConfirmPassword { get; set; }
-	}
+    }
 }
