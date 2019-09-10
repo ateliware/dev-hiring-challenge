@@ -4,39 +4,42 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>@ViewData["Title"]</h1>
+<div class="page-header text-center">
+    <h1>@ViewData["Title"]</h1>
+    <p>Use your email to log in.</p>
+</div>
+
 <div class="row">
-    <div class="col-md-4">
-        <section>
-            <form id="account" method="post">
-                <p>Use your email to log in.</p>
-                <hr />
-                <div asp-validation-summary="All" class="text-danger"></div>
-                <div class="form-group">
-                    <label asp-for="Email"></label>
-                    <input asp-for="Email" class="form-control" />
-                    <span asp-validation-for="Email" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Password"></label>
-                    <input asp-for="Password" class="form-control" />
-                    <span asp-validation-for="Password" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <button type="submit" class="btn btn-success">Log in</button>
-                </div>
-                <div class="form-group">
-                    <p>
-                        <a id="forgot-password" asp-action="ForgotPassword">Forgot your password?</a>
-                    </p>
-                    <p>
-                        <a asp-action="Register">Register</a>
-                    </p>
-                </div>
-            </form>
-        </section>
+    <div class="col-sm-10 col-md-6 col-lg-4 mx-auto">
+        <div class="card">
+            <div class="card-body">
+                <form method="post">
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="Email"></label>
+                        <input asp-for="Email" class="form-control" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Password"></label>
+                        <input asp-for="Password" class="form-control" />
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-success btn-block">Log in</button>
+                    </div>
+                    <div class="form-group">
+                        <p>
+                            <a id="forgot-password" asp-controller="Account" asp-action="ResetPassword">Forgot your password?</a>
+                        </p>
+                        <p>
+                            <a asp-action="Register">Register</a>
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
-   
 </div>
 
 @section Scripts {

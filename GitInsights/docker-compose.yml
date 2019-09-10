@@ -1,0 +1,17 @@
+version: '3'
+services:
+  web:
+    image: microsoft/dotnet:1.1.1-sdk
+    ports:
+      - "5000:5000"
+    env_file: .env
+    depends_on:
+      - db
+    volumes:
+      - ./src:/opt/app
+    working_dir: /opt/app
+  db:
+    image: postgres:latest
+    env_file: .env
+    ports:
+      - "5432:5432"

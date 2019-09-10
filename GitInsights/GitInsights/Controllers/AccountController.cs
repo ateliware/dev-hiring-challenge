@@ -120,13 +120,16 @@ namespace GitInsights.Controllers
 			await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);  
 			return RedirectToAction("Login", "Account");  
 		}
-
+		
+		[AllowAnonymous]
 		public IActionResult ResetPassword()
 		{
 			return View();
 		}
 
-		[HttpPost] 
+		[HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
 		public async Task<IActionResult> ResetPassword(ResetPasswordViewModel model)
 		{
 			if (!ModelState.IsValid) return View(model);
