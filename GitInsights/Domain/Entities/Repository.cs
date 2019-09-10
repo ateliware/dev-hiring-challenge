@@ -12,14 +12,14 @@ namespace Domain.Entities
         public DateTime CreatedAt { get; set; }
         public DateTime? UpdatedAt { get; set; }
         public int StargazersCount { get; set; }
-        public string Language { get; set; }
-        public ICollection<UserRepository> UserRepository { get; set; }
+        public int LanguageId { get; set; }
+        public Language Language { get; set; }
 
         public Repository()
         {
             
         }
-        public Repository(string name, string htmlUrl, string description, DateTime createdAt, DateTime updatedAt, int stargazersCount, string language)
+        public Repository(string name, string htmlUrl, string description, DateTime createdAt, DateTime updatedAt, int stargazersCount, Language language)
         {
             Name = name;
             HtmlUrl = htmlUrl;
@@ -28,6 +28,7 @@ namespace Domain.Entities
             UpdatedAt = updatedAt;
             StargazersCount = stargazersCount;
             Language = language;
+            LanguageId = language.Id;
         }
     }
 }

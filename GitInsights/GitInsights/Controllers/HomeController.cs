@@ -10,6 +10,9 @@ using DataImporter.Interfaces;
 using System.Threading.Tasks;
 using GitInsights.Models.Home;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Linq;
+using System;
+using Domain.Entities;
 
 namespace GitInsights.Controllers
 {
@@ -18,7 +21,6 @@ namespace GitInsights.Controllers
 	{
 		private readonly GitInsightsDbContext _context;
 		private readonly IGithubQuerier _githubQuerier;
-		private readonly Dictionary<string,string> Languages; 
 		protected readonly IToastNotification ToastNotification;
 
 		public HomeController(GitInsightsDbContext context, IToastNotification toastNotification, IGithubQuerier githubQuerier)
@@ -26,30 +28,62 @@ namespace GitInsights.Controllers
 			_context = context;
 			_githubQuerier = githubQuerier;
 			ToastNotification = toastNotification;
-			Languages = new Dictionary<string, string>
-			{
-				{ "C#", "csharp" },
-				{ "Ruby", "ruby" },
-				{ "Elixir", "elixir" },
-				{ "C", "c"},
-				{ "Go", "go" },
-				{ "Python", "python" },
-				{ "Java", "java" },
-				{ "JavaScript", "javascript" }
-			};
 		}
 		public async Task<IActionResult> Index(HomeViewModel model)
 		{
-			if (string.IsNullOrEmpty(model.LanguageFilter))
+			var languages = _context.Languages.OrderBy(l => l.Id).ToList();
+
+			if (model.LanguageFilter <= 0)
 			{
-				ViewBag.LanguagesList = new SelectList((IEnumerable)Languages, "Key", "Value");
+				ViewBag.LanguagesList = new SelectList(languages, "Id", "Name");
 			}
 			else
 			{
-				ViewBag.LanguagesList = new SelectList((IEnumerable)Languages, "Key", "Value", model.LanguageFilter);
+				ViewBag.LanguagesList = new SelectList(languages, "Id", "Name", model.LanguageFilter);
+
+				var langToQuery = languages.Where(l => l.Id == model.LanguageFilter).FirstOrDefault();
+
+				var repos = new List<Repository>();
+
+				if (langToQuery.LastUpdate == null)
+				{
+					var newRepos = await _githubQuerier.FetchRepositoriesAsync(langToQuery);
+
+					repos = newRepos.ToList();
+
+					_context.AddRange(newRepos);
+
+					langToQuery.LastUpdate = DateTime.Now;
+
+					_context.SaveChanges();
+				}
+				else if(DateTime.Now > langToQuery.LastUpdate.AddDays(1))
+				{
+					var newRepos = await _githubQuerier.FetchRepositoriesAsync(langToQuery);
+
+					repos = newRepos.ToList();
+
+					var oldRepos = _context.Repositories.Where(r => r.LanguageId == langToQuery.Id).ToList();
+
+					_context.RemoveRange(oldRepos);
+
+					_context.SaveChanges();
+
+					_context.AddRange(newRepos);
+
+					langToQuery.LastUpdate = DateTime.Now;
+
+					_context.SaveChanges();
+				}
+				else
+				{
+					repos = _context.Repositories.Where(r => r.LanguageId == langToQuery.Id).ToList();
+				}
+
+				model.Repositories = repos.OrderBy(r => r.StargazersCount).ToList();
 			}
 
-			return View();
+			return View(model);
 		}
 
 		[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

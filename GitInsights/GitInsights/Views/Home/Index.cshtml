@@ -4,12 +4,96 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <div class="form-group">
-        <label asp-for="LanguageFilter"></label>
-        <select asp-for="LanguageFilter" asp-items="ViewBag.LanguageList" class="form-control">
-            <option disabled selected>Pick a language</option>
-        </select>
+<div class="page-header text-justify">
+  <h2>Welcome to GitInsights!</h2>
+  <p>Select a language below to see the top 10 related repositories. Give it a try!</p>
+</div>
+
+<div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-4">
+        <div class="card">
+            <div class="card-header">
+                Search options
+            </div>
+            <div class="card-body">
+                <h5 class="card-title"></h5>
+                <form method="post">
+                    <div class="form-group">
+                        <label asp-for="LanguageFilter"></label>
+                        <select asp-for="LanguageFilter" asp-items="ViewBag.LanguagesList" class="form-control">
+                            <option disabled selected>Pick a language</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-success">Search</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
+    @if (Model.Repositories != null)
+    {
+    <div class="col-sm-12 col-md-12 col-lg-8">
+        <div class="card">
+            <div class="card-header">
+                Top 10 repositories found
+            </div>
+            <div class="card-body">
+                <div id="accordion">
+                @{
+                    var i = 0;
+                    foreach(var repo in Model.Repositories)
+                    {
+                        i++;
+
+                        <div class="card">
+                            <div class="card-header" id="@($"heading{repo.Name}")">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link" data-toggle="collapse" data-target="@($"#collapse{repo.Name}")" aria-expanded="true" aria-controls="@($"collapse{repo.Name}")">
+                                    @($"{i}. {repo.Name}")
+                                    </button>
+                                </h5>
+                                </div>
+
+                                <div id="@($"collapse{repo.Name}")" class="collapse" aria-labelledby="@($"heading{repo.Name}")" data-parent="#accordion">
+                                <div class="card-body">
+                                    <table class="table">
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">Name</th>
+                                                <td>@repo.Name<td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Description</th>
+                                                <td>@repo.Description<td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Language</th>
+                                                <td>@repo.Language.Name<td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Created at</th>
+                                                <td>@repo.CreatedAt<td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Updated at</th>
+                                                <td>@repo.UpdatedAt<td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Stars</th>
+                                                <td>@repo.StargazersCount<td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <a href="@repo.HtmlUrl" class="btn btn-primary" target="_blank">Go to the repository</a>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+                </div>
+            </div>
+        </div>
+    </div>
+    }
 </div>

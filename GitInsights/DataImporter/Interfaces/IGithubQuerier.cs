@@ -6,6 +6,6 @@ namespace DataImporter.Interfaces
 {
     public interface IGithubQuerier
     {
-        Task<IEnumerable<Repository>> FetchRepositoriesAsync(string language, string topic);
+        Task<IEnumerable<Repository>> FetchRepositoriesAsync(Language language);
     }
 }

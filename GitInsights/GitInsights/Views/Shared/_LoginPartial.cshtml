@@ -2,15 +2,16 @@
 
 <ul class="navbar-nav">
 @{
-    var logged = User.Claims.Any(c => c.Type.Equals("UserID"));
+    var logged = User.Claims.Any(c => c.Type.Equals("UserId"));
 
     @if(logged)
     {
+        <form id="logout" asp-controller="Account" asp-action="Logout" method="post"></form>
         <li class="nav-item">
-            @User.Claims.FirstOrDefault(c => c.Type.Equals(ClaimTypes.Name))?.Value
+            <a class="nav-link text-white"> @User.Claims.FirstOrDefault(c => c.Type.Equals(ClaimTypes.Name))?.Value </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link text-white" asp-controller="Account" asp-action="Logout">Logout</a>
+            <a href="#" onclick="$('#logout').submit()" class="nav-link text-white">Logout</a>
         </li>
     }
     else

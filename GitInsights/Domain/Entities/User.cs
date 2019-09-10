@@ -12,7 +12,6 @@ namespace Domain.Entities
         public string Salt { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime? UpdatedAt { get; set; }
-        public ICollection<UserRepository> UserRepository { get; set; }
 
         public User()
         {

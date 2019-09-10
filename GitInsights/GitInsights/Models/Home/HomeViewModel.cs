@@ -1,13 +1,14 @@
 using System.Collections.Generic;
+using System.ComponentModel;
 using Domain.Entities;
-using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace GitInsights.Models.Home
 {
     public class HomeViewModel
     {
-        public string LanguageFilter { get; set; }
-        public string TopicFilter { get; set; }
+        [DisplayName("Language")]
+        public int LanguageFilter { get; set; }
+        [DisplayName("Topic")]
         public List<Repository> Repositories { get; set; }
     }
 }

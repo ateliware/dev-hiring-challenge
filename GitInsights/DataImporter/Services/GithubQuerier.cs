@@ -7,27 +7,19 @@ using DataImporter.Interfaces;
 using DataImporter.Models;
 using Domain.Entities;
 using Flurl.Http;
+using System.Linq;
 
 namespace DataImporter.Services
 {
     public class GithubQuerier : IGithubQuerier
     {
-        public async Task<IEnumerable<Repository>> FetchRepositoriesAsync(string language, string topic)
+        public async Task<IEnumerable<Repository>> FetchRepositoriesAsync(Language language)
         {
-            if (string.IsNullOrEmpty(language)) return null;
+            if (string.IsNullOrEmpty(language.QueryName)) return null;
 
-            var url = "https://api.github.com/search/repositories?q=tetris+language:assembly&sort=stars&order=desc";
+            var url = "https://api.github.com/search/repositories";
 
-            var query = "";
-
-            if (string.IsNullOrEmpty(topic))
-            {
-                query = $"language:{language}";
-            }
-            else
-            {
-                query = $"{topic}+language:{language}";
-            }
+            var query = $"language:{language.QueryName}";
 
             var response = await url.
                             WithHeader("User-Agent", "request").
@@ -38,13 +30,15 @@ namespace DataImporter.Services
 
             var repositories = new List<Repository>();
 
-            foreach (var item in response.Items)
+            var topTen = response.Items.OrderBy(i => i.StargazersCount).Take(10).ToList();
+
+            foreach (var item in topTen)
             {
                 DateTime.TryParse(item.CreatedAt, out var createdAt);
 
                 DateTime.TryParse(item.UpdatedAt, out var updatedAt);
 
-                var repository = new Repository(item.Name, item.HtmlUrl, item.Description, createdAt, updatedAt, item.StargazersCount, item.Language);
+                var repository = new Repository(item.Name, item.HtmlUrl, item.Description, createdAt, updatedAt, item.StargazersCount, language);
 
                 repositories.Add(repository);
             }

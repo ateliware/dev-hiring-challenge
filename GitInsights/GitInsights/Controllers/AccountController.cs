@@ -18,7 +18,7 @@ namespace GitInsights.Controllers
 	public class AccountController : Controller
     {
 		private readonly GitInsightsDbContext _context;
-		protected readonly IToastNotification ToastNotification;
+		private readonly IToastNotification ToastNotification;
 		public AccountController(GitInsightsDbContext context, IToastNotification toastNotification)
 		{
 			_context = context;
@@ -61,6 +61,11 @@ namespace GitInsights.Controllers
         [AllowAnonymous]
 		public IActionResult Login()
 		{
+			if (User?.Identity.IsAuthenticated == true)
+			{
+				return RedirectToAction("Index", "Home");
+			}
+			
 			return View();
 		}
 
@@ -109,12 +114,45 @@ namespace GitInsights.Controllers
 			return RedirectToAction("Index", "Home");
 		}
 
-		[HttpPost]  
+		[HttpPost] 
 		public async Task<IActionResult> Logout()  
 		{  
 			await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);  
-			return RedirectToAction("Login");  
-		}  
+			return RedirectToAction("Login", "Account");  
+		}
+
+		public IActionResult ResetPassword()
+		{
+			return View();
+		}
+
+		[HttpPost] 
+		public async Task<IActionResult> ResetPassword(ResetPasswordViewModel model)
+		{
+			if (!ModelState.IsValid) return View(model);
+
+			var user = _context.Users.Where(u => u.Email.Equals(model.Email, StringComparison.InvariantCultureIgnoreCase)).FirstOrDefault();
+
+			if (user == null)
+			{
+				ToastNotification.AddErrorToastMessage("User not found!");
+				return View(model);
+			}
+
+			var salt = Helpers.CreateHash(Helpers.GenerateString(50));
+
+            user.Password = HashPassword(salt, model.Password);
+
+			user.Salt = salt;
+
+			user.UpdatedAt = DateTime.Now;
+
+            _context.SaveChanges();
+
+			await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+
+            return RedirectToAction("Login");
+		}
 
 		private string HashPassword(string salt, string password)
 		{
