@@ -26,7 +26,7 @@ tempCodeRunnerFile.go
 bld/
 [Bb]in/
 [Oo]bj/
-
+[Oo]ut/
 # Uncomment if you have tasks that create the project's static files in wwwroot
 #wwwroot/
 

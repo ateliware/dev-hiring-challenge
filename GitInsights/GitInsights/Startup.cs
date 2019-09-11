@@ -57,11 +57,9 @@ namespace GitInsights
 			{
 				options.Cookie.MaxAge = TimeSpan.FromMinutes(30);
 
-				options.AccessDeniedPath = "/Account/AccessDenied";
+				options.Cookie.Expiration = TimeSpan.FromMinutes(30);
 
-				options.Cookie.Expiration = TimeSpan.FromHours(2);
-
-				options.ExpireTimeSpan = TimeSpan.FromHours(2);
+				options.ExpireTimeSpan = TimeSpan.FromMinutes(30);
 
 				options.LoginPath = "/Account/Login";
 

@@ -28,6 +28,11 @@ namespace GitInsights.Controllers
 		[AllowAnonymous]
 		public IActionResult Register()
         {
+			if (User?.Identity.IsAuthenticated == true)
+			{
+				return RedirectToAction("Index", "Home");
+			}
+			
             return View();
         }
 
@@ -124,13 +129,18 @@ namespace GitInsights.Controllers
 		[AllowAnonymous]
 		public IActionResult ResetPassword()
 		{
+			if (User?.Identity.IsAuthenticated == true)
+			{
+				return RedirectToAction("Index", "Home");
+			}
+
 			return View();
 		}
 
 		[HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-		public async Task<IActionResult> ResetPassword(ResetPasswordViewModel model)
+		public IActionResult ResetPassword(ResetPasswordViewModel model)
 		{
 			if (!ModelState.IsValid) return View(model);
 
@@ -151,8 +161,6 @@ namespace GitInsights.Controllers
 			user.UpdatedAt = DateTime.Now;
 
             _context.SaveChanges();
-
-			await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
 
             return RedirectToAction("Login");
 		}

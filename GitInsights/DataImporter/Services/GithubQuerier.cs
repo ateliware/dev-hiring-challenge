@@ -30,7 +30,7 @@ namespace DataImporter.Services
 
             var repositories = new List<Repository>();
 
-            var topTen = response.Items.OrderBy(i => i.StargazersCount).Take(10).ToList();
+            var topTen = response.Items.OrderByDescending(i => i.StargazersCount).Take(10).ToList();
 
             foreach (var item in topTen)
             {

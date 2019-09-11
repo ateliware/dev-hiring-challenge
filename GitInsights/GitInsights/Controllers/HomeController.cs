@@ -80,7 +80,7 @@ namespace GitInsights.Controllers
 					repos = _context.Repositories.Where(r => r.LanguageId == langToQuery.Id).ToList();
 				}
 
-				model.Repositories = repos.OrderBy(r => r.StargazersCount).ToList();
+				model.Repositories = repos.OrderByDescending(r => r.StargazersCount).ToList();
 			}
 
 			return View(model);

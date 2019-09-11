@@ -8,10 +8,10 @@
     {
         <form id="logout" asp-controller="Account" asp-action="Logout" method="post"></form>
         <li class="nav-item">
-            <a class="nav-link text-white"> @User.Claims.FirstOrDefault(c => c.Type.Equals(ClaimTypes.Name))?.Value </a>
+            <a class="nav-link text-white font-italic font-weight-light">Logged as @User.Claims.FirstOrDefault(c => c.Type.Equals(ClaimTypes.Name))?.Value </a>
         </li>
         <li class="nav-item">
-            <a href="#" onclick="$('#logout').submit()" class="nav-link text-white">Logout</a>
+            <a href="#" onclick="$('#logout').submit()" class="nav-link text-white">Logout <i class="fas fa-sign-out-alt"></i></a>
         </li>
     }
     else
