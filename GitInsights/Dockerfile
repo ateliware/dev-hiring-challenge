@@ -23,5 +23,4 @@ FROM base AS final
 WORKDIR /app
 COPY --from=publish /app .
 
-ENTRYPOINT ["dotnet", "GitInsights.dll"]
-CMD ASPNETCORE_URLS=http://*:$PORT dotnet out/GitInsights.dll
+CMD ["dotnet", "GitInsights.dll"]
