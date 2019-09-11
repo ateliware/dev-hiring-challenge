@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataImporter.Tests", "DataImporter.Tests\DataImporter.Tests.csproj", "{79BDBFAA-2BBB-46CD-B69F-9F67E3A36A26}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain.Tests", "Domain.Tests\Domain.Tests.csproj", "{BC160345-D0C1-430B-9D0F-89B80003ADE7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{79BDBFAA-2BBB-46CD-B69F-9F67E3A36A26}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{79BDBFAA-2BBB-46CD-B69F-9F67E3A36A26}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{79BDBFAA-2BBB-46CD-B69F-9F67E3A36A26}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC160345-D0C1-430B-9D0F-89B80003ADE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC160345-D0C1-430B-9D0F-89B80003ADE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC160345-D0C1-430B-9D0F-89B80003ADE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC160345-D0C1-430B-9D0F-89B80003ADE7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

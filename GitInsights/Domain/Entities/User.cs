@@ -19,11 +19,35 @@ namespace Domain.Entities
         }
         public User(string name, string email, string password, string salt)
         {
+            ValidateParams(name, email, password, salt);
             Name = name;
             Email = email;
             Password = password;
             Salt = salt;
             CreatedAt = DateTime.Now;
+        }
+
+        private void ValidateParams(string name, string email, string password, string salt)
+        {
+            if (string.IsNullOrWhiteSpace(name))
+            {
+                throw new ArgumentException("Invalid parameter!", "Name");
+            }
+
+            if (string.IsNullOrWhiteSpace(email))
+            {
+                throw new ArgumentException("Invalid parameter!", "Email");
+            }
+
+            if (string.IsNullOrWhiteSpace(password))
+            {
+                throw new ArgumentException("Invalid parameter!", "Password");
+            }
+
+            if (string.IsNullOrWhiteSpace(salt))
+            {
+                throw new ArgumentException("Invalid parameter!", "Salt");
+            }
         }
     }
 }

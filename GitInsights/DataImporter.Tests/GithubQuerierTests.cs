@@ -3,6 +3,7 @@ using Xunit;
 using DataImporter.Services;
 using DataImporter.Interfaces;
 using System.Threading.Tasks;
+using Domain.Entities;
 
 namespace DataImporter.Tests
 {
@@ -16,11 +17,22 @@ namespace DataImporter.Tests
         }
 
         [Fact]
-        public async Task GithubQuerier_NullLanguageShouldReturnNull()
+        public async Task GithubQuerier_NullLanguageShouldFail()
         {
-            var value = await _githubQuerier.FetchRepositoriesAsync(null);
+            await Assert.ThrowsAsync<ArgumentException>("Language", async () => await _githubQuerier.FetchRepositoriesAsync(null));
+        }
 
-            Assert.Equal(null, value);
+        [Theory]
+        [InlineData("")]
+        [InlineData(" ")]
+        [InlineData(null)]
+        public async Task GithubQuerier_NullLanguageNameShouldFail(string name)
+        {
+            var language = new Language();
+
+            language.Name = name;
+
+            await Assert.ThrowsAsync<ArgumentException>("Language", async () => await _githubQuerier.FetchRepositoriesAsync(language));
         }
     }
 }

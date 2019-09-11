@@ -18,14 +18,33 @@ namespace Domain.Entities
 
         public Language(string name, string queryName)
         {
+            ValidateStringParams(name, queryName);
             Name = name;
             QueryName = queryName;
         }
         public Language(int id, string name, string queryName)
         {
+            ValidateStringParams(name, queryName);
+            if (id <= 0)
+            {
+                throw new ArgumentException("Invalid parameter!", "Id");
+            }
             Id = id;
             Name = name;
             QueryName = queryName;
+        }
+
+        private void ValidateStringParams(string name, string queryName)
+        {
+            if (string.IsNullOrWhiteSpace(name))
+            {
+                throw new ArgumentException("Invalid parameter!", "Name");
+            }
+
+            if (string.IsNullOrWhiteSpace(queryName))
+            {
+                throw new ArgumentException("Invalid parameter!", "QueryName");
+            }
         }
     }
 }

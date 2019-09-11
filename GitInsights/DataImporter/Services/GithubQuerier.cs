@@ -15,7 +15,10 @@ namespace DataImporter.Services
     {
         public async Task<IEnumerable<Repository>> FetchRepositoriesAsync(Language language)
         {
-            if (language == null || string.IsNullOrEmpty(language.QueryName)) return null;
+            if (language == null || string.IsNullOrEmpty(language.QueryName))
+            {
+                throw new ArgumentException("Invalid parameter!", "Language");
+            }
 
             var url = "https://api.github.com/search/repositories";
 
