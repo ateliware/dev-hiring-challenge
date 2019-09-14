@@ -46,7 +46,7 @@
                 // Save the search
                 repository.AddAll(listRepositories);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return false;
             }
