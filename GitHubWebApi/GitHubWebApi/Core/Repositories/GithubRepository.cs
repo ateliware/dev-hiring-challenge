@@ -57,5 +57,28 @@
         {
             return dataBase.GitHub.Where(x => x.Id == id).FirstOrDefault();
         }
+
+        /// <summary>
+        /// Remove repository by id
+        /// </summary>
+        /// <param name="idGithub">Id GitHUb Repository</param>       
+        public void Remove(long idGithub)
+        {
+            var gitHubRepo = dataBase.GitHub.Where(x => x.IdGitHub == idGithub).FirstOrDefault();
+            if (gitHubRepo != null)
+            {
+                dataBase.GitHub.Remove(gitHubRepo);
+                dataBase.SaveChanges();
+            }
+        }
+
+        /// <summary>
+        /// Remove all itens from table
+        /// </summary>        
+        public void RemoveAll()
+        {
+            dataBase.Database.ExecuteSqlCommand("TRUNCATE TABLE [DBO].[GitHub]");
+            dataBase.SaveChanges();
+        }
     }
 }

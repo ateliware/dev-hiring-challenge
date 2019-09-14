@@ -1,63 +1,95 @@
 ﻿namespace GitHubWebApi.Tests
 {
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
-    using GitHubWebApi.Controllers;
-    using System.Web.Mvc;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;        
     using System.Linq;
-    using GitHubWebApi.Domain.Models;
-    using System.Collections.Generic;
+    using GitHubWebApi.Domain.Services;
 
     [TestClass]
     public class TestGitHub
     {
         /// <summary>
-        /// Test Load Repositories Using GitHub Api Service
+        /// GitHubService
         /// </summary>
-        [TestMethod]        
-        public void TestGetRepositorires()
-        {
-            var controller = new HomeController();
-            var result = controller.GetRepositories() as JsonResult;
-            var finalResult = result.Data;
+        private readonly IGithubService service = new GithubService();
 
-            Assert.AreEqual("OK", finalResult);
+        /// <summary>
+        /// Check if load the top repositories
+        /// </summary>
+        [TestMethod]
+        public void TestLoadRepositories()
+        {
+            var result = service.SearchRepositories();
+            Assert.IsTrue(result);
         }
 
         /// <summary>
-        /// Test load top repositories
+        /// Check if load correclty the five top repositories
         /// </summary>
         [TestMethod]
-        public void TestRepositoryView()
+        public void TestLoadTopRepositories()
         {
-            var controller = new HomeController();
-            var result = controller.Repository() as ViewResult;
-            var list = (IList<GitHub>)result.ViewData.Model;
-
-            Assert.AreNotEqual(0, list.Count());
+            var repositories = service.GetAll();
+            Assert.AreEqual(5, repositories.Count());
         }
 
         /// <summary>
-        /// Test Repository Detail
+        /// Get Repository Detail
         /// </summary>
         [TestMethod]
-        public void TestGetDetailView()
+        public void TestGetDetail()
         {
-            var controller = new HomeController();
-            var result = controller.GetDetail(1) as JsonResult;
-            var gitHub = (GitHub)result.Data;
-
-            Assert.IsNotNull(gitHub);
+            var repositories = service.GetById(1);
+            Assert.AreEqual(1, repositories.Id);
         }
 
         /// <summary>
-        /// Test access to view index
+        /// Must have only one top Csharp repository
         /// </summary>
         [TestMethod]
-        public void TestIndexView()
+        public void TestGetCsharpRepository()
         {
-            var controller = new HomeController();
-            var result = controller.Index() as ViewResult;
-            Assert.AreEqual("Index", result.ViewName);
+            var repositories = service.GetAll().Where(x => x.Language == "C#");
+            Assert.AreEqual(1, repositories.Count());
+        }
+
+        /// <summary>
+        /// Must have only one top Java repository
+        /// </summary>
+        [TestMethod]
+        public void TestGetJavaRepository()
+        {
+            var repositories = service.GetAll().Where(x => x.Language == "Java");
+            Assert.AreEqual(1, repositories.Count());
+        }
+
+        /// <summary>
+        /// Must have only one top FSharp repository
+        /// </summary>
+        [TestMethod]
+        public void TestGetFSharpRepository()
+        {
+            var repositories = service.GetAll().Where(x => x.Language == "F#");
+            Assert.AreEqual(1, repositories.Count());
+        }
+
+        /// <summary>
+        /// Must have only one top Abap repository
+        /// </summary>
+        [TestMethod]
+        public void TestGetAbapRepository()
+        {
+            var repositories = service.GetAll().Where(x => x.Language == "ABAP");
+            Assert.AreEqual(1, repositories.Count());
+        }
+
+        /// <summary>
+        /// Must have only one top Python repository
+        /// </summary>
+        [TestMethod]
+        public void TestGetPythonRepository()
+        {
+            var repositories = service.GetAll().Where(x => x.Language == "Python");
+            Assert.AreEqual(1, repositories.Count());
         }
     }
 }

@@ -15,7 +15,7 @@
         /// <summary>
         /// Data Repository
         /// </summary>
-        private GithubRepository repository = new GithubRepository();
+        private IGithubRepository repository = new GithubRepository();
 
         /// <summary>
         /// Search and store the top repositories of five languages
@@ -27,12 +27,16 @@
             {
                 var listRepositories = new List<GitHub>();
 
-                var csharp = getTopRepositoriesByLanguage(Language.C);
+                var csharp = getTopRepositoriesByLanguage(Language.CSharp);
                 var java = getTopRepositoriesByLanguage(Language.Java);
-                var php = getTopRepositoriesByLanguage(Language.Php);
-                var javascript = getTopRepositoriesByLanguage(Language.JavaScript);
+                var php = getTopRepositoriesByLanguage(Language.FSharp);
+                var javascript = getTopRepositoriesByLanguage(Language.Abap);
                 var python = getTopRepositoriesByLanguage(Language.Python);
 
+                // Clear current list
+                repository.RemoveAll();
+
+                // Add to be persisted
                 listRepositories.Add(csharp);
                 listRepositories.Add(java);
                 listRepositories.Add(php);
@@ -42,7 +46,7 @@
                 // Save the search
                 repository.AddAll(listRepositories);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 return false;
             }
@@ -77,18 +81,22 @@
         private GitHub getTopRepositoriesByLanguage(Language language)
         {
             // Initialize client
-            var client = new GitHubClient(new ProductHeaderValue("my-cool-app"));
+            var client = new GitHubClient(new ProductHeaderValue("GitHubWebApi"));            
 
             // Creates a request
             var request = new SearchRepositoriesRequest()
             {
                 Language = language,
                 SortField = RepoSearchSort.Stars,
-                Order = SortDirection.Descending,
-            };
+                Order = SortDirection.Descending
+            };           
+
+            var resultService = client.Search.SearchRepo(request).Result;
+
+            var list = resultService.Items;
 
             // Execute search
-            var result = client.Search.SearchRepo(request).Result.Items.FirstOrDefault();
+            var result = resultService.Items.OrderByDescending(x => x.StargazersCount).FirstOrDefault();
 
             var gitHub = new GitHub()
             {

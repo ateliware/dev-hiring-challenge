@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="GitHubDbContext-Web.config Connection String" description="GitHubDbContext A Cadeia de Conexão usada em web.config pelo aplicativo para acessar o banco de dados." defaultValue="data source=(LocalDB)\MSSQLLocalDB;initial catalog=GitHub;integrated security=True;pooling=False;multipleactiveresultsets=True;application name=EntityFramework" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\mario\\source\\repos\\GitHubWebApi\\GitHubWebApi\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='GitHubDbContext']/@connectionString" />
+  </parameter>
+</parameters>

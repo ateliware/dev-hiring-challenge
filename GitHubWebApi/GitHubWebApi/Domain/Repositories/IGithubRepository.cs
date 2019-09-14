@@ -26,5 +26,16 @@
         /// </summary>
         /// <returns>Individual Repositorie</returns>
         GitHub GetById(long id);
+
+        /// <summary>
+        /// Remove repository by id
+        /// </summary>
+        /// <param name="idGithub">Id GitHUb Repository</param>      
+        void Remove(long id);
+
+        /// <summary>
+        /// Remove all itens from table
+        /// </summary>
+        void RemoveAll();
     }
 }
