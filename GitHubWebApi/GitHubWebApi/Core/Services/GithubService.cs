@@ -91,11 +91,10 @@
                 Order = SortDirection.Descending
             };           
 
+            // Execute search
             var resultService = client.Search.SearchRepo(request).Result;
 
-            var list = resultService.Items;
-
-            // Execute search
+            // get result
             var result = resultService.Items.OrderByDescending(x => x.StargazersCount).FirstOrDefault();
 
             var gitHub = new GitHub()
