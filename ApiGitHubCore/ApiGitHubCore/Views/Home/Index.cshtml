@@ -1,0 +1,64 @@
+﻿@model UserM
+<!DOCTYPE html>
+
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/css/site.css">
+    @*<link rel="icon" type="image/png" href="./img/favicon.png">*@
+    <title>GitTest</title>
+</head>
+<body>
+    <!-- main start -->
+    <div class="main" id="main">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12">
+                    <div class="main__text-container">
+                        <h1 class="main__title">
+                            <z>GitHub Finder</z> <br>
+                        </h1>
+                        <p class="main__subtitle">
+                            <br> <z>enter a username!</z>
+                        </p>
+                    </div>
+                    <div class="main__input-container">
+                        @*<input type="text" class="form-control" asp-for="Name" />*@
+                        <input type="text" id="search" class="main__input" placeholder="Enter a username...">
+                        <span>
+                            <a class="btn btn-primary searchButton">Search</a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="main__profile-container">
+                <div class="main__profile">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p class="main__profile-name main__profile-key">
+                                @*<span class="main__profile-value">res.data.name</span>*@
+                            </p>
+                            <p class="main__profile-username main__profile-key">
+
+                            </p>
+                        </div>
+                        <div class="col-md-6">
+                            <p class="main__profile-repos main__profile-key">
+
+                            </p>
+                            <p class="main__profile-url main__profile-key">
+
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="~/js/ApiGit.js"></script>    
+    <!-- main end -->
+</body>
+
+</html>
