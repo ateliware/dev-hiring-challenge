@@ -1,0 +1,26 @@
+{
+    "name": "backend",
+    "version": "1.0.0",
+    "description": "Dev Hiring Challenge",
+    "main": "index.js",
+    "scripts": {
+        "start": "nodemon",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Victor Hugo Laynez",
+    "license": "ISC",
+    "dependencies": {
+        "body-parser": "1.18.3",
+        "consign": "0.1.6",
+        "cors": "2.8.4",
+        "express": "4.16.3",
+        "mysql": "^2.17.1",
+        "axios": "^0.18.1",
+        "knex": "0.19.3"
+    },
+    "devDependencies": {
+        "chai": "^4.2.0",
+        "chai-http": "^4.3.0",
+        "nodemon": "1.18.4"
+    }
+}
