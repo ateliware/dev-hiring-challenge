@@ -1,1 +1,16 @@
-<h1>Repositories List</h1>
+<div class="container">
+  <main role="main">
+    <div class="list-group p-2 m-2">
+      <% @repos.each do |repo| %>
+        <%= link_to repository_path(repo), class: "list-group-item list-group-item-action flex-column align-items-start" do %>
+          <div class="d-flex w-100">
+            <h5 class="mr-auto"><%= repo.name %></h5>
+            <small class="text-muted mx-1"><%= repo.language %></small>
+          </div>
+          <p class="mb-1"><%= repo.description %></p>
+          <small class="text-muted"><%= repo.html_url %></small>
+        <% end %>
+      <% end %>
+    </div>
+  </main>
+</div>
