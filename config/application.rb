@@ -15,5 +15,7 @@ module DevHiringChallenge
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
+    config.x.languages = %w[ruby elixir javascript python clojure]
+    config.x.github_auth_token = Rails.application.credentials.github_auth_token
   end
 end
