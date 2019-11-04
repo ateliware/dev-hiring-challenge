@@ -12,7 +12,16 @@ class FetchRepoDataJob < ApplicationJob
       repos = client.search_repos("language:#{language}").items
       puts 'Saving fetched data...'
       repos.each do |repo|
-        # TODO: Save the record into the database.
+        Repo.find_or_initialize_by(gh_id: repo[:id]).update(
+          gh_node_id: repo[:node_id],
+          name: repo[:name],
+          full_name: repo[:full_name],
+          html_url: repo[:html_url],
+          description: repo[:description],
+          language: repo[:language],
+          homepage: repo[:homepage],
+          repo_created_at: repo[:created_at]
+        )
       end
     end
     puts 'Done.'
