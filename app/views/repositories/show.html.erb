@@ -1,1 +1,16 @@
-<h1>Repository Details</h1>
+<div class="container">
+  <main role="main">
+    <div class="m-2 p-2">    
+    <h1><%= @repo.name %></h1>
+    <p><%= @repo.description %></p>
+    <p><%= link_to @repo.homepage, @repo.homepage %></p>
+    <p><%= link_to @repo.html_url, @repo.html_url %></p>
+    <hr>
+    <p>gh_id: <%= @repo.gh_id %></p>
+    <p>html_url: <%= @repo.html_url %></p>
+    <p>name: <%= @repo.name %></p>
+    <p>full_name: <%= @repo.full_name %></p>
+    <p>created_at: <%= @repo.created_at %></p>
+    </div>
+  </main>
+</div>
