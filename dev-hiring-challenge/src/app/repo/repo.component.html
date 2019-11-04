@@ -1,0 +1,40 @@
+<!--
+      Luís Henrique Beltrão Santana
+      3 de novembro de 2019
+-->
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col col-2">
+      <img [src]="repo.avatar" alt={{repo.name}} width=60 height=60>
+    </div>
+    <div class="col col-9">
+      <p>
+        {{repo.author}}/{{repo.name}}<br>
+        {{repo.language}}<br>
+        stars: {{repo.stars}} <br>
+        forks: {{repo.forks}}
+      </p>
+    </div>
+  </div>
+  <div *ngIf="details" class="row details-margin">
+    <p>
+      {{repo.description}}<br>
+      url: <a [href]="repo.url" target="_blank">{{repo.url}}</a><br>
+    </p>
+  </div>
+  <div *ngIf="details">
+    <div *ngIf="repo.builtBy.length > 0">
+      colaboradores:<br>
+    </div>
+    <div *ngFor="let user of repo.builtBy"  class="row details-margin">
+      <a [href]="user.href" target="_blank">{{user.username}}</a>
+    </div>
+    <br>
+  </div>
+  <div class="row">
+    <button type="button" class="btn btn-primary" (click)="changeDetails()">{{detailsButton}}</button>
+  </div>
+</div>
+
+
