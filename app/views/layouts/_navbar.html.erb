@@ -1,0 +1,17 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+  <div class="container">
+  <a class="navbar-brand" href="/">Awesome Repos</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbar">
+    <ul class="navbar-nav mr-auto">
+      <% @languages_list.each do |language| %>
+      <li class="nav-item">
+        <a class="nav-link" href="#"><%= language.capitalize %></span></a>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+  </div>
+</nav>
