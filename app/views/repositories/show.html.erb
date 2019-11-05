@@ -1,24 +1,51 @@
-<div class="container">
   <main role="main">
-    <div class="m-2 p-2">    
-    <h1><%= @repo.name %></h1>
-    <p><%= @repo.description %></p>
-    <p><%= link_to @repo.homepage, @repo.homepage %></p>
-    <p><%= link_to @repo.html_url, @repo.html_url %></p>
-    <hr>
-    <p>gh_id: <%= @repo.gh_id %></p>
-    <p>html_url: <%= @repo.html_url %></p>
-    <p>name: <%= @repo.name %></p>
-    <p>full_name: <%= @repo.full_name %></p>
-    <p>created_at: <%= @repo.created_at %></p>
-    <p>stargazers_count: <%= @repo.stargazers_count %></p>
-    <p>watchers_count: <%= @repo.watchers_count %></p>
-    <p>forks_count: <%= @repo.forks_count %></p>
-    <p>open_issues_count: <%= @repo.open_issues_count %></p>
-    <p>subscribers_count: <%= @repo.subscribers_count %></p>
-    <p>owner_avatar_url: <%= @repo.owner_avatar_url %></p>
-    <p>owner_html_url: <%= @repo.owner_html_url %></p>
-    <p>readme_content: <%= @repo.readme_content %></p>
+    <div class="container">
+    <div class="row">
+      <div class="col-sm-8">
+        <div class="card bg-light my-4">
+          <div class="card-body">
+            <div class="media">
+              <%= link_to @repo.owner_html_url do %>
+                <img src="<%= @repo.owner_avatar_url %>%" width="128" class="mr-3 rounded" alt="...">
+              <% end %>
+              <div class="media-body">
+                <h2 class="h4 my-0"><%= link_to @repo.name, @repo.html_url %></h1>
+                <small class="text-muted"><%= @repo.html_url %></small>
+                <p><%= @repo.description %></p>
+                <h6><%= link_to @repo.homepage, @repo.homepage %></h6>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="m-4 p-4">
+          <%= @repo.readme_content.html_safe %>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="text-center">
+          <h3 class="h1 m-4">
+            <span class="badge badge-pill badge-light m-0"><%= @repo.language %></span>
+          </h3>
+          <div class="card bg-light mx-5 my-3">
+            <div class="card-body">
+              <h2 class="m-0 card-title"><%= @repo.stargazers_count %></h2>
+              <p class="h6 card-text">Stars</p>
+            </div>
+          </div>
+          <div class="card bg-light mx-5 my-3">
+            <div class="card-body">
+              <h2 class="m-0 card-title"><%= @repo.forks_count %></h2>
+              <p class="h6 card-text">Forks </p>
+            </div>
+          </div>
+          <div class="card bg-light mx-5 my-3">
+            <div class="card-body">
+              <h2 class="m-0 card-title"><%= @repo.open_issues_count %></h2>
+              <p class="h6 card-text">Open Issues </p>
+            </div>
+          </div>
+        </div>
+              
+      </div>
     </div>
   </main>
-</div>
