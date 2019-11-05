@@ -20,7 +20,14 @@ class FetchRepoDataJob < ApplicationJob
           description: repo[:description],
           language: repo[:language],
           homepage: repo[:homepage],
-          repo_created_at: repo[:created_at]
+          repo_created_at: repo[:created_at],
+          stargazers_count: repo[:stargazers_count],
+          watchers_count: repo[:watchers_count],
+          forks_count: repo[:forks_count],
+          open_issues_count: repo[:open_issues_count],
+          subscribers_count: repo[:subscribers_count],
+          owner_avatar_url: repo[:owner].avatar_url,
+          owner_html_url: repo[:owner].html_url
         )
       end
     end
