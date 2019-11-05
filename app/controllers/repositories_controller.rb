@@ -1,10 +1,11 @@
 class RepositoriesController < ApplicationController
   def index
-    language = params[:language].downcase if params[:language]
-    if !language
+    @language = params[:language].downcase if params[:language]
+    @language_in_list = @languages_list.include? @language
+    if !@language
       @repos = Repo.all.limit(100).order('stargazers_count DESC')
-    elsif @languages_list.include? language
-      @repos = Repo.where('lower(language) = ?', language).limit(100).order('stargazers_count DESC')
+    elsif @language_in_list
+      @repos = Repo.where('lower(language) = ?', @language).limit(100).order('stargazers_count DESC')
     else
       @repos = []
     end

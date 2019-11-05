@@ -1,21 +1,29 @@
 <div class="container">
   <main role="main">
     <div class="list-group p-2 m-2">
-      <% @repos.each do |repo| %>
-        <%= link_to repository_path(repo), class: "list-group-item list-group-item-action flex-column align-items-start" do %>
-          <div class="media">
-            <img src="<%= repo.owner_avatar_url %>%" width="64" class="mr-3 rounded" alt="...">
-            <div class="media-body">
-              <h4 class="m-0"><%= repo.name %></h4>
-              <p class="mb-0"><%= repo.description %></p>
-            </div>
-          </div>
-          <h5 class="text-right m-0">
-            <span class="badge badge-pill badge-light"><%= repo.language %></span>
-            <span class="badge badge-pill badge-light"><%= repo.stargazers_count %> stars</span>
-            <span class="badge badge-pill badge-light"><%= repo.forks_count %> forks</span>
-          </h5>
-        <% end %>
+      <% if !@language || @language_in_list %>
+        <% if !@repos.empty? %>
+          <% @repos.each do |repo| %>
+            <%= link_to repository_path(repo), class: "list-group-item list-group-item-action flex-column align-items-start" do %>
+              <div class="media">
+                <img src="<%= repo.owner_avatar_url %>%" width="64" class="mr-3 rounded" alt="...">
+                <div class="media-body">
+                  <h4 class="m-0"><%= repo.name %></h4>
+                  <p class="mb-0"><%= repo.description %></p>
+                </div>
+              </div>
+              <h5 class="text-right m-0">
+                <span class="badge badge-pill badge-light"><%= repo.language %></span>
+                <span class="badge badge-pill badge-light"><%= repo.stargazers_count %> stars</span>
+                <span class="badge badge-pill badge-light"><%= repo.forks_count %> forks</span>
+              </h5>
+            <% end %>
+          <% end %>
+        <% else %>
+        <h3 class="text-center p-5 m-5">There's no repository data yet. You may fetch it from GitHub with the button above.</h3>
+      <% end %>
+      <% else %>
+        <h3 class="text-center p-5 m-5">The language was not found on the application's list.</h3>
       <% end %>
     </div>
   </main>
