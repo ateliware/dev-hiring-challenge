@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {GithubService} from './apis/github.service';
 import {Repository} from './entities/repository';
+import {HerokuService} from './apis/heroku.service';
 
 @Component({
   selector: 'app-root',
@@ -10,8 +11,16 @@ import {Repository} from './entities/repository';
 export class AppComponent {
   title = 'dev-hiring-challenge';
   repos: Repository[] = [];
+  savedRepos: Repository[] = [];
 
-  constructor(private github: GithubService) {}
+  constructor(private github: GithubService,
+              private heroku: HerokuService) {
+    heroku.getSaved().subscribe (repos => {
+      if (repos !== undefined && repos.length >= 1) {
+        this.savedRepos = repos;
+      }
+    });
+  }
 
   private findTrendRepo(language: string) {
     this.github.getTrending(language).subscribe( repos => {
@@ -39,5 +48,11 @@ export class AppComponent {
     this.findTrendRepo('typescript');
     this.findTrendRepo('python');
     this.findTrendRepo('c');
+  }
+
+  save() {
+    this.repos.forEach(repo => {
+      this.heroku.save(repo).subscribe();
+    });
   }
 }

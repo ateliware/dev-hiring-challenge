@@ -4,9 +4,16 @@
 -->
 
 <button type="button" class="btn btn-primary" (click)="findRepos()">Buscar</button>
-<button type="button" class="btn btn-success">salvar</button>
+<button *ngIf="repos.length > 0" type="button" class="btn btn-success" (click)="save()">salvar</button>
 
 <div *ngFor="let repo of repos">
+  <app-repo [repo]=repo> </app-repo>
+</div>
+<br>
+<div class="label">
+  <p>Repositórios salvos:</p>
+</div>
+<div *ngFor="let repo of savedRepos">
   <app-repo [repo]=repo> </app-repo>
 </div>
 
