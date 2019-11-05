@@ -1,0 +1,274 @@
+import 'package:flutter/material.dart';
+import 'package:hiring_app/dao/database.dart';
+import 'package:hiring_app/models/repository.dart';
+
+class repositoriesPage extends StatefulWidget {
+  @override
+  _repositoriesPageState createState() => _repositoriesPageState();
+}
+
+class _repositoriesPageState extends State<repositoriesPage> {
+
+  Banco _data;
+  List<Repository> _getRepositories = new List();
+
+  @override
+  void initState() {
+    super.initState();
+    _startDatabase();
+  }
+
+  void _startDatabase() async {
+    _data = await Banco.get();
+    _getRepositories = await _data.getRepositories();
+  }
+
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+        itemCount: _getRepositories.length,
+        itemBuilder: (BuildContext ctx, int index){
+          Repository repository = _getRepositories.elementAt(index);
+          return ListTile(
+            title: Text(repository.name),
+            subtitle: Text(repository.language),
+            onTap: (){},
+            onLongPress: (){
+              showDialog(context: context,
+                  builder: (BuildContext context){
+                    return AlertDialog(
+                      title: Text('Exclusão'),
+                      content: Text('Confirmar exclusão?'),
+                      actions: <Widget>[
+                        FlatButton(
+                          child: Text('Cancelar'),
+                          onPressed: (){
+                            Navigator.of(context).pop();
+                          },
+                        ),
+                        FlatButton(
+                          child: Text('Confimar'),
+                          onPressed: (){
+                            //_excluirPessoa(pessoa.id);
+                            Navigator.of(context).pop();
+                          },
+                        )
+                      ],
+                    );
+                  }
+              );
+            },
+          );
+        }
+    );
+  }
+}
+
+
+
+
+
+
+
+----------------------------
+
+
+
+import 'package:flutter/material.dart';
+import 'package:hiring_app/dao/database.dart';
+import 'package:hiring_app/models/repository.dart';
+
+class repositoriesPage extends StatefulWidget {
+  @override
+  _repositoriesPageState createState() => _repositoriesPageState();
+}
+
+class _repositoriesPageState extends State<repositoriesPage> {
+  Banco _data;
+
+  List<Repository> _getRepositories = new List();
+
+  @override
+  void initState() {
+    super.initState();
+    _startDatabase();
+  }
+
+  void _startDatabase() async {
+    _data = await Banco.get();
+     _getRepositories = await _data.getRepositories();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      child: ListView.builder(
+        itemCount: _getRepositories.length,
+        itemBuilder: (BuildContext ctx, int index) {
+      Repository repository = _getRepositories.elementAt(index);
+
+      return Padding(
+        padding: const EdgeInsets.only(top: 10, left: 5, right: 5),
+        child: Container(
+          child: Card(
+            clipBehavior: Clip.antiAlias,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Padding(
+                  padding: const EdgeInsets.all(10),
+                  child: Container(
+                    height: 300,
+                    decoration: BoxDecoration(
+                        image: DecorationImage(
+                          fit: BoxFit.fill,
+                          image: NetworkImage(repository.avatar),
+                        )
+                      // ignore: missing_return
+                    ),
+                  ),
+                ),
+                Divider(
+                  height: 20,
+                  color: Colors.black,
+                ),
+                Column(
+                  children: <Widget>[
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Icon(Icons.star),
+                        Text(" " + repository.stars.toString()),
+                      ],
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        repository.name,
+                        style: TextStyle(
+                          fontSize: 25,
+                        ),
+                      ),
+                    ),
+                  ],
+                )
+              ],
+            ),
+          ),
+        ),
+      );
+    });
+  }
+}
+
+
+
+
+
+--------------------------
+
+
+import 'package:flutter/material.dart';
+import 'package:hiring_app/dao/database.dart';
+import 'package:hiring_app/models/repository.dart';
+
+
+
+void main() => runApp(RepositoriesPage());
+
+class RepositoriesPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: ListagemPessoas(titulo: 'Listagem de pessoas'),
+    );
+  }
+}
+
+class ListagemPessoas extends StatefulWidget {
+  ListagemPessoas({Key key, this.titulo}) : super(key: key);
+  final String titulo;
+  @override
+  _ListagemPessoasState createState() => _ListagemPessoasState();
+}
+
+class _ListagemPessoasState extends State<ListagemPessoas> {
+
+  Banco _banco;
+  List<Repository> _listaDePessoas = new List();
+
+  @override
+  void initState() {
+    super.initState();
+    _abrirBanco();
+  }
+
+  void _abrirBanco() async {
+    _banco = await Banco.get();
+    _listaDePessoas = await _banco.getRepositories();
+    setState(() {});
+  }
+  void _incluidfuckingpessoa(Repository fodase) async{
+    _banco.insert(fodase);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Lista"),
+      ),
+      body: ListView.builder(
+          itemCount: _listaDePessoas.length,
+          itemBuilder: (BuildContext ctx, int index){
+            Repository pessoa = _listaDePessoas.elementAt(index);
+            return ListTile(
+              title: Text(pessoa.name),
+              subtitle: Text(pessoa.language),
+              onTap: (){
+                //_editarPessoa(pessoaEditar: pessoa, index: index);
+              },
+              onLongPress: (){
+                showDialog(context: context,
+                    builder: (BuildContext context){
+                      return AlertDialog(
+                        title: Text('Exclusão'),
+                        content: Text('Confirmar exclusão?'),
+                        actions: <Widget>[
+                          FlatButton(
+                            child: Text('Cancelar'),
+                            onPressed: (){
+                              Navigator.of(context).pop();
+                            },
+                          ),
+                          FlatButton(
+                            child: Text('Confimar'),
+                            onPressed: (){
+                              _excluirPessoa(pessoa.id);
+                              Navigator.of(context).pop();
+                            },
+                          )
+
+                        ],
+                      );
+                    }
+                );
+              },
+            );
+          }
+      ),
+    );
+  }
+
+  void _excluirPessoa(int id) async{
+    _banco.delete(id);
+    _listaDePessoas = await _banco.getRepositories();
+    setState(() {});
+  }
+
+
+}
