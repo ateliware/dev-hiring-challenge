@@ -12,6 +12,15 @@ class RepositoriesController < ApplicationController
 
   def show
     @repo = Repo.find(params[:id])
+    unless @repo.readme_content
+      github_access_token = Rails.configuration.x.github_auth_token
+      client = Octokit::Client.new(access_token: github_access_token)
+      repo_readme = client.readme @repo[:full_name]
+      readme_content = client.get(repo_readme[:download_url])
+      markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
+      @repo.readme_content = markdown.render(readme_content.force_encoding('UTF-8'))
+      @repo.save
+    end
   end
 
   def fetch_data
