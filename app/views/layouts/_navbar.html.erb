@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
   <div class="container">
-  <a class="navbar-brand" href="/">Awesome Repos</a>
+  <a class="navbar-brand" href="/repositories">Awesome Repos</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -11,6 +11,14 @@
         <%= link_to language.capitalize, { controller: 'repositories', language: language }, class: 'nav-link' %>
       </li>
       <% end %>
+    </ul>
+    <ul class="navbar-nav">
+      <li class="nav-item mx-3">
+        <button class="btn btn-sm btn-primary" type="button">Fetch repositories data</button>
+      </li>
+      <li class="nav-item">
+        <button class="btn btn-sm btn-danger" type="button">Clear all data</button>
+      </li>
     </ul>
   </div>
   </div>
