@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_04_183355) do
+ActiveRecord::Schema.define(version: 2019_11_05_033200) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,14 @@ ActiveRecord::Schema.define(version: 2019_11_04_183355) do
     t.datetime "repo_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "stargazers_count"
+    t.integer "watchers_count"
+    t.integer "forks_count"
+    t.integer "open_issues_count"
+    t.integer "subscribers_count"
+    t.string "owner_avatar_url"
+    t.string "owner_html_url"
+    t.text "readme_content"
     t.index ["gh_id"], name: "index_repos_on_gh_id", unique: true
   end
 
