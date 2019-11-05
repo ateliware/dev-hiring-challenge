@@ -9,7 +9,23 @@ class RepositoriesController < ApplicationController
       @repos = []
     end
   end
+
   def show
     @repo = Repo.find(params[:id])
   end
+
+  def fetch_data
+    FetchRepoDataJob.perform_later
+    respond_to do |format|
+      format.html { redirect_to '/', notice: 'Data fetching job started. May take a while...' }
+    end
+  end
+
+  def clear_data
+    Repo.delete_all
+    respond_to do |format|
+      format.html { redirect_to '/', notice: 'All data cleared.' }
+    end
+  end
+
 end
