@@ -1,5 +1,6 @@
 <div class="container">
   <main role="main">
+    <h1 class="display-3 p-5 m-2 text-center">The most popular <%= @language.capitalize if @language %> repositories from GitHub</h1>
     <div class="list-group p-2 m-2">
       <% if !@language || @language_in_list %>
         <% if !@repos.empty? %>
