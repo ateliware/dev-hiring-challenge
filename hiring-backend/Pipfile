@@ -1,0 +1,16 @@
+# Pipfile
+
+[[source]]
+
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+
+
+[packages]
+
+Flask = "*"
+Psycopg2 = "*"
+python-dotenv = "*"
+
+[requires]
+python_version = "3.7"
