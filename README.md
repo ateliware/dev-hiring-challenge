@@ -4,7 +4,7 @@ dev-hiring-challenge
 
 Finalizei o desafio e estou reenviando o projeto, espero que gostem.
 
-Mas vamos ao que interessa... Construir essa aplicação foi uma oportunidade incrível de aprendizado para mim, foi a primeira vez que iniciei um projeto totalmente do zero, consumindo Api e utilizando um banco de dados. Com certeza essa ultima semana repleta de noites mal dormidas me fizerem aprender muito pelas dificuldades que encontrei.
+Construir essa aplicação foi uma oportunidade incrível de aprendizado para mim, foi a primeira vez que iniciei um projeto totalmente do zero, consumindo Api e utilizando um banco de dados. Com certeza essa ultima semana repleta de noites mal dormidas me fizerem aprender muito pelas dificuldades que encontrei.
 
 A aplicação foi desenvolvida em Flutter utilizando os componentes Material Design e gerou código nativo para android e IOS.
 O consumo de dados se deu pela REST API v3 do Github.
