@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "316458122087",
+    "firebase_url": "https://desafio-ateliware.firebaseio.com",
+    "project_id": "desafio-ateliware",
+    "storage_bucket": "desafio-ateliware.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:316458122087:android:b680d8d942a45da6004dc2",
+        "android_client_info": {
+          "package_name": "com.devhiringchallenge.dev_hiring_challenge"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "316458122087-kqgdqetufsji8str05f3735smqsc6513.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCicjeiV2F6HjHwjJQZxdECBRizm5JkoMM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "316458122087-kqgdqetufsji8str05f3735smqsc6513.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
