@@ -23,7 +23,9 @@ Para executar a aplicação:
 ```
 
 Endpoint API:
+
 https://dev-hiring2.herokuapp.com/api/{language}
 
 Buscar linguagem:
+
 ``` GET /api/{language} ```: Retorna os  repositórios destaque, associados à linguagem pesquisada. Quando uma nova linguagem é pesquisada, os resultados da API do GitHub são armazenados no banco de dados e a próxima busca pela mesma linguagem será retornada do banco de dados local.
