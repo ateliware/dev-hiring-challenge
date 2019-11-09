@@ -1,20 +1,29 @@
-# Desafio técnico para desenvolvedores
+#Dev Hiring Ateliware
 
-Construa uma nova aplicação, utilizando o framework de sua preferência (Rails, ASP.NET, Phoenix, etc), a qual deverá conectar na API do GitHub e disponibilizar as seguintes funcionalidades:
+Aplicação utilizando Node e React, que conecta à API do GitHub e busca os repósitorios destaques (ordenados pelo número de "stars") de uma determinada linguagem.
 
-- Botão para buscar e armazenar os repositórios destaques de 5 linguagens à sua escolha;
-- Listar os repositórios encontrados;
-- Visualizar os detalhes de cada repositório.
+Para acessar a aplicação no Heroku, [clique aqui](https://dev-hiring2.herokuapp.com/)
 
-Alguns requisitos:
+Para executar a aplicação:
 
-- Deve ser uma aplicação totalmente nova;
-- A solução deve estar em um repositório público do GitHub;
-- A aplicação deve armazenar as informações encontradas;
-- Utilizar Postgres, MySQL ou SQL Server;
-- O deploy deve ser realizado, preferencialmente, no Heroku ou no Azure;
-- A aplicação precisa ter testes automatizados.
+- Criar um arquivo .env com os dados para conexão com o banco de dados Postgres, conforme exemplo no arquivo .env_example;
+- Instalar dependências;
+- Executar o script para criar a tabela no banco de dados:
+```
+  node backend/create.js
+```
+- Iniciar o servidor:
+```
+  yarn start
+```
+- Executar a aplicação:
+```
+  cd frontend
+  yarn start
+```
 
-Quando terminar, faça um Pull Request neste repo e avise-nos por email.
+Endpoint API:
+https://dev-hiring2.herokuapp.com/api/{language}
 
-**IMPORTANTE:** se você não conseguir finalizar o teste, por favor nos diga o motivo e descreva quais foram as suas dificuldades. Claro que você também pode sugerir uma outra abordagem para avaliarmos seus skills técnicos, mas é com você para vender seu peixe, mostrar-nos do que é capaz.
+Buscar linguagem:
+``` GET /api/{language} ```: Retorna os  repositórios destaque, associados à linguagem pesquisada. Quando uma nova linguagem é pesquisada, os resultados da API do GitHub são armazenados no banco de dados e a próxima busca pela mesma linguagem será retornada do banco de dados local.

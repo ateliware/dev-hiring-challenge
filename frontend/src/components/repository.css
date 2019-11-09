@@ -1,0 +1,34 @@
+.repo-container {
+  width: 100%;
+  box-sizing: border-box;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #666;
+}
+
+.repo-container:last-of-type {
+  border-bottom: unset;
+}
+
+.repo-container__title {
+  width: 100%;
+  display: flex;
+  flex-direction: row !important;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.repo-link-container {
+  display: flex;
+  flex-direction: row !important;
+  justify-content: center;
+  align-items: center;
+}
+
+.repo-link-container svg {
+  fill: #00918e;
+}
+
+.repo-link-container a {
+  color: #00918e;
+  margin-right: 6px;
+}
