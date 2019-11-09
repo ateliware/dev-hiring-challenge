@@ -14,6 +14,7 @@ export default function Main() {
   
   async function handleSubmit(ev) {
     ev.preventDefault();
+    document.getElementById('inp').blur()
     
     setShowLoading(true);
     setData(undefined);
