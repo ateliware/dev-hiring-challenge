@@ -1,0 +1,37 @@
+*.class
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+# Eclipse #
+.settings
+.project
+.classpath
+.studio
+target
+
+# Apple # 
+.DS_Store
+
+# Intellij #
+.idea
+*.iml
+*.log
+*.editorconfig
+
+# VSCode
+.vscode
+
+# logback
+logback.out.xml
+
+back-end/src/main/resources/public
+back-end/target
+front-end/build
+front-end/coverage
+front-end/node
+front-end/node_modules
+front-end/target
+front-end/static

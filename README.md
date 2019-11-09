@@ -1,20 +1,17 @@
-# Desafio técnico para desenvolvedores
+# github-api-integration
 
-Construa uma nova aplicação, utilizando o framework de sua preferência (Rails, ASP.NET, Phoenix, etc), a qual deverá conectar na API do GitHub e disponibilizar as seguintes funcionalidades:
+A Spring Boot + Vue example project.
 
-- Botão para buscar e armazenar os repositórios destaques de 5 linguagens à sua escolha;
-- Listar os repositórios encontrados;
-- Visualizar os detalhes de cada repositório.
+It's a single page with a button to consume a GitHub API and then shows the top 10 repositories given a language input, ordering it by its popularity.
 
-Alguns requisitos:
+In details, using axios, the front-view calls a back-end RESTFul service API using a POST verb. The back-end consumes a public GitHub API, saves its response in a Postgres database managed by Spring data and then returns a JSON response back to the front-view.
 
-- Deve ser uma aplicação totalmente nova;
-- A solução deve estar em um repositório público do GitHub;
-- A aplicação deve armazenar as informações encontradas;
-- Utilizar Postgres, MySQL ou SQL Server;
-- O deploy deve ser realizado, preferencialmente, no Heroku ou no Azure;
-- A aplicação precisa ter testes automatizados.
+Stack:
 
-Quando terminar, faça um Pull Request neste repo e avise-nos por email.
-
-**IMPORTANTE:** se você não conseguir finalizar o teste, por favor nos diga o motivo e descreva quais foram as suas dificuldades. Claro que você também pode sugerir uma outra abordagem para avaliarmos seus skills técnicos, mas é com você para vender seu peixe, mostrar-nos do que é capaz.
+ - Spring boot + Sring data 
+ - Postgres database
+ - Vue + bootstrap + axios
+ 
+ Live website:
+ 
+ https://github-api-integration.herokuapp.com/
