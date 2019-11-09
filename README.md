@@ -1,4 +1,4 @@
-#Dev Hiring Ateliware
+# Dev Hiring Ateliware
 
 Aplicação utilizando Node e React, que conecta à API do GitHub e busca os repósitorios destaques (ordenados pelo número de "stars") de uma determinada linguagem.
 
