@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+  app:
+    build: .
+    tty: true
+    stdin_open: true
+    command: bash -c "while [ true ]; do sleep 10; done"
+    container_name: projetoateliware
+    volumes:
+      - .:/projetoateliware
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    links:
+      - db
+
+  db:
+    image: postgres
+    container_name: projetoateliware-db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password

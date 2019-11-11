@@ -1,0 +1,37 @@
+<%= form_with(model: repository, local: true) do |form| %>
+  <% if repository.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(repository.errors.count, "error") %> prohibited this repository from being saved:</h2>
+
+      <ul>
+      <% repository.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :external_id %>
+    <%= form.number_field :external_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :owner_name %>
+    <%= form.text_field :owner_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :language %>
+    <%= form.text_field :language %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

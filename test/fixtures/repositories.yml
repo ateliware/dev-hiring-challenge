@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  external_id: 1
+  name: MyString
+  owner_name: MyString
+
+two:
+  external_id: 1
+  name: MyString
+  owner_name: MyString

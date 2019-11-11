@@ -1,20 +1,9 @@
-# Desafio técnico para desenvolvedores
+# README
 
-Construa uma nova aplicação, utilizando o framework de sua preferência (Rails, ASP.NET, Phoenix, etc), a qual deverá conectar na API do GitHub e disponibilizar as seguintes funcionalidades:
+Este projeto foi proposto pela Ateliware.
 
-- Botão para buscar e armazenar os repositórios destaques de 5 linguagens à sua escolha;
-- Listar os repositórios encontrados;
-- Visualizar os detalhes de cada repositório.
+Nesta aplicação foi implementada (em Ruby on Rails) a função de armazenar no banco de dados(utilizando o PostgresSQL) os 10 repositórios destaques escritos nas linguagens abaixo:
+Ruby, Assembly, Java, PHP e Python
 
-Alguns requisitos:
-
-- Deve ser uma aplicação totalmente nova;
-- A solução deve estar em um repositório público do GitHub;
-- A aplicação deve armazenar as informações encontradas;
-- Utilizar Postgres, MySQL ou SQL Server;
-- O deploy deve ser realizado, preferencialmente, no Heroku ou no Azure;
-- A aplicação precisa ter testes automatizados.
-
-Quando terminar, faça um Pull Request neste repo e avise-nos por email.
-
-**IMPORTANTE:** se você não conseguir finalizar o teste, por favor nos diga o motivo e descreva quais foram as suas dificuldades. Claro que você também pode sugerir uma outra abordagem para avaliarmos seus skills técnicos, mas é com você para vender seu peixe, mostrar-nos do que é capaz.
+Link da aplicação no heroku:
+Application address: https://projeto-ateliware.herokuapp.com/

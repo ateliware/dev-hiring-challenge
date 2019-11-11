@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Repositorios Destaques</h1>
+
+<table border="1">
+  <thead>
+    <tr>
+      <th>ID do projeto no GitHub</th>
+      <th>Nome do projeto</th>
+      <th>Nome do dono do projeto</th>
+      <th>Linguagem</th>
+      <th>Opções</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+        <%= button_to 'Buscar e armazenar repositorios', repositories_update_trending_path %>
+  <tbody>
+    <% @repositories.each do |repository| %>
+      <tr>
+        <td><%= repository.external_id %></td>
+        <td><%= repository.name %></td>
+        <td><%= repository.owner_name %></td>
+        <td><%= repository.language %></td>
+        <td><%= link_to 'Detalhes', repository%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
