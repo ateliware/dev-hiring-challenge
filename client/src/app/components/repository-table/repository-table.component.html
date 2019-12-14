@@ -1,0 +1,180 @@
+<mat-card>
+  <form [formGroup]="formFilter">
+    <div class="row">
+      <div class="col-md-6">
+        <mat-form-field appearance="outline">
+          <input (keyup)="applyFilter($event.target.value)" formControlName="search" matInput
+                 placeholder="Pesquisar...">
+        </mat-form-field>
+      </div>
+      <div class="col-md-6">
+        <mat-form-field appearance="outline">
+          <mat-select (selectionChange)="findTrendRepo($event)" formControlName="language" placeholder="Language">
+            <mat-option [value]="'javascript'">JavaScript</mat-option>
+            <mat-option [value]="'python'">Python</mat-option>
+            <mat-option [value]="'c'">C</mat-option>
+            <mat-option [value]="'go'">Go</mat-option>
+            <mat-option [value]="'typescript'">TypeScript</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+  </form>
+</mat-card>
+<div class="row">
+  <div class="table-responsive">
+    <div class="table table-hover">
+      <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+      <table [dataSource]="dataSource" mat-table matSort multiTemplateDataRows>
+        <ng-container matColumnDef="select">
+          <th *matHeaderCellDef mat-header-cell mat-sort-header>
+            <mat-checkbox (change)="$event ? masterToggle() : null"
+                          [aria-label]="checkboxLabel()"
+                          [checked]="selection.hasValue() && isAllSelected()"
+                          [indeterminate]="selection.hasValue() && !isAllSelected()">
+            </mat-checkbox>
+          </th>
+          <td *matCellDef="let element" class="td-10" mat-cell>
+            <mat-checkbox (change)="$event ? selection.toggle(element) : null"
+                          (click)="$event.stopPropagation()"
+                          [aria-label]="checkboxLabel(element)"
+                          [checked]="selection.isSelected(element)">
+            </mat-checkbox>
+          </td>
+          <td *matFooterCellDef class="td-10" mat-footer-cell></td>
+        </ng-container>
+        <ng-container matColumnDef="author">
+          <th *matHeaderCellDef class="td-10" mat-header-cell mat-sort-header> author
+          </th>
+          <td *matCellDef="let element" class="td-10" mat-cell> {{element.author }}
+          </td>
+          <td *matFooterCellDef class="td-10" mat-footer-cell></td>
+        </ng-container>
+        <ng-container matColumnDef="avatar">
+          <th *matHeaderCellDef class="td-10" mat-header-cell mat-sort-header> avatar
+          </th>
+          <td *matCellDef="let element" class="td-10" mat-cell><img alt="{{element.description}}}" height="25"
+                                                                    src="{{element.avatar}}" width="25">
+          </td>
+          <td *matFooterCellDef class="td-10" mat-footer-cell></td>
+        </ng-container>
+        <ng-container matColumnDef="currentPeriodStars">
+          <th *matHeaderCellDef class="td-10" mat-header-cell mat-sort-header> currentPeriodStars
+          </th>
+          <td *matCellDef="let element" class="td-10" mat-cell>
+            <svg aria-label="star" class="octicon octicon-star" height="16" role="img" version="1.1"
+                 viewBox="0 0 14 16" width="14">
+              <path d="M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74L14 6z"
+                    fill-rule="evenodd"></path>
+            </svg>
+            {{element['currentPeriodStars']}}
+          </td>
+          <td *matFooterCellDef class="td-10" mat-footer-cell></td>
+        </ng-container>
+
+        <ng-container matColumnDef="forks">
+          <th *matHeaderCellDef class="td-10" mat-header-cell mat-sort-header>
+            forks
+          </th>
+          <td *matCellDef="let element" class="td-10" mat-cell>
+            <svg aria-label="repo-forked" class="octicon octicon-repo-forked" height="16" role="img"
+                 version="1.1" viewBox="0 0 10 16" width="10">
+              <path
+                d="M8 1a1.993 1.993 0 00-1 3.72V6L5 8 3 6V4.72A1.993 1.993 0 002 1a1.993 1.993 0 00-1 3.72V6.5l3 3v1.78A1.993 1.993 0 005 15a1.993 1.993 0 001-3.72V9.5l3-3V4.72A1.993 1.993 0 008 1zM2 4.2C1.34 4.2.8 3.65.8 3c0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zm3 10c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zm3-10c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2z"
+                fill-rule="evenodd"></path>
+            </svg>
+            {{element.forks}}
+          </td>
+          <td *matFooterCellDef class="td-10" mat-footer-cell>
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="language">
+          <th *matHeaderCellDef class="td-10" mat-header-cell mat-sort-header> language
+          </th>
+          <td *matCellDef="let element" [ngStyle]="{'color': element.languageColor}" class="td-10"
+              mat-cell> {{element.language}}
+          </td>
+          <td *matFooterCellDef class="td-10" mat-footer-cell></td>
+        </ng-container>
+        <ng-container matColumnDef="name">
+          <th *matHeaderCellDef class="td-10" mat-header-cell mat-sort-header> name
+          </th>
+          <td *matCellDef="let element" class="td-10" mat-cell> {{element.name}}
+          </td>
+          <td *matFooterCellDef class="td-10" mat-footer-cell></td>
+        </ng-container>
+        <ng-container matColumnDef="stars">
+          <th *matHeaderCellDef class="td-10" mat-header-cell mat-sort-header> stars
+          </th>
+          <td *matCellDef="let element" class="td-10" mat-cell>
+            <svg aria-label="star" class="octicon octicon-star" height="16" role="img" version="1.1"
+                 viewBox="0 0 14 16" width="14">
+              <path d="M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74L14 6z"
+                    fill-rule="evenodd"></path>
+            </svg>
+            {{element.stars}}
+          </td>
+          <td *matFooterCellDef class="td-10" mat-footer-cell></td>
+        </ng-container>
+        <ng-container matColumnDef="url">
+          <th *matHeaderCellDef class="td-10" mat-header-cell mat-sort-header> url
+          </th>
+          <td *matCellDef="let element" class="td-10" mat-cell><a href="{{element.url}}">link</a>
+          </td>
+          <td *matFooterCellDef class="td-10" mat-footer-cell></td>
+        </ng-container>
+        <ng-container matColumnDef="description">
+          <th *matHeaderCellDef class="td-description" mat-header-cell mat-sort-header> description</th>
+          <td *matCellDef="let element" class="td-description" mat-cell> {{element.description}}
+          </td>
+          <td *matFooterCellDef class="td-description" mat-footer-cell>
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="expandedDetail">
+          <td *matCellDef="let element" [attr.colspan]="15" mat-cell
+              style="background-color: #cfcfcf;padding: 0;">
+            <div [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'"
+                 class="row">
+              <div class="table-responsive">
+                <table class="table table-details" style="width: 100%;">
+                  <thead>
+                  <tr>
+                    <th class="td-10">Avatar</th>
+                    <th>href</th>
+                    <th>Username</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr *ngFor="let detalhe of element.builtBy">
+                    <td><img alt="{{detalhe['username']}}}" height="25"
+                             src="{{detalhe['avatar']}}" width="25">
+                    </td>
+                    <td><a href="{{detalhe['href']}}">Github</a></td>
+                    <td>{{detalhe['username'] }}</td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </td>
+        </ng-container>
+        <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
+        <tr (click)="(expandedElement = expandedElement === row ? null : row); "
+            (click)="selection.toggle(row)" *matRowDef="let row; columns: displayedColumns;"
+            [class.expanded-row]="expandedElement === row" class="element-row" mat-row></tr>
+        <tr *matRowDef="let row; columns: ['expandedDetail']" class="detail-row" mat-row></tr>
+        <tr *matFooterRowDef="displayedColumns" mat-footer-row></tr>
+      </table>
+      <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+    <button (click)="save()" [disabled]="!dataSource.data.length" class="btn-primary btn-envia-dados"
+            color="primary"
+            mat-raised-button matTooltip="Enviar dados ao retaguarda">
+      <span>Enviar Lista</span>
+    </button>
+  </div>
+</div>

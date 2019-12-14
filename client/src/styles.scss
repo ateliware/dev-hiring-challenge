@@ -1,0 +1,36 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+body,
+html {
+  height: 100%;
+  margin: 0;
+}
+
+.row {
+  margin: 0;
+  width: 100%;
+}
+
+.remove-loading {
+  display: none !important;
+}
+
+.mat-dialog-container {
+  overflow-x: hidden !important;
+}
+
+.mat-menu-content {
+  padding: 8px !important;
+}
+
+mat-card {
+  box-shadow: none !important;
+}
+
+.mat-form-field-infix {
+  font-size: 12px !important;
+}
+.mat-tab-label, .mat-tab-link {
+  font-size:12px;
+}

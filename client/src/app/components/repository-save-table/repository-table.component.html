@@ -1,0 +1,150 @@
+<mat-card>
+  <form>
+    <div class="row">
+      <div class="col-md-6">
+        <mat-form-field appearance="outline">
+          <input (keyup)="applyFilterSave($event.target.value)" matInput
+                 placeholder="Pesquisar...">
+        </mat-form-field>
+      </div>
+      <div class="col-md-6">
+        <button (click)="findReporitories()" class="btn-primary btn-buscar"
+                color="primary"
+                mat-raised-button matTooltip="Buscar dados salvos">
+          <span>Buscar</span>
+        </button>
+      </div>
+    </div>
+  </form>
+</mat-card>
+<div class="row">
+  <div class="table-responsive">
+    <div class="table table-hover">
+      <mat-progress-bar *ngIf="loadingSave" mode="indeterminate"></mat-progress-bar>
+      <table [dataSource]="dataSourceSave" mat-table matSort multiTemplateDataRows>
+        <ng-container matColumnDef="author">
+          <th *matHeaderCellDef class="td-10" mat-header-cell mat-sort-header> author
+          </th>
+          <td *matCellDef="let element" class="td-10" mat-cell> {{element.author }}
+          </td>
+          <td *matFooterCellDef class="td-10" mat-footer-cell></td>
+        </ng-container>
+        <ng-container matColumnDef="avatar">
+          <th *matHeaderCellDef class="td-10" mat-header-cell mat-sort-header> avatar
+          </th>
+          <td *matCellDef="let element" class="td-10" mat-cell><img alt="{{element.description}}}" height="25"
+                                                                    src="{{element.avatar}}" width="25">
+          </td>
+          <td *matFooterCellDef class="td-10" mat-footer-cell></td>
+        </ng-container>
+        <ng-container matColumnDef="currentPeriodStars">
+          <th *matHeaderCellDef class="td-10" mat-header-cell mat-sort-header> currentPeriodStars
+          </th>
+          <td *matCellDef="let element" class="td-10" mat-cell>
+            <svg aria-label="star" class="octicon octicon-star" height="16" role="img" version="1.1"
+                 viewBox="0 0 14 16" width="14">
+              <path d="M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74L14 6z"
+                    fill-rule="evenodd"></path>
+            </svg>
+            {{element['currentPeriodStars']}}
+          </td>
+          <td *matFooterCellDef class="td-10" mat-footer-cell></td>
+        </ng-container>
+
+        <ng-container matColumnDef="forks">
+          <th *matHeaderCellDef class="td-10" mat-header-cell mat-sort-header>
+            forks
+          </th>
+          <td *matCellDef="let element" class="td-10" mat-cell>
+            <svg aria-label="repo-forked" class="octicon octicon-repo-forked" height="16" role="img"
+                 version="1.1" viewBox="0 0 10 16" width="10">
+              <path
+                d="M8 1a1.993 1.993 0 00-1 3.72V6L5 8 3 6V4.72A1.993 1.993 0 002 1a1.993 1.993 0 00-1 3.72V6.5l3 3v1.78A1.993 1.993 0 005 15a1.993 1.993 0 001-3.72V9.5l3-3V4.72A1.993 1.993 0 008 1zM2 4.2C1.34 4.2.8 3.65.8 3c0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zm3 10c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zm3-10c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2z"
+                fill-rule="evenodd"></path>
+            </svg>
+            {{element.forks}}
+          </td>
+          <td *matFooterCellDef class="td-10" mat-footer-cell>
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="language">
+          <th *matHeaderCellDef class="td-10" mat-header-cell mat-sort-header> language
+          </th>
+          <td *matCellDef="let element" [ngStyle]="{'color': element.languageColor}" class="td-10"
+              mat-cell> {{element.language}}
+          </td>
+          <td *matFooterCellDef class="td-10" mat-footer-cell></td>
+        </ng-container>
+        <ng-container matColumnDef="name">
+          <th *matHeaderCellDef class="td-10" mat-header-cell mat-sort-header> name
+          </th>
+          <td *matCellDef="let element" class="td-10" mat-cell> {{element.name}}
+          </td>
+          <td *matFooterCellDef class="td-10" mat-footer-cell></td>
+        </ng-container>
+        <ng-container matColumnDef="stars">
+          <th *matHeaderCellDef class="td-10" mat-header-cell mat-sort-header> stars
+          </th>
+          <td *matCellDef="let element" class="td-10" mat-cell>
+            <svg aria-label="star" class="octicon octicon-star" height="16" role="img" version="1.1"
+                 viewBox="0 0 14 16" width="14">
+              <path d="M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74L14 6z"
+                    fill-rule="evenodd"></path>
+            </svg>
+            {{element.stars}}
+          </td>
+          <td *matFooterCellDef class="td-10" mat-footer-cell></td>
+        </ng-container>
+        <ng-container matColumnDef="url">
+          <th *matHeaderCellDef class="td-10" mat-header-cell mat-sort-header> url
+          </th>
+          <td *matCellDef="let element" class="td-10" mat-cell><a href="{{element.url}}">link</a>
+          </td>
+          <td *matFooterCellDef class="td-10" mat-footer-cell></td>
+        </ng-container>
+        <ng-container matColumnDef="description">
+          <th *matHeaderCellDef class="td-description" mat-header-cell mat-sort-header> description</th>
+          <td *matCellDef="let element" class="td-description" mat-cell> {{element.description}}
+          </td>
+          <td *matFooterCellDef class="td-description" mat-footer-cell>
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="expandedDetail">
+          <td *matCellDef="let element" [attr.colspan]="15" mat-cell
+              style="background-color: #cfcfcf;padding: 0;">
+            <div [@detailExpand]="element == expandedElementSave ? 'expanded' : 'collapsed'"
+                 class="row">
+              <div class="table-responsive">
+                <table class="table table-details" style="width: 100%;">
+                  <thead>
+                  <tr>
+                    <th class="td-10">Avatar</th>
+                    <th>href</th>
+                    <th>Username</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr *ngFor="let detalhe of element.comments">
+                    <td><img alt="{{detalhe['username']}}}" height="25"
+                             src="{{detalhe['avatar']}}" width="25">
+                    </td>
+                    <td><a href="{{detalhe['href']}}">Github</a></td>
+                    <td>{{detalhe['username'] }}</td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </td>
+        </ng-container>
+        <tr *matHeaderRowDef="getDisplayedColumnsSave" mat-header-row></tr>
+        <tr (click)="(expandedElementSave = expandedElementSave === row ? null : row); "
+            *matRowDef="let row; columns: getDisplayedColumnsSave;"
+            [class.expanded-row]="expandedElementSave === row" class="element-row" mat-row></tr>
+        <tr *matRowDef="let row; columns: ['expandedDetail']" class="detail-row" mat-row></tr>
+        <tr *matFooterRowDef="getDisplayedColumnsSave" mat-footer-row></tr>
+      </table>
+      <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+    </div>
+  </div>
+</div>
