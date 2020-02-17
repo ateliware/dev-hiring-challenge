@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+{% block title %}Details{% endblock %}
+{% block body %}
+<h3><i class="fa fa-database" aria-hidden="true"></i> Repository Details </h3>
+<table class="table table-striped" style="overflow: auto; display: inline-block;">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Description</th>
+            <th scope="col">Url</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for c in repository_details %}
+        <tr>
+            <th scope="row">{{c.detail_id}}</th>
+            <td>{{c.name}}</td>
+            <td>{{c.description}}</td>
+            <td>{{c.url_repository}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<div class="container-floating">
+    <a href="/index" title="Back" class="btn btn-primary" style="position:fixed; right:5%; top:80%;">Back to Menu</a>
+</div>
+{% endblock %}
