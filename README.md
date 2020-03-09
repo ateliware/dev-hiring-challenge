@@ -18,3 +18,5 @@ Alguns requisitos:
 Quando terminar, faça um Pull Request neste repo e avise-nos por email.
 
 **IMPORTANTE:** se você não conseguir finalizar o teste, por favor nos diga o motivo e descreva quais foram as suas dificuldades. Claro que você também pode sugerir uma outra abordagem para avaliarmos seus skills técnicos, mas é com você para vender seu peixe, mostrar-nos do que é capaz.
+
+## Projeto contém atualmente 91,64% de teste de cobertura.
