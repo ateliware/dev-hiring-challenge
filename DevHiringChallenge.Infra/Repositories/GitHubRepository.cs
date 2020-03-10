@@ -23,7 +23,7 @@ namespace DevHiringChallenge.Infra.Repositories
             }
             catch (Exception ex)
             {
-                throw new Exception($"Não foi possível gravar o owner! Exception {ex}");
+                throw new Exception($"Não foi possível gravar o repositório! Exception {ex}");
             }
         }
 

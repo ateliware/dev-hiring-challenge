@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using prmToolkit.NotificationPattern;
+﻿using prmToolkit.NotificationPattern;
+using System.Collections.Generic;
 
 namespace DevHiringChallenge.Domain.Results
 {
@@ -13,7 +13,7 @@ namespace DevHiringChallenge.Domain.Results
         {
             new AddNotifications<GitHubResponseResult>(this)
                 .IfEqualsZero(x => x.Total_Count)
-                .IfCollectionIsNull(x=>x.Items)
+                .IfCollectionIsNull(x => x.Items)
                 .IfTrue(x => x.Incomplete_Result);
         }
     }

@@ -1,10 +1,7 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using DevHiringChallenge.Domain.Command.Inputs;
-using DevHiringChallenge.Domain.Entities;
-using DevHiringChallenge.Domain.Results;
+﻿using DevHiringChallenge.Domain.Entities;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using RestSharp;
+using System.Linq;
 
 namespace DevHiringChallenge.Tests.Domain
 {
@@ -17,10 +14,10 @@ namespace DevHiringChallenge.Tests.Domain
         {
             var command = new ApiReply()
             {
-               Data = "2019-07-16",
-               Mensagem = "Sucesso",
-               StatusCode = 200,
-               Sucesso = true
+                Data = "2019-07-16",
+                Mensagem = "Sucesso",
+                StatusCode = 200,
+                Sucesso = true
             };
 
             command.Validar();

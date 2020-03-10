@@ -2,7 +2,7 @@
 
 namespace DevHiringChallenge.Domain.Command
 {
-    public abstract class CommandHandler 
+    public abstract class CommandHandler
     {
         private readonly IUnitOfWork _uow;
 

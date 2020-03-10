@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using DevHiringChallenge.Domain.Command.Inputs;
+﻿using DevHiringChallenge.Domain.Command.Inputs;
 using DevHiringChallenge.Domain.Entities;
 using DevHiringChallenge.Domain.Results;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace DevHiringChallenge.Tests.Domain
 {

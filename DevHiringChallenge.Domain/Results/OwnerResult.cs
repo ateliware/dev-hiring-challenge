@@ -1,5 +1,4 @@
-﻿using System;
-using prmToolkit.NotificationPattern;
+﻿using prmToolkit.NotificationPattern;
 
 namespace DevHiringChallenge.Domain.Results
 {

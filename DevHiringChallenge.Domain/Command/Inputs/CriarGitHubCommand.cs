@@ -24,12 +24,12 @@ namespace DevHiringChallenge.Domain.Command.Inputs
                .IfNullOrEmpty(x => x.Language, "Linguagem não informada!")
                .IfNullOrEmpty(x => x.Html_Url, "Url não foi informado!")
                .IfNullOrEmpty(x => x.Name, "Nome do repositório não informado!")
-               .IfEqualsZero(x=>x.Id)
-               .IfNullOrEmpty(x=>x.Created_At)
-               .IfNullOrEmpty(x=>x.Updated_At)
-               .IfNullOrEmpty(x=>x.Full_Name)
-               .IfNullOrEmpty(x=>x.Node_Id)
-               .IfNullOrEmpty(x=>x.Pushed_At)
+               .IfEqualsZero(x => x.Id)
+               .IfNullOrEmpty(x => x.Created_At)
+               .IfNullOrEmpty(x => x.Updated_At)
+               .IfNullOrEmpty(x => x.Full_Name)
+               .IfNullOrEmpty(x => x.Node_Id)
+               .IfNullOrEmpty(x => x.Pushed_At)
                .IfNullOrEmpty(x => x.Description, "Descrição do repositório não informado!");
         }
     }

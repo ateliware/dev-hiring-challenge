@@ -1,5 +1,5 @@
-﻿using System;
-using prmToolkit.NotificationPattern;
+﻿using prmToolkit.NotificationPattern;
+using System;
 
 namespace DevHiringChallenge.Domain.Entities
 {

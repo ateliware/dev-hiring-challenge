@@ -6,7 +6,6 @@ using DevHiringChallenge.Infra.UoW;
 using Ninject;
 using Ninject.Extensions.NamedScope;
 using System.Data.SqlClient;
-using DevHiringChallenge.AppService.Interface;
 
 namespace DevHiringChallenge.IoC
 {

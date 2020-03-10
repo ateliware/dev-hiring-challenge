@@ -1,5 +1,5 @@
-﻿using System;
-using DevHiringChallenge.Domain.Entities;
+﻿using DevHiringChallenge.Domain.Entities;
+using System;
 
 namespace DevHiringChallenge.Domain.Repositories
 {

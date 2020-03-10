@@ -28,7 +28,7 @@ namespace DevHiringChallenge.Domain.Results
                 .IfNullOrEmpty(x => x.Description)
                 .IfNullOrEmpty(x => x.Name)
                 .IfNullOrEmpty(x => x.Full_Name)
-                .IfNull(x=>x.Owner)
+                .IfNull(x => x.Owner)
                 .IfEqualsZero(x => x.Id);
         }
     }

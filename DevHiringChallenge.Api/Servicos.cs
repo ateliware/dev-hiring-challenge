@@ -1,9 +1,8 @@
-﻿using DevHiringChallenge.IoC;
+﻿using DevHiringChallenge.AppService.GitHubs;
+using DevHiringChallenge.IoC;
 using Ninject;
 using System;
 using System.Data.SqlClient;
-using DevHiringChallenge.AppService.GitHubs;
-using DevHiringChallenge.Infra.DataContexts;
 
 namespace DevHiringChallenge.Api
 {
@@ -26,7 +25,7 @@ namespace DevHiringChallenge.Api
             }
             catch (Exception ex)
             {
-                throw  new Exception($"Não foi possível iniciar o Kernel! Exception - {ex}");
+                throw new Exception($"Não foi possível iniciar o Kernel! Exception - {ex}");
             }
 
             return KernelNinject;
