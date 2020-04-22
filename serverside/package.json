@@ -1,0 +1,28 @@
+{
+    "name": "server-side",
+    "version": "1.0.0",
+    "main": "index.js",
+    "license": "MIT",
+    "scripts": {
+        "prestart": "cross-env NODE_ENV=production cross-env NODE_TLS_REJECT_UNAUTHORIZED=0 knex migrate:latest",
+        "start": "node src/server.js",
+        "predev": "cross-env NODE_ENV=development knex migrate:latest",
+        "dev": "nodemon src/server.js",
+        "test": "cross-env NODE_ENV=test jest"
+    },
+    "dependencies": {
+        "axios": "^0.19.2",
+        "cors": "^2.8.5",
+        "cross-env": "^7.0.2",
+        "dotenv": "^8.2.0",
+        "express": "^4.17.1",
+        "knex": "^0.21.0",
+        "pg": "^8.0.2"
+    },
+    "devDependencies": {
+        "jest": "^25.4.0",
+        "nodemon": "^2.0.3",
+        "sqlite3": "^4.1.1",
+        "supertest": "^4.0.2"
+    }
+}
