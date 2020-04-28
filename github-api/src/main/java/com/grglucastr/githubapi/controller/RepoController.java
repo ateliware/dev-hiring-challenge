@@ -16,11 +16,14 @@ import java.util.List;
 @RequestMapping("/api/")
 public class RepoController {
 
-    @Autowired
     private RepoService repoService;
+    private ModelMapper mapper;
 
     @Autowired
-    private ModelMapper mapper;
+    public RepoController(RepoService repoService, ModelMapper mapper) {
+        this.repoService = repoService;
+        this.mapper = mapper;
+    }
 
     @GetMapping(value = "/repos")
     public ResponseEntity<List<Repo>> listAll(){
@@ -32,6 +35,12 @@ public class RepoController {
     public ResponseEntity<Repo> postRepo(@Valid @RequestBody RepoDTO dto){
         Repo repo = repoService.save(mapper.map(dto, Repo.class));
         return ResponseEntity.status(HttpStatus.CREATED).body(repo);
+    }
+
+    @DeleteMapping(value = "/repos")
+    public ResponseEntity deleteRepos(){
+        repoService.deleteAll();
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
 
 }

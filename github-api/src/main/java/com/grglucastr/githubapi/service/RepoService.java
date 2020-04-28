@@ -20,4 +20,9 @@ public class RepoService {
     public Repo save(Repo repo) {
         return repository.save(repo);
     }
+
+    public Object deleteAll() {
+        repository.deleteAll();
+        return null;
+    }
 }
