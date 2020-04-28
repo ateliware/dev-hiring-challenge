@@ -23,14 +23,24 @@ Quando terminar, faça um Pull Request neste repo e avise-nos por email.
 
 ## Solução/Implementação
 
-[TOCM]
+**TABLEA DE CONTEÚDO** 
+* [Em execução na nuvem](#em_execucao)
+* [Camadas](#camadas)
+* [Banco de Dados](#db)
+* [Configuração do CORS](#cors) 
+* [Instalação e execução](#installexec)
 
-### Em execução na nuvem</a>
+
+<a name="em_execucao"></a>
+
+### Em execução na nuvem
 
 O projeto foi implantando na AWS utilizando o Elastic BeanStalk e o Amazon RDS (PostgeSQL).
 
 Você pode acessá-lo através do seguinte link:
 https://link.com
+
+<a name="camadas"></a>
 
 ### Camadas
 
@@ -40,6 +50,8 @@ O projeto é composto das seguintes camadas:
 |--|--|--|--|--|
 | github-api | Responsável por receber as requisições da camada de front-end e intermediar a comunicação com o banco de dados. | Java |  Spring Boot 2.x| Maven |
 | github-front | Responsável por proporcionar a interação direta com o usuário e conectar com a API do GitHub. | JavaScript |  React | NPM |
+
+<a name="db"></a>
 
 ### Banco de dados
 
@@ -69,6 +81,8 @@ export POSTGRE_PASSWORD=<insira sua senha>
 
 Salve o arquivo e seguida execute o comando: `source ~/.profile` para carregar os novos valores, ou se preferir, reinicie o computador.
 
+<a name="cors"></a>
+
 ### Configuração do CORS
 
 Para liberar o front-end de acessar os endpoints da camada `github-api`, adicione mais uma variável de ambiente ao seu sistema operacional:
@@ -84,6 +98,8 @@ Se você for usuário de qualquer distro Linux, altere o arquivo `.profile` dent
 `export FRONTEND_HOST=<endereço do seu front-end>`
 
 Salve o arquivo e seguida execute o comando: `source ~/.profile` para carregar os novos valores, ou se preferir, reinicie o computador.
+
+<a name="instalexec"></a>
 
 ### Instalação e execução
 
