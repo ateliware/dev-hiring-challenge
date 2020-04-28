@@ -5,3 +5,7 @@ spring:
     password: ${POSTGRE_PASSWORD}
   jpa:
     show-sql: true
+
+application:
+  frontend:
+    host: ${FRONTEND_HOST}
