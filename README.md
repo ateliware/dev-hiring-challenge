@@ -28,7 +28,8 @@ Quando terminar, faça um Pull Request neste repo e avise-nos por email.
 * [Camadas](#camadas)
 * [Banco de Dados](#db)
 * [Configuração do CORS](#cors) 
-* [Instalação e execução](#installexec)
+* [Instalação e execução](#instalexec)
+* [Endpoints](#endpoints)
 
 
 <a name="em_execucao"></a>
@@ -120,6 +121,8 @@ Em seguida, execute o projeto com o seguinte comando no terminal: `java -jar tar
 Esta é uma aplicação desenvolvida em JavaScript com React. Para baixar as dependências, dentro da pasta **github-front** execute o seguinte comando através do terminal: `npm install` ou se tiver o [Yarn](https://classic.yarnpkg.com/pt-BR/docs/install/#debian-stable), use: `yarn install`
 
 Em seguida, execute o projeto com o seguinte comando no terminal: `npm start` ou `yarn start`
+
+<a name="endpoints"></a>
 
 ### Endpoints
 
