@@ -36,7 +36,7 @@ Quando terminar, faça um Pull Request neste repo e avise-nos por email.
 
 ### Em execução na nuvem
 
-O projeto foi implantando na AWS utilizando o Elastic BeanStalk e o Amazon RDS (PostgeSQL).
+O projeto foi implantando na AWS utilizando o Elastic BeanStalk e o Amazon RDS (PostgreSQL).
 
 Você pode acessá-lo através do seguinte link:
 http://d1xfhcp02o1bf7.cloudfront.net/index.html
@@ -125,6 +125,8 @@ Em seguida, execute o projeto com o seguinte comando no terminal: `npm start` ou
 <a name="endpoints"></a>
 
 ### Endpoints
+
+Não que seja necessário você interagir diretamente com os endpoints, mas para essa aplicação, foram desenvolvidos apenas esses:
 
 | Método | Caminho | Descrição
 |--|--| -- |
