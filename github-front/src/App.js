@@ -18,7 +18,7 @@ function App() {
       <Router>
         <Container>
           <Switch>
-            <Route exact path='/'>
+            <Route exact path={['/', '/index.html']}>
               <Home />
             </Route>
             <Route exact path='/details/:id'>
