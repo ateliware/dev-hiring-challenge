@@ -39,7 +39,7 @@ Quando terminar, faça um Pull Request neste repo e avise-nos por email.
 O projeto foi implantando na AWS utilizando o Elastic BeanStalk e o Amazon RDS (PostgeSQL).
 
 Você pode acessá-lo através do seguinte link:
-https://link.com
+http://d1xfhcp02o1bf7.cloudfront.net/index.html
 
 <a name="camadas"></a>
 
