@@ -1,8 +1,8 @@
 import axios from 'axios';
-const BACKEND_URL = 'http://localhost:8080/api';
+const API_URL = process.env.REACT_APP_API_URL;
 
 export const saveRepos = async (repos) => {
-  const url = `${BACKEND_URL}/repos`;
+  const url = `${API_URL}/repos`;
   const savedRepos = [];
 
   for(let repo of repos){
@@ -10,18 +10,17 @@ export const saveRepos = async (repos) => {
     const data = await response.data;
     savedRepos.push(data);
   }
-
   return savedRepos;
 }
 
-export const fetchRepos = async (repos) => {
-  const url = `${BACKEND_URL}/repos`;
+export const fetchRepos = async () => { 
+  const url = `${API_URL}/repos`;
   const response = await axios.get(url);
   return await response.data;
 }
 
 export const deleteAllRepos = async () => {
-  const url = `${BACKEND_URL}/repos`;
+  const url = `${API_URL}/repos`;
   const response = await axios.delete(url);
   return await response.data;
 }
