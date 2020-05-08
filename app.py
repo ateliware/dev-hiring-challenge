@@ -10,7 +10,9 @@ import time
 import json
 
 # database config
-SQLALCHEMY_DATABASE_URI = os.getenv('DATABASE_URL')
+env = os.getenv('DATABASE_URL')
+local = 'postgresql+psycopg2://postgres:changeme@localhost/ateliware'
+SQLALCHEMY_DATABASE_URI = env if env else local
 SQLALCHEMY_TRACK_MODIFICATIONS = False
 TEMPLATES_AUTO_RELOAD = True
 
