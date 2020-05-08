@@ -1,5 +1,5 @@
 from app import db
-from models import GithubModel
+from models import RepositoryModel
 
 # create the database and the db table
 db.create_all()

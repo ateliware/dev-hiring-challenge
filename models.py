@@ -3,7 +3,7 @@ from datetime import datetime
 
 class RepositoryModel(db.Model):
     
-    __tablename__ = 'github'
+    __tablename__ = 'repository'
 
     repo_id = db.Column(db.String, primary_key=True)
     name = db.Column(db.String, nullable=False)
