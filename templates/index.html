@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Top Repositories</title>
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+      .form-inline {
+          padding:10px;
+      }
+      .form-inline > * {
+          margin:15px 3px !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <br><br>
+      <h1>Listing top repositories by <em>{{ languages[query] }}</em> language</h1>
+      <br><br>
+
+      {% for message in get_flashed_messages() %}
+      <div class="flash alert alert-success col-sm-4" role="success">{{ message }}</div>
+      {% endfor %}
+
+      <form class="form-inline">
+        <div class="form-group">
+          <select id="language" name="s" class="form-control">
+            {% for l,t in languages.items() %}
+            <option value="{{ l }}" {% if query == l %}selected{% endif %}>{{ t }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Search</button>
+      </form>
+      
+      <form action="{{ url_for('add') }}" method="post">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="float-right">
+            <input type="submit" class="btn btn-success" value="Save this List">
+            </div>
+          </div>
+        </div>
+      </form>
+
+      <hr>
+      
+      <div class="card-columns">
+        {% for repo in entries.edges %}
+          <div class="card">
+            <div class="card-body">
+              <h6 class="card-subtitle">{{ repo.node.primary_language.name }}</h6>
+              <h5 class="card-title">{{ repo.node.name }}</h5>
+              <p class="card-text">{{ repo.node.description }}</p>
+              <p class="card-text"><span class="oi oi-star">Stars:</span> {{ repo.node.stargazers.total_count }}</p>
+            </div>
+          </div>
+        {% endfor %}
+      </div> <!-- _row -->
+      
+    </div> <!-- _containier -->
+    <script type="text/javascript" src="{{url_for('static', filename='main.js') }}"></script>
+  </body>
+</html>
