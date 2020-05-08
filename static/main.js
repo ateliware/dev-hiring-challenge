@@ -25,7 +25,12 @@ save.addEventListener('click', function(){
         },
         body: JSON.stringify(repos)
     }).then(res=>res.json())
-        .then(res=> console.log(res))
+        .then(function(result) {
+            if (result.status===1) {
+                console.log(result)
+            }
+            location.reload();
+        })
         .catch(function(e) {
             console.log(e)
         });
