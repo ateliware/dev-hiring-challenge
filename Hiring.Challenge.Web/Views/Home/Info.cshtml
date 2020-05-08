@@ -1,0 +1,32 @@
+﻿@using Hiring.Challenge.Domain.ViewModels;
+@model  RepositoryViewModel
+
+@{
+    
+}
+<style>
+    .info
+    {
+        display: grid;
+        margin: 30px 0 20px 0;
+    }
+    .info span
+    {
+        margin: 5px 0 5px 0;
+    }
+
+</style>
+
+<section class="info">
+    <span> <b>Repositorio:</b> <a href="@Model.Url">@Model.Name </a></span>
+    <span> <b>Descrição:</b> @Model.Description </span>
+    <span> <b>Linguagem:</b> @Model.Language </span>
+    <span> <b>Num. Estrelas:</b> @Model.Stars </span>
+    <span> <b>Criado em:</b> @Model.CreateDate.ToString("dd/MM/yyyy HH:mm:ss")</span>
+    <span> <b>Ultima atualização:</b> @Model.LastUpdate.ToString("dd/MM/yyyy HH:mm:ss")</span>
+    <span> <b>Autor: </b> <a href="@Model.Owner.Url"> @@@Model.Owner.Username</a></span>
+    <span> <img src ="@Model.Owner.ImageUrl" /></span>
+    <br />
+    <a class="btn btn-info" href="@Model.Url">Acessar GitHub</a>
+</section>
+

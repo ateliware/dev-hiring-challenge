@@ -1,0 +1,45 @@
+﻿@using Hiring.Challenge.Domain.ViewModels;
+@model  IEnumerable<RepositoryViewModel>
+
+@{
+    
+}
+<style>
+    .list-items
+    {
+        margin: 30px 0 0 0;
+    }
+
+    .list-group
+    {
+        margin: 10px 0 20px 0;
+    }
+
+    .list-group li:hover 
+    {
+        opacity: 0.8;
+        cursor: pointer;
+    }
+
+</style>
+
+<section class="list-items">
+    <h1>@Model.FirstOrDefault().Language</h1>
+    <ul class="list-group">
+        @foreach(var item in Model)
+        {
+            <li onclick="enter('@item.Id')" class="list-group-item"> <b> @item.Stars</b> 👍🏼 |  Repositório: <a href="@item.Url"> @item.Name </a> - Autor: <a href="@item.Owner.Username"> @@@item.Owner?.Username </a></li>
+
+        }
+    </ul>
+</section>
+
+
+@section  Scripts
+{
+    <script>
+        function enter(repositoryId) {
+            window.location.href = '@Model.FirstOrDefault().Language.ToLower()/' + repositoryId
+        }
+    </script>
+}
