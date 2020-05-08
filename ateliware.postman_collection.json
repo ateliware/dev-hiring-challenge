@@ -1,0 +1,123 @@
+{
+	"info": {
+		"_postman_id": "79422f61-3705-4a1d-aaa7-494785862a79",
+		"name": "ateliware",
+		"description": "Testing API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Testing API",
+			"item": [
+				{
+					"name": "index",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e7f8841a-479e-4765-a157-b1d96c14887d",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ateliware_url}}",
+							"host": [
+								"{{ateliware_url}}"
+							]
+						},
+						"description": "Index returns 200 status code"
+					},
+					"response": []
+				},
+				{
+					"name": "save to database",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "75b35940-5d8c-4f8e-b601-96196c9efeb6",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "68c73a9c-bef7-469f-a7dd-2bb7c3ac7cba",
+								"exec": [
+									"var data = pm.response.json();",
+									"console.log(data);",
+									"pm.test(\"Verify data status ok\", function() {",
+									"    pm.expect(data.status).is.to.equal(1);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"repositories\":[{\"repo_id\":\"1\",\"name\":\"freeCodeCamp\"},{\"repo_id\":\"2\",\"name\":\"node\"}]}"
+						},
+						"url": {
+							"raw": "{{ateliware_url}}/add",
+							"host": [
+								"{{ateliware_url}}"
+							],
+							"path": [
+								"add"
+							]
+						},
+						"description": "Test save data to database"
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "db614d44-19c1-4748-8a80-6c3b13ebdd86",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "19dda1e2-d3c9-4caa-80d8-eb69296a6c1e",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function() {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
