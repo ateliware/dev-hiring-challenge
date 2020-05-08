@@ -1,3 +1,7 @@
+# Deploy com HEROKU
+
+Aplicação preparada para deploy com ```heroku```.
+
 # Desafio técnico para desenvolvedores
 
 Construa uma nova aplicação, utilizando o framework de sua preferência (Rails, ASP.NET, Phoenix, etc), a qual deverá conectar na API do GitHub e disponibilizar as seguintes funcionalidades:
