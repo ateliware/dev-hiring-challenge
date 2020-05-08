@@ -5,7 +5,7 @@ class RepositoryModel(db.Model):
     
     __tablename__ = 'github'
 
-    repo_id = db.Column(db.Integer, primary_key=True)
+    repo_id = db.Column(db.String, primary_key=True)
     name = db.Column(db.String, nullable=False)
     timestamp = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
     

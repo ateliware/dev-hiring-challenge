@@ -16,7 +16,7 @@ class BasicTestCase(unittest.TestCase):
         app.config['TESTING'] = True
         app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + \
             os.path.join(basedir, TEST_DB)
-        self.array = '{"repositories":[{"repo_id":1,"name":"freeCodeCamp"},{"repo_id":2,"name":"node"}]}'
+        self.array = '{"repositories":[{"repo_id":"1","name":"freeCodeCamp"},{"repo_id":"2","name":"node"}]}'
         self.app = app.test_client()
         db.drop_all()
         db.create_all()
@@ -58,7 +58,8 @@ class BasicTestCase(unittest.TestCase):
         self.assertEqual(response.status_code,200)
         self.assertEqual(res['status'],0)
 
-        response = self.app.post('/add',json=self.array)
+        data = json.loads(self.array)
+        response = self.app.post('/add',json=data)
         res = json.loads(response.data)
         self.assertEqual(res['status'],1)
         expected = json.loads(self.array)['repositories']

@@ -110,7 +110,7 @@ def index():
 def add():
     result = {'status': 0, 'message': 'Error'}
     try:
-        data = json.loads(request.get_json())
+        data = request.get_json()
         new_entry = github.save(data)
         result = {'status': 1, 'message': "Success"}
         flash('Saved to database')
