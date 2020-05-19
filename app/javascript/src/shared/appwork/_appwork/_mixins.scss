@@ -1,0 +1,1501 @@
+// Mixins
+//
+
+// *******************************************************************************
+// * RTL/LTR
+
+@mixin ltr-only() {
+  @if $rtl-support {
+    html:not([dir=rtl]) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+
+@mixin rtl-only() {
+  @if $rtl-support {
+    [dir=rtl] {
+      @content;
+    }
+  }
+}
+
+@mixin ltr-style() {
+  @if $rtl-support {
+    html:not([dir=rtl]) & {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+
+@mixin rtl-style() {
+  @if $rtl-support {
+    [dir=rtl] & {
+      @content;
+    }
+  }
+}
+
+// *******************************************************************************
+// * Keyframes
+
+@mixin keyframes($name) {
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+  @keyframes #{$name} {
+    @content;
+  }
+}
+
+// *******************************************************************************
+// * Carets
+
+@mixin caret-down {
+  margin-top: -1 * ($caret-width / 1.5);
+  width: $caret-width;
+  height: $caret-width;
+  border: 1px solid;
+  border-top: 0;
+  border-left: 0;
+  transform: rotate(45deg);
+}
+
+@mixin caret-up {
+  margin-top: -0;
+  width: $caret-width;
+  height: $caret-width;
+  border: 1px solid;
+  border-bottom: 0;
+  border-left: 0;
+  transform: rotate(-45deg);
+}
+
+@mixin caret-right {
+  margin-top: -1 * ($caret-width / 2);
+  width: $caret-width;
+  height: $caret-width;
+  border: 1px solid;
+  border-top: 0;
+  border-left: 0;
+  transform: rotate(-45deg);
+}
+
+@mixin caret-left {
+  margin-top: -1 * ($caret-width / 2);
+  width: $caret-width;
+  height: $caret-width;
+  border: 1px solid;
+  border-top: 0;
+  border-right: 0;
+  transform: rotate(45deg);
+}
+
+// *******************************************************************************
+// * Responsize loops
+
+@mixin responsive-loop-before($parent, $start-breakpoint: sm) {
+  $cur-breakpoint: $start-breakpoint;
+
+  @while $cur-breakpoint {
+    $infix: breakpoint-infix($cur-breakpoint);
+
+    @media (max-width: (breakpoint-min($cur-breakpoint) - 1)) {
+      #{$parent}#{$infix} {
+        @content;
+      }
+    }
+
+    $cur-breakpoint: breakpoint-next($cur-breakpoint);
+  }
+}
+
+@mixin responsive-loop-after($parent, $start-breakpoint: sm) {
+  $cur-breakpoint: $start-breakpoint;
+
+  @while $cur-breakpoint {
+    $infix: breakpoint-infix($cur-breakpoint);
+
+    @media (min-width: breakpoint-min($cur-breakpoint)) {
+      #{$parent}#{$infix} {
+        @content;
+      }
+    }
+
+    $cur-breakpoint: breakpoint-next($cur-breakpoint);
+  }
+}
+
+// *******************************************************************************
+// * Colors
+
+// Contrast
+@mixin color-yiq($color) {
+  color: yiq($color);
+}
+
+@mixin bg-color-variant($parent, $color, $rth-color: #000) {
+  #{$parent} { background-color: $color !important; }
+  a#{$parent} {
+    @include hover-focus { background-color: rgba-to-hex(rgba($color, .95), $background: $rth-color) !important; }
+  }
+}
+
+@mixin bg-variant($parent, $color, $rth-color: #000) {
+  @include bg-color-variant($parent, $color);
+  @include bg-color-variant("#{$parent}-dark", rgba-to-hex(rgba($color, .9), $background: $rth-color));
+  @include bg-color-variant("#{$parent}-darker", rgba-to-hex(rgba($color, .85), $background: $rth-color));
+}
+
+// *******************************************************************************
+// * Buttons
+
+@mixin button-variant($background: null, $border: null, $active-background: null, $active-border: null) {}
+
+@mixin appwork-button-variant($parent, $background, $color: null, $border: null) {
+  $btn-colors: get-btn-colors($background, if($border, $border, $background));
+  $color: if($color, $color, yiq($background));
+
+  #{$parent} {
+    border-color: map-get($btn-colors, border);
+    background: $background;
+    color: $color;
+
+    @include box-shadow($btn-box-shadow);
+    @include hover {
+      border-color: map-get($btn-colors, border);
+      background: map-get($btn-colors, bg-hover);
+      color: $color;
+    }
+
+    &:focus,
+    &.focus {
+      box-shadow: map-get($btn-colors, shadow);
+    }
+
+    &.disabled,
+    &:disabled {
+      border-color: map-get($btn-colors, border) !important;
+      background: $background !important;
+      box-shadow: none !important;
+      color: $color !important;
+    }
+  }
+
+  #{$parent} .badge {
+    background: $color;
+    color: rgba-to-hex($background);
+  }
+
+  #{$parent}:active,
+  #{$parent}.active,
+  .show > #{$parent}.dropdown-toggle {
+    border-color: map-get($btn-colors, border);
+    background: map-get($btn-colors, bg-active);
+
+    @if $enable-shadows {
+      @include box-shadow($btn-active-box-shadow);
+    } @else {
+      box-shadow: none;
+    }
+  }
+
+  // Button groups
+  .btn-group #{$parent},
+  .input-group-prepend #{$parent},
+  .input-group-append #{$parent} {
+    border-right: $input-btn-border-width solid map-get($btn-colors, bg-active);
+    border-left: $input-btn-border-width solid map-get($btn-colors, bg-active);
+  }
+}
+
+@mixin appwork-material-button-variant($parent, $background, $color: null, $md-color: $background) {
+  $btn-colors: get-material-btn-colors($background);
+  $color: if($color, $color, yiq($background));
+
+  #{$parent} {
+    background: $background;
+    box-shadow: $btn-box-shadow;
+    color: $color;
+
+    @include hover {
+      background: map-get($btn-colors, bg-hover);
+      color: $color;
+    }
+
+    @include hover-focus {
+      box-shadow: $btn-focus-box-shadow;
+    }
+  }
+
+  #{$parent} .badge {
+    background: $color;
+    color: rgba-to-hex($background);
+  }
+
+  #{$parent} .waves-ripple {
+    background: if($color == #fff, rgba($color, .3), rgba($color, .2)) !important;
+  }
+
+  #{$parent}:active,
+  #{$parent}.active,
+  .show > #{$parent}.dropdown-toggle {
+    background: map-get($btn-colors, bg-active);
+    box-shadow: $btn-active-box-shadow;
+  }
+
+  // Flat buttons
+  #{$parent}.md-btn-flat {
+    background: none !important;
+    box-shadow: none !important;
+    color: $md-color !important;
+
+    &:focus,
+    &.focus {
+      background: rgba($md-color, .1) !important;
+    }
+
+    .waves-ripple {
+      background: rgba($md-color, .3) !important;
+    }
+  }
+
+  #{$parent}.md-btn-flat:active,
+  #{$parent}.md-btn-flat.active,
+  .show > #{$parent}.md-btn-flat.dropdown-toggle {
+    background: rgba($md-color, .15) !important;
+  }
+
+  // Disabled
+
+  #{$parent}.disabled,
+  #{$parent}:disabled {
+    background: $background !important;
+    box-shadow: $material-component-shadow !important;
+    color: $color !important;
+  }
+
+  #{$parent}.md-btn-flat.disabled,
+  #{$parent}.md-btn-flat:disabled {
+    background: none !important;
+    box-shadow: none !important;
+    color: $background !important;
+  }
+}
+
+// *******************************************************************************
+// * Outline buttons
+
+@mixin button-outline-variant($color: null, $color-hover: null, $hover-color: null) {}
+
+@mixin appwork-button-outline-variant($parent, $color, $hover-color: null) {
+  $btn-colors: get-btn-colors($color, $color);
+  $color-hover: if($hover-color, $hover-color, yiq($color));
+
+  #{$parent} {
+    border-color: $color;
+    background: transparent;
+    color: $color;
+
+    @include hover {
+      border-color: map-get($btn-colors, border);
+      background: $color;
+      color: $color-hover;
+
+      .badge {
+        background: $color-hover;
+        color: if(alpha($color) == 1, $color, yiq($color-hover));
+      }
+    }
+
+    &:focus,
+    &.focus {
+      box-shadow: map-get($btn-colors, shadow);
+    }
+
+    &.disabled,
+    &:disabled {
+      border-color: $color !important;
+      background: transparent !important;
+      color: $color !important;
+    }
+  }
+
+  #{$parent} .badge {
+    background: $color;
+    color: #fff;
+  }
+
+  #{$parent}:active,
+  #{$parent}.active,
+  .show > #{$parent}.dropdown-toggle {
+    border-color: map-get($btn-colors, border);
+    background: map-get($btn-colors, bg-hover);
+    color: $color-hover;
+
+    @if $enable-shadows {
+      @include box-shadow($btn-active-box-shadow);
+    } @else {
+      box-shadow: none;
+    }
+
+    .badge {
+      background: $color-hover;
+      color: if(alpha($color) == 1, $color, yiq($color-hover));
+    }
+  }
+}
+
+@mixin appwork-material-button-outline-variant($parent, $color, $hover-color: null) {
+  $btn-colors: get-material-btn-colors($color);
+  $color-hover: if($hover-color, $hover-color, yiq($color));
+
+  #{$parent} {
+    background: transparent;
+    box-shadow: 0 0 0 1px $color inset;
+    color: $color;
+
+    @include hover-focus {
+      background: $color;
+      box-shadow: $btn-focus-box-shadow;
+      color: $color-hover;
+
+      .badge {
+        background: $color-hover;
+        color: if(alpha($color) == 1, $color, yiq($color-hover));
+      }
+    }
+
+    &.disabled,
+    &:disabled {
+      background: transparent !important;
+      box-shadow: 0 0 0 1px $color inset !important;
+      color: $color !important;
+    }
+  }
+
+  #{$parent} .badge {
+    background: $color;
+    color: #fff;
+  }
+
+  #{$parent} .waves-ripple {
+    background: if($color-hover == #fff, rgba($color-hover, .3), rgba($color-hover, .2)) !important;
+  }
+
+  #{$parent}:active,
+  #{$parent}.active,
+  .show > #{$parent}.dropdown-toggle {
+    background: map-get($btn-colors, bg-hover);
+    box-shadow: $btn-active-box-shadow;
+    color: $color-hover;
+
+    .badge {
+      background: $color-hover;
+      color: if(alpha($color) == 1, $color, yiq($color-hover));
+    }
+  }
+}
+
+// *******************************************************************************
+// * Badges
+
+@mixin badge-variant($bg) {}
+
+@mixin appwork-badge-variant($parent, $bg, $color: null) {
+  #{$parent} {
+    background-color: $bg;
+    color: if($color, $color, yiq($bg));
+  }
+
+  #{$parent}[href] {
+    @include hover-focus {
+      background-color: if(alpha($bg) == 1, rgba-to-hex(rgba($bg, .95), #000), rgba($bg, alpha($bg) + .03));
+      color: if($color, $color, yiq($bg));
+      text-decoration: none;
+    }
+  }
+
+  .btn #{$parent} {
+    background-color: $bg !important;
+    color: if($color, $color, yiq($bg)) !important;
+  }
+}
+
+@mixin appwork-badge-outline-variant($parent, $bg, $color: $bg) {
+  #{$parent} {
+    background-color: transparent;
+    box-shadow: 0 0 0 1px $bg inset;
+    color: $color;
+  }
+
+  #{$parent}[href] {
+    @include hover-focus {
+      color: $color;
+      text-decoration: none;
+    }
+  }
+
+  .btn #{$parent} {
+    background-color: transparent !important;
+    box-shadow: 0 0 0 1px $bg inset !important;
+    color: $color !important;
+  }
+}
+
+// *******************************************************************************
+// * Dropdowns
+
+@mixin appwork-dropdown-variant($parent, $background, $color: null) {
+  #{$parent} .dropdown-item:not(.disabled).active,
+  #{$parent} .dropdown-item:not(.disabled):active {
+    background-color: $background;
+    color: if($color, $color, yiq($background));
+  }
+
+  #{$parent}.dropdown-menu > li:not(.disabled) > a:not(.dropdown-item):active,
+  #{$parent}.dropdown-menu > li.active:not(.disabled) > a:not(.dropdown-item) {
+    background-color: $background;
+    color: if($color, $color, yiq($background));
+  }
+}
+
+@mixin appwork-dropdown-theme($background, $color: null) {
+  @include appwork-dropdown-variant('', $background, $color);
+}
+
+@mixin appwork-material-dropdown-variant($parent, $background, $color: null) {
+  #{$parent} .dropdown-item:not(.disabled).active {
+    background-color: $background;
+    color: if($color, $color, yiq($background));
+  }
+
+  #{$parent}.dropdown-menu > li.active:not(.disabled) > a:not(.dropdown-item) {
+    background-color: $background;
+    color: if($color, $color, yiq($background));
+  }
+}
+
+@mixin appwork-material-dropdown-theme($background, $color: null) {
+  @include appwork-material-dropdown-variant('', $background, $color);
+}
+
+// *******************************************************************************
+// * Navs
+
+@mixin appwork-nav-size($padding-y, $padding-x, $font-size, $line-height) {
+   > .nav .nav-link,
+  &.nav .nav-link {
+    padding: $padding-y $padding-x;
+    font-size: $font-size;
+    line-height: $line-height;
+  }
+}
+
+@mixin appwork-nav-variant($parent, $background, $color: null) {
+  $pills-selector: if($parent == '', '.nav-pills', '#{$parent}.nav-pills, #{$parent} > .nav-pills');
+
+  #{$pills-selector} .nav-link.active {
+    @include plain-hover-focus {
+      background-color: $background;
+      color: if($color, $color, yiq($background));
+    }
+  }
+
+  #{$parent}.tabs-alt.nav-tabs .nav-link.active,
+  #{$parent}.tabs-alt > .nav-tabs .nav-link.active {
+    @include plain-hover-focus {
+      box-shadow: 0 -2px 0 $background inset;
+    }
+  }
+}
+
+@mixin appwork-nav-theme($background, $color: null) {
+  @include appwork-nav-variant('', $background, $color);
+}
+
+@mixin appwork-material-nav-variant($parent, $color, $link-color: null) {
+  $tabs-selector: if($parent == '', '.nav-tabs', '#{$parent}.nav-tabs');
+  $pills-selector: if($parent == '', '.nav-pills', '#{$parent}.nav-pills, #{$parent} > .nav-pills');
+
+  #{$tabs-selector} .nav-link {
+    background-image: linear-gradient($color, $color);
+  }
+
+  #{$pills-selector} .nav-link.active {
+    @include plain-hover-focus {
+      background-color: $color;
+      color: if($link-color, $link-color, yiq($color));
+    }
+  }
+}
+
+@mixin appwork-material-nav-theme($color, $link-color: null) {
+  @include appwork-material-nav-variant('', $color, $link-color);
+}
+
+// *******************************************************************************
+// * Pagination
+
+@mixin appwork-pagination-variant($parent, $background, $color: null) {
+  #{$parent} .page-item.active .page-link,
+  #{$parent}.pagination li.active > a:not(.page-link) {
+    @include plain-hover-focus {
+      border-color: $background !important;
+      background-color: $background !important;
+      color: if($color, $color, yiq($background)) !important;
+    }
+  }
+}
+
+@mixin appwork-pagination-theme($background, $color: null) {
+  @include appwork-pagination-variant('', $background, $color);
+}
+
+// *******************************************************************************
+// * Progress bars
+
+@mixin appwork-progress-bar-theme($background, $color: null) {
+  .progress-bar {
+    background-color: $background;
+    color: if($color, $color, yiq($background));
+  }
+}
+
+// *******************************************************************************
+// * List groups
+
+@mixin list-group-item-variant($state: null, $background: null, $color: null) {}
+
+@mixin appwork-list-group-item-variant($parent, $background, $color: null) {
+  $bg: rgba-to-hex(rgba($background, .1), #fff);
+  $color: yiq($bg);
+  $hover-bg: rgba-to-hex(rgba($bg, .99), #000);
+
+  #{$parent} {
+    border-color: rgba(0,0,0,.07);
+    background-color: $bg;
+    color: $color;
+  }
+
+  a#{$parent},
+  button#{$parent} {
+    color: $color;
+
+    @include hover-focus {
+      background-color: $hover-bg;
+      color: $color;
+    }
+
+    &.active {
+      border-color: $background;
+      background-color: $background;
+      color: if($color, $color, yiq($background));
+    }
+  }
+}
+
+@mixin appwork-list-group-theme($background, $color: null) {
+  @include appwork-list-group-item-variant('.list-group-item-primary', $background);
+
+  .list-group-item.active {
+    @include plain-hover-focus {
+      border-color: $background;
+      background-color: $background;
+      color: if($color, $color, yiq($background));
+    }
+  }
+}
+
+// *******************************************************************************
+// * Alerts
+
+@mixin alert-variant($background: null, $border: null, $color: null) {}
+
+@mixin appwork-alert-variant($parent, $background) {
+  $background: rgba-to-hex(rgba($background, .15), #fff);
+  $border: rgba-to-hex(rgba($background, .94), #000);
+  $color: yiq($background);
+
+  #{$parent} {
+    border-color: $border;
+    background-color: $background;
+    color: $color;
+
+    hr {
+      border-top-color: $border;
+    }
+
+    .close,
+    .alert-link {
+      color: $color;
+    }
+  }
+}
+
+@mixin appwork-alert-dark-variant($parent, $background, $color: null) {
+  $color: if($color, $color, yiq($background));
+
+  #{$parent} {
+    background-color: $background;
+    color: $color;
+
+    hr {
+      border-top-color: rgba(yiq($background),.2);
+    }
+
+    .close,
+    .alert-link {
+      color: $color;
+    }
+  }
+}
+
+// *******************************************************************************
+// * Tooltips
+
+@mixin appwork-tooltip-variant($parent, $background, $color: null) {
+  #{$parent} {
+    .tooltip-inner {
+      background: $background;
+      color: if($color, $color, yiq($background));
+    }
+
+    &.bs-tooltip-top .arrow::before, &.bs-tooltip-auto[x-placement^="top"] .arrow::before { border-top-color: $background; }
+    &.bs-tooltip-right .arrow::before, &.bs-tooltip-auto[x-placement^="right"] .arrow::before { border-right-color: $background; }
+    &.bs-tooltip-bottom .arrow::before, &.bs-tooltip-auto[x-placement^="bottom"] .arrow::before { border-bottom-color: $background; }
+    &.bs-tooltip-left .arrow::before, &.bs-tooltip-auto[x-placement^="left"] .arrow::before { border-left-color: $background; }
+  }
+}
+
+// *******************************************************************************
+// * Popovers
+
+@mixin appwork-popover-variant($parent, $background, $color: null) {
+  $color: if($color, $color, yiq($background));
+
+  #{$parent} {
+    border-color: transparent;
+    background: $background;
+
+    .popover-header {
+      border-color: rgba(yiq($background),.2);
+      background: transparent;
+      color: $color;
+    }
+
+    .popover-body {
+      background: transparent;
+      color: $color;
+    }
+
+    .arrow::before { border-color: transparent !important; }
+
+    &.bs-popover-top .arrow::after, &.bs-popover-auto[x-placement^="top"] .arrow::after { border-top-color: $background; }
+    &.bs-popover-right .arrow::after, &.bs-popover-auto[x-placement^="right"] .arrow::after { border-right-color: $background; }
+    &.bs-popover-bottom .arrow::after, &.bs-popover-auto[x-placement^="bottom"] .arrow::after { border-bottom-color: $background; }
+    &.bs-popover-left .arrow::after, &.bs-popover-auto[x-placement^="left"] .arrow::after { border-left-color: $background; }
+  }
+}
+
+// *******************************************************************************
+// * Form controls
+
+@mixin appwork-custom-select-size($size, $padding-y, $padding-x, $height, $font-size, $line-height) {
+  .custom-select-#{$size},
+  .input-group-#{$size} .custom-select {
+    padding: $padding-y ($padding-x + $custom-select-indicator-padding) $padding-y $padding-x;
+    height: $height;
+    background-position: right $padding-x center;
+    font-size: $font-size;
+    line-height: $line-height;
+
+    @include rtl-style {
+      &,
+      &[size="0"]:not([multiple]) {
+        padding-right: $padding-x;
+        padding-left: $padding-x + $custom-select-indicator-padding;
+        background-position: left $padding-x center;
+      }
+    }
+
+    &[size="0"]:not([multiple]) {
+      padding-right: $padding-x + $custom-select-indicator-padding;
+    }
+  }
+}
+
+@mixin appwork-custom-control-variant($parent, $background, $color: null, $default-background: null) {
+  $color: if($color, $color, yiq($background));
+
+  #{$parent} {
+    @if $default-background {
+      .custom-control-label::before,
+      .custom-control-input:active ~ .custom-control-label::before {
+        background-color: $default-background;
+      }
+    }
+
+    .custom-control-input {
+      &:focus ~ .custom-control-label::before,
+      &:active ~ .custom-control-label::before {
+        border-color: $background;
+      }
+
+      &:focus ~ .custom-control-label::before {
+        box-shadow: 0 0 0 $component-focus-shadow-width rgba($background, .4);
+      }
+    }
+
+    &.custom-checkbox .custom-control-input:checked ~ .custom-control-label::before,
+    &.custom-radio .custom-control-input:checked ~ .custom-control-label::before {
+      border-color: $background;
+      background-color: $background;
+    }
+
+    &.custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
+      background-image: url(str-replace(str-replace($custom-checkbox-indicator-bg, '_COLOR_', $color), "#", "%23"));
+    }
+
+    &.custom-radio .custom-control-input:checked ~ .custom-control-label::before {
+      background-image: url(str-replace(str-replace($custom-radio-indicator-bg, '_COLOR_', $color), "#", "%23"));
+    }
+  }
+}
+
+@mixin appwork-custom-control-theme($background, $color: null) {
+  @include appwork-custom-control-variant('.custom-control', $background, $color);
+}
+
+@mixin appwork-material-custom-control-variant($parent, $background, $color: null, $default-background: null) {
+  $color: if($color, $color, yiq($background));
+
+  #{$parent} {
+    @if $default-background {
+      .custom-control-label::before,
+      .custom-control-input:active ~ .custom-control-label::before {
+        background-color: $default-background;
+      }
+    }
+
+    &.custom-checkbox .custom-control-input:checked ~ .custom-control-label::before,
+    &.custom-radio .custom-control-input:checked ~ .custom-control-label::before {
+      border-color: $background;
+    }
+
+    &.custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
+      background-color: $background;
+      background-image: url(str-replace(str-replace($custom-checkbox-indicator-bg, '_COLOR_', $color), "#", "%23"));
+    }
+
+    &.custom-radio .custom-control-label::before {
+      background-image: url(str-replace(str-replace($custom-radio-indicator-bg, '_COLOR_', $background), "#", "%23"));
+    }
+
+    .custom-control-input:checked ~ .custom-control-label::after {
+      background: rgba($background, .15);
+    }
+  }
+}
+
+@mixin appwork-material-custom-control-theme($background, $color: null) {
+  @include appwork-material-custom-control-variant('.custom-control', $background, $color);
+}
+
+@mixin form-validation-state($state: null, $color: null) {}
+
+@mixin appwork-form-validation-state($state, $color) {
+  .#{$state}-feedback {
+    display: none;
+    margin-top: $form-text-margin-top;
+    color: $color;
+  }
+
+  .#{$state}-tooltip {
+    position: absolute;
+    top: 100%;
+    z-index: 5;
+    display: none;
+    margin-top: .1rem;
+    padding: .5rem;
+    width: 250px;
+    border-radius: .2rem;
+    background-color: rgba($color,.8);
+    color: #fff;
+    line-height: 1;
+  }
+
+  .form-control,
+  .custom-select {
+    .was-validated &:#{$state},
+    &.is-#{$state} {
+      border-color: $color !important;
+
+      &:focus {
+        border-color: $color !important;
+        box-shadow: 0 0 0 $component-focus-shadow-width rgba($color,.25) !important;
+      }
+
+       ~ .#{$state}-feedback,
+       ~ .#{$state}-tooltip {
+        display: block;
+      }
+    }
+  }
+
+  .custom-control.custom-checkbox .custom-control-input,
+  .custom-control.custom-radio .custom-control-input {
+    .was-validated &:#{$state},
+    &.is-#{$state} {
+       ~ .custom-control-label {
+        color: $color;
+      }
+
+      & ~ .custom-control-label::before,
+      &:focus ~ .custom-control-label::before,
+      &:active ~ .custom-control-label::before {
+        border-color: $color;
+      }
+
+      &:focus ~ .custom-control-label::before {
+        box-shadow: 0 0 0 $component-focus-shadow-width rgba($color, .4);
+      }
+
+      &:checked ~ .custom-control-label::before {
+        border-color: $color;
+        background-color: $color;
+      }
+
+       ~ .#{$state}-feedback,
+       ~ .#{$state}-tooltip {
+        display: block;
+      }
+    }
+  }
+
+  .custom-control.custom-checkbox .custom-control-input {
+    .was-validated &:#{$state},
+    &.is-#{$state} {
+      &:checked ~ .custom-control-label::before {
+        background-image: url(str-replace(str-replace($custom-checkbox-indicator-bg, '_COLOR_', yiq($color)), "#", "%23"));
+      }
+    }
+  }
+  .custom-control.custom-radio .custom-control-input {
+    .was-validated &:#{$state},
+    &.is-#{$state} {
+      &:checked ~ .custom-control-label::before {
+        background-image: url(str-replace(str-replace($custom-radio-indicator-bg, '_COLOR_', yiq($color)), "#", "%23"));
+      }
+    }
+  }
+
+  .custom-file-input {
+    .was-validated &:#{$state},
+    &.is-#{$state} {
+       ~ .custom-file-label {
+        border-color: $color !important;
+
+        &::after {
+          border-color: inherit !important;
+        }
+      }
+
+      &:focus {
+        box-shadow: 0 0 0 $component-focus-shadow-width rgba($color,.3) !important;
+      }
+    }
+  }
+}
+
+@mixin appwork-material-form-validation-state($state, $color) {
+  .#{$state}-feedback {
+    display: none;
+    margin-top: $form-text-margin-top;
+    color: $color;
+  }
+
+  .#{$state}-tooltip {
+    position: absolute;
+    top: 100%;
+    z-index: 5;
+    display: none;
+    margin-top: .1rem;
+    padding: .5rem;
+    width: 250px;
+    border-radius: .2rem;
+    background-color: rgba($color,.8);
+    color: #fff;
+    line-height: 1;
+  }
+
+  .form-control,
+  .custom-select {
+    .was-validated &:#{$state},
+    &.is-#{$state} {
+      border-color: $color !important;
+
+      &:focus {
+        box-shadow: 0 -1px 0 0 $color inset !important;
+      }
+
+       ~ .#{$state}-feedback,
+       ~ .#{$state}-tooltip {
+        display: block;
+      }
+    }
+  }
+
+
+  .custom-control.custom-checkbox .custom-control-input,
+  .custom-control.custom-radio .custom-control-input {
+    .was-validated &:#{$state},
+    &.is-#{$state} {
+       ~ .custom-control-label {
+        color: $color;
+      }
+
+      & ~ .custom-control-label::before,
+      &:focus ~ .custom-control-label::before,
+      &:active ~ .custom-control-label::before,
+      &:checked ~ .custom-control-label::before {
+        border-color: $color;
+      }
+
+      & ~ .custom-control-label::after {
+        background: rgba($color, .15) !important;
+      }
+
+       ~ .#{$state}-feedback,
+       ~ .#{$state}-tooltip {
+        display: block;
+      }
+    }
+  }
+
+  .custom-control.custom-checkbox .custom-control-input {
+    .was-validated &:#{$state}:checked ~ .custom-control-label::before,
+    &.is-#{$state}:checked ~ .custom-control-label::before {
+      background-color: $color;
+      background-image: url(str-replace(str-replace($custom-checkbox-indicator-bg, '_COLOR_', yiq($color)), "#", "%23"));
+    }
+  }
+
+  .custom-control.custom-radio .custom-control-input {
+    .was-validated &:#{$state}:checked ~ .custom-control-label::before,
+    &.is-#{$state}:checked ~ .custom-control-label::before {
+      background-image: url(str-replace(str-replace($custom-radio-indicator-bg, '_COLOR_', $color), "#", "%23"));
+    }
+  }
+
+  .was-validated .custom-file-input:#{$state},
+  .custom-file-input.is-#{$state} {
+     ~ .custom-file-label {
+      border-color: $color !important;
+    }
+
+    &:focus ~ .custom-file-label {
+      box-shadow: 0 -1px 0 0 $color inset !important;
+    }
+  }
+}
+
+@mixin appwork-custom-file-input-theme($color) {
+  .custom-file-input:focus ~ .custom-file-label {
+    border-color: $color;
+    box-shadow: none !important;
+
+    &::after {
+      border-color: inherit;
+    }
+  }
+}
+
+@mixin appwork-material-custom-file-input-theme($color) {
+  .custom-file-input:focus ~ .custom-file-label {
+    border-bottom-color: $color;
+    box-shadow: 0 -1px 0 0 $color inset;
+  }
+}
+
+@mixin appwork-material-form-control-size($size, $line-height, $padding-y, $group-btn-font-size: null) {
+  @if $size == '' {
+    .form-control,
+    .custom-select,
+    .custom-file-label,
+    .input-group-text {
+      padding-bottom: calc(#{$padding-y} - 1px) !important;
+      line-height: $line-height;
+    }
+  } @else {
+    .form-control-#{$size},
+    .custom-select-#{$size},
+    .input-group-#{$size} > .form-control,
+    .input-group-#{$size} > .custom-select,
+    .input-group-#{$size} .input-group-text {
+      padding-bottom: calc(#{$padding-y} - 1px) !important;
+      line-height: $line-height;
+    }
+
+    .input-group-#{$size} > .input-group-prepend > .btn,
+    .input-group-#{$size} > .input-group-append > .btn {
+      padding-bottom: calc(#{$padding-y} - 1px) !important;
+      font-size: $group-btn-font-size;
+    }
+  }
+}
+
+@mixin appwork-form-control-theme($color) {
+  .form-control:focus,
+  .custom-select:focus {
+    border-color: $color;
+  }
+}
+
+@mixin appwork-material-form-control-theme($color) {
+  .form-control:focus,
+  .custom-select:focus {
+    border-bottom-color: $color;
+    box-shadow: 0 -1px 0 0 $color inset;
+  }
+}
+
+// *******************************************************************************
+// * Switchers
+
+@mixin appwork-switcher-size-base($width, $height, $font-size, $description-font-size, $description-line-height, $inner-spacer: $switcher-inner-spacer) {
+  padding-left: $width;
+  min-height: $height;
+  font-size: $description-font-size;
+  line-height: $description-line-height;
+
+  $line-height-computed: $description-font-size * $description-line-height;
+  $delta: if($material-style, px-to-rem(ceil(rem-to-px($height * .125))), 0);
+
+  .switcher-blank .switcher-indicator {
+    top: $delta !important;
+  }
+
+  .switcher-indicator {
+    width: $width;
+    height: $height - ($delta * 2);
+    font-size: $font-size;
+    line-height: $height;
+
+    @if $line-height-computed > $height {
+      top: (($line-height-computed - $height) / 2) + $delta;
+    } @else {
+      top: 0 + $delta;
+    }
+  }
+
+  .switcher-label {
+    @if $line-height-computed < $height {
+      top: ($height - $line-height-computed) / 2;
+    } @else {
+      top: 0;
+    }
+  }
+
+  .switcher-input:checked ~ .switcher-indicator::after {
+    left: $width - $height;
+  }
+
+  .switcher-indicator::after {
+    top: $delta * -1;
+    margin: $inner-spacer 0 0 $inner-spacer;
+    width: $height - $inner-spacer * 2;
+    height: $height - $inner-spacer * 2;
+  }
+
+  .switcher-no {
+    padding-right: $inner-spacer;
+    padding-left: $height - $inner-spacer;
+  }
+
+  .switcher-yes {
+    padding-right: $height - $inner-spacer;
+    padding-left: $inner-spacer;
+  }
+
+  @if $material-style {
+    .switcher-indicator::before {
+      top: $delta * -1;
+      width: $height;
+      height: $height;
+    }
+
+    .switcher-input:checked ~ .switcher-indicator::before {
+      left: $width - $height;
+    }
+  }
+
+  @if $rtl-support {
+    [dir=rtl] & {
+      padding-right: $width;
+      padding-left: 0;
+    }
+
+    [dir=rtl] & .switcher-input:checked ~ .switcher-indicator::after {
+      right: $width - $height;
+      left: auto;
+    }
+
+    [dir=rtl] & .switcher-indicator::after {
+      margin-right: $inner-spacer;
+      margin-left: 0;
+    }
+
+    [dir=rtl] & .switcher-no {
+      padding-right: $height - $inner-spacer;
+      padding-left: $inner-spacer;
+    }
+
+    [dir=rtl] & .switcher-yes {
+      padding-right: $inner-spacer;
+      padding-left: $height - $inner-spacer;
+    }
+
+    @if $material-style {
+      [dir=rtl] & .switcher-input:checked ~ .switcher-indicator::before {
+        right: $width - $height;
+        left: auto;
+      }
+    }
+  }
+}
+
+@mixin appwork-switcher-size($size, $width, $height, $font-size, $description-font-size, $description-line-height, $inner-spacer: $switcher-inner-spacer) {
+  .switcher-#{$size},
+  .form-group-#{$size} .switcher {
+    @include appwork-switcher-size-base($width, $height, $font-size, $description-font-size, $description-line-height, $inner-spacer);
+  }
+}
+
+@mixin appwork-switcher-variant($parent, $background, $color: null) {
+  $selector: if($parent == '', '', '#{$parent}.switcher');
+  $color: if($color, $color, yiq($background));
+
+  #{$selector} .switcher-input:checked ~ .switcher-indicator {
+    background: $background;
+    color: $color;
+  }
+
+  #{$selector} .switcher-input:focus ~ .switcher-indicator {
+    box-shadow: 0 0 0 $component-focus-shadow-width rgba($background, .4);
+  }
+
+  #{$selector} .switcher-input:active ~ .switcher-indicator {
+    box-shadow: none !important;
+  }
+}
+
+@mixin appwork-switcher-theme($background, $color: null) {
+  @include appwork-switcher-variant('', $background, $color);
+}
+
+@mixin appwork-material-switcher-variant($parent, $background) {
+  $selector: if($parent == '', '', '#{$parent}.switcher');
+
+  #{$selector} .switcher-input:checked ~ .switcher-indicator {
+    background: rgba($background, .5);
+
+    &::after {
+      background: $background;
+    }
+
+    &::before {
+      background: rgba($background, .15);
+    }
+  }
+}
+
+@mixin appwork-material-switcher-theme($background) {
+  @include appwork-material-switcher-variant('', $background);
+}
+
+@mixin appwork-switcher-validation-state($state, $color) {
+  .switcher-input {
+    .was-validated &:#{$state},
+    &.is-#{$state} {
+      &:checked ~ .switcher-indicator {
+        background: $color !important;
+        color: yiq($color) !important;
+      }
+
+      &:focus ~ .switcher-indicator {
+        box-shadow: 0 0 0 $component-focus-shadow-width rgba($color, .4) !important;
+      }
+
+      &:active ~ .switcher-indicator {
+        box-shadow: none !important;
+      }
+
+      ~ .switcher-label {
+        color: $color !important;
+      }
+    }
+  }
+}
+
+@mixin appwork-material-switcher-validation-state($state, $color) {
+  .switcher-input {
+    .was-validated &:#{$state},
+    &.is-#{$state} {
+      ~ .switcher-indicator {
+        background: rgba($color, .5) !important;
+      }
+
+      &:checked ~ .switcher-indicator {
+        &::after {
+          background: $color !important;
+        }
+
+        &::before {
+          background: rgba($color, .15) !important;
+        }
+      }
+
+      ~ .switcher-label {
+        color: $color !important;
+      }
+    }
+  }
+}
+
+// *******************************************************************************
+// * Tables
+
+@mixin table-row-variant($state, $background) {}
+
+@mixin appwork-table-row-variant($parent, $background) {
+  $bg: rgba-to-hex(rgba($background, .1), #fff);
+  $color: yiq($bg);
+  $hover-bg: rgba-to-hex(rgba($bg, .99), #000);
+
+  .table #{$parent},
+  .table #{$parent} > th,
+  .table #{$parent} > td {
+    border-color: rgba(0,0,0,.035);
+    background-color: $bg;
+    color: $color;
+  }
+
+  .table-hover #{$parent}:hover,
+  .table-hover #{$parent}:hover > td,
+  .table-hover #{$parent}:hover > th {
+    background-color: $hover-bg;
+  }
+}
+
+// *******************************************************************************
+// * Navbar
+
+@mixin appwork-navbar-variant($parent, $bg, $color: null, $active-color: null, $border: null) {
+  $colors: get-nav-colors($bg, $active-color, $color, $border);
+
+  #{$parent} {
+    background-color: map-get($colors, bg) !important;
+    color: map-get($colors, color);
+
+    .navbar-brand {
+      color: map-get($colors, active-color);
+
+      @include hover-focus {
+        color: map-get($colors, active-color);
+      }
+    }
+
+    .navbar-nav {
+      .nav-link {
+        color: map-get($colors, color);
+
+        @include hover-focus {
+          color: map-get($colors, active-color);
+        }
+
+        &.disabled {
+          color: map-get($colors, disabled-color) !important;
+        }
+      }
+
+      .show > .nav-link,
+      .active > .nav-link,
+      .nav-link.show,
+      .nav-link.active {
+        color: map-get($colors, active-color);
+      }
+    }
+
+    .navbar-toggler {
+      color: map-get($colors, color);
+      border-color: map-get($colors, border);
+    }
+
+    .navbar-toggler-icon {
+      background-image: if(map-get($colors, active-color) == #fff, $navbar-dark-toggler-icon-bg, $navbar-light-toggler-icon-bg);
+    }
+
+    .navbar-text {
+      color: map-get($colors, color);
+
+      a {
+        color: map-get($colors, active-color);
+
+        @include hover-focus {
+          color: map-get($colors, active-color);
+        }
+      }
+    }
+
+    hr {
+      border-color: map-get($colors, border);
+    }
+  }
+}
+
+// *******************************************************************************
+// * Sidenav
+
+@mixin appwork-sidenav-variant($parent, $bg, $color: null, $active-color: null, $border: null, $menu-bg: null) {
+  $colors: get-nav-colors($bg, $active-color, $color, $border);
+  $yiq-percent: map-get($colors, yiq-percent);
+
+  @if not $menu-bg {
+    $menu-bg: rgba-to-hex(rgba(map-get($colors, bg), 1 - if($yiq-percent > .75, .025, .05)), if($yiq-percent < .25, #fff, #000));
+  }
+
+  $menu-active-bg: rgba-to-hex(rgba($menu-bg, 1 - if($yiq-percent > .75, .025, .05)), if($yiq-percent < .25, #fff, #000));
+
+  #{$parent} {
+    background-color: map-get($colors, bg) !important;
+    color: map-get($colors, color);
+
+    .sidenav-link,
+    .sidenav-horizontal-prev,
+    .sidenav-horizontal-next {
+      color: map-get($colors, color);
+
+      @include hover-focus {
+        color: map-get($colors, active-color);
+      }
+
+      &.active {
+        color: map-get($colors, active-color);
+      }
+    }
+
+    .sidenav-item.disabled .sidenav-link,
+    .sidenav-horizontal-prev.disabled,
+    .sidenav-horizontal-next.disabled {
+      color: map-get($colors, disabled-color) !important;
+    }
+
+    .sidenav-item.open:not(.sidenav-item-closing) > .sidenav-toggle,
+    .sidenav-item.active > .sidenav-link {
+      color: map-get($colors, active-color);
+    }
+
+    .sidenav-item.active > .sidenav-link:not(.sidenav-toggle) {
+      background-color: $menu-bg;
+    }
+
+    &.sidenav-horizontal .sidenav-menu > .sidenav-item.active > .sidenav-link:not(.sidenav-toggle) {
+      background-color: $menu-active-bg;
+    }
+
+    &.sidenav-horizontal .sidenav-inner > .sidenav-item:not(.sidenav-item-closing) > .sidenav-menu,
+    &.sidenav-horizontal .sidenav-inner > .sidenav-item.open > .sidenav-toggle {
+      background: $menu-bg;
+    }
+
+    .sidenav-inner > .sidenav-item.sidenav-item-closing .sidenav-item.open .sidenav-menu,
+    .sidenav-inner > .sidenav-item.sidenav-item-closing .sidenav-item.open .sidenav-toggle {
+      background: transparent;
+      color: map-get($colors, color);
+    }
+
+    .sidenav-text {
+      color: map-get($colors, active-color);
+    }
+
+    .sidenav-header {
+      color: map-get($colors, muted-color);
+    }
+
+    hr,
+    .sidenav-divider,
+    .sidenav-inner > .sidenav-item.open > .sidenav-menu::before {
+      border-color: map-get($colors, border) !important;
+    }
+
+    .sidenav-inner > .sidenav-header::before,
+    .sidenav-block::before {
+      background-color: map-get($colors, border);
+    }
+
+    .sidenav-inner > .sidenav-item.open .sidenav-item.open > .sidenav-toggle::before {
+      background-color: rgba-to-hex(map-get($colors, border), $menu-bg);
+    }
+
+    .sidenav-inner > .sidenav-item.open .sidenav-item.active > .sidenav-link::before {
+      background-color: map-get($colors, active-color);
+    }
+
+    .sidenav-inner > .sidenav-item.open .sidenav-item.open > .sidenav-toggle::before,
+    .sidenav-inner > .sidenav-item.open .sidenav-item.active > .sidenav-link::before {
+      box-shadow: 0 0 0 2px $menu-bg;
+    }
+
+    .ps__thumb-y,
+    .ps__rail-y.ps--clicking > .ps__thumb-y {
+      background: rgba(map-get($colors, active-color), if($yiq-percent > .75, map-get($colors, opacity) - .4, map-get($colors, opacity) - .2)) !important;
+    }
+  }
+}
+
+// *******************************************************************************
+// * Footer
+
+@mixin appwork-footer-variant($parent, $bg, $color: null, $active-color: null, $border: null) {
+  $colors: get-nav-colors($bg, $active-color, $color, $border);
+
+  #{$parent} {
+    background-color: map-get($colors, bg) !important;
+    color: map-get($colors, color);
+
+    .footer-link {
+      color: map-get($colors, color);
+
+      @include hover-focus {
+        color: map-get($colors, active-color);
+      }
+
+      &.disabled {
+        color: map-get($colors, disabled-color) !important;
+      }
+    }
+
+    .footer-text {
+      color: map-get($colors, active-color);
+    }
+
+    .show > .footer-link,
+    .active > .footer-link,
+    .footer-link.show,
+    .footer-link.active {
+      color: map-get($colors, active-color);
+    }
+
+    hr {
+      border-color: map-get($colors, border);
+    }
+  }
+}

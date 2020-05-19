@@ -1,0 +1,193 @@
+// Cards
+//
+
+.card {
+  background-clip: padding-box;
+  box-shadow: $card-shadow;
+}
+
+.card-link {
+  display: inline-block;
+}
+
+@include rtl-only {
+  .card-link + .card-link {
+    margin-right: $card-spacer-x;
+    margin-left: 0;
+  }
+}
+
+.card-header {
+  line-height: $component-line-height;
+
+  @if $material-style {
+    border-bottom-width: 1px;
+  }
+}
+
+@if $material-style {
+  .card-footer {
+    border-top-width: 1px;
+  }
+}
+
+// Inner borders
+
+.card-header,
+.card-footer,
+.card hr {
+  border-color: $card-inner-border-color;
+}
+
+.card .list-group-item {
+  border-color: rgba-to-hex($card-inner-border-color);
+}
+
+.card .row-bordered > [class^="col-"],
+.card .row-bordered > [class*=" col-"],
+.card .row-bordered > [class^="col "],
+.card .row-bordered > [class*=" col "],
+.card .row-bordered > [class$=" col"],
+.card .row-bordered > [class="col"] {
+  &::before,
+  &::after {
+    border-color: $card-inner-border-color;
+  }
+}
+
+// *******************************************************************************
+// * Header / Title with elements(controls)
+
+.card-header.with-elements,
+.card-title.with-elements {
+  display: flex;
+
+  width: 100%;
+
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.card-header.with-elements {
+  padding-top: $card-spacer-y / 2;
+  padding-bottom: $card-spacer-y / 2;
+}
+
+.card-header-elements,
+.card-title-elements {
+  display: flex;
+
+  align-items: center;
+  flex-wrap: wrap;
+
+  & + &,
+  > * + * {
+    margin-left: .25rem;
+
+    @include rtl-style {
+      margin-right: .25rem;
+      margin-left: 0;
+    }
+  }
+}
+
+.card-header-title {
+  padding: ($card-spacer-y / 2) 0;
+}
+
+.card-header-elements {
+  padding-top: .25rem;
+  padding-bottom: .25rem;
+}
+
+// *******************************************************************************
+// * List groups
+
+.card > .list-group .list-group-item {
+  padding-right: $card-spacer-x;
+  padding-left: $card-spacer-x;
+}
+
+// *******************************************************************************
+// * Condenced
+
+.card-condenced {
+  .card-header,
+  .card-footer,
+  > .list-group .list-group-item {
+    padding-right: $card-spacer-x-sm;
+    padding-left: $card-spacer-x-sm;
+  }
+
+  .card-body,
+  .card-img-overlay {
+    padding: $card-spacer-x-sm;
+  }
+}
+
+// *******************************************************************************
+// * Hoverable
+
+html:not([dir=rtl]) .card-hover[class],
+html[dir=rtl] .card-hover[class] {
+  transition: all .2s;
+
+  &:not(:hover) {
+    color: $body-color !important;
+    border-color: transparent !important;
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+}
+
+// *******************************************************************************
+// * RTL
+
+@include rtl-only {
+  @include media-breakpoint-up(sm) {
+    .card-group .card {
+      border: $card-border-width solid $card-border-color;
+      border-radius: $card-border-radius;
+
+      + .card {
+        border-right: 0;
+      }
+    }
+
+    // Handle rounded corners
+    @if $enable-rounded {
+      .card-group .card:first-child {
+        @include border-left-radius(0);
+
+        .card-img-top {
+          border-top-left-radius: 0;
+        }
+
+        .card-img-bottom {
+          border-bottom-left-radius: 0;
+        }
+      }
+
+      .card-group .card:last-child {
+        @include border-right-radius(0);
+
+        .card-img-top {
+          border-top-right-radius: 0;
+        }
+
+        .card-img-bottom {
+          border-bottom-right-radius: 0;
+        }
+      }
+
+      .card-group .card:not(:first-child):not(:last-child) {
+        border-radius: 0;
+
+        .card-img-top,
+        .card-img-bottom {
+          border-radius: 0;
+        }
+      }
+    }
+  }
+}

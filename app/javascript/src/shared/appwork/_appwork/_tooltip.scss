@@ -1,0 +1,45 @@
+// Tooltips
+//
+
+.tooltip-inner {
+  box-shadow: $tooltip-box-shadow;
+}
+
+.modal-open .tooltip {
+  z-index: $zindex-modal-top + 2;
+}
+
+@each $color, $value in $theme-colors {
+  @if $color != primary and $color != light {
+    @include appwork-tooltip-variant('.tooltip-#{$color}, .tooltip-#{$color} > .tooltip, .ngb-tooltip-#{$color} + ngb-tooltip-window', rgba-to-hex($value));
+  }
+}
+
+// *******************************************************************************
+// * Material
+
+@if $material-style {
+  .tooltip {
+    transition: none !important;
+  }
+
+  .tooltip.bs-tooltip-top,
+  .bs-tooltip-auto[x-placement^="top"] {
+    animation: topTooltipAnimation .25s;
+  }
+
+  .tooltip.bs-tooltip-right,
+  .bs-tooltip-auto[x-placement^="right"] {
+    animation: rightTooltipAnimation .25s;
+  }
+
+  .tooltip.bs-tooltip-bottom,
+  .bs-tooltip-auto[x-placement^="bottom"] {
+    animation: bottomTooltipAnimation .25s;
+  }
+
+  .tooltip.bs-tooltip-left,
+  .bs-tooltip-auto[x-placement^="left"] {
+    animation: leftTooltipAnimation .25s;
+  }
+}

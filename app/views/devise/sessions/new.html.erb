@@ -1,0 +1,38 @@
+<div class="authentication-wrapper authentication-2 ui-bg-cover ui-bg-overlay-container px-4" style="background-image: url('<%= image_path('login_bg.jpg') %>');">
+  <div class="ui-bg-overlay bg-dark opacity-25"></div>
+
+  <div class="authentication-inner py-5">
+    <div class="card">
+      <div class="p-4 p-sm-5">
+        <div class="d-flex justify-content-center align-items-center pb-2 mb-4">
+          <%#= image_tag('logo.png', style: 'height: 150px;') %>
+        </div>
+
+        <h5 class="text-center text-muted font-weight-normal mb-4">Acesso ao Painel de Administração</h5>
+
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <div class="form-group">
+            <%= f.label :email, class: 'form-label' %>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class:" form-control" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :password, 'Senha', class: 'form-label' %>
+            <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
+          </div>
+          <div class="d-flex justify-content-between align-items-center m-0">
+            <label class="custom-control custom-checkbox m-0">
+              <%= f.check_box :remember_me, class: "custom-control-input" %>
+              <span class="custom-control-label">Manter Conectado?</span>
+            </label>
+            <%= f.submit "Entrar", class: "btn btn-primary" %>
+          </div>
+        <% end %>
+      </div>
+      <div class="card-footer py-3 px-4 px-sm-5">
+        <div class="text-center">
+          <%= link_to "Esqueceu sua senha?", new_password_path(resource_name) %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,58 @@
+// -------------------------------------------------------------------------------
+// Theme mixin
+
+@mixin appwork-common-theme($background, $color: null) {
+  @include text-emphasis-variant('.text-primary', $background);
+  @include bg-variant('.bg-primary', $background);
+  html:not([dir=rtl]) .border-primary, html[dir=rtl] .border-primary { border-color: $background !important; }
+  @include appwork-badge-variant('.badge-primary', $background, $color);
+  @include appwork-badge-outline-variant('.badge-outline-primary', $background);
+  @include appwork-pagination-theme($background, $color);
+  @include appwork-progress-bar-theme($background, $color);
+  @include appwork-list-group-theme($background, $color);
+  @include appwork-alert-variant('.alert-primary', $background);
+  @include appwork-alert-dark-variant('.alert-dark-primary', $background, $color);
+  @include appwork-tooltip-variant('.tooltip-primary, .tooltip-primary > .tooltip, .ngb-tooltip-primary + ngb-tooltip-window', $background, $color);
+  @include appwork-popover-variant('.popover-primary, .popover-primary > .popover, .ngb-popover-primary + ngb-popover-window', $background, $color);
+  @include appwork-table-row-variant('.table-primary', $background);
+  @include appwork-button-variant('.btn-primary', $background, $color);
+  @include appwork-button-outline-variant('.btn-outline-primary', $background, $color);
+  @include appwork-dropdown-theme($background, $color);
+  @include appwork-nav-theme($background, $color);
+  @include appwork-custom-control-theme($background, $color);
+  @include appwork-custom-file-input-theme($background);
+  @include appwork-form-control-theme($background);
+  @include appwork-switcher-theme($background, $color);
+  @include appwork-navbar-variant('.navbar.bg-primary', $primary-color);
+  @include appwork-sidenav-variant('.sidenav.bg-primary', $primary-color);
+  @include appwork-footer-variant('.footer.bg-primary', $primary-color);
+  .fill-primary { fill: $background }
+}
+
+@mixin appwork-common-material-theme($background, $color: null) {
+  @include text-emphasis-variant('.text-primary', $background);
+  @include bg-variant('.bg-primary', $background);
+  html:not([dir=rtl]) .border-primary, html[dir=rtl] .border-primary { border-color: $background !important; }
+  @include appwork-badge-variant('.badge-primary', $background, $color);
+  @include appwork-badge-outline-variant('.badge-outline-primary', $background);
+  @include appwork-pagination-theme($background, $color);
+  @include appwork-progress-bar-theme($background, $color);
+  @include appwork-list-group-theme($background, $color);
+  @include appwork-alert-variant('.alert-primary', $background);
+  @include appwork-alert-dark-variant('.alert-dark-primary', $background, $color);
+  @include appwork-tooltip-variant('.tooltip-primary, .tooltip-primary > .tooltip, .ngb-tooltip-primary + ngb-tooltip-window', $background, $color);
+  @include appwork-popover-variant('.popover-primary, .popover-primary > .popover, .ngb-popover-primary + ngb-popover-window', $background, $color);
+  @include appwork-table-row-variant('.table-primary', $background);
+  @include appwork-material-button-variant('.btn-primary', $background, $color);
+  @include appwork-material-button-outline-variant('.btn-outline-primary', $background, $color);
+  @include appwork-material-dropdown-theme($background, $color);
+  @include appwork-material-nav-theme($background, $color);
+  @include appwork-material-custom-control-theme($background, $color);
+  @include appwork-material-custom-file-input-theme($background);
+  @include appwork-material-form-control-theme($background);
+  @include appwork-material-switcher-theme($background);
+  @include appwork-navbar-variant('.navbar.bg-primary', $primary-color);
+  @include appwork-sidenav-variant('.sidenav.bg-primary', $primary-color);
+  @include appwork-footer-variant('.footer.bg-primary', $primary-color);
+  .fill-primary { fill: $background }
+}

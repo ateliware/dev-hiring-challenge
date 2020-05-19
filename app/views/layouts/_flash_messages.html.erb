@@ -1,0 +1,3 @@
+<% if flash[:success] %>
+<script>$.growl.notice({title: 'Sucesso!', message: '<%= flash[:success] %>'});</script>
+<% end %>

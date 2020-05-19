@@ -1,0 +1,39 @@
+<div id="layout-sidenav" class="
+  <% if local_assigns[:horizontal] == true %>layout-sidenav-horizontal sidenav-horizontal container-p-x d-print-none flex-grow-0
+  <% else %>layout-sidenav sidenav-vertical
+  <% end %> sidenav bg-sidenav-theme">
+  <% if local_assigns[:horizontal] != true %>
+    <!-- Brand demo (see assets/css/demo/demo.css) -->
+    <div class="app-brand demo">
+    <span class="app-brand-logo demo">
+      <%#= image_tag('logo.png', style: 'height: 50px;') %>
+    </span>
+      <a href="/" class="app-brand-text demo sidenav-text font-weight-normal ml-2">Painel Admin</a>
+      <a href="javascript:void(0)" class="layout-sidenav-toggle sidenav-link text-large ml-auto">
+        <i class="fas fa-bars align-middle"></i>
+      </a>
+    </div>
+
+    <div class="sidenav-divider mt-0"></div>
+
+  <% end %>
+
+  <ul class="sidenav-inner
+    <% if local_assigns[:horizontal] != true %> py-1
+    <% end %>">
+
+    <li class="sidenav-header small font-weight-semibold">Menu</li>
+
+    <li class="sidenav-item<%= current_page?(root_path) ? ' active' : '' %>">
+      <%= link_to root_path, class: "sidenav-link" do %><i class="sidenav-icon fas fa-chart-bar"></i>
+        <div>Dashboard</div>
+      <% end %>
+    </li>
+
+<!--    <li class="sidenav-item<%#= current_page?(admin_admins_path) ? ' active' : '' %>">-->
+<!--      <%#= link_to admin_admins_path, class: "sidenav-link" do %><i class="sidenav-icon fas fa-user-tie"></i>-->
+<!--        <div>Admins</div>-->
+      <%# end %>
+<!--    </li>-->
+  </ul>
+</div>

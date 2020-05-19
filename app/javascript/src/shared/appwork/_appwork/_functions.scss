@@ -1,0 +1,262 @@
+// Functions
+//
+
+// *******************************************************************************
+// * Math
+
+$pi: 3.14159265359;
+$_precision: 10;
+
+@function pow($base, $exp) {
+  $value: $base;
+  @if $exp > 1 {
+    @for $i from 2 through $exp {
+      $value: $value * $base;
+    }
+  }
+  @if $exp < 1{
+    @for $i from 0 through -$exp {
+      $value: $value / $base;
+    }
+  }
+  @return $value;
+}
+
+@function sqrt($r) {
+  $x0: 1;
+  $x1: $x0;
+
+  @for $i from 1 through 10 {
+    $x1: $x0 - ($x0 * $x0 - abs($r)) / (2 * $x0);
+    $x0: $x1;
+  }
+
+  @return $x1;
+}
+
+@function fact($num) {
+  $fact: 1;
+  @if $num > 0{
+    @for $i from 1 through $num {
+      $fact: $fact * $i;
+    }
+  }
+  @return $fact;
+}
+
+@function _to_unitless_rad($angle) {
+  @if unit($angle) == "deg" {
+    $angle: $angle / 180deg * $pi;
+  }
+  @if unit($angle) == "rad" {
+    $angle: $angle / 1rad;
+  }
+  @return $angle;
+}
+
+@function sin($angle){
+  $a: _to_unitless_rad($angle);
+  $sin: $a;
+  @for $n from 1 through $_precision {
+    $sin: $sin + (pow(-1, $n) / fact(2 * $n + 1) ) * pow($a, (2 * $n + 1));
+  }
+  @return $sin;
+}
+
+@function cos($angle){
+  $a: _to_unitless_rad($angle);
+  $cos: 1;
+  @for $n from 1 through $_precision {
+    $cos: $cos + ( pow(-1,$n) / fact(2*$n) ) * pow($a,2*$n);
+  }
+  @return $cos;
+}
+
+@function tan($angle){
+  @return sin($angle) / cos($angle);
+}
+
+// *******************************************************************************
+// * Lists
+
+@function slice-list($list, $start: 1, $end: length($list)) {
+  $result: null;
+
+  @if type-of($start) != number or type-of($end) != number {
+    @warn "Either $start or $end are not a number for `slice`.";
+  }
+
+  @else if $start > $end {
+    @warn "The start index has to be lesser than or equals to the end index for `slice`.";
+  }
+
+  @else if $start < 1 or $end < 1 {
+    @warn "List indexes must be non-zero integers for `slice`.";
+  }
+
+  @else if $start > length($list) {
+    @warn "List index is #{$start} but list is only #{length($list)} item long for `slice`.";
+  }
+
+  @else if $end > length($list) {
+    @warn "List index is #{$end} but list is only #{length($list)} item long for `slice`.";
+  }
+
+  @else {
+    $result: ();
+
+    @for $i from $start through $end {
+      $result: append($result, nth($list, $i));
+    }
+  }
+
+  @return $result;
+}
+
+// *******************************************************************************
+// * Strings
+
+@function str-replace($string, $search, $replace: '') {
+  $index: str-index($string, $search);
+
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+  }
+
+  @return $string;
+}
+
+// *******************************************************************************
+// * Colors
+
+@function rgba-to-hex($color, $background: #fff) {
+  @if $color and alpha($color) != 1 {
+    $percent: alpha($color) * 100%;
+    $opaque: opacify($color, 1);
+
+    @return mix($opaque, $background, $percent);
+  }
+  @else {
+    @return $color;
+  }
+}
+
+@function yiq-value($color) {
+  @if $color == transparent {
+    @return $body-color;
+  } @else if alpha($color) != 1 {
+    $color: rgba-to-hex($color);
+  }
+
+  $r: red($color);
+  $g: green($color);
+  $b: blue($color);
+
+  @return (($r * 299) + ($g * 587) + ($b * 114)) / 1000;
+}
+
+// Color contrast
+@function yiq($color) {
+  $yiq: yiq-value($color);
+
+  @if ($yiq >= 160) {
+    @return rgba-to-hex(rgba($color, .40), #000);
+  } @else {
+    @return #fff;
+  }
+}
+
+// *******************************************************************************
+// * Units
+
+@function strip-unit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return $number / ($number * 0 + 1);
+  }
+
+  @return $number;
+}
+
+@function px-to-rem($value) {
+  // Assumes the browser default font size = `16px`
+  @return (strip-unit($value) / 16) * 1rem;
+}
+
+@function rem-to-px($value) {
+  // Assumes the browser default font size = `16px`
+  @return (strip-unit($value) * 16) * 1px;
+}
+
+// *******************************************************************************
+// * Utilities
+
+@function get-btn-colors($background, $border) {
+  @if $background == transparent {
+    $btn-shadow: rgba(rgba-to-hex($border, #000), .05);
+
+    @return (
+      bg-hover:  rgba($border, .06),
+      bg-active: rgba($border, .12),
+      border:    $border,
+      shadow:    if($enable-shadows, ($btn-box-shadow, 0 0 0 $component-focus-shadow-width $btn-shadow), 0 0 0 $component-focus-shadow-width $btn-shadow)
+    );
+  } @else if alpha($background) != 1 {
+    $bg-alpha:   alpha($background);
+    $btn-shadow: rgba($background, $bg-alpha - ($bg-alpha * 55 / 100) );
+
+    @return (
+      bg-hover:  rgba($background, $bg-alpha + 0.05),
+      bg-active: rgba($background, $bg-alpha + 0.13),
+      border:    transparent,
+      shadow:    if($enable-shadows, ($btn-box-shadow, 0 0 0 $component-focus-shadow-width $btn-shadow), 0 0 0 $component-focus-shadow-width $btn-shadow)
+    );
+  } @else {
+    @return (
+      bg-hover:  rgba-to-hex(rgba($background, .95), #000),
+      bg-active: rgba-to-hex(rgba($background, .87), #000),
+      border:    transparent,
+      shadow:    if($enable-shadows, ($btn-box-shadow, 0 0 0 $component-focus-shadow-width rgba($background, .4)), 0 0 0 $component-focus-shadow-width rgba($background, .4))
+    );
+  }
+}
+
+@function get-material-btn-colors($background) {
+  @if alpha($background) != 1 {
+    $background: rgba-to-hex($background);
+  }
+
+  @return (
+    bg-hover:  rgba-to-hex(rgba($background, .95), #fff),
+    bg-active: rgba-to-hex(rgba($background, .87), #fff),
+  );
+}
+
+@function get-nav-colors($bg, $active-color: null, $inactive-color: null, $border: null) {
+  $bg: rgba-to-hex($bg);
+  $active-color: rgba-to-hex($active-color);
+  $active-color: if($active-color, $active-color, yiq($bg));
+  $yiq-percent: yiq-value($bg) / 255;
+  $yiq-percent-inverted: 1 - $yiq-percent;
+
+  $opacity: if($active-color == #fff, .6 + (.4 * $yiq-percent), .6 + (.4 * (1 - $yiq-percent)));
+
+  $color: if($inactive-color, rgba-to-hex($inactive-color, $bg), rgba-to-hex(rgba($active-color, if($yiq-percent < .25, $opacity - .15, $opacity)), $bg));
+  $disabled-color: rgba-to-hex(rgba($color, .6), $bg);
+  $muted-color: rgba-to-hex(rgba($color, .75), $bg);
+  $border: if($border, $border, if($yiq-percent > .75, rgba($active-color, $opacity / 8), if($yiq-percent < .25, rgba($active-color, .06), rgba($active-color, .15))));
+
+  @return (
+    // Metadata
+    opacity: $opacity,
+    yiq-percent: $yiq-percent,
+    yiq-percent-inverted: $yiq-percent-inverted,
+
+    // Colors
+    bg: $bg,
+    color: $color,
+    active-color: $active-color,
+    disabled-color: $disabled-color,
+    muted-color: $muted-color,
+    border: $border
+  );
+}

@@ -1,0 +1,83 @@
+@import "_appwork/include";
+
+// *******************************************************************************
+// * Custom colors
+
+$custom-colors: (
+  twitter: #1DA1F2,
+  google: #D1523F,
+  facebook: #3B5998,
+  pinterest: #bd121c,
+  instagram: #000,
+
+  windows: #26AAE1,
+  macos: #343434,
+  linux: #800080
+) !default;
+
+@each $color-name, $color-value in $custom-colors {
+  // @include text-emphasis-variant('.text-#{$color-name}', $color-value);
+  @include bg-variant('.bg-#{$color-name}', $color-value);
+
+  @include appwork-button-variant('.btn-#{$color-name}', $color-value);
+  @include appwork-button-outline-variant('.btn-outline-#{$color-name}', $color-value);
+}
+
+// *******************************************************************************
+// * Buttons
+
+@include appwork-button-variant('.btn-white', #fff, $body-color);
+@include appwork-button-outline-variant('.btn-outline-white', #fff, $body-color);
+
+// *******************************************************************************
+// * Custom controls
+
+$custom-control-colors: (
+  black: #000,
+  white: #fff,
+  silver: #eee,
+  gray: #777,
+  gold: #ffeb3b,
+  pink: #e91e63,
+  red: #f44336
+) !default;
+
+@each $color-name, $color-value in $custom-control-colors {
+  @include appwork-custom-control-variant('.custom-control.custom-control-#{$color-name}', $color-value, $default-background: $color-value);
+}
+
+// *******************************************************************************
+// * Navbar
+
+@each $color, $value in $theme-colors {
+  @if $color != primary and $color != light {
+    @include appwork-navbar-variant('.navbar.bg-#{$color}', $value);
+  }
+}
+@include appwork-navbar-variant('.navbar.bg-white',   #fff,      $color: $text-muted, $active-color: $body-color);
+@include appwork-navbar-variant('.navbar.bg-light',   $gray-100, $color: $text-muted, $active-color: $body-color);
+@include appwork-navbar-variant('.navbar.bg-lighter', $gray-50,  $color: $text-muted, $active-color: $body-color);
+
+// *******************************************************************************
+// * Sidenav
+
+@each $color, $value in $theme-colors {
+  @if $color != primary and $color != light {
+    @include appwork-sidenav-variant('.sidenav.bg-#{$color}', $value);
+  }
+}
+@include appwork-sidenav-variant('.sidenav.bg-white', #fff,       $color: $text-muted, $active-color: $body-color, $menu-bg: #fff);
+@include appwork-sidenav-variant('.sidenav.bg-light', $gray-100,  $color: $text-muted, $active-color: $body-color);
+@include appwork-sidenav-variant('.sidenav.bg-lighter', $gray-50, $color: $text-muted, $active-color: $body-color);
+
+// *******************************************************************************
+// * Footer
+
+@each $color, $value in $theme-colors {
+  @if $color != primary and $color != light {
+    @include appwork-footer-variant('.footer.bg-#{$color}', $value);
+  }
+}
+@include appwork-footer-variant('.footer.bg-white',   #fff,      $color: $text-muted, $active-color: $body-color);
+@include appwork-footer-variant('.footer.bg-light',   $gray-100, $color: $text-muted, $active-color: $body-color);
+@include appwork-footer-variant('.footer.bg-lighter', $gray-50,  $color: $text-muted, $active-color: $body-color);

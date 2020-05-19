@@ -1,0 +1,243 @@
+// Modals
+//
+
+.modal {
+  z-index: $zindex-modal-top;
+}
+
+.modal-backdrop {
+  z-index: $zindex-modal-top - 1;
+}
+
+.modal-content {
+  box-shadow: $modal-content-box-shadow-xs;
+
+  @if $material-style {
+    border-radius: 0;
+  }
+}
+
+.modal-header {
+  position: relative;
+  padding: $modal-header-padding-y ($modal-header-padding-x + 1rem) if($material-style, 0, $modal-header-padding-y) $modal-header-padding-x;
+
+  @include rtl-style {
+    padding-right: $modal-header-padding-x;
+    padding-left: $modal-header-padding-x + 1rem;
+  }
+}
+
+.modal-footer {
+  padding: $modal-footer-padding;
+
+  @include rtl-style {
+     > * {
+      margin-right: 0;
+      margin-left: 0;
+    }
+
+     > :not(:first-child) {
+      margin-right: .25rem;
+    }
+
+     > :not(:last-child) {
+      margin-left: .25rem;
+    }
+  }
+}
+
+// *******************************************************************************
+// * Close button
+
+.modal-header .close,
+.modal-slide .close {
+  position: absolute;
+  top: 50%;
+  right: $modal-header-padding-x;
+  margin: 0;
+  padding: 0;
+  line-height: $modal-title-line-height;
+  transform: translate(0, -50%);
+
+  @include rtl-style {
+    right: auto;
+    left: $modal-header-padding-x;
+  }
+}
+
+// *******************************************************************************
+// * Responsive
+
+@include media-breakpoint-up(sm) {
+  .modal-content {
+    box-shadow: $modal-content-box-shadow-sm-up;
+  }
+
+  ngb-modal-window.modal-sm {
+    max-width: none;
+  }
+  .modal-sm .modal-dialog {
+    max-width: $modal-sm;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  ngb-modal-window.modal-lg {
+    max-width: none;
+  }
+  .modal-lg .modal-dialog {
+    max-width: $modal-lg;
+  }
+}
+
+// *******************************************************************************
+// * Top modals
+
+.modal-top {
+  .modal-dialog {
+    margin-top: 0;
+  }
+
+  .modal-content {
+    @include border-top-radius(0 !important);
+  }
+}
+
+// *******************************************************************************
+// * Slide modals
+
+.modal-slide,
+.modal-slide .modal {
+  overflow: hidden !important;
+  padding: 0 !important;
+}
+
+.modal-slide {
+  .modal-dialog {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: auto;
+    margin: 0;
+    max-width: none;
+    width: 100%;
+
+    @include rtl-style {
+      right: auto;
+      left: 0;
+    }
+
+    @media (min-width: (map-get($grid-breakpoints, sm))) {
+      width: $modal-slide-width;
+    }
+  }
+
+  .modal-content {
+    overflow: auto;
+    padding-top: ($modal-title-line-height * $close-font-size) + $modal-header-padding-y;
+    padding-bottom: ($modal-title-line-height * $close-font-size) + $modal-header-padding-y;
+    height: 100%;
+    border-radius: 0;
+  }
+
+  .modal-body {
+    flex-grow: 0;
+    margin: auto 0;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .close {
+    top: $modal-header-padding-y / 2;
+    z-index: 10;
+    transform: none;
+  }
+}
+
+// *******************************************************************************
+// * Fill-In modals
+
+.modal-fill-in {
+  .modal-dialog {
+    display: flex;
+    margin: 0 auto;
+    padding-top: ($modal-title-line-height * $close-font-size) + $modal-header-padding-y;
+    padding-bottom: ($modal-title-line-height * $close-font-size) + $modal-header-padding-y;
+    min-height: 100vh;
+  }
+
+  .modal-content {
+    margin: auto;
+    width: 100%;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .close {
+    position: absolute;
+    top: -2rem;
+    right: $modal-header-padding-x;
+    font-size: 2rem;
+    transform: none;
+
+    @include rtl-style {
+      right: auto;
+      left: $modal-header-padding-x;
+    }
+  }
+}
+
+// *******************************************************************************
+// * Animations
+
+// Default
+
+.modal.fade .modal-dialog {
+  transform: translateY(150px) scale(.8);
+}
+
+.modal.show .modal-dialog {
+  transform: translateY(0) scale(1);
+}
+
+// Top
+
+.modal-top.fade .modal-dialog,
+.modal-top .modal.fade .modal-dialog {
+  transform: translateY(-100%);
+}
+
+.modal-top.show .modal-dialog,
+.modal-top .modal.show .modal-dialog {
+  transform: translateY(0);
+}
+
+// Slide
+
+.modal-slide.fade .modal-dialog,
+.modal-slide .modal.fade .modal-dialog {
+  transform: translateX(100%);
+
+  @include rtl-style {
+    transform: translateX(-100%);
+  }
+}
+
+.modal-slide.show .modal-dialog,
+.modal-slide .modal.show .modal-dialog {
+  transform: translateX(0) !important;
+}
+
+// Fill-In
+
+.modal-fill-in.fade .modal-dialog,
+.modal-fill-in .modal.fade .modal-dialog {
+  transform: scale(.5, .5);
+}
+
+.modal-fill-in.show .modal-dialog,
+.modal-fill-in .modal.show .modal-dialog {
+  transform: scale(1, 1);
+}

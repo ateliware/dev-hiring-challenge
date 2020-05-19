@@ -1,0 +1,280 @@
+// Switchers
+//
+
+.switcher {
+  position: relative;
+  display: inline-block;
+  margin-right: $switcher-spacer-x;
+  margin-bottom: 0;
+  border-radius: 60rem;
+  vertical-align: middle;
+  font-weight: normal;
+
+  @include appwork-switcher-size-base($switcher-width, $switcher-height, $switcher-font-size, $switcher-label-font-size, $switcher-label-line-height);
+
+  @include rtl-style {
+    margin-right: 0;
+    margin-left: $switcher-spacer-x;
+  }
+
+  .form-inline & {
+    @include media-breakpoint-up(sm) {
+      display: block;
+      margin-right: 0;
+
+      @include rtl-style {
+        margin-left: 0;
+      }
+    }
+  }
+}
+
+// *******************************************************************************
+// * Input
+
+.switcher-input {
+  position: absolute;
+  z-index: -1;
+  margin: 0;
+  padding: 0;
+  opacity: 0;
+}
+
+// *******************************************************************************
+// * Indicator
+
+.switcher-indicator {
+  position: absolute;
+  left: 0;
+  overflow: hidden;
+  border-radius: 60rem;
+  background: $switcher-off-bg;
+  color: $switcher-off-color;
+  font-weight: bold;
+  cursor: default;
+  transition-duration: .2s;
+  transition-property: left, right, background, box-shadow;
+  user-select: none;
+
+  @include rtl-style {
+    right: 0;
+    left: auto;
+  }
+
+  @if $material-style {
+    overflow: visible;
+
+    &::before {
+      content: '';
+      position: absolute;
+      display: block;
+      border-radius: 50%;
+      background: rgba($black, .08);
+      opacity: 0;
+      transition: all .2s;
+      transform: scale(0) translateZ(0);
+
+      .switcher-input:focus ~ & {
+        opacity: 1;
+        transform: scale(2.25) translateZ(0);
+      }
+
+      .switcher-input:active ~ & {
+        opacity: 0;
+        transform: scale(0) translateZ(0);
+      }
+
+      .switcher-input:disabled ~ & {
+        display: none !important;
+      }
+    }
+  }
+}
+
+// *******************************************************************************
+// * Description
+
+.switcher-label {
+  position: relative;
+  display: inline-block;
+  padding-left: $switcher-gutter;
+  color: $switcher-label-color;
+  font-weight: 400;
+  cursor: default;
+
+  @include rtl-style {
+    padding-right: $switcher-gutter;
+    padding-left: 0;
+  }
+}
+
+// *******************************************************************************
+// * Checked / Unchecked states
+
+.switcher-no,
+.switcher-yes {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition-duration: .2s;
+  transition-property: left, right;
+
+  @include rtl-style {
+     > * {
+      transform: scaleX(-1);
+    }
+  }
+
+  @if $material-style {
+    display: none !important;
+  }
+}
+
+.switcher-no {
+  left: 0;
+
+  @include rtl-style {
+    right: 0;
+    left: auto;
+  }
+}
+
+.switcher-yes {
+  left: -100%;
+
+  @include rtl-style {
+    right: -100%;
+    left: auto;
+  }
+
+  .switcher-input:not(:checked) ~ .switcher-indicator & {
+    color: transparent !important;
+  }
+}
+
+// Checked state
+.switcher-input:checked ~ .switcher-indicator {
+  .switcher-no {
+    left: 100%;
+    color: transparent !important;
+
+    @include rtl-style {
+      right: 100%;
+      left: auto;
+    }
+  }
+
+  .switcher-yes {
+    left: 0;
+
+    @include rtl-style {
+      right: 0;
+      left: auto;
+    }
+  }
+}
+
+// *******************************************************************************
+// * Holder
+
+.switcher-indicator::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  display: block;
+  border-radius: 999px;
+  background: $switcher-holder-bg;
+  box-shadow: $switcher-holder-shadow;
+  transition-duration: .2s;
+  transition-property: left, right, background;
+
+  @include rtl-style {
+    right: 0;
+    left: auto;
+  }
+}
+
+// *******************************************************************************
+// * Disabled
+
+.switcher-input:disabled,
+fieldset[disabled] .switcher-input {
+   ~ .switcher-indicator {
+    opacity: .5;
+    cursor: not-allowed !important;
+
+    &::after {
+      box-shadow: none !important;
+    }
+  }
+
+   ~ .switcher-label {
+    color: $switcher-label-disabled-color !important;
+    cursor: not-allowed;
+  }
+}
+
+// *******************************************************************************
+// * Stacked
+
+.switchers-stacked .switcher {
+  display: block;
+  margin-right: 0;
+  margin-bottom: $switcher-spacer-y;
+
+  @include rtl-style {
+    margin-left: 0;
+  }
+}
+
+// *******************************************************************************
+// * Square
+
+.switcher-square,
+.switcher-square .switcher-indicator {
+  @if $enable-rounded {
+    border-radius: $switcher-square-border-radius;
+  } @else {
+    border-radius: 0;
+  }
+}
+
+.switcher-square .switcher-indicator::after {
+  @if $enable-rounded {
+    border-radius: if($material-style, $switcher-square-border-radius, calc(#{$switcher-square-border-radius} - 2px));
+  } @else {
+    border-radius: 0;
+  }
+}
+
+// *******************************************************************************
+// * Sizes
+
+@include appwork-switcher-size("sm", $switcher-width-sm, $switcher-height-sm, $switcher-font-size, $switcher-label-font-size-sm, $switcher-label-line-height-sm);
+@include appwork-switcher-size("lg", $switcher-width-lg, $switcher-height-lg, $switcher-font-size, $switcher-label-font-size-lg, $switcher-label-line-height-lg);
+
+// *******************************************************************************
+// * Variations
+
+@each $color, $value in $theme-colors {
+  @if $color != primary and $color != light {
+    @if $material-style {
+      @include appwork-material-switcher-variant('.switcher-#{$color}', $value);
+    } @else {
+      @include appwork-switcher-variant('.switcher-#{$color}', $value);
+    }
+  }
+}
+
+// *******************************************************************************
+// * Validation states
+
+@if $material-style {
+  @include appwork-material-switcher-validation-state("valid", $form-feedback-valid-color);
+  @include appwork-material-switcher-validation-state("invalid", $form-feedback-invalid-color);
+} @else {
+  @include appwork-switcher-validation-state("valid", $form-feedback-valid-color);
+  @include appwork-switcher-validation-state("invalid", $form-feedback-invalid-color);
+}

@@ -1,0 +1,17 @@
+// List groups
+//
+
+@each $color, $value in $theme-colors {
+  @if $color != primary and $color != light {
+    @include appwork-list-group-item-variant('.list-group-item-#{$color}', $value);
+  }
+}
+
+// *******************************************************************************
+// * RTL
+
+@include rtl-only {
+  .list-group {
+    padding-right: 0;
+  }
+}

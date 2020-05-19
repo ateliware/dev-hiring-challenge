@@ -1,0 +1,22 @@
+<% content_for :content do %>
+  <div class="layout-wrapper layout-2">
+    <div class="layout-inner">
+
+      <%= render "layouts/admin/menu" %>
+
+      <div class="layout-container">
+
+        <%= render "layouts/admin/header" %>
+
+        <div class="layout-content">
+          <div class="container-fluid flex-grow-1 container-p-y">
+            <%= yield %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="layout-overlay layout-sidenav-toggle"></div>
+  </div>
+<% end %>
+
+<%= render template: "layouts/application" %>

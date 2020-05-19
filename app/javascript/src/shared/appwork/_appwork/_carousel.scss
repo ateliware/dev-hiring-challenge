@@ -1,0 +1,50 @@
+// Carousel
+//
+
+@include rtl-only {
+  .carousel-item-next.carousel-item-left,
+  .carousel-item-prev.carousel-item-right {
+    transform: translateX(0);
+
+    @supports (transform-style: preserve-3d) {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  .carousel-item-next,
+  .active.carousel-item-right {
+    transform: translateX(-100%);
+
+    @supports (transform-style: preserve-3d) {
+      transform: translate3d(-100%, 0, 0);
+    }
+  }
+
+  .carousel-item-prev,
+  .active.carousel-item-left {
+    transform: translateX(100%);
+
+    @supports (transform-style: preserve-3d) {
+      transform: translate3d(100%, 0, 0);
+    }
+  }
+
+  .carousel-control-prev {
+    right: 0;
+    left: auto;
+  }
+
+  .carousel-control-next {
+    right: auto;
+    left: 0;
+  }
+
+  .carousel-indicators {
+    padding-right: 0; // override <ol> default
+  }
+
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    transform: scaleX(-1);
+  }
+}

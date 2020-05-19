@@ -1,0 +1,199 @@
+// Base
+//
+
+body {
+  -moz-font-feature-settings: "liga" on;
+  -webkit-font-smoothing: antialiased;
+          font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+@include media-breakpoint-up(md) {
+  button.list-group-item {
+    outline: none !important;
+  }
+}
+
+@if $material-style {
+  .waves-ripple {
+    position: absolute !important;
+  }
+}
+
+// *******************************************************************************
+// * IE Fixes
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  // Fix IE parent container height bug when containing image with fluid width
+  .card,
+  .card-body,
+  .media,
+  .flex-column,
+  .tab-content {
+    min-height: 1px;
+  }
+
+  img {
+    min-height: 1px;
+    height: auto;
+  }
+}
+
+// *******************************************************************************
+// * Containers
+
+.container,
+.container-fluid {
+  padding-right: $container-padding-x-sm;
+  padding-left: $container-padding-x-sm;
+
+  @include media-breakpoint-up(lg) {
+    padding-right: $container-padding-x;
+    padding-left: $container-padding-x;
+  }
+}
+
+// *******************************************************************************
+// * Thumbnails
+
+.img-thumbnail {
+  position: relative;
+  display: block;
+}
+
+.img-thumbnail img {
+  z-index: 1;
+}
+
+.img-thumbnail-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 3;
+  display: block;
+  opacity: 0;
+  transition: all .2s ease-in-out;
+  transform: translate(-50%, -50%);
+
+  .img-thumbnail:hover &,
+  .img-thumbnail:focus & {
+    opacity: 1;
+  }
+}
+
+// Overlay effect
+.img-thumbnail-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  display: block;
+  transition: all .2s ease-in-out;
+
+  .img-thumbnail:not(:hover):not(:focus) & {
+    opacity: 0 !important;
+  }
+}
+
+.img-thumbnail-shadow {
+  transition: box-shadow .2s;
+
+  @include hover-focus {
+    box-shadow: 0 5px 20px rgba($black, .4);
+  }
+}
+
+// Zoom-in effect
+.img-thumbnail-zoom-in {
+  overflow: hidden;
+
+  img {
+    transition: all .3s ease-in-out;
+    transform: translate3d(0);
+  }
+
+  .img-thumbnail-content {
+    transform: translate(-50%, -50%) scale(.6);
+  }
+
+  @include hover-focus {
+    img {
+      transform: scale(1.1);
+    }
+
+    .img-thumbnail-content {
+      transform: translate(-50%, -50%) scale(1);
+    }
+  }
+}
+
+// *******************************************************************************
+// * Material animations
+
+@if $material-style {
+  @include keyframes(dropdownAnimation) {
+    0% {
+      opacity: 0;
+      transform: scale(0);
+    }
+    80% {
+      transform: scale(1);
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  @include keyframes(topTooltipAnimation) {
+    0% {
+      opacity: 0;
+      transform: translateY(3px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @include keyframes(bottomTooltipAnimation) {
+    0% {
+      opacity: 0;
+      transform: translateY(-3px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @include keyframes(leftTooltipAnimation) {
+    0% {
+      opacity: 0;
+      transform: translateX(3px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  @include keyframes(rightTooltipAnimation) {
+    0% {
+      opacity: 0;
+      transform: translateX(-3px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+}
+
+// *******************************************************************************
+// * RTL
+
+@if $rtl-support {
+  [dir=rtl] body {
+    text-align: right !important;
+    direction: rtl !important;
+  }
+}

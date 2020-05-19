@@ -1,0 +1,69 @@
+// -------------------------------------------------------------------------------
+// Imports
+
+// @import "../../libs/bootstrap-slider/mixins";
+// @import "../../libs/nouislider/mixins";
+// @import "../../libs/select2/mixins";
+// @import "../../libs/bootstrap-tagsinput/mixins";
+// @import "../../libs/bootstrap-select/mixins";
+// @import "../../libs/bootstrap-datepicker/mixins";
+// @import "../../libs/bootstrap-daterangepicker/mixins";
+// @import "../../libs/bootstrap-material-datetimepicker/mixins";
+// @import "../../libs/timepicker/mixins";
+// @import "../../libs/growl/mixins";
+// @import "../../libs/bootstrap-markdown/mixins";
+// @import "../../libs/quill/mixins";
+// @import "../../libs/typeahead-js/mixins";
+// @import "../../libs/dropzone/mixins";
+// @import "../../libs/swiper/mixins";
+// @import "../../libs/spinkit/mixins";
+// @import "../../libs/smartwizard/mixins";
+// @import "../../libs/plyr/mixins";
+// @import "../../libs/fullcalendar/mixins";
+
+// -------------------------------------------------------------------------------
+// Theme mixin
+
+@mixin appwork-libs-theme($background, $color: null) {
+//   @include bs-slider-theme($background);
+//   @include nouislider-theme($background);
+//   @include select2-theme($background, $color);
+//   @include bs-tagsinput-theme($background);
+//   @include bs-select-theme($background, $color);
+//   @include bs-datepicker-theme($background, $color);
+//   @include bs-daterangepicker-theme($background, $color);
+//   @include bs-material-datetimepicker-theme($background, $color);
+//   @include timepicker-theme($background, $color);
+//   @include growl-theme($background, $color);
+//   @include bs-markdown-theme($background);
+//   @include quill-theme($background);
+//   @include typeahead-theme($background, $color);
+//   @include dropzone-theme($background);
+//   @include swiper-theme($background);
+//   @include spinkit-theme($background);
+//   @include smartwizard-theme($background);
+//   @include plyr-theme($background, $color);
+//   @include fullcalendar-theme($background);
+}
+
+@mixin appwork-libs-material-theme($background, $color: null) {
+//   @include material-bs-slider-theme($background);
+//   @include material-nouislider-theme($background);
+//   @include material-select2-theme($background, $color);
+//   @include material-bs-tagsinput-theme($background);
+//   @include bs-select-theme($background, $color);
+//   @include bs-datepicker-theme($background, $color);
+//   @include bs-daterangepicker-theme($background, $color);
+//   @include bs-material-datetimepicker-theme($background, $color);
+//   @include timepicker-theme($background, $color);
+//   @include growl-theme($background, $color);
+//   @include bs-markdown-theme($background);
+//   @include quill-theme($background);
+//   @include typeahead-theme($background, $color);
+//   @include dropzone-theme($background);
+//   @include swiper-theme($background);
+//   @include spinkit-theme($background);
+//   @include smartwizard-theme($background);
+//   @include plyr-theme($background, $color);
+//   @include fullcalendar-theme($background);
+}
