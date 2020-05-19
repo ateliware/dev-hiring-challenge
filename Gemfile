@@ -56,6 +56,8 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'bootstrap_form', '>= 4.0.0.alpha1'
 gem 'jquery-rails'
 gem 'kaminari'
+gem 'rest-client'
+
 group :development, :test do
   gem 'rspec-rails', '~> 3.8'
   gem 'factory_bot_rails'
