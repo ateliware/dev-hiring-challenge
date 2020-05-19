@@ -8,4 +8,12 @@ RSpec.describe Github do
       expect(response.code).to be(200)
     end
   end
+
+  describe '#repositories' do
+    it 'returns status 200' do
+      github = Github.new
+      response = github.repositories
+      expect(response.code).to be(200)
+    end
+  end
 end
