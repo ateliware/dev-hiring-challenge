@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_19_095349) do
+ActiveRecord::Schema.define(version: 2020_05_20_104252) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "owners", force: :cascade do |t|
+    t.string "github_login"
+    t.string "avatar_url"
+    t.string "github_url"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "repositories", force: :cascade do |t|
     t.bigint "github_id"
@@ -26,6 +34,10 @@ ActiveRecord::Schema.define(version: 2020_05_19_095349) do
     t.integer "open_issues_count"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "owner_id"
+    t.string "github_url"
+    t.index ["owner_id"], name: "index_repositories_on_owner_id"
   end
 
+  add_foreign_key "repositories", "owners"
 end

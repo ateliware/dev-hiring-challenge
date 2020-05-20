@@ -18,14 +18,17 @@ RSpec.describe RepositoriesSearch, type: :model do
       expect(rep_search).to be_valid
 
       expect(Repository.count).to eql(0)
+      expect(Owner.count).to eql(0)
 
       rep_search.save!
 
-      expect(rep_search.repositories.count).to eql(10)
-      expect(Repository.count).to eql(10)
-      expect(Repository.where(language: "Ruby").count).to eql(10)
+      expect(rep_search.repositories.count).to eql(9)
+      expect(Repository.count).to eql(9)
+      expect(Owner.count).to eql(9)
+      expect(Repository.where(language: "Ruby").count).to eql(9)
 
       first_rep = Repository.first
+      expect(first_rep.owner).to be_present
       expect(rep_search.repositories.first["id"]).to eql(first_rep[:github_id])
       expect(rep_search.repositories.first["name"]).to eql(first_rep[:name])
       expect(rep_search.repositories.first["description"]).to eql(first_rep[:description])
@@ -34,6 +37,11 @@ RSpec.describe RepositoriesSearch, type: :model do
       expect(rep_search.repositories.first["forks_count"]).to eql(first_rep[:forks_count])
       expect(rep_search.repositories.first["stargazers_count"]).to eql(first_rep[:stargazers_count])
       expect(rep_search.repositories.first["open_issues_count"]).to eql(first_rep[:open_issues_count])
+      expect(rep_search.repositories.first["html_url"]).to eql(first_rep[:github_url])
+
+      expect(rep_search.repositories.first["owner"]["login"]).to eql(first_rep.owner.github_login)
+      expect(rep_search.repositories.first["owner"]["avatar_url"]).to eql(first_rep.owner.avatar_url)
+      expect(rep_search.repositories.first["owner"]["html_url"]).to eql(first_rep.owner.github_url)
     end
 
     it "if repository exists doenst create" do
@@ -44,20 +52,20 @@ RSpec.describe RepositoriesSearch, type: :model do
 
       rep_search.save!
 
-      expect(rep_search.repositories.count).to eql(10)
-      expect(Repository.count).to eql(10)
-      expect(Repository.where(language: "Ruby").count).to eql(10)
+      expect(rep_search.repositories.count).to eql(9)
+      expect(Repository.count).to eql(9)
+      expect(Repository.where(language: "Ruby").count).to eql(9)
 
 
       rep_search = described_class.new(language: "Ruby")
       expect(rep_search).to be_valid
 
-      expect(Repository.count).to eql(10)
+      expect(Repository.count).to eql(9)
 
       rep_search.save!
 
-      expect(Repository.count).to eql(10)
-      expect(Repository.where(language: "Ruby").count).to eql(10)
+      expect(Repository.count).to eql(9)
+      expect(Repository.where(language: "Ruby").count).to eql(9)
     end
   end
 end

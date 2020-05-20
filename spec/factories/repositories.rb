@@ -8,5 +8,6 @@ FactoryBot.define do
     forks_count { 1 }
     stargazers_count { 1 }
     open_issues_count { 1 }
+    owner
   end
 end
