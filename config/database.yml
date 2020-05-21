@@ -83,3 +83,9 @@ production:
   database: ateliware_production
   username: ateliware
   password: <%= ENV['ATELIWARE_DATABASE_PASSWORD'] %>
+
+staging:
+  <<: *default
+  database: ateliware_staging
+  username: ateliware
+  password: <%= ENV['ATELIWARE_DATABASE_PASSWORD'] %>
