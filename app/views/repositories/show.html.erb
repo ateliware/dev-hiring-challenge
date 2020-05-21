@@ -1,5 +1,11 @@
 <div class="container-fluid flex-grow-1 container-p-y">
 
+  <%= link_to(repositories_path) do %>
+    <button type="button" class="btn btn-lg btn-info" style="background-color: #EF0E44">
+      <span class="fas fa-angle-left"></span>&nbsp;&nbsp;Voltar
+    </button>
+  <% end %>
+
   <h3 class="py-3 mb-4">
     Detalhes do Repositório - <%= @repository.name.camelize %>
   </h3>
