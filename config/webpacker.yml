@@ -94,3 +94,14 @@ production:
 
   # Cache manifest.json for performance
   cache_manifest: true
+
+staging:
+  <<: *default
+
+  # Production depends on precompilation of packs prior to booting for performance.
+  compile: false
+
+  extract_css: true
+
+  # Cache manifest.json for performance
+  cache_manifest: true
