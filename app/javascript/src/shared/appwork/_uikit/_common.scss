@@ -1,0 +1,491 @@
+@import '../_custom-variables/uikit';
+
+$ui-icon-size: 46px !default;
+$ui-icon-font-size: 18px !default;
+$ui-icon-size-sm: 30px !default;
+$ui-icon-font-size-sm: 14px !default;
+$ui-icon-border-width: 2px !default;
+$ui-star-size: 1.1em !default;
+$ui-stars-spacer: -0.1em !default;
+$ui-star-filled-color: #FFE924 !default;
+
+// *******************************************************************************
+// * Images
+
+.ui-img-grayscale {
+  opacity: .4;
+  filter: grayscale(1);
+
+  &.hoverable {
+    transition: all .3s;
+
+    &:hover,
+    &:focus {
+      opacity: 1;
+      filter: none;
+    }
+  }
+}
+
+// *******************************************************************************
+// * Utilities
+
+.ui-w-140 {
+  width: 140px !important;
+  height: auto;
+}
+
+.ui-w-120 {
+  width: 120px !important;
+  height: auto;
+}
+
+.ui-w-100 {
+  width: 100px !important;
+  height: auto;
+}
+
+.ui-w-80 {
+  width: 80px !important;
+  height: auto;
+}
+
+.ui-w-60 {
+  width: 60px !important;
+  height: auto;
+}
+
+.ui-w-50 {
+  width: 50px !important;
+  height: auto;
+}
+
+.ui-w-40 {
+  width: 40px !important;
+  height: auto;
+}
+
+.ui-w-30 {
+  width: 30px !important;
+  height: auto;
+}
+
+.ui-w-20 {
+  width: 20px !important;
+  height: auto;
+}
+
+.ui-mh-100vh {
+  min-height: 100vh;
+}
+
+.ui-square,
+.ui-rect,
+.ui-rect-30,
+.ui-rect-60,
+.ui-rect-67,
+.ui-rect-75 {
+  position: relative !important;
+  display: block !important;
+  padding-top: 100% !important;
+  width: 100% !important;
+}
+
+.ui-square {
+  padding-top: 100% !important;
+}
+
+.ui-rect {
+  padding-top: 50% !important;
+}
+
+.ui-rect-30 {
+  padding-top: 30% !important;
+}
+
+.ui-rect-60 {
+  padding-top: 60% !important;
+}
+
+.ui-rect-67 {
+  padding-top: 67% !important;
+}
+
+.ui-rect-75 {
+  padding-top: 75% !important;
+}
+
+.ui-square-content,
+.ui-rect-content {
+  position: absolute !important;
+  top: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  left: 0 !important;
+}
+
+// *******************************************************************************
+// * Icons
+
+.ui-icon {
+  display: inline-block;
+  width: $ui-icon-size;
+  height: $ui-icon-size;
+  border: $ui-icon-border-width solid;
+  border-radius: 50%;
+  vertical-align: middle;
+  text-align: center;
+  font-size: $ui-icon-font-size;
+  line-height: calc(#{$ui-icon-size} - #{$ui-icon-border-width * 2});
+
+  &.border-0 {
+    line-height: $ui-icon-size;
+  }
+}
+
+.ui-icon-sm {
+  width: $ui-icon-size-sm;
+  height: $ui-icon-size-sm;
+  font-size: $ui-icon-font-size-sm;
+  line-height: calc(#{$ui-icon-size-sm} - #{$ui-icon-border-width * 2});
+
+  &.border-0 {
+    line-height: $ui-icon-size-sm;
+  }
+}
+
+// *******************************************************************************
+// * Stars
+
+.ui-stars,
+.ui-star,
+.ui-star > * {
+  height: $ui-star-size;
+
+  // Disable dragging
+  -webkit-user-drag: none;
+   -khtml-user-drag: none;
+     -moz-user-drag: none;
+       -o-user-drag: none;
+          user-drag: none;
+}
+
+.ui-stars {
+  display: inline-block;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.ui-star {
+  position: relative;
+  display: block;
+  float: left;
+  width: $ui-star-size;
+  height: $ui-star-size;
+  text-decoration: none !important;
+  font-size: $ui-star-size;
+  line-height: 1;
+  user-select: none;
+
+  [dir=rtl] & {
+    float: right;
+  }
+
+  & + & {
+    margin-left: $ui-stars-spacer;
+
+    [dir=rtl] & {
+      margin-right: $ui-stars-spacer;
+      margin-left: 0;
+    }
+  }
+
+   > *,
+   > *::before,
+   > *::after {
+    position: absolute;
+    left: $ui-star-size / 2;
+    height: 100%;
+    font-size: 1em;
+    line-height: 1;
+    transform: translateX(-50%);
+
+    [dir=rtl] & {
+      right: $ui-star-size / 2;
+      left: auto;
+      transform: translateX(50%);
+    }
+  }
+
+   > * {
+    top: 0;
+    width: 100%;
+    text-align: center;
+  }
+
+   > *:first-child {
+    z-index: 10;
+    display: none;
+    overflow: hidden;
+    color: $ui-star-filled-color;
+  }
+
+  // Default icon
+   > *:last-child {
+    z-index: 5;
+    display: block;
+  }
+
+  &.half-filled > *:first-child {
+    width: 50%;
+    transform: translateX(-100%);
+
+    [dir=rtl] & {
+      transform: translateX(100%);
+    }
+  }
+
+  &.filled > *:first-child,
+  &.half-filled > *:first-child {
+    display: block;
+  }
+
+  &.filled > *:last-child {
+    display: none;
+  }
+}
+
+// Hoverable
+
+.ui-stars.hoverable .ui-star > *:first-child {
+  display: block;
+}
+
+// Empty stars if first star is not filled
+.ui-stars.hoverable .ui-star:first-child:not(.filled),
+.ui-stars.hoverable .ui-star:first-child:not(.half-filled) {
+   > *:first-child,
+   ~ .ui-star > *:first-child {
+    display: none;
+  }
+}
+
+.ui-stars.hoverable .ui-star.filled > *:first-child,
+.ui-stars.hoverable .ui-star.half-filled > *:first-child {
+  display: block !important;
+}
+
+.ui-stars.hoverable:hover .ui-star > *:first-child {
+  display: block !important;
+  width: 100% !important;
+  transform: translateX(-50%) !important;
+
+  [dir=rtl] & {
+    transform: translateX(50%) !important;
+  }
+}
+
+.ui-stars.hoverable .ui-star:hover ~ .ui-star {
+   > *:first-child {
+    display: none !important;
+  }
+
+   > *:last-child {
+    display: block !important;
+  }
+}
+
+// *******************************************************************************
+// * Lists
+
+.ui-list {
+  padding: 0;
+
+   > li {
+    margin-bottom: 8px;
+    list-style: none;
+  }
+
+   > li::before {
+    content: "•";
+    display: inline-block;
+    margin-right: 12px;
+    font-weight: 700;
+
+    [dir=rtl] & {
+      margin-right: 0;
+      margin-left: 12px;
+    }
+  }
+}
+
+// *******************************************************************************
+// * Background
+
+.ui-bg-cover {
+  background-color: rgba(0, 0, 0, 0);
+  background-position: center center;
+  background-size: cover;
+}
+
+.ui-bg-fixed {
+  background-attachment: fixed;
+}
+
+.ui-bg-overlay-container,
+.ui-bg-video-container {
+  position: relative;
+
+   > * {
+    position: relative;
+  }
+}
+
+.ui-bg-overlay-container .ui-bg-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: block;
+}
+
+.ui-bg-video-container .ui-bg-video {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: block;
+  overflow: hidden;
+
+  video {
+    min-width: 100%;
+    min-height: 100%;
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center center;
+  }
+}
+
+// *******************************************************************************
+// * Text block
+
+.ui-text-block {
+  line-height: 1.8;
+
+   > p:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// *******************************************************************************
+// * Styles
+
+.default-style {
+  @import "../_appwork/include";
+
+  $ui-star-empty-color: $gray-200;
+  $ui-icon-border-color: $gray-100;
+
+  .ui-icon {
+    border-color: $ui-icon-border-color;
+  }
+
+  .ui-bordered {
+    border: 1px solid $border-color;
+  }
+
+  .ui-star > *:last-child {
+    color: $ui-star-empty-color;
+  }
+
+  .ui-list > li::before {
+    color: $gray-300;
+  }
+
+  // IE 10+ fixes
+  //
+
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    .ui-mh-100vh {
+      &::after {
+        content: '';
+        display: block;
+        flex: 0 0 0%;
+        min-height: 100vh;
+        width: 0;
+        font-size: 0;
+      }
+
+      &.jumbotron::after {
+        min-height: calc(100vh - #{$jumbotron-padding * 2});
+      }
+
+      &.flex-column::after {
+        display: none;
+      }
+    }
+  }
+
+  @media all and (min-width: map-get($grid-breakpoints, sm)) and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    .ui-mh-100vh.jumbotron::after {
+      min-height: calc(100vh - #{$jumbotron-padding * 4});
+    }
+  }
+}
+
+.material-style {
+  @import "../_appwork/include-material";
+
+  $ui-star-empty-color: $gray-200;
+  $ui-icon-border-color: $gray-100;
+
+  .ui-icon {
+    border-color: $ui-icon-border-color;
+  }
+
+  .ui-bordered {
+    border: 1px solid $border-color;
+  }
+
+  .ui-star > *:last-child {
+    color: $ui-star-empty-color;
+  }
+
+  .ui-list > li::before {
+    color: $gray-300;
+  }
+
+  // IE 10+ fixes
+  //
+
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    .ui-mh-100vh {
+      &::after {
+        content: '';
+        display: block;
+        flex: 0 0 0%;
+        min-height: 100vh;
+        width: 0;
+        font-size: 0;
+      }
+
+      &.jumbotron::after {
+        min-height: calc(100vh - #{$jumbotron-padding * 2});
+      }
+
+      &.flex-column::after {
+        display: none;
+      }
+    }
+  }
+
+  @media all and (min-width: map-get($grid-breakpoints, sm)) and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    .ui-mh-100vh.jumbotron::after {
+      min-height: calc(100vh - #{$jumbotron-padding * 4});
+    }
+  }
+}

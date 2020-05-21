@@ -1,0 +1,132 @@
+// Tables
+//
+
+@each $color, $value in $theme-colors {
+  @if $color != primary and $color != light {
+    @include appwork-table-row-variant('.table-#{$color}', $value);
+  }
+}
+
+.table.table-fixed {
+  table-layout: fixed;
+}
+
+.table th {
+  font-weight: $font-weight-semibold;
+}
+
+.table-responsive > .table {
+  max-width: none;
+}
+
+// *******************************************************************************
+// * Active
+
+.table-active,
+.table-active > th,
+.table-active > td {
+  border-color: rgba($black, .035);
+  background-color: $table-active-bg;
+}
+
+.table-hover .table-active:hover,
+.table-hover .table-active:hover > td,
+.table-hover .table-active:hover > th {
+  background-color: rgba-to-hex(rgba($table-active-bg, .99), #000);
+}
+
+// *******************************************************************************
+// * Within card
+
+.card-table {
+  margin-bottom: 0;
+}
+
+.card-table,
+.card-table th,
+.card-table td {
+  border-color: $card-inner-border-color;
+}
+
+.card-table > thead:first-child > tr:first-child,
+.card-table > tbody:first-child > tr:first-child,
+.card-table > tfoot:first-child > tr:first-child {
+   > td,
+   > th {
+    border-top: 0;
+  }
+}
+
+@include ltr-only {
+  .card-table > thead > tr,
+  .card-table > tbody > tr,
+  .card-table > tfoot > tr {
+     > td,
+     > th {
+      &:first-child {
+        padding-left: $card-spacer-x;
+        border-left: 0;
+      }
+
+      &:last-child {
+        padding-right: $card-spacer-x;
+        border-right: 0;
+      }
+    }
+  }
+
+  // Condenced
+  .card-condenced .card-table > thead > tr,
+  .card-condenced .card-table > tbody > tr,
+  .card-condenced .card-table > tfoot > tr {
+     > td,
+     > th {
+      &:first-child {
+        padding-left: $card-spacer-x-sm;
+        border-left: 0;
+      }
+
+      &:last-child {
+        padding-right: $card-spacer-x-sm;
+        border-right: 0;
+      }
+    }
+  }
+}
+
+@include rtl-only {
+  .card-table > thead > tr,
+  .card-table > tbody > tr,
+  .card-table > tfoot > tr {
+     > td,
+     > th {
+      &:first-child {
+        padding-right: $card-spacer-x;
+        border-right: 0;
+      }
+
+      &:last-child {
+        padding-left: $card-spacer-x;
+        border-left: 0;
+      }
+    }
+  }
+
+  // Condenced
+  .card-condenced .card-table > thead > tr,
+  .card-condenced .card-table > tbody > tr,
+  .card-condenced .card-table > tfoot > tr {
+     > td,
+     > th {
+      &:first-child {
+        padding-right: $card-spacer-x;
+        border-right: 0;
+      }
+
+      &:last-child {
+        padding-left: $card-spacer-x;
+        border-left: 0;
+      }
+    }
+  }
+}

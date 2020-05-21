@@ -1,0 +1,7 @@
+<% if flash[:success] %>
+  <template id="toastr-success" data-message="<%= flash[:success] %>"></template>
+<% end %>
+
+<% if flash[:error] %>
+  <template id="toastr-error" data-message="<%= flash[:error] %>"></template>
+<% end %>

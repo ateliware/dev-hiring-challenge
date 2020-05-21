@@ -1,0 +1,235 @@
+// Forms
+//
+
+@if $material-style {
+  .form-control {
+    $material-input-disabled-color: null !default;
+    $material-input-disabled-border-color: null !default;
+
+    border-bottom-width: 1px;
+    border-radius: 0 !important;
+
+    &:disabled {
+      border-bottom: 1px dotted $material-input-disabled-border-color !important;
+      color: $material-input-disabled-color !important;
+    }
+  }
+
+  :not(.input-group) > .form-control:not([class*='px-']):not([class*='pl-']) {
+    @include ltr-style {
+      padding-left: 0;
+    }
+    @include rtl-style {
+      padding-right: 0;
+    }
+  }
+
+  :not(.input-group) > .form-control:not([class*='px-']):not([class*='pr-']) {
+    @include ltr-style {
+      padding-right: 0;
+    }
+    @include rtl-style {
+      padding-left: 0;
+    }
+  }
+}
+
+// *******************************************************************************
+// * Sizing
+
+.form-control {
+  min-height: $input-height;
+}
+
+.form-control-sm,
+.input-group-sm .form-control {
+  min-height: $input-height-sm;
+}
+
+.form-control-lg,
+.input-group-lg .form-control {
+  min-height: $input-height-lg;
+}
+
+select.form-control[size="0"]:not([multiple]) {
+  height: $input-height;
+}
+
+select.form-control-sm[size="0"]:not([multiple]) {
+  height: $input-height-sm;
+}
+
+select.form-control-lg[size="0"]:not([multiple]) {
+  height: $input-height-lg;
+}
+
+@if $material-style {
+  @include appwork-material-form-control-size('', $input-line-height, $input-btn-padding-y);
+  @include appwork-material-form-control-size('sm', $input-line-height-sm, $input-btn-padding-y-sm, $input-btn-font-size-sm);
+  @include appwork-material-form-control-size('lg', $input-line-height-lg, $input-btn-padding-y-lg, $input-btn-font-size-lg);
+}
+
+// *******************************************************************************
+// * Text
+
+.form-control-plaintext {
+  color: $body-color;
+
+  .form-inline & {
+    width: auto;
+  }
+}
+
+// *******************************************************************************
+// * Inverted
+
+.form-control-inverted {
+  border-color: $input-inverted-border-color;
+
+  @include plain-hover-focus {
+    background-color: $input-inverted-bg;
+    color: $input-inverted-color;
+  }
+
+  &::placeholder {
+    color: $input-inverted-placeholder-color;
+  }
+
+  &:disabled {
+    background-color: $input-inverted-disabled-bg !important;
+    color: $input-inverted-disabled-color !important;
+
+    @if $material-style != true {
+      border-color: $input-inverted-disabled-bg !important;
+    } @else {
+      $material-input-inverted-disabled-border-color: null !default;
+
+      border-color: $material-input-inverted-disabled-border-color !important;
+    }
+  }
+
+  option {
+    color: $body-color !important;
+  }
+}
+
+// *******************************************************************************
+// * Labels
+
+.form-label,
+.col-form-label,
+.col-form-legend {
+  margin-bottom: if($input-btn-border-width != 0px, calc(#{$input-btn-padding-y} - #{$input-btn-border-width * 2}), $input-btn-padding-y);
+  font-weight: $label-font-weight;
+  font-size: $label-font-size;
+}
+
+.col-form-label,
+.col-form-legend {
+  padding-bottom: 0;
+  line-height: $input-btn-line-height;
+}
+
+.form-label-sm,
+.col-form-label-sm,
+.col-form-legend-sm {
+  font-size: $font-size-sm !important;
+  line-height: $input-btn-line-height-sm;
+}
+
+.form-label-lg,
+.col-form-label-lg,
+.col-form-legend-lg {
+  font-size: $font-size-lg !important;
+  line-height: $input-btn-line-height-lg;
+}
+
+@if $material-style {
+  .form-label,
+  .col-form-label,
+  .col-form-legend,
+  .form-label-sm,
+  .col-form-label-sm,
+  .col-form-legend-sm,
+  .col-form-label-lg,
+  .col-form-legend-lg,
+  .form-label-lg {
+    margin-bottom: 0;
+  }
+}
+
+// *******************************************************************************
+// * Checkboxes and radios
+
+.form-check {
+  min-height: $font-size-base * $line-height-base;
+
+  @include rtl-style {
+    padding-right: $form-check-input-gutter;
+    padding-left: 0;
+  }
+}
+
+@include rtl-only {
+  .form-check-input {
+    margin-right: -$form-check-input-gutter;
+    margin-left: 0;
+  }
+
+  .form-check-inline {
+    margin-right: 0;
+    margin-left: $form-check-inline-margin-x;
+    padding-right: 0;
+  }
+
+  .form-check-inline .form-check-input {
+    margin-right: 0;
+    margin-left: $form-check-inline-input-margin-x;
+  }
+}
+
+// *******************************************************************************
+// * Validation states
+
+@if $material-style {
+  @include appwork-material-form-validation-state("valid", $form-feedback-valid-color);
+  @include appwork-material-form-validation-state("invalid", $form-feedback-invalid-color);
+} @else {
+  @include appwork-form-validation-state("valid", $form-feedback-valid-color);
+  @include appwork-form-validation-state("invalid", $form-feedback-invalid-color);
+}
+
+// *******************************************************************************
+// * Inline forms
+
+.form-inline .custom-control {
+  display: block;
+  width: 100%;
+}
+
+@include media-breakpoint-up(sm) {
+  @include rtl-only {
+    .form-inline .form-check {
+      padding-right: 0;
+    }
+
+    .form-inline .form-check-input {
+      margin-right: 0;
+      margin-left: $form-check-input-margin-x;
+    }
+  }
+  .form-inline .custom-control,
+  .form-inline .custom-select,
+  .form-inline .form-control-plaintext {
+    display: inline-block;
+    width: auto;
+  }
+
+  .form-inline .form-text {
+    margin-top: 0;
+  }
+
+  .form-inline .form-label {
+    margin-bottom: 0 !important;
+  }
+}

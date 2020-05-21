@@ -1,0 +1,451 @@
+// Utilities
+//
+
+.opacity-25            { opacity: .25 !important; }
+.opacity-50            { opacity: .5 !important; }
+.opacity-75            { opacity: .75 !important; }
+.opacity-100           { opacity: 1 !important; }
+
+.text-tiny             { font-size: $tiny-font-size !important; }
+.text-big              { font-size: $big-font-size !important; }
+.text-large            { font-size: $large-font-size !important; }
+.text-xlarge           { font-size: $xlarge-font-size !important; }
+
+.line-height-1         { line-height: 1 !important; }
+.line-height-condenced { line-height: 1.3 !important; }
+.line-height-inherit   { line-height: inherit !important; }
+
+.text-expanded         { letter-spacing: ((1 / (strip-unit($font-size-base) * 16)) * 1em) !important; }
+
+.font-weight-light     { font-weight: $font-weight-light !important; }
+.font-weight-semibold  { font-weight: $font-weight-semibold !important; }
+.font-weight-bolder    { font-weight: $font-weight-bolder !important; }
+.text-decoration-none  { text-decoration: none !important; }
+.text-transform-none   { text-transform: none !important; }
+
+.overflow-hidden       { overflow: hidden !important; }
+.overflow-scroll       { overflow: scroll !important; }
+.overflow-auto         { overflow: auto !important; }
+
+.box-shadow-none       { box-shadow: none !important; }
+
+.cursor-pointer        { cursor: pointer !important; }
+
+// *******************************************************************************
+// * Layout containers
+
+.container-p-x {
+  padding-right: $container-padding-x-sm !important;
+  padding-left: $container-padding-x-sm !important;
+
+  @include media-breakpoint-up(lg) {
+    padding-right: $container-padding-x !important;
+    padding-left: $container-padding-x !important;
+  }
+}
+.container-m--x {
+  margin-right: -$container-padding-x-sm !important;
+  margin-left: -$container-padding-x-sm !important;
+
+  @include media-breakpoint-up(lg) {
+    margin-right: -$container-padding-x !important;
+    margin-left: -$container-padding-x !important;
+  }
+}
+
+.container-p-y {
+  &:not([class^="pt-"]):not([class*=" pt-"]) {
+    padding-top: $container-padding-y !important;
+  }
+  &:not([class^="pb-"]):not([class*=" pb-"]) {
+    padding-bottom: $container-padding-y !important;
+  }
+}
+.container-m--y {
+  &:not([class^="mt-"]):not([class*=" mt-"]) {
+    margin-top: -$container-padding-y !important;
+  }
+  &:not([class^="mb-"]):not([class*=" mb-"]) {
+    margin-bottom: -$container-padding-y !important;
+  }
+}
+
+
+// Transforms
+//
+
+.rotate-90 { transform: rotate(90deg); }
+.rotate-180 { transform: rotate(180deg); }
+.rotate-270 { transform: rotate(270deg); }
+.rotate--90 { transform: rotate(-90deg); }
+.rotate--180 { transform: rotate(-180deg); }
+.rotate--270 { transform: rotate(-270deg); }
+.rotate-0 { transform: rotate(0deg) !important; }
+
+.scaleX--1 { transform: scaleX(-1); }
+.scaleY--1 { transform: scaleY(-1); }
+
+@include rtl-only {
+  .rotate-90 { transform: rotate(-90deg); }
+  .rotate-180 { transform: rotate(-180deg); }
+  .rotate-270 { transform: rotate(-270deg); }
+  .rotate--90 { transform: rotate(90deg); }
+  .rotate--180 { transform: rotate(180deg); }
+  .rotate--270 { transform: rotate(270deg); }
+
+  .scaleX--1 { transform: scaleX(1); }
+  .scaleY--1 { transform: scaleY(1); }
+
+  .scaleX--1-rtl { transform: scaleX(-1); }
+  .scaleY--1-rtl { transform: scaleY(-1); }
+}
+
+// *******************************************************************************
+// * Bordered rows
+
+.row-bordered {
+  overflow: hidden;
+
+   > .col,
+   > [class^="col-"],
+   > [class*=" col-"],
+   > [class^="col "],
+   > [class*=" col "],
+   > [class$=" col"],
+   > [class="col"] {
+    position: relative;
+    padding-top: 1px;
+
+    &::before {
+      content: "";
+      position: absolute;
+      right: 0;
+      bottom: -1px;
+      left: 0;
+      display: block;
+      height: 0;
+      border-top: 1px solid $bordered-row-border-color;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: -1px;
+      display: block;
+      width: 0;
+      border-left: 1px solid $bordered-row-border-color;
+    }
+  }
+
+  &.row-border-light {
+     > .col,
+     > [class^="col-"],
+     > [class*=" col-"],
+     > [class^="col "],
+     > [class*=" col "],
+     > [class$=" col"],
+     > [class="col"] {
+      &::before,
+      &::after {
+        border-color: $gray-100;
+      }
+    }
+  }
+}
+
+@include rtl-only {
+  .row-bordered > .col::after,
+  .row-bordered > [class^="col-"]::after,
+  .row-bordered > [class*=" col-"]::after,
+  .row-bordered > [class^="col "]::after,
+  .row-bordered > [class*=" col "]::after,
+  .row-bordered > [class$=" col"]::after,
+  .row-bordered > [class="col"]::after {
+    left: auto;
+    right: -1px;
+  }
+}
+
+// *******************************************************************************
+// * Width
+
+@each $breakpoint in slice-list(map-keys($grid-breakpoints), 2) {
+  @include media-breakpoint-up($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+    .w#{$infix}-100 { width: 100% !important; }
+    .w#{$infix}-auto { width: auto !important; }
+  }
+}
+
+// *******************************************************************************
+// * Negative horizontal margins
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+    $rtl-prefix: if($rtl-support == true, 'html:not([dir=rtl]) body:not([dir=rtl]) ', '');
+
+    @each $size, $length in $spacers {
+      #{$rtl-prefix}.mr#{$infix}--#{$size},
+      #{$rtl-prefix}.mx#{$infix}--#{$size} {
+        margin-right: -$length !important;
+      }
+      #{$rtl-prefix}.ml#{$infix}--#{$size},
+      #{$rtl-prefix}.mx#{$infix}--#{$size} {
+        margin-left: -$length !important;
+      }
+
+      @if $rtl-support == true {
+        .mr#{$infix}--#{$size},
+        .mx#{$infix}--#{$size} {
+          margin-left: -$length !important;
+        }
+        .ml#{$infix}--#{$size},
+        .mx#{$infix}--#{$size} {
+          margin-right: -$length !important;
+        }
+      }
+    }
+  }
+}
+
+// *******************************************************************************
+// * Flex
+
+.flex-truncate  { min-width: 0 !important; }
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+    .flex-basis#{$infix}-100 { flex-basis: 100% !important; }
+    .flex-basis#{$infix}-auto { flex-basis: auto !important; }
+  }
+}
+
+// IE fix
+.d-flex,
+.d-inline-flex,
+.media,
+.media > :not(.media-body),
+.jumbotron,
+.card {
+  flex-shrink: 1;
+}
+// Fix IE parent container height bug when containing image with fluid width
+.ie-mh-1 {
+  min-height: 1px;
+}
+
+// *******************************************************************************
+// * Text color
+
+.text-dark {
+  color: $body-color !important;
+
+  &[href] {
+    &:hover {
+      color: $link-hover-color !important;
+    }
+    &:focus:not(:hover) {
+      color: $body-color !important;
+    }
+  }
+}
+
+.text-muted[href] {
+  @include hover-focus { color: $text-muted-hover !important; }
+}
+
+.text-light {
+  color: $text-light !important;
+
+  &[href] {
+    @include hover-focus { color: $text-muted-hover !important; }
+  }
+}
+
+.text-lighter {
+  color: $text-lighter !important;
+
+  &[href] {
+    @include hover-focus { color: $text-muted-hover !important; }
+  }
+}
+
+.text-lightest {
+  color: $text-lightest !important;
+
+  &[href] {
+    @include hover-focus { color: $text-muted-hover !important; }
+  }
+}
+
+
+// *******************************************************************************
+// * Background color
+
+.bg-dark { background-color: $gray-900 !important; }
+a.bg-dark {
+  @include hover-focus { background-color: $gray-900 !important; }
+}
+
+.bg-light { background-color: $gray-100 !important; }
+a.bg-light {
+  @include hover-focus { background-color: $gray-200 !important; }
+}
+
+.bg-lighter { background-color: $gray-50 !important; }
+a.bg-lighter {
+  @include hover-focus { background-color: $gray-100 !important; }
+}
+
+.bg-lightest { background-color: $gray-25 !important; }
+a.bg-lightest {
+  @include hover-focus { background-color: $gray-50 !important; }
+}
+
+
+// *******************************************************************************
+// * Border color
+
+.border-light {
+  border-color: $gray-100 !important;
+}
+
+.border-dark {
+  border-color: $gray-900 !important;
+}
+
+.border-transparent {
+  border-color: transparent !important;
+}
+
+// *******************************************************************************
+// * RTL
+
+@include rtl-only {
+  // Borders
+  //
+
+  .border          { border: $border-width solid $border-color !important; }
+  .border-0        { border: 0 !important; }
+  .border-top-0    { border-top: 0 !important; }
+  .border-right-0  { border-left: 0 !important; }
+  .border-bottom-0 { border-bottom: 0 !important; }
+  .border-left-0   { border-right: 0 !important; }
+
+  @each $color, $value in $theme-colors {
+    .border-#{$color} {
+      border-color: $value !important;
+    }
+  }
+
+  .border-white {
+    border-color: $white !important;
+  }
+
+  .rounded {
+    border-radius: $border-radius !important;
+  }
+  .rounded-top {
+    border-top-left-radius: $border-radius !important;
+    border-top-right-radius: $border-radius !important;
+  }
+  .rounded-right {
+    border-top-left-radius: $border-radius !important;
+    border-bottom-left-radius: $border-radius !important;
+  }
+  .rounded-bottom {
+    border-bottom-right-radius: $border-radius !important;
+    border-bottom-left-radius: $border-radius !important;
+  }
+  .rounded-left {
+    border-top-right-radius: $border-radius !important;
+    border-bottom-right-radius: $border-radius !important;
+  }
+
+  .rounded-circle {
+    border-radius: 50% !important;
+  }
+
+  .rounded-0 {
+    border-radius: 0 !important;
+  }
+
+  // Float
+  //
+
+  @each $breakpoint in map-keys($grid-breakpoints) {
+    @include media-breakpoint-up($breakpoint) {
+      $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+      .float#{$infix}-left  { @include float-right; }
+      .float#{$infix}-right { @include float-left; }
+    }
+  }
+
+  // Responsive alignment
+  //
+
+  @each $breakpoint in map-keys($grid-breakpoints) {
+    @include media-breakpoint-up($breakpoint) {
+      $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+      .text#{$infix}-left   { text-align: right !important; }
+      .text#{$infix}-right  { text-align: left !important; }
+    }
+  }
+
+  // Spacing
+  //
+
+  @each $breakpoint in map-keys($grid-breakpoints) {
+    @include media-breakpoint-up($breakpoint) {
+      $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+      @each $prop, $abbrev in (margin: m, padding: p) {
+        @each $size, $length in $spacers {
+
+          .#{$abbrev}#{$infix}-#{$size} { #{$prop}: $length !important; }
+          .#{$abbrev}t#{$infix}-#{$size},
+          .#{$abbrev}y#{$infix}-#{$size} {
+            #{$prop}-top: $length !important;
+          }
+          .#{$abbrev}r#{$infix}-#{$size},
+          .#{$abbrev}x#{$infix}-#{$size} {
+            #{$prop}-left: $length !important;
+          }
+          .#{$abbrev}b#{$infix}-#{$size},
+          .#{$abbrev}y#{$infix}-#{$size} {
+            #{$prop}-bottom: $length !important;
+          }
+          .#{$abbrev}l#{$infix}-#{$size},
+          .#{$abbrev}x#{$infix}-#{$size} {
+            #{$prop}-right: $length !important;
+          }
+        }
+      }
+
+      // Some special margin utils
+      .m#{$infix}-auto { margin: auto !important; }
+      .mt#{$infix}-auto,
+      .my#{$infix}-auto {
+        margin-top: auto !important;
+      }
+      .mr#{$infix}-auto,
+      .mx#{$infix}-auto {
+        margin-left: auto !important;
+      }
+      .mb#{$infix}-auto,
+      .my#{$infix}-auto {
+        margin-bottom: auto !important;
+      }
+      .ml#{$infix}-auto,
+      .mx#{$infix}-auto {
+        margin-right: auto !important;
+      }
+    }
+  }
+}

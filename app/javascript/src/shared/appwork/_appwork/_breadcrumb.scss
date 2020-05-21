@@ -1,0 +1,20 @@
+// Breadcrumbs
+//
+
+.breadcrumb-item,
+.breadcrumb-item a {
+  color: $breadcrumb-color;
+
+  @include hover {
+    color: $breadcrumb-active-color;
+  }
+}
+
+// *******************************************************************************
+// * RTL
+
+@include rtl-only {
+  .breadcrumb-item + .breadcrumb-item::before {
+    content: "#{$breadcrumb-divider-rtl}";
+  }
+}

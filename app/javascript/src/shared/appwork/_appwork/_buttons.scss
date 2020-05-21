@@ -1,0 +1,116 @@
+// Buttons
+//
+
+.btn {
+  font-size: $input-btn-font-size;
+
+  @if $material-style {
+    text-transform: uppercase;
+  }
+}
+
+// Babge within button
+.btn .badge {
+  @include transition($btn-transition);
+}
+
+label.btn {
+  margin-bottom: 0;
+}
+
+// *******************************************************************************
+// * Alternate buttons
+
+@each $color, $value in $theme-colors {
+  @if $color != primary {
+    @if $material-style {
+      @include appwork-material-button-variant('.btn-#{$color}', $value);
+      @include appwork-material-button-outline-variant('.btn-outline-#{$color}', $value);
+    } @else {
+      @include appwork-button-variant('.btn-#{$color}', $value);
+      @include appwork-button-outline-variant('.btn-outline-#{$color}', $value);
+    }
+  }
+}
+
+// Default button
+@if $material-style {
+  @include appwork-material-button-variant('.btn-default', $btn-default-bg, $btn-default-color, $btn-default-color);
+  @include appwork-material-button-outline-variant('.btn-outline-default', $btn-default-border, $btn-default-color);
+} @else {
+  @include appwork-button-variant('.btn-default', $btn-default-bg, $btn-default-color, $btn-default-border);
+  @include appwork-button-outline-variant('.btn-outline-default', $btn-default-border, $btn-default-color);
+}
+
+// *******************************************************************************
+// * Sizes
+
+.btn-xl {
+  @include button-size($input-btn-padding-y-xl, $input-btn-padding-x-xl, $input-btn-font-size-xl, $input-btn-line-height-xl, $btn-border-radius-xl);
+}
+
+.btn-lg {
+  font-size: $input-btn-font-size-lg;
+}
+
+.btn-sm {
+  font-size: $input-btn-font-size-sm;
+}
+
+.btn-xs {
+  @include button-size($input-btn-padding-y-xs, $input-btn-padding-x-xs, $input-btn-font-size-xs, $input-btn-line-height-xs, $btn-border-radius-xs);
+}
+
+// *******************************************************************************
+// * Round button
+
+.btn-round {
+  border-radius: 60rem !important;
+}
+
+// *******************************************************************************
+// * Icon button
+
+.icon-btn {
+  $icon-btn-size:    ($input-btn-font-size    * $input-btn-line-height)    + ($input-btn-padding-y    * 2);
+  $icon-btn-size-xl: ($input-btn-font-size-xl * $input-btn-line-height-xl) + ($input-btn-padding-y-xl * 2);
+  $icon-btn-size-lg: ($input-btn-font-size-lg * $input-btn-line-height-lg) + ($input-btn-padding-y-lg * 2);
+  $icon-btn-size-sm: ($input-btn-font-size-sm * $input-btn-line-height-sm) + ($input-btn-padding-y-sm * 2);
+  $icon-btn-size-xs: ($input-btn-font-size-xs * $input-btn-line-height-xs) + ($input-btn-padding-y-xs * 2);
+  $borders-width:    $input-btn-border-width * 2;
+
+  width: calc(#{$icon-btn-size} + #{$borders-width}) !important;
+  padding: 0;
+  line-height: $icon-btn-size;
+
+  &.btn-xl {
+    width: calc(#{$icon-btn-size-xl} + #{$borders-width}) !important;
+    line-height: $icon-btn-size-xl;
+  }
+
+  &.btn-lg {
+    width: calc(#{$icon-btn-size-lg} + #{$borders-width}) !important;
+    line-height: $icon-btn-size-lg;
+  }
+
+  &.btn-sm {
+    width: calc(#{$icon-btn-size-sm} + #{$borders-width}) !important;
+    line-height: $icon-btn-size-sm;
+  }
+
+  &.btn-xs {
+    width: calc(#{$icon-btn-size-xs} + #{$borders-width}) !important;
+    line-height: $icon-btn-size-xs;
+  }
+}
+
+// *******************************************************************************
+// * Without border
+
+.btn.borderless {
+  &:not(.active):not(:active):not(:hover):not(:focus),
+  :not(.show) > &.dropdown-toggle:not(:hover):not(:focus) {
+    border-color: transparent !important;
+    box-shadow: none !important;
+  }
+}

@@ -1,0 +1,24 @@
+// Alerts
+//
+
+@each $color, $value in $theme-colors {
+  @if $color != primary and $color != light {
+    @include appwork-alert-variant('.alert-#{$color}', $value);
+    @include appwork-alert-dark-variant('.alert-dark-#{$color}', $value);
+  }
+}
+
+// *******************************************************************************
+// * RTL
+
+@include rtl-only {
+  .alert-dismissible {
+    padding-right: $alert-padding-x;
+    padding-left: ($close-font-size + $alert-padding-x * 2);
+  }
+
+  .alert-dismissible .close {
+    right: auto;
+    left: 0;
+  }
+}

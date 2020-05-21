@@ -1,0 +1,53 @@
+@import '../_custom-variables/uikit';
+
+$ui-product-badge-padding: .1875rem .375rem !default;
+$ui-product-badge-font-size: .625rem !default;
+$ui-product-color-size: .875rem !default;
+$ui-product-color-size-lg: 1rem !default;
+$ui-product-color-size-sm: .75rem !default;
+$ui-payment-size: 40px !default;
+$ui-payment-size-sm: 30px !default;
+
+// *******************************************************************************
+// * Product badge
+
+.badge.ui-product-badge {
+  align-self: flex-start;
+  padding: $ui-product-badge-padding;
+  font-size: $ui-product-badge-font-size;
+}
+
+// *******************************************************************************
+// * Product color
+
+.ui-product-color {
+  display: inline-block;
+  overflow: hidden;
+  margin: .144em;
+  width: $ui-product-color-size;
+  height: $ui-product-color-size;
+  border-radius: 10rem;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, .15) inset;
+  vertical-align: middle;
+}
+
+.ui-product-color-lg {
+  width: $ui-product-color-size-lg;
+  height: $ui-product-color-size-lg;
+}
+
+.ui-product-color-sm {
+  width: $ui-product-color-size-sm;
+  height: $ui-product-color-size-sm;
+}
+
+// *******************************************************************************
+// * Payment images
+
+.ui-payment {
+  height: $ui-payment-size;
+}
+
+.ui-payment-small {
+  height: $ui-payment-size-sm;
+}

@@ -1,0 +1,299 @@
+@import '../_custom-variables/uikit';
+
+$ui-company-text-font-size: 15px !default;
+$ui-company-text-line-height: 1.8 !default;
+$ui-window-box-shadow: 0 2px 10px rgba(0,0,0,.12) !default;
+$ui-window-header-bg: #e5e5e5 !default;
+$ui-customer-review-font-size: 1.125rem !default;
+$ui-customer-review-line-height: 1.75 !default;
+
+// *******************************************************************************
+// * Text
+
+.ui-company-text {
+  font-size: $ui-company-text-font-size;
+  line-height: $ui-company-text-line-height;
+}
+
+// *******************************************************************************
+// * Devices
+
+.ui-device {
+  position: relative;
+  user-select: none !important;
+
+  &:before {
+    content: "";
+    display: block;
+    padding-top: 100%;
+  }
+
+  .device-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+  }
+
+  .device-content {
+    position: absolute;
+    top: 0;
+    z-index: 2;
+    overflow: hidden;
+
+    &:before {
+      content: "";
+      display: block;
+      padding-top: 100%;
+    }
+
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+    }
+  }
+}
+
+.ui-device.macbook {
+  width: 1227px;
+
+  &:before {
+    padding-top: 57.86471067644662%;
+  }
+
+  .device-content {
+    margin-top: 4.31947840260799%;
+    margin-left: 12.46943765281174%;
+    width: 75.15262428687857%;
+
+    [dir=rtl] & {
+      margin-right: 12.46943765281174%;
+      margin-left: 0;
+    }
+
+    &:before {
+      padding-top: 62.47288503253796%;
+    }
+  }
+}
+
+.ui-device.iphone {
+  width: 302px;
+
+  &:before {
+    padding-top: 209.154929577464789%;
+  }
+
+  .device-content {
+    z-index: 1;
+    margin-top: 19.58041958041958%;
+    margin-left: 4.580152671755725%;
+    width: 91.608391608391608%;
+    border-radius: 0 0 12% 12% / 0 0 4% 4%;
+
+    [dir=rtl] & {
+      margin-right: 4.580152671755725%;
+      margin-left: 0;
+    }
+
+    &:before {
+      padding-top: 200.763358778625954%;
+    }
+  }
+
+  .device-img {
+    z-index: 2;
+  }
+}
+
+.ui-window {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  padding-top: 23px;
+  box-shadow: $ui-window-box-shadow;
+  user-select: none;
+
+  &:before {
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 3;
+    height: 23px;
+    background: $ui-window-header-bg;
+  }
+
+  .window-content {
+    width: 100%;
+
+    img {
+      display: block;
+      width: 100%;
+    }
+  }
+}
+
+.ui-window,
+.ui-window .window-content {
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    display: block;
+  }
+}
+
+// Buttons
+.ui-window:after,
+.ui-window .window-content:before,
+.ui-window .window-content:after {
+  top: 6px;
+  z-index: 4;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+}
+.ui-window:after {
+  left: 10px;
+  background: #ccc;
+}
+.ui-window .window-content:before {
+  left: 26px;
+  background: #ccc;
+}
+.ui-window .window-content:after {
+  left: 43px;
+  background: #ccc;
+}
+
+// *******************************************************************************
+// * Hero block
+
+.jumbotron.ui-hero {
+  display: flex;
+  margin: 0;
+  padding-right: 0;
+  padding-left: 0;
+  border-radius: 0;
+
+   > .container,
+   > .container-fluid {
+    display: flex;
+
+     > .row {
+      align-items: center;
+    }
+  }
+}
+
+// *******************************************************************************
+// * Presentation
+
+.ui-presentation-left,
+.ui-presentation-right {
+  &,
+  &.ui-device {
+    width: 100%;
+  }
+}
+
+// *******************************************************************************
+// * Reviews
+
+.ui-customer-review {
+  font-size: $ui-customer-review-font-size;
+  line-height: $ui-customer-review-line-height;
+
+  &::before,
+  &::after {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 1.5em;
+    line-height: $ui-customer-review-font-size;
+    opacity: .15;
+  }
+
+  &:before {
+    content: '“';
+  }
+  &:after {
+    content: '”';
+  }
+}
+
+.default-style {
+  @import "../_appwork/include";
+
+  .ui-hero > .container > .row {
+    width: calc(100% + #{$grid-gutter-width});
+  }
+
+  .ui-customer-review {
+    font-weight: $font-weight-light;
+
+    &::before,
+    &::after {
+      font-weight: $font-weight-bolder;
+    }
+  }
+
+  @media (min-width: map-get($grid-breakpoints, lg)) {
+    .ui-presentation-left,
+    .ui-presentation-right {
+      &,
+      &.ui-device {
+        width: 150%;
+      }
+    }
+  }
+
+  @media (min-width: map-get($grid-breakpoints, xl)) {
+    .ui-presentation-left,
+    .ui-presentation-right {
+      &,
+      &.ui-device {
+        width: 160%;
+      }
+    }
+  }
+}
+
+.material-style {
+  @import "../_appwork/include-material";
+
+  .ui-hero > .container > .row {
+    width: calc(100% + #{$grid-gutter-width});
+  }
+
+  .ui-customer-review {
+    font-weight: $font-weight-light;
+
+    &::before,
+    &::after {
+      font-weight: $font-weight-bold;
+    }
+  }
+
+  @media (min-width: map-get($grid-breakpoints, lg)) {
+    .ui-presentation-left,
+    .ui-presentation-right {
+      &,
+      &.ui-device {
+        width: 150%;
+      }
+    }
+  }
+
+  @media (min-width: map-get($grid-breakpoints, xl)) {
+    .ui-presentation-left,
+    .ui-presentation-right {
+      &,
+      &.ui-device {
+        width: 160%;
+      }
+    }
+  }
+}

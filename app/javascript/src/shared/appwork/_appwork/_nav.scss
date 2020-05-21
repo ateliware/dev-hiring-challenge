@@ -1,0 +1,445 @@
+// Nav
+//
+
+@include rtl-only {
+  .nav {
+    padding-right: 0;
+  }
+}
+
+.nav-link {
+  line-height: $nav-link-line-height;
+
+  &.disabled {
+    border-color: transparent !important;
+    background: transparent !important;
+    color: $nav-link-disabled-color !important;
+  }
+}
+
+// Tab and pills link
+.nav-tabs,
+.nav-pills {
+  @if $material-style {
+    .nav-link {
+      text-transform: uppercase;
+      font-weight: $btn-font-weight;
+      font-size: $input-btn-font-size;
+    }
+  }
+
+  .nav-link:not(.active) {
+    color: $nav-link-color;
+
+    @include hover-focus {
+      color: $nav-tabs-link-active-color;
+    }
+  }
+
+  &:not(.nav-fill):not(.nav-justified) .nav-link {
+    margin-right: $nav-spacer;
+
+    @include rtl-style {
+      margin-right: 0;
+      margin-left: $nav-spacer;
+    }
+  }
+
+  .nav-link .badge {
+    position: relative;
+    top: -1px;
+  }
+
+  .nav-item.show .nav-link:not(.active) {
+    background-color: transparent;
+  }
+}
+
+@if $material-style {
+  .nav-tabs {
+    border: 0;
+  }
+
+  .nav-tabs .nav-item {
+    margin: 0 !important;
+  }
+
+  .nav-tabs .nav-link {
+    border: 0 !important;
+    background-color: transparent;
+    background-position: bottom;
+    background-size: 0 2px;
+    background-repeat: no-repeat;
+  }
+
+  .nav-tabs .nav-link.active,
+  .nav-tabs .nav-item.show .nav-link {
+    background-color: transparent;
+    background-size: 100% 2px;
+    transition: background .3s ease-out;
+  }
+}
+
+// Tab link
+.nav-tabs .nav-link {
+  background-clip: padding-box;
+
+  @include hover-focus {
+    border-bottom-color: transparent;
+  }
+
+  &.active {
+    border-bottom-color: $nav-tabs-link-active-bg;
+  }
+}
+
+// *******************************************************************************
+// * Alternative tabs
+
+.nav-tabs.tabs-alt .nav-link,
+.tabs-alt > .nav-tabs .nav-link {
+  border-width: 0 !important;
+  border-radius: 0 !important;
+  background-color: transparent !important;
+}
+
+// *******************************************************************************
+// * Light navs (material only)
+
+@if $material-style {
+  $material-light-nav-link-color: null !default;
+  $material-light-nav-link-disabled-color: null !default;
+  $material-light-nav-tabs-link-active-color: null !default;
+  $material-light-nav-pills-link-active-bg: null !default;
+
+  .nav-tabs.md-tabs-light,
+  .md-tabs-light > .nav-tabs,
+  .md-tabs-light > div > .nav-tabs,
+  .nav-pills.md-pills-light,
+  .md-pills-light > .nav-pills,
+  .md-pills-light > div > .nav-pills {
+    .nav-link {
+      color: $material-light-nav-link-color;
+    }
+
+    .nav-link:hover,
+    .nav-link:focus,
+    .nav-link.focus,
+    .nav-item.show .nav-link {
+      color: $material-light-nav-tabs-link-active-color;
+    }
+
+    .nav-link.disabled {
+      background-image: none !important;
+      color: $material-light-nav-link-disabled-color !important;
+    }
+  }
+
+  .nav-tabs.md-tabs-light,
+  .md-tabs-light > .nav-tabs,
+  .md-tabs-light > div > .nav-tabs {
+    .nav-link {
+      background-image: linear-gradient($material-light-nav-tabs-link-active-color, $material-light-nav-tabs-link-active-color) !important;
+
+      &.active {
+        color: $material-light-nav-tabs-link-active-color;
+      }
+    }
+  }
+
+  .material-style .nav-pills.md-pills-light,
+  .material-style .md-pills-light > .nav-pills,
+  .material-style .md-pills-light > div > .nav-pills {
+    .nav-link.active {
+      @include plain-hover-focus {
+        background: $material-light-nav-tabs-link-active-color;
+        color: $nav-tabs-link-active-color;
+      }
+    }
+  }
+}
+
+// *******************************************************************************
+// * Sizing
+
+.nav-lg {
+  @include appwork-nav-size($nav-link-padding-y-lg, $nav-link-padding-x-lg, $font-size-lg, $nav-link-line-height-lg);
+}
+.nav-sm {
+  @include appwork-nav-size($nav-link-padding-y-sm, $nav-link-padding-x-sm, $font-size-sm, $nav-link-line-height-sm);
+}
+
+// *******************************************************************************
+// * Tabbed panels
+
+.nav-tabs-top,
+.nav-tabs-right,
+.nav-tabs-bottom,
+.nav-tabs-left {
+  display: flex;
+
+   > .nav,
+   > div > .nav {
+    position: relative;
+    z-index: 1;
+    border: 0;
+  }
+
+   > .nav .nav-link,
+   > div > .nav .nav-link {
+    @include hover-focus {
+      border-color: $nav-tabs-link-hover-border-color;
+    }
+
+    &.active {
+      border-color: $nav-tabs-link-active-border-color;
+    }
+  }
+}
+
+.nav-tabs-right,
+.nav-tabs-left {
+  align-items: stretch;
+
+   > .nav,
+   > div > .nav {
+    flex-direction: column;
+    flex-grow: 0;
+  }
+
+   > .nav .nav-link,
+   > div > .nav .nav-link {
+    margin: 0 0 $nav-spacer 0 !important;
+  }
+
+   > .tab-content {
+    flex-grow: 1;
+  }
+}
+
+// Top tabs
+.nav-tabs-top {
+  flex-direction: column;
+
+   > .nav .nav-link,
+   > div > .nav .nav-link {
+    @include hover-focus {
+      border-bottom-color: transparent;
+    }
+
+    &.active {
+      border-bottom-color: $nav-tabs-link-active-bg;
+    }
+  }
+}
+
+// Right tabs
+.nav-tabs-right {
+  flex-direction: row-reverse;
+
+   > .nav .nav-item,
+   > div > .nav .nav-item {
+    margin-bottom: 0;
+    margin-left: -1px;
+
+    @include rtl-style {
+      margin-right: -1px;
+      margin-left: 0;
+    }
+  }
+
+   > .nav .nav-link,
+   > div > .nav .nav-link {
+    @if $material-style != true {
+      @include border-radius(0 $border-radius $border-radius 0);
+
+      @include rtl-style {
+        @include border-radius($border-radius 0 0 $border-radius);
+      }
+    }
+
+    @include hover-focus {
+      border-left-color: transparent;
+
+      @include rtl-style {
+        border-right-color: transparent;
+        border-left-color: $nav-tabs-link-hover-border-color;
+      }
+    }
+
+    &.active {
+      border-left-color: $nav-tabs-link-active-bg;
+
+      @include rtl-style {
+        border-right-color: $nav-tabs-link-active-bg;
+        border-left-color: $nav-tabs-link-active-border-color;
+      }
+    }
+  }
+}
+
+// Bottom tabs
+.nav-tabs-bottom {
+  flex-direction: column-reverse;
+
+   > .nav .nav-item,
+   > div > .nav .nav-item {
+    margin-top: -1px;
+    margin-bottom: 0;
+  }
+
+   > .nav .nav-link,
+   > div > .nav .nav-link {
+    @if $material-style != true {
+      @include border-radius(0 0 $border-radius $border-radius);
+    }
+
+    @include hover-focus {
+      border-top-color: transparent;
+    }
+
+    &.active {
+      border-top-color: $nav-tabs-link-active-bg;
+    }
+  }
+}
+
+// Left tabs
+.nav-tabs-left {
+   > .nav .nav-item,
+   > div > .nav .nav-item {
+    margin-right: -1px;
+    margin-bottom: 0;
+
+    @include rtl-style {
+      margin-right: 0;
+      margin-left: -1px;
+    }
+  }
+
+   > .nav .nav-link,
+   > div > .nav .nav-link {
+     @if $material-style != true {
+       @include border-radius($border-radius 0 0 $border-radius);
+
+       @include rtl-style {
+         @include border-radius(0 $border-radius $border-radius 0);
+       }
+     }
+
+    @include hover-focus {
+      border-right-color: transparent;
+
+      @include rtl-style {
+        border-right-color: $nav-tabs-link-hover-border-color;
+        border-left-color: transparent;
+      }
+    }
+
+    &.active {
+      border-right-color: $nav-tabs-link-active-bg;
+
+      @include rtl-style {
+        border-right-color: $nav-tabs-link-active-border-color;
+        border-left-color: $nav-tabs-link-active-bg;
+      }
+    }
+  }
+}
+
+// Tab content
+
+.nav-tabs-top > .tab-content,
+.nav-tabs-right > .tab-content,
+.nav-tabs-bottom > .tab-content,
+.nav-tabs-left > .tab-content {
+  flex-shrink: 1;
+  border: $card-border-width solid $border-color;
+  background: $nav-tabs-link-active-bg;
+  background-clip: padding-box;
+  box-shadow: $card-shadow;
+}
+
+.nav-tabs-top > .tab-content {
+  @include border-radius(0 0 $border-radius $border-radius);
+}
+
+.nav-tabs-right > .tab-content {
+  @include border-radius($border-radius 0 0 $border-radius);
+  @include rtl-style {
+    @include border-radius(0 $border-radius $border-radius 0);
+  }
+}
+
+.nav-tabs-bottom > .tab-content {
+  @include border-radius($border-radius $border-radius 0 0);
+}
+
+.nav-tabs-left > .tab-content {
+  @include border-radius(0 $border-radius $border-radius 0);
+  @include rtl-style {
+    @include border-radius($border-radius 0 0 $border-radius);
+  }
+}
+
+// *******************************************************************************
+// * Responsive nav
+
+@include responsive-loop-before('.nav-responsive') {
+   > .nav,
+   > div > .nav {
+    flex-direction: column;
+    border: 0;
+
+    .nav-item {
+      flex-basis: auto;
+    }
+
+    &.card-header-tabs,
+    &.card-header-pills {
+      margin-bottom: -1 * $nav-spacer;
+    }
+  }
+
+   > .nav-tabs,
+   > .nav-pills,
+   > div > .nav-tabs,
+   > div > .nav-pills {
+    .nav-item {
+      margin: 0 !important;
+    }
+
+    .nav-link {
+      margin: 0 0 $nav-spacer 0 !important;
+    }
+  }
+
+   > .nav-tabs:not(.tabs-alt),
+   > div > .nav-tabs:not(.tabs-alt) {
+    .nav-link {
+      @if $material-style != true {
+        @include border-radius($border-radius !important);
+      }
+      @include hover-focus {
+        border-color: $nav-tabs-link-hover-border-color !important;
+      }
+    }
+
+    .nav-link.active {
+      border-color: $nav-tabs-link-active-border-color !important;
+    }
+  }
+
+  &.nav-tabs-top > .tab-content,
+  &.nav-tabs-right > .tab-content,
+  &.nav-tabs-bottom > .tab-content,
+  &.nav-tabs-left > .tab-content {
+    border-radius: $border-radius !important;
+  }
+
+  &.nav-tabs-bottom,
+  &.nav-tabs-right,
+  &.nav-tabs-left {
+    flex-direction: column !important;
+  }
+}

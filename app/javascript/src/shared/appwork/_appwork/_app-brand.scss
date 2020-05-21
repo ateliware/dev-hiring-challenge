@@ -1,0 +1,72 @@
+.app-brand {
+  display: flex;
+  overflow: hidden;
+  align-items: center;
+  flex-grow: 0;
+  flex-shrink: 0;
+  line-height: 1;
+  min-height: 1px;
+}
+
+.app-brand-logo {
+  display: block;
+  overflow: hidden;
+  flex-grow: 0;
+  flex-shrink: 0;
+  min-height: 1px;
+
+  img,
+  svg {
+    display: block;
+  }
+}
+
+.app-brand-text {
+  display: block;
+  flex-shrink: 0;
+}
+
+.app-brand .layout-sidenav-toggle {
+  display: block;
+}
+
+// Within sidenav
+
+@mixin appwork-app-brand-collapsed() {
+  .app-brand {
+    padding-right: 0;
+    padding-left: 0;
+    width: $sidenav-collapsed-width;
+  }
+
+  .app-brand-logo,
+  .app-brand-text {
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .app-brand-logo ~ .app-brand-text,
+  .app-brand .layout-sidenav-toggle {
+    display: none;
+  }
+}
+
+.sidenav-vertical .app-brand {
+  padding-right: $sidenav-vertical-link-padding-x - .25rem;
+  padding-left: $sidenav-vertical-link-padding-x - .25rem;
+}
+
+.sidenav-horizontal .app-brand,
+.sidenav-horizontal .app-brand + .sidenav-divider {
+  display: none !important;
+}
+
+:not(.layout-sidenav) > .sidenav-vertical.sidenav-collapsed:not(.layout-sidenav):not(:hover) {
+  @include appwork-app-brand-collapsed();
+}
+
+@media (min-width: map-get($grid-breakpoints, lg)) {
+  .layout-collapsed:not(.layout-offcanvas):not(.layout-fixed-offcanvas) .layout-sidenav:not(:hover) {
+    @include appwork-app-brand-collapsed();
+  }
+}

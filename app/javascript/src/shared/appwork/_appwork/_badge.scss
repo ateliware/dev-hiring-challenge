@@ -1,0 +1,57 @@
+// Badges
+//
+
+@each $color, $value in $theme-colors {
+  @if $color != primary and $color != light {
+    @include appwork-badge-variant('.badge-#{$color}', $value);
+    @include appwork-badge-outline-variant('.badge-outline-#{$color}', $value);
+  }
+}
+
+@include appwork-badge-variant('.badge-default', $badge-default-bg, $body-color);
+@include appwork-badge-outline-variant('.badge-outline-default', $badge-default-bg, $badge-outline-default-color);
+
+// *******************************************************************************
+// * Dots
+
+.badge.badge-dot {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  width: .5em;
+  height: .5em;
+  border-radius: 50%;
+  vertical-align: middle;
+}
+
+// *******************************************************************************
+// * Indicators
+
+.badge.indicator {
+  position: absolute;
+  top: auto;
+  display: inline-block;
+  margin: 0;
+  transform: translate(-50%, 25%);
+
+  @include rtl-style {
+    transform: translate(50%, 25%);
+  }
+
+  &:not(.badge-dot) {
+    padding: 0 .2em;
+    font-size: .6em;
+    line-height: 1.2em;
+    transform: translate(-50%, -10%);
+
+    @include rtl-style {
+      transform: translate(50%, -10%);
+    }
+  }
+}
+
+@if $material-style {
+  .btn .badge.indicator:not(.badge-dot) {
+    font-size: .75em;
+  }
+}

@@ -1,0 +1,250 @@
+// Dropdowns
+//
+
+[data-trigger=hover] {
+  outline: 0;
+}
+
+.dropdown-menu {
+  margin: $dropdown-spacer 0;
+  box-shadow: $dropdown-box-shadow;
+
+  @include rtl-style {
+    text-align: right;
+  }
+
+  // Animations
+  @if $material-style {
+    transform-origin: top left;
+    animation: dropdownAnimation .25s;
+
+    &.dropdown-menu-right,
+    &.dropdown-menu-right .dropdown-menu {
+      transform-origin: top right;
+    }
+
+    .dropup & {
+      transform-origin: bottom left;
+    }
+
+    .dropup &.dropdown-menu-right,
+    .dropup &.dropdown-menu-right .dropdown-menu {
+      transform-origin: bottom right;
+    }
+  }
+
+  .mega-dropdown > & {
+    left: 0 !important;
+    right: 0 !important;
+  }
+}
+
+.dropdown-item {
+  line-height: $dropdown-link-line-height;
+}
+
+// Badge within dropdown menu
+.dropdown-menu .badge[class^="float-"],
+.dropdown-menu .badge[class*=" float-"] {
+  position: relative;
+  top: .071em;
+}
+
+@if $material-style {
+  .dropdown-item,
+  .dropdown-menu > li {
+    display: block !important;
+
+    // Ripple
+    .waves-ripple {
+      background: rgba(0, 0, 0, .1) !important;
+    }
+    &.active .waves-ripple,
+    &.disabled .waves-ripple {
+      display: none !important;
+    }
+  }
+}
+
+// Hidden dropdown toggle arrow
+.dropdown-toggle.hide-arrow,
+.dropdown-toggle-hide-arrow > .dropdown-toggle {
+  &::before,
+  &::after {
+    display: none !important;
+  }
+}
+
+// *******************************************************************************
+// * Make Bootstrap 3 pagination compatible with Bootstrap 4
+
+.dropdown-menu > li:not(.dropdown-item) {
+   > a:not(.dropdown-item) {
+    display: block;
+    clear: both;
+    padding: $dropdown-item-padding-y $dropdown-item-padding-x;
+    width: 100%;
+    border: 0;
+    background: none;
+    color: $dropdown-link-color;
+    text-align: inherit;
+    white-space: nowrap;
+    font-weight: $font-weight-normal;
+    line-height: $dropdown-link-line-height;
+
+    @include hover-focus {
+      background-color: $dropdown-link-hover-bg;
+      color: $dropdown-link-hover-color;
+      text-decoration: none;
+    }
+  }
+
+  &.active > a:not(.dropdown-item),
+  > a:not(.dropdown-item):active {
+    background-color: $dropdown-link-active-bg;
+    color: $dropdown-link-active-color;
+    text-decoration: none;
+  }
+
+  &.disabled > a:not(.dropdown-item) {
+    background-color: transparent;
+    color: $dropdown-link-disabled-color;
+
+    @if $enable-gradients {
+      background-image: none;
+    }
+  }
+}
+
+// *******************************************************************************
+// * Dropdown toggle
+
+.dropdown-toggle {
+  &::after,
+  &::before {
+    vertical-align: middle !important;
+  }
+
+  &::after,
+  .dropup &::after,
+  .dropright &::after {
+    margin-left: .5em;
+  }
+
+  .dropleft &::before {
+    margin-right: .5em;
+  }
+}
+
+@include rtl-only {
+  .dropdown-toggle::after,
+  .dropup .dropdown-toggle::after {
+    margin-right: .5em;
+    margin-left: 0;
+  }
+
+  .dropleft .dropdown-toggle::before,
+  .dropright .dropdown-toggle::after {
+    display: none;
+  }
+
+  @if $enable-caret {
+    .dropright .dropdown-toggle::before {
+      content: "";
+      display: inline-block;
+      margin-right: 0;
+      margin-left: .5em;
+
+      @include caret-right;
+    }
+
+    .dropleft .dropdown-toggle::after {
+      content: "";
+      display: inline-block;
+      margin-right: .5em;
+      margin-left: 0;
+
+      @include caret-left;
+    }
+  }
+}
+
+.dropdown-toggle-split::after {
+  margin-right: 0 !important;
+  margin-left: 0 !important;
+}
+
+// *******************************************************************************
+// * Nested dropdowns
+
+.dropdown-menu .dropdown-toggle {
+  position: relative;
+
+  &::after {
+    display: none;
+  }
+}
+
+.dropdown-menu .dropdown-toggle > .dropdown-item {
+ position: relative;
+ cursor: default;
+}
+
+@media (max-width: (map-get($grid-breakpoints, md) - 1)) {
+  .dropdown-menu .dropdown-menu {
+    position: static;
+    display: block;
+    margin: 0;
+    padding-left: $dropdown-item-padding-x;
+    width: 100%;
+    border-width: 0;
+    border-radius: 0;
+    box-shadow: none;
+
+    @include rtl-style {
+      padding-right: $dropdown-item-padding-x;
+      padding-left: 0;
+    }
+  }
+}
+
+@media (min-width: map-get($grid-breakpoints, md)) {
+  .dropdown-menu .dropdown-toggle > .dropdown-item::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: $dropdown-item-padding-x / 2;
+    display: block;
+    width: .375rem;
+    height: .375rem;
+    border: 1px solid $text-muted;
+    border-top: 0;
+    border-left: 0;
+    transform: rotate(-45deg) translate(0, -50%);
+
+    @include rtl-style {
+      right: auto;
+      left: $dropdown-item-padding-x / 2;
+      transform: rotate(45deg) translate(0, -50%) scaleX(-1);
+    }
+  }
+
+  .dropdown-menu .dropdown-toggle:hover > .dropdown-item:not(.disabled) {
+    background: $dropdown-link-hover-bg;
+    color: $dropdown-link-hover-color;
+
+     + .dropdown-menu {
+      display: block;
+    }
+  }
+
+  .dropdown-menu .dropdown-menu {
+    top: 0;
+    left: 100%;
+  }
+
+  .dropdown-menu-right .dropdown-menu {
+    right: 100%;
+    left: auto;
+  }
+}

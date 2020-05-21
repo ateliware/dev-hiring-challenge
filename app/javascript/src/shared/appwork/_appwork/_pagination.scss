@@ -1,0 +1,109 @@
+// Pagination
+//
+
+@include rtl-only {
+  .pagination {
+    padding-right: 0;
+  }
+}
+
+// Add spacing between pagination items
+.page-item + .page-item .page-link,
+.pagination li + li > a:not(.page-link) {
+  margin-left: $pagination-spacer;
+
+  @include rtl-style {
+    margin-right: $pagination-spacer;
+    margin-left: 0;
+  }
+}
+
+.page-link,
+.page-link > a {
+  min-width: calc(#{"#{($font-size-base * $pagination-line-height) + ($pagination-padding-y * 2)} + #{$pagination-border-width * 2}"});
+  text-align: center;
+  line-height: $pagination-line-height !important;
+
+  @include border-radius($border-radius);
+
+  @if $material-style {
+    font-weight: $btn-font-weight;
+  }
+
+  &:focus {
+    color: $pagination-hover-color;
+  }
+}
+
+.page-link.btn-primary {
+  box-shadow: none !important;
+}
+
+// *******************************************************************************
+// * Make Bootstrap 3 pagination compatible with Bootstrap 4
+
+.pagination > li > a:not(.page-link) {
+  position: relative;
+  display: block;
+  padding: $pagination-padding-y $pagination-padding-x;
+  min-width: calc(#{"#{($font-size-base * $pagination-line-height) + ($pagination-padding-y * 2)} + #{$pagination-border-width * 2}"});
+  border: $pagination-border-width solid $pagination-border-color;
+  background-color: $pagination-bg;
+  color: $pagination-color;
+  text-align: center;
+  line-height: $pagination-line-height !important;
+
+  @include border-radius($border-radius);
+  @include hover-focus {
+    border-color: $pagination-hover-border-color;
+    background-color: $pagination-hover-bg;
+    color: $pagination-hover-color;
+    text-decoration: none;
+  }
+
+  @if $material-style {
+    font-weight: $btn-font-weight;
+  }
+
+  &:focus {
+    color: $pagination-hover-color;
+  }
+}
+
+// *******************************************************************************
+// * Material ripple
+
+@if $material-style {
+  .page-link .waves-ripple,
+  .pagination > li .waves-ripple {
+    background: rgba(0, 0, 0, .1) !important;
+  }
+
+  .page-link.waves-effect {
+    display: block;
+  }
+
+  .page-item.active .page-link .waves-ripple,
+  .page-item.disabled .page-link .waves-ripple,
+  .pagination > li.active .waves-ripple,
+  .pagination > li.disabled .waves-ripple {
+    display: none !important;
+  }
+}
+
+// *******************************************************************************
+// * Sizing
+
+.pagination-lg .page-link,
+.pagination-lg > li > a:not(.page-link) {
+  min-width: calc(#{"#{($font-size-lg * $pagination-line-height) + ($pagination-padding-y-lg * 2)} + #{$pagination-border-width * 2}"});
+
+  @include border-radius($border-radius-lg);
+}
+
+.pagination-sm .page-link,
+.pagination-sm > li > a:not(.page-link) {
+  min-width: calc(#{"#{($font-size-sm * $pagination-line-height) + ($pagination-padding-y-sm * 2)} + #{$pagination-border-width * 2}"});
+
+  @include border-radius($border-radius-sm);
+}

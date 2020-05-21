@@ -1,0 +1,737 @@
+// Layouts
+//
+
+.layout-wrapper,
+.layout-inner {
+  display: flex;
+  align-items: stretch;
+  flex: 1 1 auto;
+  width: 100%;
+}
+
+.layout-wrapper {
+  overflow: hidden;
+}
+
+.layout-inner {
+  min-height: 100vh;
+}
+
+.layout-container,
+.layout-content,
+.layout-content > *,
+.layout-sidenav {
+  min-height: 1px;
+}
+
+.layout-container {
+  display: flex;
+  align-items: stretch;
+  flex: 1 1 auto;
+  padding: 0;
+
+  .layout-without-sidenav & {
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+  }
+}
+
+.layout-content {
+  display: flex;
+  align-items: stretch;
+  flex: 1 1 auto;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.layout-navbar,
+.layout-footer {
+  flex: 0 0 auto;
+}
+
+.layout-navbar {
+  position: relative;
+  z-index: 2;
+
+  .navbar {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.layout-sidenav {
+  position: relative;
+  flex: 1 0 auto;
+
+  .sidenav {
+    transform: translate3d(0, 0, 0);
+  }
+
+  .sidenav-vertical {
+    height: 100%;
+  }
+}
+
+// *******************************************************************************
+// * Layout 1
+
+.layout-1 {
+  .layout-inner {
+    flex-direction: column;
+  }
+
+  .layout-content {
+    flex-basis: 100%;
+    width: 0;
+    min-width: 0;
+    max-width: 100%;
+  }
+}
+
+// *******************************************************************************
+// * Layout 2
+
+.layout-2 {
+  .layout-container {
+    flex-basis: 100%;
+    flex-direction: column;
+    width: 0;
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .layout-content {
+    // flex-basis: 100%;
+    width: 100%;
+  }
+}
+
+// *******************************************************************************
+// * Reversed layout
+
+.layout-reversed {
+  .layout-1 .layout-container {
+    flex-direction: row-reverse;
+  }
+
+  .layout-2 .layout-inner {
+    flex-direction: row-reverse;
+  }
+}
+
+// *******************************************************************************
+// * Toggle
+
+.layout-sidenav-toggle {
+  display: block;
+}
+
+// *******************************************************************************
+// * Small screens layout
+
+@media (max-width: (map-get($grid-breakpoints, lg) - 1)) {
+  .layout-sidenav {
+    position: fixed !important;
+    top: 0 !important;
+    height: 100% !important;
+    left: 0 !important;
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+    transform: translate3d(-100%, 0, 0);
+    will-change: transform, -webkit-transform;
+
+    @include rtl-style {
+      right: 0 !important;
+      left: auto !important;
+      transform: translate3d(100%, 0, 0);
+    }
+
+    .layout-reversed & {
+      right: 0 !important;
+      left: auto !important;
+      transform: translate3d(100%, 0, 0);
+    }
+
+    .layout-expanded & {
+      transform: translate3d(0, 0, 0) !important;
+    }
+  }
+
+  .layout-expanded body {
+    overflow: hidden;
+  }
+
+  @include rtl-only {
+    &.layout-reversed .layout-sidenav {
+      right: auto !important;
+      left: 0 !important;
+      transform: translate3d(-100%, 0, 0);
+    }
+  }
+
+  .layout-overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100% !important;
+    left: 0;
+    display: none;
+    background: $modal-backdrop-bg;
+    opacity: $modal-backdrop-opacity;
+    cursor: pointer;
+
+    .layout-expanded & {
+      display: block;
+    }
+  }
+
+  .layout-sidenav-100vh .layout-sidenav,
+  .layout-sidenav-100vh .layout-overlay {
+    height: 100vh !important;
+  }
+}
+
+// *******************************************************************************
+// * Collapsed layout
+
+@include media-breakpoint-up(lg) {
+  // Sidenav style
+
+  .layout-collapsed:not(.layout-offcanvas):not(.layout-fixed-offcanvas) {
+    .layout-sidenav:not(:hover) .sidenav-vertical,
+    .layout-sidenav.sidenav-vertical:not(:hover) {
+      @include sidenav-collapsed();
+    }
+  }
+
+  @include rtl-only {
+    &.layout-collapsed:not(.layout-offcanvas):not(.layout-fixed-offcanvas) {
+      .layout-sidenav:not(:hover) .sidenav-vertical,
+      .layout-sidenav.sidenav-vertical:not(:hover) {
+        @include sidenav-collapsed-rtl();
+      }
+    }
+  }
+
+  // Sidenav position
+
+  .layout-collapsed {
+    .layout-sidenav:hover {
+      margin-right: -$sidenav-width + $sidenav-collapsed-width;
+    }
+
+    &.layout-reversed .layout-sidenav:hover {
+      margin-right: 0;
+      margin-left: -$sidenav-width + $sidenav-collapsed-width;
+    }
+  }
+
+  @include rtl-only {
+    &.layout-collapsed {
+      .layout-sidenav:hover {
+        margin-right: 0;
+        margin-left: -$sidenav-width + $sidenav-collapsed-width;
+      }
+
+      &.layout-reversed .layout-sidenav:hover {
+        margin-right: -$sidenav-width + $sidenav-collapsed-width;
+        margin-left: 0;
+      }
+    }
+  }
+}
+
+// *******************************************************************************
+// * Off-canvas layout
+
+@include media-breakpoint-up(lg) {
+  .layout-collapsed.layout-offcanvas {
+    .layout-sidenav {
+      margin-right: -$sidenav-width;
+      transform: translateX(-100%);
+    }
+
+    &.layout-reversed .layout-sidenav {
+      margin-right: 0;
+      margin-left: -$sidenav-width;
+      transform: translateX(100%);
+    }
+  }
+
+  @include rtl-only {
+    &.layout-collapsed.layout-offcanvas {
+      .layout-sidenav {
+        margin-right: 0;
+        margin-left: -$sidenav-width;
+        transform: translateX(100%)
+      }
+
+      &.layout-reversed .layout-sidenav {
+        margin-right: -$sidenav-width;
+        margin-left: 0;
+        transform: translateX(-100%)
+      }
+    }
+  }
+}
+
+// *******************************************************************************
+// * Fixed and fixed off-canvas layout
+
+@include media-breakpoint-up(lg) {
+  // Sidenav
+
+  .layout-fixed,
+  .layout-fixed-offcanvas {
+    .layout-sidenav {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      margin-right: 0 !important;
+      margin-left: 0 !important;
+    }
+
+    &.layout-reversed .layout-sidenav {
+      right: 0;
+      left: auto;
+    }
+  }
+
+  @include rtl-only {
+    &.layout-fixed,
+    &.layout-fixed-offcanvas {
+      .layout-sidenav {
+        right: 0;
+        left: auto;
+      }
+
+      &.layout-reversed .layout-sidenav {
+        right: auto;
+        left: 0;
+      }
+    }
+  }
+
+  // Fixed off-canvas
+
+  .layout-fixed-offcanvas.layout-collapsed {
+    .layout-sidenav {
+      transform: translateX(-100%);
+    }
+
+    &.layout-reversed .layout-sidenav {
+      transform: translateX(100%);
+    }
+  }
+
+  @include rtl-only {
+    &.layout-fixed-offcanvas.layout-collapsed {
+      .layout-sidenav {
+        transform: translateX(100%);
+      }
+
+      &.layout-reversed .layout-sidenav {
+        transform: translateX(-100%);
+      }
+    }
+  }
+
+  // Container
+
+  .layout-fixed:not(.layout-collapsed),
+  .layout-fixed-offcanvas:not(.layout-collapsed) {
+    .layout-container {
+      padding-left: $sidenav-width;
+    }
+
+    &.layout-reversed .layout-container {
+      padding-right: $sidenav-width;
+      padding-left: 0;
+    }
+  }
+
+  @include rtl-only {
+    &.layout-fixed:not(.layout-collapsed),
+    &.layout-fixed-offcanvas:not(.layout-collapsed) {
+      .layout-container {
+        padding-right: $sidenav-width;
+        padding-left: 0;
+      }
+
+      &.layout-reversed .layout-container {
+        padding-right: 0;
+        padding-left: $sidenav-width;
+      }
+    }
+  }
+
+  .layout-fixed.layout-collapsed {
+    .layout-container {
+      padding-left: $sidenav-collapsed-width;
+    }
+
+    &.layout-reversed .layout-container {
+      padding-right: $sidenav-collapsed-width;
+      padding-left: 0;
+    }
+  }
+
+  @include rtl-only {
+    &.layout-fixed.layout-collapsed {
+      .layout-container {
+        padding-right: $sidenav-collapsed-width;
+        padding-left: 0;
+      }
+
+      &.layout-reversed .layout-container {
+        padding-right: 0;
+        padding-left: $sidenav-collapsed-width;
+      }
+    }
+  }
+}
+
+// Reset paddings
+html:not(.layout-navbar-fixed):not(.layout-fixed):not(.layout-fixed-offcanvas) .layout-container,
+html:not(.layout-navbar-fixed) .layout-2 .layout-container {
+  padding-top: 0 !important;
+}
+html:not(.layout-footer-fixed) .layout-content {
+  padding-bottom: 0 !important;
+}
+@media (max-width: (map-get($grid-breakpoints, lg) - 1)) {
+  .layout-fixed .layout-wrapper.layout-1 .layout-sidenav,
+  .layout-fixed-offcanvas .layout-wrapper.layout-1 .layout-sidenav {
+    top: 0 !important;
+  }
+
+  html:not(.layout-navbar-fixed) .layout-1 .layout-container {
+    padding-top: 0 !important;
+  }
+}
+
+// *******************************************************************************
+// * Fixed navbar layout
+
+.layout-navbar-fixed .layout-navbar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+}
+
+@include media-breakpoint-up(lg) {
+  // Fix navbar within layout 1 in fixed mode
+  .layout-fixed .layout-1 .layout-navbar,
+  .layout-fixed-offcanvas .layout-1 .layout-navbar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+  }
+
+  // Layout fixed
+
+  .layout-navbar-fixed:not(.layout-collapsed),
+  .layout-fixed.layout-navbar-fixed:not(.layout-collapsed),
+  .layout-fixed-offcanvas.layout-navbar-fixed:not(.layout-collapsed) {
+    .layout-2 .layout-navbar {
+      left: $sidenav-width;
+    }
+
+    &.layout-reversed .layout-2 .layout-navbar {
+      right: $sidenav-width;
+      left: 0;
+    }
+  }
+
+  @include rtl-only {
+    &.layout-navbar-fixed:not(.layout-collapsed),
+    &.layout-fixed.layout-navbar-fixed:not(.layout-collapsed),
+    &.layout-fixed-offcanvas.layout-navbar-fixed:not(.layout-collapsed) {
+      .layout-2 .layout-navbar {
+        right: $sidenav-width;
+        left: 0;
+      }
+
+      &.layout-reversed .layout-2 .layout-navbar {
+        right: 0;
+        left: $sidenav-width;
+      }
+    }
+  }
+
+  // Layout fixed off-canvas
+
+  .layout-navbar-fixed.layout-collapsed:not(.layout-offcanvas):not(.layout-fixed-offcanvas),
+  .layout-fixed.layout-navbar-fixed.layout-collapsed {
+    .layout-2 .layout-navbar {
+      left: $sidenav-collapsed-width;
+    }
+
+    &.layout-reversed .layout-2 .layout-navbar {
+      right: $sidenav-collapsed-width;
+      left: 0;
+    }
+  }
+
+  @include rtl-only {
+    &.layout-navbar-fixed.layout-collapsed:not(.layout-offcanvas):not(.layout-fixed-offcanvas),
+    &.layout-fixed.layout-navbar-fixed.layout-collapsed {
+      .layout-2 .layout-navbar {
+        right: $sidenav-collapsed-width;
+        left: 0;
+      }
+
+      &.layout-reversed .layout-2 .layout-navbar {
+        right: 0;
+        left: $sidenav-collapsed-width;
+      }
+    }
+  }
+}
+
+// *******************************************************************************
+// * Fixed footer
+
+.layout-footer-fixed .layout-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+@include media-breakpoint-up(lg) {
+  .layout-footer-fixed:not(.layout-collapsed) {
+    .layout-wrapper:not(.layout-without-sidenav) .layout-footer {
+      left: $sidenav-width;
+    }
+
+    &.layout-reversed .layout-wrapper:not(.layout-without-sidenav) .layout-footer {
+      right: $sidenav-width;
+      left: 0;
+    }
+  }
+
+  .layout-footer-fixed.layout-collapsed:not(.layout-offcanvas):not(.layout-fixed-offcanvas) {
+    .layout-wrapper:not(.layout-without-sidenav) .layout-footer {
+      left: $sidenav-collapsed-width;
+    }
+
+    &.layout-reversed .layout-wrapper:not(.layout-without-sidenav) .layout-footer {
+      right: $sidenav-collapsed-width;
+      left: 0;
+    }
+  }
+
+  @include rtl-only {
+    &.layout-footer-fixed:not(.layout-collapsed) {
+      .layout-wrapper:not(.layout-without-sidenav) .layout-footer {
+        left: 0;
+        right: $sidenav-width;
+      }
+
+      &.layout-reversed .layout-wrapper:not(.layout-without-sidenav) .layout-footer {
+        left: $sidenav-width;
+        right: 0;
+      }
+    }
+
+    &.layout-footer-fixed.layout-collapsed:not(.layout-offcanvas):not(.layout-fixed-offcanvas) {
+      .layout-wrapper:not(.layout-without-sidenav) .layout-footer {
+        left: 0;
+        right: $sidenav-collapsed-width;
+      }
+
+      &.layout-reversed .layout-wrapper:not(.layout-without-sidenav) .layout-footer {
+        right: 0;
+        left: $sidenav-collapsed-width;
+      }
+    }
+  }
+}
+
+// *******************************************************************************
+// * Z-Indexes
+
+// Navbar
+.layout-navbar-fixed body:not(.modal-open),
+.layout-fixed body:not(.modal-open),
+.layout-fixed-offcanvas body:not(.modal-open) {
+  .layout-1 .layout-navbar {
+    z-index: $zindex-layout-fixed;
+  }
+
+  .layout-2 .layout-navbar {
+    z-index: $zindex-layout-fixed - 5;
+  }
+}
+
+.layout-footer-fixed .layout-footer {
+  z-index: $zindex-fixed;
+}
+
+.layout-sidenav-horizontal {
+  z-index: 9;
+}
+
+@media (max-width: (map-get($grid-breakpoints, lg) - 1)) {
+  .layout-sidenav {
+    z-index: $zindex-layout-mobile;
+  }
+
+  .layout-overlay {
+    z-index: $zindex-layout-mobile - 1;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .layout-1 {
+    .layout-navbar {
+      z-index: 10;
+    }
+
+    .layout-sidenav {
+      z-index: 9;
+    }
+  }
+
+  .layout-2 {
+    .layout-navbar {
+      z-index: 9;
+    }
+
+    .layout-sidenav {
+      z-index: 10;
+    }
+  }
+
+  // Collapsed
+
+  .layout-collapsed:not(.layout-offcanvas):not(.layout-fixed-offcanvas) {
+    .layout-1 .layout-sidenav:hover {
+      z-index: $zindex-layout-fixed - 5 !important;
+    }
+
+    .layout-2 .layout-sidenav {
+      z-index: $zindex-layout-fixed + 5 !important;
+    }
+  }
+
+  // Fixed
+
+  .layout-fixed body:not(.modal-open) .layout-1 .layout-sidenav,
+  .layout-fixed-offcanvas body:not(.modal-open) .layout-1 .layout-sidenav {
+    z-index: $zindex-layout-fixed - 5;
+  }
+
+  .layout-navbar-fixed body:not(.modal-open) .layout-2 .layout-sidenav,
+  .layout-fixed body:not(.modal-open) .layout-2 .layout-sidenav,
+  .layout-fixed-offcanvas body:not(.modal-open) .layout-2 .layout-sidenav {
+    z-index: $zindex-layout-fixed;
+  }
+}
+
+// *******************************************************************************
+// * Transitions and animations
+
+.layout-sidenav-link-no-transition {
+  .layout-sidenav .sidenav-link,
+  .layout-sidenav-horizontal .sidenav-link {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+.layout-no-transition .layout-sidenav,
+.layout-no-transition .layout-sidenav-horizontal {
+  &,
+  & .sidenav,
+  & .sidenav-item {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+@media (max-width: (map-get($grid-breakpoints, lg) - 1)) {
+  .layout-transitioning {
+    .layout-overlay {
+      animation: layoutSidenavAnimation $sidenav-animation-duration;
+    }
+
+    .layout-sidenav {
+      transition-duration: $sidenav-animation-duration;
+      transition-property: transform, -webkit-transform;
+    }
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .layout-collapsed:not(.layout-transitioning):not(.layout-offcanvas):not(.layout-fixed):not(.layout-fixed-offcanvas) .layout-sidenav {
+    transition-duration: $sidenav-animation-duration;
+    transition-property: margin-left, margin-right, width;
+  }
+
+  .layout-transitioning {
+    &.layout-offcanvas .layout-sidenav {
+      transition-duration: $sidenav-animation-duration;
+      transition-property: margin-left, margin-right, transform, -webkit-transform;
+    }
+
+    &.layout-fixed,
+    &.layout-fixed-offcanvas {
+      .layout-container {
+        transition-duration: $sidenav-animation-duration;
+        transition-property: padding-left, padding-right;
+      }
+    }
+
+    &.layout-fixed {
+      .layout-sidenav {
+        transition: width $sidenav-animation-duration;
+      }
+    }
+
+    &.layout-fixed-offcanvas {
+      .layout-sidenav {
+        transition-duration: $sidenav-animation-duration;
+        transition-property: transform, -webkit-transform;
+      }
+    }
+
+    &.layout-navbar-fixed .layout-2 .layout-navbar,
+    &.layout-footer-fixed .layout-footer {
+      transition-duration: $sidenav-animation-duration;
+      transition-property: left, right;
+    }
+
+    &:not(.layout-offcanvas):not(.layout-fixed):not(.layout-fixed-offcanvas) .layout-sidenav {
+      transition-duration: $sidenav-animation-duration;
+      transition-property: margin-left, margin-right, width;
+    }
+  }
+}
+
+// Disable transitions/animations in IE 10-11
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .sidenav,
+  .layout-sidenav,
+  .layout-container,
+  .layout-navbar,
+  .layout-footer {
+    transition: none !important;
+    transition-duration: 0s !important;
+  }
+  .layout-overlay {
+    animation: none !important;
+  }
+}
+
+@include keyframes(layoutSidenavAnimation) {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: $modal-backdrop-opacity;
+  }
+}

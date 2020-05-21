@@ -1,0 +1,89 @@
+@import '../_custom-variables/uikit';
+
+$ui-statistics-icon-size: 2.875rem !default;
+$ui-statistics-icon-font-size: 1.125rem !default;
+$ui-feed-icon-size: 1.25rem !default;
+$ui-feed-icon-font-size: .75rem !default;
+$ui-activity-icon-size: 2.5rem !default;
+$ui-activity-icon-font-size: .875rem !default;
+
+// *******************************************************************************
+// * Statistics icons
+
+.ui-statistics-icon {
+  width: $ui-statistics-icon-size;
+  height: $ui-statistics-icon-size;
+  font-size: $ui-statistics-icon-font-size;
+  line-height: calc(#{$ui-statistics-icon-size} - #{$ui-icon-border-width * 2});
+
+  &.border-0 {
+    line-height: $ui-statistics-icon-size;
+  }
+}
+
+// *******************************************************************************
+// * Feed icons
+
+.ui-feed-icon-container {
+  position: relative;
+}
+
+.ui-feed-icon {
+  position: absolute;
+  top: 0;
+  right: -$ui-feed-icon-size / 2;
+  width: $ui-feed-icon-size;
+  height: $ui-feed-icon-size;
+  border: 0;
+  font-size: $ui-feed-icon-font-size;
+  line-height: $ui-feed-icon-size;
+
+  [dir=rtl] & {
+    right: auto;
+    left: -$ui-feed-icon-size / 2;
+  }
+}
+
+// *******************************************************************************
+// * Todo items
+
+.ui-todo-item .custom-control-input:checked {
+   ~ .custom-control-label {
+    text-decoration: line-through;
+  }
+
+   ~ .ui-todo-badge,
+   ~ .custom-control-label .ui-todo-badge {
+    display: none;
+  }
+}
+
+// *******************************************************************************
+// * Activity icons
+
+.ui-activity-icon {
+  width: $ui-activity-icon-size;
+  height: $ui-activity-icon-size;
+  font-size: $ui-activity-icon-font-size;
+  line-height: calc(#{$ui-activity-icon-size} - #{$ui-icon-border-width * 2});
+
+  &.border-0 {
+    line-height: $ui-activity-icon-size;
+  }
+}
+
+.default-style {
+  @import "../_appwork/include";
+
+  .ui-todo-item .custom-control-input:checked ~ .custom-control-label {
+    color: $text-muted;
+  }
+}
+
+.material-style {
+  @import "../_appwork/include-material";
+
+  .ui-todo-item .custom-control-input:checked ~ .custom-control-label {
+    color: $text-muted;
+  }
+}

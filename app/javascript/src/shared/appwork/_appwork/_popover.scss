@@ -1,0 +1,53 @@
+// Popovers
+//
+
+.popover {
+  box-shadow: $popover-box-shadow;
+
+  .arrow {
+    z-index: 1;
+  }
+}
+
+.modal-open .popover {
+  z-index: $zindex-modal-top + 1;
+}
+
+@each $color, $value in $theme-colors {
+  @if $color != primary and $color != light {
+    @include appwork-popover-variant('.popover-#{$color}, .popover-#{$color} > .popover, .ngb-popover-#{$color} + ngb-popover-window', rgba-to-hex($value));
+  }
+}
+
+// *******************************************************************************
+// * Material
+
+@if $material-style {
+  .popover {
+    transition: none !important;
+  }
+
+  .popover-header {
+    border-bottom-width: 1px;
+  }
+
+  .bs-popover-top,
+  .bs-popover-auto[x-placement^="top"] {
+    animation: topTooltipAnimation .25s;
+  }
+
+  .bs-popover-right,
+  .bs-popover-auto[x-placement^="right"] {
+    animation: rightTooltipAnimation .25s;
+  }
+
+  .bs-popover-bottom,
+  .bs-popover-auto[x-placement^="bottom"] {
+    animation: bottomTooltipAnimation .25s;
+  }
+
+  .bs-popover-left,
+  .bs-popover-auto[x-placement^="left"] {
+    animation: leftTooltipAnimation .25s;
+  }
+}

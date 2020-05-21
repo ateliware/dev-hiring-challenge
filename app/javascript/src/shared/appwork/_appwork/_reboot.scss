@@ -1,0 +1,11 @@
+// Reboot
+//
+
+@include rtl-only {
+  dd {
+    margin-right: 0;
+  }
+  caption {
+    text-align: right;
+  }
+}

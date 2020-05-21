@@ -1,0 +1,331 @@
+// Custom forms
+//
+
+// *******************************************************************************
+// * Custom control
+
+.custom-control {
+  position: relative;
+  min-height: $custom-control-indicator-size;
+
+  @include rtl-style {
+    padding-right: $custom-control-gutter;
+    padding-left: 0;
+  }
+}
+
+.custom-control-label {
+  position: static;
+  @include rtl-style {
+    &::before,
+    &::after {
+      right: 0;
+      left: auto;
+    }
+  }
+
+  // Indicator
+  &::before {
+    top: px-to-rem(floor(rem-to-px(((($line-height-base * $font-size-base) - $custom-control-indicator-size) / 2))));
+    left: 0;
+    border: $custom-control-indicator-border-width solid $custom-control-indicator-border-color;
+    background-color: $custom-control-indicator-bg;
+    background-position: center center;
+    background-repeat: no-repeat;
+    transition: all .2s;
+    pointer-events: auto;
+
+    @include rtl-style {
+      transform: scaleX(-1);
+    }
+
+    @if $material-style {
+      z-index: 2;
+      box-shadow: none !important;
+    }
+  }
+
+  // Material shadow
+  &::after {
+    @if $material-style != true {
+      display: none;
+    } @else {
+      content: '';
+      position: absolute;
+      top: px-to-rem(floor(rem-to-px(((($line-height-base * $font-size-base) - $custom-control-indicator-size) / 2))));
+      left: 0;
+      z-index: 1;
+      display: block;
+      width: $custom-control-indicator-size;
+      height: $custom-control-indicator-size;
+      border-radius: 50%;
+      background: rgba($black, .08);
+      opacity: 0;
+      transition: all .2s;
+      transform-origin: center;
+      transform: scale(0) translateZ(0);
+    }
+  }
+}
+
+// Checkbox indicator
+.custom-checkbox .custom-control-label::before {
+  background-size: $custom-checkbox-indicator-bg-size;
+}
+
+// Radio indicator
+.custom-radio .custom-control-label::before {
+  background-size: $custom-radio-indicator-bg-size;
+}
+
+// Indicator states
+.custom-control-label::before {
+  .custom-control-input:active ~ & {
+    box-shadow: none;
+  }
+
+  .custom-control-input:active:not(:checked) ~ & {
+    background-color: $custom-control-indicator-bg;
+  }
+
+  .custom-control-input:disabled ~ &,
+  fieldset[disabled] .custom-control-input ~ & {
+    border-color: $custom-control-indicator-border-color !important;
+    background-color: $custom-control-indicator-disabled-bg !important;
+  }
+
+  .custom-checkbox .custom-control-input:disabled:checked ~ &,
+  fieldset[disabled] .custom-control-input:checked ~ & {
+    background-image: url(str-replace(str-replace($custom-checkbox-indicator-bg, '_COLOR_', $custom-control-label-disabled-color), "#", "%23")) !important;
+  }
+
+  .custom-radio .custom-control-input:disabled:checked ~ &,
+  fieldset[disabled] .custom-control-input:checked ~ & {
+    background-image: url(str-replace(str-replace($custom-radio-indicator-bg, '_COLOR_', $custom-control-label-disabled-color), "#", "%23")) !important;
+  }
+}
+
+// Material states
+@if $material-style {
+  // Shadow
+  .custom-control-label::after {
+    .custom-control-input:focus ~ & {
+      opacity: 1;
+      transform: scale(2.25) translateZ(0);
+    }
+
+    .custom-control-input:active ~ & {
+      opacity: 0;
+      transform: scale(0) translateZ(0);
+    }
+
+    .custom-control-input:disabled ~ &,
+    fieldset[disabled] .custom-control-input ~ & {
+      display: none !important;
+    }
+  }
+
+  // Hide radio bullet
+  .custom-radio .custom-control-input:not(:checked) ~ .custom-control-label::before {
+    background-size: 0 0;
+  }
+
+  .custom-radio .custom-control-input:checked ~ .custom-control-label::before {
+    background-color: $custom-control-indicator-bg;
+  }
+}
+
+.custom-controls-stacked .custom-control {
+  display: block;
+  margin-bottom: .5rem;
+}
+
+@include rtl-only {
+  .custom-control-inline {
+    margin-right: 0;
+    margin-left: $custom-control-spacer-x;
+  }
+}
+
+// *******************************************************************************
+// * Custom select
+
+.custom-select {
+  display: block;
+  background-image: $custom-select-indicator !important;
+  background-clip: padding-box;
+  transition: $input-transition;
+
+  &[size="0"]:not([multiple]) {
+    padding-right: $custom-select-padding-x + $custom-select-indicator-padding;
+  }
+
+  @include rtl-style {
+    background-image: $custom-select-indicator-rtl !important;
+
+    &,
+    &[size="0"]:not([multiple]) {
+      padding-right: $custom-select-padding-x;
+      padding-left: $custom-select-padding-x + $custom-select-indicator-padding;
+      background-position: left $custom-select-padding-x center;
+    }
+  }
+
+  @if $material-style {
+    border-bottom-width: 1px;
+    border-radius: 0 !important;
+
+    &:disabled {
+      border-bottom: 1px dotted $material-input-disabled-border-color !important;
+      color: $material-input-disabled-color !important;
+    }
+  }
+}
+
+// Inverted
+.custom-select-inverted {
+  background-image: $custom-select-indicator-inverted !important;
+
+  @include rtl-style {
+    background-image: $custom-select-indicator-inverted-rtl !important;
+  }
+
+  &,
+  &:focus {
+    background-color: $input-inverted-bg;
+    color: $input-inverted-color;
+
+    @if $material-style != true {
+      border-color: transparent;
+    } @else {
+      border-color: $input-inverted-border-color;
+    }
+  }
+
+  &:disabled {
+    background-color: $custom-select-inverted-disabled-bg !important;
+
+    @if $material-style != true {
+      color: $custom-select-inverted-disabled-color !important;
+    } @else {
+      border-color: $material-input-inverted-disabled-border-color !important;
+      color: $input-inverted-disabled-color !important;
+    }
+  }
+
+  &::placeholder {
+    color: $input-inverted-placeholder-color;
+  }
+
+  option {
+    color: $body-color !important;
+  }
+}
+
+// Sizing
+@include appwork-custom-select-size('sm', $custom-select-padding-y-sm, $custom-select-padding-x-sm, $input-height-sm, $font-size-sm, $line-height-sm);
+@include appwork-custom-select-size('lg', $custom-select-padding-y-lg, $custom-select-padding-x-lg, $input-height-lg, $font-size-lg, $line-height-lg);
+
+// Material style
+@if $material-style {
+  @include ltr-only {
+    :not(.input-group) > .custom-select:not([class*='px-']):not([class*='pl-']) {
+      padding-left: 0;
+    }
+
+    :not(.input-group) > .custom-select:not([class*='px-']):not([class*='pr-']):not([multiple]) {
+      &:not([size]),
+      &[size="0"],
+      &[size="1"] {
+        padding-right: $custom-select-padding-x !important;
+        background-position: right center !important;
+      }
+    }
+  }
+  @include rtl-only {
+    :not(.input-group) > .custom-select:not([class*='px-']):not([class*='pl-']) {
+      padding-right: 0;
+    }
+
+    :not(.input-group) > .custom-select:not([class*='px-']):not([class*='pr-']):not([multiple]) {
+      &:not([size]),
+      &[size="0"],
+      &[size="1"] {
+        padding-left: $custom-select-padding-x !important;
+        background-position: left center !important;
+      }
+    }
+  }
+}
+
+// Multiple select
+//
+
+.custom-select[class][multiple],
+.custom-select[size]:not([size="1"]):not([size="0"]) {
+  padding-right: if($material-style, 0, $custom-select-padding-x) !important;
+  padding-left: if($material-style, 0, $custom-select-padding-x) !important;
+  height: auto !important;
+  background-image: none !important;
+}
+
+.custom-select-sm,
+.input-group-sm .custom-select {
+  &[class][multiple],
+  &[size]:not([size="1"]):not([size="0"]) {
+    padding-right: if($material-style, 0, $custom-select-padding-x-sm) !important;
+    padding-left: if($material-style, 0, $custom-select-padding-x-sm) !important;
+  }
+}
+
+.custom-select-lg,
+.input-group-lg .custom-select {
+  &[class][multiple],
+  &[size]:not([size="1"]):not([size="0"]) {
+    padding-right: if($material-style, 0, $custom-select-padding-x-lg) !important;
+    padding-left: if($material-style, 0, $custom-select-padding-x-lg) !important;
+  }
+}
+
+// *******************************************************************************
+// * File input
+
+.custom-file {
+  display: block;
+  width: 100%;
+}
+
+.custom-file-label {
+  background-clip: padding-box;
+  transition: $input-transition;
+
+  @include rtl-style {
+    &::after {
+      right: auto;
+      left: 0;
+      border-right: $custom-file-border-width solid $custom-file-border-color;
+      border-left: 0;
+
+      @include border-radius($custom-file-border-radius 0 0 $custom-file-border-radius);
+    }
+  }
+
+  @if $material-style {
+    padding-right: 0;
+    padding-left: 0;
+    border-bottom-width: 1px;
+  }
+
+  .custom-file-input:disabled ~ & {
+    background: $input-disabled-bg;
+
+    @if $material-style {
+      border-bottom: 1px dotted $material-input-disabled-border-color !important;
+      color: $material-input-disabled-color !important;
+    }
+
+    &::before {
+      opacity: .65;
+    }
+  }
+}
