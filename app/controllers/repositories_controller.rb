@@ -8,6 +8,7 @@ class RepositoriesController < ApplicationController
     rep_search.save!
 
     @repositories = Repository.where('lower(language) = ?', @language.downcase).order(stargazers_count: :desc)
+    flash.now[:success] = "Busca de repositórios efetuada!"
   end
 
   def show

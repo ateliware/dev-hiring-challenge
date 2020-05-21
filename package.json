@@ -11,6 +11,7 @@
     "bootstrap-table": "~1.12.1",
     "jquery": "^3.5.1",
     "popper.js": "^1.16.1",
+    "toastr": "^2.1.4",
     "turbolinks": "^5.2.0"
   },
   "version": "0.1.0",

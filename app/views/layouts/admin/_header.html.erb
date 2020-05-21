@@ -1,11 +1,11 @@
 <!-- Layout navbar -->
 <nav class="layout-navbar navbar navbar-expand-lg align-items-lg-center container-p-x bg-navbar-theme" id="layout-navbar" style="background-color: #fff ">
 
-
   <div class="navbar-collapse collapse" id="layout-navbar-collapse">
-    <!-- Divider -->
     <hr class="d-lg-none w-100 my-2">
-    <%= image_tag('logo.svg', style: 'height: 50px;') %>
+    <%= link_to root_path do %>
+      <%= image_tag('logo.svg', style: 'height: 50px;') %>
+    <% end %>
     <div class="navbar-nav align-items-lg-center ml-auto">
       <div class="demo-navbar-notifications nav-item dropdown mr-lg-3">
 
