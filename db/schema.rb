@@ -10,9 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2020_05_21_205605) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "repositories", id: false, force: :cascade do |t|
+    t.integer "id"
+    t.string "node_id"
+    t.string "name"
+    t.string "full_name"
+    t.string "description"
+    t.integer "stargazers_count"
+    t.integer "watchers_count"
+    t.string "language"
+    t.integer "forks_count"
+    t.integer "open_issues_count"
+  end
 
 end

@@ -13,9 +13,7 @@
     <% @repositories['items'].each do |repository| %>
       <li class="list-group-item">
         <div class="d-flex w-100 justify-content-between">
-          <a href="#">
-            <%= repository['full_name'] %>
-          </a>
+          <%= link_to repository['full_name'], repository_path(repository['id']) %>
           <small>
             <%= repository['language'] %>
           </small>
