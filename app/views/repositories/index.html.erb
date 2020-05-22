@@ -1,23 +1,33 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-  <a class="navbar-brand" href="#">Github Search</a>
+  <a class="navbar-brand" href="#">Dev Hiring Challenge</a>
 </nav>
 
 <main role="main" class="container">
 
   <div class="starter-template">
-    <h1>Bootstrap starter template</h1>
-    <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
+    <h1>Repositórios GitHub</h1>
+    <p class="lead">Você pode pesquisar repositórios públicos do GitHub da sua linguagem favorita.<br> Selecione até 5 linguagens de seu interesse e aproveite os benefícios do open source!</p>
   </div>
 
   <ul class="list-group">
     <% @repositories['items'].each do |repository| %>
       <li class="list-group-item">
-        <%= repository['name'] %>
+        <div class="d-flex w-100 justify-content-between">
+          <a href="#">
+            <%= repository['full_name'] %>
+          </a>
+          <small>
+            <%= repository['language'] %>
+          </small>
+        </div>
+        <p class="mb-0">
+          <%= repository['description'] %>
+        </p>
       </li>
     <% end %>
   </ul>
 
-  <nav aria-label="Page navigation example">
+  <nav class="mt-3" aria-label="Page navigation example">
     <ul class="pagination">
       <li class="page-item"><a class="page-link" href="#">Previous</a></li>
       <li class="page-item"><a class="page-link" href="#">1</a></li>

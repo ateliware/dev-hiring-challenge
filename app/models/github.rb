@@ -11,6 +11,6 @@ class Github
   end
 
   def repositories
-    res = self.class.get('/search/repositories?q=language:ruby', @auth)
+    res = self.class.get('/search/repositories?q=language:ruby+language:javascript+language:swift+language:elixir+language:c', @auth)
   end
 end
