@@ -10,8 +10,8 @@ class Github
     res = self.class.get('/user', @auth)
   end
 
-  def search_repositories
-    res = self.class.get('/search/repositories?q=language:ruby+language:javascript+language:swift+language:elixir+language:c', @auth)
+  def search_repositories(query_string)
+    res = self.class.get("/search/repositories?q=#{query_string}", @auth)
   end
 
   def repositories(id)

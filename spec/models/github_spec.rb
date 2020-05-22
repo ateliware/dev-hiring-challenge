@@ -12,7 +12,7 @@ RSpec.describe Github do
   describe '#repositories' do
     it 'returns status 200' do
       github = Github.new
-      response = github.repositories
+      response = github.search_repositories('language:ruby')
       expect(response.code).to be(200)
     end
   end

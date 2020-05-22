@@ -1,7 +1,10 @@
 class RepositoriesController < ApplicationController
   def index
-    github = Github.new
-    @repositories = github.search_repositories
+    @repositories = { 'items' => [] } 
+    if params[:q]
+      github = Github.new
+      @repositories = github.search_repositories(params[:q])
+    end
   end
 
   def show
