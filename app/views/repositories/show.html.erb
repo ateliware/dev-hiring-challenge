@@ -1,2 +1,29 @@
-<h1>Repositorio</h1>
-<p>id: <%= params[:id] %></p>
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+  <a class="navbar-brand" href="#">Dev Hiring Challenge</a>
+</nav>
+
+<div class="card text-center">
+  <div class="card-header">
+    <%= @repository['full_name'] %>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">
+      Linguagem: <%= @repository['language'] %>
+    </h5>
+    <p class="card-text">
+      Descrição: <%= @repository['description'] %>
+    </p>
+    <p class="card-text">
+      Watchers: <%= @repository['watchers_count'] %>
+    </p>
+    <p class="card-text">
+      Stars: <%= @repository['stargazers_count'] %>
+    </p>
+    <p class="card-text">
+      Forks: <%= @repository['forks_count'] %>
+    </p>
+  </div>
+  <div class="card-footer text-muted">
+    <%= link_to 'Visite esse repositório no GitHub', "https://github.com/#{@repository['full_name']}" %>
+  </div>
+</div>
