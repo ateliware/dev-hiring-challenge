@@ -1,20 +1,23 @@
-# Desafio técnico para desenvolvedores
+# GitHub
+This project use the GitHub api to list the most popular repositories on GitHub by the following programming languages: Golang, PHP, C, Python and Java.
 
-Construa uma nova aplicação, utilizando o framework de sua preferência (Rails, ASP.NET, Phoenix, etc), a qual deverá conectar na API do GitHub e disponibilizar as seguintes funcionalidades:
+This Project was developed in [PHP](https://www.php.net/).
 
-- Botão para buscar e armazenar os repositórios destaques de 5 linguagens à sua escolha;
-- Listar os repositórios encontrados;
-- Visualizar os detalhes de cada repositório.
+## Tests
+[Cypress](https://www.cypress.io/) framework was used to perform the automated tests 
 
-Alguns requisitos:
+## Install
+To install cypress you just need to run the command in your terminal:
+```
+npm install
+```
 
-- Deve ser uma aplicação totalmente nova;
-- A solução deve estar em um repositório público do GitHub;
-- A aplicação deve armazenar as informações encontradas;
-- Utilizar Postgres, MySQL ou SQL Server;
-- O deploy deve ser realizado, preferencialmente, no Heroku ou no Azure;
-- A aplicação precisa ter testes automatizados.
+## Run Cypress
+To run the automated tests, you have to type this command in your terminal:
+```
+./node_modules/.bin/cypress open
+```
+The cypress interface opens and you can choose the test that you want to run. In that case, you will find only one test case.
 
-Quando terminar, faça um Pull Request neste repo e avise-nos por email.
-
-**IMPORTANTE:** se você não conseguir finalizar o teste, por favor nos diga o motivo e descreva quais foram as suas dificuldades. Claro que você também pode sugerir uma outra abordagem para avaliarmos seus skills técnicos, mas é com você para vender seu peixe, mostrar-nos do que é capaz.
+## Heroku
+See this application [here](https://list-repos.herokuapp.com/)

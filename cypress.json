@@ -1,0 +1,5 @@
+{
+  "baseUrl": "http://localhost",
+  "videoUploadOnPasses": false,
+  "modifyObstructiveCode": false
+}
