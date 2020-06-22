@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  web:
+    build: .
+    command: gunicorn desafio_dev.wsgi -b 0.0.0.0:8000
+    environment:
+      - ENVIRONMENT=development
+      - DEBUG=0    
+    ports:
+      - 8000:8000
+    depends_on:
+      - db
+  db:
+    image: postgres:11
+    environment:
+      - "POSTGRES_HOST_AUTH_METHOD=trust"

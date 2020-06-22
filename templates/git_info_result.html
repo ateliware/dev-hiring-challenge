@@ -1,0 +1,18 @@
+{% extends '_base.html' %}
+{% block title %}Search{% endblock title %}
+{% block content %}
+<h1>Repositórios em destaque:</h1>
+{% for git_info in Git_info_list %}
+<ul>
+  <li>
+      <img src="{{ git_info.avatar_url }}">
+      <strong>{{ git_info.login }}</strong>
+      <br>
+      {{ git_info.description }}
+      <br>
+      <a href="{{ git_info.html_url }}">Acessar</a>
+  </li>
+</ul>
+
+{% endfor %}
+{% endblock content %}

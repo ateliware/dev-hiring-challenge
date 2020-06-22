@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>{% block title %}Bookstore{% endblock title %}</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <style>
+    .centraliza {
+  width: auto;
+  height: 500px;
+  margin: auto;
+  }
+    ul{
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      font-family: sans-serif;
+        }
+
+    li{
+      clear: both;
+      margin-top: 20px;
+        }
+
+    img{
+      width: 80px;
+      float: left;
+      margin-right: 10px;
+        }
+
+    strong{
+      font-size: 20px;
+        }
+
+    p{
+     margin: 5px 0
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    {% block content %}
+    {% endblock content %}
+  </div>
+</body>
+</html>
