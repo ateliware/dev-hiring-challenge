@@ -28,6 +28,7 @@ namespace HiringChallenge.API
         {
             services.ConfigureCors();
             services.ConfigureSqlContext(Configuration);
+            services.ConfigureRepositoryManager();
             services.AddControllers();
         }
 

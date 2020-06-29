@@ -1,5 +1,7 @@
 using System;
+using HiringChallenge.API.Data.Repository;
 using HiringChallenge.API.Domain.Context;
+using HiringChallenge.API.Domain.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -43,5 +45,11 @@ namespace HiringChallenge.API.Extensions
                 }
                 options.UseNpgsql(connectionString);
             });
+
+        public static void ConfigureRepositoryManager(this IServiceCollection services)
+        {
+            services.AddScoped<IGithubRepoRepository, GithubRepoRepository>();
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
+        }
     }
 }
