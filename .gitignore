@@ -7,38 +7,26 @@ obj/
 appsettings.json
 docker-compose.yml
 
-# Frontend Git Ignore
+# Frontent Git Ignore
+.DS_Store
+node_modules
+dist
 
-/frontend/hiring-challenge-spa/.DS_Store
-/frontend/hiring-challenge-spa/.thumbs.db
-/frontend/hiring-challenge-spa/node_modules
-/frontend/hiring-challenge-spa/.vscode/
-
-# Quasar core related directories
-/frontend/hiring-challenge-spa/.quasar
-/frontend/hiring-challenge-spa/dist/
-
-# Cordova related directories and files
-/src-cordova/node_modules
-/src-cordova/platforms
-/src-cordova/plugins
-/src-cordova/www
-
-# Capacitor related directories and files
-/src-capacitor/www
-/src-capacitor/node_modules
-
-# BEX related directories and files
-/src-bex/www
-/src-bex/js/core
+# local env files
+.env.local
+.env.*.local
 
 # Log files
-/frontend/hiring-challenge-spa/npm-debug.log*
-/frontend/hiring-challenge-spa/yarn-debug.log*
-/frontend/hiring-challenge-spa/yarn-error.log*
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
 
 # Editor directories and files
 .idea
+.vscode
 *.suo
 *.ntvs*
 *.njsproj
+*.sln
+*.sw?
