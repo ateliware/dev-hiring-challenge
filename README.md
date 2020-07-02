@@ -1,20 +1,16 @@
-# Desafio técnico para desenvolvedores
+Para rodar o projeto localmente utilzar:
 
-Construa uma nova aplicação, utilizando o framework de sua preferência (Rails, ASP.NET, Phoenix, etc), a qual deverá conectar na API do GitHub e disponibilizar as seguintes funcionalidades:
+### `npm run dev`
 
-- Botão para buscar e armazenar os repositórios destaques de 5 linguagens à sua escolha;
-- Listar os repositórios encontrados;
-- Visualizar os detalhes de cada repositório.
+Motando servidor e front separadamente rodando de forma concorrente
 
-Alguns requisitos:
+Foi utlizado React no front criando componentes separados para exemplificar
 
-- Deve ser uma aplicação totalmente nova;
-- A solução deve estar em um repositório público do GitHub;
-- A aplicação deve armazenar as informações encontradas;
-- Utilizar Postgres, MySQL ou SQL Server;
-- O deploy deve ser realizado, preferencialmente, no Heroku ou no Azure;
-- A aplicação precisa ter testes automatizados.
+Back-end em Node.Js e API com Express para inserção em banco de dados MySQL
 
-Quando terminar, faça um Pull Request neste repo e avise-nos por email.
+Hospedado no HEROKU no link https://devchallenge-ateliware.herokuapp.com/
 
-**IMPORTANTE:** se você não conseguir finalizar o teste, por favor nos diga o motivo e descreva quais foram as suas dificuldades. Claro que você também pode sugerir uma outra abordagem para avaliarmos seus skills técnicos, mas é com você para vender seu peixe, mostrar-nos do que é capaz.
+Tomei a liberdade de adicionar a opção de escolher entre as linguagens para buscar além de apenas 5. 
+Ao buscar são retornados 30 valores ordenados pelo número de estrelas dos repositórios, a pesquisa é
+automaticamente salva no banco MySQL.
+
