@@ -17,21 +17,38 @@
         </v-row>
       </v-col>
     </v-row>
-    <v-row v-for="(language, index) in selectedLanguages" :key="index">
-      <v-subheader>{{language}}</v-subheader>
-      <span v-if="githubRepos[language]">
-        <v-card v-for="(repo, index) in githubRepos[language].items" :key="index">
-          <v-card-title primary-title>
-            <div>
+
+    <v-row justify="center" align="center">
+      <v-col cols="8" v-for="(repos, index) in githubRepos" :key="index">
+        <v-card v-for="(repo, index) in repos.items" :key="index" class="mb-2">
+          <v-toolbar color="primary" dark>
+            <v-card-title primary-title>
               <h3 class="headline mb-0">{{repo.name}}</h3>
-              <div>{{repo.description}}</div>
-            </div>
-          </v-card-title>
+            </v-card-title>
+            <v-spacer></v-spacer>
+            <v-chip outlined class="ma-3" color="white" text-color="white">
+              <v-icon left>mdi-star</v-icon>
+              {{repo.stargazers_count}}
+            </v-chip>
+            <v-divider vertical></v-divider>
+            <v-chip outlined class="ma-3" color="white" text-color="white">
+              <v-icon left>mdi-file-code</v-icon>
+              {{repo.language}}
+            </v-chip>
+          </v-toolbar>
+
+          <v-card-text>
+            <div>{{repo.description}}</div>
+          </v-card-text>
+
           <v-card-actions>
-            <v-btn color="primary" @click="save(repo)">Save</v-btn>
+            <v-spacer></v-spacer>
+            <v-btn color="warning" :href="repo.html_url">More Info</v-btn>
+            <v-btn color="success" @click="save(repo)">Save</v-btn>
           </v-card-actions>
         </v-card>
-      </span>
+        <v-divider class="mt-6"></v-divider>
+      </v-col>
     </v-row>
   </v-container>
 </template>
@@ -41,20 +58,20 @@ export default {
   name: "MainComponent",
 
   data: () => ({
-    githubRepos: {},
+    githubRepos: [],
     selectedLanguages: ["python", "ruby", "java", "javascript", "csharp"],
     defaultLanguages: ["python", "ruby", "java", "javascript", "csharp"]
   }),
   methods: {
     search(languages) {
-      this.githubRepos = new Object();
-      languages.forEach(async language => {
-        await axios
+      this.githubRepos = new Array();
+      languages.forEach(language => {
+        axios
           .get(
             `https://api.github.com/search/repositories?q=stars:>=20000+language:${language}&sort=stars&order=desc`
           )
           .then(response => {
-            this.githubRepos[language] = response.data;
+            this.githubRepos.push(response.data);
           });
       });
     },
@@ -72,7 +89,18 @@ export default {
           creationDate: repository.created_at
         })
         .then(response => {
-          console.log(response);
+          if (response) {
+            this.$store.commit("show_message", {
+              message: "Repository has been saved successfully",
+              color: "success"
+            });
+          }
+        })
+        .catch(error => {
+          this.$store.commit("show_message", {
+            message: error.response.data,
+            color: "error"
+          });
         });
     }
   }
