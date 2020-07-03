@@ -8,7 +8,8 @@ namespace HiringChallenge.API.Domain.Repositories
     public interface IGithubRepoRepository
     {
         Task<IEnumerable<GithubRepository>> GetReposAsync();
-        Task<GithubRepository> FindRepoAsync(Guid repoId);
+        Task<GithubRepository> FindRepoByIdAsync(Guid repoId);
+        Task<GithubRepository> FindRepoByGithubIdAsync(long repositoryId);
         void CreateRepo(GithubRepository repo);
         void DeleteRepo(GithubRepository repo);
     }

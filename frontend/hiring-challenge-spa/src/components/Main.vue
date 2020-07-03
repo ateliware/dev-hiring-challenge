@@ -72,6 +72,12 @@ export default {
           )
           .then(response => {
             this.githubRepos.push(response.data);
+          })
+          .catch(error => {
+            this.$store.commit("show_message", {
+              message: error.response.data.message,
+              color: "error"
+            });
           });
       });
     },

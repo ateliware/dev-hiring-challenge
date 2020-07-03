@@ -1,6 +1,7 @@
 <template>
   <v-app id="app">
     <Snackbar></Snackbar>
+    <Loader></Loader>
     <v-app-bar app color="primary" dark>
       <div class="d-flex align-center">
         <v-btn text to="/">
@@ -23,9 +24,11 @@
 
 <script>
 import Snackbar from "@/components/Snackbar.vue";
+import Loader from "@/components/Loader.vue";
 export default {
   components: {
-    Snackbar
+    Snackbar,
+    Loader
   }
 };
 </script>

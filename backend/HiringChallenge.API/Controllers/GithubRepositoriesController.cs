@@ -32,7 +32,7 @@ namespace HiringChallenge.API.Controllers
         [HttpGet("{id}", Name = "GetRepoById")]
         public async Task<IActionResult> GetRepoById(Guid id)
         {
-            var repo = await _repository.FindRepoAsync(id);
+            var repo = await _repository.FindRepoByIdAsync(id);
             if (repo == null)
             {
                 return NotFound($"Repository with id '{id}' not found");
@@ -43,6 +43,16 @@ namespace HiringChallenge.API.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateRepo(GithubRepository githubRepo)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
+            var existingRepo = await _repository.FindRepoByGithubIdAsync(githubRepo.RepositoryId);
+            if (existingRepo != null)
+            {
+                return BadRequest($"Failed to save. Repository '{githubRepo.Name}' already exists");
+            }
+
             _repository.CreateRepo(githubRepo);
             await _unitOfWork.SaveChangesAsync();
 
@@ -52,7 +62,7 @@ namespace HiringChallenge.API.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteRepo(Guid id)
         {
-            var repo = await _repository.FindRepoAsync(id);
+            var repo = await _repository.FindRepoByIdAsync(id);
             if (repo == null)
             {
                 return NotFound($"Repository with id '{id}' not found");

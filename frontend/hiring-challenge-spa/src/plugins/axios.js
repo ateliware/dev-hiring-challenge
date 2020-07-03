@@ -2,6 +2,7 @@
 
 import Vue from 'vue';
 import axios from "axios";
+import store from '../store/index'
 
 // Full config:  https://github.com/axios/axios#request-config
 axios.defaults.baseURL = process.env.baseURL || process.env.apiUrl || '';
@@ -19,7 +20,7 @@ const _axios = axios.create(config);
 
 _axios.interceptors.request.use(
   function (config) {
-    // Do something before request is sent
+    store.commit("start_loading", true);
     return config;
   },
   function (error) {
@@ -31,7 +32,7 @@ _axios.interceptors.request.use(
 // Add a response interceptor
 _axios.interceptors.response.use(
   function (response) {
-    // Do something with response data
+    store.commit("stop_loading", false);
     return response;
   },
   function (error) {

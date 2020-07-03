@@ -24,7 +24,12 @@ namespace HiringChallenge.API.Data.Repository
             _context.Repositories.Remove(repo);
         }
 
-        public async Task<GithubRepository> FindRepoAsync(Guid repoId)
+        public async Task<GithubRepository> FindRepoByGithubIdAsync(long repositoryId)
+        {
+            return await _context.Repositories.FirstOrDefaultAsync(repo => repo.RepositoryId.Equals(repositoryId));
+        }
+
+        public async Task<GithubRepository> FindRepoByIdAsync(Guid repoId)
         {
             return await _context.Repositories.FirstOrDefaultAsync(repo => repo.Id.Equals(repoId));
         }
