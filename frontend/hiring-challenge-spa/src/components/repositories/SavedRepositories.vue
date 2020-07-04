@@ -45,13 +45,13 @@ export default {
   },
   methods: {
     initialize() {
-      axios.get("http://localhost:5000/api/repositories").then(response => {
+      axios.get("/repositories").then(response => {
         this.repositories = response.data;
       });
     },
     async remove(repo) {
       await axios
-        .delete(`http://localhost:5000/api/repositories/${repo.id}`)
+        .delete(`/repositories/${repo.id}`)
         .then(response => {
           if (response) {
             this.$store.commit("show_message", {

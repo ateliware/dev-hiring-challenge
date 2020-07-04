@@ -3,19 +3,42 @@
     <v-row class="text-center">
       <v-col cols="12">
         <v-row align="center" justify="center">
-          <v-col cols="6">
+          <v-col cols="5">
+            <!-- <validation-observer ref="observer"> -->
+            <!-- <validation-provider v-slot="{ errors }" name="Search" :rules="{ between: [1, 5] }"> -->
             <v-combobox
+              deletable-chips
               multiple
               chips
+              :counter="5"
               :items="defaultLanguages"
               v-model="selectedLanguages"
               label="Select languages to search or type a new one"
               hint="Maximum of 5 tags"
             ></v-combobox>
-            <v-btn color="success" @click="search(selectedLanguages)">Search Repos</v-btn>
+            <!-- </validation-provider> -->
+            <!-- </validation-observer> -->
+
+            <v-card flat>
+              <v-card-text>
+                <v-row align="center" justify="center">
+                  <v-col cols="12">
+                    <p class="text-center">Limit the quantity of search results</p>
+                  </v-col>
+                  <v-btn-toggle group v-model="numberOfRepos" mandatory class="mt-n2">
+                    <v-btn value="5">5</v-btn>
+                    <v-btn value="10">10</v-btn>
+                    <v-btn value="15">15</v-btn>
+                  </v-btn-toggle>
+                </v-row>
+              </v-card-text>
+            </v-card>
           </v-col>
         </v-row>
       </v-col>
+      <v-row align="center" justify="center">
+        <v-btn color="success" @click="search(selectedLanguages, numberOfRepos )">Search Repos</v-btn>
+      </v-row>
     </v-row>
 
     <v-row justify="center" align="center">
@@ -54,21 +77,47 @@
 </template>
 
 <script>
+import {
+  extend,
+  ValidationObserver,
+  ValidationProvider,
+  setInteractionMode
+} from "vee-validate";
+import { required, between } from "vee-validate/dist/rules";
+
+setInteractionMode("eager");
+
+extend("required", {
+  ...required,
+  message: "{_field_} can not be empty"
+});
+
+extend("between", {
+  ...between,
+  message: "{_field_} must be between 1 and 5"
+});
+
 export default {
   name: "MainComponent",
+  components: {
+    ValidationProvider,
+    ValidationObserver
+  },
 
   data: () => ({
     githubRepos: [],
     selectedLanguages: ["python", "ruby", "java", "javascript", "csharp"],
-    defaultLanguages: ["python", "ruby", "java", "javascript", "csharp"]
+    defaultLanguages: ["python", "ruby", "java", "javascript", "csharp"],
+    numberOfRepos: 5
   }),
   methods: {
-    search(languages) {
+    search(languages, numberOfRepos) {
+      let GITHUB_API_URL = process.env.VUE_APP_GITHUB_URL;
       this.githubRepos = new Array();
       languages.forEach(language => {
         axios
           .get(
-            `https://api.github.com/search/repositories?q=stars:>=20000+language:${language}&sort=stars&order=desc`
+            `${GITHUB_API_URL}?q=stars:>=20000+language:${language}&sort=stars&order=desc&per_page=${numberOfRepos}`
           )
           .then(response => {
             this.githubRepos.push(response.data);
@@ -83,7 +132,7 @@ export default {
     },
     save(repository) {
       axios
-        .post("http://localhost:5000/api/repositories", {
+        .post("/repositories", {
           repositoryId: repository.id,
           name: repository.name,
           fullName: repository.full_name,
