@@ -1,11 +1,42 @@
 <template>
-  <div id="q-app">
-    <router-view />
-  </div>
+  <v-app id="app">
+    <Snackbar></Snackbar>
+    <Loader></Loader>
+    <v-app-bar app color="primary" dark>
+      <div class="d-flex align-center">
+        <v-btn text to="/">
+          <v-icon large>mdi-monitor-star</v-icon>
+
+          <v-subheader>
+            <h2>Most Starred Github Repos</h2>
+          </v-subheader>
+        </v-btn>
+      </div>
+      <v-spacer></v-spacer>
+      <v-btn text to="/saved-repositories">Saved repositories</v-btn>
+    </v-app-bar>
+
+    <v-main>
+      <router-view />
+    </v-main>
+  </v-app>
 </template>
 
-<script lang="ts">
+<script>
+import Snackbar from "@/components/Snackbar.vue";
+import Loader from "@/components/Loader.vue";
 export default {
-  name: 'App',
+  components: {
+    Snackbar,
+    Loader
+  }
 };
 </script>
+
+<style lang="scss">
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+</style>
