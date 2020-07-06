@@ -1,0 +1,41 @@
+name: Ateliware Hiring Backend CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 3.1.101
+    - name: Install dependencies
+      working-directory: ./backend/HiringChallenge.API
+      run: dotnet restore
+    - name: Build
+      working-directory: ./backend/HiringChallenge.API
+      run: dotnet build --configuration Release --no-restore
+    - name: Test
+      working-directory: ./backend/HiringChallenge.API
+      run: dotnet test --no-restore --verbosity normal
+    - name: Login To Heroku Container Registry
+      env:
+        HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+      run: heroku container:login
+    - name: Build and Push
+      working-directory: ./backend/HiringChallenge.API
+      env:
+        HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+      run: heroku container:push web -a ${{ secrets.HEROKU_APP_NAME }}
+    - name: Release
+      env:
+        HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+      run: heroku container:release web -a ${{ secrets.HEROKU_APP_NAME }}
