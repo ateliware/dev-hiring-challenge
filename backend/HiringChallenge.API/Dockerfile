@@ -5,10 +5,10 @@ ENV ASPNETCORE_URLS=http://+:5000
 
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1 AS build
 WORKDIR /src
-COPY ["backend/HiringChallenge.API/HiringChallenge.API.csproj", "backend/HiringChallenge.API/"]
-RUN dotnet restore "backend/HiringChallenge.API/HiringChallenge.API.csproj"
+COPY ["HiringChallenge.API.csproj", "./"]
+RUN dotnet restore "./HiringChallenge.API.csproj"
 COPY . .
-WORKDIR "/src/backend/HiringChallenge.API"
+WORKDIR "/src/."
 RUN dotnet build "HiringChallenge.API.csproj" -c Release -o /app/build
 
 FROM build AS publish
