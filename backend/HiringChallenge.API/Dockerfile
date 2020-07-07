@@ -18,5 +18,5 @@ FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
 #ENTRYPOINT ["dotnet", "HiringChallenge.API.dll"]
-CMD ASPNETCORE_URLS=http://*:$PORT dotnet Vuttr.API.dll
+CMD ASPNETCORE_URLS=http://*:$PORT dotnet HiringChallenge.API.dll
 
