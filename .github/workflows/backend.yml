@@ -18,13 +18,13 @@ jobs:
       with:
         dotnet-version: 3.1.101
     - name: Install dependencies
-      working-directory: ./backend/HiringChallenge.API
+      working-directory: backend
       run: dotnet restore
     - name: Build
-      working-directory: ./backend
+      working-directory: backend
       run: dotnet build --configuration Release --no-restore
     - name: Test
-      working-directory: ./backend
+      working-directory: backend
       run: dotnet test --no-restore --verbosity normal
     - name: Login To Heroku Container Registry
       env:
