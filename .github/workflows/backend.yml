@@ -21,10 +21,10 @@ jobs:
       working-directory: ./backend/HiringChallenge.API
       run: dotnet restore
     - name: Build
-      working-directory: ./backend/HiringChallenge.API
+      working-directory: ./backend
       run: dotnet build --configuration Release --no-restore
     - name: Test
-      working-directory: ./backend/HiringChallenge.API
+      working-directory: ./backend
       run: dotnet test --no-restore --verbosity normal
     - name: Login To Heroku Container Registry
       env:
