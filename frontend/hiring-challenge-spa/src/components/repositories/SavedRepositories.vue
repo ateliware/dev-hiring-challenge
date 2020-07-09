@@ -1,7 +1,7 @@
 <template>
   <v-container>
-    <v-row align="center" justify="center">
-      <v-col cols="8">
+    <v-row v-if="repositories.length" align="center" justify="center">
+      <v-col xs="12" sm="12" md="8" lg="8">
         <v-card v-for="(repo, index) in repositories" :key="index" class="mb-2">
           <v-toolbar color="primary" dark>
             <v-card-title primary-title>
@@ -32,13 +32,18 @@
         </v-card>
       </v-col>
     </v-row>
+
+    <v-row justify="center" align="center" class="mt-10" v-else>
+      <v-alert outlined type="error">{{error}}</v-alert>
+    </v-row>
   </v-container>
 </template>
 
 <script>
 export default {
   data: () => ({
-    repositories: []
+    repositories: [],
+    error: "Ops, looks like you haven't saved any repositories, try to go back, search and save one. It will show up here"
   }),
   created() {
     this.initialize();
@@ -50,17 +55,15 @@ export default {
       });
     },
     async remove(repo) {
-      await axios
-        .delete(`/repositories/${repo.id}`)
-        .then(response => {
-          if (response) {
-            this.$store.commit("show_message", {
-              message: "Repository has been removed successfully",
-              color: "success"
-            });
-          }
-          this.repositories.splice(this.repositories.indexOf(repo), 1);
-        });
+      await axios.delete(`/repositories/${repo.id}`).then(response => {
+        if (response) {
+          this.$store.commit("show_message", {
+            message: "Repository has been removed successfully",
+            color: "success"
+          });
+        }
+        this.repositories.splice(this.repositories.indexOf(repo), 1);
+      });
     }
   }
 };

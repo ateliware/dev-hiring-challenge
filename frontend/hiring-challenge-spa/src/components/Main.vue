@@ -3,7 +3,7 @@
     <v-row class="text-center">
       <v-col cols="12">
         <v-row align="center" justify="center">
-          <v-col cols="5">
+          <v-col xs="12" sm="12" md="5" lg="5">
             <!-- <validation-observer ref="observer"> -->
             <!-- <validation-provider v-slot="{ errors }" name="Search" :rules="{ between: [1, 5] }"> -->
             <v-combobox
@@ -41,8 +41,8 @@
       </v-row>
     </v-row>
 
-    <v-row justify="center" align="center">
-      <v-col cols="8" v-for="(repos, index) in githubRepos" :key="index">
+    <v-row v-if="!error" justify="center" align="center">
+      <v-col xs="12" sm="12" md="8" lg="8" v-for="(repos, index) in githubRepos" :key="index">
         <v-card v-for="(repo, index) in repos.items" :key="index" class="mb-2">
           <v-toolbar color="primary" dark>
             <v-card-title primary-title>
@@ -72,6 +72,11 @@
         </v-card>
         <v-divider class="mt-6"></v-divider>
       </v-col>
+    </v-row>
+    <v-row justify="center" align="center" class="mt-10" v-else>
+      <v-alert outlined type="error">
+        {{error}}
+      </v-alert>
     </v-row>
   </v-container>
 </template>
@@ -108,7 +113,8 @@ export default {
     githubRepos: [],
     selectedLanguages: ["python", "ruby", "java", "javascript", "csharp"],
     defaultLanguages: ["python", "ruby", "java", "javascript", "csharp"],
-    numberOfRepos: 5
+    numberOfRepos: 5,
+    error: ""
   }),
   methods: {
     search(languages, numberOfRepos) {
@@ -127,6 +133,8 @@ export default {
               message: error.response.data.message,
               color: "error"
             });
+            this.error =
+              "Ops, looks like we couldn't fetch any repositories, try again in a minute...";
           });
       });
     },

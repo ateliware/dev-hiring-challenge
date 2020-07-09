@@ -1,3 +1,8 @@
+Deploy Links
+[Netlify - Frontend](https://ateliware-dev-challenge.netlify.app/)
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/963b4bb3-b2ff-46af-a8f5-38839724e4fb deploy-status)](https://app.netlify.com/sites/ateliware-dev-challenge/deploys)
+
 # Desafio técnico para desenvolvedores
 
 Construa uma nova aplicação, utilizando o framework de sua preferência (Rails, ASP.NET, Phoenix, etc), a qual deverá conectar na API do GitHub e disponibilizar as seguintes funcionalidades:
