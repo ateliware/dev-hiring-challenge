@@ -1,7 +1,8 @@
 Deploy Links
 [Netlify - Frontend](https://ateliware-dev-challenge.netlify.app/)
+[Heroku - Backend](https://dev-hiring-ateliware.herokuapp.com/api/repositories)
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/963b4bb3-b2ff-46af-a8f5-38839724e4fb deploy-status)](https://app.netlify.com/sites/ateliware-dev-challenge/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/963b4bb3-b2ff-46af-a8f5-38839724e4fb/deploy-status)](https://app.netlify.com/sites/ateliware-dev-challenge/deploys)
 
 # Desafio técnico para desenvolvedores
 
