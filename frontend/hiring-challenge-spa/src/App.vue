@@ -5,10 +5,8 @@
     <v-app-bar app color="primary" dark>
       <v-btn text to="/">
         <v-icon large>mdi-monitor-star</v-icon>
-
         <v-toolbar-title color="primary">Most Starred Github Repos</v-toolbar-title>
       </v-btn>
-
       <v-spacer></v-spacer>
       <v-btn text to="/saved-repositories">Saved repositories</v-btn>
     </v-app-bar>

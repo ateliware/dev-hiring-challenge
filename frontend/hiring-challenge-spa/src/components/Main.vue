@@ -4,8 +4,6 @@
       <v-col cols="12">
         <v-row align="center" justify="center">
           <v-col xs="12" sm="12" md="5" lg="5">
-            <!-- <validation-observer ref="observer"> -->
-            <!-- <validation-provider v-slot="{ errors }" name="Search" :rules="{ between: [1, 5] }"> -->
             <v-combobox
               deletable-chips
               multiple
@@ -16,8 +14,6 @@
               label="Select languages to search or type a new one"
               hint="Maximum of 5 tags"
             ></v-combobox>
-            <!-- </validation-provider> -->
-            <!-- </validation-observer> -->
 
             <v-card flat>
               <v-card-text>
@@ -74,40 +70,15 @@
       </v-col>
     </v-row>
     <v-row justify="center" align="center" class="mt-10" v-else>
-      <v-alert outlined type="error">
-        {{error}}
-      </v-alert>
+      <v-alert outlined type="error">{{error}}</v-alert>
     </v-row>
   </v-container>
 </template>
 
 <script>
-import {
-  extend,
-  ValidationObserver,
-  ValidationProvider,
-  setInteractionMode
-} from "vee-validate";
-import { required, between } from "vee-validate/dist/rules";
-
-setInteractionMode("eager");
-
-extend("required", {
-  ...required,
-  message: "{_field_} can not be empty"
-});
-
-extend("between", {
-  ...between,
-  message: "{_field_} must be between 1 and 5"
-});
 
 export default {
   name: "MainComponent",
-  components: {
-    ValidationProvider,
-    ValidationObserver
-  },
 
   data: () => ({
     githubRepos: [],
