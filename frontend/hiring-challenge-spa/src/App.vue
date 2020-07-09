@@ -3,15 +3,12 @@
     <Snackbar></Snackbar>
     <Loader></Loader>
     <v-app-bar app color="primary" dark>
-      <div class="d-flex align-center">
-        <v-btn text to="/">
-          <v-icon large>mdi-monitor-star</v-icon>
+      <v-btn text to="/">
+        <v-icon large>mdi-monitor-star</v-icon>
 
-          <v-subheader>
-            <h2>Most Starred Github Repos</h2>
-          </v-subheader>
-        </v-btn>
-      </div>
+        <v-toolbar-title color="primary">Most Starred Github Repos</v-toolbar-title>
+      </v-btn>
+
       <v-spacer></v-spacer>
       <v-btn text to="/saved-repositories">Saved repositories</v-btn>
     </v-app-bar>
