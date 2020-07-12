@@ -1,0 +1,26 @@
+Caro Avaliador, 
+
+Com este arquivo, gostaria de entregar para sua avaliação minha produção para o teste solicitado.
+
+
+Com relação ao sistema, tomei a liberdade de sair ir um pouco além do pedido e fazer ele com serapação bem definida de frontend e backend e uma busca dinâmica, 
+na qual é possível escolher a linguagem e o número de repositórios por pesquisa.
+
+E conforme solicitado é possível salvar as buscas no banco de dados assim como visualizar os dados dessas buscas e os repositórios encontrados por ela.
+
+O projeto como um todo pode ser visto em: https://ateliwarefront.herokuapp.com/
+
+
+Os códigos, com os testes automatizados, estão nos seguintes repositórios:
+
+Backend (Scala): https://github.com/Cleversonzato/BackGit
+
+Frontend(Vue): https://github.com/Cleversonzato/FrontGit
+
+
+
+Fico à disposição para qualquer dúvida e espero que esteja conforme o desejado.
+
+Atenciosamente,
+
+Cleverson
