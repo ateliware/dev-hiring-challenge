@@ -1,9 +1,9 @@
 Caro avaliador, espero que esteja bem.
 
 A aplicação desenvolvida nas seguintes tecnologias:
-Front-end: Angular 8, utilizando bootstrap e material para criar um site responsivo;
-Back-end: Java , utilizando Spring Boot para persistência de dados;
-Banco de dados: Postgres
+Front-end: Angular 8, utilizando bootstrap e material para criar um site responsivo;<br/>
+Back-end: Java , utilizando Spring Boot para persistência de dados;<br/>
+Banco de dados: Postgres<br/>
 
 
 Aplicação no heroku: https://git-starred--front.herokuapp.com/<br/>
