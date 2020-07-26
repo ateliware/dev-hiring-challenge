@@ -1,20 +1,21 @@
-# Desafio técnico para desenvolvedores
+Caro avaliador, espero que esteja bem.
 
-Construa uma nova aplicação, utilizando o framework de sua preferência (Rails, ASP.NET, Phoenix, etc), a qual deverá conectar na API do GitHub e disponibilizar as seguintes funcionalidades:
+A aplicação desenvolvida nas seguintes tecnologias:
+Front-end: Angular 8, utilizando bootstrap e material para criar um site responsivo;
+Back-end: Java , utilizando Spring Boot para persistência de dados;
+Banco de dados: Postgres
 
-- Botão para buscar e armazenar os repositórios destaques de 5 linguagens à sua escolha;
-- Listar os repositórios encontrados;
-- Visualizar os detalhes de cada repositório.
 
-Alguns requisitos:
+Aplicação no heroku: https://git-starred--front.herokuapp.com/
+Repositório front: https://github.com/burno1/git-api-front
+Repositório back: https://github.com/burno1/git-api-back
 
-- Deve ser uma aplicação totalmente nova;
-- A solução deve estar em um repositório público do GitHub;
-- A aplicação deve armazenar as informações encontradas;
-- Utilizar Postgres, MySQL ou SQL Server;
-- O deploy deve ser realizado, preferencialmente, no Heroku ou no Azure;
-- A aplicação precisa ter testes automatizados.
 
-Quando terminar, faça um Pull Request neste repo e avise-nos por email.
+A única observação que tenho a oferecer é quanto consumo de API de backend que não consegui fornecer uma instancia utilizável no heroku... Mas caso instancie a aplicação em sua máquina é só alterar o banco em no arquivo application.properties, localizado nos resources.
 
-**IMPORTANTE:** se você não conseguir finalizar o teste, por favor nos diga o motivo e descreva quais foram as suas dificuldades. Claro que você também pode sugerir uma outra abordagem para avaliarmos seus skills técnicos, mas é com você para vender seu peixe, mostrar-nos do que é capaz.
+Fico a disposição caso seja necessário,
+
+Atenciosamente,
+
+Bruno.
+
