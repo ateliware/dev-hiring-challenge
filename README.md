@@ -1,6 +1,6 @@
 Caro avaliador, espero que esteja bem.
 
-A aplicação desenvolvida nas seguintes tecnologias:
+A aplicação desenvolvida nas seguintes tecnologias:<br/>
 Front-end: Angular 8, utilizando bootstrap e material para criar um site responsivo;<br/>
 Back-end: Java , utilizando Spring Boot para persistência de dados;<br/>
 Banco de dados: Postgres<br/>
