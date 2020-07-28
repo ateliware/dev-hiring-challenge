@@ -1,0 +1,11 @@
+<div class="container">
+  <%= simple_form_for @search do |f| %>
+    <%= f.input :name, label: "Repo Name" ,input_html: { value: params[:name] } %>
+    <%= f.input :name, label: "Repo Description" ,input_html: { value: params[:description] } %>
+    <%= f.input :name, label: "Repo Language" ,input_html: { value: params[:language] } %>
+    <%= f.input :name, label: "Repo Stars" ,input_html: { value: params[:stargazers_count] } %>
+    <%= f.input :name, label: "Repo Forks" ,input_html: { value: params[:forks] } %>
+    <%= f.input :favorite, label: 'Marcar como Favorita?', error: 'value is mandatory' %>
+    <%= f.button :submit, class: 'btn btn-primary' %>
+  <% end %>
+</div>

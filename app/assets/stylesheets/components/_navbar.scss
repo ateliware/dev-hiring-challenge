@@ -1,0 +1,25 @@
+.navbar-app {
+  display: flex;
+  align-items: center;
+  background: #24292e;
+  color: white;
+}
+
+.navbar-app .navbar-collapse {
+  flex-grow: 0;
+  p {
+    margin: auto;
+    align-items: center;
+  }
+}
+
+.navbar-app .navbar-brand img {
+  width: 40px;
+}
+
+.navbar-app .app-name {
+  margin: 0;
+  font-family: 'Bebas Neue', cursive;
+  font-size: 30px;
+  flex-grow: 1;
+}

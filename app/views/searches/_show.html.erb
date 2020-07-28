@@ -1,0 +1,37 @@
+<div class="container" id= "info-border-container">
+  <% json["items"].each do |item|  %>
+    <div class="info">
+      <div class="c-name">
+        <%= item["name"].capitalize %>
+        <a class="c-link text-right" target="_blank" href= <%= item["html_url"] %> >Open repository details</a>
+      </div>
+      <div class="c-description">
+        <%= item["description"] %>
+      </div>
+
+      <div class="c-others">
+        <%= item["language"] %>
+
+        <div class="stars d-flex justify-content-center align-items-center">
+          <div class="c-star">
+            <p class="tam-star"><i class="far fa-star"></i></p>
+          </div>
+          <div class="number-star">
+            <%= item["stargazers_count"] %>
+          </div>
+        </div>
+
+        <div class="forks">
+          <div class="c-fork d-flex justify-content-center align-items-center">
+            <i class="fas fa-code-branch"></i>
+            <div class="number-fork">
+              <%= item["forks"] %>
+            </div>
+          </div>
+        </div>
+        <%= link_to 'Save as favorite', new_search_path( :name => item["name"], :description => item["description"], :language => item["language"], :stargazers_count => item["stargazers_count"], :forks => item["forks"]) %>
+      </div>
+    </div>
+  <% end %>
+
+</div>

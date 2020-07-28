@@ -1,0 +1,16 @@
+// Graphical variables
+@import "config/fonts";
+@import "config/colors";
+
+// External libraries
+@import "font-awesome-sprockets";
+@import "font-awesome";
+@import "bootstrap/scss/bootstrap";
+// Your CSS partials
+@import "components/index";
+@import "pages/index";
+
+body {
+  background-color: #e6e6e6;
+  font-family: 'Roboto', sans-serif;
+}

@@ -1,0 +1,17 @@
+<div class="form-group form-inline d-flex justify-content-center align-items-center">
+  <div class="search">
+    <h1>Choose 5 languages ​​of your choice to search</h1>
+    <h2>Languages ​​must be separated by spaces only</h2>
+      <%= form_tag("/", method: "get") do %>
+        <%= label_tag(:q, "") %>
+        <div class="align">
+        <%= text_field_tag(:q, nil, placeholder: "Search language", class: "justify-content-center align-items-center col-md-10 search-bar") %>
+        <%= submit_tag("Search", class: 'btn btn-primary') %>
+        </div>
+      <% end %>
+  </div>
+</div>
+
+<% if @json.present? %>
+  <%= render "show", json: @json %>
+<% end %>

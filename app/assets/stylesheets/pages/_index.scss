@@ -1,0 +1,24 @@
+// Import page-specific CSS files here.
+@import "new";
+@import "show";
+
+
+.search {
+  margin-top: 60px;
+  h1 {
+    font-family: 'Roboto', sans-serif;
+    margin-bottom: 30px;
+  } h2 {
+    font-family: 'Roboto', sans-serif;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+}
+.align {
+  display: flex;
+  justify-content: space-evenly;
+}
+.search-bar {
+  height: 40px;
+ border-radius: 8px solid white;
+}
