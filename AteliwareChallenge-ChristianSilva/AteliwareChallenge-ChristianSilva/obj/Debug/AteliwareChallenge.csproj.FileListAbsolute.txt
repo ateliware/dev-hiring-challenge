@@ -1,0 +1,14 @@
+C:\Users\chris\source\repos\AteliwareChallenge\AteliwareChallenge\bin\Debug\AteliwareChallenge.exe.config
+C:\Users\chris\source\repos\AteliwareChallenge\AteliwareChallenge\bin\Debug\AteliwareChallenge.exe
+C:\Users\chris\source\repos\AteliwareChallenge\AteliwareChallenge\bin\Debug\AteliwareChallenge.pdb
+C:\Users\chris\source\repos\AteliwareChallenge\AteliwareChallenge\obj\Debug\AteliwareChallenge.csprojAssemblyReference.cache
+C:\Users\chris\source\repos\AteliwareChallenge\AteliwareChallenge\obj\Debug\AteliwareChallenge.Properties.Resources.resources
+C:\Users\chris\source\repos\AteliwareChallenge\AteliwareChallenge\obj\Debug\AteliwareChallenge.csproj.GenerateResource.cache
+C:\Users\chris\source\repos\AteliwareChallenge\AteliwareChallenge\obj\Debug\AteliwareChallenge.csproj.CoreCompileInputs.cache
+C:\Users\chris\source\repos\AteliwareChallenge\AteliwareChallenge\obj\Debug\AteliwareChallenge.exe
+C:\Users\chris\source\repos\AteliwareChallenge\AteliwareChallenge\obj\Debug\AteliwareChallenge.pdb
+C:\Users\chris\source\repos\AteliwareChallenge\AteliwareChallenge\bin\Debug\Octokit.dll
+C:\Users\chris\source\repos\AteliwareChallenge\AteliwareChallenge\bin\Debug\Octokit.xml
+C:\Users\chris\source\repos\AteliwareChallenge\AteliwareChallenge\obj\Debug\AteliwareChallenge.csproj.CopyComplete
+C:\Users\chris\source\repos\AteliwareChallenge\AteliwareChallenge\obj\Debug\AteliwareChallenge.frmMain.resources
+C:\Users\chris\source\repos\AteliwareChallenge\AteliwareChallenge\obj\Debug\AteliwareChallenge.frmDetails.resources
