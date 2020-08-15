@@ -1,0 +1,64 @@
+.home {
+  text-align: center;
+  padding-top: 300px;
+}
+
+.repoTitle{
+  margin-top: 100px;
+  text-align: center;
+}
+
+.cards {
+  float: left;
+  border-radius: 5px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #222831;
+}
+
+.cards:p {
+  color: blue;
+}
+
+.grids {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); 
+  margin: 5% 12%; 
+  column-gap: 25px;
+  row-gap: 35px;
+}
+
+a {
+  text-align:center;
+  display: block;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+p { color: white; }
+
+b { color: #ef0044; }
+
+.Main-button {
+  display: inline-block;
+  padding:0.35em 1.2em;
+  border: 0.08em solid #ef0044;
+  margin: 0 0.3em 0;
+  border-radius: 0.12em;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  font-size: 25px;
+  vertical-align: middle;
+  background-color: white;
+  color: #ef0044;
+  text-align: center;
+  transition: all 0.2s;
+}
+
+.Main-button:hover {
+  color: white;
+  background-color: #ef0044;
+}
