@@ -1,0 +1,30 @@
+<section class="jumbotron text-center">
+  <div class="container">
+    <%= link_to "Meus Favoritos", repositories_path, class: "btn btn-md btn-outline-secondary favorite-btn" %>
+    <h1 class="jumbotron-heading">Github Repo Search</h1>
+    <p class="lead text-muted">
+      Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don't simply skip over it entirely.
+    </p>
+    <%= form_tag("/", method: "get") do %>
+    <%= label_tag(:query, "") %>
+    <div class="align">
+      <%= text_field_tag(:query, nil, placeholder: "Search language", class: "justify-content-center align-items-center col-md-10 search-bar") %>
+      <%= submit_tag("Search", class: 'btn btn-primary') %>
+      <% end %>
+    </div>
+  </div>
+</section>
+​
+<% if @results.present? %>
+​
+  <%= render "results" %>
+​
+<% else %>
+​
+  <div class="album py-5 bg-light">
+    <div class="container">
+      <h2>You need to search some repo :)</h2>
+    </div>
+  </div>
+​
+<% end %>

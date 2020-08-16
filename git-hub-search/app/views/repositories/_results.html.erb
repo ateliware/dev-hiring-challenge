@@ -1,0 +1,31 @@
+<div class="album py-5 bg-light">
+  <div class="container">
+    <div class="row">
+      <% @results["items"].each do |result| %>
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+            <img class="card-img-top" style="height: 225px; width: 100%; display: block;" src="<%= result["owner"]["avatar_url"] %>">
+            <div class="card-body">
+              <p class="card-text"><strong><%= result["full_name"] %></strong></p>
+              <p> <%= result["description"] %></p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-secondary">
+                    <%= result["stargazers_count"] %>
+                  </button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary">
+                    <%= result["forks"] %>
+                  </button>
+                    <%= link_to "Favoritar", repositories_path({:repo => result}), method: :post, class: "btn btn-md btn-outline-secondary favorite-btn" %>
+                </div>
+                <small class="text-muted">
+                  <a href="<%= result["html_url"] %>" target="_blank">View in Github</a>
+                </small>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
