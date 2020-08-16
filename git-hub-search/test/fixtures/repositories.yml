@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  html_url: MyString
+  description: MyString
+  stargazers_count: 1
+  language: MyString
+  watchers_count: 1
+  forks: 1
+
+two:
+  html_url: MyString
+  description: MyString
+  stargazers_count: 1
+  language: MyString
+  watchers_count: 1
+  forks: 1
