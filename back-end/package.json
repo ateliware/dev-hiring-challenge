@@ -1,8 +1,7 @@
 {
-  "name": "dev-hiring-challenge",
+  "name": "back-end",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "git@github.com:ateliware/dev-hiring-challenge.git",
   "author": "carlosdaniel99 <cdmnkg@gmail.com>",
   "license": "MIT",
   "scripts": {
@@ -18,6 +17,7 @@
     "express": "^4.17.1",
     "express-handlebars": "^5.1.0",
     "pg": "^8.3.0",
+    "request": "^2.88.2",
     "sequelize": "^6.3.4",
     "sequelize-cli": "^6.2.0"
   },
@@ -26,5 +26,7 @@
     "nodemon": "^2.0.4",
     "sqlite3": "^5.0.0",
     "supertest": "^4.0.2"
-  }
+  },
+  "keywords": [],
+  "description": ""
 }

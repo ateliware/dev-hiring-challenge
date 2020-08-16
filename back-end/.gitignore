@@ -1,0 +1,7 @@
+node_modules/
+.env
+__tests__
+.env.test
+jest.config.js
+package-lock.json
+yarn.lock

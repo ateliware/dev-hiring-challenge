@@ -11,7 +11,7 @@ function Repo (props) {
     useEffect(() => {
         const fetchData = async () => {
             const {data} = await axios({
-                url: 'http://localhost:5000/repo?',
+                url: process.env.REACT_APP_API_REPO,
                 method: 'get'
               })
             setReposi(pre => ({...pre, reposi: data}));

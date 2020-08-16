@@ -8,7 +8,7 @@ function Home (props) {
     useEffect(() => {
         const fetchData = async () => {
             await axios({
-                url: 'http://localhost:5000/github-api',
+                url: process.env.REACT_APP_API_GIT,
                 method: 'get'
               })
         }
