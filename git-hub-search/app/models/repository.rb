@@ -1,13 +1,4 @@
 class Repository < ApplicationRecord
-
-  def self.search(query)
-  end
-
-  private
-
-  def github
-    @github ||= Github.new client_id: " ", client_secret: " "
-  end
-
+  validates :full_name, presence: true
+  validates :html_url, presence: true
 end
-
