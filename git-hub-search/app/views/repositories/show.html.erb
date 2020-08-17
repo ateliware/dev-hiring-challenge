@@ -1,11 +1,14 @@
-<h1>Show do Repo</h1>
-<div class="container">
-  <div class="row">
-    <strong><%= @result.full_name %></strong>
-    <strong><%= @result["lenguage"] %></strong>
-    <%= @result["description"] %>
-    <%= @result["stargazers_count"] %>
-    <%= @result["watchers_count"] %>
-    <%= @result["html_url"] %>
-  </div>
+<div class="album py-5 bg-light text-center">
+  <h1>Show do Repo</h1>
+  <p>Detalhes do repositório <strong><%= @result["full_name"] %></strong></p>
 </div>
+  <div class="container">
+    <div class="row">
+      <strong><%= @result["full_name"] %></strong>
+      <strong><%= @result["lenguage"] %></strong>
+      <%= @result["description"] %>
+      <%= @result["stargazers_count"] %>
+      <%= @result["watchers_count"] %>
+      <%= @result["html_url"] %>
+    </div>
+  </div>
