@@ -5,6 +5,10 @@ class RepositoriesController < ApplicationController
     @results = Repository.all
   end
 
+  def show
+    @result = Repository.find(params[:id])
+  end
+
   def search
     if params['query'].present?
       @query = params["query"]

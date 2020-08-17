@@ -2,5 +2,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root to: "repositories#search"
 
-  resources :repositories, only: [:search, :new, :create, :index, :destroy]
+
+
+  resources :repositories, only: [:search, :new, :create, :index, :destroy, :show]
 end

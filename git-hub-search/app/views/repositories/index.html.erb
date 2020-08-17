@@ -30,6 +30,7 @@
                     </button>
                       <%= link_to "Remover", repository_path(result), method: :delete, class: "btn btn-md btn-outline-secondary favorite-btn" %>
                   </div>
+                  <%= link_to "Show", repository_path(result), class: "btn btn-md btn-outline-secondary favorite-btn" %>
                   <small class="text-muted">
                     <a href="<%= result["html_url"] %>" target="_blank">View in Github</a>
                   </small>
