@@ -16,7 +16,7 @@
                   <button type="button" class="btn btn-sm btn-outline-secondary">
                     <%= result["forks"] %>
                   </button>
-                    <%= link_to "Favoritar", repositories_path({:repo => result}), method: :post, class: "btn btn-md btn-outline-secondary favorite-btn" %>
+                    <%= link_to "Favoritar", repositories_path({:repo => result}), method: :destroy, class: "btn btn-md btn-outline-secondary favorite-btn" %>
                 </div>
                 <small class="text-muted">
                   <a href="<%= result["html_url"] %>" target="_blank">View in Github</a>
