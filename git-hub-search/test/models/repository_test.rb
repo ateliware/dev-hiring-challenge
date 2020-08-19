@@ -29,7 +29,7 @@ class RepositoryTest < ActiveSupport::TestCase
   new_repo.language         = Faker::ProgrammingLanguage.name
   new_repo.watchers_count   = Faker::Number.number(digits: 5)
   new_repo.forks            = Faker::Number.number(digits: 3)
-  new_repo.full_name        = Faker::
+  new_repo.full_name        = Faker::Company.buzzword
 
   test "Should create an example Post" do
     assert new_repo.save, "Should create an sample repository"
