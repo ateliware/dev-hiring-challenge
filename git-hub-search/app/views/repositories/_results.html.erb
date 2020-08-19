@@ -11,20 +11,17 @@
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
                   <button type="button" class="btn btn-sm btn-outline-secondary">
-                    <%= result["stargazers_count"] %>
+                    <i class= "fa fa-star"></i> <%=result["stargazers_count"] %>
                   </button>
                   <button type="button" class="btn btn-sm btn-outline-secondary">
-                    <%= result["forks"] %>
+                    <i class="fa fa-code-fork"></i> <%= result["forks"] %>
                   </button>
-                  <% if @user %>
+                  <% if current_user %>
                     <%= link_to "Favoritar", repositories_path({:repo => result}), method: :post, class: "btn btn-md btn-outline-secondary favorite-btn" %>
                   <% else %>
                     <%= link_to "Login", user_session_path, class: "btn btn-md btn-outline-secondary favorite-btn" %>
                   <% end %>
                 </div>
-                <small class="text-muted">
-                  <a href="<%= result["html_url"] %>" target="_blank">View in Github</a>
-                </small>
               </div>
             </div>
           </div>

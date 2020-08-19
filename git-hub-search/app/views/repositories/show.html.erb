@@ -2,13 +2,22 @@
   <h1>Show do Repo</h1>
   <p>Detalhes do repositório <strong><%= @result["full_name"] %></strong></p>
 </div>
-  <div class="container">
-    <div class="row">
-      <strong><%= @result["full_name"] %></strong>
-      <strong><%= @result["lenguage"] %></strong>
-      <%= @result["description"] %>
-      <%= @result["stargazers_count"] %>
-      <%= @result["watchers_count"] %>
-      <%= @result["html_url"] %>
+<div class="container">
+  <div class="card" style="width: 100%;">
+    <div class="card-body">
+      <h5 class="card-title"><strong>Repo's Name :</strong></h5>
+      <p class="card-text"><%= @result["full_name"] %></p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item"><i class= "fa fa-code"></i> <%= @result["language"] %></li>
+      <li class="list-group-item"><i class= "fa fa-star"></i> <%= @result["stargazers_count"] %></li>
+      <li class="list-group-item"><i class="fa fa-code-fork"></i> <%= @result["forks"] %></li>
+      <li class="list-group-item"><i class="fa fa-eye"></i> <%= @result["watchers_count"] %></li>
+      <li class="list-group-item"><%= @result["description"] %></li>
+    </ul>
+    <div class="card-body">
+      <a href="<%= @result["html_url"] %>" class="card-link">View on GitHub®</a>
     </div>
   </div>
+</div>
+

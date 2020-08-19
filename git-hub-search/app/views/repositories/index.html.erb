@@ -18,22 +18,18 @@
           <div class="col-md-4">
             <div class="card mb-4 shadow-sm">
               <div class="card-body">
-                <p class="card-text"><strong><%= result["full_name"] %></strong></p>
+                  <%= link_to result["full_name"], repository_path(result)%>
                 <p> <%= result["description"] %></p>
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="btn-group">
                     <button type="button" class="btn btn-sm btn-outline-secondary">
-                      <%= result["stargazers_count"] %>
+                      <i class= "fa fa-star"></i> <%=result["stargazers_count"] %>
                     </button>
                     <button type="button" class="btn btn-sm btn-outline-secondary">
-                      <%= result["forks"] %>
+                      <i class="fa fa-code-fork"></i> <%= result["forks"] %>
                     </button>
                       <%= link_to "Remover", repository_path(result), method: :delete, class: "btn btn-md btn-outline-secondary favorite-btn" %>
                   </div>
-                  <%= link_to "Show", repository_path(result), class: "btn btn-md btn-outline-secondary favorite-btn" %>
-                  <small class="text-muted">
-                    <a href="<%= result["html_url"] %>" target="_blank">View in Github</a>
-                  </small>
                 </div>
               </div>
             </div>
