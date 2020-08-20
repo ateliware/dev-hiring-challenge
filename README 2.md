@@ -1,4 +1,5 @@
-###GITHUB REPO SEARCH
+### GITHUB REPO SEARCH
+
 https://gitreposearcher.herokuapp.com/ 
 
 [![Status](https://travis-ci.org/rstacruz/hicat.svg?branch=master)](https://travis-ci.org/rstacruz/hicat)
