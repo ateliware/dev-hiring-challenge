@@ -5,7 +5,7 @@ site on heroku : https://gitreposearcher.herokuapp.com/
 ### TESTE 
 
 Feito com active support e mini-test do rails
-linha de codigo para rodar o teste : #rake test test/models/repository_test.rb
+linha de codigo para rodar o teste : ##rake test test/models/repository_test.rb##
 
 <img src="app/assets/images/Test_spec.png" >
 
