@@ -8,6 +8,9 @@ Feito com active support e mini-test do rails
 linha de codigo para rodar o teste : **rake test test/models/repository_test.rb**
 
 <img src="Test_spec.png" >
+![Image of Yaktocat](./Teste_spec.png)
+
+
 
 # Desafio técnico para desenvolvedores
 
