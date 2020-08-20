@@ -612,3 +612,82 @@ RepositoryTest: test_Should_not_save_repo_without_language
 ----------------------------------------------------------
   [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
   [1m[35m (2.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.5ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.4ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.5ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.4ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTruncate Tables (8.4ms)[0m  [1m[31mDELETE FROM "repositories";
+DELETE FROM "users"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTruncate Tables (10.4ms)[0m  [1m[31mDELETE FROM "repositories";
+DELETE FROM "users"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[36mFixtures Load (0.9ms)[0m  [1m[31mDELETE FROM "repositories";
+DELETE FROM "users";
+INSERT INTO "repositories" ("id", "html_url", "description", "stargazers_count", "language", "watchers_count", "forks", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 1, 'MyString', 1, 1, '2020-08-20 01:12:45.703168', '2020-08-20 01:12:45.703168');
+INSERT INTO "repositories" ("id", "html_url", "description", "stargazers_count", "language", "watchers_count", "forks", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 1, 'MyString', 1, 1, '2020-08-20 01:12:45.703168', '2020-08-20 01:12:45.703168');
+INSERT INTO "users" ("id", "email", "encrypted_password", "created_at", "updated_at") VALUES (980190962, 'teste@teste.com', 'password', '2020-08-20 01:12:45.704049', '2020-08-20 01:12:45.704049');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (298486374, '2020-08-20 01:12:45.704049', '2020-08-20 01:12:45.704049')[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[36mFixtures Load (1.1ms)[0m  [1m[31mDELETE FROM "repositories";
+DELETE FROM "users";
+INSERT INTO "repositories" ("id", "html_url", "description", "stargazers_count", "language", "watchers_count", "forks", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 1, 'MyString', 1, 1, '2020-08-20 01:12:45.704274', '2020-08-20 01:12:45.704274');
+INSERT INTO "repositories" ("id", "html_url", "description", "stargazers_count", "language", "watchers_count", "forks", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 1, 'MyString', 1, 1, '2020-08-20 01:12:45.704274', '2020-08-20 01:12:45.704274');
+INSERT INTO "users" ("id", "email", "encrypted_password", "created_at", "updated_at") VALUES (980190962, 'teste@teste.com', 'password', '2020-08-20 01:12:45.705232', '2020-08-20 01:12:45.705232');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (298486374, '2020-08-20 01:12:45.705232', '2020-08-20 01:12:45.705232')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------------
+RepositoryTest: test_Should_not_save_repo_without_language
+----------------------------------------------------------
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------------
+RepositoryTest: test_Should_create_an_example_Post
+--------------------------------------------------
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRepository Create (1.3ms)[0m  [1m[32mINSERT INTO "repositories" ("html_url", "description", "stargazers_count", "language", "watchers_count", "forks", "created_at", "updated_at", "full_name") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["html_url", "http://github.com/rails"], ["description", "Larry Wall"], ["stargazers_count", 3711], ["language", "Arc"], ["watchers_count", 90264], ["forks", 159], ["created_at", "2020-08-20 01:12:45.725555"], ["updated_at", "2020-08-20 01:12:45.725555"], ["full_name", "productivity"]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (2.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+------------------------------------------------------------
+RepositoryTest: test_Should_not_save_repo_without_Github_URL
+------------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+------------------------------------------------------
+RepositoryTest: test_Should_not_save_repo_without_name
+------------------------------------------------------
+  [1m[35m (0.6ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
