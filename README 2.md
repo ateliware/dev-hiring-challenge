@@ -1,12 +1,7 @@
- hicat :cat:
-<img src="http://ricostacruz.com/hicat/hicat.gif">
-`cat` with syntax highlighting. The language is auto-detected through the file
-extension.
-    hicat index.js
-Pipe something to `hicat`. The language will be inferred from the contents.
-    curl http://site.com | hicat
-If hicat fails to detect a language, specify it using `-l LANG`.
-    curl http://site.com | hicat -l xml
+### GITHUB REPO SEARCH
+
+https://gitreposearcher.herokuapp.com/ 
+
 [![Status](https://travis-ci.org/rstacruz/hicat.svg?branch=master)](https://travis-ci.org/rstacruz/hicat)
 Installation
 ------------

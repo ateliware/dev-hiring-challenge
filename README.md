@@ -1,3 +1,14 @@
+### GITHUB SEARCH
+
+site on heroku : https://gitreposearcher.herokuapp.com/
+
+### TESTE 
+
+Feito com active support e mini-test do rails
+linha de codigo para rodar o teste : **rake test test/models/repository_test.rb**
+
+<img src="Test_spec.png" >
+
 # Desafio técnico para desenvolvedores
 
 Construa uma nova aplicação, utilizando o framework de sua preferência (Rails, ASP.NET, Phoenix, etc), a qual deverá conectar na API do GitHub e disponibilizar as seguintes funcionalidades:
