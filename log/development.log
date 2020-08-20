@@ -11562,3 +11562,1108 @@ Processing by RepositoriesController#search as HTML
 Completed 200 OK in 2622ms (Views: 1334.9ms | ActiveRecord: 3.9ms | Allocations: 43250)
 
 
+Started GET "/" for ::1 at 2020-08-19 22:52:11 -0300
+  [1m[35m (3.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by RepositoriesController#search as HTML
+  Rendering repositories/search.html.erb within layouts/application
+  Rendered repositories/search.html.erb within layouts/application (Duration: 8.5ms | Allocations: 551)
+DEPRECATION WARNING: autoprefixer-rails was deprected. Migration guide:
+https://github.com/ai/autoprefixer-rails/wiki/Deprecated (called from run at /Users/yansantos/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/autoprefixer-rails-9.8.6.1/lib/autoprefixer-rails/sprockets.rb:22)
+Started GET "/" for ::1 at 2020-08-19 22:52:14 -0300
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by RepositoriesController#search as HTML
+  Rendering repositories/search.html.erb within layouts/application
+  Rendered repositories/search.html.erb within layouts/application (Duration: 0.9ms | Allocations: 138)
+DEPRECATION WARNING: autoprefixer-rails was deprected. Migration guide:
+https://github.com/ai/autoprefixer-rails/wiki/Deprecated (called from run at /Users/yansantos/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/autoprefixer-rails-9.8.6.1/lib/autoprefixer-rails/sprockets.rb:22)
+[Webpacker] Compiling...
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /Users/yansantos/code/YSS17/dev-hiring-challenge/public/packs
+[Webpacker] Hash: 15d1bb7b54cf6326b9ba
+Version: webpack 4.44.1
+Time: 32923ms
+Built at: 08/19/2020 10:53:13 PM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-9afcbb5693aa87623e69.js    124 KiB  application  [emitted] [immutable]  application
+js/application-9afcbb5693aa87623e69.js.map    139 KiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-9afcbb5693aa87623e69.js js/application-9afcbb5693aa87623e69.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 749 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 3 hidden modules
+
+[Webpacker] Compiled all packs in /Users/yansantos/code/YSS17/dev-hiring-challenge/public/packs
+[Webpacker] Hash: 15d1bb7b54cf6326b9ba
+Version: webpack 4.44.1
+Time: 33907ms
+Built at: 08/19/2020 10:53:14 PM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-9afcbb5693aa87623e69.js    124 KiB  application  [emitted] [immutable]  application
+js/application-9afcbb5693aa87623e69.js.map    139 KiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-9afcbb5693aa87623e69.js js/application-9afcbb5693aa87623e69.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 749 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 3 hidden modules
+
+Started GET "/" for ::1 at 2020-08-19 22:53:31 -0300
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Started GET "/" for ::1 at 2020-08-19 22:53:31 -0300
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by RepositoriesController#search as HTML
+Processing by RepositoriesController#search as HTML
+  Rendering repositories/search.html.erb within layouts/application
+  Rendering repositories/search.html.erb within layouts/application
+  Rendered repositories/search.html.erb within layouts/application (Duration: 1.0ms | Allocations: 137)
+  Rendered repositories/search.html.erb within layouts/application (Duration: 0.6ms | Allocations: 137)
+[Webpacker] Everything's up-to-date. Nothing to do
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_navbar.html.erb (Duration: 25558.6ms | Allocations: 815183)
+Completed 500 Internal Server Error in 102920ms (ActiveRecord: 0.0ms | Allocations: 860902)
+
+
+  Rendered shared/_navbar.html.erb (Duration: 25193.1ms | Allocations: 815121)
+Completed 500 Internal Server Error in 26105ms (ActiveRecord: 0.0ms | Allocations: 832894)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `user_sessions_path' for #<#<Class:0x00007f9b45490ce0>:0x00007f9b4a827f48>
+Did you mean?  user_session_path
+               user_session_url
+               user_password_path
+               new_session_path):
+    1: <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+    2:     <%= link_to "login", user_sessions_path, class: "navbar-brand" do %>
+    3:     <%= image_tag "https://cdn-images-1.medium.com/max/1600/1*Edn_LpbSpLeNKfWkEdG2Jg.png", style: "height: 20px; width: 90px;" %>
+    4:   <% end %>
+    5: 
+  
+app/views/shared/_navbar.html.erb:2
+app/views/layouts/application.html.erb:15
+  
+ActionView::Template::Error (undefined local variable or method `user_sessions_path' for #<#<Class:0x00007f9b45490ce0>:0x00007f9b4a8260d0>
+Did you mean?  user_session_path
+               user_session_url
+               user_password_path
+               new_session_path):
+    1: <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+    2:     <%= link_to "login", user_sessions_path, class: "navbar-brand" do %>
+    3:     <%= image_tag "https://cdn-images-1.medium.com/max/1600/1*Edn_LpbSpLeNKfWkEdG2Jg.png", style: "height: 20px; width: 90px;" %>
+    4:   <% end %>
+    5: 
+  
+app/views/shared/_navbar.html.erb:2
+app/views/layouts/application.html.erb:15
+  Rendered shared/_navbar.html.erb (Duration: 26932.2ms | Allocations: 856560)
+Completed 500 Internal Server Error in 107745ms (ActiveRecord: 0.0ms | Allocations: 932580)
+
+
+  Rendered shared/_navbar.html.erb (Duration: 25957.5ms | Allocations: 832245)
+Completed 500 Internal Server Error in 27420ms (ActiveRecord: 0.0ms | Allocations: 880666)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `user_sessions_path' for #<#<Class:0x00007f9b45490ce0>:0x00007f9b4550c0e8>
+Did you mean?  user_session_path
+               user_session_url
+               user_password_path
+               new_session_path):
+    1: <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+    2:     <%= link_to "login", user_sessions_path, class: "navbar-brand" do %>
+    3:     <%= image_tag "https://cdn-images-1.medium.com/max/1600/1*Edn_LpbSpLeNKfWkEdG2Jg.png", style: "height: 20px; width: 90px;" %>
+    4:   <% end %>
+    5: 
+  
+app/views/shared/_navbar.html.erb:2
+app/views/layouts/application.html.erb:15
+  
+ActionView::Template::Error (undefined local variable or method `user_sessions_path' for #<#<Class:0x00007f9b45490ce0>:0x00007f9b41f93380>
+Did you mean?  user_session_path
+               user_session_url
+               user_password_path
+               new_session_path):
+    1: <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+    2:     <%= link_to "login", user_sessions_path, class: "navbar-brand" do %>
+    3:     <%= image_tag "https://cdn-images-1.medium.com/max/1600/1*Edn_LpbSpLeNKfWkEdG2Jg.png", style: "height: 20px; width: 90px;" %>
+    4:   <% end %>
+    5: 
+  
+app/views/shared/_navbar.html.erb:2
+app/views/layouts/application.html.erb:15
+Started GET "/" for ::1 at 2020-08-19 22:54:34 -0300
+Processing by RepositoriesController#search as HTML
+  Rendering repositories/search.html.erb within layouts/application
+  Rendered repositories/search.html.erb within layouts/application (Duration: 14.1ms | Allocations: 394)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_navbar.html.erb (Duration: 227.9ms | Allocations: 2147)
+Completed 500 Internal Server Error in 851ms (ActiveRecord: 0.0ms | Allocations: 7880)
+
+
+  
+ActionView::Template::Error (undefined method `stringify_keys' for "/users/sign_in":String):
+    1: <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+    2:     <%= link_to "login", user_session_path, class: "navbar-brand" do %>
+    3:     <%= image_tag "https://cdn-images-1.medium.com/max/1600/1*Edn_LpbSpLeNKfWkEdG2Jg.png", style: "height: 20px; width: 90px;" %>
+    4:   <% end %>
+    5: 
+  
+app/views/shared/_navbar.html.erb:2
+app/views/layouts/application.html.erb:15
+Started GET "/" for ::1 at 2020-08-19 22:54:36 -0300
+Processing by RepositoriesController#search as HTML
+  Rendering repositories/search.html.erb within layouts/application
+  Rendered repositories/search.html.erb within layouts/application (Duration: 5.2ms | Allocations: 137)
+[Webpacker] Everything's up-to-date. Nothing to do
+Started GET "/" for ::1 at 2020-08-19 22:55:49 -0300
+  Rendered shared/_navbar.html.erb (Duration: 25.1ms | Allocations: 1924)
+Processing by RepositoriesController#search as HTML
+  Rendering repositories/search.html.erb within layouts/application
+Completed 500 Internal Server Error in 73602ms (ActiveRecord: 0.0ms | Allocations: 412928)
+
+
+  Rendered repositories/search.html.erb within layouts/application (Duration: 0.7ms | Allocations: 137)
+  
+ActionView::Template::Error (undefined method `stringify_keys' for "/users/sign_in":String):
+    1: <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+    2:     <%= link_to "login", user_session_path, class: "navbar-brand" do %>
+    3:     <%= image_tag "https://cdn-images-1.medium.com/max/1600/1*Edn_LpbSpLeNKfWkEdG2Jg.png", style: "height: 20px; width: 90px;" %>
+    4:   <% end %>
+    5: 
+  
+app/views/shared/_navbar.html.erb:2
+app/views/layouts/application.html.erb:15
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_navbar.html.erb (Duration: 25.5ms | Allocations: 1924)
+Completed 500 Internal Server Error in 1921ms (ActiveRecord: 0.0ms | Allocations: 152311)
+
+
+  
+ActionView::Template::Error (undefined method `stringify_keys' for "/users/sign_in":String):
+    1: <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+    2:     <%= link_to "login", user_session_path, class: "navbar-brand" do %>
+    3:     <%= image_tag "https://cdn-images-1.medium.com/max/1600/1*Edn_LpbSpLeNKfWkEdG2Jg.png", style: "height: 20px; width: 90px;" %>
+    4:   <% end %>
+    5: 
+  
+app/views/shared/_navbar.html.erb:2
+app/views/layouts/application.html.erb:15
+Started GET "/" for ::1 at 2020-08-19 22:57:07 -0300
+  [1m[35m (2.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by RepositoriesController#search as HTML
+  Rendering repositories/search.html.erb within layouts/application
+  Rendered repositories/search.html.erb within layouts/application (Duration: 13.6ms | Allocations: 551)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_navbar.html.erb (Duration: 30.5ms | Allocations: 2465)
+Completed 500 Internal Server Error in 337ms (ActiveRecord: 0.0ms | Allocations: 26820)
+
+
+  
+ActionView::Template::Error (undefined method `stringify_keys' for "/users/sign_in":String):
+    1: <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+    2:     <%= link_to "login", user_session_path, class: "navbar-brand" do %>
+    3:     <%= image_tag "https://cdn-images-1.medium.com/max/1600/1*Edn_LpbSpLeNKfWkEdG2Jg.png", style: "height: 20px; width: 90px;" %>
+    4:   <% end %>
+    5: 
+  
+app/views/shared/_navbar.html.erb:2
+app/views/layouts/application.html.erb:15
+Started GET "/" for ::1 at 2020-08-19 22:59:18 -0300
+Processing by RepositoriesController#search as HTML
+  Rendering repositories/search.html.erb within layouts/application
+  Rendered repositories/search.html.erb within layouts/application (Duration: 46.9ms | Allocations: 395)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_navbar.html.erb (Duration: 2.6ms | Allocations: 332)
+Completed 200 OK in 394ms (Views: 390.3ms | ActiveRecord: 0.0ms | Allocations: 6105)
+
+
+Started GET "/users/sign_in" for ::1 at 2020-08-19 22:59:34 -0300
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 8915ms (ActiveRecord: 12.4ms | Allocations: 202615)
+
+
+Started GET "/" for ::1 at 2020-08-19 22:59:44 -0300
+Processing by RepositoriesController#search as HTML
+  Rendering repositories/search.html.erb within layouts/application
+  Rendered repositories/search.html.erb within layouts/application (Duration: 47.3ms | Allocations: 401)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_navbar.html.erb (Duration: 6.9ms | Allocations: 325)
+Completed 200 OK in 426ms (Views: 398.3ms | ActiveRecord: 0.0ms | Allocations: 6063)
+
+
+Started GET "/" for ::1 at 2020-08-19 23:00:12 -0300
+Processing by RepositoriesController#search as HTML
+  Rendering repositories/search.html.erb within layouts/application
+  Rendered repositories/search.html.erb within layouts/application (Duration: 3.2ms | Allocations: 393)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_navbar.html.erb (Duration: 3.4ms | Allocations: 332)
+Completed 200 OK in 54ms (Views: 49.7ms | ActiveRecord: 0.0ms | Allocations: 6027)
+
+
+Started GET "/" for ::1 at 2020-08-19 23:00:15 -0300
+Processing by RepositoriesController#search as HTML
+  Rendering repositories/search.html.erb within layouts/application
+  Rendered repositories/search.html.erb within layouts/application (Duration: 2.6ms | Allocations: 137)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_navbar.html.erb (Duration: 1.0ms | Allocations: 131)
+Completed 200 OK in 183ms (Views: 179.8ms | ActiveRecord: 0.0ms | Allocations: 4412)
+
+
+Started GET "/" for ::1 at 2020-08-19 23:00:18 -0300
+Processing by RepositoriesController#search as HTML
+  Rendering repositories/search.html.erb within layouts/application
+  Rendered repositories/search.html.erb within layouts/application (Duration: 0.6ms | Allocations: 136)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_navbar.html.erb (Duration: 1.0ms | Allocations: 131)
+Completed 200 OK in 144ms (Views: 139.9ms | ActiveRecord: 0.0ms | Allocations: 4399)
+
+
+Started GET "/" for ::1 at 2020-08-19 23:01:22 -0300
+Started GET "/" for ::1 at 2020-08-19 23:01:22 -0300
+Started GET "/" for ::1 at 2020-08-19 23:01:22 -0300
+Started GET "/users/sign_in" for ::1 at 2020-08-19 23:01:22 -0300
+Started GET "/" for ::1 at 2020-08-19 23:01:22 -0300
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by RepositoriesController#search as HTML
+  Rendering repositories/search.html.erb within layouts/application
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by RepositoriesController#search as HTML
+Processing by RepositoriesController#search as HTML
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  Rendering repositories/search.html.erb within layouts/application
+  Rendered repositories/search.html.erb within layouts/application (Duration: 0.7ms | Allocations: 137)
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  Rendering repositories/search.html.erb within layouts/application
+  Rendered repositories/search.html.erb within layouts/application (Duration: 0.7ms | Allocations: 136)
+Processing by RepositoriesController#search as HTML
+  Rendering repositories/search.html.erb within layouts/application
+  Rendered repositories/search.html.erb within layouts/application (Duration: 1.0ms | Allocations: 136)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered repositories/search.html.erb within layouts/application (Duration: 1.0ms | Allocations: 136)
+Processing by Devise::SessionsController#new as HTML
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_navbar.html.erb (Duration: 1.0ms | Allocations: 131)
+Completed 200 OK in 5850ms (Views: 5847.4ms | ActiveRecord: 0.0ms | Allocations: 16583)
+
+
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+  Rendered shared/_navbar.html.erb (Duration: 0.8ms | Allocations: 131)
+Started GET "/users/sign_in" for ::1 at 2020-08-19 23:01:28 -0300
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 66ms (ActiveRecord: 1.7ms | Allocations: 4610)
+
+
+Completed 200 OK in 5855ms (Views: 5852.3ms | ActiveRecord: 0.0ms | Allocations: 17027)
+
+
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 12ms (ActiveRecord: 0.4ms | Allocations: 1868)
+
+
+Started GET "/" for ::1 at 2020-08-19 23:01:28 -0300
+Processing by RepositoriesController#search as HTML
+  Rendering repositories/search.html.erb within layouts/application
+  Rendered repositories/search.html.erb within layouts/application (Duration: 0.7ms | Allocations: 136)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_navbar.html.erb (Duration: 4.3ms | Allocations: 131)
+Completed 200 OK in 6096ms (Views: 6094.4ms | ActiveRecord: 0.0ms | Allocations: 27662)
+
+
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_navbar.html.erb (Duration: 1.8ms | Allocations: 131)
+Completed 200 OK in 524ms (Views: 518.1ms | ActiveRecord: 0.0ms | Allocations: 21769)
+
+
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_navbar.html.erb (Duration: 0.8ms | Allocations: 131)
+Completed 200 OK in 431ms (Views: 427.5ms | ActiveRecord: 0.0ms | Allocations: 11148)
+
+
+Started GET "/users/sign_in" for ::1 at 2020-08-19 23:01:39 -0300
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 13ms (ActiveRecord: 0.5ms | Allocations: 1857)
+
+
+Started GET "/" for ::1 at 2020-08-19 23:01:40 -0300
+Processing by RepositoriesController#search as HTML
+  Rendering repositories/search.html.erb within layouts/application
+  Rendered repositories/search.html.erb within layouts/application (Duration: 0.6ms | Allocations: 136)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_navbar.html.erb (Duration: 2.0ms | Allocations: 131)
+Completed 200 OK in 115ms (Views: 113.4ms | ActiveRecord: 0.0ms | Allocations: 4430)
+
+
+Started GET "/users/sign_in" for ::1 at 2020-08-19 23:01:41 -0300
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 13ms (ActiveRecord: 0.7ms | Allocations: 1857)
+
+
+Started GET "/" for ::1 at 2020-08-19 23:01:42 -0300
+Processing by RepositoriesController#search as HTML
+  Rendering repositories/search.html.erb within layouts/application
+  Rendered repositories/search.html.erb within layouts/application (Duration: 0.9ms | Allocations: 136)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_navbar.html.erb (Duration: 0.8ms | Allocations: 131)
+Completed 200 OK in 89ms (Views: 86.8ms | ActiveRecord: 0.0ms | Allocations: 4422)
+
+
+Started GET "/users/sign_in" for ::1 at 2020-08-19 23:01:42 -0300
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 72ms (ActiveRecord: 0.4ms | Allocations: 1873)
+
+
+Started GET "/" for ::1 at 2020-08-19 23:01:42 -0300
+Processing by RepositoriesController#search as HTML
+  Rendering repositories/search.html.erb within layouts/application
+  Rendered repositories/search.html.erb within layouts/application (Duration: 0.7ms | Allocations: 136)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_navbar.html.erb (Duration: 4.1ms | Allocations: 131)
+Completed 200 OK in 175ms (Views: 170.7ms | ActiveRecord: 0.0ms | Allocations: 4430)
+
+
+Started GET "/users/sign_in" for ::1 at 2020-08-19 23:02:53 -0300
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 9ms (ActiveRecord: 0.4ms | Allocations: 1836)
+
+
+Started GET "/" for ::1 at 2020-08-19 23:02:54 -0300
+Processing by RepositoriesController#search as HTML
+  Rendering repositories/search.html.erb within layouts/application
+  Rendered repositories/search.html.erb within layouts/application (Duration: 0.5ms | Allocations: 136)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_navbar.html.erb (Duration: 0.9ms | Allocations: 131)
+Completed 200 OK in 43ms (Views: 38.5ms | ActiveRecord: 0.0ms | Allocations: 4415)
+
+
+Started GET "/users/sign_in" for ::1 at 2020-08-19 23:03:04 -0300
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 30ms (ActiveRecord: 0.9ms | Allocations: 1847)
+
+
+Started GET "/" for ::1 at 2020-08-19 23:03:04 -0300
+Processing by RepositoriesController#search as HTML
+  Rendering repositories/search.html.erb within layouts/application
+  Rendered repositories/search.html.erb within layouts/application (Duration: 1.8ms | Allocations: 136)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_navbar.html.erb (Duration: 0.8ms | Allocations: 131)
+Completed 200 OK in 115ms (Views: 112.9ms | ActiveRecord: 0.0ms | Allocations: 4443)
+
+
+Started GET "/users/sign_up" for ::1 at 2020-08-19 23:03:14 -0300
+Processing by Devise::RegistrationsController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 13ms (ActiveRecord: 0.5ms | Allocations: 1953)
+
+
+Started GET "/" for ::1 at 2020-08-19 23:03:14 -0300
+Processing by RepositoriesController#search as HTML
+  Rendering repositories/search.html.erb within layouts/application
+  Rendered repositories/search.html.erb within layouts/application (Duration: 0.5ms | Allocations: 136)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_navbar.html.erb (Duration: 3.0ms | Allocations: 131)
+Completed 200 OK in 49ms (Views: 47.6ms | ActiveRecord: 0.0ms | Allocations: 4417)
+
+
+Started GET "/" for ::1 at 2020-08-19 23:05:23 -0300
+Processing by RepositoriesController#search as HTML
+  Rendering repositories/search.html.erb within layouts/application
+  Rendered repositories/search.html.erb within layouts/application (Duration: 1.1ms | Allocations: 136)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_navbar.html.erb (Duration: 3.0ms | Allocations: 131)
+Completed 200 OK in 62ms (Views: 53.7ms | ActiveRecord: 0.0ms | Allocations: 4409)
+
+
+Started GET "/" for ::1 at 2020-08-19 23:05:24 -0300
+Processing by RepositoriesController#search as HTML
+  Rendering repositories/search.html.erb within layouts/application
+  Rendered repositories/search.html.erb within layouts/application (Duration: 0.8ms | Allocations: 136)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_navbar.html.erb (Duration: 3.0ms | Allocations: 131)
+Completed 200 OK in 54ms (Views: 51.8ms | ActiveRecord: 0.0ms | Allocations: 4425)
+
+
+Started GET "/users/sign_in" for ::1 at 2020-08-19 23:05:30 -0300
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 13ms (ActiveRecord: 1.3ms | Allocations: 1853)
+
+
+Started GET "/" for ::1 at 2020-08-19 23:05:30 -0300
+Processing by RepositoriesController#search as HTML
+  Rendering repositories/search.html.erb within layouts/application
+  Rendered repositories/search.html.erb within layouts/application (Duration: 0.9ms | Allocations: 136)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_navbar.html.erb (Duration: 20.8ms | Allocations: 131)
+Completed 200 OK in 79ms (Views: 72.1ms | ActiveRecord: 0.0ms | Allocations: 4421)
+
+
+Started GET "/" for ::1 at 2020-08-19 23:06:15 -0300
+Processing by RepositoriesController#search as HTML
+  Rendering repositories/search.html.erb within layouts/application
+  Rendered repositories/search.html.erb within layouts/application (Duration: 0.6ms | Allocations: 136)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_navbar.html.erb (Duration: 2.6ms | Allocations: 131)
+Completed 200 OK in 108ms (Views: 105.6ms | ActiveRecord: 0.0ms | Allocations: 4421)
+
+
+Started GET "/users/sign_in" for ::1 at 2020-08-19 23:06:21 -0300
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 11ms (ActiveRecord: 0.5ms | Allocations: 1861)
+
+
+Started GET "/" for ::1 at 2020-08-19 23:06:21 -0300
+Processing by RepositoriesController#search as HTML
+  Rendering repositories/search.html.erb within layouts/application
+  Rendered repositories/search.html.erb within layouts/application (Duration: 0.5ms | Allocations: 136)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_navbar.html.erb (Duration: 0.8ms | Allocations: 131)
+Completed 200 OK in 33ms (Views: 31.0ms | ActiveRecord: 0.0ms | Allocations: 4420)
+
+
+Started GET "/" for ::1 at 2020-08-19 23:06:23 -0300
+Processing by RepositoriesController#search as HTML
+  Rendering repositories/search.html.erb within layouts/application
+  Rendered repositories/search.html.erb within layouts/application (Duration: 1.7ms | Allocations: 136)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_navbar.html.erb (Duration: 11.3ms | Allocations: 131)
+Completed 200 OK in 45ms (Views: 40.8ms | ActiveRecord: 0.0ms | Allocations: 4413)
+
+
+Started GET "/repositories" for ::1 at 2020-08-19 23:06:25 -0300
+Processing by RepositoriesController#index as HTML
+  Rendering repositories/index.html.erb within layouts/application
+  [1m[36mRepository Load (1.7ms)[0m  [1m[34mSELECT "repositories".* FROM "repositories"[0m
+  ↳ app/views/repositories/index.html.erb:12
+  Rendered repositories/index.html.erb within layouts/application (Duration: 118.3ms | Allocations: 7970)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_navbar.html.erb (Duration: 0.5ms | Allocations: 124)
+Completed 200 OK in 299ms (Views: 224.5ms | ActiveRecord: 4.7ms | Allocations: 14624)
+
+
+Started GET "/repositories/7" for ::1 at 2020-08-19 23:06:30 -0300
+Processing by RepositoriesController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mRepository Load (0.8ms)[0m  [1m[34mSELECT "repositories".* FROM "repositories" WHERE "repositories"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/repositories_controller.rb:9:in `show'
+  Rendering repositories/show.html.erb within layouts/application
+  Rendered repositories/show.html.erb within layouts/application (Duration: 2.6ms | Allocations: 271)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_navbar.html.erb (Duration: 2.4ms | Allocations: 138)
+Completed 200 OK in 148ms (Views: 131.6ms | ActiveRecord: 0.8ms | Allocations: 5379)
+
+
+Started GET "/users/sign_in" for ::1 at 2020-08-19 23:07:14 -0300
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 21ms (ActiveRecord: 0.5ms | Allocations: 1850)
+
+
+Started GET "/" for ::1 at 2020-08-19 23:07:14 -0300
+Processing by RepositoriesController#search as HTML
+  Rendering repositories/search.html.erb within layouts/application
+  Rendered repositories/search.html.erb within layouts/application (Duration: 1.3ms | Allocations: 136)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_navbar.html.erb (Duration: 0.8ms | Allocations: 131)
+Completed 200 OK in 324ms (Views: 322.0ms | ActiveRecord: 0.0ms | Allocations: 4431)
+
+
+Started GET "/users/sign_in" for ::1 at 2020-08-19 23:07:19 -0300
+Started GET "/users/sign_in" for ::1 at 2020-08-19 23:07:19 -0300
+Processing by Devise::SessionsController#new as HTML
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (3.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 302 Found in 32ms (ActiveRecord: 0.7ms | Allocations: 3118)
+
+
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 27ms (ActiveRecord: 3.1ms | Allocations: 2282)
+
+
+Started GET "/" for ::1 at 2020-08-19 23:07:19 -0300
+Processing by RepositoriesController#search as HTML
+  Rendering repositories/search.html.erb within layouts/application
+  Rendered repositories/search.html.erb within layouts/application (Duration: 1.0ms | Allocations: 136)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_navbar.html.erb (Duration: 7.4ms | Allocations: 131)
+Completed 200 OK in 239ms (Views: 233.7ms | ActiveRecord: 0.0ms | Allocations: 4431)
+
+
+Started GET "/" for ::1 at 2020-08-19 23:10:39 -0300
+Processing by RepositoriesController#search as HTML
+  Rendering repositories/search.html.erb within layouts/application
+  Rendered repositories/search.html.erb within layouts/application (Duration: 13.9ms | Allocations: 136)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_navbar.html.erb (Duration: 0.8ms | Allocations: 131)
+Completed 200 OK in 76ms (Views: 55.6ms | ActiveRecord: 0.0ms | Allocations: 4302)
+
+
+Started GET "/users/sign_in" for ::1 at 2020-08-19 23:11:44 -0300
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 19ms (ActiveRecord: 0.4ms | Allocations: 1861)
+
+
+Started GET "/" for ::1 at 2020-08-19 23:11:44 -0300
+Processing by RepositoriesController#search as HTML
+  Rendering repositories/search.html.erb within layouts/application
+  Rendered repositories/search.html.erb within layouts/application (Duration: 1.3ms | Allocations: 136)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_navbar.html.erb (Duration: 8.6ms | Allocations: 131)
+Completed 200 OK in 99ms (Views: 84.3ms | ActiveRecord: 0.0ms | Allocations: 4448)
+
+
+Started GET "/users/sign_in" for ::1 at 2020-08-19 23:11:53 -0300
+Started GET "/users/sign_in" for ::1 at 2020-08-19 23:11:53 -0300
+Started GET "/users/sign_in" for ::1 at 2020-08-19 23:11:53 -0300
+Started GET "/users/sign_in" for ::1 at 2020-08-19 23:11:53 -0300
+Started GET "/users/sign_in" for ::1 at 2020-08-19 23:11:53 -0300
+Processing by Devise::SessionsController#new as HTML
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Redirected to http://localhost:3000/
+Processing by Devise::SessionsController#new as HTML
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 1875ms (ActiveRecord: 0.5ms | Allocations: 7029)
+
+
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Started GET "/users/sign_in" for ::1 at 2020-08-19 23:11:55 -0300
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Filter chain halted as :require_no_authentication rendered or redirected
+Processing by Devise::SessionsController#new as HTML
+Filter chain halted as :require_no_authentication rendered or redirected
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 2009ms (ActiveRecord: 0.9ms | Allocations: 13840)
+
+
+Completed 302 Found in 131ms (ActiveRecord: 1.3ms | Allocations: 6651)
+
+
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 67ms (ActiveRecord: 0.7ms | Allocations: 4936)
+
+
+Completed 302 Found in 1995ms (ActiveRecord: 0.6ms | Allocations: 11628)
+
+
+Started GET "/users/sign_in" for ::1 at 2020-08-19 23:11:56 -0300
+Started GET "/users/sign_in" for ::1 at 2020-08-19 23:11:56 -0300
+Started GET "/users/sign_in" for ::1 at 2020-08-19 23:11:56 -0300
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 89ms (ActiveRecord: 0.6ms | Allocations: 1869)
+
+
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 137ms (ActiveRecord: 0.6ms | Allocations: 4459)
+
+
+Completed 302 Found in 235ms (ActiveRecord: 1.3ms | Allocations: 12420)
+
+
+Started GET "/users/sign_in" for ::1 at 2020-08-19 23:11:56 -0300
+Processing by Devise::SessionsController#new as HTML
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 17ms (ActiveRecord: 0.5ms | Allocations: 2544)
+
+
+Started GET "/users/sign_in" for ::1 at 2020-08-19 23:11:56 -0300
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 82ms (ActiveRecord: 0.6ms | Allocations: 6983)
+
+
+Started GET "/" for ::1 at 2020-08-19 23:11:56 -0300
+Processing by RepositoriesController#search as HTML
+  Rendering repositories/search.html.erb within layouts/application
+  Rendered repositories/search.html.erb within layouts/application (Duration: 0.7ms | Allocations: 136)
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 90ms (ActiveRecord: 1.8ms | Allocations: 8291)
+
+
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_navbar.html.erb (Duration: 0.9ms | Allocations: 131)
+Completed 200 OK in 93ms (Views: 91.1ms | ActiveRecord: 0.0ms | Allocations: 5127)
+
+
+Started GET "/" for ::1 at 2020-08-19 23:12:48 -0300
+Processing by RepositoriesController#search as HTML
+  Rendering repositories/search.html.erb within layouts/application
+  Rendered repositories/search.html.erb within layouts/application (Duration: 0.8ms | Allocations: 136)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_navbar.html.erb (Duration: 10.9ms | Allocations: 131)
+Completed 200 OK in 63ms (Views: 59.4ms | ActiveRecord: 0.0ms | Allocations: 4419)
+
+
+Started GET "/?query=ruby&commit=Search" for ::1 at 2020-08-19 23:12:53 -0300
+Processing by RepositoriesController#search as HTML
+  Parameters: {"query"=>"ruby", "commit"=>"Search"}
+  Rendering repositories/search.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/repositories/_results.html.erb:19
+  Rendered repositories/_results.html.erb (Duration: 188.7ms | Allocations: 30610)
+  Rendered repositories/search.html.erb within layouts/application (Duration: 207.2ms | Allocations: 36186)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_navbar.html.erb (Duration: 2.7ms | Allocations: 124)
+Completed 200 OK in 1679ms (Views: 324.3ms | ActiveRecord: 0.5ms | Allocations: 41795)
+
+
+Started POST "/repositories?repo%5Barchive_url%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Frails%2Frails%2F%7Barchive_format%7D%7B%2Fref%7D&repo%5Barchived%5D=false&repo%5Bassignees_url%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Frails%2Frails%2Fassignees%7B%2Fuser%7D&repo%5Bblobs_url%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Frails%2Frails%2Fgit%2Fblobs%7B%2Fsha%7D&repo%5Bbranches_url%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Frails%2Frails%2Fbranches%7B%2Fbranch%7D&repo%5Bclone_url%5D=https%3A%2F%2Fgithub.com%2Frails%2Frails.git&repo%5Bcollaborators_url%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Frails%2Frails%2Fcollaborators%7B%2Fcollaborator%7D&repo%5Bcomments_url%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Frails%2Frails%2Fcomments%7B%2Fnumber%7D&repo%5Bcommits_url%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Frails%2Frails%2Fcommits%7B%2Fsha%7D&repo%5Bcompare_url%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Frails%2Frails%2Fcompare%2F%7Bbase%7D...%7Bhead%7D&repo%5Bcontents_url%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Frails%2Frails%2Fcontents%2F%7B%2Bpath%7D&repo%5Bcontributors_url%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Frails%2Frails%2Fcontributors&repo%5Bcreated_at%5D=2008-04-11T02%3A19%3A47Z&repo%5Bdefault_branch%5D=master&repo%5Bdeployments_url%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Frails%2Frails%2Fdeployments&repo%5Bdescription%5D=Ruby+on+Rails&repo%5Bdisabled%5D=false&repo%5Bdownloads_url%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Frails%2Frails%2Fdownloads&repo%5Bevents_url%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Frails%2Frails%2Fevents&repo%5Bfork%5D=false&repo%5Bforks%5D=18660&repo%5Bforks_count%5D=18660&repo%5Bforks_url%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Frails%2Frails%2Fforks&repo%5Bfull_name%5D=rails%2Frails&repo%5Bgit_commits_url%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Frails%2Frails%2Fgit%2Fcommits%7B%2Fsha%7D&repo%5Bgit_refs_url%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Frails%2Frails%2Fgit%2Frefs%7B%2Fsha%7D&repo%5Bgit_tags_url%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Frails%2Frails%2Fgit%2Ftags%7B%2Fsha%7D&repo%5Bgit_url%5D=git%3A%2F%2Fgithub.com%2Frails%2Frails.git&repo%5Bhas_downloads%5D=true&repo%5Bhas_issues%5D=true&repo%5Bhas_pages%5D=false&repo%5Bhas_projects%5D=false&repo%5Bhas_wiki%5D=false&repo%5Bhomepage%5D=https%3A%2F%2Frubyonrails.org&repo%5Bhooks_url%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Frails%2Frails%2Fhooks&repo%5Bhtml_url%5D=https%3A%2F%2Fgithub.com%2Frails%2Frails&repo%5Bid%5D=8514&repo%5Bissue_comment_url%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Frails%2Frails%2Fissues%2Fcomments%7B%2Fnumber%7D&repo%5Bissue_events_url%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Frails%2Frails%2Fissues%2Fevents%7B%2Fnumber%7D&repo%5Bissues_url%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Frails%2Frails%2Fissues%7B%2Fnumber%7D&repo%5Bkeys_url%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Frails%2Frails%2Fkeys%7B%2Fkey_id%7D&repo%5Blabels_url%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Frails%2Frails%2Flabels%7B%2Fname%7D&repo%5Blanguage%5D=Ruby&repo%5Blanguages_url%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Frails%2Frails%2Flanguages&repo%5Blicense%5D%5Bkey%5D=mit&repo%5Blicense%5D%5Bname%5D=MIT+License&repo%5Blicense%5D%5Bnode_id%5D=MDc6TGljZW5zZTEz&repo%5Blicense%5D%5Bspdx_id%5D=MIT&repo%5Blicense%5D%5Burl%5D=https%3A%2F%2Fapi.github.com%2Flicenses%2Fmit&repo%5Bmerges_url%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Frails%2Frails%2Fmerges&repo%5Bmilestones_url%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Frails%2Frails%2Fmilestones%7B%2Fnumber%7D&repo%5Bmirror_url%5D=&repo%5Bname%5D=rails&repo%5Bnode_id%5D=MDEwOlJlcG9zaXRvcnk4NTE0&repo%5Bnotifications_url%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Frails%2Frails%2Fnotifications%7B%3Fsince%2Call%2Cparticipating%7D&repo%5Bopen_issues%5D=682&repo%5Bopen_issues_count%5D=682&repo%5Bowner%5D%5Bavatar_url%5D=https%3A%2F%2Favatars1.githubusercontent.com%2Fu%2F4223%3Fv%3D4&repo%5Bowner%5D%5Bevents_url%5D=https%3A%2F%2Fapi.github.com%2Fusers%2Frails%2Fevents%7B%2Fprivacy%7D&repo%5Bowner%5D%5Bfollowers_url%5D=https%3A%2F%2Fapi.github.com%2Fusers%2Frails%2Ffollowers&repo%5Bowner%5D%5Bfollowing_url%5D=https%3A%2F%2Fapi.github.com%2Fusers%2Frails%2Ffollowing%7B%2Fother_user%7D&repo%5Bowner%5D%5Bgists_url%5D=https%3A%2F%2Fapi.github.com%2Fusers%2Frails%2Fgists%7B%2Fgist_id%7D&repo%5Bowner%5D%5Bgravatar_id%5D=&repo%5Bowner%5D%5Bhtml_url%5D=https%3A%2F%2Fgithub.com%2Frails&repo%5Bowner%5D%5Bid%5D=4223&repo%5Bowner%5D%5Blogin%5D=rails&repo%5Bowner%5D%5Bnode_id%5D=MDEyOk9yZ2FuaXphdGlvbjQyMjM%3D&repo%5Bowner%5D%5Borganizations_url%5D=https%3A%2F%2Fapi.github.com%2Fusers%2Frails%2Forgs&repo%5Bowner%5D%5Breceived_events_url%5D=https%3A%2F%2Fapi.github.com%2Fusers%2Frails%2Freceived_events&repo%5Bowner%5D%5Brepos_url%5D=https%3A%2F%2Fapi.github.com%2Fusers%2Frails%2Frepos&repo%5Bowner%5D%5Bsite_admin%5D=false&repo%5Bowner%5D%5Bstarred_url%5D=https%3A%2F%2Fapi.github.com%2Fusers%2Frails%2Fstarred%7B%2Fowner%7D%7B%2Frepo%7D&repo%5Bowner%5D%5Bsubscriptions_url%5D=https%3A%2F%2Fapi.github.com%2Fusers%2Frails%2Fsubscriptions&repo%5Bowner%5D%5Btype%5D=Organization&repo%5Bowner%5D%5Burl%5D=https%3A%2F%2Fapi.github.com%2Fusers%2Frails&repo%5Bprivate%5D=false&repo%5Bpulls_url%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Frails%2Frails%2Fpulls%7B%2Fnumber%7D&repo%5Bpushed_at%5D=2020-08-20T00%3A43%3A54Z&repo%5Breleases_url%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Frails%2Frails%2Freleases%7B%2Fid%7D&repo%5Bscore%5D=1.0&repo%5Bsize%5D=227591&repo%5Bssh_url%5D=git%40github.com%3Arails%2Frails.git&repo%5Bstargazers_count%5D=46227&repo%5Bstargazers_url%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Frails%2Frails%2Fstargazers&repo%5Bstatuses_url%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Frails%2Frails%2Fstatuses%2F%7Bsha%7D&repo%5Bsubscribers_url%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Frails%2Frails%2Fsubscribers&repo%5Bsubscription_url%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Frails%2Frails%2Fsubscription&repo%5Bsvn_url%5D=https%3A%2F%2Fgithub.com%2Frails%2Frails&repo%5Btags_url%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Frails%2Frails%2Ftags&repo%5Bteams_url%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Frails%2Frails%2Fteams&repo%5Btrees_url%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Frails%2Frails%2Fgit%2Ftrees%7B%2Fsha%7D&repo%5Bupdated_at%5D=2020-08-20T00%3A42%3A17Z&repo%5Burl%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Frails%2Frails&repo%5Bwatchers%5D=46227&repo%5Bwatchers_count%5D=46227" for ::1 at 2020-08-19 23:12:59 -0300
+Processing by RepositoriesController#create as HTML
+  Parameters: {"authenticity_token"=>"cDSxgWYXpEaF4SUtht31cilGXaA4VmkHphF+hAKP0tl48mYhsn+ifJoNsaLyJ+26cwIys9s9Is9v7Gb+/Lgrgg==", "repo"=>{"archive_url"=>"https://api.github.com/repos/rails/rails/{archive_format}{/ref}", "archived"=>"false", "assignees_url"=>"https://api.github.com/repos/rails/rails/assignees{/user}", "blobs_url"=>"https://api.github.com/repos/rails/rails/git/blobs{/sha}", "branches_url"=>"https://api.github.com/repos/rails/rails/branches{/branch}", "clone_url"=>"https://github.com/rails/rails.git", "collaborators_url"=>"https://api.github.com/repos/rails/rails/collaborators{/collaborator}", "comments_url"=>"https://api.github.com/repos/rails/rails/comments{/number}", "commits_url"=>"https://api.github.com/repos/rails/rails/commits{/sha}", "compare_url"=>"https://api.github.com/repos/rails/rails/compare/{base}...{head}", "contents_url"=>"https://api.github.com/repos/rails/rails/contents/{+path}", "contributors_url"=>"https://api.github.com/repos/rails/rails/contributors", "created_at"=>"2008-04-11T02:19:47Z", "default_branch"=>"master", "deployments_url"=>"https://api.github.com/repos/rails/rails/deployments", "description"=>"Ruby on Rails", "disabled"=>"false", "downloads_url"=>"https://api.github.com/repos/rails/rails/downloads", "events_url"=>"https://api.github.com/repos/rails/rails/events", "fork"=>"false", "forks"=>"18660", "forks_count"=>"18660", "forks_url"=>"https://api.github.com/repos/rails/rails/forks", "full_name"=>"rails/rails", "git_commits_url"=>"https://api.github.com/repos/rails/rails/git/commits{/sha}", "git_refs_url"=>"https://api.github.com/repos/rails/rails/git/refs{/sha}", "git_tags_url"=>"https://api.github.com/repos/rails/rails/git/tags{/sha}", "git_url"=>"git://github.com/rails/rails.git", "has_downloads"=>"true", "has_issues"=>"true", "has_pages"=>"false", "has_projects"=>"false", "has_wiki"=>"false", "homepage"=>"https://rubyonrails.org", "hooks_url"=>"https://api.github.com/repos/rails/rails/hooks", "html_url"=>"https://github.com/rails/rails", "id"=>"8514", "issue_comment_url"=>"https://api.github.com/repos/rails/rails/issues/comments{/number}", "issue_events_url"=>"https://api.github.com/repos/rails/rails/issues/events{/number}", "issues_url"=>"https://api.github.com/repos/rails/rails/issues{/number}", "keys_url"=>"https://api.github.com/repos/rails/rails/keys{/key_id}", "labels_url"=>"https://api.github.com/repos/rails/rails/labels{/name}", "language"=>"Ruby", "languages_url"=>"https://api.github.com/repos/rails/rails/languages", "license"=>{"key"=>"mit", "name"=>"MIT License", "node_id"=>"MDc6TGljZW5zZTEz", "spdx_id"=>"MIT", "url"=>"https://api.github.com/licenses/mit"}, "merges_url"=>"https://api.github.com/repos/rails/rails/merges", "milestones_url"=>"https://api.github.com/repos/rails/rails/milestones{/number}", "mirror_url"=>"", "name"=>"rails", "node_id"=>"MDEwOlJlcG9zaXRvcnk4NTE0", "notifications_url"=>"https://api.github.com/repos/rails/rails/notifications{?since,all,participating}", "open_issues"=>"682", "open_issues_count"=>"682", "owner"=>{"avatar_url"=>"https://avatars1.githubusercontent.com/u/4223?v=4", "events_url"=>"https://api.github.com/users/rails/events{/privacy}", "followers_url"=>"https://api.github.com/users/rails/followers", "following_url"=>"https://api.github.com/users/rails/following{/other_user}", "gists_url"=>"https://api.github.com/users/rails/gists{/gist_id}", "gravatar_id"=>"", "html_url"=>"https://github.com/rails", "id"=>"4223", "login"=>"rails", "node_id"=>"MDEyOk9yZ2FuaXphdGlvbjQyMjM=", "organizations_url"=>"https://api.github.com/users/rails/orgs", "received_events_url"=>"https://api.github.com/users/rails/received_events", "repos_url"=>"https://api.github.com/users/rails/repos", "site_admin"=>"false", "starred_url"=>"https://api.github.com/users/rails/starred{/owner}{/repo}", "subscriptions_url"=>"https://api.github.com/users/rails/subscriptions", "type"=>"Organization", "url"=>"https://api.github.com/users/rails"}, "private"=>"false", "pulls_url"=>"https://api.github.com/repos/rails/rails/pulls{/number}", "pushed_at"=>"2020-08-20T00:43:54Z", "releases_url"=>"https://api.github.com/repos/rails/rails/releases{/id}", "score"=>"1.0", "size"=>"227591", "ssh_url"=>"git@github.com:rails/rails.git", "stargazers_count"=>"46227", "stargazers_url"=>"https://api.github.com/repos/rails/rails/stargazers", "statuses_url"=>"https://api.github.com/repos/rails/rails/statuses/{sha}", "subscribers_url"=>"https://api.github.com/repos/rails/rails/subscribers", "subscription_url"=>"https://api.github.com/repos/rails/rails/subscription", "svn_url"=>"https://github.com/rails/rails", "tags_url"=>"https://api.github.com/repos/rails/rails/tags", "teams_url"=>"https://api.github.com/repos/rails/rails/teams", "trees_url"=>"https://api.github.com/repos/rails/rails/git/trees{/sha}", "updated_at"=>"2020-08-20T00:42:17Z", "url"=>"https://api.github.com/repos/rails/rails", "watchers"=>"46227", "watchers_count"=>"46227"}}
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/repositories_controller.rb:32:in `create'
+  [1m[36mRepository Create (6.5ms)[0m  [1m[32mINSERT INTO "repositories" ("html_url", "description", "stargazers_count", "language", "watchers_count", "forks", "created_at", "updated_at", "full_name") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["html_url", "https://github.com/rails/rails"], ["description", "Ruby on Rails"], ["stargazers_count", 46227], ["language", "Ruby"], ["watchers_count", 0], ["forks", 18660], ["created_at", "2020-08-20 02:12:59.408450"], ["updated_at", "2020-08-20 02:12:59.408450"], ["full_name", "rails/rails"]]
+  ↳ app/controllers/repositories_controller.rb:32:in `create'
+  [1m[35m (36.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/repositories_controller.rb:32:in `create'
+Redirected to http://localhost:3000/repositories
+Completed 302 Found in 87ms (ActiveRecord: 43.0ms | Allocations: 3168)
+
+
+Started GET "/repositories" for ::1 at 2020-08-19 23:12:59 -0300
+Processing by RepositoriesController#index as HTML
+  Rendering repositories/index.html.erb within layouts/application
+  [1m[36mRepository Load (10.0ms)[0m  [1m[34mSELECT "repositories".* FROM "repositories"[0m
+  ↳ app/views/repositories/index.html.erb:12
+  Rendered repositories/index.html.erb within layouts/application (Duration: 80.3ms | Allocations: 881)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_navbar.html.erb (Duration: 1.1ms | Allocations: 122)
+Completed 200 OK in 229ms (Views: 216.9ms | ActiveRecord: 10.0ms | Allocations: 9039)
+
+
+Started GET "/users/sign_in" for ::1 at 2020-08-19 23:13:10 -0300
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 10ms (ActiveRecord: 0.4ms | Allocations: 1850)
+
+
+Started GET "/" for ::1 at 2020-08-19 23:13:10 -0300
+Processing by RepositoriesController#search as HTML
+  Rendering repositories/search.html.erb within layouts/application
+  Rendered repositories/search.html.erb within layouts/application (Duration: 0.4ms | Allocations: 136)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_navbar.html.erb (Duration: 6.3ms | Allocations: 131)
+Completed 200 OK in 67ms (Views: 64.7ms | ActiveRecord: 0.0ms | Allocations: 4436)
+
+
+Started GET "/users/sign_in" for ::1 at 2020-08-19 23:13:10 -0300
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 18ms (ActiveRecord: 1.6ms | Allocations: 1851)
+
+
+Started GET "/" for ::1 at 2020-08-19 23:13:10 -0300
+Started GET "/users/sign_in" for ::1 at 2020-08-19 23:13:10 -0300
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 6ms (ActiveRecord: 0.4ms | Allocations: 1874)
+
+
+Processing by RepositoriesController#search as HTML
+  Rendering repositories/search.html.erb within layouts/application
+  Rendered repositories/search.html.erb within layouts/application (Duration: 0.7ms | Allocations: 136)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_navbar.html.erb (Duration: 0.8ms | Allocations: 131)
+Completed 200 OK in 40ms (Views: 33.8ms | ActiveRecord: 0.0ms | Allocations: 4436)
+
+
+Started GET "/users/sign_in" for ::1 at 2020-08-19 23:13:10 -0300
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 12ms (ActiveRecord: 0.6ms | Allocations: 1843)
+
+
+Started GET "/" for ::1 at 2020-08-19 23:13:10 -0300
+Processing by RepositoriesController#search as HTML
+  Rendering repositories/search.html.erb within layouts/application
+  Rendered repositories/search.html.erb within layouts/application (Duration: 0.5ms | Allocations: 136)
+Started GET "/" for ::1 at 2020-08-19 23:13:10 -0300
+Processing by RepositoriesController#search as HTML
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_navbar.html.erb (Duration: 0.8ms | Allocations: 131)
+Completed 200 OK in 48ms (Views: 42.9ms | ActiveRecord: 0.0ms | Allocations: 5900)
+
+
+Started GET "/users/sign_in" for ::1 at 2020-08-19 23:13:10 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering repositories/search.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+  Rendered repositories/search.html.erb within layouts/application (Duration: 6.3ms | Allocations: 697)
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 117ms (ActiveRecord: 0.4ms | Allocations: 5253)
+
+
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_navbar.html.erb (Duration: 0.9ms | Allocations: 131)
+Completed 200 OK in 243ms (Views: 239.7ms | ActiveRecord: 0.0ms | Allocations: 10732)
+
+
+Started GET "/users/sign_in" for ::1 at 2020-08-19 23:13:11 -0300
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (24.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 34ms (ActiveRecord: 24.5ms | Allocations: 1853)
+
+
+Started GET "/" for ::1 at 2020-08-19 23:13:11 -0300
+Processing by RepositoriesController#search as HTML
+  Rendering repositories/search.html.erb within layouts/application
+  Rendered repositories/search.html.erb within layouts/application (Duration: 0.6ms | Allocations: 136)
+Started GET "/users/sign_in" for ::1 at 2020-08-19 23:13:11 -0300
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 18ms (ActiveRecord: 0.5ms | Allocations: 2043)
+
+
+Started GET "/" for ::1 at 2020-08-19 23:13:11 -0300
+Processing by RepositoriesController#search as HTML
+  Rendering repositories/search.html.erb within layouts/application
+  Rendered repositories/search.html.erb within layouts/application (Duration: 1.1ms | Allocations: 143)
+Started GET "/users/sign_in" for ::1 at 2020-08-19 23:13:11 -0300
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 10ms (ActiveRecord: 0.5ms | Allocations: 1870)
+
+
+Started GET "/users/sign_in" for ::1 at 2020-08-19 23:13:11 -0300
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_navbar.html.erb (Duration: 1.3ms | Allocations: 131)
+Completed 200 OK in 449ms (Views: 445.9ms | ActiveRecord: 0.0ms | Allocations: 11561)
+
+
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 55ms (ActiveRecord: 0.4ms | Allocations: 6475)
+
+
+Started GET "/" for ::1 at 2020-08-19 23:13:11 -0300
+Processing by RepositoriesController#search as HTML
+  Rendering repositories/search.html.erb within layouts/application
+  Rendered repositories/search.html.erb within layouts/application (Duration: 0.7ms | Allocations: 136)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_navbar.html.erb (Duration: 1.4ms | Allocations: 131)
+Completed 200 OK in 43ms (Views: 40.3ms | ActiveRecord: 0.0ms | Allocations: 4742)
+
+
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_navbar.html.erb (Duration: 1.2ms | Allocations: 131)
+Completed 200 OK in 763ms (Views: 760.7ms | ActiveRecord: 0.0ms | Allocations: 27236)
+
+
+Started GET "/" for ::1 at 2020-08-19 23:15:16 -0300
+Processing by RepositoriesController#search as HTML
+  Rendering repositories/search.html.erb within layouts/application
+  Rendered repositories/search.html.erb within layouts/application (Duration: 6.1ms | Allocations: 398)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:16
+  Rendered shared/_navbar.html.erb (Duration: 121.4ms | Allocations: 2099)
+Completed 500 Internal Server Error in 432ms (ActiveRecord: 0.5ms | Allocations: 7782)
+
+
+  
+ActionView::Template::Error (wrong number of arguments (given 0, expected 1+)):
+    15:       </li>
+    16:       <% if current_user %>
+    17:       <li class="nav-item">
+    18:         <%= link_to "Log out", destroy_session_path, class: "nav-link btn btn-md btn-outline-warning" %>
+    19:       </li>
+    20:       <% end %>
+    21:     </ul>
+  
+app/views/shared/_navbar.html.erb:18
+app/views/layouts/application.html.erb:15
+Started GET "/" for ::1 at 2020-08-19 23:16:11 -0300
+Processing by RepositoriesController#search as HTML
+  Rendering repositories/search.html.erb within layouts/application
+  Rendered repositories/search.html.erb within layouts/application (Duration: 170.2ms | Allocations: 393)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:16
+  Rendered shared/_navbar.html.erb (Duration: 128.7ms | Allocations: 2123)
+Completed 500 Internal Server Error in 712ms (ActiveRecord: 0.5ms | Allocations: 7799)
+
+
+  
+ActionView::Template::Error (wrong number of arguments (given 0, expected 1+)):
+    15:       </li>
+    16:       <% if current_user %>
+    17:       <li class="nav-item">
+    18:         <%= link_to "Log out", destroy_session_path, class: "nav-link btn btn-md btn-outline-warning" %>
+    19:       </li>
+    20:         <%= link_to "Log in", user_session_path, class: "nav-link btn btn-md btn-outline-primary" %>
+    21:       <% else %>
+  
+app/views/shared/_navbar.html.erb:18
+app/views/layouts/application.html.erb:15
+Started GET "/" for ::1 at 2020-08-19 23:17:10 -0300
+Processing by RepositoriesController#search as HTML
+  Rendering repositories/search.html.erb within layouts/application
+  Rendered repositories/search.html.erb within layouts/application (Duration: 82.9ms | Allocations: 393)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (41.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:16
+  Rendered shared/_navbar.html.erb (Duration: 54.1ms | Allocations: 1329)
+Completed 200 OK in 744ms (Views: 698.6ms | ActiveRecord: 41.8ms | Allocations: 7031)
+
+
+Started GET "/" for ::1 at 2020-08-19 23:18:32 -0300
+Processing by RepositoriesController#search as HTML
+  Rendering repositories/search.html.erb within layouts/application
+  Rendered repositories/search.html.erb within layouts/application (Duration: 44.3ms | Allocations: 393)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (65.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:16
+  Rendered shared/_navbar.html.erb (Duration: 208.7ms | Allocations: 1310)
+Completed 200 OK in 566ms (Views: 489.7ms | ActiveRecord: 65.8ms | Allocations: 7026)
+
+
+Started GET "/users/sign_out" for ::1 at 2020-08-19 23:18:37 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/users/sign_out"):
+  
+actionpack (6.0.3.2) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.4) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.4) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.2) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.2.2) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.2) lib/rails/engine.rb:527:in `call'
+puma (4.3.5) lib/puma/configuration.rb:228:in `call'
+puma (4.3.5) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.5) lib/puma/server.rb:472:in `process_client'
+puma (4.3.5) lib/puma/server.rb:328:in `block in run'
+puma (4.3.5) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/users/sign_out" for ::1 at 2020-08-19 23:19:47 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/users/sign_out"):
+  
+actionpack (6.0.3.2) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.4) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.4) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.2) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.2.2) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.2) lib/rails/engine.rb:527:in `call'
+puma (4.3.5) lib/puma/configuration.rb:228:in `call'
+puma (4.3.5) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.5) lib/puma/server.rb:472:in `process_client'
+puma (4.3.5) lib/puma/server.rb:328:in `block in run'
+puma (4.3.5) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/" for ::1 at 2020-08-19 23:19:55 -0300
+Processing by RepositoriesController#search as HTML
+  Rendering repositories/search.html.erb within layouts/application
+  Rendered repositories/search.html.erb within layouts/application (Duration: 4.5ms | Allocations: 393)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:16
+  Rendered shared/_navbar.html.erb (Duration: 33.1ms | Allocations: 1320)
+Completed 200 OK in 117ms (Views: 107.8ms | ActiveRecord: 0.6ms | Allocations: 7014)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2020-08-19 23:20:10 -0300
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"udkWJOTZ/NgoE6zfBVwRhLvodcRiKy9vj5d0Ua3KQH6xH8GEMLH64jf/OFBxpglM4awa14FAZKdGamwrU/25JQ=="}
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 92ms (ActiveRecord: 1.8ms | Allocations: 4846)
+
+
+Started GET "/" for ::1 at 2020-08-19 23:20:10 -0300
+Processing by RepositoriesController#search as HTML
+  Rendering repositories/search.html.erb within layouts/application
+  Rendered repositories/search.html.erb within layouts/application (Duration: 23.2ms | Allocations: 136)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_navbar.html.erb (Duration: 17.3ms | Allocations: 227)
+Completed 200 OK in 175ms (Views: 173.2ms | ActiveRecord: 0.0ms | Allocations: 4497)
+
+
+Started GET "/users/sign_in" for ::1 at 2020-08-19 23:20:16 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 6.3ms | Allocations: 619)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 184.3ms | Allocations: 15657)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_navbar.html.erb (Duration: 0.8ms | Allocations: 183)
+Completed 200 OK in 239ms (Views: 229.3ms | ActiveRecord: 0.0ms | Allocations: 21306)
+
+
+Started GET "/users/sign_in" for ::1 at 2020-08-19 23:20:20 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.6ms | Allocations: 134)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 91.6ms | Allocations: 7891)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_navbar.html.erb (Duration: 1.4ms | Allocations: 176)
+Completed 200 OK in 131ms (Views: 122.0ms | ActiveRecord: 0.0ms | Allocations: 12356)
+
+
+Started GET "/" for ::1 at 2020-08-19 23:20:23 -0300
+Processing by RepositoriesController#search as HTML
+  Rendering repositories/search.html.erb within layouts/application
+  Rendered repositories/search.html.erb within layouts/application (Duration: 0.7ms | Allocations: 137)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_navbar.html.erb (Duration: 5.7ms | Allocations: 219)
+Completed 200 OK in 109ms (Views: 102.3ms | ActiveRecord: 0.0ms | Allocations: 4485)
+
+
+Started GET "/users/sign_in" for ::1 at 2020-08-19 23:20:26 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.7ms | Allocations: 134)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 63.9ms | Allocations: 7869)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_navbar.html.erb (Duration: 9.5ms | Allocations: 176)
+Completed 200 OK in 145ms (Views: 142.2ms | ActiveRecord: 0.0ms | Allocations: 12327)
+
+
+Started GET "/" for ::1 at 2020-08-19 23:20:28 -0300
+Processing by RepositoriesController#search as HTML
+  Rendering repositories/search.html.erb within layouts/application
+  Rendered repositories/search.html.erb within layouts/application (Duration: 0.7ms | Allocations: 136)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_navbar.html.erb (Duration: 1.1ms | Allocations: 212)
+Completed 200 OK in 30ms (Views: 26.4ms | ActiveRecord: 0.0ms | Allocations: 4487)
+
+
+Started GET "/users/sign_in" for ::1 at 2020-08-19 23:20:30 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.9ms | Allocations: 134)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 133.2ms | Allocations: 7869)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_navbar.html.erb (Duration: 1.6ms | Allocations: 176)
+Completed 200 OK in 276ms (Views: 272.6ms | ActiveRecord: 0.0ms | Allocations: 12320)
+
+
+Started GET "/" for ::1 at 2020-08-19 23:20:33 -0300
+Processing by RepositoriesController#search as HTML
+  Rendering repositories/search.html.erb within layouts/application
+  Rendered repositories/search.html.erb within layouts/application (Duration: 0.4ms | Allocations: 136)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_navbar.html.erb (Duration: 1.7ms | Allocations: 212)
+Completed 200 OK in 105ms (Views: 94.1ms | ActiveRecord: 0.0ms | Allocations: 4497)
+
+
