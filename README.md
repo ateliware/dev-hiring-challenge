@@ -7,7 +7,14 @@ site on heroku : https://gitreposearcher.herokuapp.com/
 Feito com active support e mini-test do rails
 linha de codigo para rodar o teste : **rake test test/models/repository_test.rb**
 
-<img src="Test_spec.png" >
+### ROUTES
+
+| **Url**        | **Action**           | **Controller**  |
+| ------------- |:-------------:| -----:|
+| ```/?query=ruby&commit=Search```     |  Busca repositorios no github com parametro ```ruby``` passado na query    | ```repositories#index``` |
+| col 2 is      | centered      |   $12 |
+| zebra stripes | are neat      |    $1 |
+
 
 # Desafio técnico para desenvolvedores
 
