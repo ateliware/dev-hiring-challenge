@@ -1,38 +1,43 @@
-### GITHUB SEARCH
-
-site on heroku : https://gitreposearcher.herokuapp.com/
-
-### TESTE 
-
-Feito com active support e mini-test do rails
-linha de codigo para rodar o teste : **rake test test/models/repository_test.rb**
-
-### ROUTES
-
-| **Url**        | **Action**           | **Controller**  |
-| ------------- |:-------------:| -----:|
-| ```/?query=ruby&commit=Search```     |  Busca repositorios no github com parametro ```ruby``` passado na query    | ```repositories#index``` |
-| col 2 is      | centered      |   $12 |
-| zebra stripes | are neat      |    $1 |
-
-
-# Desafio técnico para desenvolvedores
-
-Construa uma nova aplicação, utilizando o framework de sua preferência (Rails, ASP.NET, Phoenix, etc), a qual deverá conectar na API do GitHub e disponibilizar as seguintes funcionalidades:
-
-- Botão para buscar e armazenar os repositórios destaques de 5 linguagens à sua escolha;
-- Listar os repositórios encontrados;
-- Visualizar os detalhes de cada repositório.
-
-Alguns requisitos:
-
-- Deve ser uma aplicação totalmente nova;
-- A solução deve estar em um repositório público do GitHub;
-- A aplicação deve armazenar as informações encontradas;
-- Utilizar Postgres, MySQL ou SQL Server;
-- O deploy deve ser realizado, preferencialmente, no Heroku ou no Azure;
-- A aplicação precisa ter testes automatizados.
-
-Quando terminar, faça um Pull Request neste repo e avise-nos por email.
-
-**IMPORTANTE:** se você não conseguir finalizar o teste, por favor nos diga o motivo e descreva quais foram as suas dificuldades. Claro que você também pode sugerir uma outra abordagem para avaliarmos seus skills técnicos, mas é com você para vender seu peixe, mostrar-nos do que é capaz.
+# Github Repo Searcher v1.0
+Github Repo Searcher é uma aplicação que recebe como parâmetro linguagens ou repositórios que o usuário desejar procurar na base do Github.
+Os resultados são mostrados ao usuário e ele pode se logar e ter a opção de salvar como Favorito  algum repositório de sua escolha.
+## Environment
+Ruby 2.6.2
+Rails 6..0.3
+Base de Dados PostgreSQL
+Deployed on Heroku®
+### Instalando as Gems:
+```
+bundle install
+```
+### Criando a Base de Dados
+```
+rails db:create
+```
+```
+rails db:migrate
+```
+## Rodando o Projeto
+```
+rails server
+```
+## Testes
+Utilizei Minitest e ActiveSupport como base para TDD desta aplicação.
+### Criando Base de Testes
+```
+rails db:create RAILS_ENV=test
+```
+```
+rails db:migrate RAILS_ENV=test
+```
+### Rodando Testes
+```
+rake test test/models/repository_test.rb
+```
+## Documentação
+| URL | Rota | Descrição |
+| ----------- | ---- | --------- |
+| /?query=rails&commit=Search | repositories#index | URL de pesquisa que recebe como parâmetro a pesquisa pelo repositório |
+| /user/sign_in | users#sign_in | Página p/ usuários se logarem no aplicativo |
+| /repositories | repositories#index | Contém todos os favoritos salvos pelo usuário |
+| /repositories/{:id} | repositories#show | Mostra mais detalhes de cada repositório salvo pelo usuário, como suas métricas e um link de redirecionamento |
