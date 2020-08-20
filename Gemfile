@@ -42,7 +42,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 4.0.1'
   gem 'colorize', '~> 0.8.1'
   gem 'faker'
-  gem 'sqlite3'
+  gem 'sqlite3', '~> 1.4'
 end
 
 group :development do
