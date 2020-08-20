@@ -16,7 +16,8 @@
       <li class="list-group-item"><%= @result["description"] %></li>
     </ul>
     <div class="card-body">
-      <a href="<%= @result["html_url"] %>" class="card-link">View on GitHub®</a>
+      <%= link_to "Back", repositories_path, class: "card-link" %>
+      <a href="<%= @result["html_url"] %>" class="card-link">View on GitHub</a>
     </div>
   </div>
 </div>

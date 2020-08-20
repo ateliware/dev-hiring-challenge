@@ -12667,3 +12667,595 @@ Processing by RepositoriesController#search as HTML
 Completed 200 OK in 105ms (Views: 94.1ms | ActiveRecord: 0.0ms | Allocations: 4497)
 
 
+Started GET "/" for ::1 at 2020-08-19 23:24:02 -0300
+Processing by RepositoriesController#search as HTML
+  Rendering repositories/search.html.erb within layouts/application
+  Rendered repositories/search.html.erb within layouts/application (Duration: 1.0ms | Allocations: 136)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_navbar.html.erb (Duration: 2.1ms | Allocations: 212)
+Completed 200 OK in 34ms (Views: 32.1ms | ActiveRecord: 0.0ms | Allocations: 4479)
+
+
+Started GET "/" for ::1 at 2020-08-19 23:32:19 -0300
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by RepositoriesController#search as HTML
+  Rendering repositories/search.html.erb within layouts/application
+  Rendered repositories/search.html.erb within layouts/application (Duration: 5.0ms | Allocations: 396)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_navbar.html.erb (Duration: 22.5ms | Allocations: 488)
+Completed 200 OK in 252ms (Views: 242.4ms | ActiveRecord: 0.0ms | Allocations: 6194)
+
+
+Started GET "/users/sign_in" for ::1 at 2020-08-19 23:32:23 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 9.7ms | Allocations: 523)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 228.1ms | Allocations: 8634)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_navbar.html.erb (Duration: 1.1ms | Allocations: 183)
+Completed 200 OK in 8005ms (Views: 8001.7ms | ActiveRecord: 0.0ms | Allocations: 14157)
+
+
+Started GET "/users/sign_up" for ::1 at 2020-08-19 23:32:37 -0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.1ms | Allocations: 125)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 96.0ms | Allocations: 8940)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_navbar.html.erb (Duration: 1.7ms | Allocations: 183)
+Completed 200 OK in 155ms (Views: 151.8ms | ActiveRecord: 0.0ms | Allocations: 13991)
+
+
+Started GET "/users/sign_in" for ::1 at 2020-08-19 23:32:39 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.8ms | Allocations: 134)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 133.6ms | Allocations: 7879)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_navbar.html.erb (Duration: 2.0ms | Allocations: 183)
+Completed 200 OK in 172ms (Views: 166.3ms | ActiveRecord: 0.0ms | Allocations: 12333)
+
+
+Started POST "/users/sign_in" for ::1 at 2020-08-19 23:32:44 -0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"hN40+DvaVg5m05Vv97H//9g4DdPPkHS7aOD8ASu+v3z4/lCwBilccb/OXKb7dt8WrYgPrqsuOTchB6X4QiU1gA==", "user"=>{"email"=>"teste@teste.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "teste@teste.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 1808ms (ActiveRecord: 1.0ms | Allocations: 4648)
+
+
+Started GET "/" for ::1 at 2020-08-19 23:32:46 -0300
+Processing by RepositoriesController#search as HTML
+  Rendering repositories/search.html.erb within layouts/application
+  Rendered repositories/search.html.erb within layouts/application (Duration: 0.9ms | Allocations: 137)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:16
+  Rendered shared/_navbar.html.erb (Duration: 1667.1ms | Allocations: 1081)
+Completed 200 OK in 1736ms (Views: 1732.0ms | ActiveRecord: 0.7ms | Allocations: 5373)
+
+
+Started GET "/?query=python&commit=Search" for ::1 at 2020-08-19 23:32:54 -0300
+Processing by RepositoriesController#search as HTML
+  Parameters: {"query"=>"python", "commit"=>"Search"}
+  Rendering repositories/search.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/repositories/_results.html.erb:19
+  Rendered repositories/_results.html.erb (Duration: 159.0ms | Allocations: 30657)
+  Rendered repositories/search.html.erb within layouts/application (Duration: 181.5ms | Allocations: 36235)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_navbar.html.erb (Duration: 1.6ms | Allocations: 138)
+Completed 200 OK in 1607ms (Views: 259.9ms | ActiveRecord: 0.4ms | Allocations: 41847)
+
+
+Started POST "/repositories?repo%5Barchive_url%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Fdonnemartin%2Fsystem-design-primer%2F%7Barchive_format%7D%7B%2Fref%7D&repo%5Barchived%5D=false&repo%5Bassignees_url%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Fdonnemartin%2Fsystem-design-primer%2Fassignees%7B%2Fuser%7D&repo%5Bblobs_url%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Fdonnemartin%2Fsystem-design-primer%2Fgit%2Fblobs%7B%2Fsha%7D&repo%5Bbranches_url%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Fdonnemartin%2Fsystem-design-primer%2Fbranches%7B%2Fbranch%7D&repo%5Bclone_url%5D=https%3A%2F%2Fgithub.com%2Fdonnemartin%2Fsystem-design-primer.git&repo%5Bcollaborators_url%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Fdonnemartin%2Fsystem-design-primer%2Fcollaborators%7B%2Fcollaborator%7D&repo%5Bcomments_url%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Fdonnemartin%2Fsystem-design-primer%2Fcomments%7B%2Fnumber%7D&repo%5Bcommits_url%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Fdonnemartin%2Fsystem-design-primer%2Fcommits%7B%2Fsha%7D&repo%5Bcompare_url%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Fdonnemartin%2Fsystem-design-primer%2Fcompare%2F%7Bbase%7D...%7Bhead%7D&repo%5Bcontents_url%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Fdonnemartin%2Fsystem-design-primer%2Fcontents%2F%7B%2Bpath%7D&repo%5Bcontributors_url%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Fdonnemartin%2Fsystem-design-primer%2Fcontributors&repo%5Bcreated_at%5D=2017-02-26T16%3A15%3A28Z&repo%5Bdefault_branch%5D=master&repo%5Bdeployments_url%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Fdonnemartin%2Fsystem-design-primer%2Fdeployments&repo%5Bdescription%5D=Learn+how+to+design+large-scale+systems.+Prep+for+the+system+design+interview.++Includes+Anki+flashcards.&repo%5Bdisabled%5D=false&repo%5Bdownloads_url%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Fdonnemartin%2Fsystem-design-primer%2Fdownloads&repo%5Bevents_url%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Fdonnemartin%2Fsystem-design-primer%2Fevents&repo%5Bfork%5D=false&repo%5Bforks%5D=18701&repo%5Bforks_count%5D=18701&repo%5Bforks_url%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Fdonnemartin%2Fsystem-design-primer%2Fforks&repo%5Bfull_name%5D=donnemartin%2Fsystem-design-primer&repo%5Bgit_commits_url%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Fdonnemartin%2Fsystem-design-primer%2Fgit%2Fcommits%7B%2Fsha%7D&repo%5Bgit_refs_url%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Fdonnemartin%2Fsystem-design-primer%2Fgit%2Frefs%7B%2Fsha%7D&repo%5Bgit_tags_url%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Fdonnemartin%2Fsystem-design-primer%2Fgit%2Ftags%7B%2Fsha%7D&repo%5Bgit_url%5D=git%3A%2F%2Fgithub.com%2Fdonnemartin%2Fsystem-design-primer.git&repo%5Bhas_downloads%5D=true&repo%5Bhas_issues%5D=true&repo%5Bhas_pages%5D=false&repo%5Bhas_projects%5D=true&repo%5Bhas_wiki%5D=true&repo%5Bhomepage%5D=&repo%5Bhooks_url%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Fdonnemartin%2Fsystem-design-primer%2Fhooks&repo%5Bhtml_url%5D=https%3A%2F%2Fgithub.com%2Fdonnemartin%2Fsystem-design-primer&repo%5Bid%5D=83222441&repo%5Bissue_comment_url%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Fdonnemartin%2Fsystem-design-primer%2Fissues%2Fcomments%7B%2Fnumber%7D&repo%5Bissue_events_url%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Fdonnemartin%2Fsystem-design-primer%2Fissues%2Fevents%7B%2Fnumber%7D&repo%5Bissues_url%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Fdonnemartin%2Fsystem-design-primer%2Fissues%7B%2Fnumber%7D&repo%5Bkeys_url%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Fdonnemartin%2Fsystem-design-primer%2Fkeys%7B%2Fkey_id%7D&repo%5Blabels_url%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Fdonnemartin%2Fsystem-design-primer%2Flabels%7B%2Fname%7D&repo%5Blanguage%5D=Python&repo%5Blanguages_url%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Fdonnemartin%2Fsystem-design-primer%2Flanguages&repo%5Blicense%5D%5Bkey%5D=other&repo%5Blicense%5D%5Bname%5D=Other&repo%5Blicense%5D%5Bnode_id%5D=MDc6TGljZW5zZTA%3D&repo%5Blicense%5D%5Bspdx_id%5D=NOASSERTION&repo%5Blicense%5D%5Burl%5D=&repo%5Bmerges_url%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Fdonnemartin%2Fsystem-design-primer%2Fmerges&repo%5Bmilestones_url%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Fdonnemartin%2Fsystem-design-primer%2Fmilestones%7B%2Fnumber%7D&repo%5Bmirror_url%5D=&repo%5Bname%5D=system-design-primer&repo%5Bnode_id%5D=MDEwOlJlcG9zaXRvcnk4MzIyMjQ0MQ%3D%3D&repo%5Bnotifications_url%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Fdonnemartin%2Fsystem-design-primer%2Fnotifications%7B%3Fsince%2Call%2Cparticipating%7D&repo%5Bopen_issues%5D=140&repo%5Bopen_issues_count%5D=140&repo%5Bowner%5D%5Bavatar_url%5D=https%3A%2F%2Favatars2.githubusercontent.com%2Fu%2F5458997%3Fv%3D4&repo%5Bowner%5D%5Bevents_url%5D=https%3A%2F%2Fapi.github.com%2Fusers%2Fdonnemartin%2Fevents%7B%2Fprivacy%7D&repo%5Bowner%5D%5Bfollowers_url%5D=https%3A%2F%2Fapi.github.com%2Fusers%2Fdonnemartin%2Ffollowers&repo%5Bowner%5D%5Bfollowing_url%5D=https%3A%2F%2Fapi.github.com%2Fusers%2Fdonnemartin%2Ffollowing%7B%2Fother_user%7D&repo%5Bowner%5D%5Bgists_url%5D=https%3A%2F%2Fapi.github.com%2Fusers%2Fdonnemartin%2Fgists%7B%2Fgist_id%7D&repo%5Bowner%5D%5Bgravatar_id%5D=&repo%5Bowner%5D%5Bhtml_url%5D=https%3A%2F%2Fgithub.com%2Fdonnemartin&repo%5Bowner%5D%5Bid%5D=5458997&repo%5Bowner%5D%5Blogin%5D=donnemartin&repo%5Bowner%5D%5Bnode_id%5D=MDQ6VXNlcjU0NTg5OTc%3D&repo%5Bowner%5D%5Borganizations_url%5D=https%3A%2F%2Fapi.github.com%2Fusers%2Fdonnemartin%2Forgs&repo%5Bowner%5D%5Breceived_events_url%5D=https%3A%2F%2Fapi.github.com%2Fusers%2Fdonnemartin%2Freceived_events&repo%5Bowner%5D%5Brepos_url%5D=https%3A%2F%2Fapi.github.com%2Fusers%2Fdonnemartin%2Frepos&repo%5Bowner%5D%5Bsite_admin%5D=false&repo%5Bowner%5D%5Bstarred_url%5D=https%3A%2F%2Fapi.github.com%2Fusers%2Fdonnemartin%2Fstarred%7B%2Fowner%7D%7B%2Frepo%7D&repo%5Bowner%5D%5Bsubscriptions_url%5D=https%3A%2F%2Fapi.github.com%2Fusers%2Fdonnemartin%2Fsubscriptions&repo%5Bowner%5D%5Btype%5D=User&repo%5Bowner%5D%5Burl%5D=https%3A%2F%2Fapi.github.com%2Fusers%2Fdonnemartin&repo%5Bprivate%5D=false&repo%5Bpulls_url%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Fdonnemartin%2Fsystem-design-primer%2Fpulls%7B%2Fnumber%7D&repo%5Bpushed_at%5D=2020-08-18T13%3A32%3A49Z&repo%5Breleases_url%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Fdonnemartin%2Fsystem-design-primer%2Freleases%7B%2Fid%7D&repo%5Bscore%5D=1.0&repo%5Bsize%5D=11160&repo%5Bssh_url%5D=git%40github.com%3Adonnemartin%2Fsystem-design-primer.git&repo%5Bstargazers_count%5D=104434&repo%5Bstargazers_url%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Fdonnemartin%2Fsystem-design-primer%2Fstargazers&repo%5Bstatuses_url%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Fdonnemartin%2Fsystem-design-primer%2Fstatuses%2F%7Bsha%7D&repo%5Bsubscribers_url%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Fdonnemartin%2Fsystem-design-primer%2Fsubscribers&repo%5Bsubscription_url%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Fdonnemartin%2Fsystem-design-primer%2Fsubscription&repo%5Bsvn_url%5D=https%3A%2F%2Fgithub.com%2Fdonnemartin%2Fsystem-design-primer&repo%5Btags_url%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Fdonnemartin%2Fsystem-design-primer%2Ftags&repo%5Bteams_url%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Fdonnemartin%2Fsystem-design-primer%2Fteams&repo%5Btrees_url%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Fdonnemartin%2Fsystem-design-primer%2Fgit%2Ftrees%7B%2Fsha%7D&repo%5Bupdated_at%5D=2020-08-20T02%3A17%3A41Z&repo%5Burl%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Fdonnemartin%2Fsystem-design-primer&repo%5Bwatchers%5D=104434&repo%5Bwatchers_count%5D=104434" for ::1 at 2020-08-19 23:33:00 -0300
+Processing by RepositoriesController#create as HTML
+  Parameters: {"authenticity_token"=>"Q35rftI+I/eK+bY8yrPVAIMeOpDFMYC67qU/5ApX2XF3npdfycQKkZyZkdFP+CD+FdOihP4U9Pn4Mqs14WPNUQ==", "repo"=>{"archive_url"=>"https://api.github.com/repos/donnemartin/system-design-primer/{archive_format}{/ref}", "archived"=>"false", "assignees_url"=>"https://api.github.com/repos/donnemartin/system-design-primer/assignees{/user}", "blobs_url"=>"https://api.github.com/repos/donnemartin/system-design-primer/git/blobs{/sha}", "branches_url"=>"https://api.github.com/repos/donnemartin/system-design-primer/branches{/branch}", "clone_url"=>"https://github.com/donnemartin/system-design-primer.git", "collaborators_url"=>"https://api.github.com/repos/donnemartin/system-design-primer/collaborators{/collaborator}", "comments_url"=>"https://api.github.com/repos/donnemartin/system-design-primer/comments{/number}", "commits_url"=>"https://api.github.com/repos/donnemartin/system-design-primer/commits{/sha}", "compare_url"=>"https://api.github.com/repos/donnemartin/system-design-primer/compare/{base}...{head}", "contents_url"=>"https://api.github.com/repos/donnemartin/system-design-primer/contents/{+path}", "contributors_url"=>"https://api.github.com/repos/donnemartin/system-design-primer/contributors", "created_at"=>"2017-02-26T16:15:28Z", "default_branch"=>"master", "deployments_url"=>"https://api.github.com/repos/donnemartin/system-design-primer/deployments", "description"=>"Learn how to design large-scale systems. Prep for the system design interview.  Includes Anki flashcards.", "disabled"=>"false", "downloads_url"=>"https://api.github.com/repos/donnemartin/system-design-primer/downloads", "events_url"=>"https://api.github.com/repos/donnemartin/system-design-primer/events", "fork"=>"false", "forks"=>"18701", "forks_count"=>"18701", "forks_url"=>"https://api.github.com/repos/donnemartin/system-design-primer/forks", "full_name"=>"donnemartin/system-design-primer", "git_commits_url"=>"https://api.github.com/repos/donnemartin/system-design-primer/git/commits{/sha}", "git_refs_url"=>"https://api.github.com/repos/donnemartin/system-design-primer/git/refs{/sha}", "git_tags_url"=>"https://api.github.com/repos/donnemartin/system-design-primer/git/tags{/sha}", "git_url"=>"git://github.com/donnemartin/system-design-primer.git", "has_downloads"=>"true", "has_issues"=>"true", "has_pages"=>"false", "has_projects"=>"true", "has_wiki"=>"true", "homepage"=>"", "hooks_url"=>"https://api.github.com/repos/donnemartin/system-design-primer/hooks", "html_url"=>"https://github.com/donnemartin/system-design-primer", "id"=>"83222441", "issue_comment_url"=>"https://api.github.com/repos/donnemartin/system-design-primer/issues/comments{/number}", "issue_events_url"=>"https://api.github.com/repos/donnemartin/system-design-primer/issues/events{/number}", "issues_url"=>"https://api.github.com/repos/donnemartin/system-design-primer/issues{/number}", "keys_url"=>"https://api.github.com/repos/donnemartin/system-design-primer/keys{/key_id}", "labels_url"=>"https://api.github.com/repos/donnemartin/system-design-primer/labels{/name}", "language"=>"Python", "languages_url"=>"https://api.github.com/repos/donnemartin/system-design-primer/languages", "license"=>{"key"=>"other", "name"=>"Other", "node_id"=>"MDc6TGljZW5zZTA=", "spdx_id"=>"NOASSERTION", "url"=>""}, "merges_url"=>"https://api.github.com/repos/donnemartin/system-design-primer/merges", "milestones_url"=>"https://api.github.com/repos/donnemartin/system-design-primer/milestones{/number}", "mirror_url"=>"", "name"=>"system-design-primer", "node_id"=>"MDEwOlJlcG9zaXRvcnk4MzIyMjQ0MQ==", "notifications_url"=>"https://api.github.com/repos/donnemartin/system-design-primer/notifications{?since,all,participating}", "open_issues"=>"140", "open_issues_count"=>"140", "owner"=>{"avatar_url"=>"https://avatars2.githubusercontent.com/u/5458997?v=4", "events_url"=>"https://api.github.com/users/donnemartin/events{/privacy}", "followers_url"=>"https://api.github.com/users/donnemartin/followers", "following_url"=>"https://api.github.com/users/donnemartin/following{/other_user}", "gists_url"=>"https://api.github.com/users/donnemartin/gists{/gist_id}", "gravatar_id"=>"", "html_url"=>"https://github.com/donnemartin", "id"=>"5458997", "login"=>"donnemartin", "node_id"=>"MDQ6VXNlcjU0NTg5OTc=", "organizations_url"=>"https://api.github.com/users/donnemartin/orgs", "received_events_url"=>"https://api.github.com/users/donnemartin/received_events", "repos_url"=>"https://api.github.com/users/donnemartin/repos", "site_admin"=>"false", "starred_url"=>"https://api.github.com/users/donnemartin/starred{/owner}{/repo}", "subscriptions_url"=>"https://api.github.com/users/donnemartin/subscriptions", "type"=>"User", "url"=>"https://api.github.com/users/donnemartin"}, "private"=>"false", "pulls_url"=>"https://api.github.com/repos/donnemartin/system-design-primer/pulls{/number}", "pushed_at"=>"2020-08-18T13:32:49Z", "releases_url"=>"https://api.github.com/repos/donnemartin/system-design-primer/releases{/id}", "score"=>"1.0", "size"=>"11160", "ssh_url"=>"git@github.com:donnemartin/system-design-primer.git", "stargazers_count"=>"104434", "stargazers_url"=>"https://api.github.com/repos/donnemartin/system-design-primer/stargazers", "statuses_url"=>"https://api.github.com/repos/donnemartin/system-design-primer/statuses/{sha}", "subscribers_url"=>"https://api.github.com/repos/donnemartin/system-design-primer/subscribers", "subscription_url"=>"https://api.github.com/repos/donnemartin/system-design-primer/subscription", "svn_url"=>"https://github.com/donnemartin/system-design-primer", "tags_url"=>"https://api.github.com/repos/donnemartin/system-design-primer/tags", "teams_url"=>"https://api.github.com/repos/donnemartin/system-design-primer/teams", "trees_url"=>"https://api.github.com/repos/donnemartin/system-design-primer/git/trees{/sha}", "updated_at"=>"2020-08-20T02:17:41Z", "url"=>"https://api.github.com/repos/donnemartin/system-design-primer", "watchers"=>"104434", "watchers_count"=>"104434"}}
+  [1m[35m (0.6ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/repositories_controller.rb:32:in `create'
+  [1m[36mRepository Create (3.2ms)[0m  [1m[32mINSERT INTO "repositories" ("html_url", "description", "stargazers_count", "language", "watchers_count", "forks", "created_at", "updated_at", "full_name") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["html_url", "https://github.com/donnemartin/system-design-primer"], ["description", "Learn how to design large-scale systems. Prep for the system design interview.  Includes Anki flashcards."], ["stargazers_count", 104434], ["language", "Python"], ["watchers_count", 0], ["forks", 18701], ["created_at", "2020-08-20 02:33:01.253972"], ["updated_at", "2020-08-20 02:33:01.253972"], ["full_name", "donnemartin/system-design-primer"]]
+  ↳ app/controllers/repositories_controller.rb:32:in `create'
+  [1m[35m (2.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/repositories_controller.rb:32:in `create'
+Redirected to http://localhost:3000/repositories
+Completed 302 Found in 379ms (ActiveRecord: 6.1ms | Allocations: 6976)
+
+
+Started GET "/repositories" for ::1 at 2020-08-19 23:33:01 -0300
+Processing by RepositoriesController#index as HTML
+  Rendering repositories/index.html.erb within layouts/application
+  [1m[36mRepository Load (0.9ms)[0m  [1m[34mSELECT "repositories".* FROM "repositories"[0m
+  ↳ app/views/repositories/index.html.erb:12
+  Rendered repositories/index.html.erb within layouts/application (Duration: 9.2ms | Allocations: 1278)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:16
+  Rendered shared/_navbar.html.erb (Duration: 12.7ms | Allocations: 1041)
+Completed 200 OK in 220ms (Views: 213.9ms | ActiveRecord: 2.1ms | Allocations: 6591)
+
+
+Started GET "/repositories/10" for ::1 at 2020-08-19 23:33:05 -0300
+Processing by RepositoriesController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mRepository Load (1.3ms)[0m  [1m[34mSELECT "repositories".* FROM "repositories" WHERE "repositories"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/repositories_controller.rb:9:in `show'
+  Rendering repositories/show.html.erb within layouts/application
+  Rendered repositories/show.html.erb within layouts/application (Duration: 976.0ms | Allocations: 105313)
+Completed 500 Internal Server Error in 989ms (ActiveRecord: 1.3ms | Allocations: 106518)
+
+
+  
+ActionView::Template::Error (undefined method `redirect_to' for #<#<Class:0x00007f8123390638>:0x00007f8123243848>):
+    17:     </ul>
+    18:     <div class="card-body">
+    19:       <a href="<%= @result["html_url"] %>" class="card-link">View on GitHub</a>
+    20:       <a href="<%= redirect_to(:back) %>" class="card-link"><i class="fa fa-arrow-alt-circle-left"></i> Back</a>
+    21:     </div>
+    22:   </div>
+    23: </div>
+  
+app/views/repositories/show.html.erb:20
+Started GET "/repositories/10" for ::1 at 2020-08-19 23:34:42 -0300
+Processing by RepositoriesController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mRepository Load (0.5ms)[0m  [1m[34mSELECT "repositories".* FROM "repositories" WHERE "repositories"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/repositories_controller.rb:9:in `show'
+  Rendering repositories/show.html.erb within layouts/application
+  Rendered repositories/show.html.erb within layouts/application (Duration: 10825.0ms | Allocations: 207327)
+Completed 500 Internal Server Error in 10857ms (ActiveRecord: 0.5ms | Allocations: 209204)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `index_path' for #<#<Class:0x00007f811aeea6e0>:0x00007f811aee8e08>
+Did you mean?  video_path):
+    17:     </ul>
+    18:     <div class="card-body">
+    19:       <a href="<%= @result["html_url"] %>" class="card-link">View on GitHub</a>
+    20:       <a href="<%= index_path %>" class="card-link"><i class="fa fa-arrow-alt-circle-left"></i> Back</a>
+    21:     </div>
+    22:   </div>
+    23: </div>
+  
+app/views/repositories/show.html.erb:20
+Started GET "/repositories/10" for ::1 at 2020-08-19 23:38:20 -0300
+Processing by RepositoriesController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mRepository Load (0.8ms)[0m  [1m[34mSELECT "repositories".* FROM "repositories" WHERE "repositories"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/repositories_controller.rb:9:in `show'
+  Rendering repositories/show.html.erb within layouts/application
+  Rendered repositories/show.html.erb within layouts/application (Duration: 15820.5ms | Allocations: 207333)
+Completed 500 Internal Server Error in 15850ms (ActiveRecord: 0.8ms | Allocations: 209210)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `index_path' for #<#<Class:0x00007f811afd78c8>:0x00007f811afd6018>
+Did you mean?  video_path):
+    17:     </ul>
+    18:     <div class="card-body">
+    19:       <a href="<%= @result["html_url"] %>" class="card-link">View on GitHub</a>
+    20:       <i class="fa fa-arrow-alt-circle-left"></i> Back</a><%= link_to index_path, class: "card-link" %>
+    21:     </div>
+    22:   </div>
+    23: </div>
+  
+app/views/repositories/show.html.erb:20
+Started GET "/repositories/10" for ::1 at 2020-08-19 23:41:10 -0300
+Processing by RepositoriesController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mRepository Load (7.1ms)[0m  [1m[34mSELECT "repositories".* FROM "repositories" WHERE "repositories"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/repositories_controller.rb:9:in `show'
+  Rendering repositories/show.html.erb within layouts/application
+  Rendered repositories/show.html.erb within layouts/application (Duration: 18.7ms | Allocations: 866)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:16
+  Rendered shared/_navbar.html.erb (Duration: 220.9ms | Allocations: 1313)
+Completed 200 OK in 766ms (Views: 739.0ms | ActiveRecord: 8.6ms | Allocations: 8055)
+
+
+Started GET "/repositories/10" for ::1 at 2020-08-19 23:41:30 -0300
+Processing by RepositoriesController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mRepository Load (0.6ms)[0m  [1m[34mSELECT "repositories".* FROM "repositories" WHERE "repositories"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/repositories_controller.rb:9:in `show'
+  Rendering repositories/show.html.erb within layouts/application
+  Rendered repositories/show.html.erb within layouts/application (Duration: 97.4ms | Allocations: 400)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (15.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:16
+  Rendered shared/_navbar.html.erb (Duration: 60.8ms | Allocations: 1312)
+Completed 200 OK in 481ms (Views: 449.2ms | ActiveRecord: 16.4ms | Allocations: 7596)
+
+
+Started GET "/repositories/10" for ::1 at 2020-08-19 23:41:31 -0300
+Processing by RepositoriesController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mRepository Load (0.6ms)[0m  [1m[34mSELECT "repositories".* FROM "repositories" WHERE "repositories"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/repositories_controller.rb:9:in `show'
+  Rendering repositories/show.html.erb within layouts/application
+  Rendered repositories/show.html.erb within layouts/application (Duration: 17.4ms | Allocations: 152)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:16
+  Rendered shared/_navbar.html.erb (Duration: 12.9ms | Allocations: 1036)
+Completed 200 OK in 253ms (Views: 210.5ms | ActiveRecord: 1.1ms | Allocations: 5891)
+
+
+Started GET "/repositories/10" for ::1 at 2020-08-19 23:41:56 -0300
+Processing by RepositoriesController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mRepository Load (0.5ms)[0m  [1m[34mSELECT "repositories".* FROM "repositories" WHERE "repositories"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/repositories_controller.rb:9:in `show'
+  Rendering repositories/show.html.erb within layouts/application
+  Rendered repositories/show.html.erb within layouts/application (Duration: 9.0ms | Allocations: 400)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (17.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:16
+  Rendered shared/_navbar.html.erb (Duration: 96.0ms | Allocations: 1312)
+Completed 200 OK in 485ms (Views: 451.4ms | ActiveRecord: 18.4ms | Allocations: 7580)
+
+
+Started GET "/repositories/10" for ::1 at 2020-08-19 23:42:01 -0300
+Processing by RepositoriesController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mRepository Load (0.6ms)[0m  [1m[34mSELECT "repositories".* FROM "repositories" WHERE "repositories"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/repositories_controller.rb:9:in `show'
+  Rendering repositories/show.html.erb within layouts/application
+  Rendered repositories/show.html.erb within layouts/application (Duration: 1.8ms | Allocations: 151)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:16
+  Rendered shared/_navbar.html.erb (Duration: 896.4ms | Allocations: 1040)
+Completed 200 OK in 957ms (Views: 938.2ms | ActiveRecord: 1.0ms | Allocations: 5879)
+
+
+Started GET "/repositories/10" for ::1 at 2020-08-19 23:42:48 -0300
+Processing by RepositoriesController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mRepository Load (0.9ms)[0m  [1m[34mSELECT "repositories".* FROM "repositories" WHERE "repositories"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/repositories_controller.rb:9:in `show'
+  Rendering repositories/show.html.erb within layouts/application
+  Rendered repositories/show.html.erb within layouts/application (Duration: 12.3ms | Allocations: 400)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:16
+  Rendered shared/_navbar.html.erb (Duration: 34.8ms | Allocations: 1312)
+Completed 200 OK in 363ms (Views: 349.1ms | ActiveRecord: 2.2ms | Allocations: 7574)
+
+
+Started GET "/repositories/10" for ::1 at 2020-08-19 23:43:10 -0300
+Processing by RepositoriesController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mRepository Load (0.6ms)[0m  [1m[34mSELECT "repositories".* FROM "repositories" WHERE "repositories"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/repositories_controller.rb:9:in `show'
+  Rendering repositories/show.html.erb within layouts/application
+  Rendered repositories/show.html.erb within layouts/application (Duration: 7.0ms | Allocations: 332)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:16
+  Rendered shared/_navbar.html.erb (Duration: 26.6ms | Allocations: 1312)
+Completed 200 OK in 1146ms (Views: 421.5ms | ActiveRecord: 1.1ms | Allocations: 7510)
+
+
+Started GET "/repositories/10" for ::1 at 2020-08-19 23:43:18 -0300
+Processing by RepositoriesController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mRepository Load (48.2ms)[0m  [1m[34mSELECT "repositories".* FROM "repositories" WHERE "repositories"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/repositories_controller.rb:9:in `show'
+  Rendering repositories/show.html.erb within layouts/application
+  Rendered repositories/show.html.erb within layouts/application (Duration: 19.8ms | Allocations: 327)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:16
+  Rendered shared/_navbar.html.erb (Duration: 97.6ms | Allocations: 1312)
+Completed 200 OK in 695ms (Views: 591.8ms | ActiveRecord: 49.2ms | Allocations: 7494)
+
+
+Started GET "/repositories/10" for ::1 at 2020-08-19 23:43:23 -0300
+Processing by RepositoriesController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mRepository Load (0.5ms)[0m  [1m[34mSELECT "repositories".* FROM "repositories" WHERE "repositories"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/repositories_controller.rb:9:in `show'
+  Rendering repositories/show.html.erb within layouts/application
+  Rendered repositories/show.html.erb within layouts/application (Duration: 86.8ms | Allocations: 327)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (120.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:16
+  Rendered shared/_navbar.html.erb (Duration: 134.8ms | Allocations: 1312)
+Completed 200 OK in 505ms (Views: 369.0ms | ActiveRecord: 120.7ms | Allocations: 7510)
+
+
+Started GET "/repositories/10" for ::1 at 2020-08-19 23:43:30 -0300
+Processing by RepositoriesController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mRepository Load (0.6ms)[0m  [1m[34mSELECT "repositories".* FROM "repositories" WHERE "repositories"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/repositories_controller.rb:9:in `show'
+  Rendering repositories/show.html.erb within layouts/application
+  Rendered repositories/show.html.erb within layouts/application (Duration: 7.3ms | Allocations: 326)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (7.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:16
+  Rendered shared/_navbar.html.erb (Duration: 215.6ms | Allocations: 1312)
+Completed 200 OK in 718ms (Views: 697.9ms | ActiveRecord: 7.9ms | Allocations: 7503)
+
+
+Started GET "/repositories/10" for ::1 at 2020-08-19 23:43:46 -0300
+Processing by RepositoriesController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mRepository Load (0.6ms)[0m  [1m[34mSELECT "repositories".* FROM "repositories" WHERE "repositories"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/repositories_controller.rb:9:in `show'
+  Rendering repositories/show.html.erb within layouts/application
+  Rendered repositories/show.html.erb within layouts/application (Duration: 4.6ms | Allocations: 327)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:16
+  Rendered shared/_navbar.html.erb (Duration: 151.8ms | Allocations: 1312)
+Completed 200 OK in 260ms (Views: 248.4ms | ActiveRecord: 1.2ms | Allocations: 7491)
+
+
+Started GET "/repositories" for ::1 at 2020-08-19 23:44:23 -0300
+Processing by RepositoriesController#index as HTML
+  Rendering repositories/index.html.erb within layouts/application
+  [1m[36mRepository Load (3.3ms)[0m  [1m[34mSELECT "repositories".* FROM "repositories"[0m
+  ↳ app/views/repositories/index.html.erb:12
+  Rendered repositories/index.html.erb within layouts/application (Duration: 39.3ms | Allocations: 1253)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:16
+  Rendered shared/_navbar.html.erb (Duration: 32.9ms | Allocations: 1039)
+Completed 200 OK in 130ms (Views: 122.0ms | ActiveRecord: 3.9ms | Allocations: 6575)
+
+
+Started GET "/" for ::1 at 2020-08-19 23:44:25 -0300
+Processing by RepositoriesController#search as HTML
+  Rendering repositories/search.html.erb within layouts/application
+Started GET "/repositories/9" for ::1 at 2020-08-19 23:45:01 -0300
+  Rendered repositories/search.html.erb within layouts/application (Duration: 2.1ms | Allocations: 528)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by RepositoriesController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mRepository Load (0.8ms)[0m  [1m[34mSELECT "repositories".* FROM "repositories" WHERE "repositories"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/repositories_controller.rb:9:in `show'
+  Rendering repositories/show.html.erb within layouts/application
+  Rendered repositories/show.html.erb within layouts/application (Duration: 0.7ms | Allocations: 80)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:16
+  Rendered shared/_navbar.html.erb (Duration: 6.8ms | Allocations: 1329)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 35741ms (Views: 35734.5ms | ActiveRecord: 0.4ms | Allocations: 12229)
+
+
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:16
+  Rendered shared/_navbar.html.erb (Duration: 17.0ms | Allocations: 1059)
+Completed 200 OK in 111ms (Views: 100.2ms | ActiveRecord: 1.7ms | Allocations: 10933)
+
+
+Started GET "/" for ::1 at 2020-08-19 23:45:24 -0300
+Processing by RepositoriesController#search as HTML
+  Rendering repositories/search.html.erb within layouts/application
+  Rendered repositories/search.html.erb within layouts/application (Duration: 15.7ms | Allocations: 136)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:16
+  Rendered shared/_navbar.html.erb (Duration: 19.1ms | Allocations: 1045)
+Completed 200 OK in 96ms (Views: 91.9ms | ActiveRecord: 0.7ms | Allocations: 5319)
+
+
+Started GET "/repositories" for ::1 at 2020-08-19 23:45:27 -0300
+Processing by RepositoriesController#index as HTML
+  Rendering repositories/index.html.erb within layouts/application
+  [1m[36mRepository Load (0.6ms)[0m  [1m[34mSELECT "repositories".* FROM "repositories"[0m
+  ↳ app/views/repositories/index.html.erb:12
+  Rendered repositories/index.html.erb within layouts/application (Duration: 6.0ms | Allocations: 981)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:16
+  Rendered shared/_navbar.html.erb (Duration: 5.7ms | Allocations: 1036)
+Completed 200 OK in 39ms (Views: 36.1ms | ActiveRecord: 1.0ms | Allocations: 6150)
+
+
+Started GET "/repositories/10" for ::1 at 2020-08-19 23:45:33 -0300
+Processing by RepositoriesController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mRepository Load (0.7ms)[0m  [1m[34mSELECT "repositories".* FROM "repositories" WHERE "repositories"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/repositories_controller.rb:9:in `show'
+  Rendering repositories/show.html.erb within layouts/application
+  Rendered repositories/show.html.erb within layouts/application (Duration: 0.7ms | Allocations: 78)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:16
+  Rendered shared/_navbar.html.erb (Duration: 18.4ms | Allocations: 1036)
+Completed 200 OK in 57ms (Views: 42.7ms | ActiveRecord: 1.8ms | Allocations: 5814)
+
+
+Started DELETE "/repositories/9" for ::1 at 2020-08-19 23:45:37 -0300
+Processing by RepositoriesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"WVphm91eQAphDhy2vnHatH8AUS7yhReT2Z39w3gXPA5tup26xqRpbHduO1s7Oi9K6c3JOsmgY9DPCmkSkyMoLg==", "id"=>"9"}
+  [1m[36mRepository Load (0.6ms)[0m  [1m[34mSELECT "repositories".* FROM "repositories" WHERE "repositories"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/repositories_controller.rb:40:in `destroy'
+  [1m[35m (0.5ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/repositories_controller.rb:41:in `destroy'
+  [1m[36mRepository Destroy (1.3ms)[0m  [1m[31mDELETE FROM "repositories" WHERE "repositories"."id" = ?[0m  [["id", 9]]
+  ↳ app/controllers/repositories_controller.rb:41:in `destroy'
+  [1m[35m (2.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/repositories_controller.rb:41:in `destroy'
+Redirected to http://localhost:3000/repositories
+Completed 302 Found in 22ms (ActiveRecord: 4.6ms | Allocations: 2825)
+
+
+Started GET "/repositories" for ::1 at 2020-08-19 23:45:39 -0300
+Processing by RepositoriesController#index as HTML
+  Rendering repositories/index.html.erb within layouts/application
+  [1m[36mRepository Load (0.5ms)[0m  [1m[34mSELECT "repositories".* FROM "repositories"[0m
+  ↳ app/views/repositories/index.html.erb:12
+  Rendered repositories/index.html.erb within layouts/application (Duration: 6.2ms | Allocations: 857)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:16
+  Rendered shared/_navbar.html.erb (Duration: 10.3ms | Allocations: 1036)
+Completed 200 OK in 106ms (Views: 102.4ms | ActiveRecord: 1.0ms | Allocations: 6046)
+
+
+Started DELETE "/repositories/7" for ::1 at 2020-08-19 23:45:42 -0300
+Processing by RepositoriesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"eVUqpYFGICUtlgNvevt29Ed6ju9I1GmcFtKqqo3+QOZNtdaEmrwJQzv2JIL/sIMK0bcW+3PxHd8ART57ZspUxg==", "id"=>"7"}
+  [1m[36mRepository Load (0.5ms)[0m  [1m[34mSELECT "repositories".* FROM "repositories" WHERE "repositories"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/repositories_controller.rb:40:in `destroy'
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/repositories_controller.rb:41:in `destroy'
+  [1m[36mRepository Destroy (1.8ms)[0m  [1m[31mDELETE FROM "repositories" WHERE "repositories"."id" = ?[0m  [["id", 7]]
+  ↳ app/controllers/repositories_controller.rb:41:in `destroy'
+  [1m[35m (16.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/repositories_controller.rb:41:in `destroy'
+Redirected to http://localhost:3000/repositories
+Completed 302 Found in 47ms (ActiveRecord: 19.0ms | Allocations: 2823)
+
+
+Started GET "/repositories" for ::1 at 2020-08-19 23:45:42 -0300
+Processing by RepositoriesController#index as HTML
+  Rendering repositories/index.html.erb within layouts/application
+  [1m[36mRepository Load (0.4ms)[0m  [1m[34mSELECT "repositories".* FROM "repositories"[0m
+  ↳ app/views/repositories/index.html.erb:12
+  Rendered repositories/index.html.erb within layouts/application (Duration: 4.7ms | Allocations: 759)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:16
+  Rendered shared/_navbar.html.erb (Duration: 7.3ms | Allocations: 1036)
+Completed 200 OK in 43ms (Views: 40.3ms | ActiveRecord: 1.0ms | Allocations: 5950)
+
+
+Started DELETE "/repositories/10" for ::1 at 2020-08-19 23:45:45 -0300
+Processing by RepositoriesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"6eyeoE1TDtAN+Wt5iZotc02kztm7tZL7ClRTUgEOEJndDGKBVqknthuZTJQM0diN22lWzYCQ5rgcw8eD6joEuQ==", "id"=>"10"}
+  [1m[36mRepository Load (1.2ms)[0m  [1m[34mSELECT "repositories".* FROM "repositories" WHERE "repositories"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/repositories_controller.rb:40:in `destroy'
+  [1m[35m (4.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/repositories_controller.rb:41:in `destroy'
+  [1m[36mRepository Destroy (1.4ms)[0m  [1m[31mDELETE FROM "repositories" WHERE "repositories"."id" = ?[0m  [["id", 10]]
+  ↳ app/controllers/repositories_controller.rb:41:in `destroy'
+  [1m[35m (10.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/repositories_controller.rb:41:in `destroy'
+Redirected to http://localhost:3000/repositories
+Completed 302 Found in 46ms (ActiveRecord: 17.1ms | Allocations: 2817)
+
+
+Started GET "/repositories" for ::1 at 2020-08-19 23:45:45 -0300
+Processing by RepositoriesController#index as HTML
+  Rendering repositories/index.html.erb within layouts/application
+  [1m[36mRepository Load (0.5ms)[0m  [1m[34mSELECT "repositories".* FROM "repositories"[0m
+  ↳ app/views/repositories/index.html.erb:12
+  Rendered repositories/index.html.erb within layouts/application (Duration: 9.4ms | Allocations: 658)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:16
+  Rendered shared/_navbar.html.erb (Duration: 40.9ms | Allocations: 1036)
+Completed 200 OK in 103ms (Views: 99.8ms | ActiveRecord: 0.9ms | Allocations: 5821)
+
+
+Started GET "/" for ::1 at 2020-08-19 23:45:47 -0300
+Processing by RepositoriesController#search as HTML
+  Rendering repositories/search.html.erb within layouts/application
+  Rendered repositories/search.html.erb within layouts/application (Duration: 0.4ms | Allocations: 136)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:16
+  Rendered shared/_navbar.html.erb (Duration: 7.3ms | Allocations: 1045)
+Completed 200 OK in 62ms (Views: 59.8ms | ActiveRecord: 1.2ms | Allocations: 5347)
+
+
+Started GET "/?query=ruby&commit=Search" for ::1 at 2020-08-19 23:45:52 -0300
+Processing by RepositoriesController#search as HTML
+  Parameters: {"query"=>"ruby", "commit"=>"Search"}
+  Rendering repositories/search.html.erb within layouts/application
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/repositories/_results.html.erb:19
+  Rendered repositories/_results.html.erb (Duration: 106.6ms | Allocations: 30590)
+  Rendered repositories/search.html.erb within layouts/application (Duration: 122.6ms | Allocations: 36163)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_navbar.html.erb (Duration: 1.3ms | Allocations: 138)
+Completed 200 OK in 4417ms (Views: 147.8ms | ActiveRecord: 1.1ms | Allocations: 41775)
+
+
+Started POST "/repositories?repo%5Barchive_url%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Ffastlane%2Ffastlane%2F%7Barchive_format%7D%7B%2Fref%7D&repo%5Barchived%5D=false&repo%5Bassignees_url%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Ffastlane%2Ffastlane%2Fassignees%7B%2Fuser%7D&repo%5Bblobs_url%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Ffastlane%2Ffastlane%2Fgit%2Fblobs%7B%2Fsha%7D&repo%5Bbranches_url%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Ffastlane%2Ffastlane%2Fbranches%7B%2Fbranch%7D&repo%5Bclone_url%5D=https%3A%2F%2Fgithub.com%2Ffastlane%2Ffastlane.git&repo%5Bcollaborators_url%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Ffastlane%2Ffastlane%2Fcollaborators%7B%2Fcollaborator%7D&repo%5Bcomments_url%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Ffastlane%2Ffastlane%2Fcomments%7B%2Fnumber%7D&repo%5Bcommits_url%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Ffastlane%2Ffastlane%2Fcommits%7B%2Fsha%7D&repo%5Bcompare_url%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Ffastlane%2Ffastlane%2Fcompare%2F%7Bbase%7D...%7Bhead%7D&repo%5Bcontents_url%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Ffastlane%2Ffastlane%2Fcontents%2F%7B%2Bpath%7D&repo%5Bcontributors_url%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Ffastlane%2Ffastlane%2Fcontributors&repo%5Bcreated_at%5D=2014-12-02T17%3A00%3A38Z&repo%5Bdefault_branch%5D=master&repo%5Bdeployments_url%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Ffastlane%2Ffastlane%2Fdeployments&repo%5Bdescription%5D=%F0%9F%9A%80+The+easiest+way+to+automate+building+and+releasing+your+iOS+and+Android+apps&repo%5Bdisabled%5D=false&repo%5Bdownloads_url%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Ffastlane%2Ffastlane%2Fdownloads&repo%5Bevents_url%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Ffastlane%2Ffastlane%2Fevents&repo%5Bfork%5D=false&repo%5Bforks%5D=4623&repo%5Bforks_count%5D=4623&repo%5Bforks_url%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Ffastlane%2Ffastlane%2Fforks&repo%5Bfull_name%5D=fastlane%2Ffastlane&repo%5Bgit_commits_url%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Ffastlane%2Ffastlane%2Fgit%2Fcommits%7B%2Fsha%7D&repo%5Bgit_refs_url%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Ffastlane%2Ffastlane%2Fgit%2Frefs%7B%2Fsha%7D&repo%5Bgit_tags_url%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Ffastlane%2Ffastlane%2Fgit%2Ftags%7B%2Fsha%7D&repo%5Bgit_url%5D=git%3A%2F%2Fgithub.com%2Ffastlane%2Ffastlane.git&repo%5Bhas_downloads%5D=true&repo%5Bhas_issues%5D=true&repo%5Bhas_pages%5D=false&repo%5Bhas_projects%5D=true&repo%5Bhas_wiki%5D=false&repo%5Bhomepage%5D=https%3A%2F%2Ffastlane.tools&repo%5Bhooks_url%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Ffastlane%2Ffastlane%2Fhooks&repo%5Bhtml_url%5D=https%3A%2F%2Fgithub.com%2Ffastlane%2Ffastlane&repo%5Bid%5D=27442967&repo%5Bissue_comment_url%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Ffastlane%2Ffastlane%2Fissues%2Fcomments%7B%2Fnumber%7D&repo%5Bissue_events_url%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Ffastlane%2Ffastlane%2Fissues%2Fevents%7B%2Fnumber%7D&repo%5Bissues_url%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Ffastlane%2Ffastlane%2Fissues%7B%2Fnumber%7D&repo%5Bkeys_url%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Ffastlane%2Ffastlane%2Fkeys%7B%2Fkey_id%7D&repo%5Blabels_url%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Ffastlane%2Ffastlane%2Flabels%7B%2Fname%7D&repo%5Blanguage%5D=Ruby&repo%5Blanguages_url%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Ffastlane%2Ffastlane%2Flanguages&repo%5Blicense%5D%5Bkey%5D=mit&repo%5Blicense%5D%5Bname%5D=MIT+License&repo%5Blicense%5D%5Bnode_id%5D=MDc6TGljZW5zZTEz&repo%5Blicense%5D%5Bspdx_id%5D=MIT&repo%5Blicense%5D%5Burl%5D=https%3A%2F%2Fapi.github.com%2Flicenses%2Fmit&repo%5Bmerges_url%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Ffastlane%2Ffastlane%2Fmerges&repo%5Bmilestones_url%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Ffastlane%2Ffastlane%2Fmilestones%7B%2Fnumber%7D&repo%5Bmirror_url%5D=&repo%5Bname%5D=fastlane&repo%5Bnode_id%5D=MDEwOlJlcG9zaXRvcnkyNzQ0Mjk2Nw%3D%3D&repo%5Bnotifications_url%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Ffastlane%2Ffastlane%2Fnotifications%7B%3Fsince%2Call%2Cparticipating%7D&repo%5Bopen_issues%5D=181&repo%5Bopen_issues_count%5D=181&repo%5Bowner%5D%5Bavatar_url%5D=https%3A%2F%2Favatars2.githubusercontent.com%2Fu%2F11098337%3Fv%3D4&repo%5Bowner%5D%5Bevents_url%5D=https%3A%2F%2Fapi.github.com%2Fusers%2Ffastlane%2Fevents%7B%2Fprivacy%7D&repo%5Bowner%5D%5Bfollowers_url%5D=https%3A%2F%2Fapi.github.com%2Fusers%2Ffastlane%2Ffollowers&repo%5Bowner%5D%5Bfollowing_url%5D=https%3A%2F%2Fapi.github.com%2Fusers%2Ffastlane%2Ffollowing%7B%2Fother_user%7D&repo%5Bowner%5D%5Bgists_url%5D=https%3A%2F%2Fapi.github.com%2Fusers%2Ffastlane%2Fgists%7B%2Fgist_id%7D&repo%5Bowner%5D%5Bgravatar_id%5D=&repo%5Bowner%5D%5Bhtml_url%5D=https%3A%2F%2Fgithub.com%2Ffastlane&repo%5Bowner%5D%5Bid%5D=11098337&repo%5Bowner%5D%5Blogin%5D=fastlane&repo%5Bowner%5D%5Bnode_id%5D=MDEyOk9yZ2FuaXphdGlvbjExMDk4MzM3&repo%5Bowner%5D%5Borganizations_url%5D=https%3A%2F%2Fapi.github.com%2Fusers%2Ffastlane%2Forgs&repo%5Bowner%5D%5Breceived_events_url%5D=https%3A%2F%2Fapi.github.com%2Fusers%2Ffastlane%2Freceived_events&repo%5Bowner%5D%5Brepos_url%5D=https%3A%2F%2Fapi.github.com%2Fusers%2Ffastlane%2Frepos&repo%5Bowner%5D%5Bsite_admin%5D=false&repo%5Bowner%5D%5Bstarred_url%5D=https%3A%2F%2Fapi.github.com%2Fusers%2Ffastlane%2Fstarred%7B%2Fowner%7D%7B%2Frepo%7D&repo%5Bowner%5D%5Bsubscriptions_url%5D=https%3A%2F%2Fapi.github.com%2Fusers%2Ffastlane%2Fsubscriptions&repo%5Bowner%5D%5Btype%5D=Organization&repo%5Bowner%5D%5Burl%5D=https%3A%2F%2Fapi.github.com%2Fusers%2Ffastlane&repo%5Bprivate%5D=false&repo%5Bpulls_url%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Ffastlane%2Ffastlane%2Fpulls%7B%2Fnumber%7D&repo%5Bpushed_at%5D=2020-08-19T20%3A55%3A52Z&repo%5Breleases_url%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Ffastlane%2Ffastlane%2Freleases%7B%2Fid%7D&repo%5Bscore%5D=1.0&repo%5Bsize%5D=68887&repo%5Bssh_url%5D=git%40github.com%3Afastlane%2Ffastlane.git&repo%5Bstargazers_count%5D=29473&repo%5Bstargazers_url%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Ffastlane%2Ffastlane%2Fstargazers&repo%5Bstatuses_url%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Ffastlane%2Ffastlane%2Fstatuses%2F%7Bsha%7D&repo%5Bsubscribers_url%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Ffastlane%2Ffastlane%2Fsubscribers&repo%5Bsubscription_url%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Ffastlane%2Ffastlane%2Fsubscription&repo%5Bsvn_url%5D=https%3A%2F%2Fgithub.com%2Ffastlane%2Ffastlane&repo%5Btags_url%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Ffastlane%2Ffastlane%2Ftags&repo%5Bteams_url%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Ffastlane%2Ffastlane%2Fteams&repo%5Btrees_url%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Ffastlane%2Ffastlane%2Fgit%2Ftrees%7B%2Fsha%7D&repo%5Bupdated_at%5D=2020-08-20T02%3A34%3A51Z&repo%5Burl%5D=https%3A%2F%2Fapi.github.com%2Frepos%2Ffastlane%2Ffastlane&repo%5Bwatchers%5D=29473&repo%5Bwatchers_count%5D=29473" for ::1 at 2020-08-19 23:46:08 -0300
+Processing by RepositoriesController#create as HTML
+  Parameters: {"authenticity_token"=>"g4/3GijYFg1dJ8I6TzbbOPO4caVSS0nNZCzheSNqp9K3bws7MyI/a0tH5dfKfS7GZXXpsWluPY5yu3WoyF6z8g==", "repo"=>{"archive_url"=>"https://api.github.com/repos/fastlane/fastlane/{archive_format}{/ref}", "archived"=>"false", "assignees_url"=>"https://api.github.com/repos/fastlane/fastlane/assignees{/user}", "blobs_url"=>"https://api.github.com/repos/fastlane/fastlane/git/blobs{/sha}", "branches_url"=>"https://api.github.com/repos/fastlane/fastlane/branches{/branch}", "clone_url"=>"https://github.com/fastlane/fastlane.git", "collaborators_url"=>"https://api.github.com/repos/fastlane/fastlane/collaborators{/collaborator}", "comments_url"=>"https://api.github.com/repos/fastlane/fastlane/comments{/number}", "commits_url"=>"https://api.github.com/repos/fastlane/fastlane/commits{/sha}", "compare_url"=>"https://api.github.com/repos/fastlane/fastlane/compare/{base}...{head}", "contents_url"=>"https://api.github.com/repos/fastlane/fastlane/contents/{+path}", "contributors_url"=>"https://api.github.com/repos/fastlane/fastlane/contributors", "created_at"=>"2014-12-02T17:00:38Z", "default_branch"=>"master", "deployments_url"=>"https://api.github.com/repos/fastlane/fastlane/deployments", "description"=>"🚀 The easiest way to automate building and releasing your iOS and Android apps", "disabled"=>"false", "downloads_url"=>"https://api.github.com/repos/fastlane/fastlane/downloads", "events_url"=>"https://api.github.com/repos/fastlane/fastlane/events", "fork"=>"false", "forks"=>"4623", "forks_count"=>"4623", "forks_url"=>"https://api.github.com/repos/fastlane/fastlane/forks", "full_name"=>"fastlane/fastlane", "git_commits_url"=>"https://api.github.com/repos/fastlane/fastlane/git/commits{/sha}", "git_refs_url"=>"https://api.github.com/repos/fastlane/fastlane/git/refs{/sha}", "git_tags_url"=>"https://api.github.com/repos/fastlane/fastlane/git/tags{/sha}", "git_url"=>"git://github.com/fastlane/fastlane.git", "has_downloads"=>"true", "has_issues"=>"true", "has_pages"=>"false", "has_projects"=>"true", "has_wiki"=>"false", "homepage"=>"https://fastlane.tools", "hooks_url"=>"https://api.github.com/repos/fastlane/fastlane/hooks", "html_url"=>"https://github.com/fastlane/fastlane", "id"=>"27442967", "issue_comment_url"=>"https://api.github.com/repos/fastlane/fastlane/issues/comments{/number}", "issue_events_url"=>"https://api.github.com/repos/fastlane/fastlane/issues/events{/number}", "issues_url"=>"https://api.github.com/repos/fastlane/fastlane/issues{/number}", "keys_url"=>"https://api.github.com/repos/fastlane/fastlane/keys{/key_id}", "labels_url"=>"https://api.github.com/repos/fastlane/fastlane/labels{/name}", "language"=>"Ruby", "languages_url"=>"https://api.github.com/repos/fastlane/fastlane/languages", "license"=>{"key"=>"mit", "name"=>"MIT License", "node_id"=>"MDc6TGljZW5zZTEz", "spdx_id"=>"MIT", "url"=>"https://api.github.com/licenses/mit"}, "merges_url"=>"https://api.github.com/repos/fastlane/fastlane/merges", "milestones_url"=>"https://api.github.com/repos/fastlane/fastlane/milestones{/number}", "mirror_url"=>"", "name"=>"fastlane", "node_id"=>"MDEwOlJlcG9zaXRvcnkyNzQ0Mjk2Nw==", "notifications_url"=>"https://api.github.com/repos/fastlane/fastlane/notifications{?since,all,participating}", "open_issues"=>"181", "open_issues_count"=>"181", "owner"=>{"avatar_url"=>"https://avatars2.githubusercontent.com/u/11098337?v=4", "events_url"=>"https://api.github.com/users/fastlane/events{/privacy}", "followers_url"=>"https://api.github.com/users/fastlane/followers", "following_url"=>"https://api.github.com/users/fastlane/following{/other_user}", "gists_url"=>"https://api.github.com/users/fastlane/gists{/gist_id}", "gravatar_id"=>"", "html_url"=>"https://github.com/fastlane", "id"=>"11098337", "login"=>"fastlane", "node_id"=>"MDEyOk9yZ2FuaXphdGlvbjExMDk4MzM3", "organizations_url"=>"https://api.github.com/users/fastlane/orgs", "received_events_url"=>"https://api.github.com/users/fastlane/received_events", "repos_url"=>"https://api.github.com/users/fastlane/repos", "site_admin"=>"false", "starred_url"=>"https://api.github.com/users/fastlane/starred{/owner}{/repo}", "subscriptions_url"=>"https://api.github.com/users/fastlane/subscriptions", "type"=>"Organization", "url"=>"https://api.github.com/users/fastlane"}, "private"=>"false", "pulls_url"=>"https://api.github.com/repos/fastlane/fastlane/pulls{/number}", "pushed_at"=>"2020-08-19T20:55:52Z", "releases_url"=>"https://api.github.com/repos/fastlane/fastlane/releases{/id}", "score"=>"1.0", "size"=>"68887", "ssh_url"=>"git@github.com:fastlane/fastlane.git", "stargazers_count"=>"29473", "stargazers_url"=>"https://api.github.com/repos/fastlane/fastlane/stargazers", "statuses_url"=>"https://api.github.com/repos/fastlane/fastlane/statuses/{sha}", "subscribers_url"=>"https://api.github.com/repos/fastlane/fastlane/subscribers", "subscription_url"=>"https://api.github.com/repos/fastlane/fastlane/subscription", "svn_url"=>"https://github.com/fastlane/fastlane", "tags_url"=>"https://api.github.com/repos/fastlane/fastlane/tags", "teams_url"=>"https://api.github.com/repos/fastlane/fastlane/teams", "trees_url"=>"https://api.github.com/repos/fastlane/fastlane/git/trees{/sha}", "updated_at"=>"2020-08-20T02:34:51Z", "url"=>"https://api.github.com/repos/fastlane/fastlane", "watchers"=>"29473", "watchers_count"=>"29473"}}
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/repositories_controller.rb:32:in `create'
+  [1m[36mRepository Create (0.9ms)[0m  [1m[32mINSERT INTO "repositories" ("html_url", "description", "stargazers_count", "language", "watchers_count", "forks", "created_at", "updated_at", "full_name") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["html_url", "https://github.com/fastlane/fastlane"], ["description", "🚀 The easiest way to automate building and releasing your iOS and Android apps"], ["stargazers_count", 29473], ["language", "Ruby"], ["watchers_count", 0], ["forks", 4623], ["created_at", "2020-08-20 02:46:09.078302"], ["updated_at", "2020-08-20 02:46:09.078302"], ["full_name", "fastlane/fastlane"]]
+  ↳ app/controllers/repositories_controller.rb:32:in `create'
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/repositories_controller.rb:32:in `create'
+Redirected to http://localhost:3000/repositories
+Completed 302 Found in 22ms (ActiveRecord: 3.0ms | Allocations: 2928)
+
+
+Started GET "/repositories" for ::1 at 2020-08-19 23:46:09 -0300
+Processing by RepositoriesController#index as HTML
+  Rendering repositories/index.html.erb within layouts/application
+  [1m[36mRepository Load (1.1ms)[0m  [1m[34mSELECT "repositories".* FROM "repositories"[0m
+  ↳ app/views/repositories/index.html.erb:12
+  Rendered repositories/index.html.erb within layouts/application (Duration: 6.2ms | Allocations: 759)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:16
+  Rendered shared/_navbar.html.erb (Duration: 14.5ms | Allocations: 1036)
+Completed 200 OK in 60ms (Views: 55.7ms | ActiveRecord: 2.2ms | Allocations: 5944)
+
+
+Started GET "/repositories/11" for ::1 at 2020-08-19 23:46:11 -0300
+Processing by RepositoriesController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mRepository Load (0.5ms)[0m  [1m[34mSELECT "repositories".* FROM "repositories" WHERE "repositories"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/repositories_controller.rb:9:in `show'
+  Rendering repositories/show.html.erb within layouts/application
+  Rendered repositories/show.html.erb within layouts/application (Duration: 0.8ms | Allocations: 77)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:16
+  Rendered shared/_navbar.html.erb (Duration: 14.8ms | Allocations: 1036)
+Completed 200 OK in 65ms (Views: 41.5ms | ActiveRecord: 1.0ms | Allocations: 5811)
+
+
+Started GET "/repositories/11" for ::1 at 2020-08-19 23:46:39 -0300
+Processing by RepositoriesController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mRepository Load (0.5ms)[0m  [1m[34mSELECT "repositories".* FROM "repositories" WHERE "repositories"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/repositories_controller.rb:9:in `show'
+  Rendering repositories/show.html.erb within layouts/application
+  Rendered repositories/show.html.erb within layouts/application (Duration: 7.4ms | Allocations: 330)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:16
+  Rendered shared/_navbar.html.erb (Duration: 173.2ms | Allocations: 1313)
+Completed 200 OK in 614ms (Views: 589.9ms | ActiveRecord: 1.0ms | Allocations: 7506)
+
+
+Started GET "/repositories/11" for ::1 at 2020-08-19 23:47:40 -0300
+Processing by RepositoriesController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mRepository Load (0.6ms)[0m  [1m[34mSELECT "repositories".* FROM "repositories" WHERE "repositories"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/repositories_controller.rb:9:in `show'
+  Rendering repositories/show.html.erb within layouts/application
+  Rendered repositories/show.html.erb within layouts/application (Duration: 0.8ms | Allocations: 77)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:16
+  Rendered shared/_navbar.html.erb (Duration: 91.9ms | Allocations: 1036)
+Completed 200 OK in 132ms (Views: 124.8ms | ActiveRecord: 1.1ms | Allocations: 5801)
+
+
+Started GET "/repositories" for ::1 at 2020-08-19 23:47:42 -0300
+Processing by RepositoriesController#index as HTML
+  Rendering repositories/index.html.erb within layouts/application
+  [1m[36mRepository Load (5.8ms)[0m  [1m[34mSELECT "repositories".* FROM "repositories"[0m
+  ↳ app/views/repositories/index.html.erb:12
+  Rendered repositories/index.html.erb within layouts/application (Duration: 35.5ms | Allocations: 1056)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:16
+  Rendered shared/_navbar.html.erb (Duration: 16.7ms | Allocations: 1039)
+Completed 200 OK in 126ms (Views: 99.4ms | ActiveRecord: 6.3ms | Allocations: 6377)
+
+
