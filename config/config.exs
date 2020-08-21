@@ -1,54 +1,22 @@
-# This file is responsible for configuring your umbrella
-# and **all applications** and their dependencies with the
-# help of the Config module.
+# This file is responsible for configuring your application
+# and its dependencies with the aid of the Mix.Config module.
 #
-# Note that all applications in your umbrella share the
-# same configuration and dependencies, which is why they
-# all use the same configuration file. If you want different
-# configurations or dependencies per app, it is best to
-# move said applications out of the umbrella.
-import Config
+# This configuration file is loaded before any dependency and
+# is restricted to this project.
 
-config :web,
-  generators: [context_app: false]
+# General application configuration
+use Mix.Config
+
+config :minelang,
+  ecto_repos: [Minelang.Repo]
 
 # Configures the endpoint
-config :web, Web.Endpoint,
+config :minelang, MinelangWeb.Endpoint,
   url: [host: "localhost"],
-  secret_key_base: "aY8xgMxPy/OYEiCtucc+kWWB5l5b+ywfPCZbHVF3FsBnPNWhA4k7yMSobPKKQGG0",
-  render_errors: [view: Web.ErrorView, accepts: ~w(html json), layout: false],
-  pubsub_server: Web.PubSub,
-  live_view: [signing_salt: "BxAxvN9V"]
-
-config :mine_web,
-  generators: [context_app: false]
-
-# Configures the endpoint
-config :mine_web, MineWeb.Endpoint,
-  url: [host: "localhost"],
-  secret_key_base: "vL0lGZYWHrhlNIk+uh+5rGv0oEbDBW2MpoRlUgC2XUNxjgryuWI8olQTg9vsUUFR",
-  render_errors: [view: MineWeb.ErrorView, accepts: ~w(html json), layout: false],
-  pubsub_server: MineWeb.PubSub,
-  live_view: [signing_salt: "EYdiNpES"]
-
-config :web,
-  generators: [context_app: false]
-
-# Configures the endpoint
-config :web, Web.Endpoint,
-  url: [host: "localhost"],
-  secret_key_base: "iBdbQ3OMBn/BPIj583LSYt4ruVHBGV2KZtLqvHtDJHiB4PbqQ6nI/+7ahqiGt1MF",
-  render_errors: [view: Web.ErrorView, accepts: ~w(html json), layout: false],
-  pubsub_server: Web.PubSub,
-  live_view: [signing_salt: "nkfew1KF"]
-
-# Sample configuration:
-#
-#     config :logger, :console,
-#       level: :info,
-#       format: "$date $time [$level] $metadata$message\n",
-#       metadata: [:user_id]
-#
+  secret_key_base: "l8sn9WyR1W1YKjm3aUBBXhFzn++e4J7ACqQDcSIuwIIyZ5asZx4KYDYg464HLy0s",
+  render_errors: [view: MinelangWeb.ErrorView, accepts: ~w(html json), layout: false],
+  pubsub_server: Minelang.PubSub,
+  live_view: [signing_salt: "jUMOnZtA"]
 
 # Configures Elixir's Logger
 config :logger, :console,
