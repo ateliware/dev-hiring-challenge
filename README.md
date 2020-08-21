@@ -18,3 +18,19 @@ Alguns requisitos:
 Quando terminar, faça um Pull Request neste repo e avise-nos por email.
 
 **IMPORTANTE:** se você não conseguir finalizar o teste, por favor nos diga o motivo e descreva quais foram as suas dificuldades. Claro que você também pode sugerir uma outra abordagem para avaliarmos seus skills técnicos, mas é com você para vender seu peixe, mostrar-nos do que é capaz.
+
+# ExMinelang
+
+### Running Tests
+To run tests locally:
+
+1. To run locally, install elixir, postgres and set the database PASSWORD and HOSTNAME
+
+```bash
+MIX_ENV=test mix do ecto.drop, ecto.create, ecto.migrate
+```
+
+2. Run the tests
+
+```bash
+MIX_ENV=test mix test

@@ -1,0 +1,25 @@
+<section class="phx-hero">
+  <h1><%= gettext "Welcome to %{name}!", name: "Phoenix" %></h1>
+  <p>Peace-of-mind from prototype to production</p>
+</section>
+
+<section class="row">
+  <article class="column">
+    <h2>Repositórios</h2>
+    <form action="/">
+      <input type="text" id="orgs" name="orgs" value="elixir-lang, erlang, golang, python, clojure"><br><br>
+      <input type="submit" value="Buscar e armazenar">
+    </form>
+
+  </article>
+  <article class="column">
+    <h2>Lista de repositórios</h2>
+    <ul>
+      <%= for item <- @items do %>
+        <li>
+          <strong><a href="/repo/<%= item %>"><%= item %></a></strong>
+        </li>
+      <% end %>
+    </ul>
+  </article>
+</section>

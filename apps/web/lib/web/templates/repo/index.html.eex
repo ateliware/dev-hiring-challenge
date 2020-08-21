@@ -1,0 +1,18 @@
+<section class="phx-hero">
+  <h1><%= gettext "Welcome to %{name}!", name: "Phoenix" %></h1>
+  <p>Peace-of-mind from prototype to production</p>
+</section>
+
+<section class="row">
+  <article class="column">
+    <h2>Repositório: <%= @repo.name %></h2>
+    <div><p><b>Organização:</b> <%= @repo.org %> </p></div>
+    <div><p><b>Descrição:</b> <%= @repo.description %> </p></div>
+    <div><p><b>Número de estrelas:</b> <%= @repo.stargazers_count %> </p></div>
+    <div><p><b>Número de interessados:</b> <%= @repo.watchers_count %> </p></div>
+    <div><p><b>Número de bugs:</b> <%= @repo.open_issues %> </p></div>
+    <div><p><b>Número de forks:</b> <%= @repo.forks %> </p></div>
+    <div><p><b>Lisença:</b> <%= @repo.license %> </p></div>
+    </ul>
+  </article>
+</section>
