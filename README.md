@@ -1,24 +1,22 @@
-# README
+### Dependencies
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+- Ruby 2.7.1
+- Bundler 2.1.4
 
-Things you may want to cover:
+### Setup
 
-* Ruby version
+Install gems
 
-* System dependencies
+    $ bundle
 
-* Configuration
+Setup the database
 
-* Database creation
+    $ rake db:setup
 
-* Database initialization
+### Run specs
 
-* How to run the test suite
+    $ rspec
 
-* Services (job queues, cache servers, search engines, etc.)
+### Start server
 
-* Deployment instructions
-
-* ...
+    $ rails s
