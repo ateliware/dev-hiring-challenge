@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% block content %}
+    <header>
+        <div class="navbar navbar-dark bg-dark shadow-sm">
+            <div class="container d-flex justify-content-between">
+                <a href="#" class="navbar-brand d-flex align-items-center">
+                    <strong>GitHub Search</strong>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section class="jumbotron text-center">
+        <div class="container">
+            <form action="{% url 'repositories:search' %}" method="get">
+                <div class="input-group">
+                    <input type="text" class="form-control" name="q" id="q" placeholder="Search by language name">
+                    <div class="input-group-append">
+                        <button type="submit" class="btn btn-secondary">Search</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <div class="album py-5 bg-light">
+        <div class="container">
+            <div class="row">
+            {% for repository in repositories %}
+                <div class="col-md-4">
+                    <div class="card mb-4 shadow-sm">
+                        <img class="card-img-top" style="height: 225px; width: 100%; display: block;" src="{{ repository.owner.avatar_url }}" />
+                        <div class="card-body">
+                            <a href="{{ repository.html_url }}" class="card-text">{{ repository.full_name }}</a>
+                            <p class="card-text">{{ repository.description }}</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-sm btn-outline-secondary"><i class="fa fa-star"></i> {{ repository.stargazers_count }}</button>
+                                    <button type="button" class="btn btn-sm btn-outline-secondary"><i class="fa fa-code-branch"></i> {{ repository.forks_count }}</button>
+                                </div>
+                                <form action="{% url 'repositories:create' %}" method="post">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="name" id="id_name" value="{{ repository.name }}">
+                                    <input type="hidden" name="description" id="id_description" value="{{ repository.description }}">
+                                    <input type="hidden" name="language" id="id_language" value="{{ repository.language }}">
+                                    <input type="hidden" name="stars" id="id_stars" value="{{ repository.stargazers_count }}">
+                                    <input type="hidden" name="watchers" id="id_watchers" value="{{ repository.watchers_count }}">
+                                    <input type="hidden" name="forks" id="id_forks" value="{{ repository.forks_count }}">
+                                    <input type="hidden" name="url" id="id_url" value="{{ repository.html_url }}">
+                                    <input type="hidden" name="avatar_url" id="id_avatar_url" value="{{ repository.owner.avatar_url }}">
+
+                                    <button type="submit" class="btn btn-sm btn-outline-primary">Save</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
