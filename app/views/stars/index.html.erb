@@ -1,5 +1,3 @@
-<ul>
-  <% @stars.each do |star| %>
-    <li><%= star.name %></li>
-  <% end %>
-</ul>
+<main class="page-stars row row-cols-1 row-cols-md-3">
+  <%= render @stars %>
+</main>
