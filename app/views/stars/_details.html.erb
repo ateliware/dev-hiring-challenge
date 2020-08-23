@@ -1,0 +1,24 @@
+<div class="col mb-4">
+  <div class="card h-100">
+    <div class="card-body">
+      <h5 class="card-title"><%= star.name %></h5>
+      <h6 class="card-subtitle mb-2 text-muted"><%= star.language %></h6>
+      <p class="card-text">
+        <%= star.description %>
+      </p>
+      <p class="card-text">
+        <i class="fab fa-github"></i>
+        <%= link_to star.github_url, star.github_url, target: '_blank' %>
+      </p>
+      <p class="card-text">
+        <i class="fas fa-home"></i>
+        <%= link_to star.homepage_url, star.homepage_url, target: '_blank' %>
+      </p>
+      <p class="card-text">
+        <i class="fas fa-star"></i>
+        <%= number_to_human(star.stars_count) %>
+      </p>
+      <%= link_to 'Back', stars_path %>
+    </div>
+  </div>
+</div>
