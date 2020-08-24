@@ -8,9 +8,9 @@ defmodule Minelang.Application do
   def start(_type, _args) do
     children = [
       # Start the Ecto repository
-      #Minelang.Repo,
+      Minelang.Repo,
       {Registry, keys: :unique, name: :repo_process_registry},
-      #Minelang.MineRepos,
+      Minelang.MineRepos,
       # Start the Telemetry supervisor
       MinelangWeb.Telemetry,
       # Start the PubSub system
