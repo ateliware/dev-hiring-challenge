@@ -19,3 +19,9 @@ pip install -r requirements.txt
 cp contrib/env-sample .env
 python manage.py test
 ```
+
+## Endpoints
+
+* `/` List repositories by language name in search field.
+* `/repositories` List saved repositories.
+* `/repositories/<int:ID>` List saved repositories by ID.
