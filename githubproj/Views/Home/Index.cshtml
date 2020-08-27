@@ -1,0 +1,57 @@
+﻿@model RepoViewModel
+
+@{
+    ViewData["Title"] = "Github Repositories Searcher";
+}
+
+<div class="container">
+
+    <form class="form-inline" asp-controller="Home" asp-action="Index" method="get" style="margin-top:10px">
+        <div class="form-group mx-sm-3 mb-2">
+            <label for="search">Here you can search any repo on Github. Try it now!</label>
+            <input type="text" name="SearchString" class="form-control" id="search" aria-describedby="searchHelp" placeholder="Ex. python, javascript">
+        </div>
+        <hidden id="searchHidden" value=""></hidden>
+        <button type="submit" value="Filter" class="btn btn-primary mb-2">Search in Github</button>
+        <button type="submit" value="own" name="own" class="btn btn-success mb-2">Search in Own Repo</button>
+    </form>
+    @if (TempData["Message"] != null)
+    {
+    <div class="center">
+        <img src="~/images/notfound.png" />
+        <div>@TempData["Message"]</div>
+    </div>
+    }
+
+
+    @if (Model != null)
+    {
+        <div class="card-deck">
+            @foreach (var item in Model.items)
+            {
+
+                <div class="card card-block col-md-3" style="margin:0px; margin-top:100px">
+                    <img class="bd-placeholder-img card-img-top"
+                         height="200" src="@item.owner.avatar_url" />
+
+                    <div class="card-body">
+                        <h5 class="card-title"></h5>
+                        <p class="card-text">
+                            <h5 class="card-title">@item.owner.login</h5>
+                        </p>
+                        <p class="card-text"><small class="text-muted">@item.full_name</small></p>
+                        @Html.ActionLink("Check and Save!", "Details", new { url = item.url }, new { @class = "btn btn-info" })
+                    </div>
+                </div>
+            }
+        </div>
+    }
+</div>
+
+<style>
+    .center {
+        margin: auto;
+        width: 50%;
+        padding: 50px;
+    }
+</style>

@@ -1,0 +1,67 @@
+﻿@model githubproj.Models.DetailsViewModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>@Model.full_name</h2>
+
+<div>
+    <h4>@Model.owner.login</h4>
+    <hr />
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="@Model.owner.avatar_url">
+        <div class="card-body">
+            <p class="card-text">@Model.description</p>
+        </div>
+
+    </div>
+
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.id)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.id)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.full_name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.full_name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.description)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.description)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.created_at)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.created_at)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.git_url)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.git_url)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.url)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.url)
+        </dd>
+    </dl>
+</div>
+<div>
+    @Html.ActionLink("Back to Home", "Index", null, null, new { @class = "btn btn-link" })
+</div>
