@@ -9,7 +9,9 @@
   },
   "dependencies": {
     "core-js": "^3.6.5",
+    "mysql": "^2.18.1",
     "vue": "^2.6.11",
+    "vue-router": "^3.4.3",
     "vuetify": "^2.2.11"
   },
   "devDependencies": {

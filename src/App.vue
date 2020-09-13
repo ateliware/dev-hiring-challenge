@@ -4,20 +4,8 @@
       app
       color="primary"
       dark
-    >
-    </v-app-bar>
-
-    <v-main>
-
-    </v-main>
+      dense
+    />
+      <router-view />
   </v-app>
 </template>
-
-<script>
-export default {
-  name: 'App',
-
-  components: {
-  },
-};
-</script>
