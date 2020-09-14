@@ -1,5 +1,6 @@
 export default {
-  create() {
+  create(item) {
+    console.log(item);
     return true;
   },
 

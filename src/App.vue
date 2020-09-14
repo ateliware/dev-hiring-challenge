@@ -1,11 +1,11 @@
 <template>
-  <v-app>
+  <v-main>
     <v-app-bar
       app
       color="primary"
       dark
       dense
     />
-      <router-view />
-  </v-app>
+    <router-view />
+  </v-main>
 </template>
