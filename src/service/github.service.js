@@ -16,7 +16,6 @@ export default {
   },
 
   buscarRepositorios(url) {
-    console.log(url)
     return axios.get(url);
   }
 }

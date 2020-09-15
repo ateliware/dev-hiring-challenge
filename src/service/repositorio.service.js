@@ -1,15 +1,10 @@
+
 import dao from "../dao/repositorio.dao.js"
-import githubService from "./github.service.js"
+import githubService from "./github.service.js";
 
 export default {
-  buscarRepositorios(linguagem) {
-    this.buscarRepositoriosNoGitHub(linguagem)
-      .then(response => {
-        return this.verificarRetorno(response);
-      })
-      .catch(() => {
-        throw Error(`Erro ao buscar repositórios da linguagem '${linguagem}'`);
-      })
+  async buscarRepositorios(linguagem) {
+    return await this.buscarRepositoriosNoGitHub(linguagem)
   }, 
 
   verificarRetorno(retorno) {
@@ -18,12 +13,18 @@ export default {
     return true;
   },
 
-  buscarRepositoriosSalvos() {
-    dao.read();
+  buscarRepositoriosSalvos(linguagem) {
+    return dao.read(linguagem);
   },
 
   buscarRepositoriosNoGitHub(linguagem) {
     const url = githubService.montarUrl(linguagem);
     return githubService.buscarRepositorios(url)
+      .then(response => {
+        return this.verificarRetorno(response);
+      })
+      .catch(() => {
+        throw Error(`Erro ao buscar repositórios da linguagem '${linguagem}'`);
+      })
   }
 }

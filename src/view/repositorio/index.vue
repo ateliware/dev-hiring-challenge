@@ -1,23 +1,40 @@
 <template>
   <v-container class="width-page">
-    <Buscar @buscar="buscar" />
+    <Consultar v-if="modoConsultar" :repositorios="repositorios" @buscarRepositorio="buscarRepositorio" />
+    <Buscar v-else @buscar="buscar" />
   </v-container>
 </template>
 
 <script>
-import Buscar from "./buscar";
-import service from "../../service/repositorio.service.js";
+import Buscar from "./components/buscar";
+import Consultar from "./components/consultar"
+import repositorioService from "../../service/repositorio.service.js";
 
 export default {
   components: {
-    Buscar
+    Buscar,
+    Consultar
   },
+
+  data: () => ({
+    modoConsultar: false,
+    repositorios: [],
+  }),
 
   methods: {
     async buscar(linguagem) {
-      await service.buscarRepositorios(linguagem);
+      const retorno = await repositorioService.buscarRepositorios(linguagem);
+
+      if (retorno) {
+        this.repositorios = repositorioService.buscarRepositoriosSalvos(linguagem);
+        this.modoConsultar = true;
+      }
+    }, 
+
+    buscarRepositorio() {
+      this.modoConsultar = false;
     }
-  }
+  },
 }
 </script>
 
