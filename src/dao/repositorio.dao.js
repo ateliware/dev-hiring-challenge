@@ -1,48 +1,98 @@
+import mysql from 'mysql';
+
+const dbConf = {
+  host: "localhost",
+  user: "root",
+  password: "repositorios",
+  database: "repositorios"
+};
+
+const dbConn = mysql.createConnection(dbConf);
+
+
 export default {
   create(item) {
-    console.log(item);
-    return true;
+    const insert = `
+    INSERT INTO repositorio (
+      nome, 
+      proprietario, 
+      descricao , 
+      url, 
+      linguagem, 
+      forks,
+      issues , 
+      estrelas, 
+      seguidores, 
+      privado) 
+    VALUES (
+      ${item.name}, 
+      ${item.owner.id}, 
+      ${item.description}, 
+      ${item.html_url}, 
+      ${item.language}, 
+      ${item.forks}, 
+      ${item.open_issues}, 
+      ${item.stargazers_count}, 
+      ${item.watchers},
+      ${item.private})`;
+
+      dbConn.connect((err) => {
+        if (err) {
+          throw err;
+        }
+        
+        dbConn.query(insert, (err, result) => {
+          if (err) {
+            throw err;
+          }
+    
+          console.log("Item inserido com sucesso ", result); 
+          return true;
+        })
+    })
+
+    dbConn.end();
+  },
+
+  delete(linguagem) {
+    const del = `DELETE FROM repositorio WHERE linguagem = ${linguagem}`;
+
+    dbConn.connect((err) => {
+      if (err) {
+        throw err;
+      }
+
+      dbConn.query(del, (err, result) => {
+        if (err) {
+          throw err;
+        }
+  
+        console.log("Itens deletados com sucesso ", result); 
+        return true;
+      })
+    })
+
+    dbConn.end();
   },
 
   read(linguagem) {
-    console.log(linguagem);
-    return [
-      {
-        nome: "Teste 01",
-        proprietario: "Aron",
-        descricao: "Teste 01",
-        url: "https://github.com/CyC2018/CS-Notes",
-        linguagem: "Java",
-        forks: 36150,
-        issues: 66,
-        estrelas: 110716,
-        seguidores: 110716,
-        privado: false,
-      },
-      {
-        nome: "Teste 02",
-        proprietario: "ARichter",
-        descricao: ":Teste 02",
-        url: "https://github.com/CyC2018/CS-Notes",
-        linguagem: "Java",
-        forks: 36150,
-        issues: 66,
-        estrelas: 110716,
-        seguidores: 110716,
-        privado: false,
-      },
-      {
-        nome: "Teste 03",
-        proprietario: "ARich",
-        descricao: "Teste 03",
-        url: "https://github.com/CyC2018/CS-Notes",
-        linguagem: "Java",
-        forks: 36150,
-        issues: 66,
-        estrelas: 110716,
-        seguidores: 110716,
-        privado: false,
+    const sql = `SELECT * FROM repositorio WHERE linguagem = ${linguagem}`
+
+    dbConn.connect((err) => {
+      if (err) {
+        throw err;
       }
-    ];
+      
+      dbConn.query(sql, (err, result) => {
+        if (err) {
+          throw err;
+        }
+  
+        console.log("Item inserido com sucesso ", result); 
+        return result;
+      }
+    )
+  })
+  dbConn.end();
   }, 
 }

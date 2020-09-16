@@ -24,3 +24,6 @@ pnpm-debug.log*
 
 #Tests
 /coverage
+
+#db
+/Volumes
