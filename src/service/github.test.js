@@ -3,7 +3,7 @@ import axios from 'axios';
 
 jest.mock('axios');
 
-describe("Build url to gitbub", () => {
+describe("Monta url para gitbub", () => {
   test("Deveria montar URL corretamente", () => {
     const url = githubService.montarUrl("teste");
 
