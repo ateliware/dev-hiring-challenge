@@ -1,5 +1,5 @@
 
-import dao from "../dao/repositorio.dao.js"
+import axios from "axios"
 import githubService from "./github.service.js";
 
 export default {
