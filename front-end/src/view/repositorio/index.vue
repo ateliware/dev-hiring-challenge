@@ -2,6 +2,13 @@
   <v-container class="width-page">
     <Consultar v-if="modoConsultar" :repositorios="repositorios" @buscarRepositorio="buscarRepositorio" />
     <Buscar v-else @buscar="buscar" />
+    <v-snackbar
+      v-model="toast.mostrar"
+      right
+      color="red"
+    >
+      {{ toast.mensagem }}
+    </v-snackbar>
   </v-container>
 </template>
 
@@ -19,16 +26,23 @@ export default {
   data: () => ({
     modoConsultar: false,
     repositorios: [],
+    toast: {
+      mensagem: "",
+      mostrar: false
+    }
   }),
 
   methods: {
-    async buscar(linguagem) {
-      const retorno = await repositorioService.buscarRepositorios(linguagem);
-
-      if (retorno) {
-        this.repositorios = repositorioService.buscarRepositoriosSalvos(linguagem);
-        this.modoConsultar = true;
-      }
+    buscar(linguagem) {
+      repositorioService.buscarRepositorios(linguagem)
+        .then(response => {
+          this.repositorios = response.data;
+          this.modoConsultar = true;
+        })
+        .catch(err => {
+          this.toast.mensagem = err;
+          this.toast.mostrar = true;
+        });
     }, 
 
     buscarRepositorio() {

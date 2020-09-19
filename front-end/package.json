@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
+    "serve": "vue-cli-service serve  --development",
     "build": "vue-cli-service build",
     "test": "vue-cli-service test:unit",
     "test:coverage": "vue-cli-service test:unit --coverage",
@@ -13,7 +13,6 @@
     "axios": "^0.20.0",
     "core-js": "^3.6.5",
     "jest": "^26.4.2",
-    "mysql": "^2.18.1",
     "vue": "^2.6.11",
     "vue-router": "^3.4.3",
     "vuetify": "^2.2.11"

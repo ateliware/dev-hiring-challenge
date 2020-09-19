@@ -1,5 +1,5 @@
-import githubService from "./github.service.js";
-import axios from 'axios';
+const githubService = require("./github.service.js");
+const axios = require('axios');
 
 jest.mock('axios');
 
