@@ -5,13 +5,15 @@
   "main": "index.js",
   "scripts": {
     "start": "node ./index.js",
-    "test": "jest --config ./jest.config.js"
+    "test:unit": "jest --config ./jest.config.js ",
+    "test:coverage": "jest --config ./jest.config.js --collect-coverage"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.20.0",
     "express": "^4.17.1",
-    "jest": "^26.4.2"
+    "jest": "^26.4.2",
+    "pg": "^8.3.3"
   }
 }
