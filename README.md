@@ -8,11 +8,12 @@ O projeto é composto por uma aplicação front-end feita em VueJS, o back-end e
 # Back-end
 Para executar o back-end localmente utilize o comando:
 ```
-node index.js
+npm start
 ```
-Para executar os testes unitários utilize o comando:
+Para executar os testes unitários utilize os comandos:
 ```
-npm run test
+npm run test:unit
+npm run test:coverage 
 ```
 
 # Front-end
@@ -23,5 +24,6 @@ npm run serve
 Para executar os testes unitários utilize o comando:
 ```
 npm run test
+npm run test:coverage
 ```
 

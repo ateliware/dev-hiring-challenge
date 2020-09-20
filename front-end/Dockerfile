@@ -5,7 +5,6 @@ RUN npm install
 COPY . .
 RUN npm run build
 
-# estágio de produção
 FROM nginx:1.19.2
 COPY default.conf.template /etc/nginx/conf.d/default.conf.template
 COPY --from=build-stage /app/dist /usr/share/nginx/html
