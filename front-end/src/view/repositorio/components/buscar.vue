@@ -5,7 +5,16 @@
         Buscar repositórios
       </v-app-bar>
       <v-card-text>
-        <v-row>
+        <v-row v-if="loading">
+          <v-col cols="12" md="10">
+            <v-progress-circular
+              class="text-center"
+              indeterminate
+              color="primary"
+            ></v-progress-circular>
+          </v-col>
+        </v-row>
+        <v-row v-else>
           <v-col cols="12" md="10">
             <v-text-field 
               label="Linguagem de pesquisa"
@@ -27,6 +36,13 @@
 <script>
 export default {
   name: "Buscar", 
+
+  props: {
+    loading: {
+      type: Boolean,
+      default: false
+    }
+  },
 
   data: () => ({
     linguagem:"",

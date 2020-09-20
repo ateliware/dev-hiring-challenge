@@ -1,7 +1,7 @@
 <template>
   <v-container class="width-page">
     <Consultar v-if="modoConsultar" :repositorios="repositorios" @buscarRepositorio="buscarRepositorio" />
-    <Buscar v-else @buscar="buscar" />
+    <Buscar v-else @buscar="buscar" :loading="loading" />
     <v-snackbar
       v-model="toast.mostrar"
       right
@@ -24,6 +24,7 @@ export default {
   },
 
   data: () => ({
+    loading: false,
     modoConsultar: false,
     repositorios: [],
     toast: {
@@ -34,15 +35,17 @@ export default {
 
   methods: {
     buscar(linguagem) {
+      this.loading = true;
       repositorioService.buscarRepositorios(linguagem)
         .then(response => {
           this.repositorios = response.data;
           this.modoConsultar = true;
         })
         .catch(err => {
-          this.toast.mensagem = err;
+          this.toast.mensagem = err.response.data;
           this.toast.mostrar = true;
-        });
+        })
+        .finally(() => this.loading = false);
     }, 
 
     buscarRepositorio() {
