@@ -1,0 +1,14 @@
+C:\Projetos\teste_ateliware\dev-hiring-challenge\AteliwareHub.Service\bin\Release\netcoreapp3.1\AteliwareHub.Service.deps.json
+C:\Projetos\teste_ateliware\dev-hiring-challenge\AteliwareHub.Service\bin\Release\netcoreapp3.1\AteliwareHub.Service.dll
+C:\Projetos\teste_ateliware\dev-hiring-challenge\AteliwareHub.Service\bin\Release\netcoreapp3.1\AteliwareHub.Service.pdb
+C:\Projetos\teste_ateliware\dev-hiring-challenge\AteliwareHub.Service\bin\Release\netcoreapp3.1\AteliwareHub.Domain.dll
+C:\Projetos\teste_ateliware\dev-hiring-challenge\AteliwareHub.Service\bin\Release\netcoreapp3.1\AteliwareHub.Infra.dll
+C:\Projetos\teste_ateliware\dev-hiring-challenge\AteliwareHub.Service\bin\Release\netcoreapp3.1\AteliwareHub.Domain.pdb
+C:\Projetos\teste_ateliware\dev-hiring-challenge\AteliwareHub.Service\bin\Release\netcoreapp3.1\AteliwareHub.Infra.pdb
+C:\Projetos\teste_ateliware\dev-hiring-challenge\AteliwareHub.Service\obj\Release\netcoreapp3.1\AteliwareHub.Service.csprojAssemblyReference.cache
+C:\Projetos\teste_ateliware\dev-hiring-challenge\AteliwareHub.Service\obj\Release\netcoreapp3.1\AteliwareHub.Service.AssemblyInfoInputs.cache
+C:\Projetos\teste_ateliware\dev-hiring-challenge\AteliwareHub.Service\obj\Release\netcoreapp3.1\AteliwareHub.Service.AssemblyInfo.cs
+C:\Projetos\teste_ateliware\dev-hiring-challenge\AteliwareHub.Service\obj\Release\netcoreapp3.1\AteliwareHub.Service.csproj.CoreCompileInputs.cache
+C:\Projetos\teste_ateliware\dev-hiring-challenge\AteliwareHub.Service\obj\Release\netcoreapp3.1\AteliwareHub.Service.csproj.CopyComplete
+C:\Projetos\teste_ateliware\dev-hiring-challenge\AteliwareHub.Service\obj\Release\netcoreapp3.1\AteliwareHub.Service.dll
+C:\Projetos\teste_ateliware\dev-hiring-challenge\AteliwareHub.Service\obj\Release\netcoreapp3.1\AteliwareHub.Service.pdb

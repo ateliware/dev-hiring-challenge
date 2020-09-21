@@ -1,0 +1,16 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<form asp-action="TopRepositories" method="get">
+
+    <div class="row">
+        <div class="input-group mb-3">
+            <select class="custom-select" asp-items="@ViewBag.List" name="language"></select>
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <button type="submit" class="btn btn-info">Pesquisar</button>
+    </div>
+</form>

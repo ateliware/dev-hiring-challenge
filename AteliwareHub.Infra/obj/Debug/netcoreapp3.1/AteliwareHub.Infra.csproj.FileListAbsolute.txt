@@ -1,0 +1,12 @@
+C:\Projetos\teste_ateliware\dev-hiring-challenge\AteliwareHub.Infra\obj\Debug\netcoreapp3.1\AteliwareHub.Infra.csprojAssemblyReference.cache
+C:\Projetos\teste_ateliware\dev-hiring-challenge\AteliwareHub.Infra\obj\Debug\netcoreapp3.1\AteliwareHub.Infra.AssemblyInfoInputs.cache
+C:\Projetos\teste_ateliware\dev-hiring-challenge\AteliwareHub.Infra\obj\Debug\netcoreapp3.1\AteliwareHub.Infra.AssemblyInfo.cs
+C:\Projetos\teste_ateliware\dev-hiring-challenge\AteliwareHub.Infra\bin\Debug\netcoreapp3.1\AteliwareHub.Infra.deps.json
+C:\Projetos\teste_ateliware\dev-hiring-challenge\AteliwareHub.Infra\bin\Debug\netcoreapp3.1\AteliwareHub.Infra.dll
+C:\Projetos\teste_ateliware\dev-hiring-challenge\AteliwareHub.Infra\bin\Debug\netcoreapp3.1\AteliwareHub.Infra.pdb
+C:\Projetos\teste_ateliware\dev-hiring-challenge\AteliwareHub.Infra\obj\Debug\netcoreapp3.1\AteliwareHub.Infra.dll
+C:\Projetos\teste_ateliware\dev-hiring-challenge\AteliwareHub.Infra\obj\Debug\netcoreapp3.1\AteliwareHub.Infra.pdb
+C:\Projetos\teste_ateliware\dev-hiring-challenge\AteliwareHub.Infra\bin\Debug\netcoreapp3.1\AteliwareHub.Domain.dll
+C:\Projetos\teste_ateliware\dev-hiring-challenge\AteliwareHub.Infra\obj\Debug\netcoreapp3.1\AteliwareHub.Infra.csproj.CoreCompileInputs.cache
+C:\Projetos\teste_ateliware\dev-hiring-challenge\AteliwareHub.Infra\bin\Debug\netcoreapp3.1\AteliwareHub.Domain.pdb
+C:\Projetos\teste_ateliware\dev-hiring-challenge\AteliwareHub.Infra\obj\Debug\netcoreapp3.1\AteliwareHub.Infra.csproj.CopyComplete

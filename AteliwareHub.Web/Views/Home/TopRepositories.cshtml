@@ -1,0 +1,33 @@
+﻿@model IEnumerable<AteliwareHub.Domain.ViewModels.RepositoryViewModel>;
+
+
+<ul class="list-group">
+    @foreach (var repo in Model)
+    {
+
+        @*<li class="list-group-item ">
+
+
+            Repositorio <a href="@repo.Url">@repo.Name</a> |
+            ☆ @repo.Stars |
+            Dono ✎ @repo.Owner?.UserName
+
+        </li>*@
+    <li class="list-group-item">
+        <div class="card mb-4 box-shadow">
+            <div class="card-body">
+                <h1 class="card-title pricing-card-title">@repo.Name</h1>
+                <ul class="list-unstyled mt-3 mb-4">
+                    <li>Dono ✎ @repo.Owner?.UserName</li>
+                    <li>☆ @repo.Stars </li>
+                    <li>GitHub <a href="@repo.Url">@repo.Name</a></li>
+                </ul>
+                <a asp-controller="Home" class="btn btn-lg btn-block btn-primary"
+                   asp-action="Details"
+                   asp-route-repositoryId="@repo.RepositoryId">Visualizar Detalhes</a>
+            </div>
+        </div>
+    </li>
+    }
+
+</ul>

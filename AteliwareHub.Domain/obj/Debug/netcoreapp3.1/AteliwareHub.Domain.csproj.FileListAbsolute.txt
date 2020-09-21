@@ -1,0 +1,12 @@
+C:\Projetos\teste_ateliware\dev-hiring-challenge\AteliwareHub.Domain\obj\Debug\netcoreapp3.1\AteliwareHub.Domain.csprojAssemblyReference.cache
+C:\Projetos\teste_ateliware\dev-hiring-challenge\AteliwareHub.Domain\obj\Debug\netcoreapp3.1\AteliwareHub.Domain.AssemblyInfoInputs.cache
+C:\Projetos\teste_ateliware\dev-hiring-challenge\AteliwareHub.Domain\obj\Debug\netcoreapp3.1\AteliwareHub.Domain.AssemblyInfo.cs
+C:\Projetos\teste_ateliware\dev-hiring-challenge\AteliwareHub.Domain\obj\Debug\netcoreapp3.1\AteliwareHub.Domain.csproj.CoreCompileInputs.cache
+C:\Projetos\teste_ateliware\dev-hiring-challenge\AteliwareHub.Domain\bin\Debug\netcoreapp3.1\AteliwareHub.Domain.deps.json
+C:\Projetos\teste_ateliware\dev-hiring-challenge\AteliwareHub.Domain\bin\Debug\netcoreapp3.1\AteliwareHub.Domain.runtimeconfig.json
+C:\Projetos\teste_ateliware\dev-hiring-challenge\AteliwareHub.Domain\bin\Debug\netcoreapp3.1\AteliwareHub.Domain.runtimeconfig.dev.json
+C:\Projetos\teste_ateliware\dev-hiring-challenge\AteliwareHub.Domain\bin\Debug\netcoreapp3.1\AteliwareHub.Domain.dll
+C:\Projetos\teste_ateliware\dev-hiring-challenge\AteliwareHub.Domain\bin\Debug\netcoreapp3.1\AteliwareHub.Domain.pdb
+C:\Projetos\teste_ateliware\dev-hiring-challenge\AteliwareHub.Domain\obj\Debug\netcoreapp3.1\AteliwareHub.Domain.dll
+C:\Projetos\teste_ateliware\dev-hiring-challenge\AteliwareHub.Domain\obj\Debug\netcoreapp3.1\AteliwareHub.Domain.pdb
+C:\Projetos\teste_ateliware\dev-hiring-challenge\AteliwareHub.Domain\obj\Debug\netcoreapp3.1\AteliwareHub.Domain.genruntimeconfig.cache

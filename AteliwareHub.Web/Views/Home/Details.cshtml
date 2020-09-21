@@ -1,0 +1,67 @@
+﻿@model AteliwareHub.Domain.ViewModels.RepositoryViewModel
+
+
+@if (Model == null)
+{
+    <div class="container">
+        <p>Repositorio não encontrado</p>
+        <p>Clique <a href="/">Aqui</a> e faça uma busca novamente</p>
+    </div>
+}
+else
+{
+
+
+    @*<section class="info">
+        <span> <b>Repositorio:</b> <a href="@Model.Url">@Model.Name </a></span>
+        <span> <b>Descrição:</b> @Model.Description </span>
+        <span> <b>Linguagem:</b> @Model.Language </span>
+        <span> <b>Num. Estrelas:</b> @Model.Stars </span>
+        <span> <b>Criado em:</b> @Model.CreateDate.ToString("dd/MM/yyyy HH:mm:ss")</span>
+        <span> <b>Ultima atualização:</b> @Model.LastUpdate.ToString("dd/MM/yyyy HH:mm:ss")</span>
+        <span> <b>Autor: </b> <a href="@Model.Owner.Url"> @@@Model.Owner.UserName</a></span>
+        <span> <img src="@Model.Owner.ImageUrl" /></span>
+        <br />
+        <a class="btn btn-info" href="@Model.Url">Acessar GitHub</a>
+    </section>*@
+
+
+    <div class="col-md-4 offset-md-4">
+        <div class="card border-0 shadow">
+            <img src="@Model.Owner.ImageUrl" class="card-img-top" alt="...">
+            <div class="card-body text-center">
+                <h3 class="card-title mb-0">Repositório</h3>
+                <div class="card-text text-black-50">@Model.Name</div>
+            </div>
+            <div class="card-body text-center">
+                <h5 class="card-title mb-0">Descrição</h5>
+                <div class="card-text text-black-50">@Model.Description</div>
+            </div>
+            <div class="card-body text-center">
+                <h5 class="card-title mb-0">Linguagem</h5>
+                <div class="card-text text-black-50">@Model.Language</div>
+            </div>
+            <div class="card-body text-center">
+                <h5 class="card-title mb-0">Estrelas</h5>
+                <div class="card-text text-black-50">@Model.Stars</div>
+            </div>
+
+            <div class="card-body text-center">
+                <h5 class="card-title mb-0">Data Criação</h5>
+                <div class="card-text text-black-50">@Model.CreateDate.ToString("dd/MM/yyyy")</div>
+            </div>
+            <div class="card-body text-center">
+                <h5 class="card-title mb-0">Ultima Modificação</h5>
+                <div class="card-text text-black-50">@Model.LastUpdate.ToString("dd/MM/yyyy")</div>
+            </div>
+            <div class="card-body text-center">
+                <h5 class="card-title mb-0">Autor</h5>
+                <div class="card-text text-black-50">@Model.Owner.UserName</div>
+            </div>
+
+            
+            <a class="btn btn-info" href="@Model.Url">Acessar GitHub</a>
+
+        </div>
+    </div>
+}
