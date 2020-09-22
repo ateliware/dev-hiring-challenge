@@ -1,0 +1,24 @@
+<%= 
+    form_tag('/repositories', :method => "POST") do 
+        submit_tag("Get Repositories")
+    end 
+%>
+<br><br><br><br>
+<% if !@repositories.nil? %>
+  <table border="1">
+    <thead>      
+      <th>Name</th>
+      <th>Language</th>
+      <th>Action</th>
+    </thead>
+    <tbody>
+      <% @repositories.each do |repository| %>
+        <tr>          
+          <td style="text-align: center; width: 50%;"><%= repository.name %></td>
+          <td style="text-align: center; width: 50%;"><%= repository.language %></td>
+          <td><%= link_to 'Detail', repository_path(repository.id) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>

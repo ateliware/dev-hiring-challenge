@@ -1,0 +1,19 @@
+<h1>Detail of Repository #<%= @repository.id %></h1>
+
+<span>Avatar</span>
+<img src="<%= @repository.owner_avatar_url %>" style="width: 5%;">
+
+
+<p>Name: <%= @repository.name %></p>
+<p>FullName: <%= @repository.full_name %></p>
+<p>Git Link Repository: <a href="<%= @repository.html_url %>" target="_blank">click here</p></a>
+<p>Description: <%= @repository.description %></p>
+<p>Language: <%= @repository.language %></p>
+<p>Stargazers: <%= @repository.stargazers_count %></p>
+<p>Forks: <%= @repository.forks %></p>
+<p>Open Issues: <%= @repository.open_issues %></p>
+<p>Watchers: <%= @repository.watchers %></p>
+<p>Owner Login: <b><%= @repository.owner_login %></b></p>  
+
+<br><br>
+<%= link_to "List All Repositories", repositories_path %>
