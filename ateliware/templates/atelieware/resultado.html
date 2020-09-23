@@ -1,0 +1,13 @@
+<h1>Projetos</h1>
+{% block content %}
+
+{% for instance in object_list %}
+<li><a href={{instance.url}}>{{instance.name}}</a></li>
+<p> Descrição: {{instance.description}}</p>
+<p> Linguagem: {{instance.language}}</p>
+<p> Issues: {{instance.issues}}</p>
+<p> Forks: {{instance.forks}}</p>
+<p> Stars: {{instance.stars}}</p>
+
+{% endfor %}
+{% endblock %}
