@@ -23,3 +23,4 @@ toml==0.10.1
 urllib3==1.25.10
 wheel==0.35.1
 zipp==3.2.0
+dj-databse-url==0.5.0
