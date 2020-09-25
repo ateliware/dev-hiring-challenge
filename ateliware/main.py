@@ -4,7 +4,7 @@ from .dados import Dados
 
 def atualizar(linguagens) -> Repositorio:
 
-    #Repositorio.objects.all().delete()
+    Repositorio.objects.all().delete()
 
     for language in linguagens:
         projetos = Dados(language)
