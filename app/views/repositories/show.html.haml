@@ -1,0 +1,23 @@
+%p#notice= notice
+
+%p
+  %img(src="#{@repository.avatar_url}" style="height: 100px;")
+%p
+  %b Uid:
+  = @repository.uid
+%p
+  %b Nome:
+  = @repository.name
+%p
+  %b Seguidores:
+  = @repository.watchers_count
+%p
+  %b Descrição:
+  = @repository.description
+%p
+  %b Url:
+  = @repository.url
+
+= link_to 'Editar', edit_repository_path(@repository)
+\|
+= link_to 'Voltar', repositories_path

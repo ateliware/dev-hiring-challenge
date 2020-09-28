@@ -1,20 +1,96 @@
-# Desafio técnico para desenvolvedores
+# Arohde <> Ateliware
 
-Construa uma nova aplicação, utilizando o framework de sua preferência (Rails, ASP.NET, Phoenix, etc), a qual deverá conectar na API do GitHub e disponibilizar as seguintes funcionalidades:
+This README documents all the steps necessary to get the application up and running.
 
-- Botão para buscar e armazenar os repositórios destaques de 5 linguagens à sua escolha;
-- Listar os repositórios encontrados;
-- Visualizar os detalhes de cada repositório.
+## Running example
 
-Alguns requisitos:
+You can access the example of this application running on Heroku here: [https://arohdeateliware.herokuapp.com/](https://arohdeateliware.herokuapp.com/)
 
-- Deve ser uma aplicação totalmente nova;
-- A solução deve estar em um repositório público do GitHub;
-- A aplicação deve armazenar as informações encontradas;
-- Utilizar Postgres, MySQL ou SQL Server;
-- O deploy deve ser realizado, preferencialmente, no Heroku ou no Azure;
-- A aplicação precisa ter testes automatizados.
+## Dependencies
 
-Quando terminar, faça um Pull Request neste repo e avise-nos por email.
+Ruby
 
-**IMPORTANTE:** se você não conseguir finalizar o teste, por favor nos diga o motivo e descreva quais foram as suas dificuldades. Claro que você também pode sugerir uma outra abordagem para avaliarmos seus skills técnicos, mas é com você para vender seu peixe, mostrar-nos do que é capaz.
+ruby 2.6.6p146 (2020-03-31 revision 67876)
+
+PostgreSQL
+
+Versions 9.3 and up are supported.
+
+## Development Configuration
+
+1. Clone repo
+
+```bash
+git clone https://github.com/andrerohde/arohdeateliware
+```
+
+2. Install dependencies
+
+```bash
+bundle install
+```
+
+3. Database creation
+
+```bash
+rake db:create
+```
+
+4. Database migration
+
+```bash
+rake db:migrate
+```
+
+5. Run test suite
+
+```bash
+bundle exec rspec spec
+```
+
+6. Run server
+
+```bash
+rails s
+```
+
+## Services
+
+Communication service with the github api.
+
+## Extras
+ 
+Access base_url/pghero to see a performance dashboard for Postgres.
+
+## Deployment Instructions
+
+1. Install the Heroku [CLI](https://devcenter.heroku.com/articles/heroku-command-line)
+
+2. Login Heroku
+
+```bash
+heroku login
+```
+
+3. Add remote repository
+
+```bash
+heroku git:remote -a your_heroku_project
+```
+
+4. Deploy application to Heroku
+
+```bash
+git push heroku master
+```
+
+5. Migrate database on Heroku
+
+```bash
+heroku run rake db:migrate
+```
+
+6. Yay, navigate to your project! o/
+
+https://your_heroku_project.herokuapp.com/
+

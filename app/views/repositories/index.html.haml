@@ -1,0 +1,37 @@
+%h1 Lista de repositórios
+%hr
+
+%p#notice= notice
+
+%table
+  %thead
+    %tr
+      %th
+      %th.text-center Uid
+      %th.text-center Nome
+      %th.text-center Descrição
+      %th.text-center Seguidores
+      %th.text-center Url
+      %th
+      %th
+      %th
+
+  %tbody
+    - @repositories.each do |repository|
+      %tr
+        %td
+          %img(src="#{repository.avatar_url}" style="height: 20px;")
+        %td= repository.uid
+        %td= repository.name
+        %td= repository.description
+        %td= repository.watchers_count
+        %td= repository.url
+        %td= button_to 'Visualizar', repository, class: 'btn-primary', method: :get
+        %td= button_to 'Editar', edit_repository_path(repository), class: 'btn-secondary', method: :get
+        %td= button_to 'Excluir', repository, method: :delete, class: 'btn-danger', data: { confirm: 'Tem certeza?' }
+
+%br
+
+%div{style: 'display: inline-flex; margin-bottom: 50px;'}
+  = button_to 'Novo repositório', new_repository_path, class: 'btn-primary', style: 'margin-right: 10px;', method: :get
+  = button_to 'Importar repositórios do Github', repositories_sample_path, class: 'btn-primary', method: :get

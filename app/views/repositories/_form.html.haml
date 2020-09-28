@@ -1,0 +1,34 @@
+= form_for @repository do |f|
+  - if @repository.errors.any?
+    #error_explanation
+      %h2= "Ocorreu um erro ao atualizar o repositório."
+      %ul
+        - @repository.errors.full_messages.each do |message|
+          %li= message
+
+  .field
+    = f.label :uid
+    = f.number_field :uid
+  %br
+  .field
+    = f.label 'Nome'
+    = f.text_field :name
+  %br
+  .field
+    = f.label 'Url'
+    = f.text_field :avatar_url
+  %br
+  .field
+    = f.label 'Seguidores'
+    = f.number_field :watchers_count
+  %br
+  .field
+    = f.label 'Descrição'
+    = f.text_area :description
+  %br
+  .field
+    = f.label :url
+    = f.text_field :url
+  %br
+  .actions
+    = f.submit 'Salvar'
