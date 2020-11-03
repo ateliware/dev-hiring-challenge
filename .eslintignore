@@ -1,0 +1,11 @@
+.vscode/ 
+
+node_modules/
+
+# Build products
+build/
+dist/
+tools/
+
+jest.config.js
+test/jest.config.js
