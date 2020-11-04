@@ -4,11 +4,15 @@ import http from 'http'
 import authRoute from '@src/routes/auth.route'
 import logger from './logger'
 import pino from 'express-pino-logger'
+import config, { IConfig } from 'config'
 
 export class SetupServer {
   private server?: http.Server
 
-  constructor(private port = 3000, private app: Application = express()) {}
+  constructor(
+    private port: IConfig = config.get('App.port'),
+    private app: Application = express()
+  ) {}
 
   public get App(): Application {
     return this.app

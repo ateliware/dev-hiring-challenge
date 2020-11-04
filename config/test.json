@@ -1,0 +1,8 @@
+{
+  "App": {
+    "port": "3000",
+    "logger": {
+      "enabled": false
+    }
+  }
+}
