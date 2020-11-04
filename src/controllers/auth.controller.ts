@@ -1,9 +1,8 @@
 import { User } from '@src/models/user.model'
 import { Request, Response } from 'express'
-import { getRepository } from 'typeorm'
+import { getRepository, getConnection } from 'typeorm'
 import jwt from 'jsonwebtoken'
 import config, { IConfig } from 'config'
-import { emit } from 'process'
 
 const jwt_config: IConfig = config.get('App.auth')
 
@@ -83,11 +82,4 @@ export async function signIn(req: Request, res: Response): Promise<void> {
   } catch (error) {
     res.status(500).send({ code: 500, message: error.message })
   }
-}
-
-export async function getTopRepositories(
-  req: Request,
-  res: Response
-): Promise<void> {
-  res.send('repositories')
 }

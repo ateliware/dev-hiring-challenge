@@ -2,6 +2,7 @@ import express, { Application } from 'express'
 import cors from 'cors'
 import http from 'http'
 import authRoute from '@src/routes/auth.route'
+import repoRoute from '@src/routes/repo.route'
 import logger from './logger'
 import pino from 'express-pino-logger'
 import config, { IConfig } from 'config'
@@ -35,6 +36,7 @@ export class SetupServer {
 
   private controllers(): void {
     this.app.use('/auth/', authRoute)
+    this.app.use('/api/', repoRoute)
   }
 
   public closeServer(): void {
