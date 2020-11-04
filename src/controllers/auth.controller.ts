@@ -1,5 +1,8 @@
+import { User } from '@src/models/user.model'
 import { Request, Response } from 'express'
+import { getRepository } from 'typeorm'
 
 export async function signIn(req: Request, res: Response): Promise<void> {
-  res.send({ hello: 'world' })
+  const result = getRepository(User).find()
+  res.send(result)
 }
