@@ -1,5 +1,6 @@
 import { Connection, createConnection } from 'typeorm'
 import config from 'config'
+import { User } from './models/user.model'
 
 export async function databaseConnect(): Promise<Connection> {
   return await createConnection({
@@ -9,7 +10,7 @@ export async function databaseConnect(): Promise<Connection> {
     username: config.get('App.database.username') as string,
     password: config.get('App.database.password') as string,
     database: config.get('App.database.database') as string,
-    entities: [],
+    entities: [User],
     synchronize: true,
     logging: false,
   })
