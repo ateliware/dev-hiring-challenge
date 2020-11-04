@@ -2,6 +2,8 @@ import express, { Application } from 'express'
 import cors from 'cors'
 import http from 'http'
 import authRoute from '@src/routes/auth.route'
+import logger from './logger'
+import pino from 'express-pino-logger'
 
 export class SetupServer {
   private server?: http.Server
@@ -20,6 +22,7 @@ export class SetupServer {
   private middlewares(): void {
     this.app.use(express.json())
     this.app.use(cors({ origin: '*' }))
+    this.app.use(pino({ logger: logger }))
   }
 
   private controllers(): void {
@@ -34,6 +37,6 @@ export class SetupServer {
 
   public start(): void {
     this.server = this.app.listen(this.port)
-    console.log(`Server listen on port ${this.port.toString()}`)
+    logger.info(`Server listen on port ${this.port.toString()}`)
   }
 }
