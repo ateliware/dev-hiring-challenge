@@ -1,5 +1,13 @@
 {
   "App": {
-    "port": "PORT"
+    "port": "PORT",
+    "database": {
+      "type": "DATABASE_TYPE",
+      "host": "DATABASE_HOST",
+      "port": "DATABASE_PORT",
+      "username": "DATABASE_USER",
+      "password": "DATABASE_PASSWORD",
+      "database": "DATABASE_NAME"
+    }
   }
 }
