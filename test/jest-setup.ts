@@ -7,7 +7,7 @@ let server: SetupServer
 beforeAll(async () => {
   server = new SetupServer()
   await server.init()
-  global.testRequest = supertest(server.App)
+  global.appRequest = supertest(server.App)
 })
 
 afterAll(async () => {
@@ -19,7 +19,7 @@ afterEach(async () => {
   const entities = getConnection().entityMetadatas
 
   for (const entity of entities) {
-    const repository = getConnection().getRepository(entity.name) // Get repository
+    const repository = getConnection().getRepository(entity.name) 
     await repository.clear() // Clear each entity table's content
   }
 })
