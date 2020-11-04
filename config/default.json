@@ -12,6 +12,9 @@
     "logger": {
       "enabled": true,
       "level": "info"
+    },
+    "auth": {
+      "key": "secret"
     }
   }
 }

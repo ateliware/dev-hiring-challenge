@@ -11,6 +11,9 @@
     },
     "logger": {
       "enabled": false
+    },
+    "auth": {
+      "key": "secret"
     }
   }
 }

@@ -8,6 +8,9 @@
       "username": "DATABASE_USER",
       "password": "DATABASE_PASSWORD",
       "database": "DATABASE_NAME"
+    },
+    "auth": {
+      "key": "JWT_SECRET_KEY"
     }
   }
 }
