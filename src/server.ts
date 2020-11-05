@@ -30,7 +30,7 @@ export class SetupServer {
 
   private middlewares(): void {
     this.app.use(express.json())
-    this.app.use(cors({ origin: '*' }))
+    this.app.use(cors({ origin: '*', exposedHeaders: 'auth-token' }))
     this.app.use(pino({ logger: logger }))
   }
 
@@ -46,13 +46,14 @@ export class SetupServer {
   }
 
   public start(): void {
-    this.server = this.app.listen(this.port)
-    logger.info(`Server listen on port ${this.port.toString()}`)
+    if (this.database?.isConnected) {
+      this.server = this.app.listen(this.port)
+      logger.info(`Server listen on port ${this.port.toString()}`)
+    }
   }
 
   private async initDatabase(): Promise<void> {
     this.database = await databaseConnect()
-    logger.info('Connected to the Database')
   }
 
   public async closeDatabase(): Promise<void> {

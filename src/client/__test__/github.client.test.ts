@@ -14,7 +14,7 @@ describe('Github API client', () => {
     // Act
     const response = await githubClient.fetchRepositories('python')
     // Asssert
-    expect(response).toEqual(pythonFixture.items)
+    expect(response.data.items).toEqual(pythonFixture.items)
   })
 
   it('should return a list of five repositories', async () => {
@@ -24,9 +24,8 @@ describe('Github API client', () => {
     // Act
     const response = await githubClient.fetchRepositories('python')
     // Asssert
-    expect(response).toHaveLength(5)
+    expect(response.data.items).toHaveLength(5)
   })
-
 
   it('should return a validation error when the language does not exist', async () => {
     // Arrange
@@ -52,6 +51,5 @@ describe('Github API client', () => {
     await expect(githubClient.fetchRepositories('ruby')).rejects.toThrow(
       'Unexpected error when trying to communicate to GitHub API: Network Error'
     )
-  });
-
+  })
 })

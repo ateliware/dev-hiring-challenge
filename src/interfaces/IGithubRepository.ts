@@ -1,4 +1,4 @@
-export interface IGithubRepository {
+export interface IGithubRepositoryInfo {
   id: string
   name: string
   full_name: string

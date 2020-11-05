@@ -1,6 +1,6 @@
 import { User } from '@src/models/user.model'
 import { Request, Response } from 'express'
-import { getRepository, getConnection } from 'typeorm'
+import { getRepository } from 'typeorm'
 import jwt from 'jsonwebtoken'
 import config, { IConfig } from 'config'
 
