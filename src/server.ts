@@ -33,12 +33,12 @@ export class SetupServer {
     this.app.use(express.json())
     this.app.use(cors({ origin: '*', exposedHeaders: 'auth-token' }))
     this.app.use(pino({ logger: logger }))
-    this.app.use(notFound)
   }
-
+  
   private controllers(): void {
     this.app.use('/auth/', authRoute)
     this.app.use('/api/', repoRoute)
+    this.app.get('*', notFound);
   }
 
   public closeServer(): void {
