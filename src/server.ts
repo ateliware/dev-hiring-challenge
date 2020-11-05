@@ -8,6 +8,7 @@ import pino from 'express-pino-logger'
 import config, { IConfig } from 'config'
 import { Connection } from 'typeorm'
 import { databaseConnect } from './database'
+import { notFound } from './middlewares/404.middleware'
 
 export class SetupServer {
   private server?: http.Server
@@ -32,6 +33,7 @@ export class SetupServer {
     this.app.use(express.json())
     this.app.use(cors({ origin: '*', exposedHeaders: 'auth-token' }))
     this.app.use(pino({ logger: logger }))
+    this.app.use(notFound)
   }
 
   private controllers(): void {
