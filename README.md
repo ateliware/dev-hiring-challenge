@@ -33,8 +33,7 @@ link front-end:
 [https://myappci-front.azurewebsites.net/](https://myappci-front.azurewebsites.net/)
 
 link back-end:
-[http://myapp-ci.azurewebsites.net](http://myapp-ci.azurewebsites.net)
-
+[https://myapp-ci.azurewebsites.net](https://myapp-ci.azurewebsites.net)
 Foi muito gratificante e desafiador desenvolver esse projeto, é a primeira vez que utilizo o banco de dados Postgres e o GitHub Actions e tive uma ótima experiência.
 
 ## Imagens
