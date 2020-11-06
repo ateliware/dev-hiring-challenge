@@ -39,7 +39,7 @@ export class GitHubClient {
         name: element.name,
         full_name: element.full_name,
         description: element.description,
-        url: element.url,
+        html_url: element.html_url,
         stargazers_count: element.stargazers_count,
         language: element.language,
       }
