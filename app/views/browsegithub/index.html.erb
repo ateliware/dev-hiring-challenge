@@ -83,6 +83,8 @@ $(function(){
         clone.getElementsByClassName('language')[0].textContent = lang_item.language;
         clone.getElementsByClassName('stars')[0].textContent = lang_item.stargazers_count;
         clone.getElementsByClassName('add')[0].json = repos[elem][repos[elem].length-1];
+        
+        $(clone.getElementsByClassName('add')[0]).tooltip();
 
         document.getElementById('repos-ul-'+elem).appendChild(clone);
       });
