@@ -67,5 +67,6 @@ https://ateliwarerailschallenge.herokuapp.com/
 ## Routing
 | URL | Route | Description |
 | ----------- | ---- | --------- |
+| / | browsegithub#index | Root page |
 | /repository.json | repositories#index | Lists all saved repositories |
 | /repository/new/{:name}{:description}{:language}{:stars}{:url} | repositories#create | Stores a new repository |
