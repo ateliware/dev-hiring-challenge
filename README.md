@@ -1,20 +1,71 @@
-# Desafio técnico para desenvolvedores
+# DevHiringChallenge v1.0
 
-Construa uma nova aplicação, utilizando o framework de sua preferência (Rails, ASP.NET, Phoenix, etc), a qual deverá conectar na API do GitHub e disponibilizar as seguintes funcionalidades:
+This is a sample app for ateliware recruiting challenge. It is a Rails 6.0 app for showing Github repositories, based on programming language.
 
-- Botão para buscar e armazenar os repositórios destaques de 5 linguagens à sua escolha;
-- Listar os repositórios encontrados;
-- Visualizar os detalhes de cada repositório.
+It also features a favorite button, which saves favorite repositories and shows them through an API.
 
-Alguns requisitos:
+## Requirements
 
-- Deve ser uma aplicação totalmente nova;
-- A solução deve estar em um repositório público do GitHub;
-- A aplicação deve armazenar as informações encontradas;
-- Utilizar Postgres, MySQL ou SQL Server;
-- O deploy deve ser realizado, preferencialmente, no Heroku ou no Azure;
-- A aplicação precisa ter testes automatizados.
+- Ruby 2.7.2
+- Rails 6.0.3
+- PostgreSQL Database
+- Deployed on Heroku
 
-Quando terminar, faça um Pull Request neste repo e avise-nos por email.
+To install gems use
 
-**IMPORTANTE:** se você não conseguir finalizar o teste, por favor nos diga o motivo e descreva quais foram as suas dificuldades. Claro que você também pode sugerir uma outra abordagem para avaliarmos seus skills técnicos, mas é com você para vender seu peixe, mostrar-nos do que é capaz.
+```
+bundle install
+```
+
+The migration file is already present, thus only migrate is necessary
+
+```
+rails db:migrate
+```
+
+You can locally run the server by
+
+```
+rails server
+```
+
+## Testing
+
+Testing was developed under Minitest::Unit and ActiveSupport::TestCase
+
+Database for testing can be create through
+
+```
+rails db:create RAILS_ENV=test
+```
+
+And migrated using
+
+```
+rails db:migrate RAILS_ENV=test
+```
+
+Tests can be deployed either on
+
+```
+rake test test/controller/repository_controller_test.rb
+```
+
+or
+
+```
+rake test test/controller/browsegithub_controller_test.rb
+```
+
+## Deploy
+
+The app is currently available at
+
+https://ateliwarerailschallenge.herokuapp.com/
+
+
+## Routing
+| URL | Route | Description |
+| ----------- | ---- | --------- |
+| /repository.json | repositories#index | Lists all saved repositories |
+| /repository/new/{:name}{:description}{:language}{:stars}{:url} | repositories#create | Stores a new repository |
