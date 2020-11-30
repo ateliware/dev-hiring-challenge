@@ -1,0 +1,28 @@
+$fa-font-path: '@fortawesome/fontawesome-free/webfonts';
+@import '@fortawesome/fontawesome-free/scss/fontawesome.scss';
+@import '@fortawesome/fontawesome-free/scss/solid.scss';
+@import '@fortawesome/fontawesome-free/scss/regular.scss';
+@import '@fortawesome/fontawesome-free/scss/brands.scss';
+@import '@fortawesome/fontawesome-free/scss/v4-shims.scss';
+@import 'fontsource-roboto/index.css';
+@import 'bootstrap/dist/css/bootstrap.css';
+
+body {
+  font-family: Roboto; 
+}
+
+#ruby .list li:first-child{
+  display:none;
+}
+
+li:hover {
+  background: #eee;
+}
+
+[role=button] {
+  cursor: pointer;
+  color: #44cc44;
+  transition: all ease 0.5s;
+}
+
+[role=button]:hover {color: #99f099;}

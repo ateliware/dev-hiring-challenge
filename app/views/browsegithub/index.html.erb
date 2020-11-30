@@ -1,0 +1,99 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Repositórios</a>
+  <button id="ruby-btn" class="btn btn-outline-danger ml-1" type="button"></button>
+  <button id="python-btn" class="btn btn-outline-success ml-1" type="button"></button>
+  <button id="javascript-btn" class="btn btn-outline-warning ml-1" type="button"></button>
+  <button id="java-btn" class="btn btn-outline-primary ml-1" type="button"></button>
+  <button id="pascal-btn" class="btn btn-outline-info ml-1" type="button"></button>
+</nav>
+
+<div id="ruby">
+  <ul id="repos-ul-ruby" class="list-group list">
+    <li id="template" class="list-group-item">
+      <h4 class="name"></h4>
+      <p>
+        <span class="description"></span>
+        <span class="add float-right" role="button" onClick=storeRepo(this.json)><i class="fa fa-plus" aria-hidden="true"></i></span>
+      </p>
+      <p><span class="language"> </span> <span class="float-right"><i class="fa fa-star text-warning" aria-hidden="true"></i>
+<span class="stars"> </span></span></p>
+    </li>
+  </ul>
+</div>
+
+<div id="python" class="d-none">
+  <ul id="repos-ul-python" class="list-group list">
+
+  </ul>
+</div>
+
+<div id="javascript" class="d-none">
+  <ul id="repos-ul-javascript" class="list-group list">
+
+  </ul>
+</div>
+
+<div id="java" class="d-none">
+  <ul id="repos-ul-java" class="list-group list">
+
+  </ul>
+</div>
+
+<div id="pascal" class="d-none">
+  <ul id="repos-ul-pascal" class="list-group list">
+
+  </ul>
+</div>
+
+<script type="text/javascript">
+
+languages = ['ruby', 'python', 'javascript', 'java', 'pascal'];
+
+var repos = {'ruby':[], 'python':[], 'javascript':[], 'java':[], 'pascal':[]};
+
+function storeRepo(param){
+  $.get('/repository/new',
+    {
+      name: param.name, description: param.description, language: param.language,
+      stars: param.stars, url: param.url
+    }, 
+    function(data){
+      console.log(data);
+    });
+}
+
+$(function(){
+  languages.forEach(function(elem, index){
+    document.getElementsByClassName('btn')[index].textContent = elem;
+    $.getJSON('https://api.github.com/search/repositories?q=language:'+elem+'&sort=stars&order=desc', function(data){
+      data.items.forEach(function(lang_item){
+        repos[elem].push({
+          name: lang_item.full_name,
+          description: lang_item.description,
+          language: lang_item.language,
+          stars: lang_item.stargazers_count,
+          url: lang_item.html_url,
+        });
+
+        let clone = document.getElementById('template').cloneNode(true);
+        clone.setAttribute('id','');
+
+        clone.getElementsByClassName('name')[0].textContent = lang_item.full_name;
+        clone.getElementsByClassName('description')[0].textContent = lang_item.description;
+        clone.getElementsByClassName('language')[0].textContent = lang_item.language;
+        clone.getElementsByClassName('stars')[0].textContent = lang_item.stargazers_count;
+        clone.getElementsByClassName('add')[0].json = repos[elem][repos[elem].length-1];
+
+        document.getElementById('repos-ul-'+elem).appendChild(clone);
+      });
+    }); 
+  }); 
+
+  $('button').click(function(e){
+    var sel = e.target.id.replace('-btn','');
+    
+    $('div').removeClass('d-none');
+    $('div:not(#'+sel+')').addClass('d-none');
+  });  
+});
+</script>

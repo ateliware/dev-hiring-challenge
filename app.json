@@ -1,0 +1,8 @@
+{
+  "name": "Desafio técnico para desenvolvedores",
+  "description": "App para conectar ao Github API",
+  "image": "heroku/ruby",
+  "repository": "https://github.com/richardba/dev-hiring-challenge",
+  "keywords": ["ruby", "rails" ],
+  "addons": ["heroku-postgresql"]
+}

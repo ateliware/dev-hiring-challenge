@@ -1,0 +1,2 @@
+module BrowsegithubHelper
+end
