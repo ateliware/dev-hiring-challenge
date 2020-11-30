@@ -1,5 +1,5 @@
 class CreateRepositories < ActiveRecord::Migration[6.0]
-  def change
+  def create
     create_table :repositories do |t|
       t.string :name
       t.text :description
