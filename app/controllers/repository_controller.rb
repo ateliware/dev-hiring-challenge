@@ -27,5 +27,12 @@ class RepositoryController < ApplicationController
     render json: {results: @repository}.to_json, status: :ok
   end
   
+  def exists
+    result = false
+    if Repository.exists?(name: params["name"])
+      result = true
+    end
+    render json: {result: result}.to_json, status: :ok
+  end
 
 end

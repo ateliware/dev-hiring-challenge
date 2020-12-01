@@ -5,5 +5,6 @@ Rails.application.routes.draw do
   
   get '/repository' => 'repository#index'
   get '/repository/new' => 'repository#new'
+  get '/repository/exists' => 'repository#exists'
 
 end
