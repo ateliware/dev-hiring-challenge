@@ -24,9 +24,7 @@ class RepositoryController < ApplicationController
       @repository.url = params["url"]
       @repository.save
     end
-    respond_to do |format|
-      format.any(:html, :js, :json) {render json: @repository.to_json, status: :ok}
-    end
+    render json: {results: @repository}.to_json, status: :ok
   end
   
 

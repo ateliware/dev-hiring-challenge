@@ -5,5 +5,6 @@ class BrowsegithubController < ApplicationController
   end
   
   def repositories
+  
   end
 end

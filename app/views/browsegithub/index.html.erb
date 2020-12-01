@@ -5,6 +5,7 @@
   <button id="javascript-btn" class="btn btn-outline-warning ml-1" type="button"></button>
   <button id="java-btn" class="btn btn-outline-primary ml-1" type="button"></button>
   <button id="pascal-btn" class="btn btn-outline-info ml-1" type="button"></button>
+  <button id="saved-btn" class="btn btn-outline-dark mr-1 float-right" type="button"></button>
 </nav>
 
 <div id="ruby">
@@ -42,6 +43,11 @@
 <div id="pascal" class="d-none">
   <ul id="repos-ul-pascal" class="list-group list">
 
+  </ul>
+</div>
+
+<div id="saved" class="d-none">
+  <ul id="repos-ul-saved" class="list-group list">
   </ul>
 </div>
 
@@ -96,6 +102,24 @@ $(function(){
     
     $('div').removeClass('d-none');
     $('div:not(#'+sel+')').addClass('d-none');
+    if(sel==='saved'){
+      $('#repos-ul-saved').empty();
+      $.getJSON('/repository.json', function(data){
+        data.results.forEach(function(result){
+          let clone = document.getElementById('template').cloneNode(true);
+          clone.setAttribute('id','');
+
+          clone.getElementsByClassName('name')[0].textContent = result.name;
+          clone.getElementsByClassName('description')[0].textContent = result.description;
+          clone.getElementsByClassName('language')[0].textContent = result.language;
+          clone.getElementsByClassName('stars')[0].textContent = result.stars;
+          clone.getElementsByClassName('add')[0].innerHTML = '';
+          $(clone).append('<p><a href="' + result.url + '">' + result.url + '</a></p>');
+
+          document.getElementById('repos-ul-'+elem).appendChild(clone);
+        });
+      });
+    }
   });  
 });
 </script>
