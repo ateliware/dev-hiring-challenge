@@ -113,7 +113,7 @@ $(function(){
           clone.getElementsByClassName('description')[0].textContent = result.description;
           clone.getElementsByClassName('language')[0].textContent = result.language;
           clone.getElementsByClassName('stars')[0].textContent = result.stars;
-          clone.getElementsByClassName('add')[0].innerHTML = '';
+          $(clone.getElementsByClassName('add')[0]).remove();
           $(clone).append('<p><a href="' + result.url + '">' + result.url + '</a></p>');
 
           document.getElementById('repos-ul-'+elem).appendChild(clone);
