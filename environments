@@ -1,0 +1,6 @@
+ENV=test
+MIX_ENV=test
+PG_USERNAME=postgres
+PG_PASSWORD=password
+PG_HOST=127.0.0.1
+PG_PORT=5432

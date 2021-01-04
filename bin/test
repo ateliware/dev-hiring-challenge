@@ -1,0 +1,4 @@
+#!/bin/bash
+docker-compose \
+    run --rm web \
+    /bin/ash -c "MIX_ENV=test mix do ecto.create, ecto.migrate, test"

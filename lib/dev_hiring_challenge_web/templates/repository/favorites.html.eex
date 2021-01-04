@@ -1,0 +1,5 @@
+<section class="favorites">
+  <h2>Favoritos</h2>
+</section>
+
+<%= render "list.html", repos: @repos, conn: @conn, origin: :favorites%>

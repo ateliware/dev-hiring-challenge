@@ -1,0 +1,12 @@
+<section class="languages">
+  <h2>Top 5 Repositorios do GitHub</h2>
+  <nav role="navigation">
+    <ul>
+      <%= for language <- languages() do %>
+        <li><%= link language, to: Routes.repository_path(@conn, :index, language: language), class: active_class(@language, language) %></li>
+      <% end %>
+    </ul>
+  </nav>
+</section>
+
+<%= render "list.html", repos: @repos, conn: @conn, origin: :repositories %>

@@ -1,0 +1,33 @@
+<section class="list">
+  <ul>
+    <%= for repo <- @repos do %>
+      <li>
+        <div class="card">
+          <h3 class="card-title collapsible"><%= repo[:name] %></h3>
+          <div class="card-content">
+            <div class="description">
+              <h5><b>Descrição:</b> <%= repo[:description] %></h5>
+              <p><b>Link:</b> <%= link repo[:html_url], to: repo[:html_url] %></p>
+              <p><b>Linguagem:</b> <%= repo[:language] %></p>
+            </div>
+            <div class="actions">
+              <%= if @origin == :repositories do %>
+                <%= form_for @conn, Routes.repository_path(@conn, :create), [method: :post], fn _f -> %>
+                  <%= hidden_input :repo, :name, value: repo[:name] %>
+                  <%= hidden_input :repo, :description, value: repo[:description] %>
+                  <%= hidden_input :repo, :html_url, value: repo[:html_url] %>
+                  <%= hidden_input :repo, :language, value: repo[:language] %>
+                  <%= hidden_input :repo, :stargazers_count, value: repo[:stargazers_count] %>
+                  <%= submit "Salvar", class: "button" %>
+                <% end %>
+              <% else %>
+                <%= link "Remover", class: "button", to: Routes.repository_path(@conn, :delete, repo[:id]), method: :delete %>
+              <% end %>
+              <p><i class="fa fa-star"></i> <%= repo[:stargazers_count] %></p>
+            </div>
+          </div>
+        </a>
+      </li>
+    <% end %>
+  <ul>
+</section>

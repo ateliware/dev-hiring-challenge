@@ -1,0 +1,17 @@
+/_build
+/deps
+/doc
+/tmp
+/node_modules
+
+/assets/node_modules
+
+/installer/_build
+/installer/tmp
+/installer/doc
+/installer/deps
+
+/integration_test/_build
+/integration_test/deps
+
+erl_crash.dump

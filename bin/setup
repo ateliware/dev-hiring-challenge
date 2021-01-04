@@ -1,0 +1,51 @@
+#!/bin/bash
+
+check_docker_presence() {
+  if [ -x "$(command -v docker)" ]; then
+    echo "✅ Yippee! Docker is present"
+  else
+    echo "🛑 Oh-oh! Docker is not present. Please install before proceeding."
+    exit 1
+  fi
+}
+
+check_docker_compose_presence() {
+  if [ -x "$(command -v docker-compose)" ]; then
+    echo "✅ Hooray! Docker Compose is present"
+  else
+    echo "🛑 Shame! Docker Compose is not present. Please install before proceeding."
+    exit 1
+  fi
+}
+
+build_project() {
+  if docker-compose build web; then
+    echo "✅ Yay! Built web image successfully"
+  else
+    echo "🛑 Oops! Error while building web image"
+    exit 1
+  fi
+}
+
+create_database() {
+  if docker-compose run web /bin/ash -c "sleep 5 && MIX_ENV=dev mix do ecto.create, ecto.migrate"; then
+    echo "✅ Yay! Database created successfully"
+  else
+    echo "🛑 Oops! Error while creating database"
+    exit 1
+  fi
+}
+
+
+echo "🤔 Verifing Docker presence..."
+check_docker_presence
+
+echo "🤔 Verifing Docker Compose presence..."
+check_docker_compose_presence
+
+echo "🤔 Building Docker image and project dependencies..."
+build_project
+
+echo "🤔 Creating PostgreSQL Database..."
+create_database
+

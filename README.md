@@ -1,20 +1,33 @@
-# Desafio técnico para desenvolvedores
+# GitHub Repositories
+## My solution to Ateliware's Dev Hiring Challenge
 
-Construa uma nova aplicação, utilizando o framework de sua preferência (Rails, ASP.NET, Phoenix, etc), a qual deverá conectar na API do GitHub e disponibilizar as seguintes funcionalidades:
+### Overview
+The project was built using Elixir 1.11.2 and Phoenix 1.5.7 as a full-stack Web Application.
 
-- Botão para buscar e armazenar os repositórios destaques de 5 linguagens à sua escolha;
-- Listar os repositórios encontrados;
-- Visualizar os detalhes de cada repositório.
+**Container:** To avoid environment issues, I created two *Dockerfiles* to development and production envs, the local setup can be done using *Docker* and *Docker-Compose*, just be sure you have those dependencies installed on you machine.
 
-Alguns requisitos:
+**CI/CD:** When a new *push* is triggered on *main* branch, an automated CI pipeline runs using GitHub Actions (see on *./github/workflows/elixir.yml*) running all tests and build, if it passes it's followed by an automated CD pipeline to deploy the App on Heroku (see on *./heroku.yml*)
 
-- Deve ser uma aplicação totalmente nova;
-- A solução deve estar em um repositório público do GitHub;
-- A aplicação deve armazenar as informações encontradas;
-- Utilizar Postgres, MySQL ou SQL Server;
-- O deploy deve ser realizado, preferencialmente, no Heroku ou no Azure;
-- A aplicação precisa ter testes automatizados.
+**Deploy URL:** https://github-repositories-ateliware.herokuapp.com/
 
-Quando terminar, faça um Pull Request neste repo e avise-nos por email.
+### Running locally
+There are some *bin* scripts to facilitate the setup (maybe you need to execute as *sudo*).
+- To build the Docker image, type: `$ ./bin/setup`
 
-**IMPORTANTE:** se você não conseguir finalizar o teste, por favor nos diga o motivo e descreva quais foram as suas dificuldades. Claro que você também pode sugerir uma outra abordagem para avaliarmos seus skills técnicos, mas é com você para vender seu peixe, mostrar-nos do que é capaz.
+```
+🤔 Verifing Docker presence...
+✅ Yippee! Docker is present
+
+🤔 Verifing Docker Compose presence...
+✅ Hooray! Docker Compose is present
+
+🤔 Building Docker image and project dependencies...
+✅ Yay! Built web image successfully
+
+🤔 Creating PostgreSQL Database
+✅ Yay! Database created successfully
+```
+
+- After building the image with Docker, you can run the tests typing: `$ ./bin/test`
+
+- To run the server, type `$ ./bin/server`. The server should now be running at http://localhost:4001.

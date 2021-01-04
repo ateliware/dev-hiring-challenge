@@ -1,0 +1,31 @@
+[
+  {
+    "request": {
+      "body": "",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "https://api.github.com/search/repositories?q=language:python%"
+    },
+    "response": {
+      "binary": false,
+      "body": "",
+      "headers": {
+        "server": "GitHub.com",
+        "date": "Sat, 02 Jan 2021 14:52:14 GMT",
+        "vary": "Accept-Encoding, Accept, X-Requested-With",
+        "X-Ratelimit-Limit": "10",
+        "X-Ratelimit-Remaining": "7",
+        "X-Ratelimit-Reset": "1609599192",
+        "X-Ratelimit-Used": "3",
+        "Content-Length": "0",
+        "X-GitHub-Request-Id": "8D65:6240:BDE2911:13E12227:5FF0889D"
+      },
+      "status_code": 400,
+      "type": "ok"
+    }
+  }
+]
