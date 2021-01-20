@@ -9,10 +9,7 @@ module Github
 
     class << self
       def default_languages
-        DEFAULT_LANGUAGES.map.with_index do |language, index|
-          plus = index == 0 ? nil : '+'
-          [plus, 'language:', language].compact
-        end.join
+        DEFAULT_LANGUAGES.map { |language| ['+', 'language:', language] }.join[1..-1]
       end
 
       protected
