@@ -1,0 +1,11 @@
+.alert-message {
+  @apply bg-indigo-900 font-semibold text-white px-4 py-4 relative;
+
+  &.error, &.alert {
+    @apply bg-red-700;
+  }
+
+  &.success {
+    @apply bg-green-600;
+  }
+}

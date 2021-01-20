@@ -1,0 +1,19 @@
+<div class="repo-item border rounded-lg border-gray-700 mt-4 relative p-4">
+  <%= link_to(repository_path(repository), class: 'grid grid-cols-3') do %>
+    <p class="repo-name">
+      <%= repository.name %><br/>
+      <small class="repo-fullname p-2 mt-1">
+        <%= repository.full_name %>
+      </small>
+    </p>
+
+    <p class="lang-tag"><%= repository.language %></p>
+
+    <div class="counters text-right">
+      <p class="counter">
+        <span class="label mr-1">Stars</span>
+        <span class="amount p-2 rounded-full"><%= repository.stargazers_count %></span>
+      </p>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,28 @@
+.repo-list {
+  .repo-item {
+    .repo-name {
+      @apply text-indigo-800 font-semibold;
+    }
+
+    .repo-fullname {
+      @apply bg-gray-300 text-xs font-normal text-yellow-900;
+    }
+
+    .lang-tag {
+      @apply text-indigo-800 font-semibold text-sm;
+    }
+
+    .counters {
+      .counter {
+        .label {
+          @apply text-sm text-gray-900;
+        }
+
+        .amount {
+          @apply bg-gray-400 font-bold text-black;
+        }
+      }
+    }
+    
+  }
+}

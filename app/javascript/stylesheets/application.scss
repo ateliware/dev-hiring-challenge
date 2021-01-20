@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+
+@import "components/alert";
+
+@tailwind utilities;
+
+@import "repositories/list";
+
