@@ -24,10 +24,6 @@ module Github
       @position = position
     end
 
-    def process!
-      Repository.new(repository_attributes).save
-    end
-
     def repository_attributes
       @repository_params.slice(*Repository.new.attributes.keys).without('id').merge(
         github_repo_id: @repository_params['id'], importer_id: @importer.id,
