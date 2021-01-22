@@ -62,12 +62,12 @@ ActiveRecord::Schema.define(version: 2021_01_20_131020) do
     t.bigint "importer_id"
     t.bigint "owner_id"
     t.integer "position"
+    t.index ["github_repo_id", "stargazers_count", "watchers_count", "forks_count", "open_issues_count"], name: "index_repositories_uniqueness", unique: true
     t.index ["github_repo_id"], name: "index_repositories_on_github_repo_id"
     t.index ["importer_id"], name: "index_repositories_on_importer_id"
     t.index ["language"], name: "index_repositories_on_language"
     t.index ["owner_id"], name: "index_repositories_on_owner_id"
     t.index ["position"], name: "index_repositories_on_position"
-    t.index ["stargazers_count", "watchers_count", "forks_count", "open_issues_count"], name: "index_repositories_uniqueness", unique: true
   end
 
   add_foreign_key "repositories", "importers"

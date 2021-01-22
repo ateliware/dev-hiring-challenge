@@ -13,22 +13,26 @@ gem 'sass-rails', '>= 6'
 gem 'turbolinks', '~> 5'
 gem 'webpacker', '~> 4.0'
 
+group :development do
+  gem 'foreman', '0.87.2'
+  gem 'dotenv-rails', '2.7.6'
+  gem 'listen', '~> 3.2'
+  gem 'web-console', '>= 3.3.0'
+end
+
 group :development, :test do
   gem 'factory_bot_rails', '6.1.0'
+  gem 'ffaker', '2.17.0'
   gem 'pry-rails', '0.3.9'
+  gem 'pry-byebug', '3.9.0'
   gem 'rspec-rails', '4.0.1'
 end
 
 group :test do
-  gem 'shoulda-matchers', github: 'thoughtbot/shoulda-matchers', tag: 'v3.1.2', ref: 'c0960bd72dd41c4e9bd8b4375254f539776bfe95'
-  gem 'super_diff',             '0.5.3'
-  gem 'vcr',                    '5.1.0'
-  gem 'webmock',                '3.8.2'
   gem 'rails-controller-testing', '1.0.5'
+  gem 'shoulda-matchers', '4.4.1'
+  gem 'super_diff', '0.5.3'
+  gem 'vcr', '5.1.0'
+  gem 'webmock', '3.8.2'
 end
 
-group :development do
-  gem 'dotenv-rails', '2.7.6'
-  gem 'web-console', '>= 3.3.0'
-  gem 'listen', '~> 3.2'
-end

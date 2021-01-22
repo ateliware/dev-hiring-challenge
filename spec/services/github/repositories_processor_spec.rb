@@ -62,6 +62,10 @@ RSpec.describe Github::RepositoriesProcessor do
           position: 1
         })
       end
+
+      it 'doesnt create a new owner' do
+        expect { subject }.to not_change(Owner, :count)
+      end
     end
 
     context 'when owner doesnt exists' do

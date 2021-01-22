@@ -1,14 +1,47 @@
-<div class="flex flex-wrap items-center justify-between w-full p-8 pt-12">
-  <h2 class="text-4xl text-indigo-900 font-display font-semibold">
-    <%= @repository.name %>
+<div class="repository flex flex-wrap items-center justify-between w-full p-8 pt-12">
+  <h2 class="repository-title text-4xl font-display font-semibold">
+    <span class="avatar mr-1"><%= image_tag(@repository.owner.avatar_url) %></span>
+    <%= link_to(@repository.owner.login, @repository.owner.html_url, target: '_blank') %>
+    <span class="separator">/</span>
+    <%= link_to(@repository.name, @repository.html_url, target: '_blank') %>
   </h2>
 
   <%= link_to 'Voltar', :back, class: 'bg-indigo-800 text-white font-bold text-md py-4 px-8 rounded' %>
 
-  <div class="w-full align-middle">
-    <div class="mt-4 mb-4 block"></div>
-    <div class="repo-list grid grid-cols-1 gap-3">
+  <% if @repository.description.present? %>
+    <p class="repository-description w-full font-normal text-indigo-400 text-sm">
+      <%= @repository.description %>
+    </p>
+  <% end %>
 
+  <div class="w-full align-middle mt-20">
+    <div class="mt-4 mb-4 block"></div>
+
+    <div class="grid grid-cols-5 gap-5">
+      <div class="repo-info-item text-center border border-indigo-700 rounded-md p-4">
+        <p class="label">Language</p>
+        <div class="info"><%= @repository.language %></div>
+      </div>
+
+      <div class="repo-info-item text-center border border-indigo-700 rounded-md p-4">
+        <p class="label">Stars</p>
+        <div class="counter"><%= @repository.stargazers_count %></div>
+      </div>
+
+      <div class="repo-info-item text-center border border-indigo-700 rounded-md p-4">
+        <p class="label">Forks</p>
+        <div class="counter"><%= @repository.forks_count %></div>
+      </div>
+
+      <div class="repo-info-item text-center border border-indigo-700 rounded-md p-4">
+        <p class="label">Watchers</p>
+        <div class="counter"><%= @repository.watchers_count %></div>
+      </div>
+
+      <div class="repo-info-item text-center border border-indigo-700 rounded-md p-4">
+        <p class="label">Open Issues</p>
+        <div class="counter"><%= @repository.open_issues_count %></div>
+      </div>
     </div>
   </div>
 </div>

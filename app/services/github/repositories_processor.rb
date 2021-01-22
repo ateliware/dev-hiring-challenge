@@ -2,7 +2,7 @@
 
 module Github
   class RepositoriesProcessor
-    UNIQUE_FIELDS = %i[stargazers_count watchers_count forks_count open_issues_count].freeze
+    UNIQUE_FIELDS = %i[github_repo_id stargazers_count watchers_count forks_count open_issues_count].freeze
 
     class << self
       def call

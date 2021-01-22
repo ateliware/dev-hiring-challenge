@@ -2,8 +2,12 @@
 @tailwind components;
 
 @import "components/alert";
+@import "components/github_language_colors";
+@import "components/generic";
+@import "components/icons";
 
 @tailwind utilities;
 
 @import "repositories/list";
+@import "repositories/repository";
 

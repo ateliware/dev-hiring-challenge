@@ -1,19 +1,26 @@
-<div class="repo-item border rounded-lg border-gray-700 mt-4 relative p-4">
-  <%= link_to(repository_path(repository), class: 'grid grid-cols-3') do %>
-    <p class="repo-name">
-      <%= repository.name %><br/>
-      <small class="repo-fullname p-2 mt-1">
-        <%= repository.full_name %>
-      </small>
-    </p>
+<article class="repo-item border rounded-sm border-gray-500 relative p-4">
+  <%= link_to(repository_path(repository)) do %>
+    <h1 class="repo-name">
+      <p><%= repository.name %></p>
 
-    <p class="lang-tag"><%= repository.language %></p>
+      <p>
+        <span class="lang-tag">
+          <span class="ball-lang fix-top mr-1 <%= repository.language %>"></span>
+          <%= repository.language %>
+        </span>
 
-    <div class="counters text-right">
-      <p class="counter">
-        <span class="label mr-1">Stars</span>
-        <span class="amount p-2 rounded-full"><%= repository.stargazers_count %></span>
+        <span class="counter ml-2">
+          <%= icon('star', size: 16, wrapper_class: 'fix-top') %>
+          <%= number_to_human(repository.stargazers_count, precision: 2, delimiter: '.',
+            units: { thousand: 'k' }, round_mode: :ceil) %>
+        </span>
+
+        <span class="counter ml-2">
+          <%= icon('git-branch', size: 16, wrapper_class: 'fix-top') %>
+          <%= number_to_human(repository.forks_count, precision: 2, delimiter: '.',
+            units: { thousand: 'k' }, round_mode: :ceil) %>
+        </span>
       </p>
-    </div>
+    </h1>
   <% end %>
-</div>
+</article>

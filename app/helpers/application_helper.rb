@@ -11,4 +11,17 @@ module ApplicationHelper
       end
     end.join("\n").html_safe
   end
+
+  def icon(icon_name, options = {})
+    wrapper_classes = [options.delete(:class)].compact.push('icon').join(' ')
+    icon_options = { 'stroke-linecap': 'round', 'stroke-linejoin': 'round', class: 'feather' }.merge(options)
+    if options[:size].present?
+      icon_options[:width] = options[:size]
+      icon_options[:height] = options[:size]
+      icon_options.delete(:size)
+    end
+    use = content_tag(:use, nil, 'xlink:href': image_url("feather-sprite.svg##{icon_name}"))
+    svg = content_tag(:svg, use, icon_options)
+    content_tag(:span, svg.html_safe, class: wrapper_classes)
+  end
 end

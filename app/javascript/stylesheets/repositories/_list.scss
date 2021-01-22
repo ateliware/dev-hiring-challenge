@@ -2,6 +2,10 @@
   .repo-item {
     .repo-name {
       @apply text-indigo-800 font-semibold;
+
+      .counter {
+        @apply text-sm font-normal;
+      }
     }
 
     .repo-fullname {
@@ -9,7 +13,14 @@
     }
 
     .lang-tag {
-      @apply text-indigo-800 font-semibold text-sm;
+      @apply text-indigo-800 font-light text-xs;
+    }
+
+    .ball-lang {
+      border-radius: 50%;
+      display: inline-block;
+      width: 14px;
+      height: 14px;
     }
 
     .counters {
