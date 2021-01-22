@@ -1,0 +1,38 @@
+<section class="phx-hero">
+  <div>
+    <h1 class="pull-left">Principais Repositórios</h1>
+    <%= link "Sincronizar", to: Routes.repository_path(@conn, :index, languages: ["elixir", "python", "swift", "kotlin", "javascript"]), class: "button pull-rigth" %>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Linguagem</th>
+        <th>Nome</th>
+        <th>Proprietário</th>
+        <th>Estrelas</th>
+        <th>Forks</th>
+        <th>Data</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= for repository <- @repositories do %>
+        <tr>
+          <td><%= repository.language %></td>
+          <td><%= repository.name %></td>
+          <td><%= repository.owner %></td>
+          <td><%= repository.watchers %></td>
+          <td><%= repository.forks %></td>
+          <td><%= format_date_hour(repository.created_at) %></td>
+          <td>
+            <span><%= link "Detalhes", to: Routes.repository_path(@conn, :show, repository) %></span>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <div class="text-left">
+    <%= link "Voltar", to: Routes.page_path(@conn, :index), class: "button" %>
+  </div>
+</section>

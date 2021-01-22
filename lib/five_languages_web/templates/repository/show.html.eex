@@ -1,0 +1,69 @@
+<section class="phx-hero">
+    <h1><%= @repository.name %></h1>
+    <span>
+        <a href="<%= @repository.html_url %>"><%= @repository.full_name %></a>
+    </span>
+    <hr>
+
+    <div class="col-12"><h3>Proprietário</h3></div>
+    <div class="col-4">
+        <label>Nome</label>
+        <%= @repository.owner.login %>
+    </div>
+    <div class="col-4">
+        <a href="<%= @repository.owner.html_url %>">Git</a>
+    </div>
+    <div class="col-4">
+        <label>Tipo</label>
+        <%= if @repository.owner.type == "User", do: "Usuário", else: "Organização" %>
+    </div>
+    <hr>
+
+    <div class="col-12"><h3>Descrição</h3></div>
+    <div class="col-12"><%= @repository.description %></div>
+    <hr>
+
+    <div class="col-12"><h3>Dados Gerais</h3></div>
+    <div class="col-4 pb-12">
+        <label>Linguagem</label>
+        <%= @repository.language %>
+    </div>
+    <div class="col-4 pb-12">
+        <label>Forks</label>
+        <%= @repository.forks %>
+    </div>
+    <div class="col-4 pb-12">
+        <label>Estrelas</label>
+        <%= @repository.stargazers_count %>
+    </div>
+    <div class="col-4">
+        <label>Tamanho</label>
+        <%= @repository.size %>
+    </div>
+    <div class="col-4">
+        <label>Branch Padrão</label>
+        <%= @repository.default_branch %>
+    </div>
+    <div class="col-4">
+        <label>Issues Abertos</label>
+        <%= @repository.open_issues %>
+    </div>
+    <hr>
+
+    <div class="col-12"><h3>Datas</h3></div>
+     <div class="col-4">
+        <label>Criado</label>
+        <%= format_date_hour(@repository.created_at) %>
+    </div>
+    <div class="col-4">
+        <label>Atualizado</label>
+        <%= format_date_hour(@repository.updated_at) %>
+    </div>
+    <div class="col-4">
+        <label>Último Push</label>
+        <%= format_date_hour(@repository.pushed_at) %>
+    </div>
+    <hr>
+
+    <%= link "Voltar", to: Routes.repository_path(@conn, :index, languages: ["elixir", "python", "swift", "kotlin", "javascript"]), class: "button" %>
+</section>
