@@ -1,0 +1,3 @@
+[submodule "testApp"]
+	path = testApp
+	url = https://github.com/weissvinicius/testApp.git
