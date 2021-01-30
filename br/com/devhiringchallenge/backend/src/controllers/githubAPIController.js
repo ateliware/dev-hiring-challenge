@@ -7,14 +7,15 @@ const octokit = new Octokit();
 module.exports = {
   async search (request, response) {
 
+    const { page } = request.params;
     let repos = [];
     
     const rawRepos = await octokit.request("GET /search/repositories", {
       q: "language:typescript+language:ruby+language:go+language:C#+language:python",
       sort: "stars",
       order: "desc",
-      per_page: 100,
-      page: 1 
+      per_page: 10,
+      page: page,
     });
 
     rawRepos.data.items.forEach(r => {
