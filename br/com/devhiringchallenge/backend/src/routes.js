@@ -4,6 +4,6 @@ const githubAPIController = require('./controllers/githubAPIController');
 
 const routes = express.Router();
 
-routes.post('/search', githubAPIController.search);
+routes.get('/search', githubAPIController.search);
 
 module.exports = routes;

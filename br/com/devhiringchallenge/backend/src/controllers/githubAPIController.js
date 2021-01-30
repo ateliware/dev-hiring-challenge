@@ -10,18 +10,19 @@ module.exports = {
     let repos = [];
     
     const rawRepos = await octokit.request("GET /search/repositories", {
-      q: "language:java",
+      q: "language:typescript+language:ruby+language:go+language:C#+language:python",
       sort: "stars",
       order: "desc",
-      per_page: 15,
+      per_page: 100,
       page: 1 
     });
 
     rawRepos.data.items.forEach(r => {
       let respository = new Repository(r.name, r.html_url, r.stargazers_count, r.description, r.language);
       repos.push(respository);
-      repositoryDao.save(respository);
     });
+
+    repositoryDao.saveAll(repos);
 
     return response.json({repos});
   }
