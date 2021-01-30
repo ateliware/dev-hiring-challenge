@@ -4,30 +4,51 @@ module.exports = {
 
   development: {
     client: 'mysql',
+    version: '5.7',
     connection: {
-      database: 'devhiring',
-      user:     'root',
-      password: 'root'
+      host : 'localhost',
+      user : 'root',
+      password : 'root',
+      database : 'devhiring',
+      charset : 'utf8mb4'
     },
     migrations: {
       directory: './src/database/migrations'
-    }
+    },
+    useNullAsDefault: true
   },
 
-  production: {
-    client: 'mysql',
+  staging: {
+    client: 'postgresql',
     connection: {
-      database: 'devhiring',
-      user:     'root',
-      password: 'root'
+      database: 'my_db',
+      user:     'username',
+      password: 'password'
     },
     pool: {
       min: 2,
       max: 10
     },
     migrations: {
-      directory: './src/database/migrations'
+      tableName: 'knex_migrations'
+    }
+  },
+
+  production: {
+    client: 'postgresql',
+    connection: {
+      database: 'my_db',
+      user:     'username',
+      password: 'password'
+    },
+    pool: {
+      min: 2,
+      max: 10
+    },
+    migrations: {
+      tableName: 'knex_migrations'
     }
   }
+
 
 };

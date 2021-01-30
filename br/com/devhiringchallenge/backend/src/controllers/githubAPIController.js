@@ -1,5 +1,6 @@
 const { Octokit } = require("@octokit/core");
 const { Repository } = require("../models/repository");
+const repositoryDao = require("../dao/repositoryDao");
 
 const octokit = new Octokit();
 
@@ -9,15 +10,17 @@ module.exports = {
     let repos = [];
     
     const rawRepos = await octokit.request("GET /search/repositories", {
-      q: "language:java+language:c+language:Ruby+language:python+language:PHP",
+      q: "language:java",
       sort: "stars",
       order: "desc",
-      per_page: 20,
+      per_page: 10,
       page: 1 
     });
 
     rawRepos.data.items.forEach(r => {
-      repos.push(new Repository(r.name, r.html_url, r.stargazers_count, r.description));
+      let respository = new Repository(r.name, r.html_url, r.stargazers_count, r.description, r.language);
+      repos.push(respository);
+      repositoryDao.save(respository);
     });
 
     return response.json({repos});
