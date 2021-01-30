@@ -13,7 +13,7 @@ module.exports = {
       q: "language:java",
       sort: "stars",
       order: "desc",
-      per_page: 10,
+      per_page: 15,
       page: 1 
     });
 

@@ -1,12 +1,12 @@
 
 exports.up = async (knex) => {
   return knex.schema.table('repos' , function(table) {
-    table.string('language');
+    table.dropColumn('stars');
   });
 };
 
 exports.down = async (knex) => {
   return knex.schema.table('repos' , function(table) {
-    table.dropColumn('language');
+    table.string('stars');
   });
 };
