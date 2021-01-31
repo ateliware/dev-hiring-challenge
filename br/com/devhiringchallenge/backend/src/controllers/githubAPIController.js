@@ -18,6 +18,8 @@ module.exports = {
       page: page,
     });
 
+    console.log(page)
+
     rawRepos.data.items.forEach(r => {
       let respository = new Repository(r.name, r.html_url, r.stargazers_count, r.description, r.language);
       repos.push(respository);
