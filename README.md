@@ -1,20 +1,22 @@
-# Desafio técnico para desenvolvedores
+# Renan Nakashima - Dev Hiring Challenge
 
-Construa uma nova aplicação, utilizando o framework de sua preferência (Rails, ASP.NET, Phoenix, etc), a qual deverá conectar na API do GitHub e disponibilizar as seguintes funcionalidades:
+Implementa o teste técnico para o processo seletivo da Ateliware.
 
-- Botão para buscar e armazenar os repositórios destaques de 5 linguagens à sua escolha;
-- Listar os repositórios encontrados;
-- Visualizar os detalhes de cada repositório.
+## Implementação
 
-Alguns requisitos:
+A arquitetura implementada utiliza React no front-end (Client) e Express.js no back-end (API).
 
-- Deve ser uma aplicação totalmente nova;
-- A solução deve estar em um repositório público do GitHub;
-- A aplicação deve armazenar as informações encontradas;
-- Utilizar Postgres, MySQL ou SQL Server;
-- O deploy deve ser realizado, preferencialmente, no Heroku ou no Azure;
-- A aplicação precisa ter testes automatizados.
+## Funcionamento
 
-Quando terminar, faça um Pull Request neste repo e avise-nos por email.
+O funcionamento é bastante simples.
 
-**IMPORTANTE:** se você não conseguir finalizar o teste, por favor nos diga o motivo e descreva quais foram as suas dificuldades. Claro que você também pode sugerir uma outra abordagem para avaliarmos seus skills técnicos, mas é com você para vender seu peixe, mostrar-nos do que é capaz.
+1. A aplicação cliente solicita ao backend as informações do repositório
+2. O back-end realiza uma chamada externa à API do github, salvando as informações dos repositórios em um banco de dados Postgres 
+3. O back-end devolve as informações para o cliente, que irá renderizar os resultados.
+
+## Deploy no Heroku
+
+O deploy do cliente e da api foram feitos utilizando Heroku.
+
+* <client-dhc.herokuapp.com>
+* <api-dhc.herokuapp.com/repos>
