@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.repo-container ul div {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 16px;
+  list-style: none;
+}
+
+.repo-container ul div li {
+  padding: 24px;
+  position: relative;
+  width:444px;
+  max-width:444px;
+  height:176.78px;
+  max-height:176.78px;
+}
+
+p#bottom-text {
+  align-self: left;
+  position: absolute;
+  bottom: 8px;
+}
+
+#star {
+  color: #9CA3AF;
+}

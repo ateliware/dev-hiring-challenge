@@ -14,14 +14,14 @@ module.exports = {
       q: "language:typescript+language:ruby+language:go+language:C#+language:python",
       sort: "stars",
       order: "desc",
-      per_page: 10,
+      per_page: 20,
       page: page,
     });
 
     console.log(page)
 
     rawRepos.data.items.forEach(r => {
-      let respository = new Repository(r.name, r.html_url, r.stargazers_count, r.description, r.language);
+      let respository = new Repository(r.name, r.full_name, r.html_url, r.stargazers_count, r.description, r.language);
       repos.push(respository);
     });
 
