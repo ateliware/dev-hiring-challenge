@@ -18,5 +18,5 @@ O funcionamento é bastante simples.
 
 O deploy do cliente e da api foram feitos utilizando Heroku.
 
-* <client-dhc.herokuapp.com>
-* <api-dhc.herokuapp.com/repos>
+* <http://client-dhc.herokuapp.com>
+* <http://api-dhc.herokuapp.com/repos>
