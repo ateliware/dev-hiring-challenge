@@ -1,7 +1,4 @@
 const connection = require('../database/connection.js');
-const {attachOnDuplicateUpdate} = require('knex-on-duplicate-update');
-
-attachOnDuplicateUpdate();
 
 module.exports = { 
   
