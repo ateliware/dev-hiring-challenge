@@ -1,3 +1,11 @@
 div#header {
   background-color: #161B22;
 }
+
+.header div {
+  background-color: #161B22;
+}
+
+.header div span {
+  background-color: #161B22;
+}
