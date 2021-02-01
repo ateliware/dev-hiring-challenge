@@ -57,7 +57,7 @@ class List extends Component {
     return (
       <div name="List">
         <Header />
-        <div className="repo-container flex justify-center">
+        <div className="repo-container flex justify-center mt-8">
           <InfiniteScroll
             loadMore={this.handleRepos}
             hasMore={true}
@@ -66,21 +66,25 @@ class List extends Component {
           >
             <ul>
               {this.state.repos.map((repository, index) => (
-                <li key={index} className="border border-4 border-gray-400 border-opacity-50 rounded-md px-4 py-4">
-                  <p className="text-blue-400 text-sm truncate"><b><a target="_blank" rel="noreferrer" href={repository.url}>{repository.full_name}</a></b></p>
-
+                <li key={index} className="border border-4 border-gray-400 border-opacity-50 rounded-md px-4 py-4 cursor-pointer" onClick={() => { this.handleDetails(repository.id) }}>
+                  <p className="text-blue-400 text-sm truncate font-medium">
+                    {repository.full_name}
+                  </p>
                   <p className="text-gray-400 text-xs py-3 truncate">{repository.description}</p>
-
                   <div id="bottom-container" className="flex absolute pb-2 bottom-0">
                     <div id="bottom-text" className="flex justify-start py-3">
-                      <div className={`${this.handleLanguageColor(repository.language)} h-4 rounded-full w-4`}></div>
-                      <div id="language-text" className="text-gray-400 text-xs pr-3 ml-1">{repository.language}</div>
+                      <div className={`${this.handleLanguageColor(repository.language)} h-4 rounded-full w-4`} />
+                      <div id="language-text" className="text-gray-400 text-xs pr-3 ml-1">
+                        {repository.language}
+                      </div>
                       <FontAwesomeIcon id="star" icon={faStar} />
-                      <div id="stars-text" className="text-gray-400 text-xs pr-2 ml-1">{repository.stars}</div>
+                      <div id="stars-text" className="text-gray-400 text-xs pr-2 ml-1">
+                        {repository.stars}
+                      </div>
                     </div>
-                    <div id="bottom-info" className="flex justify-end py-3 ml-1 cursor-pointer" onClick={() =>{this.handleDetails(repository.id)}}>
+                    <div id="bottom-info" className="flex justify-end py-3 ml-1 cursor-pointer">
                       <FontAwesomeIcon id="info" icon={faInfoCircle} className="text-gray-400" />
-                      <div id="stars-text" className="text-gray-400 text-xs pr-2 ml-1">Informações</div>
+                      <div id="stars-text" className="text-gray-400 text-xs pr-2 ml-1">Clique para mais informações</div>
                     </div>
                   </div>
                 </li>

@@ -15,7 +15,7 @@ export default function Header() {
   };
 
   return (
-    <div id="header" className="header w-full h-16 mb-8 flex items-center px-8" >
+    <div id="header" className="header w-full h-16 flex items-center px-8" >
       <div className="flex justify-center cursor-pointer" onClick={handleHome}>
         <FaGithub size="33" color="white"/>
         <span className="text-white text-lg font-semibold pl-4 pt-1">Dev hiring challenge</span>

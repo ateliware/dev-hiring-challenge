@@ -19,7 +19,7 @@ export default function Home() {
       <Header />
       <div id="search-container" className="flex justify-center pt-24">
         <div id="search" 
-          className="bg-green-400 text-white py-3 px-6 w-2/6 h-1/2 flex justify-center font-semibold rounded-2xl cursor-pointer" 
+          className="bg-blue-500 text-white py-3 px-6 w-2/6 h-1/2 flex justify-center font-semibold rounded-2xl cursor-pointer" 
           onClick={handleList}>
             BUSCAR REPOSITÓRIOS FAVORITOS
         </div>

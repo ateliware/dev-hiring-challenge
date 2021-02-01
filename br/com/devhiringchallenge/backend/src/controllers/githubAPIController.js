@@ -7,7 +7,6 @@ const repositoryDao = require("../dao/repositoryDao");
 
 const octokit = new Octokit();
 
-
 async function saveData (users, repos) {
   await userDao.saveAll(users);
   await repositoryDao.saveAll(repos);
@@ -31,7 +30,7 @@ module.exports = {
 
     rawRepos.data.items.forEach(r => {
       let owner = r.owner;
-      let user = new User(owner.id, owner.login, owner.avatar_url, owner.url)
+      let user = new User(owner.id, owner.login, owner.avatar_url, owner.html_url)
       let respository = new Repository(r.id, r.name, r.full_name, r.html_url, r.stargazers_count, r.description, r.language, owner.id);
       users.push(user);
       repos.push(respository);
