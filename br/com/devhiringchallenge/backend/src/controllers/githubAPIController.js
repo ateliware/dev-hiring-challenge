@@ -2,42 +2,46 @@ const { Octokit } = require("@octokit/core");
 const { Repository } = require("../models/repository");
 const { User } = require("../models/user");
 
-const userDao = require("../dao/userDao");
-const repositoryDao = require("../dao/repositoryDao");
+const userController = require("./userController");
+const repositoryController = require("./repositoryController");
 
 const octokit = new Octokit();
 
-async function saveData (users, repos) {
-  await userDao.saveAll(users);
-  await repositoryDao.saveAll(repos);
-}
+const apiRequest = "GET /search/repositories";
+const apiResquestQuery = "language:typescript+language:ruby+language:go+language:C#+language:python";
+const apiRequestSort = "stars";
+const apiRequestOrder = "desc"; 
 
 module.exports = {
 
-  async search (request, response) {
+  async saveApiData(users, repositories) {
+    await userController.saveUser(users);
+    await repositoryController.saveRepository(repositories);
+  },
 
+  async resquestApiData(page) {
+    return octokit.request(apiRequest, {
+      q: apiResquestQuery,
+      sort: apiRequestSort,
+      order: apiRequestOrder,
+      per_page: 20,
+      page: page,
+    });
+  },
+    
+  async search(request, response) {
     const { page } = request.params;
     let repos = [];
     let users = [];
     
-    const rawRepos = await octokit.request("GET /search/repositories", {
-      q: "language:typescript+language:ruby+language:go+language:C#+language:python",
-      sort: "stars",
-      order: "desc",
-      per_page: 20,
-      page: page,
+    const apiResponse = await module.exports.resquestApiData(page);
+
+    apiResponse.data.items.forEach(r => {
+      users.push(userController.createUser(r.owner));
+      repos.push(repositoryController.createRepository(r));
     });
 
-    rawRepos.data.items.forEach(r => {
-      let owner = r.owner;
-      let user = new User(owner.id, owner.login, owner.avatar_url, owner.html_url)
-      let respository = new Repository(r.id, r.name, r.full_name, r.html_url, r.stargazers_count, r.description, r.language, owner.id);
-      users.push(user);
-      repos.push(respository);
-    });
-
-    // Call async function because user needs to be imported first
-    saveData(users, repos);
+    module.exports.saveApiData(users, repos);
 
     return response.json({repos});
   }

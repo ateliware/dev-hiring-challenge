@@ -18,36 +18,36 @@ module.exports = {
     useNullAsDefault: true
   },
 
-  staging: {
-    client: 'postgresql',
+  test: {
+    client: 'mysql',
+    version: '5.7',
     connection: {
-      database: 'my_db',
-      user:     'username',
-      password: 'password'
-    },
-    pool: {
-      min: 2,
-      max: 10
+      host : 'localhost',
+      user : 'root',
+      password : 'root',
+      database : 'devhiring',
+      charset : 'utf8mb4'
     },
     migrations: {
-      tableName: 'knex_migrations'
-    }
+      directory: './src/database/migrations'
+    },
+    useNullAsDefault: true
   },
 
   production: {
-    client: 'postgresql',
+    client: 'mysql',
+    version: '5.7',
     connection: {
-      database: 'my_db',
-      user:     'username',
-      password: 'password'
-    },
-    pool: {
-      min: 2,
-      max: 10
+      host : 'localhost',
+      user : 'root',
+      password : 'root',
+      database : 'testdevhiring',
+      charset : 'utf8mb4'
     },
     migrations: {
-      tableName: 'knex_migrations'
-    }
+      directory: './src/database/migrations'
+    },
+    useNullAsDefault: true
   }
 
 
