@@ -10,13 +10,11 @@ module.exports = {
       return repos.length > 0 ? repos[0] : null;
   },
   
-  async saveAll(repositories) {
-    repositories.forEach(repository => this.save(repository));
-  },
-
-  async save(repository) {
+  async saveOrUpdate(repository) {
     const [success] = await connection('repos')
       .insert(repository)
       .onDuplicateUpdate('name','full_name', 'stars', 'description', 'language');
+    
+      return success;
   }
  }

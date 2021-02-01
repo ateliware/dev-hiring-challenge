@@ -5,9 +5,11 @@ class Repository {
     this.full_name = full_name;
     this.url = url;
     this.stars = stars;
-    this.description = description;
     this.language = language;
     this.user_id = user_id;
+    this.description = description == null || description.length < 10000 ? 
+                       description :
+                       description.substring(0, 10000);
   }
 }
 
