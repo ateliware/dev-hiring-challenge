@@ -5,7 +5,7 @@ const repositoryDao = require("../dao/repositoryDao");
 module.exports = {
 
   async saveRepository(repository) {
-    await repositoryDao.saveOrUpdate(repository);
+    return await repositoryDao.saveOrUpdate(repository);
   },
 
   createRepository(repositoryData) {

@@ -4,6 +4,8 @@ const {attachOnDuplicateUpdate} = require('knex-on-duplicate-update');
 
 attachOnDuplicateUpdate();
 
-const connection = knex(configuration.development);
+const config = process.env.NODE_ENV === 'test' ? configuration.test : configuration.development;
+
+const connection = knex(config);
 
 module.exports = connection;
