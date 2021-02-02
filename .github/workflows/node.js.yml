@@ -20,10 +20,11 @@ jobs:
         node-version: [12.x]
     steps:
     - uses: actions/checkout@v2
+    - name: changing directory
+      working-directory: ${{env.working-directory}}
     - name: Test using Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - working-directory: ${{env.working-directory}}
     - run: npm install
     - run: npm test
