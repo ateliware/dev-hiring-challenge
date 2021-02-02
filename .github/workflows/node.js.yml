@@ -18,10 +18,11 @@ jobs:
       matrix:
         node-version: [12.x]
     steps:
+    - run : echo "$HOME/backend" >> $GITHUB_PATH
     - uses: actions/checkout@v2
     - name: Test using Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - run: yarn install
-    - run: yarn test
+    - run: npm install
+    - run: npm test
