@@ -18,6 +18,16 @@ module.exports = {
     useNullAsDefault: true
   },
 
+  production: {
+    client: 'mysql',
+    version: '5.7',
+    connection: process.env.CLEARDB_DATABASE_URL,
+    migrations: {
+      directory: './src/database/migrations'
+    },
+    useNullAsDefault: true
+  },
+
   test: {
     client: 'mysql',
     version: '5.7',
