@@ -5,7 +5,7 @@ const userDao = require("../dao/userDao");
 module.exports = {
 
   async saveUser(user) {
-    await userDao.saveOrUpdate(user);
+    return await userDao.saveOrUpdate(user);
   },
 
   createUser(userData) {

@@ -13,8 +13,8 @@ module.exports = {
   async saveOrUpdate(repository) {
     const [success] = await connection('repos')
       .insert(repository)
-      .onDuplicateUpdate('name','full_name', 'stars', 'description', 'language');
+      .onDuplicateUpdate('name', 'full_name', 'stars', 'description', 'language');
     
-      return success;
+    return success;
   }
  }

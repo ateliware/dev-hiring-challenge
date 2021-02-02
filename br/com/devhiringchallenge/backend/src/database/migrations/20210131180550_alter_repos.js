@@ -8,7 +8,7 @@ exports.up  = async (knex) => {
 
 exports.down = async (knex) => {
   return knex.schema.table('repos' , function(table) {
-    table.dropForeign('user_id')
+    table.dropForeign('user_id');
     table.dropColumn('user_id');
   })
 };
