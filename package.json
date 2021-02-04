@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "@popperjs/core": "^2.6.0",
+    "@rails/webpacker": "^4.0.0",
+    "bootstrap": "^5.0.0-beta1"
+  },
+  "devDependencies": {
+    "prettier": "2.2.1",
+    "webpack-dev-server": "^3.11.2"
+  },
+  "license": "UNLICENSED",
+  "engines": {
+    "node": "14.X"
+  }
+}
+
+

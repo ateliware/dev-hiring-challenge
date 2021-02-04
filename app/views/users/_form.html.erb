@@ -1,0 +1,33 @@
+<div class="container login-container">
+  <div class="col-md-6 offset-3 login-form-1">
+    <h3>Novo Usuário</h3>
+    <%= form_with model: @user, local: true do |form| %>
+      <% if @user.errors.any? %>
+        <div id="error_explanation" class="alert alert-warning">
+          <h6>
+            Corrija <%= pluralize(@user.errors.count, "erro") %> antes de prossegir.
+          </h6>
+          <ul>
+            <% @user.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+      <div class="form-group">
+        <p>
+          <%= form.label :email %><br>
+          <%= form.email_field :email, class:"form-control" %>
+        </p>
+      </div>
+      <p>
+        <%= form.label :password %><br>
+        <%= form.password_field :password, class:"form-control" %>
+      </p>
+      <p>
+        <%= form.submit "Salvar", class:"btn btn-success" %>
+      </p>
+    <% end %>
+  </form>
+  <%= link_to 'Voltar', root_url, class:"btn btn-primary mb-2" %>
+</div>

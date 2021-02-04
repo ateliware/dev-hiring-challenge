@@ -1,0 +1,75 @@
+<%= render 'navbar'%>
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+      <%= form_with url: 'repositories_api_search', class:"form-inline", local:
+      true, method: :get do |form| %> <%= form.text_field :query,
+      class:"form-control mr-sm-2",value: params[:query], required: true %>
+    </div>
+
+    <div class="col-6">
+      <%= form.select(:language, ["C", "Elixir", "Go", "Java",
+      "JavaScript","Ruby", "TypeScript"], {selected: params[:language]}, class: 'form-select') %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-3">
+      <%= form.submit "Pesquisar", class:"btn btn-primary" %> <%end%>
+    </div>
+  </div>
+    <div class="row">
+      <% unless @repositories.nil? %>
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th class="table-row" scope="col">Nome</th>
+              <th class="table-row" scope="col">Descrição</th>
+              <th class="table-row" scope="col">Proprietário</th>
+              <th class="table-row" scope="col">Linguagem</th>
+              <th class="table-row" scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @repositories.each do |repository| %>
+            <tr>
+              <td onclick="window.open('<%= repository.html_url %>')" role="button"><%= repository.name%></td>
+              <td onclick="window.open('<%= repository.html_url %>')" role="button"><%= repository.description%></td>
+              <td onclick="window.open('<%= repository.html_url %>')" role="button"><%= repository.owner%></td>
+              <td onclick="window.open('<%= repository.html_url %>')" role="button"><%= repository.language%></td>
+                  
+              <td>
+                <%if repository.id? %>
+                  <div class="d-grid gap-2">
+                    <%= form_with model: repository, method: :delete, local: true do |form| %> 
+                      <%= form.hidden_field :id %>
+                      <%= submit_tag "Remover", class: "btn btn-danger", data: { confirm: 'Your confirm message' } %>
+                    <% end %>
+                      <button class="btn btn-info disabled" role="button">Salvo</button>
+                  </div>
+              </td>
+                <% else %>
+                  <%= form_with model: repository, local: true do |f| %>
+                  <div class="actions">
+                      <%= f.hidden_field :name %>
+                      <%= f.hidden_field :description %>
+                      <%= f.hidden_field :owner %>
+                      <%= f.hidden_field :language %>
+                      <%= f.hidden_field :html_url %>
+                    <%= f.submit  "Salvar", class:"btn btn-secondary" %>
+                  <% end %>
+                </td>
+                  </div>
+             </tr>
+                <% end %>
+          <% end %>      
+          <% else %>
+            <div class="alert alert-danger" role="alert">
+              Não foi possível acessar os dados do GitHub!
+            </div>
+            
+      <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,38 @@
+<%= render 'navbar'%>
+<div class="container">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Nome</th>
+        <th scope="col">Descrição</th>
+        <th scope="col">Proprietário</th>
+        <th scope="col">Linguagem</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @repositories.each do |repository| %>
+      <tr>
+        <td onclick="window.open('<%= repository.html_url %>')" role="button">
+          <%= repository.name%>
+        </td>
+        <td onclick="window.open('<%= repository.html_url %>')" role="button">
+          <%= repository.description%>
+        </td>
+        <td onclick="window.open('<%= repository.html_url %>')" role="button">
+          <%= repository.owner%>
+        </td>
+        <td onclick="window.open('<%= repository.html_url %>')" role="button">
+          <%= repository.language%>
+        </td>
+        <td>
+          <%= form_with model: repository, method: :delete, local: true do
+          |form| %> <%= form.hidden_field :id %> <%= submit_tag "Remover",
+          class: "btn btn-danger", data: { confirm: 'Your confirm message' } %>
+          <% end %>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

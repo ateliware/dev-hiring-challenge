@@ -1,0 +1,20 @@
+<div class="container login-container">
+  <div class="col-md-6 offset-3 login-form-1">
+    <h3>Login</h3>
+    <%= form_with url: "/login", method: :post do |form| %>
+    <div class="form-group">
+      <%= form.email_field :email, class:"form-control"%>
+    </div>
+    <div class="form-group">
+      <%= form.password_field :password, class:"form-control"%>
+    </div>
+    <div class="form-group"><%= form.submit "Login", class:"btnSubmit" %></div>
+    <%end%> <% if notice %>
+    <div class="alert alert-danger" role="alert"><%= notice %></div>
+    <% end %>
+    <div class="col-md-6 offset-1">
+      Ou clique aqui para <%= link_to "Registrar", new_user_path, class:"btn
+      btn-warning" %>
+    </div>
+  </div>
+</div>
