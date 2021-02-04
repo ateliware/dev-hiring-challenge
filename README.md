@@ -15,6 +15,7 @@ Alguns requisitos:
 - O deploy deve ser realizado, preferencialmente, no Heroku, AWS ou no Azure;
 - A aplicação precisa ter testes automatizados;
 - Preferenciamente dockerizar a aplicação;
+- Por favor atualizar o readme da aplicação com passo a passo com instrução para subir o ambiente.
 
 Quando terminar, faça um Pull Request neste repo e avise-nos por email.
 
