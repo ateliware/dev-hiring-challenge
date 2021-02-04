@@ -1,20 +1,19 @@
-# Desafio técnico para desenvolvedores
+# Githapp
 
-Construa uma nova aplicação, utilizando o framework de sua preferência (Rails, ASP.NET, Phoenix, etc), a qual deverá conectar na API do GitHub e disponibilizar as seguintes funcionalidades:
+This application enables you to search and save your favorite repositories from GitHub.
 
-- Botão para buscar e armazenar os repositórios destaques de 5 linguagens à sua escolha;
-- Listar os repositórios encontrados;
-- Visualizar os detalhes de cada repositório.
+## Built with
 
-Alguns requisitos:
+- [Rails 6](https://github.com/rails/rails) - Rails is a web-application framework that includes everything needed to create database-backed web applications according to the Model-View-Controller (MVC) pattern.
 
-- Deve ser uma aplicação totalmente nova;
-- A solução deve estar em um repositório público do GitHub;
-- A aplicação deve armazenar as informações encontradas;
-- Utilizar Postgres, MySQL ou SQL Server;
-- O deploy deve ser realizado, preferencialmente, no Heroku ou no Azure;
-- A aplicação precisa ter testes automatizados.
+### Prerequisites
 
-Quando terminar, faça um Pull Request neste repo e avise-nos por email.
+```
+@popperjs/core": "2.6.0",
+@rails/webpacker": "4.0.0",
+bootstrap: "5.0.0-beta1"
+```
 
-**IMPORTANTE:** se você não conseguir finalizar o teste, por favor nos diga o motivo e descreva quais foram as suas dificuldades. Claro que você também pode sugerir uma outra abordagem para avaliarmos seus skills técnicos, mas é com você para vender seu peixe, mostrar-nos do que é capaz.
+## Authors
+
+- [**Murilo Vidal**](https://murilovidal.xyz/)
