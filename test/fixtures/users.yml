@@ -1,0 +1,10 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  email: Aragorn
+  password_digest: $2a$12$WYOvJfWmWsa6WtWTsc4.5ehDWWUZ263Gr8UDN0.bW.VDc/f7vgZOO
+
+two:
+  email: Gandalf
+  password_digest: $2a$12$WYOvJfWmWsa6WtWTsc4.5ehDWWUZ263Gr8UDN0.bW.VDc/f7vgZOO
+

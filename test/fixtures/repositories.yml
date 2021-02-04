@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: Tetris
+  html_url: url_one
+  description: desc_one
+  owner: owner_one
+  language: lang_one
+
+two:
+  name: RiverRaid
+  html_url: url_two
+  description: desc_two
+  owner: owner_two
+  language: lang_two
