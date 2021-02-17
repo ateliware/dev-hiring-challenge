@@ -1,0 +1,28 @@
+service: trio-services
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  region: sa-east-1
+  stage: dev
+
+plugins:
+  - serverless-offline
+
+package:
+  exclude:
+    - .git/**
+    - src/**
+    - doc/**
+    - nodemon.json
+    - README.md
+  excludeDevDependencies: true
+
+functions:
+  base:
+    handler: dist/modules/serverless.handler
+    events:
+      - http:
+          cors: true
+          path: '/{proxy+}'
+          method: any

@@ -1,0 +1,103 @@
+{
+  "name": "trio",
+  "private": true,
+  "version": "1.0.0",
+  "description": "trio test",
+  "module": "true",
+  "scripts": {
+    "build": "rimraf dist && tsc -p tsconfig.build.json",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "start": "ts-node -r tsconfig-paths/register src/main.ts",
+    "start:dev": "tsc-watch -p tsconfig.build.json --onSuccess \"node dist/main.js\"",
+    "start:sls": "tsc-watch -p tsconfig.build.json --onSuccess \"sls offline\"",
+    "start:debug": "tsc-watch -p tsconfig.build.json --onSuccess \"node --inspect-brk dist/main.js\"",
+    "start:prod": "node dist/main.js",
+    "lint": "tslint -p tsconfig.json -c tslint.json",
+    "lint:fix": "npm run lint -- --fix",
+    "test": "jest",
+    "test:cov": "jest --coverage",
+    "deploy": "yarn build && sls deploy -c serverless.yml -v"
+  },
+  "dependencies": {
+    "@nestjs/common": "^7.6.12",
+    "@nestjs/core": "^7.6.12",
+    "@nestjs/microservices": "^7.6.12",
+    "@nestjs/platform-express": "^7.6.12",
+    "@nestjs/swagger": "^4.7.13",
+    "@nestjs/typeorm": "^7.1.5",
+    "@types/aws-sdk": "^2.7.0",
+    "@types/aws-serverless-express": "*",
+    "@types/express-serve-static-core": "*",
+    "await-to-js": "^2.1.1",
+    "aws-lambda": "^1.0.5",
+    "aws-sdk": "^2.725.0",
+    "aws-serverless-express": "^3.3.6",
+    "class-transformer": "^0.2.3",
+    "class-validator": "^0.12.2",
+    "dataloader": "^2.0.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "jest-coverage-badges": "^1.1.2",
+    "pg": "^8.2.1",
+    "reflect-metadata": "^0.1.13",
+    "rimraf": "^3.0.2",
+    "rxjs": "^6.5.5",
+    "swagger-ui-express": "^4.1.4",
+    "typeorm": "^0.2.24"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.10.5",
+    "@commitlint/cli": "^9.1.2",
+    "@commitlint/config-conventional": "^9.1.2",
+    "@nestjs/cli": "^7.0.0",
+    "@nestjs/schematics": "^7.0.0",
+    "@nestjs/testing": "^7.0.0",
+    "@types/aws-lambda": "^8.10.55",
+    "@types/express": "*",
+    "@types/jest": "25.1.4",
+    "@types/moment": "^2.13.0",
+    "@types/node": "14.0.12",
+    "@types/supertest": "^2.0.8",
+    "@typescript-eslint/eslint-plugin": "^2.23.0",
+    "@typescript-eslint/parser": "^2.23.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-import": "^2.20.2",
+    "jest": "^25.1.0",
+    "lint-staged": "^10.2.13",
+    "prettier": "^2.0.5",
+    "serverless": "^1.48.4",
+    "serverless-offline": "^6.5.0",
+    "supertest": "^4.0.2",
+    "ts-jest": "25.2.1",
+    "ts-loader": "^6.2.1",
+    "ts-node": "^8.6.2",
+    "tsc-watch": "2.2.1",
+    "tsconfig-paths": "^3.9.0",
+    "tslint": "5.18.0",
+    "typescript": "^3.7.4"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "ts"
+    ],
+    "rootDir": "src",
+    "testRegex": ".spec.ts$",
+    "transform": {
+      "^.+\\.(t|j)s$": "ts-jest"
+    },
+    "collectCoverageFrom": [
+      "**/*.(t|j)s"
+    ],
+    "coverageDirectory": "../coverage",
+    "coverageReporters": [
+      "json-summary"
+    ],
+    "testEnvironment": "node"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": "npm run lint:fix"
+  }
+}

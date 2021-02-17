@@ -1,0 +1,38 @@
+postgres:
+  container_name: postgres
+  restart: always
+  image: postgres
+  ports:
+    - 5432:5432
+  expose:
+    - 5432
+  environment:
+    - POSTGRES_PASSWORD=**P@ssw0rd
+    - POSTGRES_DB=postgres
+    
+server:
+  links:
+    - postgres
+  build: ./backend/nodejs
+  ports:
+    - 3000:3000
+  environment:
+    - DB_HOST=postgres
+    - DB_PORT=5432
+    - DB_USER=postgres
+    - DB_PASS=**P@ssw0rd
+    - DB_NAME=postgres
+  command:
+    sh -c 'yarn install && yarn start'
+
+front:
+  links:
+    - server
+  build: ./frontend/trio-react
+  ports:
+    - 3006:3006
+  environment:
+    - PORT=3006
+  command:
+    sh -c 'yarn install && yarn build && yarn global add serve && serve -s build'
+  
