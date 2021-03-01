@@ -7,7 +7,7 @@
 - Make sure to be on the frontend folder `cd frontend`
 - Open the .env.local file and add the Gitpeek API address (eg. API_URL=http://localhost:8080);
 - Make sure you have [docker-compose installed](https://docs.docker.com/compose/install/);
-- Start the container `docker-compose up`
+- Start the container `docker-compose up -d`
 - Open [http://localhost:3000](http://localhost:3000) with your browser to see the result 👀️.
 
 **You can also check the deployed version of [Gitpeek](https://gitpeek.vercel.app/)**
@@ -21,7 +21,7 @@ Express API that allows you to get a list of the [trending](https://github.com/t
 - Make sure to be on the backend folder `cd backend`
 - **(optional)** Open the .env file and add your GitHub API token to be able to make more than 10 requests per minute (eg. GITHUB_TOKEN=123456);
 - Make sure you have [docker-compose installed](https://docs.docker.com/compose/install/);
-- Start the containers `docker-compose up`;
+- Start the containers `docker-compose up -d`;
 - Open [http://localhost:8080](http://localhost:8080) with your browser to test if it's up.
 
 ## Routes
