@@ -10,6 +10,11 @@
 - Start the container `docker-compose up -d`
 - Open [http://localhost:3000](http://localhost:3000) with your browser to see the result 👀️.
 
+## Running the tests
+
+- Enter the container bash `docker exec -it app bash`;
+- Run the tests `yarn test`.
+
 **You can also check the deployed version of [Gitpeek](https://gitpeek.vercel.app/)**
 
 # Backend
@@ -31,6 +36,11 @@ Express API that allows you to get a list of the [trending](https://github.com/t
     - Possible intervals are: daily, weekly and monthly
 - GET /starred_repos?language=LANGUAGE
     - Returns the 50 most starred repos of the given LANGUAGE
+
+## Running the tests
+
+- Enter the container bash `docker exec -it web bash`;
+- Run the tests `yarn test`.
 
 **You can also check the deployed version of the [API](https://gitpeekapi.herokuapp.com/)**
 
