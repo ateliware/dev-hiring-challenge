@@ -1,0 +1,35 @@
+version: "3"
+services:
+  web:
+    container_name: web
+    build: .
+    ports:
+      - "8080:8080"
+    depends_on: 
+      - database
+    env_file: 
+      - .env
+    links:
+      - database
+    networks:
+      - default
+  database:
+    container_name: database
+    image: postgres
+    environment:
+      - POSTGRES_DB=gitpeek_db
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - database-data:/var/lib/postgresql/data
+    networks:
+      - default
+
+volumes:
+  database-data: {}
+
+networks:
+  default:
+    driver: bridge
