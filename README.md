@@ -19,10 +19,6 @@ Express API that allows you to get a list of the [trending](https://github.com/t
 ## Running the project
 
 - Make sure to be on the backend folder `cd backend`
-- Build the images `docker-compose build`
-- Start the database container `docker start database`
-- Access the database container bash `docker exec -it database bash`
-- Log in with the default postgres user `psql -U postgres` and create the gitpeek_db `create database gitpeek_db;`
 - **(optional)** Open the .env file and add your GitHub API token to be able to make more than 10 requests per minute (eg. GITHUB_TOKEN=123456);
 - Make sure you have [docker-compose installed](https://docs.docker.com/compose/install/);
 - Start the containers `docker-compose up`;

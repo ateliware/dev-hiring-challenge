@@ -7,7 +7,7 @@ let connectionOptions: ConnectionOptions = {
     port: 5432,
     username: "postgres",
     password: "postgres",
-    database: "gitpeek_db",
+    database: "postgres",
     logging: false,
     entities: ["./src/models/**.ts"],
     migrations: ["./src/database/migrations/*.ts"],

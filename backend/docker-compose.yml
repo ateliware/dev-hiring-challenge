@@ -17,7 +17,6 @@ services:
     container_name: database
     image: postgres
     environment:
-      - POSTGRES_DB=gitpeek_db
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
     ports:
