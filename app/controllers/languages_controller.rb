@@ -1,4 +1,4 @@
-class LanguageController < ApplicationController
+class LanguagesController < ApplicationController
   def index
   end
 end

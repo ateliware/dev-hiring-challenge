@@ -1,8 +1,8 @@
 require "test_helper"
 
-class LanguageControllerTest < ActionDispatch::IntegrationTest
+class LanguagesControllerTest < ActionDispatch::IntegrationTest
   test "should get index" do
-    get language_index_url
+    get languages_index_url
     assert_response :success
   end
 end
