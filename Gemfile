@@ -54,3 +54,7 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+
+# React-Rails is a flexible tool to use React with Rails.
+gem 'react-rails'
