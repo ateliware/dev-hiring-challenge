@@ -1,4 +1,5 @@
 import React from "react"
+import LanguageShow from "./LanguageShow"
 
 class LanguageIndex extends React.Component {
   constructor(props) {
@@ -12,7 +13,8 @@ class LanguageIndex extends React.Component {
           {
             this.props.languages.map((language) => 
               <li className="name" key={language.id}>
-                {language.name}
+                <LanguageShow
+                  language={language} />
               </li>
             )
           }

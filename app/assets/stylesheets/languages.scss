@@ -1,3 +1,25 @@
 // Place all the styles related to the language controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.languages {
+    ul {
+        margin-top: 1em;
+        text-align: center;
+    }
+
+    li.name {
+        vertical-align: top;
+        display: inline-block;
+        margin: 5px;
+        text-align: left;
+    }
+
+    .update {
+        cursor: pointer;
+        position: absolute;
+        right: 20px;
+        font-size: 17px;
+        color: white;
+    }
+}

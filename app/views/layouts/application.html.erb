@@ -8,9 +8,19 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
 
   <body>
-    <%= yield %>
+    <header class="main">
+      <%= react_component("NavigationBar") %>
+    </header>
+
+    <section>
+      <main class="<%= controller.controller_name %>">
+        <%= yield %>
+      </main>
+    </section>
   </body>
 </html>
