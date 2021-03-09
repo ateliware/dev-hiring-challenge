@@ -1,0 +1,39 @@
+version: "3.9"
+
+services:
+  web:
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/opt/dev-hiring-challenge
+    env_file:
+      - .env/development/database
+      - .env/development/web
+    depends_on:
+      - database
+
+  webpack_dev_server:
+    build: .
+    command: /opt/dev-hiring-challenge/bin/webpack-dev-server
+    ports:
+      - "3035:3035"
+    volumes:
+      - .:/opt/dev-hiring-challenge
+    env_file:
+      - .env/development/web
+      - .env/development/database
+    environment:
+      - WEBPACKER_DEV_SERVER_HOST=0.0.0.0
+    depends_on:
+      - web
+
+  database:
+    image: postgres
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    env_file:
+      - .env/development/database
+
+volumes:
+  db_data:
