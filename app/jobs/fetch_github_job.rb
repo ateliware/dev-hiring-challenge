@@ -1,6 +1,8 @@
 class FetchGithubJob < ApplicationJob
   queue_as :default
   
+  # Remove old repositories, call "perform", and send result as json
+  # through ActionCable
   around_perform do |job, block|
     repo_params = block.call
 
@@ -14,7 +16,6 @@ class FetchGithubJob < ApplicationJob
     ActionCable.server.broadcast 'repositories',
       language: ActiveModelSerializers::SerializableResource.new(language).as_json
   end
-
 
   def perform(language)
     repo_params = language.fetch_repositories

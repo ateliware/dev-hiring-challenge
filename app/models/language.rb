@@ -2,6 +2,8 @@ class Language < ApplicationRecord
   has_many :repositories, dependent: :destroy
   validates_uniqueness_of :name
 
+  # Fetches the five most popular repositories for this programming language
+  # using Github's API, through Octokit gem
   def fetch_repositories
     client = Octokit::Client.new
 

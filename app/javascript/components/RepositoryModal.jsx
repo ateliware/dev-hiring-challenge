@@ -10,7 +10,18 @@ import star24       from "@iconify-icons/octicon/star-24";
 import gitFork24    from "@iconify-icons/octicon/git-fork-24";
 import markGithub16 from "@iconify-icons/octicon/mark-github-16";
 
-
+/**
+ * RepositoryModal component
+ * 
+ * Props: { show, repository, handleClose }
+ * 
+ * Children: [ RepositoryIconValue ]
+ * - RepositoryIconValue.props:
+ *  - attributes: { icon, value }
+ * 
+ * Parents:
+ *  - LanguageIndex
+ */
 class RepositoryModal extends React.Component {
   constructor(props) {
     super(props);

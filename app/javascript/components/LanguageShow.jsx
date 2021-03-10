@@ -6,7 +6,14 @@ import { ThemeConsumer } from "react-bootstrap/esm/ThemeProvider";
 
 import RepositoryShow from "./RepositoryShow";
 
-
+/**
+ * UpdateButton component
+ * 
+ * Props: { moving, handleClick }
+ * 
+ * Parents:
+ *  - LanguageShow
+ */
 class UpdateButton extends React.Component {
   constructor(props) {
     super(props);
@@ -24,7 +31,24 @@ class UpdateButton extends React.Component {
   }
 }
 
-
+/**
+ * LanguageShow component
+ * 
+ * Props: { language, openModal }
+ * 
+ * State: { movingButton, repositories }
+ * 
+ * Children: [ UpdateButton, RepositoryShow ]
+ * - UpdateButton.props:
+ *  - attributes: { moving }
+ *  - callbacks: { handleClick }
+ * - RepositoryShow.props:
+ *  - attributes: { repository, key }
+ *  - callbacks: { openModal }
+ * 
+ * Parents:
+ *  - LanguageIndex
+ */
 class LanguageShow extends React.Component {
   constructor(props) {
     super(props);
@@ -53,7 +77,7 @@ class LanguageShow extends React.Component {
         <Card.Body style={{ padding: "0px" }}>
           { 
             this.state.repositories.map((repository) =>
-              <RepositoryShow 
+              <RepositoryShow
                 repository={repository}
                 key={repository.id}
                 openModal={this.props.openModal} />
@@ -64,6 +88,7 @@ class LanguageShow extends React.Component {
     );
   }
 
+  // Request for repositories update for this language
   handleUpdate() {
     const csrf = document
       .querySelector("meta[name='csrf-token']")
@@ -108,6 +133,9 @@ class LanguageShow extends React.Component {
     });
   }
 
+  // The subscription will signal "received", when request for repositories 
+  // update is finished and the back-end sends the data through WebSockets,
+  // which will trigger updateRepositoryList method
   setupSubscription() {
     this.subscription = consumer.subscriptions.create("RepositoriesChannel", {
       languageId: this.props.language.id,

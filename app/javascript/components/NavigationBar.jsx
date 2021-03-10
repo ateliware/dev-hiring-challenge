@@ -1,4 +1,5 @@
 import React from "react"
+
 import { Navbar } from "react-bootstrap";
 
 class NavigationBar extends React.Component {

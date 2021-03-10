@@ -2,6 +2,15 @@ import React from "react";
 
 import { Icon, InlineIcon } from "@iconify/react";
 
+/**
+ * RepositoryIconValue component
+ * 
+ * Props: { icon, value }
+ * 
+ * Parents:
+ *  - RepositoryModal
+ *  - RepositoryShow
+ */
 class RepositoryIconValue extends React.Component {
   constructor(props) {
     super(props);

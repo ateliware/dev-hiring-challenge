@@ -7,7 +7,18 @@ import { Card } from "react-bootstrap";
 import star24    from "@iconify-icons/octicon/star-24";
 import gitFork24 from "@iconify-icons/octicon/git-fork-24";
 
-
+/**
+ * RepositoryShow component
+ * 
+ * Props: { repository, openModal }
+ * 
+ * Children: [ RepositoryIconValue ]
+ * - RepositoryIconValue.props:
+ *  - attributes: { icon, value }
+ * 
+ * Parents:
+ *  - LanguageShow
+ */
 class RepositoryShow extends React.Component {
   constructor(props) {
     super(props);

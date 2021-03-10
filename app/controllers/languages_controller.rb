@@ -12,7 +12,9 @@ class LanguagesController < ApplicationController
     end
   end
 
-
+  # Starts async FetchGithubJob, that will fetch Github's API and 
+  # send result through ActionCable
+  #
   # POST languages/:id/update_repositories
   def update_repositories
     language = Language.find(params[:id])

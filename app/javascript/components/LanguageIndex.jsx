@@ -3,7 +3,24 @@ import React from "react";
 import LanguageShow from "./LanguageShow";
 import RepositoryModal from "./RepositoryModal";
 
-
+/**
+ * LanguageIndex component
+ * 
+ * Props: { languages }
+ * 
+ * State: { showModal, repoInfo }
+ * 
+ * Children: [ LanguageShow, RepositoryModal ]
+ * - LanguageShow.props:
+ *  - attributes: { language }
+ *  - callbacks: { openModal }
+ * - RepositoryModal.props:
+ *  - attributes: { show, repository }
+ *  - callbacks: { handleClose }
+ * 
+ * Parents:
+ *  - root (views/languages/index.html.erb)
+ */
 class LanguageIndex extends React.Component {
   constructor(props) {
     super(props);
@@ -13,7 +30,7 @@ class LanguageIndex extends React.Component {
       repoInfo: null
     };
 
-    this.openModal = this.openModal.bind(this);
+    this.setModal = this.setModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
   }
 
@@ -26,7 +43,7 @@ class LanguageIndex extends React.Component {
               <li className="name" key={language.id}>
                 <LanguageShow
                   language={language}
-                  openModal={this.openModal} />
+                  openModal={this.setModal} />
               </li>
             )
           }
@@ -40,7 +57,8 @@ class LanguageIndex extends React.Component {
     );
   }
 
-  openModal(repoId) {
+  // Request repoId's attributes and set state, revealing modal
+  setModal(repoId) {
     const csrf = document
       .querySelector("meta[name='csrf-token']")
       .getAttribute("content");
