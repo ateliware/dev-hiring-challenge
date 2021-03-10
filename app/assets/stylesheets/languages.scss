@@ -22,4 +22,19 @@
         font-size: 17px;
         color: white;
     }
+
+    .repo-stat-icon {
+        font-size: 0.9em;
+    }
+
+    .repo-card {
+        color: #32383E;
+        background-color: white;
+    }
+
+    .repo-card:hover {
+        cursor: pointer;
+        background-color: #ED5A85;
+        color: white;
+    }
 }
