@@ -6,6 +6,7 @@ import { ThemeConsumer } from "react-bootstrap/esm/ThemeProvider";
 
 import RepositoryShow from "./RepositoryShow";
 
+
 class UpdateButton extends React.Component {
   constructor(props) {
     super(props);
@@ -22,6 +23,7 @@ class UpdateButton extends React.Component {
     );
   }
 }
+
 
 class LanguageShow extends React.Component {
   constructor(props) {
@@ -53,7 +55,8 @@ class LanguageShow extends React.Component {
             this.state.repositories.map((repository) =>
               <RepositoryShow 
                 repository={repository}
-                key={repository.id} />
+                key={repository.id}
+                openModal={this.props.openModal} />
             ) 
           }
         </Card.Body>

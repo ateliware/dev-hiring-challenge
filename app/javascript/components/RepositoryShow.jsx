@@ -1,4 +1,4 @@
-import React from "react"
+import React from "react";
 
 import RepositoryIconValue from "./RepositoryIconValue";
 
@@ -59,6 +59,7 @@ class RepositoryShow extends React.Component {
   }
 
   handleClick() {
+    this.props.openModal(this.props.repository.id);
   }
 }
 
