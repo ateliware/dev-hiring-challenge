@@ -58,3 +58,9 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # React-Rails is a flexible tool to use React with Rails.
 gem 'react-rails'
+
+# Ruby toolkit for the GitHub API.
+gem 'octokit', '~> 4.0'
+
+# ActiveModel::Serializer implementation and Rails hooks
+gem 'active_model_serializers'
