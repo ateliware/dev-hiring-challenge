@@ -3,9 +3,16 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 .languages {
-    ul {
-        margin-top: 1em;
+    .content {
         text-align: center;
+    }
+
+    .list {
+        text-align: center;
+    }
+
+    ul {
+        padding: 0px;
     }
 
     li.name {
@@ -21,6 +28,11 @@
         right: 20px;
         font-size: 17px;
         color: white;
+    }
+
+    .update-button {
+        position: relative;
+        margin: 1em;
     }
 
     .repo-stat-icon {
