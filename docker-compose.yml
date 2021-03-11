@@ -10,6 +10,7 @@ services:
     env_file:
       - .env/development/database
       - .env/development/web
+      - .env/development/github
     depends_on:
       - database
 
@@ -23,6 +24,7 @@ services:
     env_file:
       - .env/development/web
       - .env/development/database
+      - .env/development/github
     environment:
       - WEBPACKER_DEV_SERVER_HOST=0.0.0.0
     depends_on:

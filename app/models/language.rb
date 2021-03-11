@@ -5,7 +5,7 @@ class Language < ApplicationRecord
   # Fetches the five most popular repositories for this programming language
   # using Github's API, through Octokit gem
   def fetch_repositories
-    client = Octokit::Client.new
+    client = Octokit::Client.new(:access_token => ENV["GITHUB_ACCESS_TOKEN"])
 
     result = client.search_repositories "language:#{code}", {
       sort: 'stars',
