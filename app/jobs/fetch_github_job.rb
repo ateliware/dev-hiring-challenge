@@ -17,6 +17,7 @@ class FetchGithubJob < ApplicationJob
       language: ActiveModelSerializers::SerializableResource.new(language).as_json
   end
 
+  # Async job that fetches repositories and saves them
   def perform(language)
     repo_params = language.fetch_repositories
     return repo_params

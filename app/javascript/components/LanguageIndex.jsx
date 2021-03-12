@@ -84,6 +84,8 @@ class LanguageIndex extends React.Component {
     );
   }
 
+  // "Update repositories" button used for sending update requests
+  // for every language
   sendUpdateAllRequests() {
     this.props.languages.forEach((x) => this.sendUpdateRequest(x.id))
   }
@@ -104,6 +106,7 @@ class LanguageIndex extends React.Component {
 
     const url = `languages/${languageId}/update_repositories`;
 
+    // Set button to spinning state
     this.setState({
       [languageId]: {
         movingButton: true,
@@ -145,6 +148,7 @@ class LanguageIndex extends React.Component {
       });
   }
 
+  // Callback used by RepositoryModal
   closeModal() {
     this.setState({
       showModal: false,
