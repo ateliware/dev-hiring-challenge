@@ -1,6 +1,12 @@
 class Language < ApplicationRecord
   has_many :repositories, dependent: :destroy
+
+  validates :name,
+            :code,
+            presence: true
+
   validates_uniqueness_of :name
+                          :code
 
   # Fetches the five most popular repositories for this programming language
   # using Github's API, through Octokit gem
