@@ -18,67 +18,67 @@ RSpec.describe Repository, type: :model do
     )
   }
 
-  it 'works with valid attributes' do
+  it "works with valid attributes" do
     expect(subject).to be_valid
   end
   
-  it 'must have a name' do
+  it "must have a name" do
     subject.name = nil
     expect(subject).to_not be_valid
   end
 
-  it 'must have an owner' do
+  it "must have an owner" do
     subject.owner = nil
     expect(subject).to_not be_valid
   end
 
-  it 'must have a html_url' do
+  it "must have a html_url" do
     subject.html_url = nil
     expect(subject).to_not be_valid
   end
 
-  it 'must have a description' do
+  it "must have a description" do
     subject.description = nil
     expect(subject).to_not be_valid
   end
 
-  it 'must have a create_date' do
+  it "must have a create_date" do
     subject.create_date = nil
     expect(subject).to_not be_valid
   end
 
-  it 'must have an update date' do
+  it "must have an update date" do
     subject.update_date = nil
     expect(subject).to_not be_valid
   end
 
-  it 'must have a stargazers count' do
+  it "must have a stargazers count" do
     subject.stargazers_count = nil
     expect(subject).to_not be_valid
   end
 
-  it 'must have a forks count' do
+  it "must have a forks count" do
     subject.forks_count = nil
     expect(subject).to_not be_valid
   end
 
-  it 'must have an open issues count' do
+  it "must have an open issues count" do
     subject.open_issues_count = nil
     expect(subject).to_not be_valid
   end
 
-  it 'must have a language' do
+  it "must have a language" do
     subject.language = nil
     expect(subject).to_not be_valid
   end
 
-  it 'must have an update_date greater and create_date' do
+  it "must have an update_date greater than create_date" do
     subject.create_date = Date.today + 1
     subject.update_date = Date.today
     expect(subject).to_not be_valid
   end
 
-  it 'must have a valid github url as html_url' do
+  it "must have a valid github url as html_url" do
     subject.html_url = 'http://example.com/owner/repository'
     expect(subject).to_not be_valid
 

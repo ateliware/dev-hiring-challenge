@@ -8,22 +8,30 @@ RSpec.describe Language, type: :model do
     )
   }
 
-  it 'works with valid attributes' do
+  it "works with valid attributes" do
     expect(subject).to be_valid
   end
   
-  it 'must have a name' do
+  it "must have a name" do
     subject.name = nil
     expect(subject).to_not be_valid
   end
 
-  it 'must have a code' do
+  it "must have a code" do
     subject.code = nil
     expect(subject).to_not be_valid
   end
 
-  it 'fetches 5 valid repositories' do
-    result = subject.fetch_repositories
+  it "fetches 5 valid repositories" do
+    result, status = subject.fetch_repositories
     expect(result.length).to eq 5
+    expect(status).to eq 'ok'
+  end
+
+  it "must have a code compatible with github's API" do
+    subject.code = 'invalid'
+    result, status = subject.fetch_repositories
+    expect(result.length).to eq 0
+    expect(status).to eq 'unprocessable_entity'
   end
 end
