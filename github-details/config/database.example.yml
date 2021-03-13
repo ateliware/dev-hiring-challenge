@@ -9,8 +9,6 @@ default: &default
   encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
-  username: gabrielnaoto
-  password: postgres
 
 development:
   <<: *default
