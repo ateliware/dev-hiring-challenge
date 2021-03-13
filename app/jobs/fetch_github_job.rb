@@ -4,7 +4,7 @@ class FetchGithubJob < ApplicationJob
   # Remove old repositories, call "perform", and send result as json
   # through ActionCable
   around_perform do |job, block|
-    repo_params = block.call
+    repo_params, status = block.call
 
     language = job.arguments.first
     language.repositories.destroy_all
@@ -13,8 +13,10 @@ class FetchGithubJob < ApplicationJob
       language.repositories.create!(repo)
     end
 
-    ActionCable.server.broadcast 'repositories',
-      language: ActiveModelSerializers::SerializableResource.new(language).as_json
+    ActionCable.server.broadcast 'repositories', {
+      language: ActiveModelSerializers::SerializableResource.new(language).as_json,
+      status: status
+    }
   end
 
   # Async job that fetches repositories and saves them
