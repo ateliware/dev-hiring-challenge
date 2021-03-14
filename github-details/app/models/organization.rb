@@ -13,6 +13,8 @@
 class Organization < ApplicationRecord
   after_create :fetch_attributes
 
+  validate :slug, required: true
+
   private
 
   def fetch_attributes
