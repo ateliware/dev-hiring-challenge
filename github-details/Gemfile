@@ -45,6 +45,8 @@ group :development do
 
   gem 'pry'
   gem 'pry-rails'
+
+  gem 'annotate'
 end
 
 group :test do
