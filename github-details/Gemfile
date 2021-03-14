@@ -48,6 +48,8 @@ group :development do
   gem 'pry-rails'
 
   gem 'annotate'
+
+  gem 'haml-rails', "~> 2.0"
 end
 
 group :test do

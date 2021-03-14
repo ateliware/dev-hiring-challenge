@@ -1,0 +1,18 @@
+%p#notice= notice
+%h1 Repositories
+%table
+  %thead
+    %tr
+      %th Name
+      %th Organization
+      %th{:colspan => "3"}
+  %tbody
+    - @repositories.each do |repository|
+      %tr
+        %td= repository.name
+        %td= repository.organization_id
+        %td= link_to 'Show', repository
+        %td= link_to 'Edit', edit_repository_path(repository)
+        %td= link_to 'Destroy', repository, method: :delete, data: { confirm: 'Are you sure?' }
+%br/
+= link_to 'New Repository', new_repository_path
