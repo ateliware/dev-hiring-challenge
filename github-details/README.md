@@ -1,26 +1,25 @@
 # Github Details
 
-You can use this project to browse through the projects of my favorite languages.
-If you see any repo that you might like, please favorite it in order to save for later.
+You will be able to see the fixed repositories of my 5 favorite languages.
+To search the repositories for a particular language, just select it.
+If you want to save a repository for later, just bookmark it.
 
-Things you may want to cover:
-
-* Ruby version
+## Ruby version
 
 ruby '2.6.3'
 
-* System dependencies
+## Setup
 
-* Configuration
+To install all the dependencies, run in your terminal:
 
-* Database creation
+`bundle install && yarn install`
 
-* Database initialization
+### Running the application in development
 
-* How to run the test suite
+Copy and edit the following files:
 
-* Services (job queues, cache servers, search engines, etc.)
+- `config/database.example.yml` to `config/database.yml`
+- `config/application.example.yml` to `config/application.yml`
 
-* Deployment instructions
-
-* ...
+Remember to edit your sensitive information such as Github API keys, and/or your local
+postgresql user and password.
