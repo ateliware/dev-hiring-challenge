@@ -10,10 +10,14 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
+# Indexes
+#
+#  index_organizations_on_slug  (slug) UNIQUE
+#
 class Organization < ApplicationRecord
   after_create :fetch_attributes
 
-  validates :slug, presence: true
+  validates :slug, presence: true, uniqueness: true
 
   private
 

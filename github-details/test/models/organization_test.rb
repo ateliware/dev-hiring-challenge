@@ -10,6 +10,10 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
+# Indexes
+#
+#  index_organizations_on_slug  (slug) UNIQUE
+#
 require 'test_helper'
 
 class OrganizationTest < ActiveSupport::TestCase
