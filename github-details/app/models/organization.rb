@@ -13,7 +13,7 @@
 class Organization < ApplicationRecord
   after_create :fetch_attributes
 
-  validate :slug, required: true
+  validates :slug, presence: true
 
   private
 
