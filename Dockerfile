@@ -27,9 +27,6 @@ COPY . /opt/dev-hiring-challenge/
 COPY package.json yarn.lock ./
 RUN yarn install --check-files
 
-# Used in production
-#RUN bin/rails assets:precompile
-
 # Add script (workaround)
 ENTRYPOINT ["./entrypoint.sh"]
 EXPOSE 3000

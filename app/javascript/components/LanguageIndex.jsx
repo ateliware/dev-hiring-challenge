@@ -28,7 +28,9 @@ class LanguageIndex extends React.Component {
   constructor(props) {
     super(props);
 
-    var stage = this.props.languages.map((x) => x.id).reduce((map, obj) => {
+    // Use props.language to build state. Each language has a movingButton and
+    // an array of repositories
+    var languageState = this.props.languages.map((x) => x.id).reduce((map, obj) => {
       map[obj] = {
           movingButton: false,
           repositories: []
@@ -39,7 +41,7 @@ class LanguageIndex extends React.Component {
     this.state = {
       showModal: false,
       repoInfo: null,
-      ...stage
+      ...languageState
     };
 
     
@@ -47,6 +49,7 @@ class LanguageIndex extends React.Component {
 
     this.setModal = this.setModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
+    this.requestOptions = this.requestOptions.bind(this);
     this.sendUpdateRequest = this.sendUpdateRequest.bind(this);
     this.sendUpdateAllRequests = this.sendUpdateAllRequests.bind(this);
   }
@@ -90,20 +93,25 @@ class LanguageIndex extends React.Component {
     this.props.languages.forEach((x) => this.sendUpdateRequest(x.id))
   }
 
-  // Request for repositories update for languageId
-  sendUpdateRequest(languageId) {
+  // Build headers and method for requests
+  requestOptions(method) {
     const csrf = document
       .querySelector("meta[name='csrf-token']")
       .getAttribute("content");
 
-    const requestOptions = {
-      method: "POST",
+    const result = {
+      method: method,
       headers: {
         'Content-Type': 'application/json',
         'X-CSRF-Token': csrf
       }
     };
 
+    return result;
+  }
+
+  // Request for repositories update for languageId
+  sendUpdateRequest(languageId) {
     const url = `languages/${languageId}/update_repositories`;
 
     // Set button to spinning state
@@ -114,7 +122,7 @@ class LanguageIndex extends React.Component {
       }
     });
 
-    fetch(url, requestOptions)
+    fetch(url, this.requestOptions('POST'))
       .then(data => {
         if (data.status != 204) {
           console.log("Error");
@@ -124,21 +132,9 @@ class LanguageIndex extends React.Component {
 
   // Request repoId's attributes and set state, revealing modal
   setModal(repoId) {
-    const csrf = document
-      .querySelector("meta[name='csrf-token']")
-      .getAttribute("content");
-
-    const requestOptions = {
-      method: "GET",
-      headers: {
-        'Content-Type': 'application/json',
-        'X-CSRF-Token': csrf
-      }
-    };
-
     const url = `repositories/${repoId}`;
 
-    fetch(url, requestOptions)
+    fetch(url, this.requestOptions('GET'))
       .then(response => response.json())
       .then(data => {
         this.setState({
