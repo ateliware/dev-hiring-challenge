@@ -1,8 +1,9 @@
 import React from "react";
-import { Text } from "@chakra-ui/react";
+import { Heading } from "@chakra-ui/react";
 import { useQuery } from '@apollo/client';
 
 import withLayout from "hocs/withLayout";
+import RepositoryCard from "components/RepositoryCard";
 import { ORGANIZATION_QUERY } from "graphql/organizationQuery";
 
 const OrganizationPage = ({
@@ -23,19 +24,13 @@ const OrganizationPage = ({
 
   return (
     <>
-      <Text>
+      <Heading size="lg" my="5">
         {name}
-      </Text>
+      </Heading>
 
       {
         repos.map((repo) => (
-          <div key={repo.id}>
-            <p>{repo.name}</p>
-            <p>{repo.description}</p>
-
-            <span>{repo.forkCount}</span>
-            <span>{repo.stargazerCount}</span>
-          </div>
+          <RepositoryCard repository={repo} key={repo.id} />
         ))
       }
     </>
