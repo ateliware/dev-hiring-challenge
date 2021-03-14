@@ -3,6 +3,9 @@ import {
   Box,
   Image,
   LinkOverlay,
+  LinkBox,
+  Heading,
+  Text,
 } from "@chakra-ui/react";
 
 const OrganizationCard = ({
@@ -12,44 +15,39 @@ const OrganizationCard = ({
   avatar_url,
 }) => {
   return (
-    <LinkOverlay href={`/organizations/${slug}`}>
+    <LinkBox
+      mt="5"
+      p="6"
+      d="flex"
+      borderWidth="1px"
+      borderRadius="lg"
+      flexDirection="row"
+      alignItems="center"
+    >
+      <Image
+        width={50}
+        height={50}
+        src={avatar_url}
+        alt={name}
+        mr="5"
+      />
+
       <Box
-        mt="5"
-        p="6"
         d="flex"
-        maxW="lg"
-        overflow="hidden"
-        borderWidth="1px"
-        borderRadius="lg"
-        flexDirection="row"
+        alignItems="baseline"
+        flexDirection="column"
       >
-        <Image
-          width={50}
-          height={50}
-          src={avatar_url}
-          alt={name}
-          mr="5"
-        />
-
-        <Box
-          d="flex"
-          alignItems="baseline"
-          flexDirection="column"
-        >
-          <Box
-            fontWeight="semibold"
-            as="h3"
-            lineHeight="tight"
-          >
+        <Heading size="md" my="2">
+          <LinkOverlay href={`/organizations/${slug}`}>
             {name}
-          </Box>
+          </LinkOverlay>
+        </Heading>
 
-          <Box fontWeight="normal">
-            {description}
-          </Box>
-        </Box>
+        <Text mb="3">
+          {description}
+        </Text>
       </Box>
-    </LinkOverlay>
+    </LinkBox>
   )
 };
 
