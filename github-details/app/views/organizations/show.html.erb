@@ -5,5 +5,21 @@
   <%= @organization.slug %>
 </p>
 
+<p>
+  <strong>Name:</strong>
+  <%= @organization.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @organization.description %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <br />
+  <%= image_tag @organization.avatar_url, width: 100, height: 100 %>
+</p>
+
 <%= link_to 'Edit', edit_organization_path(@organization) %> |
 <%= link_to 'Back', organizations_path %>
