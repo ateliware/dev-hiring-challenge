@@ -22,55 +22,17 @@ RSpec.describe Repository, type: :model do
     expect(subject).to be_valid
   end
   
-  it "must have a name" do
-    subject.name = nil
-    expect(subject).to_not be_valid
-  end
+  it { should belong_to(:language) } 
 
-  it "must have an owner" do
-    subject.owner = nil
-    expect(subject).to_not be_valid
-  end
-
-  it "must have a html_url" do
-    subject.html_url = nil
-    expect(subject).to_not be_valid
-  end
-
-  it "must have a description" do
-    subject.description = nil
-    expect(subject).to_not be_valid
-  end
-
-  it "must have a create_date" do
-    subject.create_date = nil
-    expect(subject).to_not be_valid
-  end
-
-  it "must have an update date" do
-    subject.update_date = nil
-    expect(subject).to_not be_valid
-  end
-
-  it "must have a stargazers count" do
-    subject.stargazers_count = nil
-    expect(subject).to_not be_valid
-  end
-
-  it "must have a forks count" do
-    subject.forks_count = nil
-    expect(subject).to_not be_valid
-  end
-
-  it "must have an open issues count" do
-    subject.open_issues_count = nil
-    expect(subject).to_not be_valid
-  end
-
-  it "must have a language" do
-    subject.language = nil
-    expect(subject).to_not be_valid
-  end
+  it { should validate_presence_of(:name) }
+  it { should validate_presence_of(:owner) }
+  it { should validate_presence_of(:html_url) }
+  it { should validate_presence_of(:description) }
+  it { should validate_presence_of(:create_date) }
+  it { should validate_presence_of(:update_date) }
+  it { should validate_presence_of(:stargazers_count) }
+  it { should validate_presence_of(:forks_count) }
+  it { should validate_presence_of(:open_issues_count) }
 
   it "must have an update_date greater than create_date" do
     subject.create_date = Date.today + 1

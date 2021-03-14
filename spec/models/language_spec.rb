@@ -11,16 +11,11 @@ RSpec.describe Language, type: :model do
   it "works with valid attributes" do
     expect(subject).to be_valid
   end
-  
-  it "must have a name" do
-    subject.name = nil
-    expect(subject).to_not be_valid
-  end
 
-  it "must have a code" do
-    subject.code = nil
-    expect(subject).to_not be_valid
-  end
+  it { should have_many(:repositories).dependent(:destroy) }
+
+  it { should validate_presence_of(:name) }
+  it { should validate_presence_of(:code) }
 
   it "fetches 5 valid repositories" do
     result, status = subject.fetch_repositories
