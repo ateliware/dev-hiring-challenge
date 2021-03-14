@@ -23,15 +23,17 @@ class Organization < ApplicationRecord
     slug
   end
 
+  def from_api
+    Github.orgs.get slug
+  end
+
   private
 
   def fetch_attributes
-    org = Github.orgs.get slug
-
     update(
-      name: org.name,
-      description: org.description,
-      avatar_url: org.avatar_url,
+      name: from_api.name,
+      description: from_api.description,
+      avatar_url: from_api.avatar_url,
     )
   end
 end
