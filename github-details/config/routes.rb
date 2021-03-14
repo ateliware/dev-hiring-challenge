@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   root to: "organizations#index"
 
-  resources :repositories
-  resources :organizations, param: :slug
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  resources :repositories, only: [:index, :create, :destroy]
+  resources :organizations, param: :slug, only: [:index, :show]
 end
