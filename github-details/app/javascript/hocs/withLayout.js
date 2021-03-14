@@ -1,7 +1,9 @@
 import React from "react";
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
+import { ApolloProvider } from '@apollo/client';
 
 import Layout from "components/Layout";
+import { client } from "settings/apolloClient";
 
 const theme = extendTheme({
   fonts: {
@@ -11,11 +13,13 @@ const theme = extendTheme({
 });
 
 const withLayout = (Component) => (props) => (
-  <ChakraProvider theme={theme}>
-    <Layout>
-      <Component {...props} />
-    </Layout>
-  </ChakraProvider>
+  <ApolloProvider client={client}>
+    <ChakraProvider theme={theme}>
+      <Layout>
+        <Component {...props} />
+      </Layout>
+    </ChakraProvider>
+  </ApolloProvider>
 );
 
 export default withLayout;
