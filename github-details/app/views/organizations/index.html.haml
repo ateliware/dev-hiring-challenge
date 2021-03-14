@@ -1,13 +1,1 @@
-%p#notice= notice
-%h1 Organizations
-%table
-  %thead
-    %tr
-      %th Slug
-      %th{:colspan => "3"}
-  %tbody
-    - @organizations.each do |organization|
-      %tr
-        %td= organization.slug
-        %td= link_to 'Show', organization
-%br/
+= react_component("Organizations", { organizations: @organizations })
