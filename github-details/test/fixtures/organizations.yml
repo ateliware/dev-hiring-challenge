@@ -4,7 +4,9 @@
 #
 #  id          :bigint           not null, primary key
 #  avatar_url  :string
+#  blog        :string
 #  description :string
+#  is_verified :boolean          default(FALSE)
 #  name        :string
 #  slug        :string
 #  created_at  :datetime         not null

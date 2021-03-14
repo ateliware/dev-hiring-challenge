@@ -4,7 +4,9 @@
 #
 #  id          :bigint           not null, primary key
 #  avatar_url  :string
+#  blog        :string
 #  description :string
+#  is_verified :boolean          default(FALSE)
 #  name        :string
 #  slug        :string
 #  created_at  :datetime         not null
@@ -34,6 +36,8 @@ class Organization < ApplicationRecord
       name: from_api.name,
       description: from_api.description,
       avatar_url: from_api.avatar_url,
+      blog: from_api.blog,
+      is_verified: from_api.is_verified,
     )
   end
 end
