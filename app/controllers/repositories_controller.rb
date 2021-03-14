@@ -1,11 +1,10 @@
 class RepositoriesController < ApplicationController
+  include Response
+  include ExceptionHandler
 
   # GET repositories/:id
   def show
     repository = Repository.find(params[:id])
-
-    respond_to do |format|
-      format.json { render json: repository, status: :ok }
-    end
+    json_response(repository)
   end
 end

@@ -1,9 +1,12 @@
 class LanguagesController < ApplicationController
+  include Response
+  include ExceptionHandler
 
   # GET languages
   def index
     @languages_json = []
 
+    # Build list of languages to be rendered by react component
     Language.all.each do |language|
       @languages_json << {
         id: language.id,
@@ -19,9 +22,7 @@ class LanguagesController < ApplicationController
   def update_repositories
     language = Language.find(params[:id])
     FetchGithubJob.perform_later(language)
-
-    respond_to do |format|
-      format.json { head :no_content }
-    end
+    
+    json_response({message: "Successful request"})
   end
 end
