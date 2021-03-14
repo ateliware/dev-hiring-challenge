@@ -23,12 +23,13 @@ COPY Gemfile* /opt/dev-hiring-challenge/
 WORKDIR /opt/dev-hiring-challenge
 RUN bundle install
 
+#COPY package.json yarn.lock /opt/dev-hiring-challenge/
+#RUN yarn install --check-files
+
 COPY . /opt/dev-hiring-challenge/
 
 # Add script (workaround)
-COPY entrypoint.sh /usr/bin/
-RUN chmod +x /usr/bin/entrypoint.sh
-ENTRYPOINT ["entrypoint.sh"]
+ENTRYPOINT ["./entrypoints/docker-entrypoint.sh"]
 EXPOSE 3000
 
 # Start the main process.

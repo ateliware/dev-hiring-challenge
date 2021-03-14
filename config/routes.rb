@@ -7,4 +7,7 @@ Rails.application.routes.draw do
   post 'languages/:id/update_repositories',
     to: 'languages#update_repositories',
     as: 'language_update'
+
+  require 'sidekiq/web'
+  mount Sidekiq::Web => '/sidekiq'
 end

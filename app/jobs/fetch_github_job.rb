@@ -1,5 +1,7 @@
 class FetchGithubJob < ApplicationJob
   queue_as :default
+  sidekiq_options retry: 5
+
   
   # Remove old repositories, call "perform", and send result as json
   # through ActionCable

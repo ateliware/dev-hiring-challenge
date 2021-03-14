@@ -10,21 +10,43 @@ services:
     env_file:
       - .env/development/database
       - .env/development/web
-      - .env/development/github
+    environment:
+      - WEBPACKER_DEV_SERVER_HOST=webpack_dev_server
     depends_on:
       - database
+      - redis
+
+  sidekiq:
+    build: .
+    depends_on:
+      - database
+      - redis
+    volumes:
+      - .:/opt/dev-hiring-challenge
+    env_file:
+      - .env/development/database
+      - .env/development/web
+    environment:
+      - RAILS_ENV=development
+    entrypoint: ./entrypoints/sidekiq-entrypoint.sh
+
+  redis:
+    image: redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - 'redis:/data'
 
   webpack_dev_server:
     build: .
-    command: /opt/dev-hiring-challenge/bin/webpack-dev-server
+    command: ./bin/webpack-dev-server
     ports:
       - "3035:3035"
     volumes:
       - .:/opt/dev-hiring-challenge
     env_file:
-      - .env/development/web
       - .env/development/database
-      - .env/development/github
+      - .env/development/web
     environment:
       - WEBPACKER_DEV_SERVER_HOST=0.0.0.0
     depends_on:
@@ -39,3 +61,4 @@ services:
 
 volumes:
   db_data:
+  redis:
