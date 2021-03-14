@@ -21,6 +21,8 @@ class Organization < ApplicationRecord
 
   validates :slug, presence: true, uniqueness: true
 
+  has_many :repositories
+
   def to_param
     slug
   end
