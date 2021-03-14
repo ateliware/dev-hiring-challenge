@@ -88,3 +88,4 @@ production:
   database: dev_hiring_challenge_production
   username: dev_hiring_challenge
   password: <%= ENV['DEV_HIRING_CHALLENGE_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>

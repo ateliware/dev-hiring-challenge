@@ -28,7 +28,7 @@ COPY package.json yarn.lock ./
 RUN yarn install --check-files
 
 # Used in production
-#RUN bin/rails assets:precompile
+RUN bin/rails assets:precompile
 
 # Add script (workaround)
 ENTRYPOINT ["./entrypoint.sh"]

@@ -12,12 +12,14 @@ services:
       - .env/development/web
     environment:
       - WEBPACKER_DEV_SERVER_HOST=webpack_dev_server
+      - RAILS_ENV=development
     depends_on:
       - database
       - redis
 
   sidekiq:
     build: .
+    command: bundle exec sidekiq
     depends_on:
       - database
       - redis
@@ -28,7 +30,6 @@ services:
       - .env/development/web
     environment:
       - RAILS_ENV=development
-    entrypoint: ./entrypoints/sidekiq-entrypoint.sh
 
   redis:
     image: redis
@@ -49,6 +50,7 @@ services:
       - .env/development/web
     environment:
       - WEBPACKER_DEV_SERVER_HOST=0.0.0.0
+      - RAILS_ENV=development
     depends_on:
       - web
 
