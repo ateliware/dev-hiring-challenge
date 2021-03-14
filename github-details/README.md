@@ -1,11 +1,13 @@
-# README
+# Github Details
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+You can use this project to browse through the projects of my favorite languages.
+If you see any repo that you might like, please favorite it in order to save for later.
 
 Things you may want to cover:
 
 * Ruby version
+
+ruby '2.6.3'
 
 * System dependencies
 
