@@ -1,7 +1,7 @@
 import React from "react";
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 
-// import Layout from "components/Layout";
+import Layout from "components/Layout";
 
 const theme = extendTheme({
   fonts: {
@@ -12,7 +12,9 @@ const theme = extendTheme({
 
 const withLayout = (Component) => (props) => (
   <ChakraProvider theme={theme}>
-    <Component {...props} />
+    <Layout>
+      <Component {...props} />
+    </Layout>
   </ChakraProvider>
 );
 

@@ -1,13 +1,17 @@
 import React from "react";
-import { Flex } from "@chakra-ui/react";
+import {
+  Container,
+  Flex,
+  Text,
+} from "@chakra-ui/react"
 
-const Layout = ({ children }) => {
-  <Flex
-    color="red"
-    grow={1}
+const Layout = ({ children }) => (
+  <Container
+    maxW={1280}
+    minHeight="100vh"
   >
     {children}
-  </Flex>
-};
+  </Container>
+);
 
 export default Layout;
