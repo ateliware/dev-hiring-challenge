@@ -32,7 +32,7 @@ class RepositoryShow extends React.Component {
     return (
       <Card
         style={{ margin: "1px" }}
-        className="repo-card"
+        className="repo-card" id={repo.name + "-card"}
         onClick={this.handleClick}>
         
         <Card.Body style={{ padding: "10px 20px" }}>

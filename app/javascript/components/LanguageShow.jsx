@@ -22,7 +22,10 @@ class UpdateButton extends React.Component {
     const normal = "fa fa-refresh";
 
     return (
-      <a className="update" onClick={this.props.handleClick}>
+      <a 
+        className="update"
+        id={this.props.languageName + "-update"}
+        onClick={this.props.handleClick}>
         <i className={this.props.moving ? moving : normal} />
       </a>
     );
@@ -64,7 +67,8 @@ class LanguageShow extends React.Component {
 
           <UpdateButton
             moving={this.props.languageState.movingButton}
-            handleClick={this.handleUpdate} />
+            handleClick={this.handleUpdate}
+            languageName={language.name} />
         </Card.Header>
 
         <Card.Body style={{ padding: "0px" }}>

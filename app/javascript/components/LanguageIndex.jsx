@@ -97,17 +97,23 @@ class LanguageIndex extends React.Component {
   requestOptions(method) {
     const csrf = document
       .querySelector("meta[name='csrf-token']")
-      .getAttribute("content");
 
-    const result = {
-      method: method,
-      headers: {
-        'Content-Type': 'application/json',
-        'X-CSRF-Token': csrf
-      }
-    };
-
-    return result;
+    if (csrf) {
+      return {
+        method: method,
+        headers: {
+          'Content-Type': 'application/json',
+          'X-CSRF-Token': csrf.getAttribute("content")
+        }
+      };
+    } else {
+      return {
+        method: method,
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      };
+    }
   }
 
   // Request for repositories update for languageId
@@ -124,7 +130,7 @@ class LanguageIndex extends React.Component {
 
     fetch(url, this.requestOptions('POST'))
       .then(data => {
-        if (data.status != 204) {
+        if (data.status != 200) {
           console.log("Error");
         }
       });
