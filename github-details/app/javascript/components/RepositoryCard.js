@@ -8,7 +8,31 @@ import {
   Flex,
 } from "@chakra-ui/react";
 import Emoji from "react-emoji-render";
-import { GoRepoForked, GoStar } from "react-icons/go"
+import { GoRepoForked, GoStar, GoPrimitiveDot } from "react-icons/go";
+
+const InfoItem = ({
+  Icon,
+  text,
+}) => (
+  <Box
+    as="span"
+    mr="2"
+    p="1"
+    color="gray.600"
+    fontSize="sm"
+    d="flex"
+    flexDirection="row"
+    alignItems="center"
+    borderWidth="1px"
+    borderRadius="lg"
+  >
+    <Icon />
+
+    <Text ml="2">
+      {text}
+    </Text>
+  </Box>
+)
 
 const RepositoryCard = ({
   repository,
@@ -49,17 +73,20 @@ const RepositoryCard = ({
         </Text>
 
         <Flex direction="row">
-          <Box as="span" m="2" color="gray.600" fontSize="sm" d="flex" flexDirection="row" alignItems="center">
-            <GoStar ml="2" />
+          <InfoItem
+            Icon={GoStar}
+            text={stargazerCount}
+          />
 
-            {stargazerCount}
-          </Box>
+          <InfoItem
+            Icon={GoRepoForked}
+            text={forkCount}
+          />
 
-          <Box as="span" m="2" color="gray.600" fontSize="sm" d="flex" flexDirection="row" alignItems="center">
-            <GoRepoForked ml="2" />
-
-            {forkCount}
-          </Box>
+          <InfoItem
+            Icon={GoPrimitiveDot}
+            text={primaryLanguage.name}
+          />
         </Flex>
       </Box>
     </LinkBox>
