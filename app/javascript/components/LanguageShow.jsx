@@ -7,7 +7,7 @@ import RepositoryShow from "./RepositoryShow";
 /**
  * UpdateButton component
  * 
- * Props: { moving, handleClick }
+ * Props: { moving, languageName, handleClick }
  * 
  * Parents:
  *  - LanguageShow
@@ -41,7 +41,7 @@ class UpdateButton extends React.Component {
  * 
  * Children: [ UpdateButton, RepositoryShow ]
  * - UpdateButton.props:
- *  - attributes: { moving }
+ *  - attributes: { moving, languageName }
  *  - callbacks: { handleClick }
  * - RepositoryShow.props:
  *  - attributes: { repository, key }
