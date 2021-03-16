@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+<div>
+    <h3>{{ repo.name|capfirst }}</h3>
+    <p>Linguagem: {{ repo.language }} </p>
+    <p>Descrição: {{ repo.description }} </p>
+    <p>Stars: {{ repo.stars }} </p>
+    <p>Forks: {{ repo.forks }} </p>
+     <a href={{ repo.url }}> {{repo.url}} </a>
+</div>
+{% endblock %}

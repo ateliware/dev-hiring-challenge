@@ -1,0 +1,45 @@
+<html lang="en-US">
+    <head>
+        <meta charset="UTF-8">
+        <title>Search GitHub Repos</title>
+        <link rel="stylesheet" id="ample-style-css" href="http://wisdompets.com/wp-content/themes/ample/style.css?ver=4.8.3" type="text/css" media="all">
+    </head>
+    <body class="wide">
+        <div id="page" class="hfeed site">
+            <header>
+                <div class="header">
+                    <div class="main-head-wrap inner-wrap clearfix">
+                        <div id="header-logo-image">
+                            <a href="/">
+                                <img src="https://pngimg.com/uploads/github/github_PNG17.png" alt="GitHub">
+                            </a>
+                            <hr>
+                        </div>
+                        <form method="get" action="">
+                            <input type="text" name="nome" placeholder="Digite o nome da linguagem que deseja buscar.">
+                            <input type="submit" name="enviar" value="Atualizar">
+                        </form>
+                    </div>
+                </div>
+            </header>
+            <div class="main-wrapper">
+                <div class="single-page clearfix">
+                    <div class="inner-wrap">
+                        <h2>Repositórios</h2>
+                        <hr>
+                        <div>
+                        {% block content %}
+                        {% endblock %}
+                        </div>
+                        <hr>
+                    </div>
+                </div>
+            </div>
+            <footer id="colophon">
+                <div class="inner-wrap">
+                    Ateliware - Dev Hiring Challenge
+                </div>
+            </footer>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<div>
+    {% for repo in repos %}
+    <div class="reponame">
+        <a href="{%url 'repo_detail' repo.id %}">
+        <h4>{{ repo.name|capfirst }}</h4>
+        </a>
+        <p>{{ repo.description }}</p>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
