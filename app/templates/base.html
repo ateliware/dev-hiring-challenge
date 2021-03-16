@@ -13,23 +13,24 @@
                             <a href="/">
                                 <img src="https://pngimg.com/uploads/github/github_PNG17.png" alt="GitHub">
                             </a>
-                            <hr>
                         </div>
-                        <form method="get" action="/">
-                            <input type="text" name="nome" placeholder="Digite o nome da linguagem que deseja buscar.">
-                            <input type="submit" name="enviar" value="Atualizar">
-                        </form>
                     </div>
                 </div>
             </header>
             <div class="main-wrapper">
                 <div class="single-page clearfix">
                     <div class="inner-wrap">
-                        <h2>Repositórios</h2>
+                        <p>Busca de repositórios destaques das linguagens: Java, Python, Ruby, Rust e Go.</p>
+                        <form method="get" action="/">
+<!--                            <input type="text" name="nome" placeholder="Digite o nome da linguagem que deseja buscar.">-->
+                            <input type="submit" name="enviar" value="Atualizar">
+                        </form>
+                        <hr>
+                        <p>Repositórios</p>
                         <hr>
                         <div>
-                        {% block content %}
-                        {% endblock %}
+                            {% block content %}
+                            {% endblock %}
                         </div>
                         <hr>
                     </div>

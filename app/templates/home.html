@@ -4,10 +4,11 @@
     {% for repo in repos %}
     <div class="reponame">
         <a href="{%url 'repo_detail' repo.id %}">
-        <h4>{{ repo.name|capfirst }}</h4>
+        <p>{{ repo.name|capfirst }}</p>
         </a>
         <p>{{ repo.description }}</p>
     </div>
+    <hr>
     {% endfor %}
 </div>
 {% endblock %}

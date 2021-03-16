@@ -6,12 +6,13 @@ import json
 
 from .models import Repo
 
-
+# todo separar o request do home para nao demorar o loading da pagina.
 def home(request):
-    Repo.objects.all().delete()
     all_repos = {}
-    if request.GET:
-        language = request.GET.get('nome')
+    # if request.GET:
+    #     language = request.GET.get('nome')
+    Repo.objects.all().delete()
+    for language in ('java', 'python', 'ruby', 'rust', 'go'):
         url = 'https://api.github.com/search/repositories?q=language:'+language+'&sort=stars&order=desc'
         response = requests.get(url)
         data = response.json()
