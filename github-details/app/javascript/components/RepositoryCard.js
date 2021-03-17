@@ -77,6 +77,7 @@ const RepositoryCard = ({
           title: "Repository saved successfully!",
           description: "It'll be available in your saved repositories.",
           status: "success",
+          isClosable: true,
         });
 
         setDisabled(true);
@@ -85,10 +86,13 @@ const RepositoryCard = ({
         toast({
           title: "Failed to save repository",
           status: "error",
+          isClosable: true,
         });
       });
   }, [
     id,
+    toast,
+    setDisabled,
   ]);
 
   const handleRemove = useCallback(() => {
@@ -98,6 +102,7 @@ const RepositoryCard = ({
           title: "Repository removed successfully",
           description: "You can still add it again in the future.",
           status: "success",
+          isClosable: true,
         });
 
         setVisible(false);
@@ -106,10 +111,13 @@ const RepositoryCard = ({
         toast({
           title: "Failed to remove repository",
           status: "error",
+          isClosable: true,
         });
       });
   }, [
     repository_id,
+    setVisible,
+    toast,
   ]);
 
   if (!visible) {
