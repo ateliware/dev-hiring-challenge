@@ -1,6 +1,7 @@
 import React from "react";
 import {
-  Flex
+  Flex,
+  Text,
 } from "@chakra-ui/react";
 
 import withLayout from "hocs/withLayout";
@@ -10,15 +11,25 @@ const RepositoriesList = ({ repositories }) => {
   return (
     <Flex
       direction="column"
+      align="center"
       grow={1}
     >
       {
-        repositories.map((repo) => (
-          <RepositoryContainer
-            repository={repo}
-            key={repo.id}
-          />
-        ))
+        !repositories.length
+        ? (
+          <Text fontWeight="bold" mt="5">
+            No saved repositories yet.
+          </Text>
+        )
+        : (
+          repositories.map((repo) => (
+            <RepositoryContainer
+              repository={repo}
+              key={repo.id}
+            />
+          ))
+        )
+
       }
     </Flex>
   )

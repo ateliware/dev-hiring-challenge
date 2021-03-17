@@ -18,6 +18,9 @@ import {
 } from "react-icons/go";
 import axios from "axios";
 
+const token = document.querySelector("[name=csrf-token]").content;
+axios.defaults.headers.common["X-CSRF-TOKEN"] = token;
+
 const InfoItem = ({
   Icon,
   text,
@@ -46,6 +49,7 @@ const RepositoryCard = ({
   repository,
   organization_id,
   is_saved,
+  repository_id,
 }) => {
   const {
     id,
@@ -56,38 +60,58 @@ const RepositoryCard = ({
     forkCount,
     primaryLanguage,
   } = repository;
-
   const toast = useToast();
-
   const [disabled, setDisabled] = useState(false);
+  const [visible, setVisible] = useState(true);
 
-  const handleSave = useCallback((event) => {
-    const token = document.querySelector("[name=csrf-token]").content;
-      axios.defaults.headers.common["X-CSRF-TOKEN"] = token;
+  const handleSave = useCallback(() => {
+    axios.post("/repositories.json", {
+      repository: {
+        name,
+        organization_id,
+      }
+    })
+      .then(() => {
+        setDisabled(true);
 
-      axios.post("/repositories.json", {
-        repository: {
-          name,
-          organization_id,
-        }
-      })
-        .then(() => {
-          setDisabled(true);
-
-          toast({
-            title: "Repository saved successfully",
-            status: "success",
-          });
-        })
-        .catch(() => {
-          toast({
-            title: "Failed to save repository",
-            status: "error",
-          });
+        toast({
+          title: "Repository saved successfully",
+          status: "success",
         });
+      })
+      .catch(() => {
+        toast({
+          title: "Failed to save repository",
+          status: "error",
+        });
+      });
   }, [
     id,
   ]);
+
+  const handleRemove = useCallback(() => {
+    axios.delete(`/repositories/${repository_id}.json`)
+      .then(() => {
+        toast({
+          title: "Repository removed successfully",
+          status: "success",
+        });
+
+        setVisible(false);
+      })
+      .catch(() => {
+        toast({
+          title: "Failed to remove repository",
+          status: "error",
+        });
+      });
+  }, [
+    repository_id,
+  ]);
+
+  if (!visible) {
+    return null;
+  }
 
   return (
     <Box
@@ -145,6 +169,19 @@ const RepositoryCard = ({
           >
             Save repository
           </Button>
+
+          {
+            !!repository_id && (
+              <Button
+                colorScheme="red"
+                size="sm"
+                mr="2"
+                onClick={handleRemove}
+              >
+                Remove repository
+              </Button>
+            )
+          }
 
           <Link isExternal href={url}>
             <Button

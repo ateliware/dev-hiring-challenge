@@ -31,6 +31,7 @@ const RepositoryContainer = ({
     <RepositoryCard
       organization_id={organization.id}
       repository={repo}
+      repository_id={id}
       key={id}
       is_saved
     />
