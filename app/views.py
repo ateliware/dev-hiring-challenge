@@ -7,23 +7,26 @@ from .models import Repo
 
 
 def home(request):
-    if request.GET and 'Atualizar' in request.GET.get('enviar'):
-        Repo.objects.all().delete()
-        for language in ('java', 'python', 'ruby', 'rust', 'go'):
-            url = 'https://api.github.com/search/repositories?q=language:'+language+'&sort=stars&order=desc'
-            response = requests.get(url)
-            data = response.json()
-            repos = data['items']
-            for i in repos:
-                repo_data = Repo(
-                    name=i['name'],
-                    language=i['language'],
-                    stars=i['stargazers_count'],
-                    forks=i['forks_count'],
-                    description=i['description'],
-                    url=i['html_url'],
-                )
-                repo_data.save()
+    if request.GET:
+        if 'Atualizar' in request.GET.get('enviar'):
+            Repo.objects.all().delete()
+            for language in ('java', 'python', 'ruby', 'rust', 'go'):
+                url = 'https://api.github.com/search/repositories?q=language:'+language+'&sort=stars&order=desc'
+                response = requests.get(url)
+                data = response.json()
+                repos = data['items']
+                for i in repos:
+                    repo_data = Repo(
+                        name=i['name'],
+                        language=i['language'],
+                        stars=i['stargazers_count'],
+                        forks=i['forks_count'],
+                        description=i['description'],
+                        url=i['html_url'],
+                    )
+                    repo_data.save()
+        elif 'Limpar' in request.GET.get('enviar'):
+            Repo.objects.all().delete()
     all_repos = Repo.objects.all().order_by('-stars')
     return render(request, 'home.html', {
         "repos": all_repos,
