@@ -28,6 +28,7 @@ jobs:
         PGHOST: 127.0.0.1
         PGUSER: postgres
         RAILS_ENV: test
+        GITHUB_BEARER_TOKEN: "fake-key"
       run: |
         sudo apt-get -yqq install libpq-dev
         gem install bundler
