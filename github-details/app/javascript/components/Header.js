@@ -4,6 +4,7 @@ import {
   Flex,
   LinkOverlay,
   LinkBox,
+  Link,
 } from "@chakra-ui/react";
 
 const Header = (props) => (
@@ -25,8 +26,13 @@ const Header = (props) => (
             Github Details
           </LinkOverlay>
         </Heading>
-
       </LinkBox>
+
+      <Flex ml="5">
+        <Link href="/repositories">
+          Saved repositories
+        </Link>
+      </Flex>
     </Flex>
   )
 );
