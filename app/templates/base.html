@@ -1,8 +1,9 @@
+{% load static %}
 <html lang="en-US">
     <head>
         <meta charset="UTF-8">
         <title>Search GitHub Repos</title>
-        <link rel="stylesheet" id="ample-style-css" href="http://wisdompets.com/wp-content/themes/ample/style.css?ver=4.8.3" type="text/css" media="all">
+        <link rel="stylesheet" id="ample-style-css" href="{% static 'style.css' %}" type="text/css" media="all">
     </head>
     <body class="wide">
         <div id="page" class="hfeed site">
@@ -11,7 +12,7 @@
                     <div class="main-head-wrap inner-wrap clearfix">
                         <div id="header-logo-image">
                             <a href="/">
-                                <img src="https://pngimg.com/uploads/github/github_PNG17.png" alt="GitHub">
+                                <img src="{% static 'images/logo.png' %}" alt="GitHub">
                             </a>
                         </div>
                     </div>
