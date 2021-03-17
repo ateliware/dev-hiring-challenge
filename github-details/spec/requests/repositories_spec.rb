@@ -40,11 +40,11 @@ RSpec.describe "/repositories", type: :request do
     end
   end
 
-  describe "POST /create" do
+  describe "POST /create.json" do
     context "with valid parameters" do
       it "creates a new Repository" do
         expect {
-          post repositories_url, params: { repository: valid_attributes }
+          post "#{repositories_url}.json", params: { repository: valid_attributes }
         }.to change(Repository, :count).by(1)
       end
     end
@@ -52,24 +52,18 @@ RSpec.describe "/repositories", type: :request do
     context "with invalid parameters" do
       it "does not create a new Repository" do
         expect {
-          post repositories_url, params: { repository: invalid_attributes }
+          post "#{repositories_url}.json", params: { repository: invalid_attributes }
         }.to change(Repository, :count).by(0)
       end
     end
   end
 
-  describe "DELETE /destroy" do
+  describe "DELETE /destroy.json" do
     it "destroys the requested repository" do
       repository = Repository.create! valid_attributes
       expect {
-        delete repository_url(repository)
+        delete "#{repository_url(repository)}.json"
       }.to change(Repository, :count).by(-1)
-    end
-
-    it "redirects to the repositories list" do
-      repository = Repository.create! valid_attributes
-      delete repository_url(repository)
-      expect(response).to redirect_to(repositories_url)
     end
   end
 end
