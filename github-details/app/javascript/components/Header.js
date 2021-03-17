@@ -1,5 +1,10 @@
 import React from "react";
-import { Heading, Flex } from "@chakra-ui/react";
+import {
+  Heading,
+  Flex,
+  LinkOverlay,
+  LinkBox,
+} from "@chakra-ui/react";
 
 const Header = (props) => (
   (
@@ -14,11 +19,14 @@ const Header = (props) => (
       mb="5"
       {...props}
     >
-      <Flex align="center" mr={5}>
+      <LinkBox as="article" align="center" mr={5}>
         <Heading as="h1" size="lg" letterSpacing={"-.1rem"}>
-          Github Details
+          <LinkOverlay href="/">
+            Github Details
+          </LinkOverlay>
         </Heading>
-      </Flex>
+
+      </LinkBox>
     </Flex>
   )
 );

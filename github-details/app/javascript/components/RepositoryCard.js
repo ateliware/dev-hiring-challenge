@@ -127,10 +127,14 @@ const RepositoryCard = ({
               text={forkCount}
             />
 
-            <InfoItem
-              Icon={GoPrimitiveDot}
-              text={primaryLanguage.name}
-            />
+            {
+              primaryLanguage && (
+                <InfoItem
+                  Icon={GoPrimitiveDot}
+                  text={primaryLanguage.name}
+                />
+              )
+            }
           </Flex>
 
           <Spacer />
