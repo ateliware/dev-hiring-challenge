@@ -4,8 +4,9 @@ import {
   Text,
   Flex,
   Badge,
+  Spinner,
 } from "@chakra-ui/react";
-import { useQuery } from '@apollo/client';
+import { useQuery } from "@apollo/client";
 
 import withLayout from "hocs/withLayout";
 import RepositoryCard from "components/RepositoryCard";
@@ -24,7 +25,7 @@ const OrganizationPage = ({
     repositories,
   } = organization;
 
-  const { loading, error, data } = useQuery(ORGANIZATION_QUERY, {
+  const { loading, data } = useQuery(ORGANIZATION_QUERY, {
     variables: {
       slug,
     },
@@ -55,18 +56,27 @@ const OrganizationPage = ({
       </Flex>
 
       {
-        repos.map((repo) => {
-          const is_saved = repositories.find(({ name }) => repo.name === name);
+        loading
+          ? (
+            <Flex grow={1} justify="center" align="center">
+              <Spinner />
+            </Flex>
+          )
+          : (
+            repos.map((repo) => {
+              const is_saved = repositories.find(({ name }) => repo.name === name);
 
-          return (
-            <RepositoryCard
-              organization_id={id}
-              repository={repo}
-              key={repo.id}
-              is_saved={is_saved}
-            />
-          );
-        })
+              return (
+                <RepositoryCard
+                  organization_id={id}
+                  repository={repo}
+                  key={repo.id}
+                  is_saved={is_saved}
+                />
+              );
+            })
+        )
+
       }
     </>
   )

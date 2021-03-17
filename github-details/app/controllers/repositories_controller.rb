@@ -3,7 +3,7 @@ class RepositoriesController < ApplicationController
 
   # GET /repositories or /repositories.json
   def index
-    @repositories = Repository.all
+    @repositories = Repository.all.as_json(include: :organization)
   end
 
   # POST /repositories or /repositories.json

@@ -80,8 +80,6 @@ const RepositoryCard = ({
           });
         })
         .catch(() => {
-          console.log("error");
-
           toast({
             title: "Failed to save repository",
             status: "error",
