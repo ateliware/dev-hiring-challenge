@@ -26,3 +26,7 @@
 # See docker logs
 
 	`docker-compose logs`
+
+# Push to heroku
+
+	`git push heroku master`
