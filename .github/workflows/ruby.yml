@@ -4,9 +4,7 @@ on: [push, pull_request]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     services:
       db:
         image: postgres:11
@@ -16,6 +14,8 @@ jobs:
           --health-interval 10s
           --health-timeout 5s
           --health-retries 5
+        env:
+          POSTGRES_PASSWORD: postgres
 
     steps:
     - uses: actions/checkout@v2
@@ -34,4 +34,4 @@ jobs:
         bundle install --jobs 4 --retry 3
         bundle exec rails db:create
         bundle exec rails db:migrate
-        bundle exec rails test
+        bundle exec rails rspec
