@@ -29,7 +29,7 @@ jobs:
         PGUSER: postgres
         RAILS_ENV: test
         GITHUB_BEARER_TOKEN: "fake-key"
-        DATABASE_URL: postgres://db:5432/postgres
+        DATABASE_URL: postgres://postgres@db:5432/postgres
       run: |
         sudo apt-get -yqq install libpq-dev
         gem install bundler
