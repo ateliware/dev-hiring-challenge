@@ -1,5 +1,10 @@
 import React from "react";
-import { Heading } from "@chakra-ui/react";
+import {
+  Heading,
+  Text,
+  Flex,
+  Badge,
+} from "@chakra-ui/react";
 import { useQuery } from '@apollo/client';
 
 import withLayout from "hocs/withLayout";
@@ -10,8 +15,13 @@ const OrganizationPage = ({
   organization,
 }) => {
   const {
-    name,
+    id,
+    name: organizationName,
     slug,
+    description,
+    is_verified,
+    blog,
+    repositories,
   } = organization;
 
   const { loading, error, data } = useQuery(ORGANIZATION_QUERY, {
@@ -25,13 +35,38 @@ const OrganizationPage = ({
   return (
     <>
       <Heading size="lg" my="5">
-        {name}
+        {organizationName}
       </Heading>
 
+      <Text>
+        {description}
+      </Text>
+
+      <Flex>
+        <Text>{blog}</Text>
+
+        {
+          is_verified && (
+            <Badge colorScheme="green" variant="outline">
+              verified
+            </Badge>
+          )
+        }
+      </Flex>
+
       {
-        repos.map((repo) => (
-          <RepositoryCard repository={repo} key={repo.id} />
-        ))
+        repos.map((repo) => {
+          const is_saved = repositories.find(({ name }) => repo.name === name);
+
+          return (
+            <RepositoryCard
+              organization_id={id}
+              repository={repo}
+              key={repo.id}
+              is_saved={is_saved}
+            />
+          );
+        })
       }
     </>
   )

@@ -1,5 +1,5 @@
 class RepositoriesController < ApplicationController
-  before_action :set_repository, only: %i[ show edit update destroy ]
+  before_action :set_repository, only: %i[ show destroy ]
 
   # GET /repositories or /repositories.json
   def index
@@ -12,11 +12,11 @@ class RepositoriesController < ApplicationController
 
     respond_to do |format|
       if @repository.save
-        format.html { redirect_to @repository, notice: "Repository was successfully created." }
-        format.json { render :show, status: :created, location: @repository }
+        format.html { redirect_to @repository, notice: "Repository was successfully saved." }
+        format.json { head :no_content, status: :created }
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @repository.errors, status: :unprocessable_entity }
+        format.json { render json: @repository.errors.full_messages, status: :unprocessable_entity }
       end
     end
   end
@@ -25,7 +25,7 @@ class RepositoriesController < ApplicationController
   def destroy
     @repository.destroy
     respond_to do |format|
-      format.html { redirect_to repositories_url, notice: "Repository was successfully destroyed." }
+      format.html { redirect_to repositories_url, notice: "Repository was successfully removed." }
       format.json { head :no_content }
     end
   end

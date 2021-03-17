@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback, useState } from "react";
 import {
   Box,
   LinkOverlay,
@@ -6,9 +6,13 @@ import {
   Heading,
   Text,
   Flex,
+  Button,
+  Spacer,
+  useToast,
 } from "@chakra-ui/react";
 import Emoji from "react-emoji-render";
 import { GoRepoForked, GoStar, GoPrimitiveDot } from "react-icons/go";
+import axios from "axios";
 
 const InfoItem = ({
   Icon,
@@ -36,6 +40,8 @@ const InfoItem = ({
 
 const RepositoryCard = ({
   repository,
+  organization_id,
+  is_saved,
 }) => {
   const {
     id,
@@ -46,6 +52,43 @@ const RepositoryCard = ({
     forkCount,
     primaryLanguage,
   } = repository;
+
+  const toast = useToast();
+
+  const [disabled, setDisabled] = useState(false);
+
+  const handleSave = useCallback((event) => {
+    event.stopPropagation();
+    event.preventDefault();
+
+    const token = document.querySelector("[name=csrf-token]").content;
+      axios.defaults.headers.common["X-CSRF-TOKEN"] = token;
+
+      axios.post("/repositories.json", {
+        repository: {
+          name,
+          organization_id,
+        }
+      })
+        .then(() => {
+          setDisabled(true);
+
+          toast({
+            title: "Repository saved successfully",
+            status: "success",
+          });
+        })
+        .catch(() => {
+          console.log("error");
+
+          toast({
+            title: "Failed to save repository",
+            status: "error",
+          });
+        });
+  }, [
+    id,
+  ]);
 
   return (
     <LinkBox
@@ -72,21 +115,34 @@ const RepositoryCard = ({
           <Emoji text={description} />
         </Text>
 
-        <Flex direction="row">
-          <InfoItem
-            Icon={GoStar}
-            text={stargazerCount}
-          />
+        <Flex>
+          <Flex>
+            <InfoItem
+              Icon={GoStar}
+              text={stargazerCount}
+            />
 
-          <InfoItem
-            Icon={GoRepoForked}
-            text={forkCount}
-          />
+            <InfoItem
+              Icon={GoRepoForked}
+              text={forkCount}
+            />
 
-          <InfoItem
-            Icon={GoPrimitiveDot}
-            text={primaryLanguage.name}
-          />
+            <InfoItem
+              Icon={GoPrimitiveDot}
+              text={primaryLanguage.name}
+            />
+          </Flex>
+
+          <Spacer />
+
+          <Button
+            colorScheme="blue"
+            size="sm"
+            disabled={disabled || is_saved}
+            onClick={handleSave}
+          >
+            Save repository
+          </Button>
         </Flex>
       </Box>
     </LinkBox>
