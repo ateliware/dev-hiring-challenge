@@ -1,17 +1,21 @@
 import React, { useCallback, useState } from "react";
 import {
   Box,
-  LinkOverlay,
-  LinkBox,
   Heading,
   Text,
   Flex,
   Button,
   Spacer,
   useToast,
+  Link,
 } from "@chakra-ui/react";
 import Emoji from "react-emoji-render";
-import { GoRepoForked, GoStar, GoPrimitiveDot } from "react-icons/go";
+import {
+  GoRepoForked,
+  GoStar,
+  GoPrimitiveDot,
+  GoLogoGithub,
+} from "react-icons/go";
 import axios from "axios";
 
 const InfoItem = ({
@@ -58,9 +62,6 @@ const RepositoryCard = ({
   const [disabled, setDisabled] = useState(false);
 
   const handleSave = useCallback((event) => {
-    event.stopPropagation();
-    event.preventDefault();
-
     const token = document.querySelector("[name=csrf-token]").content;
       axios.defaults.headers.common["X-CSRF-TOKEN"] = token;
 
@@ -91,7 +92,7 @@ const RepositoryCard = ({
   ]);
 
   return (
-    <LinkBox
+    <Box
       mt="5"
       p="6"
       d="flex"
@@ -106,9 +107,7 @@ const RepositoryCard = ({
         flexDirection="column"
       >
         <Heading size="md" my="2">
-          <LinkOverlay href={url}>
-            {name}
-          </LinkOverlay>
+          {name}
         </Heading>
 
         <Text mb="3">
@@ -142,14 +141,28 @@ const RepositoryCard = ({
           <Button
             colorScheme="blue"
             size="sm"
+            mr="2"
             disabled={disabled || is_saved}
             onClick={handleSave}
           >
             Save repository
           </Button>
+
+          <Link isExternal href={url}>
+            <Button
+              colorScheme="linkedin"
+              size="sm"
+            >
+              <Text mr="2">
+                See on
+              </Text>
+
+              <GoLogoGithub size="3rem" />
+            </Button>
+          </Link>
         </Flex>
       </Box>
-    </LinkBox>
+    </Box>
   )
 };
 
