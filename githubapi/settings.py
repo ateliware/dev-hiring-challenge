@@ -82,11 +82,11 @@ DATABASES = {
     # }
     'default': {
               'ENGINE': 'django.db.backends.postgresql_psycopg2',
-              'NAME': 'db',
+              'NAME': 'postgres',
               'USER': 'ateliware',
               'PASSWORD': 'ateliware',
-              'HOST': 'localhost',
-              'PORT': '',
+              'HOST': 'db',
+              'PORT': '5432',
           }
 }
 

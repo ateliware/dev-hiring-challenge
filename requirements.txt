@@ -1,0 +1,4 @@
+Django
+django-pipeline
+requests
+psycopg2-binary
