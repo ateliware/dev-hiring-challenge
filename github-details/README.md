@@ -23,3 +23,8 @@ Copy and edit the following files:
 
 Remember to edit your sensitive information such as Github API keys, and/or your local
 postgresql user and password.
+
+
+### Deployment
+
+The application is current deployed at: https://github-details-challenge.herokuapp.com/
