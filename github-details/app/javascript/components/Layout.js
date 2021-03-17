@@ -11,7 +11,6 @@ const Layout = ({ children }) => (
 
     <Container
       maxW={1280}
-      minHeight="100vh"
     >
       {children}
     </Container>
