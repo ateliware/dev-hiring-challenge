@@ -5,8 +5,11 @@ import {
   Flex,
   Badge,
   Spinner,
+  Image,
+  Link
 } from "@chakra-ui/react";
 import { useQuery } from "@apollo/client";
+import { GoLink } from "react-icons/go";
 
 import withLayout from "hocs/withLayout";
 import RepositoryCard from "components/RepositoryCard";
@@ -22,6 +25,7 @@ const OrganizationPage = ({
     description,
     is_verified,
     blog,
+    avatar_url,
     repositories,
   } = organization;
 
@@ -35,24 +39,46 @@ const OrganizationPage = ({
 
   return (
     <>
-      <Heading size="lg" my="5">
-        {organizationName}
-      </Heading>
+      <Flex direction="row" align="center">
+        <Image
+          width={75}
+          height={75}
+          src={avatar_url}
+          alt={organizationName}
+          m="5"
+        />
 
-      <Text>
-        {description}
-      </Text>
+        <Flex direction="column">
+          <Heading size="lg" my="5">
+            {organizationName}
 
-      <Flex>
-        <Text>{blog}</Text>
+            {
+              is_verified && (
+                <Badge colorScheme="green" variant="outline" ml="2">
+                  verified
+                </Badge>
+              )
+            }
+          </Heading>
 
-        {
-          is_verified && (
-            <Badge colorScheme="green" variant="outline">
-              verified
-            </Badge>
-          )
-        }
+          <Text>
+            {description}
+          </Text>
+
+          <Flex>
+            {
+              blog && (
+                <Flex align="center" color="gray" >
+                  <GoLink />
+
+                  <Link mx="2" href={blog} isExternal>
+                    {blog}
+                  </Link>
+                </Flex>
+              )
+            }
+          </Flex>
+        </Flex>
       </Flex>
 
       {
