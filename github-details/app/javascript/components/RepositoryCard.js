@@ -72,12 +72,13 @@ const RepositoryCard = ({
       }
     })
       .then(() => {
-        setDisabled(true);
-
         toast({
-          title: "Repository saved successfully",
+          title: "Repository saved successfully!",
+          description: "It'll be available in your saved repositories.",
           status: "success",
         });
+
+        setDisabled(true);
       })
       .catch(() => {
         toast({
@@ -94,6 +95,7 @@ const RepositoryCard = ({
       .then(() => {
         toast({
           title: "Repository removed successfully",
+          description: "You can still add it again in the future.",
           status: "success",
         });
 
