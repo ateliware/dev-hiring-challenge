@@ -6,7 +6,7 @@ If you want to save a repository for later, just bookmark it.
 
 ## Ruby version
 
-ruby '2.6.3'
+ruby '2.7.2'
 
 ## Setup
 
