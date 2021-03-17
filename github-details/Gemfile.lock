@@ -163,8 +163,7 @@ GEM
     pry-rails (0.3.9)
       pry (>= 0.10.4)
     public_suffix (4.0.6)
-    puma (4.3.7)
-      nio4r (~> 2.0)
+    puma (3.12.6)
     racc (1.5.2)
     rack (2.2.3)
     rack-proxy (0.6.5)
@@ -305,7 +304,7 @@ DEPENDENCIES
   pg
   pry
   pry-rails
-  puma (~> 4.1)
+  puma (~> 3.11)
   rails (~> 6.0.3, >= 6.0.3.2)
   rails_12factor
   react-rails
