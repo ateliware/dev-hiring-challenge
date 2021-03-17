@@ -124,11 +124,15 @@ const RepositoryCard = ({
       borderRadius="lg"
       flexDirection="row"
       alignItems="center"
+      flexGrow={1}
+      width="100%"
     >
       <Box
         d="flex"
         alignItems="baseline"
         flexDirection="column"
+        flexGrow={1}
+        width="100%"
       >
         <Heading size="md" my="2">
           {name}
@@ -138,7 +142,7 @@ const RepositoryCard = ({
           <Emoji text={description} />
         </Text>
 
-        <Flex>
+        <Flex flexGrow={1} width="100%">
           <Flex>
             <InfoItem
               Icon={GoStar}
