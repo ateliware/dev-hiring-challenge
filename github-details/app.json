@@ -1,0 +1,10 @@
+{
+  "environments": {
+    "test": {
+      "scripts": {
+        "test-setup": "bundle install",
+        "test": "bundle exec rspec"
+      }
+    }
+  }
+}
