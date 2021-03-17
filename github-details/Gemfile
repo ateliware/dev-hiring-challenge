@@ -36,6 +36,8 @@ gem 'figaro'
 
 gem 'rails_12factor'
 
+gem 'haml-rails', "~> 2.0"
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -54,8 +56,6 @@ group :development do
   gem 'pry-rails'
 
   gem 'annotate'
-
-  gem 'haml-rails', "~> 2.0"
 end
 
 group :test do
