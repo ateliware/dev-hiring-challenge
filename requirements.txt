@@ -1,4 +1,7 @@
 Django
+django-environ
 django-pipeline
 requests
 psycopg2-binary
+gunicorn
+whitenoise
