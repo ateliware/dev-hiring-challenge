@@ -24,6 +24,7 @@ axios.defaults.headers.common["X-CSRF-TOKEN"] = token;
 const InfoItem = ({
   Icon,
   text,
+  color,
 }) => (
   <Box
     as="span"
@@ -37,7 +38,7 @@ const InfoItem = ({
     borderWidth="1px"
     borderRadius="lg"
   >
-    <Icon />
+    <Icon color={color} />
 
     <Text ml="2">
       {text}
@@ -159,6 +160,7 @@ const RepositoryCard = ({
                 <InfoItem
                   Icon={GoPrimitiveDot}
                   text={primaryLanguage.name}
+                  color={primaryLanguage.color}
                 />
               )
             }
