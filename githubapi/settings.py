@@ -39,7 +39,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'pipeline',
     'githubapi',
     'app'
 ]
@@ -144,19 +143,19 @@ STATICFILES_FINDERS = (
 
 PIPELINE_CSS_COMPRESSOR = 'pipeline.compressors.yuglify.YuglifyCompressor'
 
-# todo
 PIPELINE = {
-    'STYLESHEETS': {
-        'app': {
-            # 'source_filenames': (
-            #   'css/default.css',
-            # ),
-            # 'output_filename': 'css/general.css',
-            # 'extra_context': {
-            #     'media': 'screen,projection',
-            # },
-        },
-    }
+    # 'PIPELINE_ENABLED': True,
+    # 'JAVASCRIPT': {
+    #     'stats': {
+    #         'source_filenames': (
+    #           # 'js/jquery.js',
+    #           # 'js/d3.js',
+    #           # 'js/collections/*.js',
+    #           # 'js/application.js',
+    #         ),
+    #         'output_filename': 'js/stats.js',
+    #     }
+    # }
 }
 
 try:
