@@ -25,11 +25,11 @@ jobs:
         ruby-version: 2.7.2
     - name: Build and test with Rake
       env:
-        PGHOST: 127.0.0.1
-        PGUSER: postgres
+        POSTGRES_HOST: db
+        POSTGRES_USER: postgres
+        POSTGRES_PASSWORD: postgres
         RAILS_ENV: test
         GITHUB_BEARER_TOKEN: "fake-key"
-        DATABASE_URL: postgres://postgres@db:5432/postgres
       run: |
         sudo apt-get -yqq install libpq-dev
         gem install bundler
