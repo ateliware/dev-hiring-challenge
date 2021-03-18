@@ -1,0 +1,6 @@
+[submodule "atw-devchallenge-webapi"]
+	path = atw-devchallenge-webapi
+	url = git@github.com:appoks/atw-devchallenge-webapi.git
+[submodule "atw-devchallenge-frontend"]
+	path = atw-devchallenge-frontend
+	url = git@github.com:appoks/atw-devchallenge-frontend.git
