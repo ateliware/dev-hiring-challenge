@@ -10,7 +10,21 @@ Foi desenvolvida uma solução utilizando Python + Django. A aplicação lista o
 
 A aplicação está disponível em: https://biankatpas-dhc.herokuapp.com/
 
-## todo
+## Ambiente de Desenvolvimento 
+### Iniciar o ambiente utilizando docker-compose
+
+`docker-compose build`
+
+`docker-compose up -d`
+
+`docker-compose exec web python manage.py migrate`
+
+### Acesso (localhost)
+
+O acesso ao sistema se dá via WebBrowser através do endereço `127.0.0.1:8000`
+
+## Testes
+
+##### todo
 - Testes automatizados
-- Atualizar o readme da aplicação com passo a passo com instrução para subir o ambiente
 - Pull Request e notificação por email
