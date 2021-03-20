@@ -2,7 +2,7 @@ class Language < ApplicationRecord
     has_many :repositories
 
     def fetch_repositories
-        client = Octokit::Client.new(:access_token => '49058f559aa33cdcce28caa1738e937c9a85b3ea')
+        client = Octokit::Client.new(:access_token => '486e268856e493809aecdb482e7a7b9eb67d4158')
         
         repositories = client.search_repositories "language:#{self.code}", {
             sort: 'stars',
@@ -16,7 +16,7 @@ class Language < ApplicationRecord
                 name:              item[:name],
                 owner_name:        item[:owner][:login],
                 owner_avatar_url:  item[:owner][:avatar_url],
-                url:               item[:url],
+                html_url:          item[:html_url],
                 description:       item[:description],
                 github_create:     item[:created_at],
                 github_update:     item[:updated_at],

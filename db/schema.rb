@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 2021_03_19_083747) do
     t.text "owner_name"
     t.text "owner_avatar_url"
     t.text "description"
-    t.text "url"
+    t.text "html_url"
     t.integer "stargazers_count"
     t.integer "forks_count"
     t.integer "open_issues_count"

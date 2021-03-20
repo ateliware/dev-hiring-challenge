@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  root 'home#index'
+
+  get 'home/index'
 
   resources :languages, only: [:index]
   resources :repositories, only: [:index]
