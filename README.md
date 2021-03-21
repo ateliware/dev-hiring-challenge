@@ -25,6 +25,14 @@ O acesso ao sistema se dá via WebBrowser através do endereço `127.0.0.1:8000`
 
 ## Testes
 
+### Models
+
+`docker-compose exec web python manage.py test app.tests.test_models`
+
+### Views
+
+`docker-compose exec web python manage.py test app.tests.test_views`
+
 ##### todo
 - Testes automatizados
 - Pull Request e notificação por email
