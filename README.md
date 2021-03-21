@@ -28,7 +28,7 @@ A aplicação está disponível em: https://biankatpas-dhc.herokuapp.com/
 
 ### Acesso (localhost)
 
-O acesso ao sistema se dá via WebBrowser através do endereço [127.0.0.1:8000](http://127.0.0.1:8000)
+O acesso ao sistema se dá via WebBrowser através do endereço: [127.0.0.1:8000](http://127.0.0.1:8000)
 
 ## Testes
 
