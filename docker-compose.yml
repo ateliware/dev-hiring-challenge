@@ -16,6 +16,22 @@ services:
     depends_on:
       - database
 
+  webpack_dev_server:
+    build: .
+    command: ./bin/webpack-dev-server
+    ports:
+      - "3035:3035"
+    volumes:
+      - .:/opt/dev-hiring-challenge
+    env_file:
+      - db.env
+      - rails.env
+    environment:
+      - WEBPACKER_DEV_SERVER_HOST=0.0.0.0
+      - RAILS_ENV=development
+    depends_on:
+      - web
+
   database:
     image: postgres
     volumes:
