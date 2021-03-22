@@ -23,9 +23,8 @@
                     <div class="inner-wrap">
                         <p>Busca de repositórios destaques das linguagens: Java, Python, Ruby, Rust e Go.</p>
                         <form method="get" action="/">
-<!--                            <input type="text" name="nome" placeholder="Digite o nome da linguagem que deseja buscar.">-->
-                            <input type="submit" name="enviar" value="Atualizar">
-                            <input type="submit" name="enviar" value="Limpar">
+                            <input type="submit" name="enviar" value="Atualizar" href="{% url 'load_repos'%}">
+                            <input type="submit" name="enviar" value="Limpar" href="{% url 'delete_repos'%}">
                         </form>
                         <hr>
                         <p>Repositórios</p>
