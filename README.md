@@ -15,7 +15,7 @@ db.env
   DB_USERNAME=
   DB_PASSWORD=
   DB_HOST=database
-  DB_PORT=
+  DB_PORT=5432
   POSTGRES_PASSWORD=
 ```
 
