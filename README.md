@@ -2,7 +2,7 @@
 
 ## Solução
 
-Aplicação desenvolvida em Ruby on Rails com front-end em VueJs ultilizando o webpacker do Rails.
+Aplicação desenvolvida em Ruby on Rails com front-end em VueJs, ultilizando o webpacker do Rails.
 
 ## Ambiente de Desenvolvimento
 
@@ -11,7 +11,7 @@ Criar os seguintes arquivos na pasta raiz do projeto contendo as variáveis de a
 rails.env
   GITHUB_TOKEN=
 db.env
-  DB_DATABASE=
+  DB_DATABASE=dev_hiring_challenge
   DB_USERNAME=
   DB_PASSWORD=
   DB_HOST=database
