@@ -1,23 +1,44 @@
-# Desafio técnico para desenvolvedores
+# dev-hiring-challenge Tiago Junior Pereira
 
-Construa uma nova aplicação, utilizando o framework de sua preferência (Ruby on Rails, Elixir Phoenix, Python Django ou Flask, NodeJS Sails, Java Spring, ASP.NET ou outro), a qual deverá conectar na API do GitHub e disponibilizar as seguintes funcionalidades:
+## Solução
 
-- Botão para buscar e armazenar os repositórios destaques de 5 linguagens à sua escolha;
-- Listar os repositórios encontrados;
-- Visualizar os detalhes de cada repositório.
+Aplicação desenvolvida em Ruby on Rails com front-end em VueJs ultilizando o webpacker do Rails.
 
-Alguns requisitos:
+## Ambiente de Desenvolvimento
 
-- Deve ser uma aplicação totalmente nova;
-- A solução deve estar em um repositório público do GitHub;
-- A aplicação deve armazenar as informações encontradas;
-- Utilizar PostgreSQL, MySQL ou SQL Server;
-- O deploy deve ser realizado, preferencialmente, no Heroku, AWS ou no Azure;
-- A aplicação precisa ter testes automatizados;
-- Preferenciamente dockerizar a aplicação;
-- Por favor atualizar o readme da aplicação com passo a passo com instrução para subir o ambiente.
+Criar os seguintes arquivos na pasta raiz do projeto contendo as variáveis de ambiente:  
+```
+rails.env
+  GITHUB_TOKEN=
+db.env
+  DB_DATABASE=
+  DB_USERNAME=
+  DB_PASSWORD=
+  DB_HOST=database
+  DB_PORT=
+  POSTGRES_PASSWORD=
+```
 
-Quando terminar, faça um Pull Request neste repo e avise-nos por email.
+Utilizar o Docker Compose para subir a aplicação:
+```
+$ docker-compose build
+$ docker-compose up -d
+```
 
-**IMPORTANTE:** se você não conseguir finalizar o teste, por favor nos diga o motivo e descreva quais foram as suas dificuldades. Você pode também sugerir uma outra abordagem para avaliarmos seus skills técnicos, vender seu peixe, mostrar-nos do que é capaz.
->>>>>>> b181e7ddd07eebba3b98feeb8cc8e1f27ce62a27
+Inicializar o banco de dados:
+```
+$ docker-compose exec web bin/rails db:create db:migrate db:seed
+```
+
+Acessar `localhost:3000`
+
+## Testes
+
+Para executar os testes é rodar o comando abaixo:
+```
+$ docker-compose exec web bin/rails spec
+```
+
+## Aplicação disponível
+
+https://dev-hiring-challenge-tiago-jp.herokuapp.com/
