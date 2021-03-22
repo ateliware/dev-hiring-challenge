@@ -9,8 +9,19 @@ from .models import Repo
 LANGUAGES = ('java', 'python', 'ruby', 'rust', 'go')
 
 
-def load_repos(request):
-    print('home:load_repos')
+def home(request):
+    # print('home')
+    if request.GET:
+        if 'Atualizar' in request.GET.get('enviar'):
+            load_repos()
+        elif 'Limpar' in request.GET.get('enviar'):
+            delete_repos()
+    all_repos = Repo.objects.all().order_by('-stars')
+    return render(request, 'home.html', {"repos": all_repos})
+
+
+def load_repos():
+    # print('home:load_repos')
     Repo.objects.all().delete()
     try:
         for language in LANGUAGES:
@@ -32,24 +43,13 @@ def load_repos(request):
         raise Http404('API rate limit exceeded, please wait before updating again.')
 
 
-def delete_repos(request):
-    print('home:delete_repos')
+def delete_repos():
+    # print('home:delete_repos')
     Repo.objects.all().delete()
 
 
-def home(request):
-    print('home')
-    if request.GET:
-        if 'Atualizar' in request.GET.get('enviar'):
-            load_repos(request)
-        elif request.GET and 'Limpar' in request.GET.get('enviar'):
-            delete_repos(request)
-    all_repos = Repo.objects.all().order_by('-stars')
-    return render(request, 'home.html', {"repos": all_repos})
-
-
-def get_repo(request, repo_id):
-    print('get_repo')
+def repo_detail(request, repo_id):
+    # print('get_repo')
     try:
         repo = Repo.objects.get(id=repo_id)
     except Repo.DoesNotExist:

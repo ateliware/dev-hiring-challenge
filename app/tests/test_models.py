@@ -3,7 +3,7 @@ from django.test import TestCase
 from ..models import Repo
 
 
-class RepoModelTest(TestCase):
+class TestModels(TestCase):
     @classmethod
     def setUpTestData(cls):
         # Set up non-modified objects used by all test methods
