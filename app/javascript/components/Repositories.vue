@@ -25,7 +25,7 @@
                 </div>
             </article>
             <article v-if="!REPOSITORIES.length">
-                No repository found
+                No repository listed
             </article>
             <RepositoryDetailModal :dataRepository="this.dataRepository"/>
         </section>        
@@ -61,9 +61,6 @@ export default {
         repositoryDetail(repository){
             this.dataRepository = repository
         }
-    },
-    mounted(){
-        this.getRepositories()
     }
 }
 </script>
