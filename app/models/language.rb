@@ -1,8 +1,10 @@
 class Language < ApplicationRecord
     has_many :repositories
 
+    validates :name, :code, presence: true
+
     def fetch_repositories
-        client = Octokit::Client.new(:access_token => '486e268856e493809aecdb482e7a7b9eb67d4158')
+        client = Octokit::Client.new(:access_token => '')
         
         repositories = client.search_repositories "language:#{self.code}", {
             sort: 'stars',
