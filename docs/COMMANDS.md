@@ -1,7 +1,3 @@
-# Activate virtualenv
-
-	`source venv/bin/activate`
-
 # Start/Up docker
 
 	`docker-compose up`
@@ -26,6 +22,12 @@
 # See docker logs
 
 	`docker-compose logs`
+
+# Call tests
+	
+	`docker-compose exec web python manage.py test app.tests.test_models`
+	
+	`docker-compose exec web python manage.py test app.tests.test_views`
 
 # Push to heroku
 
