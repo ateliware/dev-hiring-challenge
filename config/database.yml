@@ -17,12 +17,13 @@
 default: &default
   adapter: postgresql
   encoding: unicode
+  username: <%= ENV.fetch("DB_USERNAME") { "postgres" } %>
+  password: <%= ENV.fetch('DB_PASSWORD') %>
+  host: <%= ENV.fetch('DB_HOST')  || 'localhost'%>
+  port: <%= ENV.fetch('DB_PORT')  || '5432'%>
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: postgres
-  password: <%= ENV['DEV_HIRING_CHALLENGE_DATABASE_PASSWORD'] %>
-  host: localhost
 
 development:
   <<: *default
@@ -31,8 +32,8 @@ development:
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
-  # the same name as the operating system user running Rails.
-  #username: dev_hiring_challenge
+  # the same name as the operating system user that initialized the database.
+  #username: app
 
   # The password associated with the postgres role (username).
   #password:
@@ -66,24 +67,25 @@ test:
 # like your database password, in your source code. If your source code is
 # ever seen by anyone, they now have access to your database.
 #
-# Instead, provide the password or a full connection URL as an environment
-# variable when you boot the app. For example:
+# Instead, provide the password as a unix environment variable when you boot
+# the app. Read https://guides.rubyonrails.org/configuring.html#configuring-a-database
+# for a full rundown on how to provide these environment variables in a
+# production deployment.
+#
+# On Heroku and other platform providers, you may have a full connection URL
+# available as an environment variable. For example:
 #
 #   DATABASE_URL="postgres://myuser:mypass@localhost/somedatabase"
 #
-# If the connection URL is provided in the special DATABASE_URL environment
-# variable, Rails will automatically merge its configuration values on top of
-# the values provided in this file. Alternatively, you can specify a connection
-# URL environment variable explicitly:
+# You can use this database configuration with:
 #
 #   production:
-#     url: <%= ENV['MY_APP_DATABASE_URL'] %>
-#
-# Read https://guides.rubyonrails.org/configuring.html#configuring-a-database
-# for a full overview on how database connection configuration can be specified.
+#     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
   <<: *default
-  database: dev_hiring_challenge_production
-  username: postgres
-  password: <%= ENV['DEV_HIRING_CHALLENGE_DATABASE_PASSWORD'] %>
+  #  database: app_production
+  database: <%= ENV['DB_DATABASE'] %>
+  username: <%= ENV['DB_USERNAME'] %>
+  password: <%= ENV['DB_PASSWORD'] %>
+  host: <%= ENV['DB_HOST'] %>

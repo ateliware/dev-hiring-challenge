@@ -4,7 +4,7 @@ class Language < ApplicationRecord
     validates :name, :code, presence: true
 
     def fetch_repositories
-        client = Octokit::Client.new(:access_token => '')
+        client = Octokit::Client.new(:access_token => ENV["GITHUB_TOKEN"])
         
         repositories = client.search_repositories "language:#{self.code}", {
             sort: 'stars',

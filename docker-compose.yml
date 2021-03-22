@@ -1,0 +1,27 @@
+version: "3.9"
+
+services:
+  web:
+    build: .
+    ports:
+      - "3000:3000"
+      - "4000:4000"
+    volumes:
+      - .:/opt/dev-hiring-challenge
+    env_file:
+      - rails.env
+      - db.env
+    environment:
+      - RAILS_ENV=development
+    depends_on:
+      - database
+
+  database:
+    image: postgres
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    env_file:
+      - db.env
+      - rails.env
+volumes:
+  db_data:
