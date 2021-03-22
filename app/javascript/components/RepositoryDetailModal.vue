@@ -37,7 +37,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <a :href="dataRepository.html_url" class="btn btn-primary">Ver no github</a>
+                    <a :href="dataRepository.html_url" target="blank" class="btn btn-primary">Ver no github</a>
                 </div>
             </div>
         </div>

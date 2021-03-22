@@ -1,13 +1,13 @@
 <template>
     <div>
         <section class="container text-center">
-            <button class="btn btn-primary btn-repositories-search" @click="getRepositories">Get Repositories</button>
+            <button class="btn btn-primary btn-repositories-search" @click="handleGetRepositories">Get Repositories</button>
             <div class="language-list">
                 <button v-for="language in LANGUAGES" v-bind:key="language.id" :class="`btn btn-primary btn-languages ${(LANGUAGE_TO_LIST.id == language.id ? 'active' : '')}`" role="button" @click="setLanguageToList(language)">
                     {{language.name}}
                 </button>
             </div>            
-            <article v-if="REPOSITORIES.length" class="d-flex justify-content-center row">
+            <article v-if="REPOSITORIES.length && !isSearching" class="d-flex justify-content-center row">
                 <div v-for="repository in REPOSITORIES" v-bind:key="repository.id" class="card col-md-2" data-bs-toggle="modal" data-bs-target="#repository-modal" @click="repositoryDetail(repository)">
                     <div class="card-body d-grid align-items-center">
                         <h6 class="card-title ">{{repository.name}}</h6>
@@ -25,8 +25,11 @@
                 </div>
             </article>
             <article v-if="!REPOSITORIES.length">
-                No repository listed
+                <div v-if="!isSearching">No repository listed</div>                                
             </article>
+            <div v-if="isSearching" class="spinner-border mt-3" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
             <RepositoryDetailModal :dataRepository="this.dataRepository"/>
         </section>        
     </div>
@@ -43,7 +46,8 @@ export default {
     },
     data: () => {
         return {
-            dataRepository: {}
+            dataRepository: {},
+            isSearching: false
         }
     },
     computed: {
@@ -60,6 +64,17 @@ export default {
         ]),
         repositoryDetail(repository){
             this.dataRepository = repository
+        },
+        handleGetRepositories(){
+            this.isSearching = true
+
+            this.getRepositories()
+                .then(() => {
+                    this.isSearching = false
+                })
+                .catch(() => {
+                    this.isSearching = false
+                })
         }
     }
 }

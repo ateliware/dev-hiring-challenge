@@ -12,11 +12,15 @@ export default {
             return commit(Mutation.SET_LANGUAGES, response.data)
         })    
   },
-  getRepositories({ commit }) {
-    axios.get(`/repositories.json`)
+  getRepositories({ commit }){
+    return new Promise((resolve, reject) => {
+      axios.get(`/repositories.json`)
         .then(response => {
-            return commit(Mutation.SET_REPOSITORIES, response.data)
-        })  
+          commit(Mutation.SET_REPOSITORIES, response.data)
+          resolve(response)
+        })
+        .catch(error => reject(error))
+    }) 
   },
   setLanguageToList({ commit }, language) {
     return commit(Mutation.SET_LANGUAGE_TO_LIST, language)
