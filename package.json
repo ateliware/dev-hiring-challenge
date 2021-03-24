@@ -6,6 +6,7 @@
     "@rails/ujs": "^6.0.0",
     "@rails/webpacker": "5.2.1",
     "bootstrap": "^4.6.0",
+    "gh": "^2.8.9",
     "turbolinks": "^5.2.0"
   },
   "version": "0.1.0",
