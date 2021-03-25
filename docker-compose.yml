@@ -1,0 +1,27 @@
+version: "3"
+
+services:
+  ateliware:
+    build: .
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/usr/src/app
+    depends_on:
+      - mysql
+    links:
+      - mysql
+    environment:
+      DB_USER: root
+      DB_NAME: app_development
+      DB_PASSWORD: 123456
+      DB_HOST: mysql
+
+  mysql:
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+    ports:
+      - "3306:3306"
