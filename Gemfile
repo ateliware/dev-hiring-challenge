@@ -39,6 +39,12 @@ gem 'bootsnap', '>= 1.1.0', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+    # rspec-rails is a testing framework for Rails 5+.
+  gem 'rspec-rails', '~> 5.0', '>= 5.0.1'
+  # Faker, a port of Data::Faker from Perl, is used to easily generate fake data: names, addresses, phone numbers, etc.
+  gem 'faker', '~> 2.17'
+  # factory_bot_rails provides integration between factory_bot and rails 4.2 or newer
+  gem 'factory_bot_rails', '~> 6.1'
 end
 
 group :development do
@@ -48,6 +54,13 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  # Great Ruby debugging companion: pretty print Ruby objects to visualize their structure. Supports custom object formatting via plugins
+  gem 'awesome_print', '~> 1.9', '>= 1.9.2'
+end
+
+group :test do
+  # Strategies for cleaning databases using ActiveRecord. Can be used to ensure a clean state for testing.
+  gem 'database_cleaner-active_record', '~> 2.0.0'
 end
 
 
