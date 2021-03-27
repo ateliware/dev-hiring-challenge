@@ -1,0 +1,22 @@
+<h2>Repositório mais relevante encontrado na busca pela linguagem:</h2>
+<div class="card-container">
+  <% @languages.each do |language| %>
+    <div class="card-main">
+      <div class="card-header">
+        <h4><%= language.name %></h4>
+      </div>
+      <div class="card-body">
+        <img class="avatar" src="<%= language.hash_response["owner"]["avatar_url"] %>" alt="">
+        <p>Nome do repositório<br />
+        <strong><%= language.hash_response["full_name"] %></strong></p>
+        <p>Descrição<br />
+        <strong><%= language.hash_response["description"] %></strong></p>
+      </div>
+      <%= link_to language_path(language) do %>
+        <div class="card-footer">
+          <p>VER DETALHES</p>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>

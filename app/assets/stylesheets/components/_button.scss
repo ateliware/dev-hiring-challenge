@@ -1,0 +1,35 @@
+.button-main {
+  font-size: 20px;
+  font-weight: bold;
+  padding: 55px 35px;
+  color: white;
+  background-image: linear-gradient(red, yellow);
+  border-radius: 50%;
+  margin-top: 20px;
+  display: inline-block;
+  &:hover{
+    text-decoration: none;
+    color: white;
+    filter: brightness(80%);
+  }
+}
+
+.add-label{
+  color: white;
+  font-size: 25px;
+}
+
+.btn-main-submit {
+  color: rgba(255, 255, 255, 0);
+  display:inline-block;
+  width:30px;
+  height:30px;
+  
+  background:
+    linear-gradient(rgb(185, 29, 29),rgb(219, 130, 13)),
+    linear-gradient(rgb(207, 46, 46),rgb(208, 228, 26));
+  background-position:center;
+  background-size: 100% 4px,4px 100%; /*thickness = 4px, length = 50% (25px)*/
+  background-repeat:no-repeat;
+  border: none;
+}

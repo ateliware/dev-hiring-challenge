@@ -1,12 +1,19 @@
-.navbar-lewagon {
-  justify-content: space-between;
-  background: white;
-}
+.navbar{
+  padding: 20px 30px;
+  background-color: rgba(255, 0, 0, 0);
+  display: flex;
+  justify-content: space-around;
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
-}
-
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+  a{
+    &:hover{
+      text-decoration: none;
+    }
+  }
+  
+  h1 {
+    font-family: 'Bungee Shade', cursive;
+    color: white;
+    text-align: center;
+    font-size: 60px;
+  }
 }

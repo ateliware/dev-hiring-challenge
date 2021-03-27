@@ -1,15 +1,24 @@
-<h1>OLA</h1>
+<div class="container-introduction">
+  <div class="card-introduction">
+    <h3>A pesquisa atual está procurando as seguintes linguagens:</h3>
+    <div class="list-container">
+      <ul>
+        <% Introduction.all.each do |introduction| %>
+          <li><%= introduction.name %></li>
+        <% end %>
+      </ul>
+    </div>
 
-<h3>A pesquisa atual está procurando as seguintes linguagens:</h3>
-<ul>
-  <li>Ruby</li>
-  <li>JavaScript</li>
-  <li>Python</li>
-  <li>Elixir</li>
-  <li>Java</li>
-</ul>
+    <%= form_for @introduction do |f| %>
+      <%= f.label :name, "Adicionar linguagem:", class: 'add-label' %>
+      <%= f.text_field :name %>
+      <%= f.submit '+', class: "btn-main-submit" %>
+    <% end %>
 
-<h3>Clique no botão abaixo para ver os resultados!</h3>
-<h4><%= @user %></h4>
+    <%# <h3>Clique no botão abaixo para ver os resultados!</h3> %>
+
+    <%= link_to 'BUSCAR', fetching_path, class: 'button-main' %>
+  </div>
+</div>
 
 

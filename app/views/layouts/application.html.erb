@@ -8,11 +8,20 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Bungee&display=swap');
+    </style>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
 
   <body>
+    <div class="navbar">
+      <%= link_to root_path do %>
+        <h1>GITHUB FETCHER</h1>
+      <% end %>
+    </div>
     <%= yield %>
   </body>
 </html>
