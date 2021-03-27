@@ -1,0 +1,13 @@
+<% hash_response = @language.hash_response %>
+
+<img class="avatar" src="<%= hash_response["owner"]["avatar_url"] %>" alt="">
+<%= hash_response["full_name"] %>
+Default branch: <%= hash_response['default_branch'] %>
+Forks: <%= hash_response['forks'] %>
+Watchers: <%= hash_response['watchers'] %>
+Stargazers: <%= hash_response['stargazers_count'] %>
+Homepage: <a href="<%= hash_response['homepage'] %>"></a>
+Git URL: <%= hash_response['git_url'] %>
+SSH URL: <%= hash_response['ssh_url'] %>
+<%=  %>
+<%=  %>

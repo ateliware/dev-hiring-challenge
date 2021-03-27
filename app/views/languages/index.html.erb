@@ -9,8 +9,11 @@
         <img class="avatar" src="<%= language.hash_response["owner"]["avatar_url"] %>" alt="">
         <p>Nome do repositório<br />
         <strong><%= language.hash_response["full_name"] %></strong></p>
-        <p>Descrição<br />
-        <strong><%= language.hash_response["description"] %></strong></p>
+        <p>
+          Descrição<br />
+          <% description = language.hash_response["description"] %>
+          <strong><%= description.length > 150 ? "#{description[0...150]}..." : description %></strong>
+        </p>
       </div>
       <%= link_to language_path(language) do %>
         <div class="card-footer">
