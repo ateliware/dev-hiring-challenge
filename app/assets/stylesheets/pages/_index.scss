@@ -1,21 +1,3 @@
 // Import page-specific CSS files here.
 @import "home";
-
-h2{
-  font-family: 'Bungee', cursive;
-  color: white;
-  margin-top: 45px;
-  margin-left: 40px;
-}
-h3 {
-  font-family: 'Bungee', cursive;
-  color: white;
-  margin-top: 40px;
-}
-h4 {
-  font-family: 'Bungee', cursive;
-  margin-bottom: 0px;
-  color: #ffc331;
-  text-shadow: 3px 3px 20px #ec2a2a,
-    -2px 1px 30px #ec2a2a;
-}
+@import "ies";

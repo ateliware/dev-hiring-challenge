@@ -10,32 +10,22 @@ class LanguagesController < ApplicationController
     @language = Language.find(params[:id])
   end
 
-  def destroy
-  end
-
-  def new
-  end
-
   def fetch_data
     Language.delete_all
-    # search_urls = Introduction.all.map { |introduction| "https://api.github.com/search/repositories?q=#{introduction.name}&per_page=1" }
-    search_urls = Introduction.pluck(:name).map { |name| "https://api.github.com/search/repositories?q=#{name}&per_page=1" }
-    search_urls.each do |search_url|
-      json_file = JSON.parse(open(search_url).read)
-      pl = Language.new
-      pl.hash_response = json_file['items'].first
-      pl.name = pl.hash_response['language']
-      pl.save
+    search_urls = Introduction.pluck(:name).map do |name|
+      opened_link = URI.parse("https://api.github.com/search/repositories?q=#{name}&per_page=1").read
+      saved_json = JSON.parse(opened_link)
+      saved_json['items'].empty? ? name : saved_json
     end
 
-    # main_languages = %w[ruby javascript python elixir java]
-    # deletable_languages = Introduction.all.reject do |introduction|
-    #   main_languages.include?(introduction.name)
-    # end
+    search_urls.each do |json_file|
+      language = Language.new
+      language.hash_response = json_file['items'] ? json_file['items'].first : {}
+      language.name = language.hash_response['language'] || json_file
+      language.save
+    end
+
     Introduction.where.not(name: %w[ruby javascript python elixir java]).delete_all
-    # deletable_languages.each do |language|
-    #   language.delete
-    # end
 
     redirect_to languages_path
   end
