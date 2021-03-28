@@ -5,7 +5,9 @@
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav mr-auto">
-        <li class="nav-item"><%= link_to "Favorites", "/", class: "nav-link" %></li>
+        <% if current_user.present? %>
+          <li class="nav-item"><%= link_to "Favorites", "/", class: "nav-link" %></li>
+        <% end %>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">

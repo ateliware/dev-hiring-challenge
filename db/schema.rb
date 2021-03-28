@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 2021_03_28_165844) do
     t.string "url", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["external_id"], name: "index_repositories_on_external_id"
     t.index ["language_id"], name: "index_repositories_on_language_id"
   end
 

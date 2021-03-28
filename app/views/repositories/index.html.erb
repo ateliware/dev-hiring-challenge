@@ -31,7 +31,19 @@
 
               <div class="favorite-btn">
                 <% if current_user.present? %>
-                  <%= link_to("Add to favorites", "/", { class: "btn btn-primary" }) %>
+                  <%= form_with model: StarredRepository.new, local: false, method: :post, class: "d-flex" do |form| %>
+                    <%= form.fields_for :repository_attributes do |repository_form| %>
+                      <% repository.each do |k, v| %>
+                        <%= repository_form.hidden_field k, value: v %>
+                      <% end %>
+                    <% end %>
+
+                    <% if @user_starred_repositories.include?(repository["id"].to_s) %>
+                      <%= button_to "Added", {}, class: "btn btn-success", disabled: true %>
+                    <% else %>
+                      <%= form.submit "Add to favorites", data: { disable_with: "Adding" }, class: "btn btn-primary", id: repository["id"] %>
+                    <% end %>
+                  <% end %>
                 <% end %>
               </div>
             </div>

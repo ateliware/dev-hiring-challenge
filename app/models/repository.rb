@@ -4,6 +4,8 @@ class Repository < ApplicationRecord
   has_many :starred_repositories
   has_many :users, through: :starred_repositories
 
+  validates :external_id, uniqueness: true
+
   def name
     full_name.split("/").second
   end

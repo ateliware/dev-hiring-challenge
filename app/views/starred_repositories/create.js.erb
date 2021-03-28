@@ -1,0 +1,7 @@
+<% if @starred_repository.persisted? %>
+  document.getElementById("<%= @starred_repository.repository.external_id %>").classList.remove('btn-primary');
+  document.getElementById("<%= @starred_repository.repository.external_id %>").classList.add('btn-success')
+  document.getElementById("<%= @starred_repository.repository.external_id %>").removeAttribute("data-disable-with");
+  document.getElementById("<%= @starred_repository.repository.external_id %>").value = "Added"
+  document.getElementById("<%= @starred_repository.repository.external_id %>").disabled = true
+<% end %>
