@@ -1,4 +1,6 @@
 <div class="container page-repositories-list">
+  <h1>Search top 10 repositories</h1>
+
   <div class="repositories-form">
     <%= form_with url: repositories_path, method: :get, local: true, class: "d-flex" do |form| %>
       <div class="flex-grow-1">
@@ -20,18 +22,23 @@
     <% if @repositories.present? %>
       <% @repositories.each do |repository| %>
           <div class="card">
-            <div class="card-body d-flex align-items-center">
-              <div class="flex-grow-1">
+            <div class="card-body align-items-center row">
+              <div class="text-center col-12 col-lg">
+                <h6 class=""><%= number_to_human(repository["stargazers_count"]) %></h6>
+                <span>stars</span>
+              </div>
+
+              <div class="col-12 col-lg-7">
                 <%= link_to(repository["html_url"], { target: "_blank" }) do %>
-                  <h5 class="card-title"><%= repository["full_name"] %></h5>
+                  <h3 class="card-title"><%= repository["full_name"] %></h3>
                 <% end %>
 
                 <p class="card-text"><%= repository["description"] %></p>
               </div>
 
-              <div class="favorite-btn">
+              <div class="favorite-btn col-12 col-lg">
                 <% if current_user.present? %>
-                  <%= form_with model: StarredRepository.new, local: false, method: :post, class: "d-flex" do |form| %>
+                  <%= form_with model: StarredRepository.new, local: false, method: :post, class: "d-flex justify-content-end" do |form| %>
                     <%= form.fields_for :repository_attributes do |repository_form| %>
                       <% repository.each do |k, v| %>
                         <%= repository_form.hidden_field k, value: v %>

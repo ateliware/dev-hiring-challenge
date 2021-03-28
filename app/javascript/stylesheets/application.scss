@@ -88,10 +88,28 @@ caption {
     min-width: max-content;
   }
 
+  h6 {
+    min-width: max-content;
+  }
+
   a {
     color: white;
 
-    h5 {
+    h3 {
+      text-decoration: white;
+    }
+  }
+}
+
+.page-starred-repositories-list {
+  .remove-btn {
+    min-width: max-content;
+  }
+
+  a {
+    color: white;
+
+    h3 {
       text-decoration: white;
     }
   }

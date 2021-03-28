@@ -1,0 +1,30 @@
+<div class="container page-starred-repositories-list">
+  <h1>Favorites Repositories</h1>
+  <div class="repositories-wrapper">
+    <% if @starred_repositories.present? %>
+      <% @starred_repositories.each do |starred_repository| %>
+          <% repository = starred_repository.repository %>
+
+          <div class="card" id=<%= starred_repository.id %>>
+            <div class="card-body row align-items-center">
+              <div class="col-12 col-lg-10">
+                <%= link_to(repository.url, { target: "_blank" }) do %>
+                  <h3 class="card-title"><%= repository.owner_name %> / <%= repository.name %></h3>
+                <% end %>
+
+                <p class="card-text"><%= repository.description %></p>
+              </div>
+
+              <div class="remove-btn col-12 col-lg">
+                <%= form_with model: starred_repository, local: false, method: :delete, class: "d-flex justify-content-end" do |form| %>
+                  <%= form.submit "Remove", data: { disable_with: "Removing" }, class: "btn btn-danger" %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+      <% end %>
+    <% else %>
+      <div class="text-center">No favorite repository!</div>
+    <% end %>
+  </div>
+</div>

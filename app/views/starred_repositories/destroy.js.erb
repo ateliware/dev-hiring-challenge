@@ -1,0 +1,3 @@
+<% unless @starred_repository.persisted? %>
+  document.getElementById("<%= @starred_repository.id %>").remove()
+<% end %>

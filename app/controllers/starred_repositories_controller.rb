@@ -1,9 +1,27 @@
 class StarredRepositoriesController < ApplicationController
+  before_action :authenticate_user!
+
+  def index
+    @starred_repositories = current_user.starred_repositories
+  end
+
   def create
     @starred_repository = StarredRepository.new(repository_params)
 
     respond_to do |format|
       if @starred_repository.save
+        format.js
+      else
+        format.js
+      end
+    end
+  end
+
+  def destroy
+    @starred_repository = StarredRepository.find(params.require(:id))
+
+    respond_to do |format|
+      if @starred_repository.destroy
         format.js
       else
         format.js
