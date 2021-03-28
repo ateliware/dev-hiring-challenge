@@ -35,8 +35,6 @@ class StarredRepositoriesController < ApplicationController
     p = params.require(:starred_repository)
               .permit(repository_attributes: [:id, :full_name, :html_url, :description, :language])
 
-    p["repository_attributes"]["external_id"] = p["repository_attributes"].extract!("id")["id"]
-    p["repository_attributes"]["url"] = p["repository_attributes"].extract!("html_url")["html_url"]
     p["repository_attributes"]["language"] = Language.find_by(name: p["repository_attributes"]["language"])
 
     p["user"] = current_user

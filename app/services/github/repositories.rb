@@ -29,6 +29,11 @@ module Github
     def repositories
       response["items"].map do |repository|
         repository.slice(*repository_keys)
+
+        repository["external_id"] = repository.delete("id")
+        repository["url"] = repository.delete("html_url")
+
+        repository
       end
     end
 
