@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: "home#index"
+  root to: "repositories#index"
+
+  resources :repositories, only: %i[index]
 end

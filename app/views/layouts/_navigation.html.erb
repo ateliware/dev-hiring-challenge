@@ -1,0 +1,21 @@
+<nav class="navbar navbar-dark navbar-static-top navbar-expand-md">
+  <div class="container">
+    <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"> <span class="sr-only">Toggle navigation</span>
+    </button> <%= link_to "Github Repositories", root_path, class: "navbar-brand" %>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav mr-auto">
+        <li class="nav-item"><%= link_to "Favorites", "/", class: "nav-link" %></li>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        <% if current_user.present? %>
+          <li class="nav-item"><%= link_to "Logout", destroy_user_session_path, class: "nav-link" %></li>
+        <% else %>
+          <li class="nav-item"><%= link_to "Sign Up", new_user_registration_path, class: "nav-link" %></li>
+          <li class="nav-item"><%= link_to "Login", new_user_session_path, class: "btn btn-secondary" %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>
