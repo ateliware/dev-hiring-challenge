@@ -1,24 +1,49 @@
-# README
+# Github Repositories
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Permite procurar os top 10 repositórios das linguagens disponíveis.
 
-Things you may want to cover:
+# Instalação
+Para instalar é necessário:
+- `ruby 2.7.2`
+- `PostgreSQL`
 
-* Ruby version
+## Rails
+- `$ gem install rails`
 
-* System dependencies
+## Instalando as dependências do projeto
+```bash
+$ git clone git@github.com:losoliveirasilva/dev-hiring-challenge.git
+$ cd dev-hiring-challenge
+$ bundle install
+```
+## Inicializando o banco de dados
+- `rails db:create db:migrate`
+- `rails db:seed` _opcional_
 
-* Configuration
+# Rodando o projeto
+- `rails s`
+- `yarn start`
 
-* Database creation
+# Demo
+Acessar: https://challenge-github-search.herokuapp.com/
 
-* Database initialization
+A demo já possui um usuário, mas você pode criar um novo se desejar:
+- email: example@example.com
+- senha: 123123
 
-* How to run the test suite
+# Screenshots
 
-* Services (job queues, cache servers, search engines, etc.)
+# Modelo entidade relacionamento
+![Entity Relationship Diagram](doc/screenshots/erd.png)
 
-* Deployment instructions
+## Without user - blank list
+![No user - blank list](doc/screenshots/no-user-empty.png)
 
-* ...
+## Without user - C list
+![No user - C list](doc/screenshots/no-user-empty.png)
+
+## With user - C list
+![No user - C list](doc/screenshots/user-c.png)
+
+## With user - Favorites
+![No user - C list](doc/screenshots/user-starred.png)
