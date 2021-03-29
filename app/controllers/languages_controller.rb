@@ -14,6 +14,7 @@ class LanguagesController < ApplicationController
     Language.delete_all
     search_urls = Introduction.pluck(:name).map do |name|
       opened_link = URI.parse("https://api.github.com/search/repositories?q=#{name}&per_page=1").read
+      sleep 1
       saved_json = JSON.parse(opened_link)
       saved_json['items'].empty? ? name : saved_json
     end

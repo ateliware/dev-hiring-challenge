@@ -4,11 +4,12 @@ class IntroductionsController < ApplicationController
   end
 
   def create
-    introduction_name = params['introduction']['name'].downcase
-    @introduction = Introduction.new
-    @introduction.name = introduction_name
-    @introduction.save
-
+    introduction_name = introduction_params[:name].downcase
+    if introduction_name.gsub(' ', '').length.positive?
+      @introduction = Introduction.new
+      @introduction.name = introduction_name
+      @introduction.save
+    end
     redirect_to index
   end
 
