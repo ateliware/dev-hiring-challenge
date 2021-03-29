@@ -26,6 +26,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'autoprefixer-rails'
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'font-awesome-sass', '~> 5.6.1'
+gem "octokit", "~> 4.0"
 gem 'rest-client'
 gem 'simple_form'
 

@@ -12,6 +12,7 @@ class LanguagesController < ApplicationController
 
   def fetch_data
     Language.delete_all
+    ENV['GITHUB_KEY'] && (client = Octokit::Client.new(access_token: ENV['GITHUB_KEY']))
     search_urls = Introduction.pluck(:name).map do |name|
       opened_link = URI.parse("https://api.github.com/search/repositories?q=#{name}&per_page=1").read
       saved_json = JSON.parse(opened_link)
