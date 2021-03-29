@@ -45,10 +45,10 @@
                       <% end %>
                     <% end %>
 
-                    <% if @user_starred_repositories.include?(repository["id"].to_s) %>
+                    <% if @user_starred_repositories.include?(repository["external_id"].to_s) %>
                       <%= button_to "Added", {}, class: "btn btn-success", disabled: true %>
                     <% else %>
-                      <%= form.submit "Add to favorites", data: { disable_with: "Adding" }, class: "btn btn-primary", id: repository["id"] %>
+                      <%= form.submit "Add to favorites", data: { disable_with: "Adding" }, class: "btn btn-primary", id: repository["external_id"] %>
                     <% end %>
                   <% end %>
                 <% end %>

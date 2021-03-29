@@ -6,6 +6,8 @@ class StarredRepository < ApplicationRecord
 
   before_validation :find_or_create_repository
 
+  validates_uniqueness_of :repository, scope: :user
+
   private
 
   def find_or_create_repository
