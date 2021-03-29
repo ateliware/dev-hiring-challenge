@@ -19,7 +19,7 @@ services:
       DB_HOST: mysql
 
   mysql:
-    image: mysql:8.0
+    image: mysql:5.7
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: 123456
