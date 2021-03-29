@@ -8,6 +8,8 @@ class StarredRepositoriesController < ApplicationController
   def create
     @starred_repository = StarredRepository.new(repository_params)
 
+    binding.pry
+
     respond_to do |format|
       if @starred_repository.save
         format.js
@@ -33,7 +35,7 @@ class StarredRepositoriesController < ApplicationController
 
   def repository_params
     p = params.require(:starred_repository)
-              .permit(repository_attributes: [:id, :full_name, :html_url, :description, :language])
+              .permit(repository_attributes: [:external_id, :full_name, :url, :description, :language])
 
     p["repository_attributes"]["language"] = Language.find_by(name: p["repository_attributes"]["language"])
 
