@@ -1,12 +1,12 @@
 module Github
   class Repositories < Base
     def initialize(args)
-      @language_id = args[:language]
-      @page = args[:page]
+      @language = args[:language] if args.present?
+      @page = args[:page] if args.present?
     end
 
     def call
-      return false unless language_id.present? && response.success?
+      return false unless language.present? && response.success?
 
       OpenStruct.new({
         total_count: response["total_count"],
@@ -16,11 +16,7 @@ module Github
 
     private
 
-    attr_reader :language_id, :page
-
-    def language
-      @language ||= Language.find(language_id)
-    end
+    attr_reader :language, :page
 
     def response
       @response ||= HTTParty.get(url, query: search_query, headers: headers)
@@ -28,7 +24,7 @@ module Github
 
     def repositories
       response["items"].map do |repository|
-        repository.slice(*repository_keys)
+        repository = repository.slice(*repository_keys)
 
         repository["external_id"] = repository.delete("id")
         repository["url"] = repository.delete("html_url")
@@ -53,13 +49,12 @@ module Github
 
     def search_query
       query = {
-        q: "language:Assembly",
         sort: "stars",
         order: "desc",
         per_page: 10,
       }
 
-      query[:q] = "language:#{language.name}" if language.present?
+      query[:q] = "language:#{language}" if language.present?
       query.merge(page: page) if page.present?
 
       query

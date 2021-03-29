@@ -4,7 +4,7 @@
   <div class="repositories-form">
     <%= form_with url: repositories_path, method: :get, local: true, class: "d-flex" do |form| %>
       <div class="flex-grow-1">
-        <%= form.select :language, Language.pluck(:name, :id), { include_blank: "Select a language", selected: params[:language] }, { class: "form-control" } %>
+        <%= form.select :language, Language.pluck(:name, :name), { include_blank: "Select a language", selected: params[:language] }, { class: "form-control" } %>
       </div>
 
       <div class="col-auto">
