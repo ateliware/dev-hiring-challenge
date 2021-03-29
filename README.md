@@ -54,7 +54,7 @@ A demo já possui um usuário, mas você pode criar um novo se desejar:
 ![No user - blank list](doc/screenshots/no-user-empty.png)
 
 ## Sem usuário logado - listagem da linguagem C
-![No user - C list](doc/screenshots/no-user-empty.png)
+![No user - C list](doc/screenshots/no-user-c.png)
 
 ## Com usuário logado - listagem da linguagem C
 ![No user - C list](doc/screenshots/user-c.png)
