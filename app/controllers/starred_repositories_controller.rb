@@ -8,8 +8,6 @@ class StarredRepositoriesController < ApplicationController
   def create
     @starred_repository = StarredRepository.new(repository_params)
 
-    binding.pry
-
     respond_to do |format|
       if @starred_repository.save
         format.js
