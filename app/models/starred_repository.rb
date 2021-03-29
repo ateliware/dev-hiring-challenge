@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class StarredRepository < ApplicationRecord
   belongs_to :user
   belongs_to :repository

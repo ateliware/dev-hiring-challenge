@@ -1,0 +1,19 @@
+AllCops:
+  TargetRubyVersion: 2.7
+  Exclude:
+    - "Gemfile"
+    - "node_modules/**/*"
+    - "db/**/*"
+    - "vendor/**/*"
+    - "tmp/**/*"
+    - "bin/**/*"
+    - "log/**/*"
+    - "config/**/*"
+    - "lib/**/*"
+    - ".pryrc"
+
+Style/Documentation:
+  Enabled: false
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes

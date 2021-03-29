@@ -1,6 +1,9 @@
+# frozen_string_literal: true
+
 module Github
   class Repositories < Base
     def initialize(args)
+      super()
       @language = args[:language] if args.present?
       @page = args[:page] if args.present?
     end
@@ -9,9 +12,9 @@ module Github
       return false unless language.present? && response.success?
 
       OpenStruct.new({
-        total_count: response["total_count"],
-        repositories: repositories,
-      })
+                       total_count: response["total_count"],
+                       repositories: repositories
+                     })
     end
 
     private
@@ -51,7 +54,7 @@ module Github
       query = {
         sort: "stars",
         order: "desc",
-        per_page: 10,
+        per_page: 10
       }
 
       query[:q] = "language:#{language}" if language.present?

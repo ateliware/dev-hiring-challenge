@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "rails_helper"
 
 RSpec.describe ::Github::Repositories, :vcr do
@@ -25,7 +27,7 @@ RSpec.describe ::Github::Repositories, :vcr do
     describe "success" do
       let(:params) { { language: "C" } }
 
-      it { expect(subject.call.total_count).to be(1664216) }
+      it { expect(subject.call.total_count).to be(1_664_216) }
       it { expect(subject.call.repositories).to include(have_key("external_id")) }
     end
   end
