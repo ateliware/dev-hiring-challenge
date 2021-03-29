@@ -14,6 +14,8 @@ Permite procurar os top 10 repositórios das linguagens disponíveis.
   - [Sem usuário logado - listagem da linguagem C](#sem-usuário-logado---listagem-da-linguagem-c)
   - [Com usuário logado - listagem da linguagem C](#com-usuário-logado---listagem-da-linguagem-c)
   - [Com usuário logado - favoritos](#com-usuário-logado---favoritos)
+- [Rodando os testes](#rodando-os-testes)
+- [Rodando o linter](#rodando-o-linter)
 
 
 # Instalação
@@ -31,12 +33,18 @@ $ cd dev-hiring-challenge
 $ bundle install
 ```
 ## Inicializando o banco de dados
-- `rails db:create db:migrate`
-- `rails db:seed` _opcional_
+- `$ rails db:create db:migrate`
+- `$ rails db:seed` _opcional_
 
 # Rodando o projeto
-- `rails s`
-- `yarn start`
+- `$ rails s`
+- `$ yarn start`
+
+# Rodando os testes
+- `$ rspec spec/`
+
+# Rodando o linter
+- `$ rubocop`
 
 # Demo
 Acessar: https://challenge-github-search.herokuapp.com/
