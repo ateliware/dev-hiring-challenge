@@ -56,3 +56,4 @@ test:
 production:
   <<: *default
   database: github_api_search_production
+  url: <%= ENV['DATABASE_URL'] %>
