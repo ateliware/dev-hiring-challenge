@@ -24,7 +24,7 @@ class LanguagesController < ApplicationController
       rescue Octokit::UnprocessableEntity
         return_hash = {}
       end
-      return_hash.items.empty? ? name : return_hash
+      return_hash.empty? || return_hash.items.empty? ? name : return_hash
     end
 
     fetched_hashes.each do |fetched_hash|
