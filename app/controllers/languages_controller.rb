@@ -19,7 +19,11 @@ class LanguagesController < ApplicationController
       # opened_link = URI.parse("https://api.github.com/search/repositories?q=#{name}&per_page=1").read
       # saved_json = JSON.parse(opened_link)
       # saved_json['items'].empty? ? name : saved_json
-      return_hash = client.search_repositories("language:#{name}", { sort: 'stars', order: 'desc', page: 1, per_page: 1 })
+      begin
+        return_hash = client.search_repositories("language:#{name}", { sort: 'stars', order: 'desc', page: 1, per_page: 1 })
+      rescue Octokit::UnprocessableEntity
+        return_hash = {}
+      end
       return_hash.items.empty? ? name : return_hash
     end
 
