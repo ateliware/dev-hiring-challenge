@@ -3,6 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.6'
 
+gem 'dotenv-rails', groups: [:development, :test]
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1'
 # Use postgresql as the database for Active Record
@@ -26,6 +27,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'autoprefixer-rails'
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'font-awesome-sass', '~> 5.6.1'
+gem "octokit", "~> 4.0"
 gem 'rest-client'
 gem 'simple_form'
 
