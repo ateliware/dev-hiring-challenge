@@ -36,6 +36,10 @@ gem 'jbuilder', '~> 2.5'
 # Adds a method slugify to the string class that converts the string to a slug
 gem 'slugify', '~> 1.0', '>= 1.0.7'
 
+# Agnostic pagination in plain ruby: it works with any framework, ORM and DB type, 
+# with all kinds of collections, even pre-paginated, scopes, Arrays, JSON data... Easy, powerful, fast and light.
+gem 'pagy', '~> 3.12'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
