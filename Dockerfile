@@ -16,6 +16,7 @@ RUN apt-get update -yqq \
 
 WORKDIR code/augustoza/github-api-search
 COPY Gemfile* ./
+RUN gem install bundler
 RUN bundle install
 
 COPY . .
