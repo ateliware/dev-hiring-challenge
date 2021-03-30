@@ -39,13 +39,14 @@
 .container-introduction{
   display: flex;
   justify-content: space-around;
+  overflow-y: hidden;
 }
 
 .card-introduction{
   margin-top: 30px;
   width: 1200px;
-  height: 500px;
   text-align: center;
+  overflow-y: hidden;
 
   .list-container{
     width: 400px;

@@ -2,24 +2,24 @@
 
 <div class="container-details">
   <div class="details-header">
-    <img class="avatar-large" src="<%= hash_response["owner"]["avatar_url"] %>" alt="">
+    <img class="avatar-large" src="<%= hash_response[:owner][:avatar_url] %>" alt="">
   </div>
   <div class="details-body">
-    <h4><span class="succint">Nome do repositório: </span><%= hash_response["full_name"] %></h4>
+    <h4><span class="succint">Nome do repositório: </span><%= hash_response[:full_name] %></h4>
     <br />
     <div>
-      <p>Description: <%= hash_response['description'] %></p>
-      <p>Default branch <i class="fas fa-code-branch"></i>: <%= hash_response['default_branch'] %></p>
+      <p>Description: <%= hash_response[:description] %></p>
+      <p>Default branch <i class="fas fa-code-branch"></i>: <%= hash_response[:default_branch] %></p>
       <%# <p>Watchers <i class="fas fa-eye"></i>: <%= hash_response['watchers'] %>
-      <p>Stars <i class="far fa-star"></i>: <%= hash_response['stargazers_count'] %></p>
-      <p>Forks: <%= hash_response['forks'] %></p>
+      <p>Stars <i class="far fa-star"></i>: <%= hash_response[:stargazers_count] %></p>
+      <p>Forks: <%= hash_response[:forks] %></p>
     </div>
-    <% if hash_response['homepage'] && hash_response['homepage'].length > 8 %>
-      <p> Homepage: <a href=<%= hash_response['homepage'] %>><%= hash_response['homepage'] %></a></p>
+    <% if hash_response[:homepage] && hash_response[:homepage].length > 8 %>
+      <p> Homepage: <a href=<%= hash_response[:homepage] %>><%= hash_response[:homepage] %></a></p>
     <% end %>
-    <p>Git URL: <%= hash_response['git_url'] %></p>
-    <p>SSH URL: <%= hash_response['ssh_url'] %></p>
-    <p>Repositório criado em: <%= DateTime.parse(hash_response['created_at']).strftime("%m/%d/%Y") %></p>
+    <p>Git URL: <%= hash_response[:git_url] %></p>
+    <p>SSH URL: <%= hash_response[:ssh_url] %></p>
+    <p>Repositório criado em: <%= hash_response[:created_at].strftime("%m/%d/%Y") %></p>
     <%=  %>
   </div>
 </div>

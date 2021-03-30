@@ -9,12 +9,12 @@
         <% if language.hash_response.empty? %>
           <p>Nenhum repositório relevante foi encontrado para essa pesquisa ):</p>
         <% else %>
-          <img class="avatar" src="<%= language.hash_response["owner"]["avatar_url"] %>" alt="">
+          <img class="avatar" src="<%= language.hash_response[:owner][:avatar_url] %>" alt="">
           <p>Nome do repositório<br />
-          <strong><%= language.hash_response["full_name"] %></strong></p>
+          <strong><%= language.hash_response[:full_name] %></strong></p>
           <p>
             Descrição<br />
-            <% description = language.hash_response["description"] %>
+            <% description = language.hash_response[:description] %>
             <strong><%= description.length > 150 ? "#{description[0...150]}..." : description %></strong>
           </p>
         <% end %>
