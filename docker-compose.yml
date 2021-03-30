@@ -6,9 +6,12 @@ volumes:
 
 services:
   db:
+    environment:
+      POSTGRES_USER:
+      POSTGRES_PASSWORD:
     image: postgres:9.5
     volumes:
-      - db-data:/var/lib/postgresql/12/main/data
+      - db-data:/usr/local/pgsql/data
   web:
     build: .
     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"

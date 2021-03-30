@@ -1,11 +1,11 @@
 FROM ruby:2.6.6
 
 RUN apt-get update -yqq \
-  && apt-get install -yqq --no-install-recomends \
+  && apt-get install -yqq --no-install-recommends \
     postgresql-client \
     nodejs \
     qt5-default \
-    libqt5webkit-dev
+    libqt5webkit5-dev
 
 RUN curl https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
   && echo "deb http://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
