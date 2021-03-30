@@ -22,3 +22,6 @@ RUN bundle install
 COPY . .
 
 RUN yarn install
+
+ENTRYPOINT ["./entrypoint.sh"]
+EXPOSE 3000
