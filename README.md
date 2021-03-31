@@ -20,3 +20,18 @@ Alguns requisitos:
 Quando terminar, faça um Pull Request neste repo e avise-nos por email.
 
 **IMPORTANTE:** se você não conseguir finalizar o teste, por favor nos diga o motivo e descreva quais foram as suas dificuldades. Você pode também sugerir uma outra abordagem para avaliarmos seus skills técnicos, vender seu peixe, mostrar-nos do que é capaz.
+
+## Rodando o projeto  
+Usando Docker & docker-compose  
+
+Construindo a image do projeto com o comando build:  
+```docker-compose build ateliware```
+
+Execute a task para importar os repositórios do Github:  
+```docker-compose run --rm ateliware rails github:import```
+
+Execute o comando up para subir a aplicação:  
+```docker-compose up ateliware```
+
+Rodando os testes  
+```docker-compose run -e "RAILS_ENV=test" --rm ateliware bundle exec rspec```
