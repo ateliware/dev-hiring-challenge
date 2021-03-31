@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 2021_03_29_200908) do
   create_table "repositories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.string "owner_avatar"
-    t.string "description"
+    t.text "description"
     t.string "html_url"
     t.string "home_page"
     t.integer "stargazers_count", default: 0

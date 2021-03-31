@@ -3,7 +3,7 @@ class CreateRepositories < ActiveRecord::Migration[5.2]
     create_table :repositories do |t|
       t.string :name, null: false
       t.string :owner_avatar
-      t.string :description
+      t.text :description
       t.string :html_url
       t.string :home_page
       t.integer :stargazers_count, default: 0

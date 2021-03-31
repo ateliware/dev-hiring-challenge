@@ -1,39 +1,15 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Repositories</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Owner avatar</th>
-      <th>Description</th>
-      <th>Html url</th>
-      <th>Home page</th>
-      <th>Stargazers count</th>
-      <th>Language</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @repositories.each do |repository| %>
-      <tr>
-        <td><%= repository.name %></td>
-        <td><%= repository.owner_avatar %></td>
-        <td><%= repository.description %></td>
-        <td><%= repository.html_url %></td>
-        <td><%= repository.home_page %></td>
-        <td><%= repository.stargazers_count %></td>
-        <td><%= repository.language %></td>
-        <td><%= link_to 'Show', repository %></td>
-        <td><%= link_to 'Edit', edit_repository_path(repository) %></td>
-        <td><%= link_to 'Destroy', repository, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Repository', new_repository_path %>
+<main>
+  <% @repositories.each do |repository| %>
+  <div class="repo-box">
+    <%= image_tag repository.owner_avatar, {alt: repository.name, class: 'img-owner'} %>
+    <div class="repo-info">
+      <p class="owner-name"><%= repository.name %></p>
+      <p class="description">
+        <%= Base64.decode64(repository.description) if repository.description %>
+      </p>
+      <span><%= link_to 'See more...', repository %></span>
+    </div>
+  </div>
+  <% end %>
+</main>
+<footer><%== pagy_nav(@pagy) %></footer>

@@ -1,0 +1,25 @@
+main {
+  display: flex !important;
+  justify-content: center !important;
+  align-content: center !important;
+}
+
+.repo-box {
+  width: 500px;
+  min-height: 350px !important;
+  padding: 16px !important;
+}
+
+.repo-box p {
+  margin: 0 0 20px 10px !important;
+}
+
+.repo-box p:first-child {
+  margin: 20px 0 20px 10px !important;
+}
+
+.img-owner {
+  border-radius: 5px;
+  height: 82px !important;
+  width: 82px !important;
+}

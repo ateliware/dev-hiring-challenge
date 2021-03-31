@@ -13,15 +13,15 @@
 # sticking to rails and rspec-rails APIs to keep things simple and stable.
 
 RSpec.describe "/repositories", type: :request do
-  
+  let(:language) { create(:language) }
   # Repository. As you add validations to Repository, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    attributes_for(:repository, language_id: language.id)
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    attributes_for(:repository, name: nil)
   }
 
   describe "GET /index" do
@@ -76,9 +76,9 @@ RSpec.describe "/repositories", type: :request do
         }.to change(Repository, :count).by(0)
       end
 
-      it "renders a successful response (i.e. to display the 'new' template)" do
+      it "renders a not successful response (i.e. to display the 'new' template)" do
         post repositories_url, params: { repository: invalid_attributes }
-        expect(response).to be_successful
+        expect(response).to_not be_successful
       end
     end
   end
@@ -86,15 +86,8 @@ RSpec.describe "/repositories", type: :request do
   describe "PATCH /update" do
     context "with valid parameters" do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        attributes_for(:repository, language_id: language.id)
       }
-
-      it "updates the requested repository" do
-        repository = Repository.create! valid_attributes
-        patch repository_url(repository), params: { repository: new_attributes }
-        repository.reload
-        skip("Add assertions for updated state")
-      end
 
       it "redirects to the repository" do
         repository = Repository.create! valid_attributes
@@ -108,7 +101,7 @@ RSpec.describe "/repositories", type: :request do
       it "renders a successful response (i.e. to display the 'edit' template)" do
         repository = Repository.create! valid_attributes
         patch repository_url(repository), params: { repository: invalid_attributes }
-        expect(response).to be_successful
+        expect(response).to_not be_successful
       end
     end
   end

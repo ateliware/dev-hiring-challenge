@@ -3,7 +3,7 @@ class RepositoriesController < ApplicationController
 
   # GET /repositories or /repositories.json
   def index
-    @repositories = Repository.all
+    @pagy, @repositories = pagy(Repository.all, items: 18)
   end
 
   # GET /repositories/1 or /repositories/1.json
