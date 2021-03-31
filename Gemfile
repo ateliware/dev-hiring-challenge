@@ -40,6 +40,9 @@ gem 'slugify', '~> 1.0', '>= 1.0.7'
 # with all kinds of collections, even pre-paginated, scopes, Arrays, JSON data... Easy, powerful, fast and light.
 gem 'pagy', '~> 3.12'
 
+# A terminal spinner for tasks that have non-deterministic time frame.
+gem 'tty-spinner', '~> 0.9.3'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
