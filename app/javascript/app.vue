@@ -11,12 +11,11 @@
 
 <script>
 import FetchRepositories from './components/FetchRepositories'
-import Repository from './components/Repository'
 import ListRepositories from './components/ListRepositories'
 
 export default {
   components: {
-    FetchRepositories, Repository, ListRepositories
+    FetchRepositories, ListRepositories
   },
   data: function () {
     return {

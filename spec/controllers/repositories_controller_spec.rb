@@ -1,5 +1,6 @@
 require 'rails_helper'
-require 'pp'
+require 'webmock/rspec'
+
 RSpec.describe RepositoriesController do
   describe "GET #index" do
     before do
@@ -8,29 +9,26 @@ RSpec.describe RepositoriesController do
     it "returns http success" do
       expect(response).to have_http_status(:success)
     end
-    it "JSON body response contains expected recipe attributes" do
+
+    it "JSON body response contains node id,full name, git link, language attributes" do
       json_response = JSON.parse(response.body)
-      expect(json_response).first.to match_array([
-          :node_id,
-          :clone_url,
-          :git_url,
-          :ssh_url,
-          :created_at,
-          :updated_at,
-          :pushed_at,
-          :name,
-          :full_name,
-          :private,
-          :owner,
-          :html_url,
-          :description,
-          :svn_url,
-          :homepage,
-          :size,
-          :language,
-          :forks,
-          :license
-        ])
+      expect(json_response.first['node_id']).not_to be_nil
+      expect(json_response.first['full_name']).not_to be_nil
+      expect(json_response.first['git_url']).not_to be_nil
+      expect(json_response.first['language']).not_to be_nil
+      
     end
   end
+
+  describe "Consuming end point" do
+    it "JSON body response result of endpoint" do
+
+      uri = URI('https://api.github.com/search/repositories?q=language:Ruby')
+      response = Net::HTTP.get(uri)
+      expect(response).to be_an_instance_of(String)
+    end
+
+  end
+  
+
 end

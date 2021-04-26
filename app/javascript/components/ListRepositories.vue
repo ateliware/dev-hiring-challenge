@@ -11,9 +11,9 @@
     </v-toolbar>
 
     <v-list two-line>
-      <v-list-item-group
+      <!-- <v-list-item-group
         multiple
-      >
+      > -->
         <template v-for="(repository, index) in repositoreis">
           <v-list-item :key="repository.id">
             <template>
@@ -22,23 +22,25 @@
                 <v-list-item-subtitle
                   class="text--primary"
                   v-text="repository.description"
-                ></v-list-item-subtitle>
+                />
+
+                Página: <a :href="repository.html_url" target="_blank">{{repository.html_url}}</a>
+                GIT: <code>{{repository.git_url}}</code>
+                SSH: <code>{{repository.ssh_url}}</code>
+                SVN: <code>{{repository.ssh_svn}}</code>
                 <v-list-item-subtitle v-text="repository.language"></v-list-item-subtitle>
               </v-list-item-content>
 
               <v-list-item-action>
-                <v-list-item-action-text v-text="repository.html_url"></v-list-item-action-text>
                 <v-btn @click="removeRepository(repository.id)">Remover</v-btn>
               </v-list-item-action>
             </template>
           </v-list-item>
-
           <v-divider
             v-if="index < repositoreis.length - 1"
             :key="index"
           ></v-divider>
         </template>
-      </v-list-item-group>
     </v-list>
   </v-card>
 </template>

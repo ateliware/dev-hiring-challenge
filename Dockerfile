@@ -78,4 +78,5 @@ RUN chmod +x /usr/bin/entrypoint.sh
 ENTRYPOINT ["entrypoint.sh"]
 
 # Start the main process.
-# CMD ["bundle", "exec", "rails", "server", "-b", "0.0.0.0"]
+EXPOSE 3000
+CMD ["rails", "server", "-b", "0.0.0.0"]

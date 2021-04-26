@@ -6,55 +6,87 @@
     >
       <v-app-bar-nav-icon></v-app-bar-nav-icon>
 
-      <v-toolbar-title>Repositórios</v-toolbar-title>
+      <v-toolbar-title>Capituar repositórios Github</v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-btn color="primary" :disabled="listRepository.length == 0" @click="salvar">{{repositoreis.length > 0 ? 'Salvar '+repositoreis.length+' selecionados' : 'Salvar selecionados' }} </v-btn>
-      <v-btn color="primary" @click="salvar" v-if="listRepository.length>0">Os {{listRepository.length}} repositórios da linguagem {{language}} </v-btn>
     </v-toolbar>
+      <v-row>
+        <v-col cols="12">
+          <v-row>
+            <v-col cols="12" lg="6" md="6">
+              <p> Selecione a linguagem do dos repositórios que deseja listar, depois selecione os repositórios de seu interesse</p>
+              <v-btn @click="getRepositories('Ruby')" :disabled="language =='Ruby'">Ruby</v-btn>
+              <v-btn @click="getRepositories('Python')" :disabled="language =='Python'">Python</v-btn>
+              <v-btn @click="getRepositories('Lua')" :disabled="language=='Lua'">Lua</v-btn>
+              <v-btn @click="getRepositories('Haskell')" :disabled="language=='Haskell'">Haskell</v-btn>
+              <v-btn @click="getRepositories('Java')" :disabled="language =='Java'">Java</v-btn>
+            </v-col>
+            <v-col cols="12" lg="6" md="6">
+              <v-btn color="primary" :disabled="listRepository.length == 0" @click="salvar">{{repositoreis.length > 0 ? 'Salvar '+repositoreis.length+' selecionados' : 'Salvar selecionados' }} </v-btn>
+            </v-col>
+          </v-row>
+        </v-col>
+          <v-col cols="6">
+            <v-list two-line>      
+              <template v-for="(repo, index) in listRepository">
+                <v-list-item :key="repo.id">
+                  <template>
+                    <v-list-item-content>
+                      <v-list-item-title v-text="repo.name"></v-list-item-title>
 
-    <v-list two-line>
-      <v-list-item-group>
-          Selecione a linguagem do dos repositorios que deseja listar
-        <v-btn @click="getRepositories('Ruby')" :disabled="language =='Ruby'">Ruby</v-btn>
-        <v-btn @click="getRepositories('Python')" :disabled="language =='Python'">Python</v-btn>
-        <v-btn @click="getRepositories('Lua')" :disabled="language=='Haskell'">Lua</v-btn>
-        <v-btn @click="getRepositories('Haskell')" :disabled="language=='Haskell'">Haskell</v-btn>
-        <v-btn @click="getRepositories('Java')" :disabled="language =='Java'">Java</v-btn>
-        <br/><br/>
-        <template v-for="(repo, index) in listRepository">
-          <v-list-item :key="repo.id">
-            <template>
-              <v-list-item-content>
-                <v-list-item-title v-text="repo.name + '--'+ repo.full_name"></v-list-item-title>
+                      <v-list-item-subtitle
+                        class="text--primary"
+                        v-text="repo.description"
+                      ></v-list-item-subtitle>
+                      <v-list-item-subtitle v-text="repo.language"></v-list-item-subtitle>
+                    </v-list-item-content>
 
-                <v-list-item-subtitle
-                  class="text--primary"
-                  v-text="repo.description"
-                ></v-list-item-subtitle>
-                <v-list-item-subtitle v-text="repo.language"></v-list-item-subtitle>
-              </v-list-item-content>
+                    <v-list-item-action>
+                      <v-list-item-action-text v-text="repo.full_name"></v-list-item-action-text>
+                      <v-btn @click="addRepo(repo,index)">+</v-btn>
+                    </v-list-item-action>
+                  </template>
+                </v-list-item>
 
-              <v-list-item-action>
-                <v-list-item-action-text v-text="repo.html_url"></v-list-item-action-text>
-              
-                <v-btn @click="addRepo(repo)">+</v-btn>
-                <v-btn @click="removeRepo(index)">-</v-btn>
-                <v-checkbox
-                  v-model="repo.checked"
-                  :label="`Checkbox 1: ${checkbox1.toString()}`"
-                ></v-checkbox>
-              </v-list-item-action>
-            </template>
-          </v-list-item>
+                <v-divider
+                  v-if="index < listRepository.length - 1"
+                  :key="index"
+                ></v-divider>
+              </template>
+            </v-list>
+          </v-col>
+          <v-col cols="6">
+          <v-list two-line>      
+              <v-list-item-group>        
+              <template v-for="(repo, index) in repositoreis">
+                <v-list-item :key="repo.repository.id">
+                  <template>
+                    <v-list-item-content>
+                      <v-list-item-title v-text="repo.repository.name"></v-list-item-title>
 
-          <v-divider
-            v-if="index < listRepository.length - 1"
-            :key="index"
-          ></v-divider>
-        </template>
-      </v-list-item-group>
-    </v-list>
-    {{listRepository[0]}}
+                      <v-list-item-subtitle
+                        class="text--primary"
+                        v-text="repo.description"
+                      ></v-list-item-subtitle>
+                      <v-list-item-subtitle v-text="repo.repository.language"></v-list-item-subtitle>
+                    </v-list-item-content>
+
+                    <v-list-item-action>
+                      <v-list-item-action-text v-text="repo.repository.full_name"></v-list-item-action-text>
+                    
+                      <v-btn @click="removeList(repo,index)">-</v-btn>
+                    </v-list-item-action>
+                  </template>
+                </v-list-item>
+
+                <v-divider
+                  v-if="index < repositoreis.length - 1"
+                  :key="index"
+                ></v-divider>
+              </template>
+            </v-list-item-group>
+        </v-list>
+      </v-col>
+      </v-row>
   </v-card>
 </template>
 <script>
@@ -74,7 +106,7 @@ export default {
       let response = await axios.get('https://api.github.com/search/repositories?q=language:'+language+'&page='+page+'&per_page='+per_page)
        this.listRepository = response.data.items
      },
-     addRepo (repo) {
+     addRepo (repo,index) {
        this.repositoreis.push({ repository: {
           id: repo.id,
           node_id: repo.node_id,
@@ -99,10 +131,14 @@ export default {
           license: repo.license
           }
         })
+
+        this.listRepository.splice(index, 1)
      },
-     removeRepo (index) {
+     removeList (repo,index) {
        this.repositoreis.splice(index, 1)
+       this.listRepository.push(repo.repository)
     },
+
     async salvarTodos(){
     console.log(this.listRepository)
       await axios.post("/repositories",this.listRepository)

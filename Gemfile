@@ -7,8 +7,6 @@ ruby '2.7.2'
 gem 'rails', '~> 6.1.3', '>= 6.1.3.1'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
-# Use sqlite3 as the database for Active Record
-# gem 'sqlite3', '~> 1.4'
 # Use Puma as the app server
 gem 'puma', '~> 5.0'
 # Use SCSS for stylesheets
@@ -56,6 +54,8 @@ group :test do
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
   gem 'rspec-rails', '~> 5.0', '>= 5.0.1'
+  # gem 'webmock' #To check endpint github
+  # gem 'rexml'
 
 end
 
