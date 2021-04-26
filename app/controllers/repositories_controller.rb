@@ -1,4 +1,3 @@
-require 'rest-client'
 class RepositoriesController < ActionController::API
   before_action :set_repository, only: %i[ show edit update destroy ]
 
@@ -15,13 +14,17 @@ class RepositoriesController < ActionController::API
 
   # POST /repositories or /repositories.json
   def create
-    @repository = Repository.insert_all(repository_params)
+    @repository = Repository.upsert_all(repository_params)
     if @repository
       render json: @repository, status: :created
     else
       render json: @repository.errors, status: :unprocessable_entity
     end
 
+  end
+
+  def destroy
+    @repository.destroy
   end
 
 

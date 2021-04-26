@@ -1,7 +1,7 @@
 class CreateRepositories < ActiveRecord::Migration[6.1]
   def change
     create_table :repositories,  id: false do |t|
-      t.integer :id, null: false
+      t.integer :id, null: false, primary_key: true
       t.string :node_id, null: false
       t.string :name, null: false
       t.string :full_name

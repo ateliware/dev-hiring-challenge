@@ -1,0 +1,22 @@
+version: "3.9"
+services:
+  db:
+    image: postgres
+    volumes:
+      - ./tmp/db:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: desafioateliwarepass
+  web:
+    build: .
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -e production -p 80"
+    volumes:
+      - .:/dev-hiring-challenge
+    ports:
+      - "8080:80"
+    depends_on:
+      - db
+volumes:
+  pgdata:
+  gem_cache:
+  node_modules:
+

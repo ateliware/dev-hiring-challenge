@@ -12,13 +12,16 @@
 
 ActiveRecord::Schema.define(version: 2021_04_23_231329) do
 
-  create_table "repositories", force: :cascade do |t|
-    t.string "node_id"
-    t.string "name"
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "repositories", id: :serial, force: :cascade do |t|
+    t.string "node_id", null: false
+    t.string "name", null: false
     t.string "full_name"
     t.boolean "private"
     t.json "owner"
-    t.string "html_url"
+    t.string "html_url", null: false
     t.string "description"
     t.date "created_at"
     t.date "updated_at"
@@ -32,6 +35,9 @@ ActiveRecord::Schema.define(version: 2021_04_23_231329) do
     t.string "language"
     t.integer "forks"
     t.json "license"
+    t.integer "watchers"
+    t.integer "stargazers_count"
+    t.datetime "fetch_at", default: "2021-04-25 15:55:47", null: false
   end
 
 end
