@@ -28,10 +28,10 @@
                 GIT: <code>{{repository.git_url}}</code>
                 SSH: <code>{{repository.ssh_url}}</code>
                 SVN: <code>{{repository.ssh_svn}}</code>
-                <v-list-item-subtitle v-text="repository.language"></v-list-item-subtitle>
               </v-list-item-content>
 
               <v-list-item-action>
+                  {{repository.language}}
                 <v-btn @click="removeRepository(repository.id)">Remover</v-btn>
               </v-list-item-action>
             </template>

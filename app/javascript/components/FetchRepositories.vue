@@ -10,7 +10,7 @@
       <v-spacer></v-spacer>
     </v-toolbar>
       <v-row>
-        <v-col cols="12">
+        <v-col cols="12" class="pa-6">
           <v-row>
             <v-col cols="12" lg="6" md="6">
               <p> Selecione a linguagem do dos repositórios que deseja listar, depois selecione os repositórios de seu interesse</p>
@@ -65,7 +65,7 @@
 
                       <v-list-item-subtitle
                         class="text--primary"
-                        v-text="repo.description"
+                        v-text="repo.repository.description"
                       ></v-list-item-subtitle>
                       <v-list-item-subtitle v-text="repo.repository.language"></v-list-item-subtitle>
                     </v-list-item-content>
