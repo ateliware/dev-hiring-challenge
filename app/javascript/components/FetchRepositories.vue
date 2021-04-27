@@ -126,9 +126,9 @@ export default {
           size: repo.size,
           size: repo.watchers,
           size: repo.stargazers_count,
-          owner: repo.owner,
+          owner: JSON.stringify(repo.owner),
           pushed_at: repo.pushed_at,
-          license: repo.license
+          license:JSON.stringify(repo.license)
           }
         })
 
