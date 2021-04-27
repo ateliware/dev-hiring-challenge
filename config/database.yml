@@ -9,22 +9,28 @@ default: &default
 
 development:
   <<: *default
-  port: 5432
-  host: ec2-52-87-107-83.compute-1.amazonaws.com
-  database: d91arqoje9n3kq
-  username: dxzppaketcgduj
-  password: 20792bbc0a72f528a1df096b81d2d4881691f7f679c68a0376eb7fcfe1468bfd
+  database: desafioateliware_development
 
 
 test:
   <<: *default
   database: desafioateliware_test
 
+# For deploy [Heroku]
+# development:
+#   <<: *default
+#   port: 5432
+#   host: ec2-52-87-107-83.compute-1.amazonaws.com
+#   database: d91arqoje9n3kq
+#   username: dxzppaketcgduj
+#   password: 20792bbc0a72f528a1df096b81d2d4881691f7f679c68a0376eb7fcfe1468bfd
 
-production:
-  <<: *default
-  port: 5432
-  host: ec2-52-87-107-83.compute-1.amazonaws.com
-  database: d91arqoje9n3kq
-  username: dxzppaketcgduj
-  password: 20792bbc0a72f528a1df096b81d2d4881691f7f679c68a0376eb7fcfe1468bfd
+# production:
+#   <<: *default
+#   port: 5432
+#   host: ec2-52-87-107-83.compute-1.amazonaws.com
+#   database: d91arqoje9n3kq
+#   username: dxzppaketcgduj
+#   password: 20792bbc0a72f528a1df096b81d2d4881691f7f679c68a0376eb7fcfe1468bfd
+
+  
