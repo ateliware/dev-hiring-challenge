@@ -71,8 +71,9 @@
                     </v-list-item-content>
 
                     <v-list-item-action>
+                      &#9733;{{repo.stargazers_count}}<br/>
+                      &#128065;{{repo.watchers}}
                       <v-list-item-action-text v-text="repo.repository.full_name"></v-list-item-action-text>
-                    
                       <v-btn @click="removeList(repo,index)">-</v-btn>
                     </v-list-item-action>
                   </template>
@@ -124,8 +125,8 @@ export default {
           forks: repo.forks,
           language: repo.language,
           size: repo.size,
-          size: repo.watchers,
-          size: repo.stargazers_count,
+          watchers: repo.watchers,
+          stargazers_count: repo.stargazers_count,
           owner: JSON.stringify(repo.owner),
           pushed_at: repo.pushed_at,
           license:JSON.stringify(repo.license)

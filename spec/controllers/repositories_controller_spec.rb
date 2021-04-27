@@ -20,15 +20,19 @@ RSpec.describe RepositoriesController do
     end
   end
 
-  describe "Consuming end point" do
-    it "JSON body response result of endpoint" do
+    describe "Post #create" do
+      before do
+        post :create, params: { :repository => {
+          :id => 26783234, :node_id => 'MDEwOlJlcG9zaXRvcnk', :name => 'kong',:full_name => 'Kong/kong',
+          :homepage => 'https://konghq.com/install',:html_url => 'https://github.com/Kong/kong',
+          :ssh_url => 'git@github.com:Kong/kong.git',:git_url =>'git://github.com/Kong/kong.git',
+          :clone_url => "https://github.com/Kong/kong.git", 
+          :svn_url => 'https://github.com/Kong/kong', :description => 'The Cloud-Native API Gateway ',
+          :forks => 3793, :language => 'Lua', :size  => 28809}}
+      end
 
-      uri = URI('https://api.github.com/search/repositories?q=language:Ruby')
-      response = Net::HTTP.get(uri)
-      expect(response).to be_an_instance_of(String)
-    end
-
+      it "returns http success" do
+        expect(response).to have_http_status(:created)
+      end
   end
-  
-
 end

@@ -23,15 +23,15 @@
                   class="text--primary"
                   v-text="repository.description"
                 />
-
                 Página: <a :href="repository.html_url" target="_blank">{{repository.html_url}}</a>
                 GIT: <code>{{repository.git_url}}</code>
                 SSH: <code>{{repository.ssh_url}}</code>
                 SVN: <code>{{repository.ssh_svn}}</code>
               </v-list-item-content>
-
-              <v-list-item-action>
-                  {{repository.language}}
+              <v-list-item-action>  	
+                &#11088;{{repo.stargazers_count}}<br/>
+                &#128065;{{repo.watchers}}<br/>
+                {{repository.language}}
                 <v-btn @click="removeRepository(repository.id)">Remover</v-btn>
               </v-list-item-action>
             </template>
