@@ -8,6 +8,7 @@ default: &default
   pool: 5
 
 development:
+  <<: *default
   port: 5432
   host: ec2-52-87-107-83.compute-1.amazonaws.com
   database: d91arqoje9n3kq
@@ -21,6 +22,7 @@ test:
 
 
 production:
+  <<: *default
   port: 5432
   host: ec2-52-87-107-83.compute-1.amazonaws.com
   database: d91arqoje9n3kq
