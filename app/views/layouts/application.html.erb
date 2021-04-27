@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <title>Desafio Técnico Ateliware</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta property="og:locale" content="pt_BR">
+        <meta property="og:type" content="aplicação">
+        <meta property="og:title" content="Desafio Técnico Ateliware">
+        <meta property="og:description" content="Site contendo a aplicação de buscas de repositórios na API do GitHub">
+        <meta property="og:url" content="http://">
+        <meta property="og:site_name" content="Desafio Técnico Ateliware">
+        <meta name="author" content="Paulo Vitor Francisco" data-react-helmet="true">
+        <meta name="dcterms.rightsHolder" content="Paulo Vitor Francisco" data-react-helmet="true">
+        <meta name="keywords" content="desafio técnico, ateliware, github, busca de repositórios" data-react-helmet="true">
+
+        <meta name="description" content="Desafio Técnico Ateliware" data-react-helmet="true">
+        <meta name="description" content="Pesquisa de repositórios na API do GitHub" data-react-helmet="true">
+        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+        <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+        <%= csrf_meta_tags %>
+        <%= csp_meta_tag %>
+
+        <link rel="apple-touch-icon" sizes="180x180" href="<%= asset_path "apple-touch-icon.png" %>">
+        <link rel="icon" type="image/png" sizes="32x32" href="<%= asset_path "favicon-32x32.png" %>">
+        <link rel="icon" type="image/png" sizes="16x16" href="<%= asset_path "favicon-16x16.png" %>">
+        <link rel="manifest" href="<%= asset_path "site.webmanifest" %>">
+        <link rel="mask-icon" href="<%= asset_path "safari-pinned-tab.svg" %>" color="#5bbad5">
+        <meta name="msapplication-TileColor" content="#da532c">
+        <meta name="theme-color" content="#ffffff">
+    </head>
+
+    <body>
+        <%= yield %>
+        <div class="carregando">
+            <svg aria-hidden="true" focusable="false" data-prefix="fal" data-icon="spinner" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-spinner fa-w-16 fa-spin fa-lg icone-load">
+                <path fill="currentColor" d="M288 32c0 17.673-14.327 32-32 32s-32-14.327-32-32 14.327-32 32-32 32 14.327 32 32zm-32 416c-17.673 0-32 14.327-32 32s14.327 32 32 32 32-14.327 32-32-14.327-32-32-32zm256-192c0-17.673-14.327-32-32-32s-32 14.327-32 32 14.327 32 32 32 32-14.327 32-32zm-448 0c0-17.673-14.327-32-32-32S0 238.327 0 256s14.327 32 32 32 32-14.327 32-32zm33.608 126.392c-17.673 0-32 14.327-32 32s14.327 32 32 32 32-14.327 32-32-14.327-32-32-32zm316.784 0c-17.673 0-32 14.327-32 32s14.327 32 32 32 32-14.327 32-32-14.327-32-32-32zM97.608 65.608c-17.673 0-32 14.327-32 32 0 17.673 14.327 32 32 32s32-14.327 32-32c0-17.673-14.327-32-32-32z" class=""></path>
+            </svg>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,39 @@
+<footer id="sobre" class="pt-4 my-md-5 pt-md-5 border-top">
+    <div class="row">
+        <div class="col-12 col-md">
+            <%= image_tag("logo_ateliware.svg", :alt => "Logo ateliware menu", :class => "mb-2 icon-footer") %>
+            <small class="d-block mb-3 text-muted">Paulo Vitor Francisco &copy; <label id="ano"></label><br><i>Todos os direitos reservados</i></small>
+        </div>
+        <div class="col-6 col-md">
+            <h5>Contatos</h5>
+            <ul class="list-unstyled text-small">
+                <li><a class="text-muted" target="_blank" href="https://github.com/paulovf"><i class="fab fa-github"></i>&nbsp;&nbsp;GitHub</a></li>
+                <li><a class="text-muted" target="_blank" href="https://www.linkedin.com/in/paulo-vitor-francisco"><i class="fab fa-linkedin"></i>&nbsp;&nbsp;Linkedin</a></li>
+                <li><a class="text-muted" href="mailto:paulovfrancisco@gmail.com"><i class="fas fa-at"></i>&nbsp;&nbsp;paulovfrancisco@gmail.com</a></li>
+            </ul>
+        </div>
+        <div class="col-6 col-md">
+            <h5>Linguagens</h5>
+            <ul class="list-unstyled text-small">
+                <li><a class="text-muted" href="">Ruby-on-Rails</a></li>
+                <li><a class="text-muted" href="">Django</a></li>
+                <li><a class="text-muted" href="">Java Android</a></li>
+                <li><a class="text-muted" href="">PHP</a></li>
+                <li><a class="text-muted" href="">HTML / CSS / JavaScript</a></li>
+            </ul>
+        </div>
+        <div class="col-6 col-md">
+            <h5>Mapa do Site</h5>
+            <ul class="list-unstyled text-small">
+                <li><a class="text-muted" href="/">Cadastro</a></li>
+                <li><a class="text-muted" href="#">Login</a></li>
+                <li><a class="text-muted" href="#home">Home</a></li>
+                <li><a class="text-muted" href="#contaier_linguagens">Detalhes</a></li>
+                <li><a class="text-muted" href="#sobre">Sobre</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+<script>
+    $("#ano").text(new Date().getFullYear());
+</script>

@@ -1,0 +1,34 @@
+<div class="text-center" style="padding:50px 0">
+	<div class="logo">Cadastre-se</div>
+	<div class="login-form-1">
+        <%= form_for(resource, :html => {:class => "text-left"}, as: resource_name, url: registration_path(resource_name)) do |f| %>
+            <%= devise_error_messages! %>
+			<div class="login-form-main-message"></div>
+			<div class="main-login-form">
+				<div class="login-group">
+					<div class="form-group">
+						<label for="reg_username" class="sr-only">Email</label>
+                        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control', placeholder: 'Email' %>
+					</div>
+					<div class="form-group">
+						<label for="reg_password" class="sr-only">Senha</label>
+                        <%= f.password_field :password, autocomplete: "new-password", class: 'form-control', placeholder: 'Senha' %>
+					</div>
+					<div class="form-group">
+						<label for="reg_password_confirm" class="sr-only">Repetir Senha</label>
+                        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control', placeholder: 'Repetir Senha' %>
+					</div>
+                    <div class="form-group">
+                        <label for="reg_password_confirm" class="sr-only">&nbsp;</label>
+                    </div>
+				</div>
+                <%= button_tag type: 'submit', class: "login-button", id: "register-button" do %>
+                    <i class="fa fa-chevron-right"></i>
+                <% end %>
+			</div>
+			<div class="etc-login-form">
+                <p>Já possui conta? <%= link_to "Faça Login", new_user_session_path %></p>
+			</div>
+        <% end %>
+	</div>
+</div>

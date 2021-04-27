@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+    desafio:
+        build: .
+        command: rails s -b '0.0.0.0'
+        environment:
+            - POSTGRES_HOST=postgres
+            - POSTGRES_USER=postgres
+            - POSTGRES_PASS=123
+        volumes:
+            - .:/desafio
+        ports:
+            - "3000:3000"
+        depends_on:
+            - postgres
+  
+    postgres:
+        image: postgres:9.5
+        environment:
+            - POSTGRES_HOST_AUTH_METHOD=trust
+        ports:
+            - "5432:5432"
+
+            

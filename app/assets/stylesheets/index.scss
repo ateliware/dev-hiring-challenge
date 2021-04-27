@@ -1,0 +1,231 @@
+// Place all the styles related to the index controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+html {
+    font-size: 14px;
+}
+@media (min-width: 768px) {
+    html {
+      font-size: 16px;
+    }
+}
+  
+.container {
+    max-width: 960px;
+}
+  
+.pricing-header {
+    max-width: 700px;
+}
+  
+.card-deck .card {
+    min-width: 220px;
+}
+  
+.border-top { border-top: 1px solid #e5e5e5; }
+.border-bottom { border-bottom: 1px solid #e5e5e5; }
+  
+.box-shadow { box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05); }
+
+.container-site{
+    margin-top: 73px;
+}
+
+.menu-application{
+    position: fixed;
+    width: 100%;
+    z-index: 999;
+    top: 0px;
+}
+
+.logo-menu{
+    height: 40px;
+    margin-right: 20px;
+}
+
+.icon-footer{
+    width: 24px;
+    height: 24px;
+}
+
+.container {
+    min-width: fit-content !important;
+}
+
+.div-center{
+    margin: 0 auto;
+}
+
+.carregando{
+    z-index: 999;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background: rgba(0, 0, 0, 0.2);
+    top: 0px;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    transition:all 0.3s ease;
+    display: none;
+}
+
+.icone-load{
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    color: #ef0044;
+}
+
+.logo-banner-linguagens{
+    height: 60px;
+    padding: 0px;
+    margin: 0px;
+}
+
+.btn-lg {
+    font-size: 14px !important;
+}
+
+.lista-detalhes-linguagem {
+    text-align: initial;
+    font-size: 14px;
+    height: 60px;
+}
+
+.lista-linguagens {
+    text-align: initial;
+    list-style: decimal !important;
+    margin-left: 20px;
+}
+
+.item-lista-linguagens{
+    color: #0366db;
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: top;
+    margin-bottom: 10px;
+}
+
+.verde-claro {
+    color: #23af5c;
+}
+
+.verde-escuro {
+    color: #07271b;
+}
+
+.vermelho {
+    color: #cc0000;
+}
+
+.roxo {
+    color: #5027d5;
+}
+
+.azul {
+    color: #36447f;
+}
+
+.btn-outline-primary {
+    color: #ef0044 !important;
+    border-color: #ef0044 !important;
+    background: #fff !important;
+}
+
+.btn-outline-primary:hover {
+    color: #fff !important;
+    background: #ef0044 !important;
+}
+
+.btn-outline-primary-red {
+    color: #fff !important;
+    border-color: #fff !important;
+    background: #ef0044 !important;
+}
+
+.btn-outline-primary-red:hover {
+    color: #ef0044 !important;
+    border-color: #ef0044 !important;
+    background: #fff  !important;
+}
+
+.btn-outline-primary-blue {
+    color: #fff !important;
+    border-color: #fff !important;
+    background: #2d91e2 !important;
+}
+
+.btn-outline-primary-blue:hover {
+    color: #2d91e2 !important;
+    border-color: #2d91e2 !important;
+    background: #fff  !important;
+}
+
+.btn-outline-primary:focus, .btn-outline-primary:active, .btn-outline-primary-red:focus,
+.btn-outline-primary-red:active {
+    outline: none !important;
+    box-shadow: none !important;
+ }
+
+.oculto {
+    display: none !important;
+}
+
+.corpo-modal {
+    height: 350px;
+    overflow-y: auto;
+}
+
+.list-container {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+.item-list-container {
+    border: 1px solid #c1c1c1;
+    border-radius: 7px;
+    -webkit-box-shadow: 0px 0px 11px -5px #000000; 
+    box-shadow: 0px 0px 11px -5px #000000;
+    margin-bottom: 10px;
+    padding: 5px;
+    font-size: 15px;
+}
+
+.cabecalho-item-list {
+    background: #fafbfc;
+    border-top-right-radius: 7px;
+    border-top-left-radius: 7px;
+    height: 40px;
+    line-height: 40px;
+    vertical-align: middle;
+    padding-left: 20px;
+    border: 1px solid #e4e4e4;
+}
+
+.item-list-sucontainer {
+    margin-top: 10px;
+    padding-left: 20px;
+}
+
+.item-list-container p {
+    margin-bottom: 0rem !important;
+}
+
+.titulo-item-list{
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.descricao-item-list{
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+.icone-detalhes-repositorio{
+    font-size: 17px;
+    margin-right: 10px;
+}

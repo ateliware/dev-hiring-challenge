@@ -1,0 +1,137 @@
+<%= render 'layouts/menu' %>
+<div class="container-site">
+    <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+        <h1 class="display-4">Rpositórios destaques do GitHub</h1>
+        <p class="lead">Clique em buscar e veja os repositórios destauqes do GitHub, de acordo com as linguagens de programação mais usadas no mercado, para desenvolvimento WEB.</p>
+        <div class="col-md-4 div-center">
+            <button type="button" onclick="buscaRepositorios();" class="btn btn-lg btn-block btn-primary btn-outline-primary-red">Buscar</button>
+        </div>
+    </div>
+
+    <div class="container">
+        <div id="contaier_linguagens" class="card-deck mb-3 text-center">
+            <div class="card mb-4 box-shadow">
+                <div class="card-header">
+                    <h4 id="titulo_lista_node" class="my-0 font-weight-normal verde-claro">Node JS</h4>
+                </div>
+                <div class="card-body">
+                    <%= image_tag("logo_nodejs.png", :alt => "Logo node js", :class => "logo-banner-linguagens") %>
+                    <ul class="list-unstyled mt-3 mb-4 lista-detalhes-linguagem">
+                        <li>Licença: Código Aberto</li>
+                        <li>Criação: 27/05/2009</li>
+                        <li>Autor: Ryan Dahl</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card mb-4 box-shadow">
+                <div class="card-header">
+                    <h4 id="titulo_lista_django" class="my-0 font-weight-normal verde-escuro">Django</h4>
+                </div>
+                <div class="card-body">
+                    <%= image_tag("logo_django.png", :alt => "Logo django", :class => "logo-banner-linguagens") %>
+                    <ul class="list-unstyled mt-3 mb-4 lista-detalhes-linguagem">
+                        <li>Licença: BSD</li>
+                        <li>Criação: 21/07/2005</li>
+                        <li>Autor: Django Software Foundation</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card mb-4 box-shadow">
+                <div class="card-header">
+                    <h4 id="titulo_lista_rails" class="my-0 font-weight-normal vermelho">Rails</h4>
+                </div>
+                <div class="card-body">
+                    <%= image_tag("logo_rails.png", :alt => "Logo rails", :class => "logo-banner-linguagens") %>
+                    <ul class="list-unstyled mt-3 mb-4 lista-detalhes-linguagem">
+                        <li>Licença: MIT</li>
+                        <li>Criação: 01/07/2004</li>
+                        <li>Autor: Rails Core Team</li>
+                    </ul>                    
+                </div>
+            </div>
+            <div class="card mb-4 box-shadow">
+                <div class="card-header">
+                    <h4 id="titulo_lista_dotnet" class="my-0 font-weight-normal roxo">Dotnet</h4>
+                </div>
+                <div class="card-body">
+                    <%= image_tag("logo_dotnet.png", :alt => "Logo dotnet", :class => "logo-banner-linguagens") %>
+                    <ul class="list-unstyled mt-3 mb-4 lista-detalhes-linguagem">
+                        <li>Licença: Mista</li>
+                        <li>Criação: 13/02/2002</li>
+                        <li>Autor: Microsoft</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card mb-4 box-shadow">
+                <div class="card-header">
+                    <h4 id="titulo_lista_php" class="my-0 font-weight-normal azul">PHP</h4>
+                </div>
+                <div class="card-body">
+                    <%= image_tag("logo_php.png", :alt => "Logo php", :class => "logo-banner-linguagens") %>
+                    <ul class="list-unstyled mt-3 mb-4 lista-detalhes-linguagem">
+                        <li>Licença: Código Aberto</li>
+                        <li>Criação: 1995</li>
+                        <li>Autor: Rasmus Lerdorf</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div id="contaier_listas" class="card-deck mb-3 text-center oculto">
+            <div class="card mb-4 box-shadow">
+                <div class="card-body">
+                    <button type="button" onclick="detalhes('lista_node');" class="btn btn-lg btn-block btn-primary btn-outline-primary">Detalhes</button>
+                    <ul id="lista_node" class="list-unstyled mt-3 mb-4 lista-linguagens"></ul>
+                </div>
+            </div>
+            <div class="card mb-4 box-shadow">
+                <div class="card-body">
+                    <button type="button" onclick="detalhes('lista_django');" class="btn btn-lg btn-block btn-primary btn-outline-primary">Detalhes</button>
+                    <ul id="lista_django" class="list-unstyled mt-3 mb-4 lista-linguagens"></ul>
+                </div>
+            </div>
+            <div class="card mb-4 box-shadow">
+                <div class="card-body">
+                    <button type="button" onclick="detalhes('lista_rails');" class="btn btn-lg btn-block btn-primary btn-outline-primary">Detalhes</button>
+                    <ul id="lista_rails" class="list-unstyled mt-3 mb-4 lista-linguagens"></ul>
+                </div>
+            </div>
+            <div class="card mb-4 box-shadow">
+                <div class="card-body">
+                    <button type="button" onclick="detalhes('lista_dotnet');" class="btn btn-lg btn-block btn-primary btn-outline-primary">Detalhes</button>
+                    <ul id="lista_dotnet" class="list-unstyled mt-3 mb-4 lista-linguagens"></ul>
+                </div>
+            </div>
+            <div class="card mb-4 box-shadow">
+                <div class="card-body">
+                    <button type="button" onclick="detalhes('lista_php');" class="btn btn-lg btn-block btn-primary btn-outline-primary">Detalhes</button>
+                    <ul id="lista_php" class="list-unstyled mt-3 mb-4 lista-linguagens"></ul>
+                </div>
+            </div>
+        </div>
+        <div class="card-deck mb-3 text-center">
+            <ul id="lista_repositorios"></ul>
+        </div>
+        <%= render 'layouts/footer' %>
+    </div>
+</div>
+
+<div class="modal fade" id="modalDetalhes" tabindex="-1" role="dialog" aria-labelledby="modalDetalhesLabel" aria-hidden="true" data-target=".bd-example-modal-lg">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalDetalhesLabel"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span class="vermelho" aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body corpo-modal">
+                <ul id="lista_linguagens_detalhada" class="list-container">
+
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary btn-outline-primary-red" data-dismiss="modal">OK</button>
+            </div>
+        </div>
+    </div>
+</div>

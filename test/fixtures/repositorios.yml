@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nome: MyString
+  descricao: MyText
+  score: 1
+  data_criacao: 2021-04-24 20:50:19
+  curated: false
+  featured: false
+  private: false
+  forks: 1
+  url: MyString
+
+two:
+  nome: MyString
+  descricao: MyText
+  score: 1
+  data_criacao: 2021-04-24 20:50:19
+  curated: false
+  featured: false
+  private: false
+  forks: 1
+  url: MyString
