@@ -41,6 +41,8 @@
                     </v-list-item-content>
 
                     <v-list-item-action>
+                      &#9733;{{repo.stargazers_count}}<br/>
+                      &#128065;{{repo.watchers}}
                       <v-list-item-action-text v-text="repo.full_name"></v-list-item-action-text>
                       <v-btn @click="addRepo(repo,index)">+</v-btn>
                     </v-list-item-action>
@@ -71,8 +73,8 @@
                     </v-list-item-content>
 
                     <v-list-item-action>
-                      &#9733;{{repo.stargazers_count}}<br/>
-                      &#128065;{{repo.watchers}}
+                      &#9733;{{repo.repository.stargazers_count}}<br/>
+                      &#128065;{{repo.repository.watchers}}
                       <v-list-item-action-text v-text="repo.repository.full_name"></v-list-item-action-text>
                       <v-btn @click="removeList(repo,index)">-</v-btn>
                     </v-list-item-action>

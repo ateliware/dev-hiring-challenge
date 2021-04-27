@@ -29,8 +29,8 @@
                 SVN: <code>{{repository.ssh_svn}}</code>
               </v-list-item-content>
               <v-list-item-action>  	
-                &#11088;{{repo.stargazers_count}}<br/>
-                &#128065;{{repo.watchers}}<br/>
+                &#11088;{{repository.stargazers_count}}<br/>
+                &#128065;{{repository.watchers}}<br/>
                 {{repository.language}}
                 <v-btn @click="removeRepository(repository.id)">Remover</v-btn>
               </v-list-item-action>
