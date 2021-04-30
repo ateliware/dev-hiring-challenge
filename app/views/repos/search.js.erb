@@ -1,0 +1,6 @@
+var tbody = document.getElementById('result-table').getElementsByTagName('tbody')[0];
+
+<% @repos.each do |repo| %>
+  var row = tbody.insertRow(0);
+  row.innerHTML = "<%= escape_javascript(render partial: 'table_row', locals: { repo: repo }) %>";
+<% end %>
