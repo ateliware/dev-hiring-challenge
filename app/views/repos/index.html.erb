@@ -1,0 +1,76 @@
+<script type="text/javascript">
+  window.addEventListener('ajax:success', function(event) {
+    console.log(event.detail); 
+  });
+</script>
+
+<p id="notice"><%= notice %></p>
+
+<h1>Repos</h1>
+
+<%= @topics.as_json %>
+
+<%= form_with(url: repos_search_path, local: false, method: :get) do |form| %>
+  <%= form.select(:topics, @topics.collect {|t| [t.name, t.name] }, { prompt: 'Please select' }, { multiple: true }) %>
+  <%#= form.text_field :topics %>
+  <%= form.submit 'Enviar' %>
+<% end %>
+
+<div id="search-result-wrapper">
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Node</th>
+      <th>Name</th>
+      <th>Full name</th>
+      <th>Private</th>
+      <th>Html url</th>
+      <th>Description</th>
+      <th>Fork</th>
+      <th>Url</th>
+      <th>Pushed at</th>
+      <th>Homepage</th>
+      <th>Size</th>
+      <th>Stargazers count</th>
+      <th>Watchers count</th>
+      <th>Language</th>
+      <th>Forks count</th>
+      <th>Open issues count</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @repos.each do |repo| %>
+      <tr>
+        <td><%= repo._id %></td>
+        <td><%= repo.node_id %></td>
+        <td><%= repo.name %></td>
+        <td><%= repo.full_name %></td>
+        <td><%= repo.private %></td>
+        <td><%= repo.html_url %></td>
+        <td><%= repo.description %></td>
+        <td><%= repo.fork %></td>
+        <td><%= repo.url %></td>
+        <td><%= repo.pushed_at %></td>
+        <td><%= repo.homepage %></td>
+        <td><%= repo.size %></td>
+        <td><%= repo.stargazers_count %></td>
+        <td><%= repo.watchers_count %></td>
+        <td><%= repo.language %></td>
+        <td><%= repo.forks_count %></td>
+        <td><%= repo.open_issues_count %></td>
+        <td><%#= link_to 'Show', repo %></td>
+        <td><%#= link_to 'Edit', edit_repo_path(repo) %></td>
+        <td><%#= link_to 'Destroy', repo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Repo', new_repo_path %>

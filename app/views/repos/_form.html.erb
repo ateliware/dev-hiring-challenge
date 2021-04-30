@@ -1,0 +1,102 @@
+<%= form_with(model: repo) do |form| %>
+  <% if repo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(repo.errors.count, "error") %> prohibited this repo from being saved:</h2>
+
+      <ul>
+        <% repo.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :_id %>
+    <%= form.number_field :_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :node_id %>
+    <%= form.text_field :node_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :full_name %>
+    <%= form.text_field :full_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :private %>
+    <%= form.check_box :private %>
+  </div>
+
+  <div class="field">
+    <%= form.label :html_url %>
+    <%= form.text_field :html_url %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :fork %>
+    <%= form.check_box :fork %>
+  </div>
+
+  <div class="field">
+    <%= form.label :url %>
+    <%= form.text_field :url %>
+  </div>
+
+  <div class="field">
+    <%= form.label :pushed_at %>
+    <%= form.date_select :pushed_at %>
+  </div>
+
+  <div class="field">
+    <%= form.label :homepage %>
+    <%= form.text_field :homepage %>
+  </div>
+
+  <div class="field">
+    <%= form.label :size %>
+    <%= form.number_field :size %>
+  </div>
+
+  <div class="field">
+    <%= form.label :stargazers_count %>
+    <%= form.number_field :stargazers_count %>
+  </div>
+
+  <div class="field">
+    <%= form.label :watchers_count %>
+    <%= form.number_field :watchers_count %>
+  </div>
+
+  <div class="field">
+    <%= form.label :language %>
+    <%= form.text_field :language %>
+  </div>
+
+  <div class="field">
+    <%= form.label :forks_count %>
+    <%= form.number_field :forks_count %>
+  </div>
+
+  <div class="field">
+    <%= form.label :open_issues_count %>
+    <%= form.number_field :open_issues_count %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

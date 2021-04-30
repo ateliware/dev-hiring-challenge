@@ -1,0 +1,89 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Id:</strong>
+  <%= @repo._id %>
+</p>
+
+<p>
+  <strong>Node:</strong>
+  <%= @repo.node_id %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @repo.name %>
+</p>
+
+<p>
+  <strong>Full name:</strong>
+  <%= @repo.full_name %>
+</p>
+
+<p>
+  <strong>Private:</strong>
+  <%= @repo.private %>
+</p>
+
+<p>
+  <strong>Html url:</strong>
+  <%= @repo.html_url %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @repo.description %>
+</p>
+
+<p>
+  <strong>Fork:</strong>
+  <%= @repo.fork %>
+</p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @repo.url %>
+</p>
+
+<p>
+  <strong>Pushed at:</strong>
+  <%= @repo.pushed_at %>
+</p>
+
+<p>
+  <strong>Homepage:</strong>
+  <%= @repo.homepage %>
+</p>
+
+<p>
+  <strong>Size:</strong>
+  <%= @repo.size %>
+</p>
+
+<p>
+  <strong>Stargazers count:</strong>
+  <%= @repo.stargazers_count %>
+</p>
+
+<p>
+  <strong>Watchers count:</strong>
+  <%= @repo.watchers_count %>
+</p>
+
+<p>
+  <strong>Language:</strong>
+  <%= @repo.language %>
+</p>
+
+<p>
+  <strong>Forks count:</strong>
+  <%= @repo.forks_count %>
+</p>
+
+<p>
+  <strong>Open issues count:</strong>
+  <%= @repo.open_issues_count %>
+</p>
+
+<%= link_to 'Edit', edit_repo_path(@repo) %> |
+<%= link_to 'Back', repos_path %>
