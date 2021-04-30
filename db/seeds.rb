@@ -5,3 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Topic.find_or_create_by(name: 'ruby')
+Topic.find_or_create_by(name: 'javascript')
+Topic.find_or_create_by(name: 'python')
+Topic.find_or_create_by(name: 'php')
+Topic.find_or_create_by(name: 'C#')
