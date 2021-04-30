@@ -61,6 +61,7 @@ class ReposController < ApplicationController
     @repos = Repo.search_by_topics search_params[:topics]
 
     respond_to do |format|
+      format.js { render layout: false }
       format.json { render :search, status: :ok }
     end
   end

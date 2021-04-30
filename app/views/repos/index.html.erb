@@ -1,6 +1,13 @@
 <script type="text/javascript">
-  window.addEventListener('ajax:success', function(event) {
-    console.log(event.detail); 
+  window.addEventListener('ajax:beforeSend', function(event) {
+    var tbody = document.getElementById('result-table').getElementsByTagName('tbody')[0];
+    var rows = tbody.rows.length;
+
+    console.log('tbody')
+
+    for (var i = 0; i < rows; i++) {
+      tbody.rows[0].remove();
+    }
   });
 </script>
 
@@ -8,69 +15,73 @@
 
 <h1>Repos</h1>
 
-<%= @topics.as_json %>
+<%#= @topics.as_json %>
 
-<%= form_with(url: repos_search_path, local: false, method: :get) do |form| %>
-  <%= form.select(:topics, @topics.collect {|t| [t.name, t.name] }, { prompt: 'Please select' }, { multiple: true }) %>
-  <%#= form.text_field :topics %>
-  <%= form.submit 'Enviar' %>
-<% end %>
+<div class="p-6">
+  <%= form_with(url: repos_search_path, local: false, method: :get) do |form| %>
+    <%#= form.collection_check_boxes :search, :topics, @topics, :name, :name %>
 
-<div id="search-result-wrapper">
+    <div class="flex items-center text-left text-xs font-medium text-gray-500">
+      <% @topics.each do |topic| %>
+        <%= check_box_tag 'topics[]', topic.name, true %>
+        <%= label_tag topic.name, nil, class: 'px-2' %>
+      <% end %>
+    </div>
+
+    <div class="py-3 text-left">
+      <%= 
+        form.submit 'Buscar', 
+        class: 'inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500',
+        data: { disable_with: "Buscando..." }
+      %>
+    </div>
+  <% end %>
+
+  <div id="search-result-wrapper">
+  </div>
+
+  <div class="flex flex-col">
+    <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+      <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+        <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+          <table id="result-table" class="min-w-full divide-y divide-gray-200">
+            <thead class="bg-gray-50">
+              <tr>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Full name
+                </th>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Description
+                </th>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Language
+                </th>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Stargazers count
+                </th>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Watchers count
+                </th>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Forks count
+                </th>
+                <%# <th>Open issues count</th> %>
+                <%# <th colspan="3"></th> %>
+              </tr>
+            </thead>
+
+            <tbody class="bg-white divide-y divide-gray-200">
+              <% @repos.each do |repo| %>
+                <%= render partial: 'table_row', locals: { repo: repo } %>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <br>
+
+  <%= link_to 'New Repo', new_repo_path %>
 </div>
-
-<table>
-  <thead>
-    <tr>
-      <th>Id</th>
-      <th>Node</th>
-      <th>Name</th>
-      <th>Full name</th>
-      <th>Private</th>
-      <th>Html url</th>
-      <th>Description</th>
-      <th>Fork</th>
-      <th>Url</th>
-      <th>Pushed at</th>
-      <th>Homepage</th>
-      <th>Size</th>
-      <th>Stargazers count</th>
-      <th>Watchers count</th>
-      <th>Language</th>
-      <th>Forks count</th>
-      <th>Open issues count</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @repos.each do |repo| %>
-      <tr>
-        <td><%= repo._id %></td>
-        <td><%= repo.node_id %></td>
-        <td><%= repo.name %></td>
-        <td><%= repo.full_name %></td>
-        <td><%= repo.private %></td>
-        <td><%= repo.html_url %></td>
-        <td><%= repo.description %></td>
-        <td><%= repo.fork %></td>
-        <td><%= repo.url %></td>
-        <td><%= repo.pushed_at %></td>
-        <td><%= repo.homepage %></td>
-        <td><%= repo.size %></td>
-        <td><%= repo.stargazers_count %></td>
-        <td><%= repo.watchers_count %></td>
-        <td><%= repo.language %></td>
-        <td><%= repo.forks_count %></td>
-        <td><%= repo.open_issues_count %></td>
-        <td><%#= link_to 'Show', repo %></td>
-        <td><%#= link_to 'Edit', edit_repo_path(repo) %></td>
-        <td><%#= link_to 'Destroy', repo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Repo', new_repo_path %>
