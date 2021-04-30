@@ -10,9 +10,40 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2021_04_30_143336) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "repos", force: :cascade do |t|
+    t.integer "_id", null: false
+    t.string "node_id", null: false
+    t.string "name", null: false
+    t.string "full_name", null: false
+    t.boolean "private", null: false
+    t.string "html_url", null: false
+    t.text "description", null: false
+    t.boolean "fork", null: false
+    t.string "url", null: false
+    t.date "pushed_at", null: false
+    t.string "homepage"
+    t.integer "size", null: false
+    t.integer "stargazers_count", null: false
+    t.integer "watchers_count", null: false
+    t.string "language"
+    t.integer "forks_count", null: false
+    t.integer "open_issues_count", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "topic_id", null: false
+    t.index ["topic_id"], name: "index_repos_on_topic_id"
+  end
+
+  create_table "topics", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  add_foreign_key "repos", "topics"
 end
