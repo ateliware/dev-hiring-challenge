@@ -12,7 +12,7 @@ Construa uma nova aplicação, utilizando o framework de sua preferência (Ruby 
 # Stack utilizada
 - Framework: [Ruby On Rails](https://rubyonrails.org/)
 - Database: [PostgreSQL](https://www.postgresql.org/)
-- Front-end: HTML + [TailwindCSS](https://tailwindcss.com/)- 
+- Front-end: HTML + [TailwindCSS](https://tailwindcss.com/)
 
 # Para rodar local
 #### Após clonar o repositório, executar os seguintes comandos
