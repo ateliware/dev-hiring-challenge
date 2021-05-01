@@ -4,19 +4,38 @@ Construa uma nova aplicação, utilizando o framework de sua preferência (Ruby 
 
 - Botão para buscar e armazenar os repositórios destaques de 5 linguagens à sua escolha;
 - Listar os repositórios encontrados;
-- Visualizar os detalhes de cada repositório.
+- Visualizar os detalhes de cada repositório
+---
+# Live Preview
+#### É possível testar através do link: https://intense-castle-65659.herokuapp.com/
 
-Alguns requisitos:
+# Stack utilizada
+- Framework: [Ruby On Rails](https://rubyonrails.org/)
+- Database: [PostgreSQL](https://www.postgresql.org/)
+- Front-end: HTML + [TailwindCSS](https://tailwindcss.com/)- 
 
-- Deve ser uma aplicação totalmente nova;
-- A solução deve estar em um repositório público do GitHub;
-- A aplicação deve armazenar as informações encontradas;
-- Utilizar PostgreSQL, MySQL ou SQL Server;
-- O deploy deve ser realizado, preferencialmente, no Heroku, AWS ou no Azure;
-- A aplicação precisa ter testes automatizados;
-- Preferenciamente dockerizar a aplicação;
-- Por favor atualizar o readme da aplicação com passo a passo com instrução para subir o ambiente.
+# Para rodar local
+#### Após clonar o repositório, executar os seguintes comandos
+- `bundle install`
+- `yarn install`
+- `rake db:create`
+- `rake db:migrate`
+- `rake db:seed`
 
-Quando terminar, faça um Pull Request neste repo e avise-nos por email.
+#### e, por fim:
+- `rails s`
 
-**IMPORTANTE:** se você não conseguir finalizar o teste, por favor nos diga o motivo e descreva quais foram as suas dificuldades. Você pode também sugerir uma outra abordagem para avaliarmos seus skills técnicos, vender seu peixe, mostrar-nos do que é capaz.
+# Tests
+#### Foram utilizadas as seguintes gems para os testes
+- [Shoulda Matchers](https://github.com/thoughtbot/shoulda-matchers)
+- [WebMock](https://github.com/bblimke/webmock)
+- [factory_bot_rails](https://github.com/thoughtbot/factory_bot_rails)
+- [rspec-rails](https://github.com/rspec/rspec-rails)
+
+#### Para rodar os testes, utilize o seguinte comando
+- `rspec`
+
+---
+
+# Obrigado pela oportunidade ;)
+##### Espero ter notícias de vocês em breve e, quaisquer dúvidas que vocês tenham sobre o código ou como rodar no ambiente local, estou a disposição no whatsapp +55 41 9 8702-9948
