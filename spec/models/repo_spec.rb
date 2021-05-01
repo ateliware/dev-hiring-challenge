@@ -6,9 +6,9 @@ RSpec.describe Repo, type: :model do
   end
 
   describe 'search_by_topics' do
-    let(:topics) { 'ruby' }
+    let(:topics) { [ 'ruby' ] }
 
-    let(:api_endpoint) { "https://api.github.com/search/repositories?q=#{topics}%2Bis:featured&per_page=5" }
+    let(:api_endpoint) { "https://api.github.com/search/repositories?q=#{topics[0]}%2Bis:featured&per_page=5" }
 
     let(:headers) {
       {
