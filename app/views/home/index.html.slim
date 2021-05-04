@@ -1,11 +1,185 @@
 section class="section is-medium"
-  h1 class="title" Dev Hiring Chaleng
-  h2 class="subtitle" Desafio para ateliware
+  div class="tabs is-toggle is-toggle-rounded"
+    ul
+      li class="is-active"
+        a
+          span class="icon is-small"
+            i class="fas fa-image"
+          span Pictures
+      li
+        a
+          span class="icon is-small"
+            i class="fas fa-music"
+          span Music
+
+
+
+section class="section is-medium"
+  h1 class="title" Linguagens de sua preferência
+  h2 class="subtitle" Selecione as linguagens que deseja pesquisar no github
+  .container
+    form action="/search" method="post"
+      = hidden_field_tag :authenticity_token, form_authenticity_token
+      .columns 
+        .column
+          label class="checkbox"
+            input type="checkbox" checked="true" name="input[lang_java]"  Java
+          br
+          label class="checkbox"
+            input type="checkbox" name="input[lang_c]"  C
+          br
+          label class="checkbox"
+            input type="checkbox" name="input[lang_python]"  Python
+          br
+          label class="checkbox"
+            input type="checkbox" name="input[lang_c++]"  C++
+          br
+          label class="checkbox"
+            input type="checkbox" name="input[lang_c#]"  C#
+        .column
+          label class="checkbox"
+            input type="checkbox" name="input[lang_javascript]" checked="true"  Javascript
+          br
+          label class="checkbox"
+            input type="checkbox" name="input[lang_php]"  PHP
+          br
+          label class="checkbox"
+            input type="checkbox" name="input[lang_sql]"  SQL
+          br
+          label class="checkbox"
+            input type="checkbox" name="input[lang_swift]"  Swift
+          br
+          label class="checkbox"
+            input type="checkbox" name="input[lang_ruby]" checked="true"  Ruby
+        .column
+          label class="checkbox"
+            input type="checkbox" name="input[lang_object_c]"  Objective-c
+          br
+          label class="checkbox"
+            input type="checkbox" name="input[lang_delphi]"  Delphi
+          br
+          label class="checkbox"
+            input type="checkbox" name="input[lang_pascal]"  Pascal
+          br
+          label class="checkbox"
+            input type="checkbox" name="input[lang_r]"  R
+          br
+          label class="checkbox"
+            input type="checkbox" name="input[lang_groovy]"  Groovy
+        .column
+          label class="checkbox"
+            input type="checkbox" name="input[lang_assembly]"  Assembly
+          br
+          label class="checkbox"
+            input type="checkbox" name="input[lang_pascal]"  Pascal
+          br
+          label class="checkbox"
+            input type="checkbox" name="input[lang_visual_basic]"  Visual Basic
+          br
+          label class="checkbox"
+            input type="checkbox" name="input[lang_d]"  D
+          br
+          label class="checkbox"
+            input type="checkbox" name="input[lang_go]"  Go
+        .column
+          label class="checkbox"
+            input type="checkbox" name="input[lang_matlab]"  Matlab
+          br
+          label class="checkbox"
+            input type="checkbox" name="input[lang_perl]"  Perl
+          br
+          label class="checkbox"
+            input type="checkbox" name="input[lang_sass]"  Sas
+          br
+          label class="checkbox"
+            input type="checkbox" name="input[lang_dart]"  Dart
+          br
+          label class="checkbox"
+            input type="checkbox" name="input[lang_rust]"  Rust
+        .column
+          label class="checkbox"
+            input type="checkbox" name="input[lang_scratch]"  Scratch
+          br
+          label class="checkbox"
+            input type="checkbox" name="input[lang_list]"  List
+          br
+          label class="checkbox"
+            input type="checkbox" name="input[lang_cobol]"  Cobol
+          br
+          label class="checkbox"
+            input type="checkbox" name="input[lang_fortran]"  Fortran
+          br
+          label class="checkbox"
+            input type="checkbox" name="input[lang_scala]"  Scala
+        .column
+          label class="checkbox"
+            input type="checkbox" name="input[lang_kotlin]" checked="true"  Kotlin
+          br
+          label class="checkbox"
+            input type="checkbox" name="input[lang_lua]"  Lua
+          br
+          label class="checkbox"
+            input type="checkbox" name="input[lang_typescript]" checked="true"  TypeScript
+          br
+          label class="checkbox"
+            input type="checkbox" name="input[lang_haskell]"  Haskell
+          br
+          label class="checkbox"
+            input type="checkbox" name="input[lang_actionscript]"  ActionScript      
+        .column
+          label class="checkbox"
+            input type="checkbox" name="input[lang_ada]"  Ada
+          br
+          label class="checkbox"
+            input type="checkbox" name="input[lang_vbscript]"  vbscript
+          br
+          label class="checkbox"
+            input type="checkbox" name="input[lang_bash]"  Bash
+          br
+          label class="checkbox"
+            input type="checkbox" name="input[lang_tcl]"  TCL
+          br
+          label class="checkbox"
+            input type="checkbox" name="input[lang_postscript]"  PostScript
+      button class="submit button is-info" Consultar
+
+      - unless @repositories.empty?
+        table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidt"
+          thead
+            tr
+              th Language:
+              th Name:
+              th Size:
+              th Forks:
+              th Score:
+              th URL:
+              th Watchers:
+              th Open Issues:
+              th Stargazers
+          tbody
+            - @repositories.each do |repo|
+              tr
+                td = repo.repo['language']
+                td = repo.repo['name']
+                td = repo.repo['size']
+                td = repo.repo['forks']
+                td = repo.repo['score']
+                td = repo.repo['git_url']
+                td = repo.repo['watchers']
+                td = repo.repo['open_issues']
+                td = repo.repo['stargazers_count']
+                
+
+
+
+
+
+
 
 
 
 / exemplo de notificação com o bulma
-.notification
+/.notification
   button class="delete"
   Lorem ipsum dolor sit amet, consectetur
   adipiscing elit lorem ipsum dolor. <strong>Pellentesque risus mi</strong>, tempus quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et dictum <a>felis venenatis</a> efficitur.
