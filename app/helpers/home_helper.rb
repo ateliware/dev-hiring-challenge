@@ -9,7 +9,7 @@ module HomeHelper
   # ?q=ruby&s=&per_page=5
   def self.load_and_persist_repo(langs)
     langs.each do |lang|
-      json = send_request("#{URL}?q=#{lang}&s=&per_page=5")
+      json = send_request("#{URL}?q=#{lang}+language:#{lang}&s=&per_page=5")
       persist_repo(json)
     end
   end
