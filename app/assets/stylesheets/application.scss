@@ -1,2 +1,7 @@
- @import "bulma";
+ @import "bootstrap/scss/bootstrap";
+ @import "bootstrap-table/src/bootstrap-table";
  @import "home";
+
+ .fix-top {
+    margin-top: 85px;  
+ }
