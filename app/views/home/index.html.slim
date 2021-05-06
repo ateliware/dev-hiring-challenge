@@ -1,0 +1,161 @@
+.nav-home
+  nav
+    div class="nav nav-tabs" id="nav-tab" role="tablist"
+      a class="nav-link active" id="nav-search-tab" data-toggle="tab" href="#nav-search" role="tab" aria-controls="nav-search" aria-selected="true" Search
+      a class="nav-link" id="nav-languages-tab" data-toggle="tab" href="#nav-languages" role="tab" aria-controls="nav-languages" aria-selected="false" Languages
+
+  div class="tab-content" id="nav-tabContent"
+    div class="tab-pane fade show active" id="nav-search" role="tabpanel" aria-labelledby="nav-search-tab"
+      .home-pane
+        .row
+          p class="title" Selecione as linguagens que deseja pesquisar no github
+      
+        .row
+          form action="/search" method="post" class="wide-form"
+            = hidden_field_tag :authenticity_token, form_authenticity_token
+            .row
+              .col-md-2
+                .form-group.form-check
+                  label class="checkbox"
+                    input type="checkbox" name="input[lang_actionscript]"  ActionScript    
+                .form-group.form-check
+                  label class="checkbox"
+                    input type="checkbox" name="input[lang_ada]"  Ada
+                .form-group.form-check
+                  label class="checkbox"
+                    input type="checkbox" name="input[lang_assembly]"  Assembly
+                .form-group.form-check
+                  label class="checkbox"
+                    input type="checkbox" name="input[lang_bash]"  Bash
+                .form-group.form-check
+                  label class="checkbox"
+                    input type="checkbox" name="input[lang_cobol]"  Cobol
+              .col-md-2
+                .form-group.form-check
+                  label class="checkbox"
+                    input type="checkbox" name="input[lang_dart]"  Dart
+                .form-group.form-check
+                  label class="checkbox"
+                    input type="checkbox" name="input[lang_delphi]"  Delphi
+                .form-group.form-check
+                  label class="checkbox"
+                    input type="checkbox" name="input[lang_fortran]"  Fortran
+                .form-group.form-check
+                  label class="checkbox"
+                    input type="checkbox" name="input[lang_go]"  Go
+                .form-group.form-check
+                  label class="checkbox"
+                    input type="checkbox" name="input[lang_groovy]"  Groovy
+              .col-md-2
+                .form-group.form-check
+                  label class="checkbox"
+                    input type="checkbox" name="input[lang_haskell]"  Haskell
+                .form-group.form-check
+                  label class="checkbox"
+                    input type="checkbox" name="input[lang_java]"  Java
+                .form-group.form-check
+                  label class="checkbox"
+                    input type="checkbox" name="input[lang_javascript]"  Javascript
+                .form-group.form-check
+                  label class="checkbox"
+                    input type="checkbox" name="input[lang_kotlin]"  Kotlin
+                .form-group.form-check
+                  label class="checkbox"
+                    input type="checkbox" name="input[lang_lua]"  Lua
+              .col-md-2
+                .form-group.form-check
+                  label class="checkbox"
+                    input type="checkbox" name="input[lang_matlab]"  Matlab
+                .form-group.form-check
+                  label class="checkbox"
+                    input type="checkbox" name="input[lang_pascal]"  Pascal
+                .form-group.form-check
+                  label class="checkbox"
+                    input type="checkbox" name="input[lang_perl]"  Perl
+                .form-group.form-check
+                  label class="checkbox"
+                    input type="checkbox" name="input[lang_php]"  PHP
+                .form-group.form-check
+                  label class="checkbox"
+                    input type="checkbox" name="input[lang_postscript]"  PostScript
+
+              .col-md-2
+                .form-group.form-check
+                  label class="checkbox"
+                    input type="checkbox" name="input[lang_python]"  Python
+                .form-group.form-check
+                  label class="checkbox"
+                    input type="checkbox" name="input[lang_r]"  R
+                .form-group.form-check
+                  label class="checkbox"
+                    input type="checkbox" name="input[lang_ruby]"  Ruby
+                .form-group.form-check
+                  label class="checkbox"
+                    input type="checkbox" name="input[lang_rust]"  Rust
+                .form-group.form-check
+                  label class="checkbox"
+                    input type="checkbox" name="input[lang_sass]"  Sass
+              .col-md-2
+                .form-group.form-check
+                  label class="checkbox"
+                    input type="checkbox" name="input[lang_scala]"  Scala
+                .form-group.form-check
+                  label class="checkbox"
+                    input type="checkbox" name="input[lang_sql]"  SQL
+                .form-group.form-check
+                  label class="checkbox"
+                    input type="checkbox" name="input[lang_swift]"  Swift
+                .form-group.form-check
+                  label class="checkbox"
+                    input type="checkbox" name="input[lang_tcl]"  TCL
+                .form-group.form-check
+                  label class="checkbox"
+                    input type="checkbox" name="input[lang_typescript]"  TypeScript
+
+            .row
+              button class="submit btn btn-info" Consultar
+    
+    div class="tab-pane fade" id="nav-languages" role="tabpanel" aria-labelledby="nav-languages-tab"
+      - unless @repositories.empty?
+        table [data-toggle="table"
+          id="table"
+          data-pagination="true"
+          data-search="true"
+          data-advanced-search="true"
+          data-id-table="advancedTable"
+          data-page-size="10"
+          data-show-toggle="true"
+          data-show-columns="true"
+          data-show-columns-toggle-all="true"
+          data-click-to-select="true"
+          data-page-list="[10, 25, all]"
+          data-show-footer="true"]
+          thead
+            tr
+              th Language:
+              th Name:
+              th Size:
+              th Forks:
+              th Score:
+              th URL:
+              th Watchers:
+              th Open Issues:
+              th Stargazers
+          tbody
+            - @repositories.each do |repo|
+              tr
+                td = repo.repo['language']
+                td = repo.repo['name']
+                td = repo.repo['size']
+                td = repo.repo['forks']
+                td = repo.repo['score']
+                td = repo.repo['git_url']
+                td = repo.repo['watchers']
+                td = repo.repo['open_issues']
+                td = repo.repo['stargazers_count']
+
+
+javascript:
+  $(function() {
+      $('#table').bootstrapTable()
+  })

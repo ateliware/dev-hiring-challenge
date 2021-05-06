@@ -1,0 +1,27 @@
+doctype html
+html
+  head
+    title
+      | DevHiringChallenge
+    meta[name="viewport" content="width=device-width,initial-scale=1"]
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+
+    = render 'layouts/partials/navbar'
+  body
+    .container-fluid.fix-top
+      - if notice
+        .alert.alert-success.alert-dismissible.fade.show role="alert"
+          = notice
+          button type="button" class="close" data-dismiss="alert" aria-label="Close"
+            span aria-hidden="true" &times;
+      - if alert
+        .alert.alert-warning.alert-dismissible.fade.show role="alert"
+          = alert
+          button type="button" class="close" data-dismiss="alert" aria-label="Close"
+            span aria-hidden="true" &times;
+
+      .row.flex-xl-nowrap
+        = yield

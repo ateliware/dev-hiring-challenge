@@ -1,0 +1,66 @@
+AllCops:
+  NewCops: enable
+  Exclude:
+    - 'bin/**/*'
+    - 'vendor/**/*'
+    - 'db/**/*'
+    - 'config/**/*'
+    - 'script/**/*'
+    - 'spec/rails_helper.rb'
+    - '**/templates/**/*'
+    - '**/vendor/**/*'
+    - 'actionpack/lib/action_dispatch/journey/parser.rb'
+    - 'railties/test/fixtures/tmp/**/*'
+    - 'node_modules/**/*'
+    - '**/tmp/**/*'
+    - 'actionmailbox/test/dummy/**/*'
+    - 'actiontext/test/dummy/**/*'
+    - '**/node_modules/**/*'
+
+Metrics/BlockLength:
+  Enabled: true
+  IgnoredMethods: ['describe', 'context', 'feature', 'scenario', 'let']
+  CountAsOne: ['array', 'hash', 'heredoc']
+
+# Metrics/MethodLength:
+#   Enabled: true
+#   CountAsOne: ['array', 'hash', 'heredoc']
+
+Metrics/CyclomaticComplexity:
+  Enabled: true
+  Max: 10 # Padrão 7
+
+Layout/LineLength:
+  Max: 140
+  AllowHeredoc: true
+  AllowURI: true
+  URISchemes:
+  - http
+  - https
+  IgnoreCopDirectives: false
+  IgnoredPatterns:
+  - '\A\s*(remote_)?test(_\w+)?\s.*(do|->)(\s|\Z)'
+
+# Esta é outra Cop polêmica, mas algumas vezes queremos fazer comentários de TODO ou outros tipos usando acentos e caracteres não ascii, 
+# por isso, é preciso desabilitar a Cop
+Style/AsciiComments:
+  Enabled: false
+
+Style/StringLiteralsInInterpolation:
+  EnforcedStyle: single_quotes
+  SupportedStyles:
+  - single_quotes
+  - double_quotes
+
+# Prefer &&/|| over and/or.
+Style/AndOr:
+  Enabled: true
+
+# Use Ruby >= 1.9 syntax for hashes. Prefer { a: :b } over { :a => :b }.
+Style/HashSyntax:
+  Enabled: true
+
+# Check quotes usage according to lint rule below.
+Style/StringLiterals:
+  Enabled: true
+  EnforcedStyle: single_quotes
