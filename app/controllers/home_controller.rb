@@ -16,7 +16,7 @@ class HomeController < ApplicationController
     HomeHelper.load_and_persist_repo(languages)
 
     # e exibe a index com os dados atualizados
-    redirect_to root_path
+    redirect_to root_path, notice: 'Carregado com sucesso'
   end
 
   private
