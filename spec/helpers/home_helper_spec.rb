@@ -12,51 +12,38 @@ require 'rails_helper'
 # end
 RSpec.describe HomeHelper, type: :helper do
 
-# def self.convert_param_to_language(param)
-#   case param
-#   when 'lang_java' then 'java'
-#   when 'lang_c' then 'c'
-#   when 'lang_python' then 'python'
-#   when 'lang_c++' then 'c++'
-#   when 'lang_c#' then 'c#'
-#   when 'lang_javascript' then 'javascript'
-#   when 'lang_php' then 'php'
-#   when 'lang_sql' then 'sql'
-#   when 'lang_swift' then 'swift'
-#   when 'lang_ruby' then 'ruby'
-#   when 'lang_object_c' then 'objective c'
-#   when 'lang_delphi' then 'delphi'
-#   when 'lang_pascal' then 'pascal'
-#   when 'lang_r' then 'r'
-#   when 'lang_groovy' then 'groovy'
-#   when 'lang_assembly' then 'assembly'
-#   when 'lang_flutter' then 'flutter'
-#   when 'lang_visual_basic' then 'visual basic'
-#   when 'lang_d' then 'd'
-#   when 'lang_go' then 'go'
-#   when 'lang_matlab' then 'matlab'
-#   when 'lang_perl' then 'perl'
-#   when 'lang_sass' then 'sass'
-#   when 'lang_dart' then 'dart'
-#   when 'lang_rust' then 'rust'
-#   when 'lang_scratch' then 'scratch'
-#   when 'lang_list' then 'list'
-#   when 'lang_cobol' then 'cobol'
-#   when 'lang_fortran' then 'fortran'
-#   when 'lang_scala' then 'scala'
-#   when 'lang_kotlin' then 'kotlin'
-#   when 'lang_lua' then 'lua'
-#   when 'lang_typescript' then 'typescript'
-#   when 'lang_haskell' then 'haskell'
-#   when 'lang_actionscript' then 'actionscript'
-#   when 'lang_ada' then 'ada'
-#   when 'lang_vbscript' then 'vbscript'
-#   when 'lang_bash' then 'bash'
-#   when 'lang_tcl' then 'tcl'
-#   when 'lang_postscript' then 'postscript'
-#   else ''
-#   end
-# end
-
-
+  describe '#converte_param_to_language' do
+    it 'return language name for request in github api' do
+      expect(HomeHelper.convert_param_to_language('lang_actionscript')).to eq('actionscript')
+      expect(HomeHelper.convert_param_to_language('lang_ada')).to eq('ada')
+      expect(HomeHelper.convert_param_to_language('lang_assembly')).to eq('assembly')
+      expect(HomeHelper.convert_param_to_language('lang_bash')).to eq('bash')
+      expect(HomeHelper.convert_param_to_language('lang_cobol')).to eq('cobol')
+      expect(HomeHelper.convert_param_to_language('lang_dart')).to eq('dart')
+      expect(HomeHelper.convert_param_to_language('lang_delphi')).to eq('delphi')
+      expect(HomeHelper.convert_param_to_language('lang_fortran')).to eq('fortran')
+      expect(HomeHelper.convert_param_to_language('lang_go')).to eq('go')
+      expect(HomeHelper.convert_param_to_language('lang_groovy')).to eq('groovy')
+      expect(HomeHelper.convert_param_to_language('lang_haskell')).to eq('haskell')
+      expect(HomeHelper.convert_param_to_language('lang_java')).to eq('java')
+      expect(HomeHelper.convert_param_to_language('lang_javascript')).to eq('javascript')
+      expect(HomeHelper.convert_param_to_language('lang_kotlin')).to eq('kotlin')
+      expect(HomeHelper.convert_param_to_language('lang_lua')).to eq('lua')
+      expect(HomeHelper.convert_param_to_language('lang_matlab')).to eq('matlab')
+      expect(HomeHelper.convert_param_to_language('lang_pascal')).to eq('pascal')
+      expect(HomeHelper.convert_param_to_language('lang_perl')).to eq('perl')
+      expect(HomeHelper.convert_param_to_language('lang_php')).to eq('php')
+      expect(HomeHelper.convert_param_to_language('lang_postscript')).to eq('postscript')
+      expect(HomeHelper.convert_param_to_language('lang_python')).to eq('python')
+      expect(HomeHelper.convert_param_to_language('lang_r')).to eq('r')
+      expect(HomeHelper.convert_param_to_language('lang_ruby')).to eq('ruby')
+      expect(HomeHelper.convert_param_to_language('lang_rust')).to eq('rust')
+      expect(HomeHelper.convert_param_to_language('lang_sass')).to eq('sass')
+      expect(HomeHelper.convert_param_to_language('lang_scala')).to eq('scala')
+      expect(HomeHelper.convert_param_to_language('lang_sql')).to eq('sql')
+      expect(HomeHelper.convert_param_to_language('lang_swift')).to eq('swift')
+      expect(HomeHelper.convert_param_to_language('lang_tcl')).to eq('tcl')
+      expect(HomeHelper.convert_param_to_language('lang_typescript')).to eq('typescript')
+    end
+  end
 end
