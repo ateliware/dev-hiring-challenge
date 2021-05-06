@@ -4,7 +4,7 @@
 // that code so it'll be compiled.
 
 import 'bootstrap'
-import "@fortawesome/fontawesome-free/css/all"
+import "@fortawesome/fontawesome-free/js/all"
 import 'bootstrap-table'
 import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
