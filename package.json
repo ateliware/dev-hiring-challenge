@@ -2,10 +2,15 @@
   "name": "dev-hiring-challenge",
   "private": true,
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.3",
     "@rails/actioncable": "^6.0.0",
     "@rails/activestorage": "^6.0.0",
     "@rails/ujs": "^6.0.0",
     "@rails/webpacker": "5.3.0",
+    "bootstrap": "^4.6.0",
+    "bootstrap-table": "^1.18.3",
+    "jquery": "^3.6.0",
+    "popper.js": "^1.16.1",
     "turbolinks": "^5.2.0",
     "webpack": "^4.46.0",
     "webpack-cli": "^3.3.12"
