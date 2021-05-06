@@ -10,5 +10,8 @@
 require 'rails_helper'
 
 RSpec.describe Repository, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it 'verifica se o repositorio foi informado' do
+    repository = Repository.create({})
+    expect(repository.save).to be(false)
+  end
 end

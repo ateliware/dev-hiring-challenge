@@ -15,5 +15,11 @@ RSpec.describe 'Homes', type: :request do
 
       expect(response).to redirect_to root_path
     end
+
+    it 'return http error' do
+      post '/search', params: {}
+
+      expect(response.alert).to ''
+    end
   end
 end

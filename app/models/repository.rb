@@ -8,4 +8,5 @@
 #  updated_at :datetime         not null
 #
 class Repository < ApplicationRecord
+  validates_presence_of :repo, on: :create, message: "can't be blank"
 end

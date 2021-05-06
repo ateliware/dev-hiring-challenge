@@ -17,6 +17,11 @@ html
           = notice
           button type="button" class="close" data-dismiss="alert" aria-label="Close"
             span aria-hidden="true" &times;
+      - if alert
+        .alert.alert-warning.alert-dismissible.fade.show role="alert"
+          = alert
+          button type="button" class="close" data-dismiss="alert" aria-label="Close"
+            span aria-hidden="true" &times;
 
       .row.flex-xl-nowrap
         = yield
