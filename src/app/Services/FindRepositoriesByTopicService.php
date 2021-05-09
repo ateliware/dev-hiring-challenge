@@ -11,26 +11,19 @@ use GuzzleHttp\Client;
 class FindRepositoriesByTopicService
 {
     public static function refreshTopicsAndRepositories($topics) {
-        self::deleteTopicsAndRepositories();
-
         $repositories = collect($topics)->map(function ($topic) {
             $topicCreated = Topic::firstOrCreate([
                 'name' => $topic
             ]);
 
+            Repository::where('topic_id', $topicCreated->id)->delete();
+
             $response = FindRepositoriesByTopicService::findByTopic($topicCreated->name);
 
             return self::formatToRepositoriesIfFound($response, $topicCreated);
-        })->flatten(1);
+        })->flatten(1)->toArray();
 
-        Repository::insert($repositories->toArray());
-    }
-
-
-    private static function deleteTopicsAndRepositories()
-    {
-        Topic::whereNotNull('id')->delete();
-        Repository::whereNotNull('id')->delete();
+        Repository::insert($repositories);
     }
 
     /**

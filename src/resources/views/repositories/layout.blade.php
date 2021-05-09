@@ -8,7 +8,7 @@
 </head>
 <body class="font-body">
 
-<div class="container p-32">
+<div class="container mx-auto px-4 pt-12">
     @yield('content')
 </div>
 

@@ -82,7 +82,7 @@
             </div>
         </div>
     </div>
-
-    {!! $repositories->links() !!}
-
+    <div class="pt-4">
+        {!! $repositories->links() !!}
+    </div>
 @endsection
