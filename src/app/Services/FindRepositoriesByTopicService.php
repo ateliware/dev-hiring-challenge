@@ -23,7 +23,7 @@ class FindRepositoriesByTopicService
             return self::formatToRepositoriesIfFound($response, $topicCreated);
         })->flatten(1);
 
-        Repository::insert($repositories);
+        Repository::insert($repositories->toArray());
     }
 
 
