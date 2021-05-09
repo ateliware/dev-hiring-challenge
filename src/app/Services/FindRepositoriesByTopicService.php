@@ -16,7 +16,7 @@ class FindRepositoriesByTopicService
                 'name' => $topic
             ]);
 
-            Repository::where('topic_id', $topicCreated->id)->delete();
+            self::deleteAllRepositoriesInTopic($topicCreated->id);
 
             $response = FindRepositoriesByTopicService::findByTopic($topicCreated->name);
 
@@ -24,6 +24,10 @@ class FindRepositoriesByTopicService
         })->flatten(1)->toArray();
 
         Repository::insert($repositories);
+    }
+
+    public static function deleteAllRepositoriesInTopic($topicId){
+        Repository::where('topic_id', $topicId)->delete();
     }
 
     /**
