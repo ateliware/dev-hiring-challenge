@@ -44,6 +44,8 @@ docker compose run --rm artisan key:generate
 docker compose run --rm artisan migrate
 ```
 
+Acesso em localhost:3000
+
 # Testes
 
 Para executar os testes, utilize o comando abaixo.
