@@ -47,6 +47,6 @@ docker compose run --rm artisan migrate
 Para executar os testes, utilize o comando abaixo.
 
 ```shell
-docker-compose run --rm artisan test
+docker compose run --rm artisan test
 ```
 ---
