@@ -29,11 +29,11 @@ Quando terminar, faça um Pull Request neste repo e avise-nos por email.
 - Database: [PostgreSQL](https://www.postgresql.org/)
 - Front: Blade + [TailwindCSS](https://tailwindcss.com/)
 
-# Para rodar local
+# Local
 
 É necessário ter docker instalado em sua máquina [Docker](https://www.docker.com/products/docker-desktop)
 
-Clone o projeto em algum diretório
+Clone o projeto em algum diretório e utilize esses comandos.
 
 ```shell
 docker-compose up -d
@@ -44,7 +44,7 @@ docker-compose run --rm artisan migrate
 
 # Testes
 
-Após ter o programa rodando é possivel rodar o teste que foi criado.
+Para executar os testes, utilize o comando abaixo.
 
 ```shell
 docker-compose run --rm artisan test
