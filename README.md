@@ -20,3 +20,37 @@ Alguns requisitos:
 Quando terminar, faça um Pull Request neste repo e avise-nos por email.
 
 **IMPORTANTE:** se você não conseguir finalizar o teste, por favor nos diga o motivo e descreva quais foram as suas dificuldades. Você pode também sugerir uma outra abordagem para avaliarmos seus skills técnicos, vender seu peixe, mostrar-nos do que é capaz.
+
+# Live Site
+#### https://ateliware-gitlist-challenge.herokuapp.com/
+
+# Especificações
+- Framework: [Laravel](https://laravel.com/)
+- Database: [PostgreSQL](https://www.postgresql.org/)
+- Front: Blade + [TailwindCSS](https://tailwindcss.com/)
+
+# Local
+
+É necessário ter docker instalado em sua máquina [Docker](https://www.docker.com/products/docker-desktop)
+
+Clone o projeto em algum diretório e utilize esses comandos.
+
+```shell
+cp src/.env.example src/.env
+docker compose up -d --build
+docker compose run --rm composer install
+docker compose run --rm npm install
+docker compose run --rm artisan key:generate
+docker compose run --rm artisan migrate
+```
+
+Acesso em localhost:3000
+
+# Testes
+
+Para executar os testes, utilize o comando abaixo.
+
+```shell
+docker compose run --rm artisan test
+```
+---
