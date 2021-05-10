@@ -36,9 +36,11 @@ Quando terminar, faça um Pull Request neste repo e avise-nos por email.
 Clone o projeto em algum diretório e utilize esses comandos.
 
 ```shell
+cp src/.env.example src/.env
 docker compose up -d --build
 docker compose run --rm composer install
 docker compose run --rm npm install
+docker compose run --rm artisan key:generate
 docker compose run --rm artisan migrate
 ```
 
