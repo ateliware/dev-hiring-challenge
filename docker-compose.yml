@@ -1,0 +1,42 @@
+version: "3.8"
+services:
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_HOST: database
+      POSTGRES_DB: repo_view
+    volumes:
+      - ./pgdata:/usr/postgres/data
+    ports:
+      - "5434:5432"
+  nodeapp:
+    build: ./backend
+    entrypoint: ["/bin/sh", "./entrypoint.sh"]
+    environment:
+      DB_HOST: database
+    env_file:
+      - ./backend/.env
+    ports:
+      - "3001:3001"
+    volumes:
+      - ./backend:/usr/app
+    depends_on:
+      - db
+    links:
+      - db:database
+  reactapp:
+    build: ./frontend
+    command: npm start
+    environment:
+      CHOKIDAR_USEPOLLING: "true"
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/usr/app
+    depends_on:
+      - nodeapp
+    # links:
+    #   - nodeapp:backend
