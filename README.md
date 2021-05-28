@@ -1,22 +1,24 @@
-# Desafio técnico para desenvolvedores
+# ExHub
 
-Construa uma nova aplicação, utilizando o framework de sua preferência (Ruby on Rails, Elixir Phoenix, Python Django ou Flask, NodeJS Sails, Java Spring, ASP.NET ou outro), a qual deverá conectar na API do GitHub e disponibilizar as seguintes funcionalidades:
+Aplicação criada para buscar e lista os principais repositorios de 5 linguagens no GitHub. 
 
-- Botão para buscar e armazenar os repositórios destaques de 5 linguagens à sua escolha;
-- Listar os repositórios encontrados;
-- Visualizar os detalhes de cada repositório.
+Projeto criado em Elixir, utilizando Phoenix LiveView como Front-End e HTTPoison para fazer requests HTTP.
 
-Alguns requisitos:
+Criado por: Rafael Antunes (dev@rafaelantun.es) - 2021
 
-- Deve ser uma aplicação totalmente nova;
-- A solução deve estar em um repositório público do GitHub;
-- A aplicação deve armazenar as informações encontradas;
-- Utilizar PostgreSQL, MySQL ou SQL Server;
-- O deploy deve ser realizado, preferencialmente, no Heroku, AWS ou no Azure;
-- A aplicação precisa ter testes automatizados;
-- Preferenciamente dockerizar a aplicação;
-- Por favor atualizar o readme da aplicação com passo a passo com instrução para subir o ambiente.
+## Deployment
 
-Quando terminar, faça um Pull Request neste repo e avise-nos por email.
+### Requisitos
 
-**IMPORTANTE:** se você não conseguir finalizar o teste, por favor nos diga o motivo e descreva quais foram as suas dificuldades. Você pode também sugerir uma outra abordagem para avaliarmos seus skills técnicos, vender seu peixe, mostrar-nos do que é capaz.
+- git
+- docker
+- docker-compose
+
+### Passos
+
+- `git clone https://github.com/devrafaelantunes/exhub.git`
+- `cd exhub`
+- `cd assets && npm install && cd ../`
+- `docker-compose up`
+
+O `docker-compose` irá instanciar os containers com o banco de dados e com a aplicação Phoenix. A aplicação estará disponível em `http://localhost`, na porta 80.

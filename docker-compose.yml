@@ -1,0 +1,49 @@
+# Version of docker-compose
+version: '3'
+
+# Containers we are going to run
+services:
+  # Our Phoenix container
+  phoenix:
+    # The build parameters for this container.
+    build:
+      # Here we define that it should build from the current directory
+      context: .
+    environment:
+      # Variables to connect to our Postgres server
+      PGUSER: postgres
+      PGPASSWORD: postgres
+      PGDATABASE: ex_hub_prod
+      PGPORT: 5432
+      # Hostname of our Postgres container
+      PGHOST: exhub_db_1
+    ports:
+      # Mapping the port to make the Phoenix app accessible outside of the container
+      - "80:4000"
+    depends_on:
+      # The db container needs to be started before we start this container
+      - db
+    networks:
+      phoenix_network:
+  db:
+    # We use the predefined Postgres image
+    image: postgres:13.3
+    environment:
+      # Set user/password for Postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      # Set a path where Postgres should store the data
+      PGDATA: /var/lib/postgresql/data/pgdata
+    ports:
+      - "5432"
+    restart: always
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      phoenix_network:
+# Define the volumes
+volumes:
+  pgdata:
+
+networks:
+  phoenix_network:

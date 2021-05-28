@@ -1,0 +1,10 @@
+<%= Enum.map(@results, fn repository -> %>
+    <div class="repository-container">
+        <div class="repository-child">
+            <h2><%= live_patch repository.name, to: Routes.live_path(@socket, ExHubWeb.DisplayLive, repository)%> - <%= repository.stargazers_count %> ⭐ </h2>
+        </div>
+        <div class="repository-child">
+            <p><%= repository.description %></p>
+        </div>
+    </div>
+<% end) %>

@@ -1,0 +1,19 @@
+<div id="header-container">
+    <div id="header-class">
+        <h1><strong><%= @result.name %></strong></h1>
+        <p><%= @result.description %></p>
+        <img src=<%= @result.owner.avatar_url %>>
+        <h2><%= @result.stargazers_count %> ⭐ </h2>
+    </div>
+</div>
+
+<div class="display-container">
+    <div class="display-single">
+        <p><%= @result.forks %> <strong>Forks</strong></p>
+        <p><%= @result.watchers_count %> <strong>Watchers</strong></p>
+        <p><%= @result.open_issues %> <strong>Open Issues</strong></p>
+        <a href=<%= @result.html_url %>>GitHub Link</a>
+    </div>
+</div>
+
+<%= live_patch "Go Back", to: Routes.live_path(@socket, ExHubWeb.SearchLive, language: @result.language)%>

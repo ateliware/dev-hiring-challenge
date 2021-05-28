@@ -1,0 +1,22 @@
+<%= if @results == %{} do %>
+    <div class="form-container">
+        <div>
+            <h1>Select Language</h1>
+        </div>
+        <div>
+            <%= f = form_for :request, "#", phx_submit: :search%>
+            <%= select f, :language, ExHub.Request.languages %>
+
+            <%= submit "Search", phx_disable_with: "Searching..." %>
+        </div>
+    </div>
+
+</form>
+
+<% else %>
+    <h1 id="language-header"><%= @language %>'s repositories ranked by stars.</h1>
+
+    <%= live_component @socket, ExHubWeb.DisplayComponent, results: @results %>
+
+    <%= live_redirect "Go Back", to: Routes.live_path(@socket, ExHubWeb.SearchLive)%>
+<% end %>
