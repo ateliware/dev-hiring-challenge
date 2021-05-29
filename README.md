@@ -22,3 +22,7 @@ Criado por: Rafael Antunes (dev@rafaelantun.es) - 2021
 - `docker-compose up`
 
 O `docker-compose` irá instanciar os containers com o banco de dados e com a aplicação Phoenix. A aplicação estará disponível em `http://localhost`, na porta 80.
+
+
+## Hospedado na AWS
+link: exhub.rafaelantun.es
