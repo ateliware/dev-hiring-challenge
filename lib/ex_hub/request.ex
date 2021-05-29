@@ -22,7 +22,7 @@ defmodule ExHub.Request do
 
   # Makes a request to the GitHub API
   defp call(language, headers) do
-    "https://api.github.com/search/repositories?q=language:#{language}&sort=stars&order_by=desc&per_page#{@per_page}"
+    "https://api.github.com/search/repositories?q=language:#{language}&sort=stars&order_by=desc&per_page=#{@per_page}"
     |> HTTPoison.get(headers)
     |> case do
       {:ok, %{body: raw, status_code: code, headers: headers}} ->
