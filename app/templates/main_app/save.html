@@ -1,0 +1,43 @@
+<!-- home.html -->
+{% extends "base.html" %}
+
+{% block content %}
+
+<!-- Mensagem de Aviso -->
+
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+  <strong>Holy guacamole!</strong> {{mensagem}}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+
+
+{% if repos_list|length > 0 %}
+<div class="row p3">
+  <div class="col">
+    <h2> Respositórios Encontrados de {{repos_list|length}} Linguagens</h2>
+    <table id="table_repos" class="table table-hover table-stripped">
+      <tbody>
+        <th>Name</th>
+        <th>Language</th>
+        <th>Size</th>
+        <th>Link</th>
+      </tbody>
+
+      {% for lang_repo in repos_list %}
+        {% for repo in lang_repo %}
+          <tr>
+            <td>{{repo.name}}</td>
+            <td>{{repo.language}}</td>
+            <td>{{repo.size}}</td>
+            <td>
+              <a class="btn btn-sm btn-info" href="{{repo.url}}" target="_blank"> Visitar</a>
+            </td>
+          </tr>
+          {% endfor %}
+      {% endfor %}
+    </table>
+  </div>
+</div>
+{% endif %}
+
+{% endblock content %}

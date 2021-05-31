@@ -1,0 +1,55 @@
+<!-- home.html -->
+{% extends "base.html" %}
+
+{% block content %}
+
+{% if repos_list|length == 0 %}
+<div class="row">
+  <div class="col">
+    <h3> Top <span class="text text-muted">10</span> github-repositórios das seguintes linguagens: </h3>
+
+    <ul class="list-group">
+      {% for lang in languages %}
+      <li class="list-group-item">{{lang.name}}</li>
+      {% endfor %}
+    </ul>
+    <div class="p-3">
+      <a href="{% url 'webapp:getRepos' %}" class="btn btn-outline-secondary" type="button">Buscar Repositórios</a>
+    </div>
+  </div>
+</div>
+{% endif %}
+
+{% if repos_list|length > 0 %}
+<div class="row p3">
+  <div class="">
+    <h2> Respositórios Encontrados de {{repos_list|length}} Linguagens</h2>
+    <a href="{% url 'webapp:saveRepos' %}" class="btn btn-dark" type="button">Salvar Pesquisa</a>
+  </div>
+  <div class="col">
+    <table id="table_repos" class="table table-hover table-stripped">
+      <tbody>
+        <th>Name</th>
+        <th>Language</th>
+        <th>Size</th>
+        <th>Link</th>
+      </tbody>
+
+      {% for lang_repo in repos_list %}
+        {% for repo in lang_repo %}
+          <tr>
+            <td>{{repo.name}}</td>
+            <td>{{repo.language}}</td>
+            <td>{{repo.size}}</td>
+            <td>
+              <a class="btn btn-sm btn-info" href="{{repo.url}}" target="_blank">Visitar</a>
+            </td>
+          </tr>
+          {% endfor %}
+      {% endfor %}
+    </table>
+  </div>
+</div>
+{% endif %}
+
+{% endblock content %}
