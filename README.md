@@ -1,22 +1,39 @@
-# Desafio técnico para desenvolvedores
+## Aplicação para teste - Repos
 
-Construa uma nova aplicação, utilizando o framework de sua preferência (Ruby on Rails, Elixir Phoenix, Python Django ou Flask, NodeJS Sails, Java Spring, ASP.NET ou outro), a qual deverá conectar na API do GitHub e disponibilizar as seguintes funcionalidades:
+### Uma aplicação construida para:
+- Criar repositórios baseado na Api do Github
+- Listar os repositórios criado
+- Visualizar detalhes do repositório escolhido, assim como do Owner do repositório.
 
-- Botão para buscar e armazenar os repositórios destaques de 5 linguagens à sua escolha;
-- Listar os repositórios encontrados;
-- Visualizar os detalhes de cada repositório.
+### O que foi utilizado e informações gerais
+#### Linguagem e docker
+- Docker
+- Ruby 2.7.1
+- Rails 6
+- Postgresql 12.1
 
-Alguns requisitos:
+#### Gems e outras bibliotecas utilizadas
+- RestClient
+- RSpec
+- Kaminari
+- Bootstrap
+____
+### O que eu preciso fazer para executar e testar essa aplicação
+#### Podemos testar e visualizar a aplicaçaõ em dois momentos devido Docker:
+### *Teste*
+**Inicializando em modo `test` nossos containeres** <br>
 
-- Deve ser uma aplicação totalmente nova;
-- A solução deve estar em um repositório público do GitHub;
-- A aplicação deve armazenar as informações encontradas;
-- Utilizar PostgreSQL, MySQL ou SQL Server;
-- O deploy deve ser realizado, preferencialmente, no Heroku, AWS ou no Azure;
-- A aplicação precisa ter testes automatizados;
-- Preferenciamente dockerizar a aplicação;
-- Por favor atualizar o readme da aplicação com passo a passo com instrução para subir o ambiente.
+`RAILS_ENV=test docker-compose up -d` <br>
+`docker-compose exec app bundle exec rake db:setup db:migrate` <br>
+> Trocar `db:setup` por `db:reset` caso já tenha migrado o banco antes para ter as tabelas e dados limpos.
 
-Quando terminar, faça um Pull Request neste repo e avise-nos por email.
+**Após a finalização do mesmo, podemos executar os testes** <br>
+`docker-compose exec app bundle exec rspec spec`
+> Entre trocas de ambientes deve-se rodar o comando: `docker-compose down`
+### Rodando em modo *production*
+`RAILS_ENV=production docker-compose up -d` <br>
+#### Caso não tenha sido criado e migrado o banco, rodar:
+`docker-compose exec app bundle exec rake db:setup db:migrate`
 
-**IMPORTANTE:** se você não conseguir finalizar o teste, por favor nos diga o motivo e descreva quais foram as suas dificuldades. Você pode também sugerir uma outra abordagem para avaliarmos seus skills técnicos, vender seu peixe, mostrar-nos do que é capaz.
+> Trocar `db:setup` por `db:reset` caso já tenha migrado o banco antes para ter as tabelas e dados limpos.
+### Pronto!
