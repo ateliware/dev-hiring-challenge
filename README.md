@@ -1,5 +1,5 @@
 ## Aplicação para teste - Repos
-
+#### Feito deploy no Heroku em: https://repo-finder-ateliware.herokuapp.com/
 ### Uma aplicação construida para:
 - Criar repositórios baseado na Api do Github
 - Listar os repositórios criado
@@ -19,8 +19,8 @@
 - Bootstrap
 ____
 ### O que eu preciso fazer para executar e testar essa aplicação
-#### >> Antes de tudo, deve-se entrar na pasta repos/ <<
 #### Podemos testar e visualizar a aplicaçaõ em dois momentos devido Docker:
+#### >> Antes de tudo, deve-se entrar na pasta repos/ <<
 ### *Teste*
 **Inicializando em modo `test` nossos containeres** <br>
 
