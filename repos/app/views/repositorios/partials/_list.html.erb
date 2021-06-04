@@ -1,0 +1,39 @@
+<% repositorios.each_with_index do |repo, index| %>
+  <div class="row node-repo-element">
+    <div class="col-md-12">
+      <div class="card mb-3" style="max-height: 4em; padding-right: 0.4em;">
+        <div class="row no-gutters">
+          <div class="col-md-3">
+            <div class="row">
+              <div class="col-md-5">
+                <%= image_tag(repo.owner.avatar_url, size: 60) %>
+              </div>
+              <div class="col-md-7 d-flex align-items-center">
+                <h5 class="card-title pl-4 hidden-content-text" data-bs-toggle="tooltip" data-bs-placement="top" title="<%= repo.name %>"> <%= repo.name %> </h5>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-7">
+            <div class="card-body card-body-without-vertical-padding">
+              <p class="card-text hidden-content-text" style="margin-bottom: 0.6em;" data-bs-toggle="tooltip" data-bs-placement="top" title="<%= repo.description %>"> <%= repo.description %> </p>
+              <p class="card-text" style="font-size: 0.8em;"><small class="text-muted"> Owned by: <%= repo.owner.login %> </small></p>
+            </div>
+          </div>
+          <div class="col-md-2 d-flex align-items-center justify-content-lg-between">
+            <span class="badge-mine">
+              <%= repo.language %>
+            </span>
+            <%= link_to repo, class: 'btn btn-sm btn-primary mr-2 show-repo-detail' do %>
+              Visualizar
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+<!--Aligning just the page_entries, paginate is centered by bootstrap flex class in kaminari/_paginator-->
+<div class="text-center">
+  <%= paginate repositorios, remote: true %>
+  <%= page_entries_info repositorios %>
+</div>

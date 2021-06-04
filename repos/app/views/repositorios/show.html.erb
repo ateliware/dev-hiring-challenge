@@ -1,0 +1,45 @@
+<div class="card">
+  <div class="card-body" id="card-body-repo-detail">
+    <%= link_to 'Voltar', repositorios_path, class: 'btn btn-outline-dark' %>
+    <div class="col-md-6 offset-md-3">
+      <div class="row">
+        <div class="col-lg-3 col-md-6 col-sm-12">
+          <div class="row justify-content-center">
+            <h2 class="text-center heading-border-bottom"> Owner </h2>
+            <%= image_tag(@repositorio.owner.avatar_url, class: 'image-size') %>
+            <h3 class="text-center">
+              <%= @repositorio.owner.login %>
+            </h3>
+          </div>
+        </div>
+        <div class="col-lg-9 col-md -6 col-sm-12">
+          <h2 class="heading-border-bottom"> Repository/Project </h2>
+          <h2 class="card-title"> FullName: <span style="font-weight: 400;">
+            <%= link_to @repositorio.html_url, style: 'text-decoration: none;', target: '_blank' do %>
+              <%= @repositorio.full_name %>
+            <% end %>
+          </span>
+          </h2>
+          <h3> Name: <span style="font-weight: 400;"> <%= @repositorio.name %> </span></h3>
+          <h3> Visibility: <%= @repositorio['private'] ? '<span class="badge bg-danger"> private </span>'.html_safe : '<span class="badge bg-success"> public </span>'.html_safe %> </h3>
+          <h3> Language: <span style="font-weight: 400;"> <%= @repositorio.language %> </span></h3>
+
+          <h3> Description: </h3>
+          <div class="card">
+            <div class="card-body">
+              <p class="card-text" style="font-size: 1.4em;"> <%= @repositorio.description %> </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!--        <td> <%#= repo&.name %> </td>-->
+  <!--        <td> <%#= repo&.full_name %> </td>-->
+  <!--        <td> <%#= repo['private'] ? 'SIM' : 'NÃO' %> </td>-->
+  <!--        <td> <%#= repo&.language %> </td>-->
+  <!--        <td> <%#= repo&.description %> </td>-->
+  <!--        <td> <%#= repo&.owner.login %> </td>-->

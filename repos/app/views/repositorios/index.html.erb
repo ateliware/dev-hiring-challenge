@@ -1,0 +1,9 @@
+<div class="container">
+  <%= button_to 'Criar repositorios', repositorios_path, method: :post, class: "btn btn-primary mb-2", id: 'create_repos' %>
+
+  <div class="card">
+    <div class="card-body" id="card-body-content-repos">
+      <%= render 'repositorios/partials/list', repositorios: @repositorios %>
+    </div>
+  </div>
+</div>

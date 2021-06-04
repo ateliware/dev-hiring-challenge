@@ -1,0 +1,26 @@
+.badge-mine {
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 0.6em;
+  background-color: blue;
+  color: white;
+  padding: 0.5em;
+}
+.card-body-without-vertical-padding {
+  padding: 0 1rem !important;
+}
+
+.hidden-content-text {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.image-size {
+  padding: 2em;
+  border-radius: 50%;
+  width: 55% !important;
+}
+.heading-border-bottom {
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 0.15em;
+}
