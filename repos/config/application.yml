@@ -1,6 +1,15 @@
 development:
   api_url: 'https://api.github.com/search/repositories?'
 #  repositories?q=language:ruby
-# production:
+test:
+  api_url: 'https://api.github.com/search/repositories?'
+production:
+  api_url: 'https://api.github.com/search/repositories?'
+  DATABASE_NAME: RepoFinderProduction
+  DATABASE_USER: postgres
+  DATABASE_PASSWORD: 344312
+  DATABASE_HOST: localhost
+  REDIS_HOST: redis
+
 #   stripe_api_key: sk_live_EeHnL644i6zo4Iyq4v1KdV9H
 #   stripe_publishable_key: pk_live_9lcthxpSIHbGwmdO941O1XVU

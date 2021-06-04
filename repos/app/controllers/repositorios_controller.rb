@@ -7,7 +7,7 @@ class RepositoriosController < ApplicationController
   # GET /repositorios
   # GET /repositorios.json
   def index
-    @repositorios = Repositorio.includes(:owner)
+    @repositorios = Repositorio.includes(:owner).page(params[:page])
   end
 
   # GET /repositorios/1
@@ -18,17 +18,16 @@ class RepositoriosController < ApplicationController
   # POST /repositorios
   # POST /repositorios.json
   def create
-
     Repositorio.transaction do
       response_save = repositorio_params(@repositorios_json).each do |repo_param|
         repositorio = Repositorio.new(repo_param.except(:owner))
-        repositorio.build_owner(repo_param[:owner])
+        repositorio.build_owner(repo_param[:owner]) unless Owner.exists?(repo_param[:owner]["id"])
         repositorio.save
       end
       if response_save
-        redirect_to repositorios_path
+        redirect_to repositorios_path, flash: { success: 'Repositorios successfully created' }
       else
-        render json: @repositorio.errors, status: :unprocessable_entity
+        render json: response_save.errors, status: :unprocessable_entity
       end
     end
   end
@@ -58,15 +57,15 @@ class RepositoriosController < ApplicationController
   def build_repositorios
     restclient = Github::Api.new({})
     @repositorios_json = restclient.get_repositories
-    @repositorios_json = { "repositorios": @repositorios_json['items'] }
+    @repositorios_json = { "repositorios": @repositorios_json }
   end
 
     # Only allow a list of trusted parameters through.
     def repositorio_params params
       params.fetch(:repositorios).map do |param|
         ActionController::Parameters.new(param).permit(
-          :name, :full_name, :language, :description, :private,
-          owner: [ :id, :login, :avatar_url ]
+          :name, :full_name, :language, :description, :private, :html_url,
+          owner: [ :id, :login, :avatar_url, :html_url ]
         )
       end
     end

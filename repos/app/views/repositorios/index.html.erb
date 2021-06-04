@@ -1,65 +1,9 @@
 <div class="container">
-  <%= button_to 'Criar repositorios', repositorios_path, method: :post, class: "btn btn-primary mb-2" %>
-  <% @repositorios.each_with_index do |repo, index| %>
-    <div class="row">
-      <div class="col-md-12">
-        <div class="card mb-3" style="max-height: 4em;">
-          <div class="row no-gutters">
-            <div class="col-md-3">
-              <div class="row">
-              <div style="width: 40%;">
-                <%= image_tag(repo.owner.avatar_url, size: 56) %>
-              </div>
-              <div style="width: 60%;">
-                <h5 class="card-title pl-4"> <%= repo.name %> </h5>
-              </div>
-              </div>
-            </div>
-            <div class="col-md-7">
-              <div class="card-body">
-                <p class="card-text"> <%= repo.description %> </p>
-                <p class="card-text"><small class="text-muted"> Owned by: <%= repo.owner.login %> </small></p>
-              </div>
-            </div>
-            <div class="col-md-2">
-              <span class="badge-mine">
-                <%= repo.language %>
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  <% end %>
-</div>
+  <%= button_to 'Criar repositorios', repositorios_path, method: :post, class: "btn btn-primary mb-2", id: 'create_repos' %>
 
-<!--<table class="table table-bordered">-->
-<!--  <thead>-->
-<!--  <tr>-->
-<!--    <th> # </th>-->
-<!--    <th> Name </th>-->
-<!--    <th> Full name </th>-->
-<!--    <th> Privado </th>-->
-<!--    <th> Language </th>-->
-<!--    <th> Description </th>-->
-<!--    <th> Owner </th>-->
-<!--    <th></th>-->
-<!--  </tr>-->
-<!--  </thead>-->
-<!--  <tbody>-->
-    <%# @repositorios.each_with_index do |repo, index| %>
-<!--      <tr>-->
-<!--        <th> <%#= "##{index+1}" %></th>-->
-<!--        <td> <%#= repo&.name %> </td>-->
-<!--        <td> <%#= repo&.full_name %> </td>-->
-<!--        <td> <%#= repo['private'] ? 'SIM' : 'NÃO' %> </td>-->
-<!--        <td> <%#= repo&.language %> </td>-->
-<!--        <td> <%#= repo&.description %> </td>-->
-<!--        <td> <%#= repo&.owner.login %> </td>-->
-<!--        <td>-->
-<!--          <button class="btn btn-primary"> clicar </button>-->
-<!--        </td>-->
-<!--      </tr>-->
-    <%# end %>
-<!--  </tbody>-->
-<!--</table>-->
+  <div class="card">
+    <div class="card-body" id="card-body-content-repos">
+      <%= render 'repositorios/partials/list', repositorios: @repositorios %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,2 @@
+<% js = escape_javascript(render partial: 'repositorios/partials/list', locals: { repositorios: @repositorios }) %>
+document.getElementById('card-body-content-repos').innerHTML = '<%= js %>'

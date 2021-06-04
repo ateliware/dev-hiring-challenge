@@ -1,24 +1,39 @@
-# README
+## Aplicação para teste - Repos
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Uma aplicação construida para:
+- Criar repositórios baseado na Api do Github
+- Listar os repositórios criado
+- Visualizar detalhes do repositório escolhido, assim como do Owner do repositório.
 
-Things you may want to cover:
+### O que foi utilizado e informações gerais
+#### Linguagem e docker
+- Docker
+- Ruby 2.7.1
+- Rails 6
+- Postgresql 12.1
 
-* Ruby version
+#### Gems e outras bibliotecas utilizadas
+- RestClient
+- RSpec
+- Kaminari
+- Bootstrap
+____
+### O que eu preciso fazer para executar e testar essa aplicação
+#### Podemos testar e visualizar a aplicaçaõ em dois momentos devido Docker:
+### *Teste*
+**Inicializando em modo `test` nossos containeres** <br>
 
-* System dependencies
+`RAILS_ENV=test docker-compose up -d` <br>
+`docker-compose exec app bundle exec rake db:setup db:migrate` <br>
+> Trocar `db:setup` por `db:reset` caso já tenha migrado o banco antes para ter as tabelas e dados limpos.
 
-* Configuration
+**Após a finalização do mesmo, podemos executar os testes** <br>
+`docker-compose exec app bundle exec rspec spec`
+> Entre trocas de ambientes deve-se rodar o comando: `docker-compose down`
+### Rodando em modo *production*
+`RAILS_ENV=production docker-compose up -d` <br>
+#### Caso não tenha sido criado e migrado o banco, rodar:
+`docker-compose exec app bundle exec rake db:setup db:migrate`
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+> Trocar `db:setup` por `db:reset` caso já tenha migrado o banco antes para ter as tabelas e dados limpos.
+### Pronto!

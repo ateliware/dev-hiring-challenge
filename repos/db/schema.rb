@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_30_051219) do
+ActiveRecord::Schema.define(version: 2021_06_03_151325) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2021_05_30_051219) do
   create_table "owners", force: :cascade do |t|
     t.string "login"
     t.string "avatar_url"
+    t.text "html_url"
   end
 
   create_table "repositorios", force: :cascade do |t|
@@ -29,6 +30,7 @@ ActiveRecord::Schema.define(version: 2021_05_30_051219) do
     t.bigint "owner_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.text "html_url"
     t.index ["owner_id"], name: "index_repositorios_on_owner_id"
   end
 

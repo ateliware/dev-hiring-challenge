@@ -1,0 +1,2 @@
+CREATE USER devtest;
+ALTER USER devtest WITH SUPERUSER;

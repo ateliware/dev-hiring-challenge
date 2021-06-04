@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
-ENV["RAILS_ENV"] ||= ENV["RACK_ENV"] || "development"
-ENV["NODE_ENV"]  ||= "development"
+ENV["RAILS_ENV"] ||= ENV["RACK_ENV"] || "production"
+ENV["NODE_ENV"]  ||= "production"
 
 require "pathname"
 ENV["BUNDLE_GEMFILE"] ||= File.expand_path("../../Gemfile",
