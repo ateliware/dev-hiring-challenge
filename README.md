@@ -19,6 +19,7 @@
 - Bootstrap
 ____
 ### O que eu preciso fazer para executar e testar essa aplicação
+#### >> Antes de tudo, deve-se entrar na pasta repos/ <<
 #### Podemos testar e visualizar a aplicaçaõ em dois momentos devido Docker:
 ### *Teste*
 **Inicializando em modo `test` nossos containeres** <br>
