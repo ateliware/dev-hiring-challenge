@@ -70,6 +70,3 @@
 9. A aplicação precisa ter testes automatizados;
 10. Preferenciamente dockerizar a aplicação e
 11. Por favor atualizar o readme da aplicação com passo a passo com instrução para subir o ambiente [11].
-
-    
->>>>>>> 44297c90462bab8f007e27a7984528b33e7e931b
