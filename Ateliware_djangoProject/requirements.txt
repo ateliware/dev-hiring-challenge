@@ -1,0 +1,8 @@
+PyGithub
+selenium
+psycopg2
+django
+gunicorn
+django-heroku
+django-cors-headers
+django-windows-tools
