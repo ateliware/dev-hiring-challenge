@@ -1,0 +1,265 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Hire Me!</title>
+
+        <!-- Creating loader with pure CSS! -->
+        <style>
+            .loader {
+                  border: 8px solid #A1A1A1;
+                  border-top: 8px solid rgb(239, 0, 68);
+                  border-radius: 50%;
+                  width: 50px;
+                  height: 50px;
+                  animation: spin 2s linear infinite;
+                  display: none;
+                  margin-left: auto;
+                  margin-right: auto;
+            }
+            @keyframes spin {
+                  0% { transform: rotate(0deg); }
+                  100% { transform: rotate(360deg); }
+            }
+        </style>
+
+        <link rel="icon" href="{% static 'img/ateliware_ico.ico' %}" type="image/x-icon">
+        <link rel="stylesheet" href="{% static 'css/amsify.suggestags.css' %}">
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    </head>
+    <body>
+
+        <!-- Ateliware logo and my name/linkedin link -->
+        <nav class="navbar fixed-top navbar-light bg-light" style="max-height: 75px">
+            <a class="navbar-brand" href="https://ateliware.com/" target="_blank" style="align-self: baseline">
+                <img src="{% static 'img/ateliware_logo.png' %}" width="149" height="50" alt="">
+            </a>
+            <a class="navbar-brand" href="https://www.linkedin.com/in/marcelo-feliciano-filho-731504182/" target="_blank" style="align-self: end">
+                <img src="{% static 'img/linkedin-logo.png' %}" width="181" height="50" alt="">
+            </a>
+        </nav>
+        <br><br><br><br>
+        <!-- Page body container -->
+        <div class="container" style="child-align: middle">
+            <div class="row mb-4" style="max-width: 100vw; alignment: center">
+               <div class="col-lg-8 mx-auto text-center" >
+                   <h2 class="display-6"><b>Encontrar Repositórios Destaques em: CSS, HTML, Python, JS, Flutter e outras!</b></h2>
+                   <hr class="rounded">
+                   <br>
+                   <input id="lang_input" type="text" class="form-control" name="languages" placeholder="Digite Aqui">
+                   <br>
+                   <button id="btn_search" onclick="get_repos()" class="btn btn-outline-danger" style="border-bottom-color: rgb(239, 0, 68); --button-hover-bg: rgb(239, 0, 68)">Encontrar Repositórios!</button>
+               </div>
+            </div>
+            <!-- First Table: New Github repositories -->
+            <div class="loader" id="loader" style="display: none"></div>
+            <div class="row"  style="alignment: center" >
+                <div class="container mb-4 mt-4" style="max-width: 90vw; max-height: 75vh; overflow: hidden;">
+                    <h2 class="title-3" style="align-content: center">Os Repositórios mais Incríveis do Momento!</h2>
+                    <div id="nw_table"></div>
+                </div>
+            </div>
+            <!-- Second Table: registered Github repositories -->
+            <div class="row"  style="alignment: center;" >
+                <div class="container mb-4 mt-4" style="max-width: 90vw; max-height: 105vh; overflow-x: hidden;">
+                    <h2 class="title-3">Repositórios que já se Destacaram em suas Buscas!</h2>
+                    <div id="db_table"></div>
+                </div>
+            </div>
+            <div id="teste"></div>
+        </div>
+
+        <!-- This Repository github link -->
+        <nav class="navbar bottom navbar-light bg-light" style="max-height: 75px">
+            <a class="navbar-brand" href="https://github.com/marcelo-feliciano-filho/ateliware_challenge" target="_blank" style="align-self: initial">
+                <img src="{% static 'img/github.png' %}" width="124" height="50" alt="">
+            </a>
+            <a class="navbar-brand" style="align-self: normal; font-size: 15px; padding: 20px"> Software Artesanalmente Desenvolvido por: Marcelo Feliciano Filho </a>
+        </nav>
+
+    </body>
+    <footer>
+
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/js/bootstrap.min.js"></script>
+    <script src="{% static 'js/jquery.amsify.suggestags.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/javascript.util/0.12.12/javascript.util.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
+
+    <script>  // Such JS configures datatables language and search boxes
+
+        var repositories_dt = {{ repositories|safe }};  // Repositories data to be shown on repo datatable
+        var new_repositories = [];
+        let pt_pack = {"lengthMenu": "Apresentar  _MENU_ Repositórios por página.",
+                       "zeroRecords": "Pressione o botão acima e encontre os repositórios destaque",
+                       "info": "Mostrando _PAGE_ de _PAGES_ páginas",
+                       "infoEmpty": "Mostrando 0 para 0 de 0 Repositórios",
+                       "search": "Pesquisar:",
+                       "paginate":{ "next":"Próximo", "previous":"Anterior"},
+                       "infoFiltered": "(Filtrando de   _MAX_ Repositórios)",
+                       }
+        var table = '';
+        var table_nw = '';
+
+        function configure_tables(){
+
+            table = $('#tb_nw_repo').DataTable({
+                "language": pt_pack,
+                "paging": true,
+                "destroy": true,
+                "searching": true
+            });
+
+            table.columns().every( function () {
+                var that = this;
+                $('input', this.header() ).on( 'keyup change', function () {
+                    if ( that.search() !== this.value ) {
+                        that.search( this.value ).draw();
+                    }
+                });
+            });
+
+            table_nw = $('#tb_repo').DataTable({
+                "language": pt_pack,
+                "paging": true,
+                "destroy": true,
+                "searching": true
+            });
+
+            $('.repo_datatable thead th').each( function (){
+                var title = $(this).text();
+                var input = document.querySelectorAll('input');
+                for(i=1; i<input.length; i++){  // Starts on one to pass the first input object
+                    if((input[i].getAttribute('placeholder').length-3)<=0)
+                        input[i].setAttribute('size',(input[i].getAttribute('placeholder').length-1));
+                    else
+                        input[i].setAttribute('size',(input[i].getAttribute('placeholder').length-3));
+                }
+                $(this).html('<input class="form-control" type="text" style="font-size: 11px; padding: 2px" placeholder="'+title+'"/>');
+            });
+
+            table_nw.columns().every( function () {
+                var that = this;
+                $('input', this.header() ).on( 'keyup change', function () {
+                    if ( that.search() !== this.value ) {
+                        that.search( this.value ).draw();
+                    }
+                });
+            });
+
+        }
+
+        // Function that Creates a string for inserting on tables inner html
+        function create_datatable(datatable) {
+            var html_data = '';
+            for (row in datatable){  // for each wor in datatable
+                html_data += '<tr>'
+                for (dt in datatable[row]) {  // for each data in row
+                    if (dt)
+                    if (dt == 0) {  // If is the first item, set the repository link on datatable
+                        html_data += `<td style="text-align:center; background-color: rgb(238, 238, 238);"><a href="${datatable[row][2]}" target="_blank">${datatable[row][dt]}</a></td>`;
+                    } else if (dt == 2) {  // Goes to next, without inserting on table
+                        continue
+                    } else {
+                        html_data += `<td style="text-align:center; background-color: rgb(238, 238, 238);">${datatable[row][dt]}</td>`;
+                    }
+                }
+                html_data += '</tr>'
+            }
+            return html_data
+        }
+
+
+        // Config JS code, to update tables and configure them
+        function update_dt_table(id_tb, id_div){  // This function fills datatables with data after AJAX call
+
+            var tb_data = '';
+            var table_def = '';
+
+            if (id_tb == 'tb_repo'){  // If it´s the tb with all repositories eer searched
+                table_def = '<table id="tb_repo" class="table-responsive text-nowrap table-sm repo_datatable table table-bordered" style="border-radius: 5%; padding: 0%; font-size: 11px;" >';
+                tb_data = `<tbody id = "old_data">
+                               ${create_datatable(repositories_dt)}
+                           </tbody>`;
+
+            } else {  // Otherwise it must be the new repositories datatable
+                table_def = '<table id="tb_nw_repo" class="table-responsive text-nowrap table-sm nw_repo_datatable table table-bordered" style="border-radius: 5%; padding: 0%; font-size: 11px">';
+                tb_data = `<tbody id = "new_data">
+                               ${create_datatable(new_repositories)}
+                           </tbody>`;
+            }
+
+            // Updates datatables by innerHTML method, both have the same header and footer
+            document.getElementById(id_div).innerHTML = `
+            ${table_def}
+                <thead>
+                    <tr id = "header_repo">
+                        {% if header %}
+                            {% for h in header %}
+                                <th scope="col" style="text-align: center; color: blanchedalmond; background-color: rgb(239, 0, 68);">{{ h }}</th>
+                            {% endfor %}
+                        {% endif %}
+                    </tr>
+                </thead>
+                ${tb_data}
+                <tfoot class="thead-light">
+                    <tr id = "footer_repo">
+                        {% if header %}
+                            {% for h in header %}
+                                {% if h == "Estrelas" %}
+                                    <td style="text-align:center; background-color: rgb(238, 238, 238);"><b>{{ h }} &#11088;<b></td>
+                                {% else %}
+                                    <th scope="col" style="text-align: center; background-color: rgb(235, 235, 235);" >{{ h }}</th>
+                                {% endif %}
+                            {% endfor %}
+                        {% endif %}
+                    </tr>
+                </tfoot>
+            </table>`;
+        }
+
+        update_dt_table('tb_nw_repo', 'nw_table')  // Initializes tb_repo with data for tb_nw_repo
+        update_dt_table('tb_repo', 'db_table')  // Initializes tb_repo with data for tb_repo
+        configure_tables()  // Configures both datatables
+
+        // JS responsible by creating ajax requisition to back-end
+        function get_repos(){
+
+            var list_lang = $('#lang_input').val().split(',');  // Languages chosen by user
+            $('#loader').show();
+            if (list_lang.length > 0) {
+                $.ajax({type: "GET",
+                        url: "search/",
+                        dataType: 'json',
+                        data: {'lang': JSON.stringify({'list_lang': list_lang}),
+                               'csrfmiddlewaretoken': '{{ csrf_token|safe }}'},
+                }).done(function (data){  // Receives JsonResponse from python
+                    if (Object.keys(data['new_found']).includes('message')){  // If there is a error message, alerts user
+                        alert(`O número máximo de requisições permitidas pela API do GitHub por hora foi excedido.\n\nMensagem de Erro: ${data['new_found']['message']}.\n\nSaiba mais em: ${data['new_found']['documentation_url']}.`)  // calls pop-up as a toast
+                    } else {  // It there is no error message in new_found data, tables are updated
+                        repositories_dt = data['repositories'];  // Updates global js variable with all repositories data
+                        new_repositories = data['new_found'];  // Updates global js variable with new repositories data
+                        table.destroy();  // destroy table before updating it
+                        table_nw.destroy();  // destroy table before updating it
+                        update_dt_table('tb_nw_repo', 'nw_table')  // Initializes tb_nw_repo with data for tb_repo
+                        update_dt_table('tb_repo', 'db_table')  // Initializes tb_repo with data for tb_nw_repo
+                        configure_tables()  // reconfigures tables
+                    }
+                    $('#loader').hide()
+                })
+            }
+        }
+
+        $(document).ready(function(){
+           $('input[name="languages"]').amsifySuggestags({  suggestions: {{ languages|safe }} });
+        });
+
+    </script>
+
+</html>
