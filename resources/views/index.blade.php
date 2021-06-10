@@ -20,7 +20,7 @@
                 <div class="flex items-center">
                     <i class="fas fa-box dark:text-gray-400"></i>
                     <div class="ml-4 text-lg leading-7 font-semibold">
-                        <a href="{{$item['url']}}" class="blue underline text-gray-900 dark:text-white">{{$item['full_name']}}</a>
+                        <a href="{{route('show', [$item])}}" class="blue underline text-gray-900 dark:text-white">{{$item['full_name']}}</a>
                     </div>
                 </div>
                 <div class="ml-2">

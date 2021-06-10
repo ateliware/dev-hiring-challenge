@@ -14,4 +14,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'HomeController@index')->name('home');
+Route::get('/show/{repository}', 'HomeController@show')->name('show');
 Route::get('/refresh', 'HomeController@refresh')->name('refresh');

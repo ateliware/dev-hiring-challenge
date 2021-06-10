@@ -70,6 +70,9 @@
                 color: #fff;
                 background-color: #007bff;
             }
+            hr.with-border {
+                border:1px solid #e2e8f0;
+            }
         </style>
     </head>
     <body class="antialiased">

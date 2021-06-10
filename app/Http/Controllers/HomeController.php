@@ -14,6 +14,11 @@ class HomeController extends Controller
         return view('index', compact('items'));
     }
 
+    public function show(Repository $repository)
+    {
+        return view('show', compact('repository'));
+    }
+
     public function refresh()
     {
         # lista de linguagens escolhidas
