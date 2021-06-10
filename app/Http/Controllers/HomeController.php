@@ -3,14 +3,21 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use GuzzleHttp\Client;
 use App\Models\Repository;
+use App\Services\RepositoryServiceInterface;
 
 class HomeController extends Controller
 {
+    private $repositoryService;
+
+    public function __construct(RepositoryServiceInterface $repositoryService)
+    {
+        $this->repositoryService = $repositoryService;
+    }
+
     public function index(Request $request)
     {
-        $items = Repository::orderBy('stargazers_count', 'desc')->paginate(10, [ '*' ], 'p');
+        $items = $this->repositoryService->getAll();
         return view('index', compact('items'));
     }
 
@@ -25,7 +32,7 @@ class HomeController extends Controller
         $languages = ['Python', 'PHP', 'JavaScript', 'C#', 'Java'];
 
         foreach ($languages as $lang) {
-            $response = $this->searchInGithub($lang);
+            $response = $this->repositoryService->search($lang);
             $items = collect();
             if (!empty($response)) {
                 $items = collect($response['items'])->map(function($item){
@@ -47,35 +54,13 @@ class HomeController extends Controller
                     ];
                 });
 
-                Repository::where('language', $lang)->orderBy('stargazers_count', 'desc')->skip(20)->delete();
+                $this->repositoryService->skip20AndDelete($lang);
                 foreach ($items as $item) {
-                    Repository::firstOrCreate($item);
+                    $this->repositoryService->firstOrCreate($item);
                 }
             }
         }
 
         return redirect()->route('home');
-    }
-
-    public static function searchInGithub($language)
-    {
-        $client = new Client();
-        $response = $client->request('GET', 'https://api.github.com/search/repositories', [
-            'query' => [
-                'q' => 'language:'.$language,
-                'sort' => 'stars',
-                'order' => 'desc',
-                'per_page' => '10',
-                'page' => '1'
-            ]
-        ]);
-
-        if ($response->getStatusCode() != 200) {
-            request()->session()->flash('error', 'Não foi possível estabelecer conexão com a API do Github. Tente novamente em alguns minutos :)');
-            return null;
-        }
-            
-
-        return json_decode($response->getBody(), true, 512, JSON_THROW_ON_ERROR);
     }
 }
