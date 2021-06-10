@@ -1,7 +1,7 @@
 # dev-hiring-challenge
 
 ## **Ferramentas/Requisitos**
----
+
 - Framework utilizado: [Laravel 8](https://laravel.com/docs/8.x)
 - Banco de dados utilizado: [MySQL](https://dev.mysql.com/downloads/)
 - Instalar também:
@@ -10,7 +10,7 @@
     - [Docker](https://docs.docker.com/) (para Ambiente com Docker)
 
 ## **Configurações**
----
+
 - Clonar este projeto utilizando o comando `git clone https://github.com/jgivago/dev-hiring-challenge.git`
 - Criar uma cópia do **.env.example** e renomear para **.env**, executando o comando `cp .env.example .env`
 - Executar o comando `composer update` para baixar todas as dependências necessárias
@@ -74,7 +74,7 @@
     ```php
     Digite o comando WIN+R -> services.msc -> procurar serviço do mysql -> parar
     ```
-    
+
 - Executar o comando `./vendor/bin/sail up` para criar o ambiente com Docker
 - Abrir o banco e criar um novo database com o nome da configuração definida na variável `DB_DATABASE` do arquivo **.env**
 - Executar o comando `php artisan migrate` para rodar as migrations e criar a estrutura do DB
@@ -82,9 +82,9 @@
 - Abrir a url [http://localhost](http://localhost) no browser
 
 ## **Como Funciona?**
----
+
 Em construção
 
 ## **Como Executar os Testes?**
----
+
 Em construção
