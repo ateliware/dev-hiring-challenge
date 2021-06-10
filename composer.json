@@ -55,5 +55,9 @@
         "sort-packages": true
     },
     "minimum-stability": "dev",
-    "prefer-stable": true
+    "prefer-stable": true,
+    "warmup": [
+        "php artisan config:cache",
+        "php artisan route:cache"
+    ]
 }
