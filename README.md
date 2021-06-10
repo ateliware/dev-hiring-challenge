@@ -31,14 +31,7 @@
     ```
 
 - Abrir o banco e criar um novo database com o nome da configuração definida na variável `DB_DATABASE` do arquivo **.env**
-- Executar os comandos abaixo para limpar o cache do arquivo **.env**
-    
-    ```php
-    php artisan config:clear
-    php artisan config:cache
-    php artisan optimize:clear
-    ```
-
+- Executar o comando `php artisan config:cache` para limpar o cache do arquivo **.env**
 - Executar o comando `php artisan migrate` para rodar as migrations e criar a estrutura do DB
 - Executar o comando `php artisan key:generate` para gerar uma nova *Application Key*
 - Executar o comando `php artisan serve` para startar um *Server de Dev*
@@ -65,14 +58,7 @@
     DB_PASSWORD=password
     ```
 
-- Executar os comandos abaixo para limpar o cache do arquivo **.env**
-    
-    ```php
-    php artisan config:clear
-    php artisan config:cache
-    php artisan optimize:clear
-    ```
-
+- Executar o comando `php artisan config:cache` para limpar o cache do arquivo **.env**
 - Importante: Caso o MySQL local estiver rodando, parar o serviço para não conflitar com o MySQL do Docker (mesma porta)
     
     ```php
@@ -81,9 +67,10 @@
 
 - Executar o comando `./vendor/bin/sail up` para criar o ambiente com Docker
 - Abrir o banco e criar um novo database com o nome da configuração definida na variável `DB_DATABASE` do arquivo **.env**
-- Executar o comando `php artisan migrate` para rodar as migrations e criar a estrutura do DB
-- Executar o comando `php artisan key:generate` para gerar uma nova *Application Key*
+- Executar o comando `docker exec dev-hiring-challenge_laravel.test_1 php artisan migrate` para rodar as migrations e criar a estrutura do DB
+- Executar o comando `docker exec dev-hiring-challenge_laravel.test_1 php artisan key:generate` para gerar uma nova *Application Key*
 - Abrir a url [http://localhost](http://localhost) no browser
+- Caso ainda persista algum problema de cache, executar o comando `docker exec dev-hiring-challenge_laravel.test_1 php artisan optimize:clear`
 
 ## **Como Funciona?**
 
