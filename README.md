@@ -59,7 +59,7 @@
     ```
 
 - Executar o comando `php artisan config:cache` para limpar o cache do arquivo **.env**
-- Importante: Caso o MySQL local estiver rodando, parar o serviço para não conflitar com o MySQL do Docker (mesma porta)
+- Importante: Caso o MySQL local estiver rodando, parar o serviço para não conflitar com o MySQL do Docker (utilizam a mesma porta / 3306)
     
     ```php
     Digite o comando WIN+R -> services.msc -> procurar serviço do mysql -> parar
@@ -76,7 +76,7 @@
 
 - Projeto no Heroku: [https://dev-hiring-challenge-laravel.herokuapp.com](https://dev-hiring-challenge-laravel.herokuapp.com)
 
-- Ao abrir a página, será exibida uma listagem com os 10 projetos com mais estrelas no github para as seguintes linguagens:
+- Ao abrir a página, será exibida uma listagem com os 10 projetos com mais estrelas no Github para as seguintes linguagens:
 `PHP`, `JavaScript`, `Python`, `C#` e `Java`.
 
 - Para realizar uma nova pesquisa na API do Github, clicar no botão `Atualizar` no topo da página.
@@ -89,4 +89,18 @@
 
 ## **Como Executar os Testes?**
 
-Em construção
+- Executar **TODA** a suíte de testes: utilizar o comando `vendor/bin/phpunit`
+    ```php
+    Exemplo
+
+    $ vendor/bin/phpunit
+    PHPUnit 9.5.5 by Sebastian Bergmann and contributors.
+
+    ......                                                              6 / 6 (100%)
+
+    Time: 00:10.726, Memory: 22.00 MB
+
+    OK (6 tests, 9 assertions)
+    ```
+- Executar **APENAS** os testes de funcionalidades: utilizar o comando `vendor/bin/phpunit tests/Feature/`
+- Executar um teste específico: utilizar o comando`vendor/bin/phpunit tests/Feature/ --filter name_of_the_test`
