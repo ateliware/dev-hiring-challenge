@@ -90,6 +90,7 @@
 ## **Como Executar os Testes?**
 
 - Executar **TODA** a suíte de testes: utilizar o comando `vendor/bin/phpunit`
+
     ```php
     Exemplo
 
