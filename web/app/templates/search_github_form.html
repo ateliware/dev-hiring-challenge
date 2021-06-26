@@ -1,0 +1,24 @@
+<form class="needs-validation" action="/searchgithub" method="post" id="form_search_i">
+    <section class="py-2 text-center container">
+        <div class="row py-lg-3">
+          <div class="col-lg-6 col-md-6 mx-auto">
+            <h4 class="fw-light">Localizar no GitHub respositórios em destaque</h4>
+            <div>
+                <span class="badge bg-light text-dark"> <img src="{{ url_for('static', filename= 'images/language_python.png') }}" width='24px'> Python</span>
+                <span class="badge bg-light text-dark"> <img src="{{ url_for('static', filename= 'images/language_javascript.png') }}" width='24px'> JavaScript</span>
+                <span class="badge bg-light text-dark"> <img src="{{ url_for('static', filename= 'images/language_dart.png') }}" width='24px'> Dart</span>
+                <span class="badge bg-light text-dark">	<img src="{{ url_for('static', filename= 'images/language_ruby.png') }}" width='24px'> Ruby {{image_lang}}</span>
+                <span class="badge bg-light text-dark">	<img src="{{ url_for('static', filename= 'images/language_php.png') }}" width='24px'> PHP</span>
+            </div>
+              <div class="form-floating mb-3 mt-3">
+                <input type="text" class="form-control" id="keyWords_i" name="keywords" maxlength="40">
+                <label for="floatingInput">Personalizar busca (ex. machine learning ) [opcional]</label>
+            </div> 
+             <button class="w-100 btn btn-primary btn-lg loading_action" type="submit" id="search_submit_i">
+               Consultar 
+            </button>
+         </div>
+    </div>
+    </section>
+    <input type="hidden" name="fromform_st" value="1">
+  </form>

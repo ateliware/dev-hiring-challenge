@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Technical development challenge | Ateliware">
+    <meta name="author" content="Melsar José Dal Ri Filho">
+    <title>{% block title %} {% endblock %}</title>
+    <link href="{{ url_for('static', filename= 'css/bootstrap.min.css') }}" rel="stylesheet">
+  </head>
+  <body>
+    
+<header>
+  <div class="collapse bg-dark" id="navbarHeader">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 col-md-7 py-4">
+          <h4 class="text-white">Apresentação</h4>
+          <p class="text-muted">
+            Esta página tem como propósito atender ao desafio técnico da Ateliware. Consultar no  
+            GitHub repositórios destaques de 5 liguagens, apresentar relação, detalhe de cada repositório e armazenar
+            o resutlado da pesquisa em banco de dados da aplicação. 
+          </p>
+          <p class="text-muted">
+            No formulário, informe uma ou mais palavras de interesse, para refinar a busca. Ou apenas acione o botão
+            de consulta. Após a captura dos dados do GitHub, será apresentada uma relação, com link para o detalhe
+            de cada repositório. Todas as consultas são armazenados, e podem ser acessadas novamente, através do 
+            "Histórico de consultas."
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="navbar navbar-dark bg-dark shadow-sm">
+    <div class="container">
+      <a href="#" class="navbar-brand d-flex align-items-center">
+        <strong>{% block page_title %}{{config.get('TITLE')}} {% endblock %}</strong>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  {% block search_form %} {% endblock %}
+
+  {% block search_history %}
+  <section class="text-center container">
+      <div class="row">
+        <div class="col-lg-10 col-md-10 mx-auto border-top border-3">
+      
+          <div class="accordion accordion-flush" id="accordionFlushExample">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="flush-headingOne">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                  Histórico de consultas
+                </button>
+              </h2>
+              <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample" >
+                <div class="accordion-body overflow-auto">
+                  <table class="table table-dark table-striped table-hover">
+                    <thead>
+                      <tr>
+                        <th scope="col">Data da consulta</th>
+                        <th scope="col">Palavra personalizada</th>
+                        <th scope="col">Ação</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <!-- Bloco itens -->
+                      {% for item_history in data_history %}
+                      <tr>
+                        <th scope="row"> {{item_history.date}}</th>
+                        <td> {{item_history.keywords}}</td>
+                        <td>
+                          <a  href="{{ url_for('search_github_ui.viewhistory', sessionfind=item_history.session) }}" class="btn btn-sm btn-primary">
+                            Visualizar itens
+                          </a>
+                        </td>
+                      </tr>
+                      {% endfor %}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+  </section>
+  {% endblock %}
+  
+  {% block search_result_list %} {% endblock %}
+
+  {% block page_content %} {% endblock %}
+
+</main>
+
+<footer class="text-muted">
+  <div class="container">
+    <hr>
+    <p class="float-end mb-1">
+      <a href="#">Back to top</a>
+    </p>
+    <p class="mb-1">Project Ateliware dev-hiring-challenge </p>
+    <p class="mb-1"> Melsar José Dal Ri Filho </p>
+  </div>
+</footer>
+
+<script src="{{ url_for('static', filename= 'js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ url_for('static', filename= 'js/jquery-3.6.0.min.js') }}"></script>
+<script src="{{ url_for('static', filename= 'js/loadingoverlay.min.js') }}"></script>
+{% block specific_js %} {% endblock %}
+<script>
+$(document).ready(function () {
+	$('#search_submit_i').click(function(){
+		$.LoadingOverlay("show");
+	});
+});
+</script>
+</body>
+</html>
