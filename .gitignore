@@ -1,7 +1,5 @@
 web/virtualenv/
 web/.pytest_cache/
 .pytest_cache/
-db/mysql_data/*
 *.pyc
 __pycache__/
-_aux_mdr/
