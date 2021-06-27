@@ -1,6 +1,6 @@
 [default]
 TITLE = "Ateliware dev-hiring-challenge | Melsar José Dal Ri Filho"
-SQLALCHEMY_DATABASE_URI = "mysql+mysqlconnector://root:desatw21@localhost:33016/atw_dev_challenge"
+SQLALCHEMY_DATABASE_URI = "mysql+mysqlconnector://root:desatw21@atwchallenge_db:3306/atw_dev_challenge"
 SQLALCHEMY_TRACK_MODIFICATIONS = false
 PERMANENT_SESSION_LIFETIME = 1800
 TESTING = false
@@ -24,7 +24,7 @@ DEBUG = true
 TESTING = true
 GITHUB_DEFAULT_LANGUAGES = ['Python','Dart','Ruby','PHP']
 GITHUB_QUANTITY_RESULTS = 1
-SQLALCHEMY_DATABASE_URI = "mysql+mysqlconnector://root:desatw21@localhost:33016/atw_dev_challenge_test"
+SQLALCHEMY_DATABASE_URI = "mysql+mysqlconnector://root:desatw21@atwchallenge_db:3306/atw_dev_challenge_test"
 
 
 [production]

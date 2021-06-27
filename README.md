@@ -20,7 +20,7 @@ Em cada item é possível consultar mais detalhes do repositório.
 
 ## Acessa a aplicação
 
-- <https://melsardalridesatw.azurecr.io>
+- <http://melsardalri.southcentralus.cloudapp.azure.com:5000>
 
 
 ## Instruções para montar o ambiente
@@ -45,9 +45,13 @@ Carregar o código da aplicação no diretório criado.
 
 Clonar repositório:
 ```bash
-git clone 
+git clone https://github.com/MelsarDalRiFilho/dev-hiring-challenge.git
 ```
 ou download arquivo compactado(zip)
+```bash
+https://github.com/MelsarDalRiFilho/dev-hiring-challenge/archive/refs/heads/master.zip
+
+```
 
 ### Configurar o ambiente
 
@@ -114,6 +118,14 @@ Estando com os conteiners ativos:
 
 ```bash
 docker exec -it atwchallenge_web pytest -v
+```
+
+## Instruções para desativar a aplicação
+
+Estando com os conteiners ativos:
+
+```bash
+docker-compose down
 ```
 
 # Desafio técnico proposto
