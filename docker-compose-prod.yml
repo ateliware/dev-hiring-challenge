@@ -1,0 +1,46 @@
+version: "3.7"
+
+networks:
+  atwnetwork:
+    driver: bridge
+
+services:
+  dbmysql:
+    container_name: atwchallenge_db
+    image: mysql:5.7
+    restart: always    
+    environment:
+      MYSQL_ROOT_PASSWORD: "desatw21"
+      MYSQL_DATABASE: "atw_dev_challenge"
+    ports:
+      - "33016:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - atwnetwork
+
+  adminer:
+    container_name: atwchallenge_adminer
+    image: adminer
+    ports:
+      - 8081:8080
+    networks:
+      - atwnetwork
+  
+  web:
+    container_name: atwchallenge_web
+    build: ./web
+    ports:
+      - "5000:5000"
+    expose:
+      - 5000
+    networks:
+      - atwnetwork
+    depends_on:
+      - dbmysql      
+volumes:
+	mysql_data:
+
+
+
+
