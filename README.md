@@ -16,11 +16,12 @@ Em cada item é possível consultar mais detalhes do repositório.
 - Framework: Flask 2 | Pytest | PyGithub
 - Banco de dados: MySQL 
 - Front: MVC
-- Deploy: Microsoft Azure
+- Deploy: Microsoft Azure AND Digital Ocean
 
 ## Acessa a aplicação
 
-- <http://melsardalri.southcentralus.cloudapp.azure.com:5000>
+- DIGITAL OCEAN: <http://142.93.247.248:5000/>
+- AZURE: <http://melsardalri.southcentralus.cloudapp.azure.com:5000>
 
 
 ## Instruções para montar o ambiente
