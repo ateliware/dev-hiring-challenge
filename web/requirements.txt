@@ -1,0 +1,13 @@
+dynaconf==3.1.4
+Flask==2.0.1
+Flask-RESTful==0.3.9
+Flask-Session==0.3.2
+Flask-SQLAlchemy==2.5.1
+SQLAlchemy==1.4.17
+SQLAlchemy-serializer==1.4.1
+SQLAlchemy-Utils==0.37.5
+mysql-connector-python==8.0.25
+pytest==6.2.4
+pytest-flask==1.2.0
+python-dotenv==0.17.1
+PyGithub==1.55

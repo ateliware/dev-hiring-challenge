@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block title %}{{config.get('TITLE')}} {% endblock %}
+{% block page_title %}{{config.get('TITLE')}} {% endblock %}
+
+{% block search_form %}
+  {% include 'search_github_form.html' %}
+{% endblock %}
+
+{% block search_result_list %}
+
+<div class="container">
+      <hr>
+     <h4 class="text-center">Repositórios em destaque localizados: {{keywords}}</h4></class>
+      <table class="table caption-top table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Linguagem</th>
+          <th scope="col">Nome</th>
+          <th scope="col">Autor</th>
+          <th scope="col">Estrelas</th>
+          <th scope="col">Ação</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Bloco itens -->
+        {% for item in data %}
+        <tr>
+          <th scope="row">  <img src="{{item.language_img }}" width='24px'> {{item.language}}</th>
+          <td> {{item.full_name}}</td>
+          <td> {{item.organization_name}}</td>
+          <td> 
+            {{item.stargazers_count}}
+          </td>
+          <td>
+            <button type="button" class="btn btn-sm btn-primary link-show-detail" data-id='{{item.id}}'>
+              Ver mais
+            </button>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade bd-example-modal-lg" id="modal-repository-detail" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Repositório GitHub</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block specific_js %}
+  <script src="{{ url_for('static', filename= 'js/search_github_detail.js') }}"></script>
+{% endblock %}
+
