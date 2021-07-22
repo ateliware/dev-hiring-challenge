@@ -1,1 +1,4 @@
-flask===1.1.2
+Flask
+psycopg2
+SQLAlchemy
+Flask-WTF
