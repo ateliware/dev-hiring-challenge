@@ -3,9 +3,9 @@ services:
   db:
     image: "postgres:13.3"
     environment:
-      - POSTGRES_USER: postgres
-      - POSTGRES_PASSWORD: postgres
-      - POSTGRES_DB: flaskapp_db
+      - POSTGRES_USER: "postgres"
+      - POSTGRES_PASSWORD: "postgres"
+      - POSTGRES_DB: "flaskapp_db"
     volumes:
       - "dbdata:/var/lib/postgresql/data"
   flaskapp:
@@ -13,10 +13,10 @@ services:
     volumes:
       - .:/opt/services/flaskapp/src
     environment:
-      - POSTGRES_USER: postgres
-      - POSTGRES_PASSWORD: postgres
-      - POSTGRES_DB: flaskapp_db
-      - APP_SECRET_KEY: ateliware
+      - POSTGRES_USER: "postgres"
+      - POSTGRES_PASSWORD: "postgres"
+      - POSTGRES_DB: "flaskapp_db"
+      - APP_SECRET_KEY: "ateliware"
     depends_on:
       - db
 volumes:
