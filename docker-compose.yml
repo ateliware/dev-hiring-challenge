@@ -13,6 +13,9 @@ services:
     volumes:
       - .:/opt/services/flaskapp/src
     environment:
+      - POSTGRES_USER: postgres
+      - POSTGRES_PASSWORD: postgres
+      - POSTGRES_DB: flaskapp_db
       - APP_SECRET_KEY: ateliware
     depends_on:
       - db
