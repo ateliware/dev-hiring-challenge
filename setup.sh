@@ -7,3 +7,5 @@ sudo usermod -a -G docker ec2-user
 sudo chmod 666 /var/run/docker.sock
 sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
 sudo service docker start
+docker-compose up -d db
+docker-compose run --rm flaskapp /bin/bash -c "cd /opt/services/flaskapp/src && python database_init.py"
