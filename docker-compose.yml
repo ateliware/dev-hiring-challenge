@@ -8,6 +8,8 @@ services:
       POSTGRES_DB: "flaskapp_db"
     volumes:
       - "dbdata:/var/lib/postgresql/data"
+    ports:
+      - 5432:5432
   flaskapp:
     build: .
     volumes:
@@ -17,6 +19,8 @@ services:
       POSTGRES_PASSWORD: "postgres"
       POSTGRES_DB: "flaskapp_db"
       APP_SECRET_KEY: "ateliware"
+    ports:
+      - 5000:5000
     depends_on:
       - db
 volumes:
