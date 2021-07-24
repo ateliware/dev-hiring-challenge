@@ -15,9 +15,9 @@ services:
     volumes:
       - .:/opt/services/flaskapp/src
     environment:
-      POSTGRES_USER: "postgres"
-      POSTGRES_PASSWORD: "postgres"
-      POSTGRES_DB: "flaskapp_db"
+      DB_USERNAME: "postgres"
+      DB_PASSWORD: "postgres"
+      DB_NAME: "flaskapp_db"
       APP_SECRET_KEY: "ateliware"
     ports:
       - 5000:5000

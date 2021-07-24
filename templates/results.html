@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+    {% block header %} Resultados da Busca {% endblock %}
+    {% block content %}
+        <ul>
+        {% for result in results %}
+            <li>
+                <b>{{ result.lang }}: </b> 
+                {{ result.name }} ({{ result.stars }} stars) - {{ result.description }} 
+                [<a href="{{ result.link }}">link</a>]
+            </li>
+        {% endfor %}
+        </ul>
+        <a href="{{ url_for( 'repositories.enter_search' ) }}">
+            <button> Faça Nova Busca </button>
+        </a>
+    {% endblock %}

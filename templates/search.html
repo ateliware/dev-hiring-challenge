@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+    {% block header %} Escolha as linguagens a serem buscadas {% endblock %}
+    {% block content %}
+        <form action="{{ url_for( 'repositories.enter_search' ) }}" method="POST">
+            {% for key in lang_keys %}
+                <input type="text" name="{{ key }}" style="width:50px"/>
+            {% endfor %}
+            <input type="submit" name="submit" value="Buscar"/>
+        </form>
+    {% endblock %} 
