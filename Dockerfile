@@ -11,4 +11,4 @@ RUN pip install -r requirements.txt
 COPY . /opt/services/flaskapp/src
 #EXPOSE 5000/tcp
 #CMD ["python", "app.py"]
-CMD ["flask", "run", "app.py"]
+CMD ["flask", "run"]
