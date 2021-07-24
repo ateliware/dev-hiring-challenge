@@ -9,4 +9,5 @@ sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
 sudo service docker start
 cd /home/ec2-user/ateliware-challenge
 docker-compose up -d db
+docker-compose build flaskapp
 docker-compose run --rm flaskapp /bin/bash -c "flask db upgrade"

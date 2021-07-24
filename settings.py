@@ -1,6 +1,7 @@
 import os
 SECRET_KEY = os.getenv( 'APP_SECRET_KEY' )
 DB_HOST = os.environ.get( 'DB_HOST' )
+if not DB_HOST: DB_HOST = 'localhost'
 DB_USERNAME = os.environ.get( 'DB_USERNAME' )
 DB_PASSWORD = os.environ.get( 'DB_PASSWORD' )
 DB_NAME = os.environ.get( 'DB_NAME' )
