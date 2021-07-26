@@ -1,5 +1,59 @@
-# Instruções para Deployment Automático em Instância Amazon EC2
+# Execução Manual
 
+### Dependências
+***
+
+Para executar a aplicação localmente, tenha um interpretador **Python 3.x** instalado e adicione os pacotes necessários com o comando:
+
+```shell
+pip install -r requirements.txt
+```
+
+***
+### Ambiente
+***
+
+Antes de rodar a aplicação, tenha uma base de dados **PostgreSQL** disponível de acordo com as configurações indicadas no arquivo `.flaskenv`
+
+Inicialize as tabelas do banco executando a migration já configurada:
+
+```shell
+flask db upgrade
+```
+
+Após isso é possível iniciar a aplicação, definindo ou não o endereço do banco de dados com a variável _DB_HOST_ (valor padrão **'localhost'**), com o comando:
+
+```shell
+DB_HOST=<your_host> flask run
+```
+***
+### Testes
+***
+
+Testes podem ser executados com o comando: 
+
+```shell
+DB_HOST=<your_test_host> python test_runner.py 
+```
+
+# Execução com Docker
+
+Para inicializar banco de dados e aplicação com **docker-compose**, execute os seguintes comandos no shell:
+
+```shell
+docker-compose up -d db
+```
+```shell
+docker-compose build --no-cache
+```
+```shell
+docker-compose run --rm flaskapp flask db upgrade
+```
+```shell
+docker-compose up -d
+```
+
+# Deployment Automático em Instância Amazon EC2
 
 ### Crie os IAM Roles necessários
 ***
