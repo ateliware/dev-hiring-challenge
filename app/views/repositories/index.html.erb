@@ -1,0 +1,64 @@
+<div class="container center-me">
+
+<div class="jumbotron vertical-center">
+  <div class="alert alert-success align-middle" role="alert">
+    <h1 class="alert-heading align-middle"  style="text-align:center;">Desafio técnico para desenvolvedores</h4>
+  </div>
+</div>
+
+  <div class="row justify-content-center">
+    <div class="col">
+      <div class="card text-center">
+        <div class="card-header">
+          Status da Base de Dados
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Buscar e armazenar os repositórios destaques de 5 linguagens!</h5>
+          <% if !@repository.present? %>
+            <p class="card-text">Click no Botão para buscar e armazenar os repositórios buscados.</p>
+            <a href="/repositories/new" class="btn btn-primary mb-3" style="color:white">Buscar e Armazenar</a>
+          <% else %>        
+            <p class="card-text">
+              <div class="alert alert-success" role="alert">
+                  Base dados Preenchida!!!
+              </div>
+            </p>
+          <% end %>          
+        </div>
+        <div class="card-footer text-muted"></div>
+      </div>      
+    </div>
+
+    <div class="col">
+      <div class="card text-center">
+        <div class="card-header">
+          Listar os repositórios encontrados
+        </div>
+        <div class="card-body">
+          <h5 class="card-title"></h5>
+          <% if !@repository.present? %>
+            <p class="card-text">Click no Botão no Card ao lado para buscar e armazenar os repositórios buscados.</p>
+              <div class="alert alert-warning" role="alert">
+                  Base de dados vazia!!!
+              </div>
+          <% else %>
+            <form action="repositories/show" method="get" class="row g-3">
+              <div class="mb-3">
+                <label for="languages" class="form-label">Escolha a Linguagem *</label>              
+                <select class="form-select" name="language" aria-label="Escolha a Linguagem" required>
+                  <option value="" selected>Abra este menu de seleção</option>
+                  <% ["Python","JavaScript","Java","C","Shell"].each do |lang| %>
+                    <option value="<%= lang %>"><%= lang %></option>
+                  <% end %>
+                </select>
+              </div>
+              <div class="col" style="text-align:center">
+                <button name="commit" type="submit" class="btn btn-primary mb-3" style="color:white">Listar</button>
+              </div>              
+            </form>
+          <% end %>          
+        </div>
+        <div class="card-footer text-muted"></div>
+    </div>
+  </div>
+</div> 
