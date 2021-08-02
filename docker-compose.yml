@@ -2,6 +2,9 @@ version: '3'
 services:
   db:
     image: postgres:latest
+    restart: always
+    environment:
+      - POSTGRES_PASSWORD=postgres
     volumes:
       - ./tmp/db:/var/lib/postgresql/data
   web:
