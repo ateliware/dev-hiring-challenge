@@ -21,3 +21,6 @@ body, html {
 .center-me {
   margin: auto;
 }
+a:hover {
+  background-color: darkcyan;
+}
