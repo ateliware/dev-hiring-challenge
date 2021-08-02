@@ -100,14 +100,21 @@ $ cd dev_hiring_challenge
 # Execute a aplicação em modo de desenvolvimento
 $ docker-compose up
 
-# Caso deseje limpar a base de dados
+# Pare a apliação pois a parte web estará funcionando mas sem conexão com o banco de dados
+$ Ctrl+c
+
+# Crie ou Limpe a base de dados
 $ docker-compose run web rake db:drop db:create db:migrate
 
-# Caso deseje executar o teste automatizado
-$ docker-compose run web rake spec
+# Execute novamente a aplicação em modo de desenvolvimento
+$ docker-compose up
 
 # O servidor inciará na porta:3000
 Acesse http://localhost:3000 ou http://127.0.0.1:3000/
+
+# Caso deseje executar o teste automatizado, há somente um teste(se a API do GitHub está acessível)
+$ docker-compose run web rake spec
+
 
 ```
 
