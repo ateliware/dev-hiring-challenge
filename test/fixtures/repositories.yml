@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  full_name: MyString
+  description: MyString
+  stargazers_count: 1
+  language: MyString
+  url: MyString
+  size: 1
+  login: MyString
+
+two:
+  full_name: MyString
+  description: MyString
+  stargazers_count: 1
+  language: MyString
+  url: MyString
+  size: 1
+  login: MyString
