@@ -1,5 +1,5 @@
-defmodule GithubProjectWeb.Router do
-  use GithubProjectWeb, :router
+defmodule GithubSearchWeb.Router do
+  use GithubSearchWeb, :router
 
   pipeline :browser do
     plug :accepts, ["html"]
@@ -13,14 +13,14 @@ defmodule GithubProjectWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/", GithubProjectWeb do
+  scope "/", GithubSearchWeb do
     pipe_through :browser
 
     get "/", PageController, :index
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", GithubProjectWeb do
+  # scope "/api", GithubSearchWeb do
   #   pipe_through :api
   # end
 
@@ -36,7 +36,7 @@ defmodule GithubProjectWeb.Router do
 
     scope "/" do
       pipe_through :browser
-      live_dashboard "/dashboard", metrics: GithubProjectWeb.Telemetry
+      live_dashboard "/dashboard", metrics: GithubSearchWeb.Telemetry
     end
   end
 end

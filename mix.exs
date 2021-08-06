@@ -1,9 +1,9 @@
-defmodule GithubProject.MixProject do
+defmodule GithubSearch.MixProject do
   use Mix.Project
 
   def project do
     [
-      app: :github_project,
+      app: :github_search,
       version: "0.1.0",
       elixir: "~> 1.7",
       elixirc_paths: elixirc_paths(Mix.env()),
@@ -19,7 +19,7 @@ defmodule GithubProject.MixProject do
   # Type `mix help compile.app` for more information.
   def application do
     [
-      mod: {GithubProject.Application, []},
+      mod: {GithubSearch.Application, []},
       extra_applications: [:logger, :runtime_tools]
     ]
   end

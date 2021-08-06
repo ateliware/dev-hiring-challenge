@@ -1,16 +1,16 @@
-defmodule GithubProjectWeb.Endpoint do
-  use Phoenix.Endpoint, otp_app: :github_project
+defmodule GithubSearchWeb.Endpoint do
+  use Phoenix.Endpoint, otp_app: :github_search
 
   # The session will be stored in the cookie and signed,
   # this means its contents can be read but not tampered with.
   # Set :encryption_salt if you would also like to encrypt it.
   @session_options [
     store: :cookie,
-    key: "_github_project_key",
+    key: "_github_search_key",
     signing_salt: "/fKeyEpC"
   ]
 
-  socket "/socket", GithubProjectWeb.UserSocket,
+  socket "/socket", GithubSearchWeb.UserSocket,
     websocket: [timeout: 45_000],
     longpoll: false
 
@@ -22,7 +22,7 @@ defmodule GithubProjectWeb.Endpoint do
   # when deploying your static files in production.
   plug Plug.Static,
     at: "/",
-    from: :github_project,
+    from: :github_search,
     gzip: false,
     only: ~w(css fonts images js favicon.ico robots.txt)
 
@@ -32,7 +32,7 @@ defmodule GithubProjectWeb.Endpoint do
     socket "/phoenix/live_reload/socket", Phoenix.LiveReloader.Socket
     plug Phoenix.LiveReloader
     plug Phoenix.CodeReloader
-    plug Phoenix.Ecto.CheckRepoStatus, otp_app: :github_project
+    plug Phoenix.Ecto.CheckRepoStatus, otp_app: :github_search
   end
 
   plug Phoenix.LiveDashboard.RequestLogger,
@@ -50,5 +50,5 @@ defmodule GithubProjectWeb.Endpoint do
   plug Plug.MethodOverride
   plug Plug.Head
   plug Plug.Session, @session_options
-  plug GithubProjectWeb.Router
+  plug GithubSearchWeb.Router
 end

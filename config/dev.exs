@@ -1,10 +1,10 @@
 use Mix.Config
 
 # Configure your database
-config :github_project, GithubProject.Repo,
+config :github_search, GithubSearch.Repo,
   username: "postgres",
   password: "postgres",
-  database: "github_project_dev",
+  database: "github_search_dev",
   hostname: "localhost",
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
@@ -15,7 +15,7 @@ config :github_project, GithubProject.Repo,
 # The watchers configuration can be used to run external
 # watchers to your application. For example, we use it
 # with webpack to recompile .js and .css sources.
-config :github_project, GithubProjectWeb.Endpoint,
+config :github_search, GithubSearchWeb.Endpoint,
   http: [port: 4000],
   debug_errors: true,
   code_reloader: true,
@@ -55,13 +55,13 @@ config :github_project, GithubProjectWeb.Endpoint,
 # different ports.
 
 # Watch static and templates for browser reloading.
-config :github_project, GithubProjectWeb.Endpoint,
+config :github_search, GithubSearchWeb.Endpoint,
   live_reload: [
     patterns: [
       ~r"priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$",
       ~r"priv/gettext/.*(po)$",
-      ~r"lib/github_project_web/(live|views)/.*(ex)$",
-      ~r"lib/github_project_web/templates/.*(eex)$"
+      ~r"lib/github_search_web/(live|views)/.*(ex)$",
+      ~r"lib/github_search_web/templates/.*(eex)$"
     ]
   ]
 

@@ -1,12 +1,12 @@
-defmodule GithubProjectWeb do
+defmodule GithubSearchWeb do
   @moduledoc """
   The entrypoint for defining your web interface, such
   as controllers, views, channels and so on.
 
   This can be used in your application as:
 
-      use GithubProjectWeb, :controller
-      use GithubProjectWeb, :view
+      use GithubSearchWeb, :controller
+      use GithubSearchWeb, :view
 
   The definitions below will be executed for every view,
   controller, etc, so keep them short and clean, focused
@@ -19,19 +19,19 @@ defmodule GithubProjectWeb do
 
   def controller do
     quote do
-      use Phoenix.Controller, namespace: GithubProjectWeb
+      use Phoenix.Controller, namespace: GithubSearchWeb
 
       import Plug.Conn
-      import GithubProjectWeb.Gettext
-      alias GithubProjectWeb.Router.Helpers, as: Routes
+      import GithubSearchWeb.Gettext
+      alias GithubSearchWeb.Router.Helpers, as: Routes
     end
   end
 
   def view do
     quote do
       use Phoenix.View,
-        root: "lib/github_project_web/templates",
-        namespace: GithubProjectWeb
+        root: "lib/github_search_web/templates",
+        namespace: GithubSearchWeb
 
       # Import convenience functions from controllers
       import Phoenix.Controller,
@@ -54,7 +54,7 @@ defmodule GithubProjectWeb do
   def channel do
     quote do
       use Phoenix.Channel
-      import GithubProjectWeb.Gettext
+      import GithubSearchWeb.Gettext
     end
   end
 
@@ -66,9 +66,9 @@ defmodule GithubProjectWeb do
       # Import basic rendering functionality (render, render_layout, etc)
       import Phoenix.View
 
-      import GithubProjectWeb.ErrorHelpers
-      import GithubProjectWeb.Gettext
-      alias GithubProjectWeb.Router.Helpers, as: Routes
+      import GithubSearchWeb.ErrorHelpers
+      import GithubSearchWeb.Gettext
+      alias GithubSearchWeb.Router.Helpers, as: Routes
     end
   end
 

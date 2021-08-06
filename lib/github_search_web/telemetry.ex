@@ -1,4 +1,4 @@
-defmodule GithubProjectWeb.Telemetry do
+defmodule GithubSearchWeb.Telemetry do
   use Supervisor
   import Telemetry.Metrics
 
@@ -31,11 +31,11 @@ defmodule GithubProjectWeb.Telemetry do
       ),
 
       # Database Metrics
-      summary("github_project.repo.query.total_time", unit: {:native, :millisecond}),
-      summary("github_project.repo.query.decode_time", unit: {:native, :millisecond}),
-      summary("github_project.repo.query.query_time", unit: {:native, :millisecond}),
-      summary("github_project.repo.query.queue_time", unit: {:native, :millisecond}),
-      summary("github_project.repo.query.idle_time", unit: {:native, :millisecond}),
+      summary("github_search.repo.query.total_time", unit: {:native, :millisecond}),
+      summary("github_search.repo.query.decode_time", unit: {:native, :millisecond}),
+      summary("github_search.repo.query.query_time", unit: {:native, :millisecond}),
+      summary("github_search.repo.query.queue_time", unit: {:native, :millisecond}),
+      summary("github_search.repo.query.idle_time", unit: {:native, :millisecond}),
 
       # VM Metrics
       summary("vm.memory.total", unit: {:byte, :kilobyte}),
@@ -49,7 +49,7 @@ defmodule GithubProjectWeb.Telemetry do
     [
       # A module, function and arguments to be invoked periodically.
       # This function must call :telemetry.execute/3 and a metric must be added above.
-      # {GithubProjectWeb, :count_users, []}
+      # {GithubSearchWeb, :count_users, []}
     ]
   end
 end

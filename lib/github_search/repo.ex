@@ -1,6 +1,6 @@
-defmodule GithubProject.Repo do
+defmodule GithubSearch.Repo do
   use Ecto.Repo,
-    otp_app: :github_project,
+    otp_app: :github_search,
     adapter: Ecto.Adapters.Postgres
 
   def init(_, config) do

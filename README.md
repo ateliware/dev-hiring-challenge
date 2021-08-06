@@ -1,4 +1,4 @@
-# GithubProject
+# GithubSearch
 
 To start your Phoenix server:
 

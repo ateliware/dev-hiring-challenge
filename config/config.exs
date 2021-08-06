@@ -7,15 +7,15 @@
 # General application configuration
 use Mix.Config
 
-config :github_project,
-  ecto_repos: [GithubProject.Repo]
+config :github_search,
+  ecto_repos: [GithubSearch.Repo]
 
 # Configures the endpoint
-config :github_project, GithubProjectWeb.Endpoint,
+config :github_search, GithubSearchWeb.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "eH6JDyo2ttSf3q4NrIMoErNEmnlVJj+4XVLkA1Coih/A3yltgn+JzQi5jskk78N9",
-  render_errors: [view: GithubProjectWeb.ErrorView, accepts: ~w(html json), layout: false],
-  pubsub_server: GithubProject.PubSub,
+  render_errors: [view: GithubSearchWeb.ErrorView, accepts: ~w(html json), layout: false],
+  pubsub_server: GithubSearch.PubSub,
   live_view: [signing_salt: "ReVVRY6d"]
 
 # Configures Elixir's Logger

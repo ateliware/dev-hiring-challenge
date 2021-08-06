@@ -1,5 +1,5 @@
-defmodule GithubProjectWeb.PageControllerTest do
-  use GithubProjectWeb.ConnCase
+defmodule GithubSearchWeb.PageControllerTest do
+  use GithubSearchWeb.ConnCase
 
   test "GET /", %{conn: conn} do
     conn = get(conn, "/")

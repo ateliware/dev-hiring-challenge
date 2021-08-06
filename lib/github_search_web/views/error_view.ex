@@ -1,5 +1,5 @@
-defmodule GithubProjectWeb.ErrorView do
-  use GithubProjectWeb, :view
+defmodule GithubSearchWeb.ErrorView do
+  use GithubSearchWeb, :view
 
   # If you want to customize a particular status code
   # for a certain format, you may uncomment below.
