@@ -197,4 +197,36 @@ defmodule GithubSearch.Service do
   def change_search(%Search{} = search, attrs \\ %{}) do
     Search.changeset(search, attrs)
   end
+
+  @doc """
+  Returns repositores from GitHub according to the given parameters
+  """
+  @per_page 10
+  def search_for_repositories(language) do
+    url =
+      "https://api.github.com/search/repositories?q=language=#{language}&sort=stars&order_by=desc&per_page=#{
+        @per_page
+      }"
+
+    case HTTPoison.get(url) do
+      {:ok, %HTTPoison.Response{status_code: 200, body: body}} ->
+        decoded_body = Poison.decode!(body)
+
+        {:ok,
+         decoded_body["items"]
+         |> Enum.each(fn item ->
+           create_repository(%{
+             name: item["full_name"],
+             description: item["description"],
+             url: item["html_url"],
+             forks: item["forks_count"],
+             watchers: item["watchers_count"],
+             language: item["language"]
+           })
+         end)}
+
+      _ ->
+        {:error, []}
+    end
+  end
 end

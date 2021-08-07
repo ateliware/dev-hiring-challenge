@@ -15,14 +15,22 @@ defmodule GithubSearchWeb.SearchController do
   end
 
   def create(conn, %{"search" => search_params}) do
-    case Service.create_search(search_params) do
-      {:ok, search} ->
-        conn
-        |> put_flash(:info, "Search created successfully.")
-        |> redirect(to: Routes.search_path(conn, :show, search))
+    case Service.search_for_repositories(search_params["language"]) do
+      {:ok, _repositories} ->
+        case Service.create_search(search_params) do
+          {:ok, search} ->
+            conn
+            |> put_flash(:info, "Search created successfully.")
+            |> redirect(to: Routes.search_path(conn, :show, search))
 
-      {:error, %Ecto.Changeset{} = changeset} ->
-        render(conn, "new.html", changeset: changeset)
+          {:error, %Ecto.Changeset{} = changeset} ->
+            render(conn, "new.html", changeset: changeset)
+        end
+
+      {:error, []} ->
+        conn
+        |> put_flash(:info, "Error getting repositories")
+        |> redirect(to: Routes.search_path(conn, :index))
     end
   end
 

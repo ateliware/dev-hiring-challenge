@@ -34,5 +34,4 @@
 
 </ul>
 
-<span><%= link "Edit", to: Routes.repository_path(@conn, :edit, @repository) %></span>
 <span><%= link "Back", to: Routes.repository_path(@conn, :index) %></span>

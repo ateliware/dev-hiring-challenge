@@ -25,12 +25,8 @@
 
       <td>
         <span><%= link "Show", to: Routes.repository_path(@conn, :show, repository) %></span>
-        <span><%= link "Edit", to: Routes.repository_path(@conn, :edit, repository) %></span>
-        <span><%= link "Delete", to: Routes.repository_path(@conn, :delete, repository), method: :delete, data: [confirm: "Are you sure?"] %></span>
       </td>
     </tr>
 <% end %>
   </tbody>
 </table>
-
-<span><%= link "New Repository", to: Routes.repository_path(@conn, :new) %></span>
