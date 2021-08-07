@@ -4,6 +4,7 @@
   <thead>
     <tr>
       <th>Language</th>
+      <th>Searched at<th>
 
       <th></th>
     </tr>
@@ -12,6 +13,7 @@
 <%= for search <- @searchs do %>
     <tr>
       <td><%= search.language %></td>
+      <td><%= search.inserted_at %></td>
 
       <td>
         <span><%= link "Show", to: Routes.search_path(@conn, :show, search) %></span>

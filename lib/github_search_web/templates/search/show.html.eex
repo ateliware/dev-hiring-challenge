@@ -7,6 +7,32 @@
     <%= @search.language %>
   </li>
 
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Url</th>
+
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+
+  <%= for repository <- @search.repositories do %>
+      <tr>
+        <td><%= repository.name %></td>
+        <td><%= repository.description %></td>
+        <td><%= repository.url %></td>
+
+        <td>
+          <span><%= link "Show", to: Routes.repository_path(@conn, :show, repository) %></span>
+        </td>
+      </tr>
+  <% end %>
+    </tbody>
+  </table>
+
 </ul>
 
 <span><%= link "Back", to: Routes.search_path(@conn, :index) %></span>

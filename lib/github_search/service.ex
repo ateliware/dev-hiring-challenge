@@ -131,7 +131,7 @@ defmodule GithubSearch.Service do
       ** (Ecto.NoResultsError)
 
   """
-  def get_search!(id), do: Repo.get!(Search, id)
+  def get_search!(id), do: Repo.get!(Search, id) |> Repo.preload([:repositories])
 
   @doc """
   Creates a search.
@@ -202,7 +202,7 @@ defmodule GithubSearch.Service do
   Returns repositores from GitHub according to the given parameters
   """
   @per_page 10
-  def search_for_repositories(language) do
+  def search_for_repositories(language, search) do
     url =
       "https://api.github.com/search/repositories?q=language=#{language}&sort=stars&order_by=desc&per_page=#{
         @per_page
@@ -221,7 +221,8 @@ defmodule GithubSearch.Service do
              url: item["html_url"],
              forks: item["forks_count"],
              watchers: item["watchers_count"],
-             language: item["language"]
+             language: item["language"],
+             search_id: search
            })
          end)}
 

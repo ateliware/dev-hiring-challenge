@@ -20,7 +20,7 @@ defmodule GithubSearch.Service.Repository do
   @doc false
   def changeset(repository, attrs) do
     repository
-    |> cast(attrs, [:name, :description, :url, :forks, :watchers, :language])
-    |> validate_required([:name, :description, :url, :forks, :watchers, :language])
+    |> cast(attrs, [:name, :description, :url, :forks, :watchers, :language, :search_id])
+    |> validate_required([:name, :description, :url, :forks, :watchers, :language, :search_id])
   end
 end
