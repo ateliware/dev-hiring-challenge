@@ -1,0 +1,13 @@
+<h1>Show Search</h1>
+
+<ul>
+
+  <li>
+    <strong>Language:</strong>
+    <%= @search.language %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.search_path(@conn, :edit, @search) %></span>
+<span><%= link "Back", to: Routes.search_path(@conn, :index) %></span>

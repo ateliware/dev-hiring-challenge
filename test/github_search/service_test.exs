@@ -71,4 +71,63 @@ defmodule GithubSearch.ServiceTest do
       assert %Ecto.Changeset{} = Service.change_repository(repository)
     end
   end
+
+  describe "searchs" do
+    alias GithubSearch.Service.Search
+
+    @valid_attrs %{language: "some language"}
+    @update_attrs %{language: "some updated language"}
+    @invalid_attrs %{language: nil}
+
+    def search_fixture(attrs \\ %{}) do
+      {:ok, search} =
+        attrs
+        |> Enum.into(@valid_attrs)
+        |> Service.create_search()
+
+      search
+    end
+
+    test "list_searchs/0 returns all searchs" do
+      search = search_fixture()
+      assert Service.list_searchs() == [search]
+    end
+
+    test "get_search!/1 returns the search with given id" do
+      search = search_fixture()
+      assert Service.get_search!(search.id) == search
+    end
+
+    test "create_search/1 with valid data creates a search" do
+      assert {:ok, %Search{} = search} = Service.create_search(@valid_attrs)
+      assert search.language == "some language"
+    end
+
+    test "create_search/1 with invalid data returns error changeset" do
+      assert {:error, %Ecto.Changeset{}} = Service.create_search(@invalid_attrs)
+    end
+
+    test "update_search/2 with valid data updates the search" do
+      search = search_fixture()
+      assert {:ok, %Search{} = search} = Service.update_search(search, @update_attrs)
+      assert search.language == "some updated language"
+    end
+
+    test "update_search/2 with invalid data returns error changeset" do
+      search = search_fixture()
+      assert {:error, %Ecto.Changeset{}} = Service.update_search(search, @invalid_attrs)
+      assert search == Service.get_search!(search.id)
+    end
+
+    test "delete_search/1 deletes the search" do
+      search = search_fixture()
+      assert {:ok, %Search{}} = Service.delete_search(search)
+      assert_raise Ecto.NoResultsError, fn -> Service.get_search!(search.id) end
+    end
+
+    test "change_search/1 returns a search changeset" do
+      search = search_fixture()
+      assert %Ecto.Changeset{} = Service.change_search(search)
+    end
+  end
 end

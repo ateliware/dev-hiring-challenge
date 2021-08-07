@@ -1,0 +1,5 @@
+<h1>New Search</h1>
+
+<%= render "form.html", Map.put(assigns, :action, Routes.search_path(@conn, :create)) %>
+
+<span><%= link "Back", to: Routes.search_path(@conn, :index) %></span>

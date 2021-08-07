@@ -1,0 +1,26 @@
+<h1>Listing Searchs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Language</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for search <- @searchs do %>
+    <tr>
+      <td><%= search.language %></td>
+
+      <td>
+        <span><%= link "Show", to: Routes.search_path(@conn, :show, search) %></span>
+        <span><%= link "Edit", to: Routes.search_path(@conn, :edit, search) %></span>
+        <span><%= link "Delete", to: Routes.search_path(@conn, :delete, search), method: :delete, data: [confirm: "Are you sure?"] %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Search", to: Routes.search_path(@conn, :new) %></span>
