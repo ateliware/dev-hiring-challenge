@@ -1,0 +1,38 @@
+<h1>Show Repository</h1>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @repository.name %>
+  </li>
+
+  <li>
+    <strong>Description:</strong>
+    <%= @repository.description %>
+  </li>
+
+  <li>
+    <strong>Url:</strong>
+    <%= @repository.url %>
+  </li>
+
+  <li>
+    <strong>Forks:</strong>
+    <%= @repository.forks %>
+  </li>
+
+  <li>
+    <strong>Watchers:</strong>
+    <%= @repository.watchers %>
+  </li>
+
+  <li>
+    <strong>Language:</strong>
+    <%= @repository.language %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.repository_path(@conn, :edit, @repository) %></span>
+<span><%= link "Back", to: Routes.repository_path(@conn, :index) %></span>

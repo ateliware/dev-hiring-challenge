@@ -1,0 +1,5 @@
+<h1>Edit Repository</h1>
+
+<%= render "form.html", Map.put(assigns, :action, Routes.repository_path(@conn, :update, @repository)) %>
+
+<span><%= link "Back", to: Routes.repository_path(@conn, :index) %></span>
