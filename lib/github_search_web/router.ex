@@ -18,7 +18,8 @@ defmodule GithubSearchWeb.Router do
 
     get "/", PageController, :index
 
-    resources "/repositories", RepositoryController, only: [:show]
+    resources "/repositories", RepositoryController, only: [:index, :show]
+    resources "/searchs", SearchController, except: [:edit, :update]
   end
 
   # Other scopes may use custom stacks.
