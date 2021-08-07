@@ -1,5 +1,0 @@
-<h1>Edit Search</h1>
-
-<%= render "form.html", Map.put(assigns, :action, Routes.search_path(@conn, :update, @search)) %>
-
-<span><%= link "Back", to: Routes.search_path(@conn, :index) %></span>
