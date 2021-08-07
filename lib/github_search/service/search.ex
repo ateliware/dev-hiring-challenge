@@ -2,8 +2,11 @@ defmodule GithubSearch.Service.Search do
   use Ecto.Schema
   import Ecto.Changeset
 
+  alias GithubSearch.Service.Repository
+
   schema "searchs" do
     field :language, :string
+    has_many :repositories, Repository
 
     timestamps()
   end
