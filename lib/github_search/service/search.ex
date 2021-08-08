@@ -6,6 +6,8 @@ defmodule GithubSearch.Service.Search do
 
   schema "searchs" do
     field :language, :string
+    field :keyword, :string
+
     has_many :repositories, Repository
 
     timestamps()
@@ -14,7 +16,7 @@ defmodule GithubSearch.Service.Search do
   @doc false
   def changeset(search, attrs) do
     search
-    |> cast(attrs, [:language])
-    |> validate_required([:language])
+    |> cast(attrs, [:language, :keyword])
+    |> validate_required([:language, :keyword])
   end
 end

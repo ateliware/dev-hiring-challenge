@@ -201,10 +201,10 @@ defmodule GithubSearch.Service do
   @doc """
   Returns repositores from GitHub according to the given parameters
   """
-  @per_page 10
-  def search_for_repositories(language, search) do
+  @per_page 5
+  def search_for_repositories(language, keyword, search) do
     url =
-      "https://api.github.com/search/repositories?q=language=#{language}&sort=stars&order_by=desc&per_page=#{
+      "https://api.github.com/search/repositories?language=#{language}&q=#{keyword}&sort=stars&per_page=#{
         @per_page
       }"
 

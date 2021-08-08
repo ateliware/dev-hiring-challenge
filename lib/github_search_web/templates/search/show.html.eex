@@ -12,6 +12,7 @@
       <tr>
         <th>Name</th>
         <th>Description</th>
+        <th>language</th>
         <th>Url</th>
 
         <th></th>
@@ -23,7 +24,8 @@
       <tr>
         <td><%= repository.name %></td>
         <td><%= repository.description %></td>
-        <td><%= repository.url %></td>
+        <td><%= repository.language %></td>
+        <td><span><%= link "#{repository.url}", to: repository.url %></span></td>
 
         <td>
           <span><%= link "Show", to: Routes.repository_path(@conn, :show, repository) %></span>

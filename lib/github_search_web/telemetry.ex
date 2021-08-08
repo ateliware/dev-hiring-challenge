@@ -31,11 +31,11 @@ defmodule GithubSearchWeb.Telemetry do
       ),
 
       # Database Metrics
-      summary("github_search.repo.query.total_time", unit: {:native, :millisecond}),
-      summary("github_search.repo.query.decode_time", unit: {:native, :millisecond}),
-      summary("github_search.repo.query.query_time", unit: {:native, :millisecond}),
-      summary("github_search.repo.query.queue_time", unit: {:native, :millisecond}),
-      summary("github_search.repo.query.idle_time", unit: {:native, :millisecond}),
+      summary("github_search.repo.keyword.total_time", unit: {:native, :millisecond}),
+      summary("github_search.repo.keyword.decode_time", unit: {:native, :millisecond}),
+      summary("github_search.repo.keyword.query_time", unit: {:native, :millisecond}),
+      summary("github_search.repo.keyword.queue_time", unit: {:native, :millisecond}),
+      summary("github_search.repo.keyword.idle_time", unit: {:native, :millisecond}),
 
       # VM Metrics
       summary("vm.memory.total", unit: {:byte, :kilobyte}),

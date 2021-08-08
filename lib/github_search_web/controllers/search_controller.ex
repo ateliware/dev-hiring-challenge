@@ -11,13 +11,18 @@ defmodule GithubSearchWeb.SearchController do
 
   def new(conn, _params) do
     changeset = Service.change_search(%Search{})
+
     render(conn, "new.html", changeset: changeset)
   end
 
   def create(conn, %{"search" => search_params}) do
     case Service.create_search(search_params) do
       {:ok, search} ->
-        Service.search_for_repositories(search_params["language"], search.id)
+        Service.search_for_repositories(
+          search_params["language"],
+          search_params["keyword"] || nil,
+          search.id
+        )
 
         conn
         |> put_flash(:info, "Search created successfully.")

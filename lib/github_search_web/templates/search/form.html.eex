@@ -6,8 +6,12 @@
   <% end %>
 
   <%= label f, :language %>
-  <%= text_input f, :language %>
+  <%= select f, :language, languages(), required: true %>
   <%= error_tag f, :language %>
+
+  <%= label f, :keyword %>
+  <%= text_input f, :keyword, required: true  %>
+  <%= error_tag f, :keyword %>
 
   <div>
     <%= submit "Save" %>

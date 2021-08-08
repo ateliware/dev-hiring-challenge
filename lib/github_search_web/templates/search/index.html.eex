@@ -17,7 +17,6 @@
 
       <td>
         <span><%= link "Show", to: Routes.search_path(@conn, :show, search) %></span>
-        <span><%= link "Delete", to: Routes.search_path(@conn, :delete, search), method: :delete, data: [confirm: "Are you sure?"] %></span>
       </td>
     </tr>
 <% end %>
