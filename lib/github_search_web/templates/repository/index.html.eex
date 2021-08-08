@@ -32,3 +32,5 @@
 <% end %>
   </tbody>
 </table>
+
+<%= paginate @conn, @kerosene %>

@@ -1,4 +1,9 @@
-<h4>Searchs</h4>
+<div>
+  <h4>Searchs</h4>
+  <a class="waves-effect waves-light btn red darken-4 right" href="<%= Routes.search_path(@conn, :new) %>">
+    New Search
+  </a>
+</div>
 
 <table class="striped">
   <thead>
@@ -25,6 +30,4 @@
   </tbody>
 </table>
 
-<a class="waves-effect waves-light btn red darken-4" href="<%= Routes.search_path(@conn, :new) %>">
-  New Search
-</a>
+<%= paginate @conn, @kerosene %>

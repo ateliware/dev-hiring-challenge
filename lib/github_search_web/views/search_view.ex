@@ -1,5 +1,6 @@
 defmodule GithubSearchWeb.SearchView do
   use GithubSearchWeb, :view
+  import Kerosene.HTML
 
   def languages do
     %{

@@ -55,7 +55,8 @@ defmodule GithubSearch.MixProject do
       {:poison, "~> 5.0"},
       {:timex, "~> 3.5"},
       {:credo, "~> 1.5", only: [:dev, :test], runtime: false},
-      {:exvcr, "~> 0.11", only: :test}
+      {:exvcr, "~> 0.11", only: :test},
+      {:kerosene, "~> 0.9.0"}
     ]
   end
 

@@ -1,12 +1,16 @@
 defmodule GithubSearchWeb.SearchController do
   use GithubSearchWeb, :controller
 
+  alias GithubSearch.Repo
   alias GithubSearch.Service
   alias GithubSearch.Service.Search
 
-  def index(conn, _params) do
-    searchs = Service.list_searchs()
-    render(conn, "index.html", searchs: searchs)
+  def index(conn, params) do
+    {searchs, kerosene} =
+      Search
+      |> Repo.paginate(params)
+
+    render(conn, "index.html", searchs: searchs, kerosene: kerosene)
   end
 
   def new(conn, _params) do

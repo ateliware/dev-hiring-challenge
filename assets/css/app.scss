@@ -41,3 +41,7 @@
 nav, .nav-wrapper {
   border-radius: 0 0 10px 10px;
 }
+
+.pagination li.active {
+  background-color: #b71c1c !important;
+}
