@@ -1,4 +1,8 @@
 defmodule GithubSearchWeb.Telemetry do
+  @moduledoc """
+    LiveDashboards metrics
+  """
+
   use Supervisor
   import Telemetry.Metrics
 

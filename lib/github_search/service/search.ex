@@ -1,4 +1,8 @@
 defmodule GithubSearch.Service.Search do
+  @moduledoc """
+    Search
+  """
+
   use Ecto.Schema
   import Ecto.Changeset
 

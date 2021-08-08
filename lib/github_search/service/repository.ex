@@ -1,4 +1,8 @@
 defmodule GithubSearch.Service.Repository do
+  @moduledoc """
+    Repository
+  """
+
   use Ecto.Schema
   import Ecto.Changeset
 

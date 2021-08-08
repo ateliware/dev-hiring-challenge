@@ -47,7 +47,8 @@ defmodule GithubSearch.MixProject do
       {:plug_cowboy, "~> 2.0"},
       {:httpoison, "~> 1.8"},
       {:poison, "~> 5.0"},
-      {:timex, "~> 3.5"}
+      {:timex, "~> 3.5"},
+      {:credo, "~> 1.5", only: [:dev, :test], runtime: false}
     ]
   end
 
