@@ -11,13 +11,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   </head>
   <body>
     <header>
       <section class="container">
-        <nav role="navigation">
-          <div class="nav-wrapper red darken-4">
-            <ul>
+        <nav>
+          <div class="nav-wrapper">
+            <ul class="left">
               <li><%= link "Searchs", to: Routes.search_path(@conn, :index) %></li>
               <li><%= link "Repositories", to: Routes.repository_path(@conn, :index) %></li>
             </ul>

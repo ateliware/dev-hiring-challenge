@@ -6,25 +6,33 @@
   <%= link "Repository #{@repository.id}", to: Routes.repository_path(@conn, :show, @repository.id) %>
 </a>
 
-<h4>Show Repository</h4>
+<h4 class="center" ><a href="<%= @repository.url %>"><%= @repository.name %></a></h4>
+<div class="row center">
+  <strong>Description:</strong>
+  <%= @repository.description %>
+</div>
 
-<ul>
+<div class="row">
+  <div class="col s4"></div>
+  <div class="col s4">
+    <table>
+      <thead>
+        <th>Forks</th>
+        <th>Watchers</th>
+        <th>Language</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td><%= @repository.forks %></td>
+          <td><%= @repository.watchers %></td>
+          <td><%= @repository.language %></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
 
-  <li>
-    <strong>Name:</strong>
-    <%= @repository.name %>
-  </li>
-
-  <li>
-    <strong>Description:</strong>
-    <%= @repository.description %>
-  </li>
-
-  <li>
-    <strong>Url:</strong>
-    <%= @repository.url %>
-  </li>
-
+<!-- <ul>
   <li>
     <strong>Forks:</strong>
     <%= @repository.forks %>
@@ -40,7 +48,7 @@
     <%= String.capitalize(@repository.language) %>
   </li>
 
-</ul>
+</ul> -->
 <a class="waves-effect waves-light btn red darken-4" href="<%= Routes.repository_path(@conn, :index) %>">
   Back
 </a>
