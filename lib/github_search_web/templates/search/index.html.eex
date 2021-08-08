@@ -13,7 +13,7 @@
 <%= for search <- @searchs do %>
     <tr>
       <td><%= String.capitalize(search.language) %></td>
-      <td><%= search.inserted_at %></td>
+      <td><%= formatted_inserted_at(search.inserted_at) %></td>
 
       <td>
         <span><%= link "Show", to: Routes.search_path(@conn, :show, search) %></span>

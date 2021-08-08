@@ -10,4 +10,9 @@ defmodule GithubSearchWeb.SearchView do
       Python: "python"
     }
   end
+
+  def formatted_inserted_at(inserted_at) do
+    inserted_at
+    |> Timex.format!("%d/%m/%Y %T", :strftime)
+  end
 end

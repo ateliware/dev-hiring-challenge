@@ -46,7 +46,8 @@ defmodule GithubSearch.MixProject do
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
       {:httpoison, "~> 1.8"},
-      {:poison, "~> 5.0"}
+      {:poison, "~> 5.0"},
+      {:timex, "~> 3.5"}
     ]
   end
 
