@@ -10,7 +10,13 @@ defmodule GithubSearch.MixProject do
       compilers: [:phoenix, :gettext] ++ Mix.compilers(),
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
-      deps: deps()
+      deps: deps(),
+      preferred_cli_env: [
+        vcr: :test,
+        "vcr.delete": :test,
+        "vcr.check": :test,
+        "vcr.show": :test
+      ]
     ]
   end
 
@@ -48,7 +54,8 @@ defmodule GithubSearch.MixProject do
       {:httpoison, "~> 1.8"},
       {:poison, "~> 5.0"},
       {:timex, "~> 3.5"},
-      {:credo, "~> 1.5", only: [:dev, :test], runtime: false}
+      {:credo, "~> 1.5", only: [:dev, :test], runtime: false},
+      {:exvcr, "~> 0.11", only: :test}
     ]
   end
 

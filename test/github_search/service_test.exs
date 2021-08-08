@@ -1,19 +1,53 @@
 defmodule GithubSearch.ServiceTest do
+  use ExUnit.Case, async: true
+  use ExVCR.Mock, adapter: ExVCR.Adapter.Hackney
   use GithubSearch.DataCase
 
   alias GithubSearch.Service
 
+  setup_all do
+    HTTPoison.start()
+    :ok
+  end
+
   describe "repositories" do
     alias GithubSearch.Service.Repository
 
-    @valid_attrs %{description: "some description", forks: 42, language: "some language", name: "some name", url: "some url", watchers: 42}
-    @update_attrs %{description: "some updated description", forks: 43, language: "some updated language", name: "some updated name", url: "some updated url", watchers: 43}
-    @invalid_attrs %{description: nil, forks: nil, language: nil, name: nil, url: nil, watchers: nil}
+    @valid_attrs %{
+      description: "some description",
+      forks: 42,
+      language: "some language",
+      name: "some name",
+      url: "some url",
+      watchers: 42
+    }
+    @update_attrs %{
+      description: "some updated description",
+      forks: 43,
+      language: "some updated language",
+      name: "some updated name",
+      url: "some updated url",
+      watchers: 43
+    }
+    @invalid_attrs %{
+      description: nil,
+      forks: nil,
+      language: nil,
+      name: nil,
+      url: nil,
+      watchers: nil
+    }
+
+    @valid_search_attrs %{language: "Elixir", keyword: "Haversine"}
 
     def repository_fixture(attrs \\ %{}) do
+      search = search_fixture()
+
+      valid_attrs = Map.put(@valid_attrs, :search_id, search.id)
+
       {:ok, repository} =
         attrs
-        |> Enum.into(@valid_attrs)
+        |> Enum.into(valid_attrs)
         |> Service.create_repository()
 
       repository
@@ -30,59 +64,67 @@ defmodule GithubSearch.ServiceTest do
     end
 
     test "create_repository/1 with valid data creates a repository" do
-      assert {:ok, %Repository{} = repository} = Service.create_repository(@valid_attrs)
+      search = search_fixture()
+
+      valid_attrs = Map.put(@valid_attrs, :search_id, search.id)
+
+      assert {:ok, %Repository{} = repository} = Service.create_repository(valid_attrs)
       assert repository.description == "some description"
       assert repository.forks == 42
       assert repository.language == "some language"
       assert repository.name == "some name"
       assert repository.url == "some url"
       assert repository.watchers == 42
+      assert repository.search_id == search.id
     end
 
     test "create_repository/1 with invalid data returns error changeset" do
       assert {:error, %Ecto.Changeset{}} = Service.create_repository(@invalid_attrs)
     end
 
-    test "update_repository/2 with valid data updates the repository" do
-      repository = repository_fixture()
-      assert {:ok, %Repository{} = repository} = Service.update_repository(repository, @update_attrs)
-      assert repository.description == "some updated description"
-      assert repository.forks == 43
-      assert repository.language == "some updated language"
-      assert repository.name == "some updated name"
-      assert repository.url == "some updated url"
-      assert repository.watchers == 43
-    end
-
-    test "update_repository/2 with invalid data returns error changeset" do
-      repository = repository_fixture()
-      assert {:error, %Ecto.Changeset{}} = Service.update_repository(repository, @invalid_attrs)
-      assert repository == Service.get_repository!(repository.id)
-    end
-
-    test "delete_repository/1 deletes the repository" do
-      repository = repository_fixture()
-      assert {:ok, %Repository{}} = Service.delete_repository(repository)
-      assert_raise Ecto.NoResultsError, fn -> Service.get_repository!(repository.id) end
-    end
-
-    test "change_repository/1 returns a repository changeset" do
-      repository = repository_fixture()
-      assert %Ecto.Changeset{} = Service.change_repository(repository)
-    end
+    # test "update_repository/2 with valid data updates the repository" do
+    #   repository = repository_fixture()
+    #
+    #   assert {:ok, %Repository{} = repository} =
+    #            Service.update_repository(repository, @update_attrs)
+    #
+    #   assert repository.description == "some updated description"
+    #   assert repository.forks == 43
+    #   assert repository.language == "some updated language"
+    #   assert repository.name == "some updated name"
+    #   assert repository.url == "some updated url"
+    #   assert repository.watchers == 43
+    # end
+    #
+    # test "update_repository/2 with invalid data returns error changeset" do
+    #   repository = repository_fixture()
+    #   assert {:error, %Ecto.Changeset{}} = Service.update_repository(repository, @invalid_attrs)
+    #   assert repository == Service.get_repository!(repository.id)
+    # end
+    #
+    # test "delete_repository/1 deletes the repository" do
+    #   repository = repository_fixture()
+    #   assert {:ok, %Repository{}} = Service.delete_repository(repository)
+    #   assert_raise Ecto.NoResultsError, fn -> Service.get_repository!(repository.id) end
+    # end
+    #
+    # test "change_repository/1 returns a repository changeset" do
+    #   repository = repository_fixture()
+    #   assert %Ecto.Changeset{} = Service.change_repository(repository)
+    # end
   end
 
   describe "searchs" do
     alias GithubSearch.Service.Search
 
-    @valid_attrs %{language: "some language"}
-    @update_attrs %{language: "some updated language"}
+    @valid_search_attrs %{language: "Elixir", keyword: "Haversine"}
+    @update_attrs %{language: "some updated language", keyword: "BubbleSort"}
     @invalid_attrs %{language: nil}
 
     def search_fixture(attrs \\ %{}) do
       {:ok, search} =
         attrs
-        |> Enum.into(@valid_attrs)
+        |> Enum.into(@valid_search_attrs)
         |> Service.create_search()
 
       search
@@ -94,40 +136,51 @@ defmodule GithubSearch.ServiceTest do
     end
 
     test "get_search!/1 returns the search with given id" do
-      search = search_fixture()
+      search = search_fixture() |> Repo.preload(:repositories)
       assert Service.get_search!(search.id) == search
     end
 
     test "create_search/1 with valid data creates a search" do
-      assert {:ok, %Search{} = search} = Service.create_search(@valid_attrs)
-      assert search.language == "some language"
+      assert {:ok, %Search{} = search} = Service.create_search(@valid_search_attrs)
+      assert search.language == "Elixir"
+      assert search.keyword == "Haversine"
     end
 
     test "create_search/1 with invalid data returns error changeset" do
       assert {:error, %Ecto.Changeset{}} = Service.create_search(@invalid_attrs)
     end
 
-    test "update_search/2 with valid data updates the search" do
-      search = search_fixture()
-      assert {:ok, %Search{} = search} = Service.update_search(search, @update_attrs)
-      assert search.language == "some updated language"
-    end
+    # test "update_search/2 with valid data updates the search" do
+    #   search = search_fixture()
+    #   assert {:ok, %Search{} = search} = Service.update_search(search, @update_attrs)
+    #   assert search.language == "some updated language"
+    # end
+    #
+    # test "update_search/2 with invalid data returns error changeset" do
+    #   search = search_fixture() |> Repo.preload(:repositories)
+    #   assert {:error, %Ecto.Changeset{}} = Service.update_search(search, @invalid_attrs)
+    #   assert search == Service.get_search!(search.id)
+    # end
+    #
+    # test "delete_search/1 deletes the search" do
+    #   search = search_fixture()
+    #   assert {:ok, %Search{}} = Service.delete_search(search)
+    #   assert_raise Ecto.NoResultsError, fn -> Service.get_search!(search.id) end
+    # end
+    #
+    # test "change_search/1 returns a search changeset" do
+    #   search = search_fixture()
+    #   assert %Ecto.Changeset{} = Service.change_search(search)
+    # end
+  end
 
-    test "update_search/2 with invalid data returns error changeset" do
-      search = search_fixture()
-      assert {:error, %Ecto.Changeset{}} = Service.update_search(search, @invalid_attrs)
-      assert search == Service.get_search!(search.id)
-    end
+  test "change_search/1 returns a search changeset" do
+    %{id: search_id} = search_fixture()
 
-    test "delete_search/1 deletes the search" do
-      search = search_fixture()
-      assert {:ok, %Search{}} = Service.delete_search(search)
-      assert_raise Ecto.NoResultsError, fn -> Service.get_search!(search.id) end
-    end
+    use_cassette "github_api_get_repositories" do
+      repositories = Service.search_for_repositories("Elixir", "Haversine", search_id)
 
-    test "change_search/1 returns a search changeset" do
-      search = search_fixture()
-      assert %Ecto.Changeset{} = Service.change_search(search)
+      refute is_nil(repositories)
     end
   end
 end
