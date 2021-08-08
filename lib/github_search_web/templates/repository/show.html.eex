@@ -29,7 +29,7 @@
 
   <li>
     <strong>Language:</strong>
-    <%= @repository.language %>
+    <%= String.capitalize(@repository.language) %>
   </li>
 
 </ul>

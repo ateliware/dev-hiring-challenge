@@ -18,7 +18,7 @@ defmodule GithubSearch.Service do
 
   """
   def list_repositories do
-    Repo.all(Repository)
+    Repo.all(from r in Repository, distinct: r.name)
   end
 
   @doc """
@@ -201,30 +201,36 @@ defmodule GithubSearch.Service do
   @doc """
   Returns repositores from GitHub according to the given parameters
   """
-  @per_page 5
   def search_for_repositories(language, keyword, search) do
     url =
-      "https://api.github.com/search/repositories?language=#{language}&q=#{keyword}&sort=stars&per_page=#{
-        @per_page
-      }"
+      "https://api.github.com/search/repositories?language=#{language}&q=#{keyword}&sort=stars&per_page=100"
 
     case HTTPoison.get(url) do
       {:ok, %HTTPoison.Response{status_code: 200, body: body}} ->
         decoded_body = Poison.decode!(body)
 
-        {:ok,
-         decoded_body["items"]
-         |> Enum.each(fn item ->
-           create_repository(%{
-             name: item["full_name"],
-             description: item["description"],
-             url: item["html_url"],
-             forks: item["forks_count"],
-             watchers: item["watchers_count"],
-             language: item["language"],
-             search_id: search
-           })
-         end)}
+        repositories =
+          decoded_body["items"]
+          |> Enum.each(fn
+            item ->
+              with true <- item["language"] != nil,
+                   true <- String.downcase(item["language"]) == language do
+                create_repository(%{
+                  name: item["full_name"],
+                  description: item["description"],
+                  url: item["html_url"],
+                  forks: item["forks_count"],
+                  watchers: item["watchers_count"],
+                  language: item["language"],
+                  search_id: search
+                })
+              else
+                _ ->
+                  nil
+              end
+          end)
+
+        {:ok, repositories}
 
       _ ->
         {:error, []}

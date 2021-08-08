@@ -12,7 +12,7 @@
   <tbody>
 <%= for search <- @searchs do %>
     <tr>
-      <td><%= search.language %></td>
+      <td><%= String.capitalize(search.language) %></td>
       <td><%= search.inserted_at %></td>
 
       <td>

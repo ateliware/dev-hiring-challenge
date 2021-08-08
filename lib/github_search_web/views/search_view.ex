@@ -3,11 +3,11 @@ defmodule GithubSearchWeb.SearchView do
 
   def languages do
     %{
-      elixir: "elixir",
-      ruby: "ruby",
-      php: "php",
-      javascript: "javascript",
-      python: "python"
+      "Elixir": "elixir",
+      Ruby: "ruby",
+      PHP: "php",
+      JavaScript: "javascript",
+      Python: "python"
     }
   end
 end
