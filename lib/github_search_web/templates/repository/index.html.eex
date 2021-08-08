@@ -1,6 +1,6 @@
-<h1>Listing Repositories</h1>
+<h4>Repositories</h4>
 
-<table>
+<table class="striped">
   <thead>
     <tr>
       <th>Name</th>
@@ -18,13 +18,15 @@
     <tr>
       <td><%= repository.name %></td>
       <td><%= repository.description %></td>
-      <td><%= repository.url %></td>
+      <td><span><%= link "#{repository.url}", to: repository.url %></span></td>
       <td><%= repository.forks %></td>
       <td><%= repository.watchers %></td>
       <td><%= repository.language %></td>
 
       <td>
-        <span><%= link "Show", to: Routes.repository_path(@conn, :show, repository) %></span>
+        <a class="waves-effect waves-light btn red darken-4" href="<%= Routes.repository_path(@conn, :show, repository) %>">
+          Show
+        </a>
       </td>
     </tr>
 <% end %>

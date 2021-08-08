@@ -6,7 +6,7 @@
   <%= link "Repository #{@repository.id}", to: Routes.repository_path(@conn, :show, @repository.id) %>
 </a>
 
-<h1>Show Repository</h1>
+<h4>Show Repository</h4>
 
 <ul>
 
@@ -41,5 +41,6 @@
   </li>
 
 </ul>
-
-<span><%= link "Back", to: Routes.repository_path(@conn, :index) %></span>
+<a class="waves-effect waves-light btn red darken-4" href="<%= Routes.repository_path(@conn, :index) %>">
+  Back
+</a>

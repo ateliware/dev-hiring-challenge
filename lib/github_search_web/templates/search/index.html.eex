@@ -1,6 +1,6 @@
-<h1>Listing Searchs</h1>
+<h4>Searchs</h4>
 
-<table>
+<table class="striped">
   <thead>
     <tr>
       <th>Language</th>
@@ -16,7 +16,9 @@
       <td><%= formatted_inserted_at(search.inserted_at) %></td>
 
       <td>
-        <span><%= link "Show", to: Routes.search_path(@conn, :show, search) %></span>
+        <a class="waves-effect waves-light btn red darken-4" href="<%= Routes.search_path(@conn, :show, search) %>">
+          Show
+        </a>
       </td>
     </tr>
 <% end %>

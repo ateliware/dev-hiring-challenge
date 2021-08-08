@@ -6,7 +6,7 @@
   <%= link "Search #{@search.id}", to: Routes.search_path(@conn, :show, @search.id) %>
 </a>
 
-<h1>Show Search</h1>
+<h4>Show Search</h4>
 
 <ul>
 
@@ -36,7 +36,9 @@
         <td><span><%= link "#{repository.url}", to: repository.url %></span></td>
 
         <td>
-          <span><%= link "Show", to: Routes.repository_path(@conn, :show, repository) %></span>
+          <a class="waves-effect waves-light btn red darken-4" href="<%= Routes.repository_path(@conn, :show, repository) %>">
+            Show
+          </a>
         </td>
       </tr>
   <% end %>
@@ -44,5 +46,6 @@
   </table>
 
 </ul>
-
-<span><%= link "Back", to: Routes.search_path(@conn, :index) %></span>
+<a class="waves-effect waves-light btn red darken-4" href="<%= Routes.search_path(@conn, :index) %>">
+  Back
+</a>
