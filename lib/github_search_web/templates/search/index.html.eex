@@ -25,4 +25,6 @@
   </tbody>
 </table>
 
-<span><%= link "New Search", to: Routes.search_path(@conn, :new) %></span>
+<a class="waves-effect waves-light btn red darken-4" href="<%= Routes.search_path(@conn, :new) %>">
+  New Search
+</a>

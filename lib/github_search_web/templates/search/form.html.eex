@@ -14,6 +14,9 @@
   <%= error_tag f, :keyword %>
 
   <div>
-    <%= submit "Save" %>
+    <a class="waves-effect waves-light btn red darken-4" href="<%= Routes.search_path(@conn, :index) %>">
+      Back
+    </a>
+    <button class="btn waves-effect waves-light red darken-4" type="submit" name="action">Search</button>
   </div>
 <% end %>
