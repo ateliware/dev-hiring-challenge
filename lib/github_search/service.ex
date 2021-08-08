@@ -21,6 +21,11 @@ defmodule GithubSearch.Service do
     Repo.all(from r in Repository, distinct: r.name)
   end
 
+  def list_repositories_with_pagination(params) do
+    from(r in Repository, distinct: r.name, group_by: r.id)
+    |> Repo.paginate(params)
+  end
+
   @doc """
   Gets a single repository.
 

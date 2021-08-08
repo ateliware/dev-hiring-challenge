@@ -6,9 +6,7 @@ defmodule GithubSearchWeb.RepositoryController do
   alias GithubSearch.Service.Repository
 
   def index(conn, params) do
-    {repositories, kerosene} =
-      Repository
-      |> Repo.paginate(params)
+    {repositories, kerosene} = Service.list_repositories_with_pagination(params)
 
     render(conn, "index.html", repositories: repositories, kerosene: kerosene)
   end
