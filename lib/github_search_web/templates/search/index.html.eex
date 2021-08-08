@@ -18,7 +18,7 @@
 <%= for search <- @searchs do %>
     <tr>
       <td><%= String.capitalize(search.language) %></td>
-      <td><%= formatted_inserted_at(search.inserted_at) %></td>
+      <td><%= "#{formatted_inserted_at(search.inserted_at)} UTC" %></td>
 
       <td>
         <a class="waves-effect waves-light btn red darken-4" href="<%= Routes.search_path(@conn, :show, search) %>">
