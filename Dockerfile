@@ -12,10 +12,17 @@ RUN apk update && apk upgrade && \
   apk add build-base && \
   rm -rf /var/cache/apk/*
 
+ENV MIX_ENV dev
+
 # Install hex package manager and rebar
 # By using --force, we don’t need to type “Y” to confirm the installation
 RUN mix do local.hex --force, local.rebar --force
 
+ENV INSTALL_PATH /app
+
+RUN mkdir -p $INSTALL_PATH
+
+WORKDIR $INSTALL_PATH
 
 # Cache elixir dependecies and lock file
 COPY mix.* ./
@@ -26,18 +33,18 @@ RUN mix deps.compile
 
 
 # Cache and install node packages and dependencies
-COPY assets/package.json assets/
+COPY assets/package.json ./assets/
 
 RUN cd assets && \
     npm install
 
 
 # Copy all application files
-COPY . ./
+COPY . .
 
 
 # Run frontend build, compile, and digest assets
-RUN cd assets/ && \
+RUN cd ./assets/ && \
     npm run deploy && \
     cd - && \
     mix do compile, phx.digest
@@ -45,4 +52,4 @@ RUN cd assets/ && \
 # Run entrypoint.sh script
 RUN chmod +x entrypoint.sh
 
-CMD ["/entrypoint.sh"]
+CMD ["./entrypoint.sh"]
