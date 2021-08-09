@@ -3,8 +3,7 @@ defmodule GithubSearchWeb.SearchControllerTest do
 
   alias GithubSearch.Service
 
-  @create_attrs %{language: "some language"}
-  @update_attrs %{language: "some updated language"}
+  @create_attrs %{language: "some language", keyword: "keyword"}
   @invalid_attrs %{language: nil}
 
   def fixture(:search) do
@@ -15,7 +14,7 @@ defmodule GithubSearchWeb.SearchControllerTest do
   describe "index" do
     test "lists all searchs", %{conn: conn} do
       conn = get(conn, Routes.search_path(conn, :index))
-      assert html_response(conn, 200) =~ "Listing Searchs"
+      assert html_response(conn, 200) =~ "Searchs"
     end
   end
 
@@ -41,48 +40,5 @@ defmodule GithubSearchWeb.SearchControllerTest do
       conn = post(conn, Routes.search_path(conn, :create), search: @invalid_attrs)
       assert html_response(conn, 200) =~ "New Search"
     end
-  end
-
-  describe "edit search" do
-    setup [:create_search]
-
-    test "renders form for editing chosen search", %{conn: conn, search: search} do
-      conn = get(conn, Routes.search_path(conn, :edit, search))
-      assert html_response(conn, 200) =~ "Edit Search"
-    end
-  end
-
-  describe "update search" do
-    setup [:create_search]
-
-    test "redirects when data is valid", %{conn: conn, search: search} do
-      conn = put(conn, Routes.search_path(conn, :update, search), search: @update_attrs)
-      assert redirected_to(conn) == Routes.search_path(conn, :show, search)
-
-      conn = get(conn, Routes.search_path(conn, :show, search))
-      assert html_response(conn, 200) =~ "some updated language"
-    end
-
-    test "renders errors when data is invalid", %{conn: conn, search: search} do
-      conn = put(conn, Routes.search_path(conn, :update, search), search: @invalid_attrs)
-      assert html_response(conn, 200) =~ "Edit Search"
-    end
-  end
-
-  describe "delete search" do
-    setup [:create_search]
-
-    test "deletes chosen search", %{conn: conn, search: search} do
-      conn = delete(conn, Routes.search_path(conn, :delete, search))
-      assert redirected_to(conn) == Routes.search_path(conn, :index)
-      assert_error_sent 404, fn ->
-        get(conn, Routes.search_path(conn, :show, search))
-      end
-    end
-  end
-
-  defp create_search(_) do
-    search = fixture(:search)
-    %{search: search}
   end
 end
