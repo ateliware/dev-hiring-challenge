@@ -1,0 +1,31 @@
+version: "3"
+services:
+  phoenix:
+    build:
+      context: .
+    env_file:
+      - docker.env
+    environment:
+      DATABASE_URL: ecto://postgres:postgres@db/your_db_name
+      DATABASE_USER: postgres
+      DATABASE_PASS: postgres
+      DATABASE_NAME: github_search
+      DATABASE_PORT: 5432
+      DATABASE_HOST: db
+    ports:
+      - "4000:4000"
+    restart: always
+    depends_on:
+      - db
+  db:
+    image: postgres:9.6
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      PGDATA: /var/lib/postgresql/data/pgdata
+    restart: always
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:

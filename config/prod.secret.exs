@@ -30,6 +30,14 @@ config :github_search, GithubSearchWeb.Endpoint,
   ],
   secret_key_base: secret_key_base
 
+config :github_search, GithubSearch.Repo,
+  username: System.get_env("DATABASE_USER"),
+  password: System.get_env("DATABASE_PASS"),
+  database: System.get_env("DATABASE_NAME"),
+  hostname: System.get_env("DATABASE_HOST"),
+  pool_size: String.to_integer(System.get_env("POOL_SIZE") || "10"),
+  database_url: System.get_env("DATABASE_URL")
+
 # ## Using releases (Elixir v1.9+)
 #
 # If you are doing OTP releases, you need to instruct Phoenix

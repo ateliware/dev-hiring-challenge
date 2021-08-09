@@ -2,12 +2,12 @@ use Mix.Config
 
 # Configure your database
 config :github_search, GithubSearch.Repo,
-  username: "postgres",
-  password: "postgres",
-  database: "github_search_dev",
-  hostname: "localhost",
+  username: System.get_env("DATABASE_USER") || "postgres",
+  password: System.get_env("DATABASE_PASS") || "postgres",
+  database: System.get_env("DATABASE_NAME") || "github_search_dev",
+  hostname: System.get_env("DATABASE_HOST") || "localhost",
   show_sensitive_data_on_connection_error: true,
-  pool_size: 10
+  pool_size: String.to_integer(System.get_env("POOL_SIZE") || "10")
 
 # For development, we disable any cache and enable
 # debugging and code reloading.
