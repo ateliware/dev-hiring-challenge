@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>GithubSearch · Phoenix Framework</title>
+    <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
+    <script defer type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  </head>
+  <body>
+    <header>
+      <section class="container">
+        <nav>
+          <div class="nav-wrapper">
+            <ul class="left">
+              <li><%= link "Searchs", to: Routes.search_path(@conn, :index) %></li>
+              <li><%= link "Repositories", to: Routes.repository_path(@conn, :index) %></li>
+            </ul>
+          </div>
+        </nav>
+      </section>
+    </header>
+    <main role="main" class="container">
+      <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
+      <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
+      <%= @inner_content %>
+    </main>
+  </body>
+</html>

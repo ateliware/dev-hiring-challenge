@@ -1,0 +1,3 @@
+<h4>New Search</h4>
+
+<%= render "form.html", Map.put(assigns, :action, Routes.search_path(@conn, :create)) %>

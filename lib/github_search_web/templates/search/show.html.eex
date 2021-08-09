@@ -1,0 +1,57 @@
+<a>
+  <%= link "Searchs", to:  Routes.search_path(@conn, :index) %>
+</a>
+>
+<a>
+  <%= link "Search #{@search.id}", to: Routes.search_path(@conn, :show, @search.id) %>
+</a>
+
+<h4>Show Search</h4>
+
+<ul>
+
+  <li>
+    <strong>Language:</strong>
+    <%= String.capitalize(@search.language) %>
+  </li>
+  <li>
+    <strong>Keyword:</strong>
+    <%= @search.keyword %>
+  </li>
+
+<h5>Repositories found</h5>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>language</th>
+        <th>Url</th>
+
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+
+  <%= for repository <- @search.repositories do %>
+      <tr>
+        <td><%= repository.name %></td>
+        <td><%= repository.description %></td>
+        <td><%= repository.language %></td>
+        <td><span><%= link "#{repository.url}", to: repository.url %></span></td>
+
+        <td>
+          <a class="waves-effect waves-light btn red darken-4" href="<%= Routes.repository_path(@conn, :show, repository) %>">
+            Show
+          </a>
+        </td>
+      </tr>
+  <% end %>
+    </tbody>
+  </table>
+
+</ul>
+<a class="waves-effect waves-light btn red darken-4" href="<%= Routes.search_path(@conn, :index) %>">
+  Back
+</a>

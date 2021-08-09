@@ -1,22 +1,21 @@
-# Desafio técnico para desenvolvedores
+# GithubSearch
 
-Construa uma nova aplicação, utilizando o framework de sua preferência (Ruby on Rails, Elixir Phoenix, Python Django ou Flask, NodeJS Sails, Java Spring, ASP.NET ou outro), a qual deverá conectar na API do GitHub e disponibilizar as seguintes funcionalidades:
+To start your Phoenix server:
 
-- Botão para buscar e armazenar os repositórios destaques de 5 linguagens à sua escolha;
-- Listar os repositórios encontrados;
-- Visualizar os detalhes de cada repositório.
+* With docker:
+  * Run `docker-compose up --build`
+  * You'll need to re-run this command after changing dependencies
 
-Alguns requisitos:
 
-- Deve ser uma aplicação totalmente nova;
-- A solução deve estar em um repositório público do GitHub;
-- A aplicação deve armazenar as informações encontradas;
-- Utilizar PostgreSQL, MySQL ou SQL Server;
-- O deploy deve ser realizado, preferencialmente, no Heroku, AWS ou no Azure;
-- A aplicação precisa ter testes automatizados;
-- Preferenciamente dockerizar a aplicação;
-- Por favor atualizar o readme da aplicação com passo a passo com instrução para subir o ambiente.
+* Locally:
+  * Install dependencies with `mix deps.get`
+  * Create and migrate your database with `mix ecto.setup`
+  * Install Node.js dependencies with `npm install` inside the `assets` directory
+  * Start Phoenix endpoint with `mix phx.server`
 
-Quando terminar, faça um Pull Request neste repo e avise-nos por email.
+Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 
-**IMPORTANTE:** se você não conseguir finalizar o teste, por favor nos diga o motivo e descreva quais foram as suas dificuldades. Você pode também sugerir uma outra abordagem para avaliarmos seus skills técnicos, vender seu peixe, mostrar-nos do que é capaz.
+The project was deployed to https://ateliware-github-search.herokuapp.com/
+
+## PS
+The GitHub API is not filtering by language, so I filtered on application.
