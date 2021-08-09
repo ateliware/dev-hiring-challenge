@@ -4,6 +4,7 @@ To start your Phoenix server:
 
 * With docker:
   * Run `docker-compose up --build`
+  * You'll need to re-run this command after changing dependencies
 
 
 * Locally:
