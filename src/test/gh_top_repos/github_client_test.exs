@@ -22,8 +22,6 @@ defmodule GhTopRepos.GithubClientTest do
     query = URI.encode "elixir stars:>=200&per_page=2"
     json = GithubClient.fetch_repos(query)
 
-    IO.inspect json
-
     assert true
   end
 end

@@ -20,7 +20,7 @@ defmodule GhTopRepos.GHRepo do
   @doc false
   def changeset(gh_repo, attrs) do
     gh_repo
-    |> cast(attrs, [])
-    |> validate_required([])
+    |> cast(attrs, [:name, :url, :html_url])
+    |> validate_required([:name, :url, :html_url])
   end
 end
