@@ -1,31 +1,121 @@
-/* This file is for your main application css. */
-@import "./phoenix.css";
+html, body {
+    padding: 0;
+    margin: 0;
+}
 
-/* Alerts and form errors */
-.alert {
-  padding: 15px;
-  margin-bottom: 20px;
-  border: 1px solid transparent;
-  border-radius: 4px;
+body {
+    font-size: 16px;
+    font-family: 'Graphik', sans-serif;
+    color: #333;
 }
-.alert-info {
-  color: #31708f;
-  background-color: #d9edf7;
-  border-color: #bce8f1;
+
+header {
+    position: sticky;
+    top: 0;
+    background: #fff;
 }
-.alert-warning {
-  color: #8a6d3b;
-  background-color: #fcf8e3;
-  border-color: #faebcc;
+
+main {
 }
-.alert-danger {
-  color: #a94442;
-  background-color: #f2dede;
-  border-color: #ebccd1;
+
+.container {
+    padding: 0 6em;
+    max-width: 1440px;
 }
-.alert p {
-  margin-bottom: 0;
+
+footer {
+    position: fixed;
+    font-size: .9em;
+    color: #888;
+    bottom: 10px;
+    right: 30px;
 }
-.alert:empty {
-  display: none;
+
+header .top {
+    padding-top: 2em;
+    padding-bottom: 2em;
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+}
+
+button {
+    cursor: pointer;
+}
+
+
+/****************************************************
+ * Flex
+ ****************************************************/
+
+.flex {
+    display: flex;
+}
+
+.flex.flex-col {
+    flex-direction: column;
+}
+
+.flex.flex-wrap {
+    flex-wrap: wrap;
+}
+
+.flex.v-center {
+    align-items: center;
+}
+
+.flex.h-center {
+    justify-content: center;
+}
+
+
+/****************************************************
+ * Top bar
+ ****************************************************/
+
+nav.top {
+    flex: 1;
+    text-align: right;
+}
+
+
+/****************************************************
+ * Search form
+ ****************************************************/
+
+.search {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 8em 0;
+
+    input, button, select {
+        font-size: 20px;
+        padding: 1em;
+        border-radius: 3px;
+        border: none;
+        outline: none;
+    }
+}
+
+.search form {
+    padding: 6px;
+    border: solid 1px #8a8a8a;
+    border-radius: 6px;
+}
+
+.search input {
+    flex: 1;
+}
+
+.search select {
+    margin-right: 3px;
+    background: #ededed;
+}
+
+.search button {
+    background: #44bb4b;
+    color: #fff;
+    font-weight: 600;
 }
