@@ -1,0 +1,37 @@
+defmodule GhTopReposWeb.GHReposController do
+  use GhTopReposWeb, :controller
+
+  alias GhTopRepos.GHRepoService, as: Service
+
+  def index(conn, _params) do
+    render(conn, "index.html")
+  end
+
+  def search(conn, params) do
+    result = Service.search(params)
+    conn
+    |> assign(:repos, result.items)
+    |> render("list.html")
+  end
+
+  def list(conn, _params) do
+    repos = Service.list()
+    conn
+    |> assign(:repos, repos)
+    |> render("list.html")
+  end
+
+  def show(conn, %{"id" => id}) do
+    with {:ok, repo} <- Service.get(id) do
+      conn
+      |> assign(:repo, repo)
+      |> render("show.html")
+    else
+      nil ->
+        conn
+        |> put_status(:not_found)
+        |> put_view(GhTopReposWeb.ErrorView)
+        |> render(:"404")
+    end
+  end
+end

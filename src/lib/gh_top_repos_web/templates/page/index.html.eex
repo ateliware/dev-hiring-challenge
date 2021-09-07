@@ -1,13 +1,14 @@
 <div class="container">
   <section class="search">
-    <form action="" method="POST">
+    <form action="/search" method="GET">
       <div class="flex">
-        <input type="text" name="query" placeholder="enter your search e.g. &quot;oauth lib&quot;" />
-        <select name="lang">
-            <option value="">Elixir</option>
-            <option value="">Python</option>
-            <option value="">Ruby</option>
-            <option value="">Haskell</option>
+        <input type="text" name="text" placeholder="enter your search e.g. &quot;oauth lib&quot;" />
+        <select name="language">
+            <option value="elixir">Elixir</option>
+            <option value="clojure">Clojure</option>
+            <option value="python">Python</option>
+            <option value="ruby">Ruby</option>
+            <option value="haskell">Haskell</option>
         </select>
         <button>Search</button>
       </div>

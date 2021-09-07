@@ -5,7 +5,7 @@ html, body {
 
 body {
     font-size: 16px;
-    font-family: 'Graphik', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     color: #333;
 }
 
@@ -23,6 +23,22 @@ main {
     max-width: 1440px;
 }
 
+.error-40x {
+    text-align: center;
+    h1 {
+        font-size: 140px;
+        font-weight: 200;
+        margin: 1em 0 0 0;
+        padding: 0;
+    }
+    p {
+        font-size: 2em;
+        color: #aaa;
+        margin: 0;
+        padding: 0;
+    }
+}
+
 footer {
     position: fixed;
     font-size: .9em;
@@ -34,6 +50,15 @@ footer {
 header .top {
     padding-top: 2em;
     padding-bottom: 2em;
+}
+
+header h1 img {
+    vertical-align: middle;
+    margin-right: 9px;
+}
+
+header h1 span {
+    color: #a1a1a1;
 }
 
 a {
@@ -88,7 +113,7 @@ nav.top {
 .search {
     max-width: 800px;
     margin: 0 auto;
-    padding: 8em 0;
+    padding: 10em 0;
 
     input, button, select {
         font-size: 20px;

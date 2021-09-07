@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
     <title>GhTopRepos &mdash; dev challenge =)</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
 
     <script defer type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
@@ -14,9 +18,14 @@
     <header>
       <section class="container">
         <div class="flex">
-          <a href="/" class=""><h1>Github Top Repos</h1></a>
+          <a href="/" class="">
+            <h1>
+              <img src="<%= Routes.static_path(@conn, "/images/github.png") %>" />
+                Github <span>Top Repos</span>
+            </h1>
+          </a>
           <nav class="top">
-            <a href="/repos/favorites">My top repos</a>
+            <a href="/repos">My top repos</a>
           </nav>
         </div>
       </section>

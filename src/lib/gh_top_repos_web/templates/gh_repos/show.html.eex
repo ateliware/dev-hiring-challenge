@@ -1,0 +1,6 @@
+<div class="container">
+    <section class="repo-details">
+        <div><%= @repo.name %></div>
+        <div><%= @repo.description %></div>
+    </section>
+</div>

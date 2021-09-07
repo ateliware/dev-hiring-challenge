@@ -7,7 +7,7 @@ defmodule GhTopRepos.GithubClientTest do
 
   test "fetch repositories failed: bad query" do
 
-    json = GithubClient.fetch_repos("")
+    json = GithubClient.fetch_repos([text: ""])
 
     error = struct(GithubError, json)
 
@@ -19,9 +19,9 @@ defmodule GhTopRepos.GithubClientTest do
 
 
   test "fetch repositories succeeded" do
-    query = URI.encode "elixir stars:>=200&per_page=2"
-    json = GithubClient.fetch_repos(query)
+    query = [text: "elixir", stars: 200]
+    json = GithubClient.fetch_repos(query, 1, 2)
 
-    assert true
+    assert length(json.items) == 2
   end
 end

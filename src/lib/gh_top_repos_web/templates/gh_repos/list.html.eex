@@ -1,0 +1,10 @@
+<div class="container">
+    <section class="repos-list">
+        <dl>
+        <%= for repo <- @repos do %>
+            <dt><%= repo.name %></dt>
+            <dd><%= repo.description %></dd>
+        <% end %>
+        </dl>
+    </section>
+</div>

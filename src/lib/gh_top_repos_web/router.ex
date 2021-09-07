@@ -17,6 +17,10 @@ defmodule GhTopReposWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+
+    get "/search", GHReposController, :search
+    get "/repos", GHReposController, :list
+    get "/repos/:id", GHReposController, :show
   end
 
   # Other scopes may use custom stacks.
