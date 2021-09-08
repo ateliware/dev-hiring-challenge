@@ -17,6 +17,8 @@ defmodule GhTopRepos.Repo.Migrations.CreateGhRepo do
 
       timestamps()
     end
+
+    create unique_index(:gh_repo, [:github_id])
   end
 
   def down do

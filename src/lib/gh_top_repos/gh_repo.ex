@@ -23,7 +23,8 @@ defmodule GhTopRepos.GHRepo do
     gh_repo
     |> cast(attrs, [:github_id, :name, :full_name, :description,
                     :url, :html_url, :forks, :forks_count,
-                    :stargazers_count, :watchers, :watchers_count])
+                    :stargazers_count, :watchers, :watchers_count,
+                    :inserted_at, :updated_at])
     |> validate_required([:name, :url, :html_url])
   end
 end

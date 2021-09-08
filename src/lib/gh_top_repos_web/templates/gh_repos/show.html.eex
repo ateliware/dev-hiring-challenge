@@ -1,6 +1,8 @@
 <div class="container">
     <section class="repo-details">
-        <div><%= @repo.full_name %></div>
-        <div><%= @repo.description %></div>
+        <div><h1><%= @repo.full_name %></h1></div>
+        <div><p><%= @repo.description %><p></div>
+        <div><a class="btn" href="<%= @repo.url %>">See on Github</div>
+        <div><a class="btn primary" href="/repos/">Save</a>
     </section>
 </div>

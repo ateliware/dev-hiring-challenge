@@ -8,6 +8,29 @@ defmodule GhTopRepos.GithubClient do
   alias GhTopRepos.GithubError
 
 
+  @doc """
+  Performs a GET request to the Gihub API, returning repositories.
+
+  Requests support pagination, according to parameters.
+
+  The query parameter must contain at least the `:text` key.
+
+  Query example (map or keyword list)
+  %{
+    text: "oauth lib",
+    stars: 20,            # at least 20 stars
+    forks: 10,            # at least 10 forks
+    language: "haskell"
+  }  
+
+  It returns a tuple with either a Map or a GithubError struct.
+
+  Returns `{:ok, %{
+    items: []
+    total_count: 0
+  }}`
+  
+  """
   def fetch_repos(query, page \\ 1, per_page \\ 10) do
     query_pag = build_query(query) ++ [page: page, per_page: per_page]
     query_str = URI.encode_query(query_pag)
@@ -16,7 +39,7 @@ defmodule GhTopRepos.GithubClient do
     {:ok, json} = Http.get_json(conn, @repos_search_path <> query_str)
 
     if Map.has_key?(json, :errors) do
-      struct(GithubError, json) 
+      {:error, struct(GithubError, json)}
     else  
       repos = Enum.map(json.items, fn item ->
         if Map.has_key?(item, :id) do
@@ -26,12 +49,16 @@ defmodule GhTopRepos.GithubClient do
         end
       end)
 
-      repos
+      {:ok, %{items: repos, total_count: json.total_count}}
     end
   end
-
-
-  def build_query(q) do
+  
+  @doc """
+  Parses the query map or keyword list into a Github query string.
+  
+  Returns `[q: query_str]`
+  """
+  defp build_query(q) do
     text = q[:text]
 
     gte = ">="
@@ -57,7 +84,6 @@ defmodule GhTopRepos.GithubClient do
     [q: text <> qual_str]
   end
 end
-
 
 defmodule GhTopRepos.GithubError do
   defstruct documentation_url: nil,

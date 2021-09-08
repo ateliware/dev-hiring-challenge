@@ -10,7 +10,7 @@ defmodule GhTopReposWeb.GHReposController do
   def search(conn, params) do
     repos = Service.search(params)
     conn
-    |> assign(:repos, repos)
+    |> assign(:repos, repos.items)
     |> render("list.html")
   end
 
@@ -22,7 +22,7 @@ defmodule GhTopReposWeb.GHReposController do
   end
 
   def show(conn, %{"id" => id}) do
-    with {:ok, repo} <- Service.get(id) do
+    with repo <- Service.get(id) do
       conn
       |> assign(:repo, repo)
       |> render("show.html")

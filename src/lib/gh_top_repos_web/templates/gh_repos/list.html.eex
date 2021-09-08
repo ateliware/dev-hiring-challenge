@@ -6,8 +6,15 @@
                     <div class="title">
                         <a href="/repos/<%= repo.github_id %>"><%= repo.name %></a>
                     </div>
-                    <div class="description"><%= String.slice(repo.description, 0..80) %></div>
-                    <div class="stats"><img src="<%= Routes.static_path(@conn, "/images/star.png") %>" /><span><%= repo.stargazers_count %></span></div>
+                    <div class="description">
+                        <%= if repo.description do
+                                String.slice(repo.description, 0..80)
+                        end %>
+                    </div>
+                    <div class="stats">
+                        <img src="<%= Routes.static_path(@conn, "/images/star.png") %>" />
+                        <span><%= repo.stargazers_count %></span>
+                    </div>
                 </div>
             </div>
         <% end %>

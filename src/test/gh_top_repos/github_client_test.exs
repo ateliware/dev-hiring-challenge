@@ -7,7 +7,7 @@ defmodule GhTopRepos.GithubClientTest do
 
   test "fetch repositories failed: bad query" do
 
-    result = GithubClient.fetch_repos([text: ""])
+    {:error, result} = GithubClient.fetch_repos([text: ""])
 
     [e | _] = result.errors
     assert e.code == "missing"
@@ -18,8 +18,8 @@ defmodule GhTopRepos.GithubClientTest do
 
   test "fetch repositories succeeded" do
     query = [text: "elixir", stars: 200]
-    repos = GithubClient.fetch_repos(query, 1, 2)
+    {:ok, repos} = GithubClient.fetch_repos(query, 1, 2)
 
-    assert length(repos) == 2
+    assert length(repos.items) == 2
   end
 end
