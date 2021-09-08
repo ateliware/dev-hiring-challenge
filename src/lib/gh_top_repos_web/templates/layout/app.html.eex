@@ -25,7 +25,8 @@
             </h1>
           </a>
           <nav class="top">
-            <a href="/repos">My top repos</a>
+            <a href="/" title="Github search">Search</a>
+            <a href="/repos" title="List saved repos">My repos</a>
           </nav>
         </div>
       </section>

@@ -9,6 +9,7 @@ defmodule GhTopRepos.GHRepo do
     field :description, :string
     field :url, :string
     field :html_url, :string
+    field :language, :string
     field :forks_count, :integer
     field :forks, :integer
     field :stargazers_count, :integer
@@ -22,7 +23,7 @@ defmodule GhTopRepos.GHRepo do
   def changeset(gh_repo, attrs) do
     gh_repo
     |> cast(attrs, [:github_id, :name, :full_name, :description,
-                    :url, :html_url, :forks, :forks_count,
+                    :url, :html_url, :language, :forks, :forks_count,
                     :stargazers_count, :watchers, :watchers_count,
                     :inserted_at, :updated_at])
     |> validate_required([:name, :url, :html_url])

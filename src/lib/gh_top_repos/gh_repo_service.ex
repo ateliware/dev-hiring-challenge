@@ -18,9 +18,9 @@ defmodule GhTopRepos.GHRepoService do
 
   def search(query) do
     result = GithubClient.fetch_repos([text: query["text"],
-                                       language: query["language"]])
+                                       language: query["language"]], query["p"])
     case result do
-      {:ok, repos} -> save_from_search(repos)
+      {:ok, repos} -> repos # save_from_search(repos)
       {:error, github_error} -> github_error
     end
   end

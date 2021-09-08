@@ -71,6 +71,23 @@ button {
 }
 
 
+$green-color: #55cc5b;
+
+.btn {
+    border: solid 1px #333;
+    border-radius: 3px;
+    padding: 1em 1.25em;
+}
+
+.btn.primary {
+    background: $green-color;
+    border: solid 1px $green-color;
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.1em;
+}
+
+
 /****************************************************
  * Flex
  ****************************************************/
@@ -105,6 +122,15 @@ nav.top {
     text-align: right;
 }
 
+nav.top a {
+    margin-left: 1em;
+    padding: 6px 0;
+
+    :hover {
+        border-bottom: solid 1px #777;
+    }
+}
+
 
 /****************************************************
  * Search form
@@ -126,7 +152,7 @@ nav.top {
 
 .search form {
     padding: 6px;
-    border: solid 1px #8a8a8a;
+    border: solid 1px #aaa;
     border-radius: 6px;
 }
 
@@ -135,12 +161,13 @@ nav.top {
 }
 
 .search select {
-    margin-right: 3px;
+    margin-right: 6px;
     background: #ededed;
 }
 
 .search button {
-    background: #44bb4b;
+    padding: 1em 1.25em;
+    background: $green-color;
     color: #fff;
     font-weight: 600;
 }
@@ -150,17 +177,17 @@ nav.top {
  * Repos list
  ****************************************************/
 .repos-list {
+    display: grid;
+    grid-template-columns: minmax(100px, 33%) 1fr 1fr;
+    grid-gap: 10px;
+    margin: 2em 0;
 
     > div {
-        flex-grow: 1;
-        width: 33%;
-        max-width: 33%;
-        box-sizing: border-box;
-        padding: 1em;
+        /* flex-*/
     }
 
     .repo {
-        height: 120px;
+        height: 140px;
         padding: 1.5em 2em;
         box-shadow: 0 1px 3px rgba(0,0,0,.2);
     }
@@ -190,3 +217,30 @@ nav.top {
 }
 
 
+/****************************************************
+ * Show repo details
+ ****************************************************/
+.repo-details {
+
+    .description {
+        margin-bottom: 3em;
+    }
+}
+
+/****************************************************
+ * Pagination
+ ****************************************************/
+.pagination {
+    text-align: center;
+    margin: 3em 0;
+
+    span {
+        padding: 0 1em;
+        font-size: 1.2em;
+    }
+    
+    .current {}
+
+    .next-prev {
+    }
+}

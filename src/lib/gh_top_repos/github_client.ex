@@ -31,7 +31,7 @@ defmodule GhTopRepos.GithubClient do
   }}`
   
   """
-  def fetch_repos(query, page \\ 1, per_page \\ 10) do
+  def fetch_repos(query, page \\ 1, per_page \\ 9) do
     query_pag = build_query(query) ++ [page: page, per_page: per_page]
     query_str = URI.encode_query(query_pag)
 

@@ -11,6 +11,7 @@ defmodule GhTopReposWeb.GHReposController do
     repos = Service.search(params)
     conn
     |> assign(:repos, repos.items)
+    |> assign(:total_count, repos.total_count)
     |> render("list.html")
   end
 
@@ -22,16 +23,15 @@ defmodule GhTopReposWeb.GHReposController do
   end
 
   def show(conn, %{"id" => id}) do
-    with repo <- Service.get(id) do
+    if repo = Service.get(id) do
       conn
       |> assign(:repo, repo)
       |> render("show.html")
     else
-      nil ->
-        conn
-        |> put_status(:not_found)
-        |> put_view(GhTopReposWeb.ErrorView)
-        |> render(:"404")
+      conn
+      |> put_status(:not_found)
+      |> put_view(GhTopReposWeb.ErrorView)
+      |> render(:"404")
     end
   end
 end

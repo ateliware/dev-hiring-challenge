@@ -1,4 +1,7 @@
 <div class="container">
+    <div>
+        <button class="btn primary">Save all</button>
+    </div>
     <section class="repos-list flex flex-wrap">
         <%= for repo <- @repos do %>
             <div>
@@ -19,4 +22,22 @@
             </div>
         <% end %>
     </section>
+
+    <div class="pagination">
+        <% pag = pagination(@conn, @total_count) %>
+
+        <%= if pag.prev_path do %>
+            <span class="next-prev">
+                <a href="<%= pag.prev_path %>"><%= pag.prev_page %></a>
+            </span>
+        <%= end %>
+
+        <span class="current"><%= pag.page %></span>
+
+        <%= if pag.next_path do %>
+            <span class="next-prev">
+                <a href="<%= pag.next_path %>"><%= pag.next_page %></a>
+            </span>
+        <%= end %>
+    </div>
 </div>

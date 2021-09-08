@@ -9,6 +9,7 @@ defmodule GhTopRepos.Repo.Migrations.CreateGhRepo do
       add :description, :string
       add :url, :string
       add :html_url, :string
+      add :language, :string
       add :forks_count, :integer
       add :forks, :integer
       add :stargazers_count, :integer
