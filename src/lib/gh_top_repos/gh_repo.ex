@@ -3,6 +3,7 @@ defmodule GhTopRepos.GHRepo do
   import Ecto.Changeset
 
   schema "gh_repo" do
+    field :github_id, :integer
     field :name, :string
     field :full_name, :string
     field :description, :string
@@ -20,7 +21,9 @@ defmodule GhTopRepos.GHRepo do
   @doc false
   def changeset(gh_repo, attrs) do
     gh_repo
-    |> cast(attrs, [:name, :url, :html_url])
+    |> cast(attrs, [:github_id, :name, :full_name, :description,
+                    :url, :html_url, :forks, :forks_count,
+                    :stargazers_count, :watchers, :watchers_count])
     |> validate_required([:name, :url, :html_url])
   end
 end

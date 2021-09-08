@@ -144,3 +144,49 @@ nav.top {
     color: #fff;
     font-weight: 600;
 }
+
+
+/****************************************************
+ * Repos list
+ ****************************************************/
+.repos-list {
+
+    > div {
+        flex-grow: 1;
+        width: 33%;
+        max-width: 33%;
+        box-sizing: border-box;
+        padding: 1em;
+    }
+
+    .repo {
+        height: 120px;
+        padding: 1.5em 2em;
+        box-shadow: 0 1px 3px rgba(0,0,0,.2);
+    }
+
+    .repo .title {
+        font-weight: 600;
+        font-size: 1.1em;
+    }
+
+    .repo .description {
+        color: #8a8a8a;
+    }
+
+    .repo .stats {
+        padding-top: 1em;
+    }
+
+    .repo > div {
+        margin-bottom: 6px;
+    }
+
+    .repo img {
+        width: 14px;
+        margin-right: 6px;
+        opacity: .5;
+    }
+}
+
+

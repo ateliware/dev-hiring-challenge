@@ -3,6 +3,7 @@ defmodule GhTopRepos.Repo.Migrations.CreateGhRepo do
 
   def up do
     create table(:gh_repo) do
+      add :github_id, :integer
       add :name, :string
       add :full_name, :string
       add :description, :string

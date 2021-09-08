@@ -2,26 +2,24 @@ defmodule GhTopRepos.GithubClientTest do
 
   use ExUnit.Case, async: true
 
-  alias GhTopRepos.{GithubClient, GithubError}
+  alias GhTopRepos.GithubClient
 
 
   test "fetch repositories failed: bad query" do
 
-    json = GithubClient.fetch_repos([text: ""])
+    result = GithubClient.fetch_repos([text: ""])
 
-    error = struct(GithubError, json)
-
-    [e | _] = error.errors
+    [e | _] = result.errors
     assert e.code == "missing"
     assert e.field == "q"
-    assert error.message == "Validation Failed"
+    assert result.message == "Validation Failed"
   end
 
 
   test "fetch repositories succeeded" do
     query = [text: "elixir", stars: 200]
-    json = GithubClient.fetch_repos(query, 1, 2)
+    repos = GithubClient.fetch_repos(query, 1, 2)
 
-    assert length(json.items) == 2
+    assert length(repos) == 2
   end
 end

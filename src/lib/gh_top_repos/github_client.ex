@@ -5,6 +5,7 @@ defmodule GhTopRepos.GithubClient do
 
 
   alias GhTopRepos.HttpClient, as: Http
+  alias GhTopRepos.GithubError
 
 
   def fetch_repos(query, page \\ 1, per_page \\ 10) do
@@ -14,7 +15,19 @@ defmodule GhTopRepos.GithubClient do
     {:ok, conn} = Http.connect(@api_url, :https)
     {:ok, json} = Http.get_json(conn, @repos_search_path <> query_str)
 
-    json
+    if Map.has_key?(json, :errors) do
+      struct(GithubError, json) 
+    else  
+      repos = Enum.map(json.items, fn item ->
+        if Map.has_key?(item, :id) do
+          Map.put(item, :github_id, item[:id])
+        else
+          item
+        end
+      end)
+
+      repos
+    end
   end
 
 

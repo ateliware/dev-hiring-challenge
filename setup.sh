@@ -20,4 +20,3 @@ cd ..
 
 sudo chown -R $(id -u):$(id -g) src/
 
-docker-compose up

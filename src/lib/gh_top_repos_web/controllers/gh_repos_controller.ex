@@ -8,9 +8,9 @@ defmodule GhTopReposWeb.GHReposController do
   end
 
   def search(conn, params) do
-    result = Service.search(params)
+    repos = Service.search(params)
     conn
-    |> assign(:repos, result.items)
+    |> assign(:repos, repos)
     |> render("list.html")
   end
 
