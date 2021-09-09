@@ -9,12 +9,26 @@ services:
       - "4000:4000"
     depends_on:
       - db
+
+  phoenix_prod:
+    build: .
+    volumes:
+      - ./src:/app
+    ports:
+      - "7555:7555"
+    depends_on:
+      - db
+    env_file:
+      - .env
+
   db:
     image: postgres:9.6-alpine
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: $PG_USER
+      POSTGRES_PASSWORD: $PG_PASS
       PGDATA: /var/lib/postgresql/data/pgdata
     restart: always
+    ports:
+      - "5432:5432"
     volumes:
       - ./pgdata:/var/lib/postgresql/data

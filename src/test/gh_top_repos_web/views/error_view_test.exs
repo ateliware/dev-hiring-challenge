@@ -5,10 +5,12 @@ defmodule GhTopReposWeb.ErrorViewTest do
   import Phoenix.View
 
   test "renders 404.html" do
-    assert render_to_string(GhTopReposWeb.ErrorView, "404.html", []) == "Not Found"
+    assert render_to_string(GhTopReposWeb.ErrorView,
+                            "404.html", []) =~ " <p>Resource not found</p>"
   end
 
   test "renders 500.html" do
-    assert render_to_string(GhTopReposWeb.ErrorView, "500.html", []) == "Internal Server Error"
+    assert render_to_string(GhTopReposWeb.ErrorView,
+                            "500.html", []) =~ "<p>Internal server error</p>"
   end
 end

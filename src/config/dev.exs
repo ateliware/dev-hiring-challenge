@@ -5,7 +5,7 @@ config :gh_top_repos, GhTopRepos.Repo,
   username: "postgres",
   password: "postgres",
   database: "gh_top_repos_dev",
-  hostname: "db",
+  hostname: "localhost",
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
 
