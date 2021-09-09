@@ -64,12 +64,12 @@ defmodule GhTopRepos.GHRepoService do
   end
 
   def list(page, page_size \\ 9) do
-    offset_ = if page > 1 do page_size else 0 end
+    offset = if page > 1 do page_size * (page - 1) else 0 end
     total_count = Repo.one(from r in GHRepo, select: count(r.github_id))
 
-    IO.puts "PAGE #{page} OFFSET #{offset_}"
+    IO.puts "TOTAL_COUNT #{total_count} PAGE #{page} OFFSET #{offset}"
     results = GHRepo
-              |> offset(^offset_)
+              |> offset(^offset)
               |> limit(^page_size)
               |> Repo.all
     %{items: results, total_count: total_count}

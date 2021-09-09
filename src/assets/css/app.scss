@@ -176,8 +176,8 @@ nav.top a.hidden {
 }
 
 .search form {
-    padding: 6px;
-    border: solid 1px #aaa;
+    padding: 3px;
+    border: solid 2px #bbb;
     border-radius: 6px;
 }
 
@@ -242,6 +242,11 @@ nav.top a.hidden {
 
     .repo .stats > div {
         margin-right: 22px;
+
+        span, img {
+            display: inline-block;
+            margin-top: 6px;
+        }
     }
 
     .repo .stats a {
