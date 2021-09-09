@@ -1,7 +1,10 @@
 <div class="container">
-    <p class="alert alert-info"><%= get_flash(@conn, :info) %></p>
-
+    <% flash = get_flash(@conn, :info) %>
     <% is_search = @conn.request_path == "/search" %>
+
+    <%= if flash do %>
+        <p class="alert alert-info"><%= flash %></p>
+    <% end %>
 
     <%= if @total_count > 0 do %>
         <%= if is_search do %>
