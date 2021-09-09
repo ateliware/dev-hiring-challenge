@@ -1,0 +1,117 @@
+{% load static %}
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'css/bulma.css' %}">
+  <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}"/>
+  <title>Languages search</title>
+</head>
+
+<body>
+  <script src="{% static 'javascript/index.js' %}"></script>
+  <section class="hero is-primary">
+    <div class="hero-body">
+      <p class="title">
+        Languages repo search
+      </p>
+      <div class="columns">
+        {% if preferedLanguages %}
+        <label class="label ml-4">Prefered Languages:</label>
+        {% for lang in preferedLanguages %}
+        <p class="ml-4">{{lang.value}}</p>
+        {% endfor %}
+        {% endif %}
+      </div>
+    </div>
+  </section>
+  <div class="container mt-6">
+    <form action="" method="POST">
+      <div class="columns">
+        <div class="column"></div>
+        <div class="column">
+          <div class="field">
+            <label class="label">Name</label>
+            <div class="control">
+              <input class="input is-info" id="name" type="text" name="name" value="{{ name }}" placeholder="Name">
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label">Email</label>
+            <div class="control">
+              <input class="input is-info" id="email" type="email" name="email" value="{{ email }}"
+                placeholder="Email input">
+            </div>
+          </div>
+
+          <input style="width: 0; height: 0; display: none;" id="languages" type="text" name="languages"
+            value="{{ languages }}">
+
+          <div class="field">
+            <label class="label">Prefered Languages</label>
+            <div class="columns mt-2">
+              <div class="control">
+                <div class="select pr-2 pl-2">
+                  <select id="languagesOptions1">
+                  </select>
+                </div>
+              </div>
+              <div class="control">
+                <div class="select pr-2 pl-2">
+                  <select id="languagesOptions2">
+                  </select>
+                </div>
+              </div>
+              <div class="control">
+                <div class="select pr-2 pl-2">
+                  <select id="languagesOptions3">
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="columns mt-2">
+              <div class="control">
+                <div class="select pr-2 pl-2">
+                  <select id="languagesOptions4">
+                  </select>
+                </div>
+              </div>
+              <div class="control">
+                <div class="select pr-2 pl-2">
+                  <select id="languagesOptions5">
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="columns mt-1">
+            </div>
+            <button id="submit" type="submit" class="button is-primary">Search</button>
+    </form>
+    <div class="container">
+      {% if Repos %}
+      {% for repo in Repos %}
+      <section class="section">
+        <h1 class="title"><a href="{{repo.clone_url}}">{{repo.name}}</a></h1>
+        <h2 class="subtitle">
+          {{repo.language}}
+        </h2>
+        <p> {{repo.description}}</p>
+      </section>
+      {% endfor %}
+      {% endif %}
+    </div>
+  </div>
+  </div>
+  <div class="column"></div>
+  </div>
+
+
+  </div>
+
+  </div>
+</body>
+
+</html>
