@@ -3,7 +3,6 @@ defmodule GhTopRepos.GithubClient do
   @api_url "api.github.com"
   @repos_search_path "/search/repositories?"
 
-
   alias GhTopRepos.HttpClient, as: Http
   alias GhTopRepos.GithubError
 
@@ -50,6 +49,17 @@ defmodule GhTopRepos.GithubClient do
       end)
 
       {:ok, %{items: repos, total_count: json.total_count}}
+    end
+  end
+
+  def get_repo(full_name) do
+    {:ok, conn} = Http.connect(@api_url, :https)
+    {:ok, json} = Http.get_json(conn, "/repos/" <> full_name)
+
+    if Map.has_key?(json, :errors) do
+      {:error, struct(GithubError, json)}
+    else
+      Map.put(json, :github_id, json[:id])
     end
   end
   

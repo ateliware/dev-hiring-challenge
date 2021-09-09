@@ -10,9 +10,7 @@ body {
 }
 
 header {
-    position: sticky;
-    top: 0;
-    background: #fff;
+    padding: 1em 0;
 }
 
 main {
@@ -76,7 +74,7 @@ $green-color: #55cc5b;
 .btn {
     border: solid 1px #333;
     border-radius: 3px;
-    padding: 1em 1.25em;
+    padding: .75em 1em;
 }
 
 .btn.primary {
@@ -85,6 +83,13 @@ $green-color: #55cc5b;
     color: #fff;
     font-weight: 600;
     font-size: 1.1em;
+}
+
+.btn.save {
+    border: solid 1px $green-color;
+    color: $green-color;
+    font-weight: 600;
+    padding: 6px 12px;
 }
 
 
@@ -139,7 +144,7 @@ nav.top a {
 .search {
     max-width: 800px;
     margin: 0 auto;
-    padding: 10em 0;
+    padding: 12em 0;
 
     input, button, select {
         font-size: 20px;
@@ -172,6 +177,13 @@ nav.top a {
     font-weight: 600;
 }
 
+.no-results {
+    font-size: 60px;
+    color: #ccc;
+    text-align: center;
+    padding: 4em 0;
+}
+
 
 /****************************************************
  * Repos list
@@ -179,7 +191,7 @@ nav.top a {
 .repos-list {
     display: grid;
     grid-template-columns: minmax(100px, 33%) 1fr 1fr;
-    grid-gap: 10px;
+    grid-gap: 18px;
     margin: 2em 0;
 
     > div {
@@ -187,8 +199,8 @@ nav.top a {
     }
 
     .repo {
-        height: 140px;
-        padding: 1.5em 2em;
+        /* height: 140px; */
+        padding: 1.5em 1.75em 2em 1.75em;
         box-shadow: 0 1px 3px rgba(0,0,0,.2);
     }
 
@@ -199,10 +211,15 @@ nav.top a {
 
     .repo .description {
         color: #8a8a8a;
+        height: 60px;
     }
 
     .repo .stats {
         padding-top: 1em;
+    }
+
+    .repo .stats a {
+        float: right;
     }
 
     .repo > div {
@@ -211,7 +228,7 @@ nav.top a {
 
     .repo img {
         width: 14px;
-        margin-right: 6px;
+        margin-right: 3px;
         opacity: .5;
     }
 }
@@ -232,15 +249,23 @@ nav.top a {
  ****************************************************/
 .pagination {
     text-align: center;
-    margin: 3em 0;
+    margin: 2em 0;
+    font-size: 1.5em;
+    color: #aaa;
 
     span {
-        padding: 0 1em;
-        font-size: 1.2em;
+        padding: 0 3px;
+        text-align: center;
     }
     
-    .current {}
+    .current {
+        color: #333;
+    }
 
     .next-prev {
+        width: 20px;
+        display: inline-block;
+        color: #333;
+        font-size: 1.5em;
     }
 }

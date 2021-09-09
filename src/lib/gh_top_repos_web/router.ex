@@ -21,6 +21,8 @@ defmodule GhTopReposWeb.Router do
     get "/search", GHReposController, :search
     get "/repos", GHReposController, :list
     get "/repos/:id", GHReposController, :show
+    get "/repos/save/:owner/:name", GHReposController, :save
+    get "/repos/save/all", GHReposController, :save_all
   end
 
   # Other scopes may use custom stacks.

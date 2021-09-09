@@ -19,7 +19,21 @@ defmodule GhTopReposWeb.GHReposController do
     repos = Service.list()
     conn
     |> assign(:repos, repos)
+    |> assign(:total_count, length(repos))
     |> render("list.html")
+  end
+
+  def save(conn, %{"owner" => owner, "name" => name}) do
+    {:ok, repo} = Service.save(owner, name)
+
+    redirect(conn, to: "/repos/" <> Integer.to_string(repo.github_id))
+  end
+
+  def save_all(conn, query) do
+    Service.save_all(query)
+    conn
+    |> put_flash(:info, "All repos saved successfully!")
+    |> redirect(to: "/repos")
   end
 
   def show(conn, %{"id" => id}) do

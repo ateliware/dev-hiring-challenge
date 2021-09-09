@@ -4,13 +4,10 @@ defmodule GhTopReposWeb.GHReposView do
 
 
   def pagination(conn, total_count \\ 0, page_size \\ 9) do
-  
     p = conn.query_params["p"]
     page = if p do String.to_integer(p) else 1 end
 
     total_pages = trunc(total_count / page_size)
-
-    IO.puts("TOTAL COUNT #{total_count}, PAGES #{total_pages}")
 
     next_page = if page + 1 <= total_pages do page + 1 else nil end
     prev_page = if page - 1 > 0 do page - 1 else nil end

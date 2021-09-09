@@ -11,7 +11,7 @@
             <p class="label">Description</p>
             <p><%= @repo.description %><p>
         </div>
-        
+
         <div>
             <a class="btn" href="<%= @repo.html_url %>" target="_blank">See it on Github</a></div>
     </section>

@@ -10,6 +10,7 @@
             <option value="ruby">Ruby</option>
             <option value="haskell">Haskell</option>
         </select>
+        <input type="hidden" name="p" value="1" />
         <button>Search</button>
       </div>
     </form>

@@ -1,43 +1,54 @@
 <div class="container">
-    <div>
-        <button class="btn primary">Save all</button>
-    </div>
-    <section class="repos-list flex flex-wrap">
-        <%= for repo <- @repos do %>
+    <p class="alert alert-info"><%= get_flash(@conn, :info) %></p>
+
+    <%= if @total_count > 0 do %>
+        <%= if @conn.request_path == "/search" do %>
             <div>
-                <div class="repo">
-                    <div class="title">
-                        <a href="/repos/<%= repo.github_id %>"><%= repo.name %></a>
-                    </div>
-                    <div class="description">
-                        <%= if repo.description do
-                                String.slice(repo.description, 0..80)
-                        end %>
-                    </div>
-                    <div class="stats">
-                        <img src="<%= Routes.static_path(@conn, "/images/star.png") %>" />
-                        <span><%= repo.stargazers_count %></span>
-                    </div>
-                </div>
+                <a class="btn primary" title="Save all repos in this page"
+                   href="/repos/save/all?<%= @conn.query_string %>">Save all</a>
             </div>
         <% end %>
-    </section>
+        <section class="repos-list flex flex-wrap">
+            <%= for repo <- @repos do %>
+                <div>
+                    <div class="repo">
+                        <div class="title">
+                            <%= repo.name %>
+                        </div>
+                        <div class="description">
+                            <%= if repo.description do
+                                    String.slice(repo.description, 0..80)
+                            end %>
+                        </div>
+                        <div class="stats">
+                            <img src="<%= Routes.static_path(@conn, "/images/star.png") %>" />
+                            <span><%= repo.stargazers_count %></span>
+                            <a class="btn save" href="/repos/save/<%= repo.full_name %>">Save</a>
+                        </div>
+                    </div>
+                </div>
+            <% end %>
+        </section>
 
-    <div class="pagination">
         <% pag = pagination(@conn, @total_count) %>
+        <%= if pag.total_pages > 0 do %>
+            <div class="pagination">
+                <span class="next-prev">
+                <%= if pag.prev_path do %>
+                    <a href="<%= pag.prev_path %>">&#x2039;</a>
+                <% end %>
+                </span>
 
-        <%= if pag.prev_path do %>
-            <span class="next-prev">
-                <a href="<%= pag.prev_path %>"><%= pag.prev_page %></a>
-            </span>
-        <%= end %>
+                <span class="current"><%= pag.page %></span>/<span><%= pag.total_pages  %></span>
 
-        <span class="current"><%= pag.page %></span>
-
-        <%= if pag.next_path do %>
-            <span class="next-prev">
-                <a href="<%= pag.next_path %>"><%= pag.next_page %></a>
-            </span>
-        <%= end %>
-    </div>
+                <span class="next-prev">
+                <%= if pag.next_path do %>
+                    <a href="<%= pag.next_path %>">&#x203A;</a>
+                <% end %>
+                </span>
+            </div>
+        <% end %>
+    <%= else %>
+        <div class="no-results">No repositories found.</div>
+    <% end %>
 </div>
