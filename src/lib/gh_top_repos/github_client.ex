@@ -56,10 +56,12 @@ defmodule GhTopRepos.GithubClient do
     {:ok, conn} = Http.connect(@api_url, :https)
     {:ok, json} = Http.get_json(conn, "/repos/" <> full_name)
 
+    IO.inspect json
+
     if Map.has_key?(json, :errors) do
       {:error, struct(GithubError, json)}
     else
-      Map.put(json, :github_id, json[:id])
+      {:ok, Map.put(json, :github_id, json[:id])}
     end
   end
   

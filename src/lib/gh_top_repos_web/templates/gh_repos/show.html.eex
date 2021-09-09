@@ -1,18 +1,58 @@
 <div class="container">
     <section class="repo-details">
         <div class="flex">
-            <h1><%= @repo.full_name %></h1>
+            <h1>
+                <%= if @repo.avatar_url do %>
+                    <% IO.inspect @repo %>
+                    <img src="<%= @repo.avatar_url %>" alt="avatar_url" />
+                <% else %>
+                    <img class="avatar"
+                         src="<%= Routes.static_path(@conn, "/images/github.png") %>" />
+                <% end %>
+                <%= @repo.full_name %>
+            </h1>
         </div>
-        <div>
-            <p class="label">Language</p>
-            <p><%= @repo.language %><p>
-        </div>
+
+        <%= if @repo.description do %>
         <div class="description">
             <p class="label">Description</p>
             <p><%= @repo.description %><p>
         </div>
+        <% end %>
 
         <div>
-            <a class="btn" href="<%= @repo.html_url %>" target="_blank">See it on Github</a></div>
+            <p class="label">Language</p>
+            <p><%= @repo.language %><p>
+        </div>
+
+        <div>
+            <p class="label">Stats</p>
+            <div class="stats flex">
+                <div>
+                    <img class="star"
+                         src="<%= Routes.static_path(@conn, "/images/star.png") %>" />
+                    <span><%= @repo.stargazers_count %></span>
+                </div>
+
+                <%= if Map.has_key?(@repo, :subscribers_count) and
+                        @repo.subscribers_count != nil do %>
+                <div>
+                    <img src="<%= Routes.static_path(@conn, "/images/watch.png") %>" />
+                    <span><%= @repo.subscribers_count %></span>
+                </div>
+                <% end %>
+            </div>
+        </div>
+
+        <div>
+            <p class="label">Clone URLs</p>
+            <div class="url"><span>SSH</span><%= @repo.ssh_url %></div>
+            <div class="url"><span>HTTPS</span><%= @repo.clone_url %></div>
+        </div>
+
+        <div class="view-github">
+            <a class="btn" href="<%= @repo.html_url %>"
+               target="_blank">See it on Github</a>
+        </div>
     </section>
 </div>

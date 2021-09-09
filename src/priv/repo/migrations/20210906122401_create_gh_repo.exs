@@ -15,6 +15,10 @@ defmodule GhTopRepos.Repo.Migrations.CreateGhRepo do
       add :stargazers_count, :integer
       add :watchers_count, :integer
       add :watchers, :integer
+      add :subscribers_count, :integer
+      add :avatar_url, :string
+      add :ssh_url, :string
+      add :clone_url, :string
 
       timestamps()
     end

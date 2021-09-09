@@ -15,6 +15,10 @@ defmodule GhTopRepos.GHRepo do
     field :stargazers_count, :integer
     field :watchers_count, :integer
     field :watchers, :integer
+    field :subscribers_count, :integer
+    field :avatar_url, :string
+    field :ssh_url, :string
+    field :clone_url, :string
 
     timestamps()
   end
@@ -25,6 +29,7 @@ defmodule GhTopRepos.GHRepo do
     |> cast(attrs, [:github_id, :name, :full_name, :description,
                     :url, :html_url, :language, :forks, :forks_count,
                     :stargazers_count, :watchers, :watchers_count,
+                    :subscribers_count, :avatar_url, :ssh_url, :clone_url,
                     :inserted_at, :updated_at])
     |> validate_required([:name, :url, :html_url])
   end

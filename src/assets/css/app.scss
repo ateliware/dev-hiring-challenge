@@ -75,6 +75,7 @@ $green-color: #55cc5b;
     border: solid 1px #333;
     border-radius: 3px;
     padding: .75em 1em;
+    color: #333;
 }
 
 .btn.primary {
@@ -90,6 +91,11 @@ $green-color: #55cc5b;
     color: $green-color;
     font-weight: 600;
     padding: 6px 12px;
+}
+
+.btn.view {
+    padding: 6px 12px;
+    align-self: flex-end;
 }
 
 
@@ -136,6 +142,13 @@ nav.top a {
     }
 }
 
+nav.top a.active {
+    font-weight: 600;
+}
+
+nav.top a.hidden {
+    display: none;
+}
 
 /****************************************************
  * Search form
@@ -189,13 +202,15 @@ nav.top a {
  * Repos list
  ****************************************************/
 .repos-list {
+    height: 70vh;
     display: grid;
-    grid-template-columns: minmax(100px, 33%) 1fr 1fr;
-    grid-gap: 18px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 18px;
+    grid-row-gap: 18px;
+    grid-auto-rows: min-content;
     margin: 2em 0;
 
     > div {
-        /* flex-*/
     }
 
     .repo {
@@ -218,8 +233,17 @@ nav.top a {
         padding-top: 1em;
     }
 
+    .repo .stats > div {
+        margin-right: 22px;
+    }
+
     .repo .stats a {
         float: right;
+    }
+
+    .repo .stats .action {
+        flex: 1;
+        margin-right: 0;
     }
 
     .repo > div {
@@ -227,9 +251,13 @@ nav.top a {
     }
 
     .repo img {
-        width: 14px;
+        width: 18px;
         margin-right: 3px;
         opacity: .5;
+    }
+
+    .repo img.star {
+        width: 14px;
     }
 }
 
@@ -239,8 +267,69 @@ nav.top a {
  ****************************************************/
 .repo-details {
 
+    > div {
+        padding: 1em 0;
+    }
+
+    p {
+        padding: .25em 0;
+        margin: 0;
+    }
+
+    h1 img {
+        vertical-align: middle;
+        background: #e1e1e1;
+        border: solid 1px #777;
+        border-radius: 9px;
+        padding: .5em;
+        margin-right: .65em;
+    }
+
+    h1 img.avatar {
+        opacity: .3;
+    }
+
+    .label {
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: #aaa;
+        padding: 0;
+        margin: 0 0 .5em 0;
+    }
+
     .description {
-        margin-bottom: 3em;
+    }
+
+    .stats {
+        padding: .5em 0;
+    }
+
+    .stats img {
+        width: 16px;
+        opacity: .6;
+    }
+
+    .stats > div {
+        margin-right: 1em;
+    }
+
+    .url {
+        display: inline-block;
+        border: solid 1px #aaa;
+        padding-right: 1em;
+        margin-bottom: .25em;
+    }
+
+    .url span {
+        display: inline-block;
+        border-right: solid 1px #aaa;
+        background: #f1f1f1;
+        padding: 1em;
+        margin-right: 1em;
+    }
+
+    .view-github {
+        margin-top: 4em;
     }
 }
 
@@ -249,7 +338,7 @@ nav.top a {
  ****************************************************/
 .pagination {
     text-align: center;
-    margin: 2em 0;
+    margin: 1em 0;
     font-size: 1.5em;
     color: #aaa;
 

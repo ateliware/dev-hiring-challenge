@@ -71,5 +71,18 @@ defmodule GhTopRepos.GHRepoServiceTest do
     result = Service.save_from_search(search_result)
     assert result.total_count == 2
   end
+
+
+  test "list by ids returns repos correctly" do
+    repo_url = "https://github.com/elixir-..."
+    search_result = %{items: [dummy_repo("Repo 3", repo_url, 9902),
+                              dummy_repo("Repo 4", repo_url, 18389)], total_count: 2}
+
+    result = Service.save_from_search(search_result)
+    
+    repos = Service.list_ids_in([9902, 18389])
+
+    assert length(repos) == 2
+  end 
 end
 

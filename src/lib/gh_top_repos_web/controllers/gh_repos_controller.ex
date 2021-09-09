@@ -15,11 +15,11 @@ defmodule GhTopReposWeb.GHReposController do
     |> render("list.html")
   end
 
-  def list(conn, _params) do
-    repos = Service.list()
+  def list(conn, params) do
+    result = Service.list(String.to_integer(Map.get(params, "p", "1")))
     conn
-    |> assign(:repos, repos)
-    |> assign(:total_count, length(repos))
+    |> assign(:repos, result.items)
+    |> assign(:total_count, result.total_count)
     |> render("list.html")
   end
 
@@ -38,6 +38,7 @@ defmodule GhTopReposWeb.GHReposController do
 
   def show(conn, %{"id" => id}) do
     if repo = Service.get(id) do
+      IO.inspect repo
       conn
       |> assign(:repo, repo)
       |> render("show.html")

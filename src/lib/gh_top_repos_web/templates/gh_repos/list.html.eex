@@ -1,29 +1,53 @@
 <div class="container">
     <p class="alert alert-info"><%= get_flash(@conn, :info) %></p>
 
+    <% is_search = @conn.request_path == "/search" %>
+
     <%= if @total_count > 0 do %>
-        <%= if @conn.request_path == "/search" do %>
+        <%= if is_search do %>
             <div>
                 <a class="btn primary" title="Save all repos in this page"
                    href="/repos/save/all?<%= @conn.query_string %>">Save all</a>
             </div>
         <% end %>
-        <section class="repos-list flex flex-wrap">
+        <section class="repos-list">
             <%= for repo <- @repos do %>
                 <div>
                     <div class="repo">
                         <div class="title">
-                            <%= repo.name %>
+                            <%= if is_search do %>
+                                <%= repo.name %>
+                            <% else %>
+                                <a href="/repos/<%= repo.github_id %>"><%= repo.name %></a>
+                            <% end %>
                         </div>
                         <div class="description">
                             <%= if repo.description do
                                     String.slice(repo.description, 0..80)
                             end %>
                         </div>
-                        <div class="stats">
-                            <img src="<%= Routes.static_path(@conn, "/images/star.png") %>" />
-                            <span><%= repo.stargazers_count %></span>
-                            <a class="btn save" href="/repos/save/<%= repo.full_name %>">Save</a>
+                        <div class="stats flex">
+                            <div>
+                                <img class="star" src="<%= Routes.static_path(@conn, "/images/star.png") %>" />
+                                <span><%= repo.stargazers_count %></span>
+                            </div>
+
+                            <%= if Map.has_key?(repo, :subscribers_count) and repo.subscribers_count != nil do %>
+                            <div>
+                                <img src="<%= Routes.static_path(@conn, "/images/watch.png") %>" />
+                                <span><%= repo.subscribers_count %></span>
+                            </div>
+                            <% end %>
+
+                            <div class="action">
+                                <%= if is_search and not Map.has_key?(repo, :saved) do %>
+                                <a class="btn save"
+                                   href="/repos/save/<%= repo.full_name %>">Save</a>
+                                <% else %>
+                                <a class="btn view"
+                                   href="/repos/<%= repo.github_id %>">View</a>
+                                <% end %>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -48,7 +72,7 @@
                 </span>
             </div>
         <% end %>
-    <%= else %>
+    <% else %>
         <div class="no-results">No repositories found.</div>
     <% end %>
 </div>

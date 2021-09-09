@@ -1,5 +1,6 @@
 defmodule GhTopRepos.GHRepoService do
 
+  import Ecto.Query
   alias GhTopRepos.{Repo, GHRepo, GithubClient}
 
   def save(%{} = gh_repo) do
@@ -14,9 +15,12 @@ defmodule GhTopRepos.GHRepoService do
 
   def save(owner, name) do
     result = GithubClient.get_repo("#{owner}/#{name}")
+    
 
     case result do
-      repo -> save(repo)
+      {:ok, repo} -> 
+        IO.inspect Map.keys(repo), [limit: :infinity]
+        save(repo)
       {:error, github_error} -> github_error
     end
   end
@@ -29,7 +33,7 @@ defmodule GhTopRepos.GHRepoService do
     result = GithubClient.fetch_repos([text: query["text"],
                                        language: query["language"]], query["p"])
     case result do
-      {:ok, repos} -> repos
+      {:ok, repos} -> map_saved(repos)
       {:error, github_error} -> github_error
     end
   end
@@ -59,7 +63,37 @@ defmodule GhTopRepos.GHRepoService do
     repos
   end
 
-  def list(_page \\ 1) do
-    GHRepo |> Repo.all()
+  def list(page, page_size \\ 9) do
+    offset_ = if page > 1 do page_size else 0 end
+    total_count = Repo.one(from r in GHRepo, select: count(r.github_id))
+
+    IO.puts "PAGE #{page} OFFSET #{offset_}"
+    results = GHRepo
+              |> offset(^offset_)
+              |> limit(^page_size)
+              |> Repo.all
+    %{items: results, total_count: total_count}
+  end
+
+  def list_ids_in(ids_list) do
+    Repo.all(from r in GHRepo,
+      where: r.github_id in ^ids_list,
+      select: r.github_id)
+  end
+
+  # add "saved" property to repos which are already persisted
+  defp map_saved(repos) do
+    repos_ids = Enum.map(repos.items, fn r -> r.github_id end)
+    saved_repos_ids = list_ids_in(repos_ids)
+
+    mapped = Enum.map(repos.items, fn r ->
+      if r.github_id in saved_repos_ids do
+        Map.put(r, :saved, true)
+      else
+        r
+      end
+    end)
+
+    %{items: mapped, total_count: repos.total_count}
   end
 end
