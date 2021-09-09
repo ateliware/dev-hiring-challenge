@@ -1,0 +1,22 @@
+version: "3.8"
+
+services:
+  web:
+    build: .
+    command: python TestAtaliware/manage.py runserver 0.0.0.0:8001
+    volumes:
+      - .:/code
+    ports:
+      - 8001:8001
+    depends_on:
+      - db
+  db:
+    image: postgres:13
+    environment:
+      - POSTGRES_USER=searchcode
+      - POSTGRES_PASSWORD=m*&#Qy0ohTYx
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+
+volumes:
+  postgres_data:
