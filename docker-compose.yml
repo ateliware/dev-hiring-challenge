@@ -13,7 +13,7 @@ services:
   phoenix_prod:
     build: .
     volumes:
-      - ./src:/app
+      - ./src:/app:Z
     ports:
       - "7555:7555"
     depends_on:
@@ -30,5 +30,3 @@ services:
     restart: always
     ports:
       - "5432:5432"
-    volumes:
-      - ./pgdata:/var/lib/postgresql/data
