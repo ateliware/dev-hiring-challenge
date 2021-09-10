@@ -283,7 +283,8 @@ nav.top a.hidden {
         margin-bottom: 6px;
     }
 
-    .repo img {
+    .repo img,
+    .repo svg {
         width: 18px;
         margin-right: 3px;
         opacity: .5;
@@ -337,7 +338,8 @@ nav.top a.hidden {
         padding: .5em 0;
     }
 
-    .stats img {
+    .stats img,
+    .stats svg {
         width: 16px;
         opacity: .6;
     }
