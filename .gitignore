@@ -20,3 +20,4 @@ phoenix-*.ez
 
 /pgdata
 .env
+db.env

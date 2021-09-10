@@ -4,7 +4,8 @@ services:
   phoenix:
     build: .
     volumes:
-      - ./src:/app
+      # :Z extension is required in SELinux
+      - ./src:/app:Z
     ports:
       - "4000:4000"
     depends_on:
@@ -24,9 +25,11 @@ services:
   db:
     image: postgres:9.6-alpine
     environment:
-      POSTGRES_USER: $PG_USER
-      POSTGRES_PASSWORD: $PG_PASS
       PGDATA: /var/lib/postgresql/data/pgdata
+    env_file:
+      - db.env
     restart: always
     ports:
       - "5432:5432"
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data:Z

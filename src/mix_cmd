@@ -1,0 +1,5 @@
+#!/bin/bash
+
+cmd="docker-compose run --rm phoenix mix"
+
+$cmd "$@"
