@@ -1,22 +1,39 @@
-# Desafio técnico para desenvolvedores
+# Github Top Repos
 
-Construa uma nova aplicação, utilizando o framework de sua preferência (Ruby on Rails, Elixir Phoenix, Python Django ou Flask, NodeJS Sails, Java Spring, ASP.NET ou outro), a qual deverá conectar na API do GitHub e disponibilizar as seguintes funcionalidades:
+This small toy app allows you to find Github repositories according to any search term, for the following languages:
 
-- Botão para buscar e armazenar os repositórios destaques de 5 linguagens à sua escolha;
-- Listar os repositórios encontrados;
-- Visualizar os detalhes de cada repositório.
+- Elixir
+- Clojure
+- Python
+- Ruby
+- Haskell
 
-Alguns requisitos:
+## Dev setup
 
-- Deve ser uma aplicação totalmente nova;
-- A solução deve estar em um repositório público do GitHub;
-- A aplicação deve armazenar as informações encontradas;
-- Utilizar PostgreSQL, MySQL ou SQL Server;
-- O deploy deve ser realizado, preferencialmente, no Heroku, AWS ou no Azure;
-- A aplicação precisa ter testes automatizados;
-- Preferenciamente dockerizar a aplicação;
-- Por favor atualizar o readme da aplicação com passo a passo com instrução para subir o ambiente.
+To run it, you'll need to have Docker installed with `docker-compose`. Notice that I strongly recommend you to add the group `docker` to your system's user, since I've experienced some permissions issues while running Docker with `sudo`.
 
-Quando terminar, faça um Pull Request neste repo e avise-nos por email.
+Just clone the application repository, and enter its directory.
 
-**IMPORTANTE:** se você não conseguir finalizar o teste, por favor nos diga o motivo e descreva quais foram as suas dificuldades. Você pode também sugerir uma outra abordagem para avaliarmos seus skills técnicos, vender seu peixe, mostrar-nos do que é capaz.
+Then, to start it in development mode, issue the command:
+```
+$ PG_USER=postgres PG_PASS=postgres docker-compose up phoenix db
+```
+
+If everything goes well, go to `http://localhost:4000` and you'll see the app running.
+
+
+## Prod setup
+
+The process to run it in production mode is almost the same, except you need also an `.env` file in the root directory.
+
+Here's an example of such file:
+```
+SECRET_KEY_BASE=O/JLVXz7tEL14uPmVY8IPCksms09a9+9382djndf
+DATABASE_URL=ecto://postgres:postgres@db/gh_top_repos
+PORT=7555
+ENV=prod
+
+```
+Replace the data above with the values of your environment.
+
+
