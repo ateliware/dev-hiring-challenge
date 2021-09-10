@@ -1,7 +1,7 @@
 <div class="container">
   <section class="search">
     <form action="/search" method="GET">
-      <div class="flex">
+      <div class="flex search-input">
         <input type="text" name="text" placeholder="enter your search e.g. &quot;oauth lib&quot;" />
         <select name="language">
             <option value="elixir">Elixir</option>
@@ -10,8 +10,18 @@
             <option value="ruby">Ruby</option>
             <option value="haskell">Haskell</option>
         </select>
+        
         <input type="hidden" name="p" value="1" />
         <button>Search</button>
+      </div>
+      <div class="filters">
+        <div><strong>At least</strong></div>
+        <label for="stars">
+            <input type="text" value="10" name="stars" id="stars"  />Stars
+        </label>
+        <label for="forks">
+            <input type="text" value="10" name="forks" id="forks"  />Forks
+        </label>
       </div>
     </form>
   </section>

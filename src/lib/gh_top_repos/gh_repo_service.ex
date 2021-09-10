@@ -30,8 +30,7 @@ defmodule GhTopRepos.GHRepoService do
   end
 
   def search(query) do
-    result = GithubClient.fetch_repos([text: query["text"],
-                                       language: query["language"]], query["p"])
+    result = fetch_with_query(query)
     case result do
       {:ok, repos} -> map_saved(repos)
       {:error, github_error} -> github_error
@@ -39,8 +38,7 @@ defmodule GhTopRepos.GHRepoService do
   end
 
   def save_all(query) do
-    result = GithubClient.fetch_repos([text: query["text"],
-                                       language: query["language"]], query["p"])
+    result = fetch_with_query(query)
     case result do
       {:ok, repos} -> save_from_search(repos)
       {:error, github_error} -> github_error
@@ -79,6 +77,13 @@ defmodule GhTopRepos.GHRepoService do
     Repo.all(from r in GHRepo,
       where: r.github_id in ^ids_list,
       select: r.github_id)
+  end
+
+  defp fetch_with_query(query) do
+    GithubClient.fetch_repos([text: query["text"],
+                              stars: query["stars"],
+                              forks: query["forks"],
+                              language: query["language"]], query["p"])
   end
 
   # add "saved" property to repos which are already persisted

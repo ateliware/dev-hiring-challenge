@@ -176,9 +176,30 @@ nav.top a.hidden {
 }
 
 .search form {
+}
+
+.search .search-input {
     padding: 3px;
-    border: solid 2px #bbb;
+    box-shadow: 0 2px 4px rgba(0,0,0,.2);
+    border: solid 1px #cacaca;
     border-radius: 6px;
+}
+
+.search .filters {
+    padding-top: 2em;
+    text-align: center;
+}
+
+.search .filters label {
+}
+
+.search .filters input {
+    border: solid 1px #cacaca;
+    margin: 1em 9px 0 2em;
+    width: 30px;
+    padding: .75em 1em;
+    box-shadow: 0 2px 2px rgba(0,0,0,.2);
+    text-align: center;
 }
 
 .search input {
