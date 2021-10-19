@@ -29,7 +29,7 @@ services:
     env_file:
       - db.env
     restart: always
-    ports:
-      - "5432:5432"
+    #ports:
+    #  - "5432:5432"
     volumes:
       - ./pgdata:/var/lib/postgresql/data:Z

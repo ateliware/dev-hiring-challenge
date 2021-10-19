@@ -38,7 +38,6 @@ defmodule GhTopReposWeb.GHReposController do
 
   def show(conn, %{"id" => id}) do
     if repo = Service.get(id) do
-      IO.inspect repo
       conn
       |> assign(:repo, repo)
       |> render("show.html")

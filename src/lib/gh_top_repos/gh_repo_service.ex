@@ -16,10 +16,8 @@ defmodule GhTopRepos.GHRepoService do
   def save(owner, name) do
     result = GithubClient.get_repo("#{owner}/#{name}")
     
-
     case result do
       {:ok, repo} -> 
-        IO.inspect Map.keys(repo), [limit: :infinity]
         save(repo)
       {:error, github_error} -> github_error
     end
@@ -65,7 +63,6 @@ defmodule GhTopRepos.GHRepoService do
     offset = if page > 1 do page_size * (page - 1) else 0 end
     total_count = Repo.one(from r in GHRepo, select: count(r.github_id))
 
-    IO.puts "TOTAL_COUNT #{total_count} PAGE #{page} OFFSET #{offset}"
     results = GHRepo
               |> offset(^offset)
               |> limit(^page_size)

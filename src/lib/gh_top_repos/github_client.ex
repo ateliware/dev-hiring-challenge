@@ -6,7 +6,6 @@ defmodule GhTopRepos.GithubClient do
   alias GhTopRepos.HttpClient, as: Http
   alias GhTopRepos.GithubError
 
-
   @doc """
   Performs a GET request to the Gihub API, returning repositories.
 
@@ -55,8 +54,6 @@ defmodule GhTopRepos.GithubClient do
   def get_repo(full_name) do
     {:ok, conn} = Http.connect(@api_url, :https)
     {:ok, json} = Http.get_json(conn, "/repos/" <> full_name)
-
-    IO.inspect json
 
     if Map.has_key?(json, :errors) do
       {:error, struct(GithubError, json)}

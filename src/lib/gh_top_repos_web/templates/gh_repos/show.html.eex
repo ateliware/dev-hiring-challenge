@@ -3,7 +3,6 @@
         <div class="flex">
             <h1>
                 <%= if @repo.avatar_url do %>
-                    <% IO.inspect @repo %>
                     <img src="<%= @repo.avatar_url %>" alt="avatar_url" />
                 <% else %>
                     <img class="avatar"
