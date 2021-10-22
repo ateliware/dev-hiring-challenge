@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <title>Github Top Repos</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
+
+    <script defer type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
+  </head>
+  <body>
+    <header>
+      <section class="container">
+        <div class="flex">
+          <a href="/" class="">
+            <h1>
+              <img src="<%= Routes.static_path(@conn, "/images/github.png") %>" />
+                Github <span>Top Repos</span>
+            </h1>
+          </a>
+          <nav class="top">
+            <a href="/" title="Github search"
+               class="<%= if @conn.request_path == "/" do "hidden" end  %>">Search</a>
+            <a href="/repos" title="List saved repos"
+               class="<%= if @conn.request_path == "/repos" do "active" end  %>">My repos</a>
+          </nav>
+        </div>
+      </section>
+    </header>
+
+    <main>
+      <%= @inner_content %>
+    </main>
+  </body>
+</html>
