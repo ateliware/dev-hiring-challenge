@@ -1,0 +1,21 @@
+<div class="container mx-auto px-4 md:container md:mx-auto">
+
+      <div class="text-center mb-5 mt-5">
+        <p class="text-3xl text-cyan-700 font-bold">Escolha uma linguagem de programação</p>
+      </div>
+
+      <div class="text-center mb-5 mt-5">
+          <button phx-click="search-repo" phx-value-lang="elixir"> Elixir </button>
+          <button phx-click="search-repo" phx-value-lang="python"> Python </button>
+          <button phx-click="search-repo" phx-value-lang="php"> PHP </button>
+          <button phx-click="search-repo" phx-value-lang="java"> Java </button>
+          <button phx-click="search-repo" phx-value-lang="ruby"> Ruby </button>
+      </div>
+
+      <%= live_component(@socket, GithubMinerWeb.ShowRepositoriesComponent, id: "repositories", list_repos: @list_repos, search: @search) %>
+
+      <%= if @show_more do %>
+        <%= live_component(@socket, GithubMinerWeb.ShowMoreComponent, id: "repositories", list_repos_full: @list_repos_full, show_more: @show_more, list_repos: @list_repos) %>
+      <% end %>
+
+</div>

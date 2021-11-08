@@ -1,0 +1,56 @@
+version: "3"
+
+services:
+  dev:
+    build: .
+    volumes:
+      - ./src:/app
+    command: bash /app/entrypoint.sh
+    environment:
+     PGHOST: db 
+     PGPORT: 5432
+     PGUSER: postgres
+     PGPASSWORD: postgres
+     PGDATABASE: github_miner_dev
+    ports:
+      - "4000:4000"
+    depends_on:
+      - db
+      - adminer
+
+  prod:
+    build: .
+    volumes:
+      - ./src:/app
+    command: bash /app/entrypoint.sh
+    environment:
+     PGHOST: db 
+     PGPORT: 5432
+     PGUSER: postgres # nomes simples para teste
+     PGPASSWORD: postgres
+     PGDATABASE: github_miner_dev # nomes simples para teste
+     MIX_ENV: prod
+     PROJECT: github_miner
+    ports:
+      - "4000:4000"
+    depends_on:
+      - db
+      - adminer
+  
+  db:
+    image: postgres:9.6
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      PGDATA: /var/lib/postgresql/data/pgdata
+    restart: always
+    volumes:
+      - ./pgdata:/var/lib/postgresql/datadocker-compose build
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+volumes: 
+  pgdata: 
