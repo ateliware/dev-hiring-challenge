@@ -1,0 +1,34 @@
+<div class="text-center mb-5 mt-5">
+    <%= if length(@list_repos) > 0 do  %>
+        <%= for repo <- @list_repos do %>
+            <table class="bg-gray-100">
+                <thead>
+                    <tr>
+                        <th><span>Repositório:  <%= repo.full_name %> </span></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <div class="" phx-click="show_details" phx-value-repository_id=<%= repo.repository_id %>>
+                        <tr>
+                            <td class="">
+                                <span class="form-label block"> Forks: <%= repo.forks %> </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="">
+                                <span class="form-label block"> Stars: <%= repo.stargazers_count %> </span>
+                            </td>
+                        </tr>
+                    </div>
+                </tbody>
+            </table>
+
+        <%= if @search do %>
+            <button phx-click="save_repository" phx-value-repository_id=<%= repo.repository_id %>> Salvar </button>
+            <button phx-click="show_more" phx-value-repository_id=<%= repo.repository_id %>> Detalhes </button>
+        <% end %>
+
+        <% end %>
+
+    <% end %>
+</div>

@@ -1,0 +1,42 @@
+<div class="text-center mb-5 mt-5">
+    <%= if length(@list_repos_full) > 0 do  %>
+        <%= for repo <- @list_repos_full do %>
+            <table class="bg-gray-100">
+                <thead>
+                    <tr>
+                        <th><span>Repositório:  <%= repo.full_name %> </span></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <div class="" phx-click="show_details" phx-value-repository_id=<%= repo.repository_id %>>
+                        <tr>
+                            <td class="">
+                                <span class="form-label block"> Stars: <%= repo.stargazers_count %> </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="">
+                                <span class="form-label block"> ID: <%= repo.repository_id %> </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="">
+                                <span class="form-label block"> Views: <%= repo.watchers_count %> </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="">
+                                <span class="form-label block"> Login: <%= repo.login %> </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="">
+                                <span class="form-label block"> Tipo: <%= repo.type %> </span>
+                            </td>
+                        </tr>
+                    </div>
+                </tbody>
+            </table>
+        <% end %>
+    <% end %>
+</div>
