@@ -2,6 +2,7 @@ defmodule GithubMinerWeb.IndexLive do
   @moduledoc """
     Este modulo exibe trata eventos para a interface do GithubMiner.
   """
+
   use GithubMinerWeb, :live_view
   require Logger
 
