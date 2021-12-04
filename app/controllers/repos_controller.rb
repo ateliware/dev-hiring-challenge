@@ -1,6 +1,8 @@
 class ReposController < ApplicationController
 
-  def index; end
+  def index
+    @repos = Repo.order(stargazers_count: :desc).limit(5)
+  end
 
   def new
     languages = ['ruby', 'elixir', 'python', 'go', 'kotlin']
@@ -17,6 +19,7 @@ class ReposController < ApplicationController
       repo.stargazers_count = found_repo["items"].first["stargazers_count"]
       repo.homepage         = found_repo["items"].first["homepage"]
       repo.language         = found_repo["items"].first["language"]
+      repo.avatar_url       = found_repo["items"].first["owner"]["avatar_url"]
 
       repo.save!
     end

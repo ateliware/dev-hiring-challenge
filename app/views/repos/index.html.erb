@@ -6,9 +6,24 @@
       mais populares do momento no Github.</p>
   </div>
 
-  <div class="d-flex justify-content-center mt-5">
-    <%= link_to 'Explorar repositórios', repos_new_path, class: 'mt-15 btn btn-outline-success btn-lg',
+  <div class="d-flex justify-content-center mt-4 mb-3">
+    <%= link_to 'Explorar repositórios', repos_new_path, class: 'mt-15 btn btn-outline-dark btn-lg',
       data: { disable_with: 'Buscando...' } %>
   </div>
 
+  <div class="row justify-content-md-center">
+    <% @repos.each do |repo| %>
+      <div class="col-md-auto">
+        <div class="mt-2 card" style="width: 12rem;">
+          <img src="<%= repo.avatar_url %>" class="card-img-top" alt="<%= repo.full_name %>">
+          <div class="card-body">
+            <h5 class="card-title"><%= repo.full_name %></h5>
+            <p><strong><em> <%= repo.language %> </em></strong></p>
+            <p class="card-text"><%= repo.description.truncate(100) %></p>
+            <a href="#" class="btn btn-outline-dark">Ver detalhes</a>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>
