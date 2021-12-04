@@ -8,18 +8,13 @@ services:
       - 3000:3000
     volumes:
       - .:/dev-hiring-challenge
-    environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
-      - POSTGRES_HOST=db
     depends_on:
       - db
+    env_file:
+      - './web.env'
   db:
     image: postgres:12
     container_name: dev-hiring-challenge_db
-    environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
     volumes:
       - dev-hiring-challenge_data:/var/lib/postgresql/data
 volumes:
