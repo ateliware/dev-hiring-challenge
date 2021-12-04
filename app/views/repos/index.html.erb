@@ -1,27 +1,14 @@
-<h1>Repos#index</h1>
-<p>Find me in app/views/repos/index.html.erb</p>
+<div class="container">
 
-
-<!-- Button trigger modal -->
-<button type="button" class="m-5 btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Launch demo modal
-</button>
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Bootstrap test</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        Teste Bootstrap
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
+  <div class="mt-5 d-block text-center">
+    <h1 class="display-4"><strong>Repositórios mais populares do Github</strong></h1>
+    <p class="fs-5">Clique no botão abaixo e descubra quais são os repositórios</br>
+      mais populares do momento no Github.</p>
   </div>
+
+  <div class="d-flex justify-content-center mt-5">
+    <%= link_to 'Explorar repositórios', repos_new_path, class: 'mt-15 btn btn-outline-success btn-lg',
+      data: { disable_with: 'Buscando...' } %>
+  </div>
+
 </div>
