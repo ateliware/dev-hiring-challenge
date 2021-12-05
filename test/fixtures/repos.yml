@@ -4,8 +4,12 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
-# column: value
-#
-two: {}
-# column: value
+one:
+  full_name: 'rails/rails'
+  description: 'Ruby on Rails'
+  language: 'Ruby'
+
+two:
+  full_name: 'django/django'
+  description: 'The Web framework for perfectionists with deadlines.'
+  language: 'Python'
