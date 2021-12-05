@@ -41,6 +41,8 @@ class ReposController < ApplicationController
       @repo.homepage         = found_repo["items"].first["homepage"]
       @repo.language         = found_repo["items"].first["language"]
       @repo.avatar_url       = found_repo["items"].first["owner"]["avatar_url"]
+      @repo.creation_date    = found_repo["items"].first["created_at"]
+      @repo.update_date      = found_repo["items"].first["updated_at"]
 
       @repo.save
 

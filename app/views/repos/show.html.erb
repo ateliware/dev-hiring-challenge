@@ -27,7 +27,12 @@
                 </em>
               </p>
               <p class="card-text">Descrição: <%= @repo.description %></p>
-              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+              <p class="card-text">Data de criação: <%= l @repo.creation_date.to_date %></p>
+              <p class="card-text">
+                <small class="text-muted" data-bs-toggle="tooltip" data-bs-placement="top" title="<%= l @repo.update_date, format: :long %>">
+                  Última atualização <%= time_ago_in_words @repo.update_date %> atrás
+                </small>
+              </p>
               <a href="<%= @repo.html_url %>" class="btn btn-dark">Visitar repositório</a>
               <%= link_to 'Voltar', root_path, class:'btn btn-secondary' %>
             </div>

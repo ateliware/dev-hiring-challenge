@@ -17,5 +17,7 @@ services:
     container_name: dev-hiring-challenge_db
     volumes:
       - dev-hiring-challenge_data:/var/lib/postgresql/data
+    env_file:
+      - './web.env'
 volumes:
   dev-hiring-challenge_data:
