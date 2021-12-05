@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_05_175438) do
+ActiveRecord::Schema.define(version: 2021_12_05_194444) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,14 +19,14 @@ ActiveRecord::Schema.define(version: 2021_12_05_175438) do
     t.string "github_id"
     t.string "full_name"
     t.string "html_url"
-    t.string "description"
+    t.text "description"
     t.string "homepage"
     t.string "language"
     t.string "stargazers_count"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "avatar_url"
-    t.string "creation_date"
+    t.datetime "creation_date"
     t.datetime "update_date"
   end
 
