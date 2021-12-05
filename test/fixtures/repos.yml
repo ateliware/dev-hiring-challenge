@@ -8,6 +8,8 @@ one:
   full_name: 'rails/rails'
   description: 'Ruby on Rails'
   language: 'Ruby'
+  html_url: 'https://github.com/rails/rails'
+  homepage: 'https://rubyonrails.org'
 
 two:
   full_name: 'django/django'

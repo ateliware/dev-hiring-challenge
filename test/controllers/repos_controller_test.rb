@@ -68,4 +68,16 @@ class ReposControllerTest < ActionDispatch::IntegrationTest
       ReposController.create('ruby')
     end
   end
+
+  test 'User should see repo data on show page' do
+    repository = repos(:one)
+
+    get repo_path(repository)
+    assert_response :success
+
+    assert_select 'h1', "Repositório: #{repository.full_name}"
+    assert_select 'h2', repository.stargazers_count
+    assert_select 'h5', "Linguagem: #{repository.language}"
+    assert_select 'p',  "Endereço do repositório: #{repository.html_url}"
+  end
 end
