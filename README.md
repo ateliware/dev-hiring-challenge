@@ -1,4 +1,4 @@
-# Dev Challenge
+# Github Top Five!
 
 ## O projeto
 
@@ -29,35 +29,31 @@ Para rodar a aplicação na máquina com um servidor local, serão necessários 
 
 ### Download do projeto e configuração do ambiente
 
-1. Faça um clone deste repositório para a sua máquina:
-```
-$ git clone https://github.com/davischoll/dev-hiring-challenge.git
+1. Faça um clone deste repositório para a sua máquina;
+2. Acesse o diretório criado, faça uma cópia do arquivo `web.env.example` para o mesmo diretório (raiz do projeto), renomeando-o para `web.env`. Este arquivo contém as credenciais para conexão ao Banco de Dados;
+3. Faça o build da aplicação para criar e subir os containers (web e db), necessários para rodar o servidor;
+4. Por fim, rode a criação do banco de dados e as migrações.
+
+```bash
+git clone https://github.com/davischoll/dev-hiring-challenge.git
+cd dev-hiring-challenge
+cp web.env.example web.env
+docker-compose build
+docker-compose up -d
+docker-compose exec web bundle exec rails db:create db:migrate
 ```
 
-2. Acesse o diretório criado, faça uma cópia do arquivo `web.env.example` para o mesmo diretório (raiz do projeto), renomeando-o para `web.env`. Este arquivo contém as credenciais para conexão ao Banco de Dados.
-```
-$ cd dev-hiring-challenge
-$ cp web.env.example web.env
-```
-
-3. Faça o build da aplicação para criar e subir os containers (web e db), necessários para rodar o servidor:
-```
-$ docker-compose build
-$ docker-compose up
-```
-
-4. Em uma nova aba ou nova janela do terminal, acesse o container para criar o banco de dados e rodar as migrações:
-```
-# Entrar no container web:
-$ docker exec -ti dev-hiring-challenge_web bash
-
-# Criar o banco e rodar migrações, dentro do container:
-$ rails db:create db:migrate
-```
-5. O servidor e o banco já devem estar preparados para receber requisições. O acesso pode ser executado pelo browser, através da porta 3000:
-```
+5. O servidor e o banco já devem estar preparados para receber requisições. O acesso pode ser feito pelo browser, através da porta 3000:
+```bash
 http://localhost:3000
 ```
+
+### Testes
+Para executar todos os testes da aplicação:
+```bash
+docker-compose exec web rails test
+```
+
 ---
 
 ### Construído com:

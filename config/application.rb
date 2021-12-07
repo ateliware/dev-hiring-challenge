@@ -14,6 +14,8 @@ module DevHiringChallenge
     config.i18n.default_locale = 'pt-BR'
     config.time_zone = 'Brasilia'
 
+    config.programming_languages = %w[ruby elixir python go kotlin]
+
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files

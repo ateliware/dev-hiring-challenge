@@ -33,8 +33,12 @@
                   Última atualização <%= time_ago_in_words @repo.update_date %> atrás
                 </small>
               </p>
-              <a href="<%= @repo.html_url %>" class="btn btn-dark">Visitar repositório</a>
-              <%= link_to 'Voltar', root_path, class:'btn btn-secondary' %>
+              <div class="d-flex">
+                <a href="<%= @repo.html_url %>" class="btn btn-dark me-1">Visitar repositório</a>
+                <%= link_to 'Voltar', root_path, class:'btn btn-secondary' %>
+                <%= link_to 'Apagar repositório', @repo, method: :delete, class:'btn btn-danger ms-auto',
+                  data: { confirm: 'O repositório será apagado da lista! Continuar?' } %>
+              </div>
             </div>
           </div>
 

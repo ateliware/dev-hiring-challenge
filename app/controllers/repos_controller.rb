@@ -1,6 +1,6 @@
 class ReposController < ApplicationController
 
-  before_action :set_repo, only: %i[ show ]
+  before_action :set_repo, only: %i[ show destroy ]
 
   def index
     @repos = Repo.order(stargazers_count: :desc).limit(5)
@@ -8,13 +8,17 @@ class ReposController < ApplicationController
 
   def show; end
 
-  def new
-    languages = ['ruby', 'elixir', 'python', 'go', 'kotlin']
+  def destroy
+    @repo.destroy
 
+    redirect_to root_path, notice: "Repositório removido com sucesso!"
+  end
+
+  def new
     status = true
 
-    languages.each do |language|
-      status = false if !ReposController.create(language)
+    Rails.configuration.programming_languages.each do |language|
+      status = false if !ReposController.create_or_update(language)
     end
 
     if status
@@ -28,21 +32,21 @@ class ReposController < ApplicationController
 
   private
 
-  def self.create(language)
+  def self.create_or_update(language)
     begin
-      found_repo = Repo.search_repo(language)
+      found_repo = Github::RepoCreator.search_repo(language)
 
-      @repo = Repo.find_or_initialize_by(github_id: found_repo["items"].first["id"])
+      @repo = Repo.find_or_initialize_by(github_id: found_repo["id"])
 
-      @repo.full_name        = found_repo["items"].first["full_name"]
-      @repo.html_url         = found_repo["items"].first["html_url"]
-      @repo.description      = found_repo["items"].first["description"]
-      @repo.stargazers_count = found_repo["items"].first["stargazers_count"]
-      @repo.homepage         = found_repo["items"].first["homepage"]
-      @repo.language         = found_repo["items"].first["language"]
-      @repo.avatar_url       = found_repo["items"].first["owner"]["avatar_url"]
-      @repo.creation_date    = found_repo["items"].first["created_at"]
-      @repo.update_date      = found_repo["items"].first["updated_at"]
+      @repo.full_name        = found_repo["full_name"]
+      @repo.html_url         = found_repo["html_url"]
+      @repo.description      = found_repo["description"]
+      @repo.stargazers_count = found_repo["stargazers_count"]
+      @repo.homepage         = found_repo["homepage"]
+      @repo.language         = found_repo["language"]
+      @repo.avatar_url       = found_repo["owner"]["avatar_url"]
+      @repo.creation_date    = found_repo["created_at"]
+      @repo.update_date      = found_repo["updated_at"]
 
       @repo.save
 

@@ -5,12 +5,12 @@
 /log/*
 /tmp/*
 !/log/.keep
-!/tmp/.keep
+/tmp/.keep
 
 # Ignore pidfiles, but keep the directory.
 /tmp/pids/*
-!/tmp/pids/
-!/tmp/pids/.keep
+/tmp/pids/
+/tmp/pids/.keep
 
 # Ignore uploaded files in development.
 /storage/*
@@ -23,6 +23,8 @@
 /config/master.key
 
 /node_modules
+/public/packs
+/public/packs-test
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
