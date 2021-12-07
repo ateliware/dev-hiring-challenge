@@ -1,0 +1,23 @@
+version: '3.9'
+services:
+  web:
+    build: .
+    command: rails s -b 0.0.0.0
+    container_name: dev-hiring-challenge_web
+    ports:
+      - 3000:3000
+    volumes:
+      - .:/dev-hiring-challenge
+    depends_on:
+      - db
+    env_file:
+      - './web.env'
+  db:
+    image: postgres:12
+    container_name: dev-hiring-challenge_db
+    volumes:
+      - dev-hiring-challenge_data:/var/lib/postgresql/data
+    env_file:
+      - './web.env'
+volumes:
+  dev-hiring-challenge_data:

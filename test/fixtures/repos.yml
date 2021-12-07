@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+# This model initially had no columns defined. If you add columns to the
+# model remove the '{}' from the fixture names and add the columns immediately
+# below each fixture, per the syntax in the comments below
+#
+one:
+  full_name: 'rails/rails'
+  description: 'Ruby on Rails'
+  language: 'Ruby'
+  html_url: 'https://github.com/rails/rails'
+  homepage: 'https://rubyonrails.org'
+  creation_date: "2016-03-20T23:49:42Z"
+  update_date: "2021-12-05T17:52:01Z"
+
+two:
+  full_name: 'django/django'
+  description: 'The Web framework for perfectionists with deadlines.'
+  language: 'Python'
