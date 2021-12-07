@@ -65,7 +65,7 @@ class ReposControllerTest < ActionDispatch::IntegrationTest
     )
 
     assert_difference 'Repo.count', 1 do
-      ReposController.create('ruby')
+      ReposController.create_or_update('ruby')
     end
   end
 
