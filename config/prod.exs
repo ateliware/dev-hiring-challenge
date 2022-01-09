@@ -17,7 +17,6 @@ config :ateliware, AteliwareWeb.Endpoint,
 # Do not print debug messages in production
 config :logger, level: :info
 
-
 config :tailwind,
   version: "3.0.12",
   default: [

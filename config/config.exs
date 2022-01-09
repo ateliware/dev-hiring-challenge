@@ -48,7 +48,6 @@ config :logger, :console,
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
 
-
 config :tailwind,
   version: "3.0.12",
   default: [

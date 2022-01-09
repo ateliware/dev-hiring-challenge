@@ -1,4 +1,5 @@
-defmodule AteliwareWeb.Live.PageLive  do
+defmodule AteliwareWeb.Live.PageLive do
+  @moduledoc false
   use AteliwareWeb, :live_view
   alias Phoenix.View
 
@@ -11,5 +12,4 @@ defmodule AteliwareWeb.Live.PageLive  do
   def render(assigns) do
     View.render(AteliwareWeb.PageView, "index.html", assigns)
   end
-  
 end

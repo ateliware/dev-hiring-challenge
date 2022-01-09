@@ -1,4 +1,4 @@
-<main class="min-h-screen min-w-screen bg-zinc-800">
+<main class="min-h-screen min-w-screen bg-zinc-900 text-white font-roboto">
   <p class="alert alert-info" role="alert"
     phx-click="lv:clear-flash"
     phx-value-key="info"><%= live_flash(@flash, :info) %></p>
@@ -7,5 +7,6 @@
     phx-click="lv:clear-flash"
     phx-value-key="error"><%= live_flash(@flash, :error) %></p>
 
+  <.header id="header" />
   <%= @inner_content %>
 </main>

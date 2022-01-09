@@ -7,6 +7,9 @@ module.exports = {
     '../lib/*_web/**/*.*ex'
   ],
   theme: {
+    fontFamily: {
+      'roboto': ['roboto', 'sans-serif'],
+    },
     extend: {
       colors: {
         'primary': '#EF0044'

@@ -90,6 +90,9 @@ defmodule AteliwareWeb do
       import AteliwareWeb.ErrorHelpers
       import AteliwareWeb.Gettext
       alias AteliwareWeb.Router.Helpers, as: Routes
+
+      import AteliwareWeb.Components.Header
+      alias AteliwareWeb.Components.Icons
     end
   end
 
