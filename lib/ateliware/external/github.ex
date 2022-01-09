@@ -14,7 +14,7 @@ defmodule Ateliware.External.Github do
     with opts <- GetRepoOptions.prepare(opts),
          url <- URI.add_params_to_url(@base_url, opts),
          {:ok, %{status_code: 200, body: raw_body}} <- client().get(url) do
-      Jason.decode(raw_body)
+      Jason.decode(raw_body, keys: :atoms)
     else
       _ -> {:error, "unexpected error"}
     end
