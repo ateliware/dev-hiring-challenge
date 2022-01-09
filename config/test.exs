@@ -23,6 +23,8 @@ config :ateliware, AteliwareWeb.Endpoint,
 # In test we don't send emails.
 config :ateliware, Ateliware.Mailer, adapter: Swoosh.Adapters.Test
 
+config :ateliware, http_client: HttpClientMock
+
 # Print only warnings and errors during test
 config :logger, level: :warn
 

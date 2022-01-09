@@ -4,6 +4,7 @@ defmodule Ateliware.Helpers.URI do
   Adds 
   """
   @spec add_params_to_url(String.t(), Keyword.t()) :: String.t()
+  def add_params_to_url(uri, []), do: uri
   def add_params_to_url(uri, params) do
     uri
       |> URI.parse

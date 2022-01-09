@@ -51,7 +51,7 @@ defmodule Ateliware.MixProject do
       {:plug_cowboy, "~> 2.5"},
       {:httpoison, "~> 1.8"},
       {:mox, "~> 1.0", only: :test},
-      {:tailwind, "~> 0.1", only: :dev}
+      {:tailwind, "~> 0.1", runtime: Mix.env() == :dev}
     ]
   end
 

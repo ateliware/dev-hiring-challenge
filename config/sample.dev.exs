@@ -70,5 +70,16 @@ config :logger, :console, format: "[$level] $message\n"
 # in production as building large stacktraces may be expensive.
 config :phoenix, :stacktrace_depth, 20
 
+config :tailwind,
+  version: "3.0.12",
+  default: [
+    args: ~w(
+      --config=tailwind.config.js
+      --input=css/app.css
+      --output=../priv/static/assets/app.css
+    ),
+    cd: Path.expand("../assets", __DIR__)
+  ]
+
 # Initialize plugs at runtime for faster development compilation
 config :phoenix, :plug_init_mode, :runtime

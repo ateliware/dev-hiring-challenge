@@ -11,9 +11,9 @@ defmodule Ateliware.Structs.GithubGetRepoOptions do
 
   @type t :: %__MODULE__{
     q: String.t(),
-    sort: nil | :stars | :forks | :updated
-    order: nil | :desc | :asc
-    per_page: nil | non_neg_integer()
+    sort: nil | :stars | :forks | :updated,
+    order: nil | :desc | :asc,
+    per_page: nil | non_neg_integer(),
     page: nil | non_neg_integer()
   }
 
