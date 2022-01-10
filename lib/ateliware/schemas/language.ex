@@ -11,6 +11,7 @@ defmodule Ateliware.Schemas.Language do
     field :color, :string
     field :name, :string, unique: true
     field :display_name, :string
+    field :image_url, :string
 
     has_many :github_repos, GithubRepo, foreign_key: :language_id, references: :id 
 
@@ -20,8 +21,8 @@ defmodule Ateliware.Schemas.Language do
   @doc false
   def changeset(language, attrs) do
     language
-    |> cast(attrs, [:display_name, :name, :color])
-    |> validate_required([:display_name, :name, :color])
+    |> cast(attrs, [:display_name, :iamge_url, :name, :color])
+    |> validate_required([:display_name, :image_url, :name, :color])
   end
 
   @spec get_languages() :: [Language]

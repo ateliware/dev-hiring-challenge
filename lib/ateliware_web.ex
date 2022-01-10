@@ -100,6 +100,7 @@ defmodule AteliwareWeb do
       import AteliwareWeb.Components.Header
       alias AteliwareWeb.Components.Icons
       alias AteliwareWeb.Live.Components.RepoCard
+      alias AteliwareWeb.Live.Components.LanguageCard
     end
   end
 

@@ -30,11 +30,11 @@ defmodule Ateliware.Seeder do
   end
 
   defp languages, do: [
-    %{name: "elixir", display_name: "Elixir", color: "#6e4a7e", inserted_at: @now, updated_at: @now},
-    %{name: "rust", display_name: "Rust", color: "#dea584", inserted_at: @now, updated_at: @now},
-    %{name: "typescript", display_name: "TypeScript", color: "#2b7489", inserted_at: @now, updated_at: @now},
-    %{name: "go", display_name: "Go", color: "#00ADD8", inserted_at: @now, updated_at: @now},
-    %{name: "clojure", display_name: "Clojure", color: "#db5855", inserted_at: @now, updated_at: @now},
+    %{name: "elixir", display_name: "Elixir", color: "#6e4a7e", image_url: "/images/elixir.png", inserted_at: @now, updated_at: @now},
+    %{name: "rust", display_name: "Rust", color: "#dea584", image_url: "/images/rust.png", inserted_at: @now, updated_at: @now},
+    %{name: "typescript", display_name: "TypeScript", color: "#2b7489", image_url: "/images/typescript.png", inserted_at: @now, updated_at: @now},
+    %{name: "go", display_name: "Go", color: "#00ADD8", image_url: "/images/go.png", inserted_at: @now, updated_at: @now},
+    %{name: "clojure", display_name: "Clojure", color: "#db5855", image_url: "/images/clojure.png", inserted_at: @now, updated_at: @now},
   ]
 end
 
