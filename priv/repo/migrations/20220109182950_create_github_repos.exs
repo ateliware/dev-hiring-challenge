@@ -9,7 +9,7 @@ defmodule Ateliware.Repo.Migrations.CreateGithubRepos do
       add :watchers, :integer
       add :forks, :integer
       add :url, :string
-      add :startgazers_count, :integer
+      add :stargazers_count, :integer
       add :homepage, :string
       add :language_id, references(:languages, on_delete: :nothing, type: :binary_id)
 

@@ -20,6 +20,8 @@ defmodule Ateliware.Seeder do
     Multi.new()
     |> Multi.insert_all(:languages, Language, languages())
     |> Ateliware.Repo.transaction()
+
+    Ateliware.GithubRepo.get_languages_top_repos(update_repos: true)
   end
 
 

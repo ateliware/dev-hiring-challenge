@@ -12,7 +12,7 @@ defmodule Ateliware.Schemas.Language do
     field :name, :string, unique: true
     field :display_name, :string
 
-    has_many :github_repos, GithubRepo
+    has_many :github_repos, GithubRepo, foreign_key: :language_id, references: :id 
 
     timestamps()
   end

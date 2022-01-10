@@ -10,5 +10,7 @@ defmodule Ateliware.Repo.Migrations.CreateLanguages do
 
       timestamps()
     end
+
+    create unique_index(:languages, :name)
   end
 end

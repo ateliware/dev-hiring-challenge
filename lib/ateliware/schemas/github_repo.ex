@@ -10,7 +10,7 @@ defmodule Ateliware.Schemas.GithubRepo do
     field :full_name, :string
     field :homepage, :string
     field :name, :string
-    field :startgazers_count, :integer
+    field :stargazers_count, :integer
     field :url, :string
     field :watchers, :integer
     belongs_to :language, Language
@@ -19,10 +19,28 @@ defmodule Ateliware.Schemas.GithubRepo do
   end
 
   @doc false
-  def changeset(github_repo, attrs) do
-    github_repo
-    |> cast(attrs, [:name, :full_name, :watchers, :forks, :url, :startgazers_count, :homepage, :language_id])
+  def changeset(attrs) do
+    %__MODULE__{}
+    |> cast(attrs, [:name, :full_name, :watchers, :forks, :url, :stargazers_count, :homepage, :language_id])
     |> foreign_key_constraint(:language_id)
-    |> validate_required([:name, :full_name, :watchers, :forks, :url, :startgazers_count])
+    |> validate_required([:name, :full_name, :watchers, :forks, :url, :stargazers_count])
   end
+
+  @doc """
+  Used in `Ecto.Multi`'s `insert_all/5`
+  """
+  def apply_changeset_and_to_map(attrs, language_id) do
+    attrs
+      |> changeset()
+      |> put_change(:inserted_at, naive_date_now())
+      |> put_change(:updated_at, naive_date_now())
+      |> put_change(:id, Ecto.UUID.autogenerate())
+      |> put_change(:language_id, language_id)
+      |> Ecto.Changeset.apply_changes()
+      |> Map.from_struct()
+      |> Enum.filter(fn {key, _} -> not Enum.member?([:__meta__, :__struct__, :language], key) end)
+  end
+
+
+  defp naive_date_now, do: NaiveDateTime.utc_now() |> NaiveDateTime.truncate(:second)
 end
