@@ -22,8 +22,8 @@ defmodule Ateliware.Schemas.Language do
   @doc false
   def changeset(language, attrs) do
     language
-    |> cast(attrs, [:display_name, :iamge_url, :name, :color])
-    |> validate_required([:display_name, :image_url, :name, :color])
+    |> cast(attrs, [:display_name, :name, :color])
+    |> validate_required([:display_name, :name, :color])
   end
 
   @spec get_languages :: [Language]
