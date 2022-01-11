@@ -1,4 +1,6 @@
 defmodule Ateliware.Schemas.Language do
+  @moduledoc false
+
   use Ecto.Schema
   import Ecto.Changeset
   alias Ateliware.Repo
@@ -11,9 +13,8 @@ defmodule Ateliware.Schemas.Language do
     field :color, :string
     field :name, :string, unique: true
     field :display_name, :string
-    field :image_url, :string
 
-    has_many :github_repos, GithubRepo, foreign_key: :language_id, references: :id 
+    has_many :github_repos, GithubRepo, foreign_key: :language_id, references: :id
 
     timestamps()
   end
@@ -25,8 +26,8 @@ defmodule Ateliware.Schemas.Language do
     |> validate_required([:display_name, :image_url, :name, :color])
   end
 
-  @spec get_languages() :: [Language]
-  def get_languages() do
+  @spec get_languages :: [Language]
+  def get_languages do
     Repo.all(Language)
   end
 end

@@ -51,7 +51,7 @@ config :phoenix, :json_library, Jason
 config :tailwind,
   version: "3.0.12",
   default: [
-  args: ~w(
+    args: ~w(
       --config=tailwind.config.js
       --input=css/app.css
       --output=../priv/static/assets/app.css

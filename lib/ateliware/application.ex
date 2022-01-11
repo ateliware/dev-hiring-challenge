@@ -15,9 +15,9 @@ defmodule Ateliware.Application do
       # Start the PubSub system
       {Phoenix.PubSub, name: Ateliware.PubSub},
       # Start the Endpoint (http/https)
-      AteliwareWeb.Endpoint
-      # Start a worker by calling: Ateliware.Worker.start_link(arg)
-      # {Ateliware.Worker, arg}
+      AteliwareWeb.Endpoint,
+      # Repo Updater
+      {Task.Supervisor, name: Ateliware.TaskSupervisor}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

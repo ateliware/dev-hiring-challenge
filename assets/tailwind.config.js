@@ -8,11 +8,13 @@ module.exports = {
   ],
   theme: {
     fontFamily: {
-      'roboto': ['roboto', 'sans-serif'],
+      'poppins': ['poppins', 'sans-serif'],
     },
     extend: {
+      boxShadow: {'3xl': '0 35px 60px -15px rgba(0, 0, 0, 0.3)'},
       colors: {
-        'primary': '#EF0044'
+        'primary': '#EF0044',
+        'dimmed': 'rgba(0,0,0,0.4);'
       }
     },
   },

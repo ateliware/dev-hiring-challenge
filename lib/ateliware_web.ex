@@ -89,18 +89,11 @@ defmodule AteliwareWeb do
 
       import AteliwareWeb.ErrorHelpers
       import AteliwareWeb.Gettext
-      alias AteliwareWeb.Router.Helpers, as: Routes
-      
-      unquote(components())
-    end
-  end
-
-  defp components do
-    quote do
       import AteliwareWeb.Components.Header
       alias AteliwareWeb.Components.Icons
-      alias AteliwareWeb.Live.Components.RepoCard
-      alias AteliwareWeb.Live.Components.LanguageCard
+      alias AteliwareWeb.Live.Components.{LanguageCard, RepoCard}
+      alias AteliwareWeb.Router.Helpers, as: Routes
+
     end
   end
 

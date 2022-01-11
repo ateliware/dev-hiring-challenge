@@ -1,4 +1,6 @@
 defmodule Ateliware.Schemas.GithubRepo do
+  @moduledoc false
+
   use Ecto.Schema
   import Ecto.Changeset
   alias Ateliware.Schemas.Language
@@ -21,7 +23,16 @@ defmodule Ateliware.Schemas.GithubRepo do
   @doc false
   def changeset(attrs) do
     %__MODULE__{}
-    |> cast(attrs, [:name, :full_name, :watchers, :forks, :url, :stargazers_count, :homepage, :language_id])
+    |> cast(attrs, [
+      :name,
+      :full_name,
+      :watchers,
+      :forks,
+      :url,
+      :stargazers_count,
+      :homepage,
+      :language_id
+    ])
     |> foreign_key_constraint(:language_id)
     |> validate_required([:name, :full_name, :watchers, :forks, :url, :stargazers_count])
   end
@@ -31,16 +42,16 @@ defmodule Ateliware.Schemas.GithubRepo do
   """
   def apply_changeset_and_to_map(attrs, language_id) do
     attrs
-      |> changeset()
-      |> put_change(:inserted_at, naive_date_now())
-      |> put_change(:updated_at, naive_date_now())
-      |> put_change(:id, Ecto.UUID.autogenerate())
-      |> put_change(:language_id, language_id)
-      |> Ecto.Changeset.apply_changes()
-      |> Map.from_struct()
-      |> Enum.filter(fn {key, _} -> not Enum.member?([:__meta__, :__struct__, :language], key) end)
+    |> changeset()
+    |> put_change(:inserted_at, naive_date_now())
+    |> put_change(:updated_at, naive_date_now())
+    |> put_change(:id, Ecto.UUID.autogenerate())
+    |> put_change(:language_id, language_id)
+    |> Ecto.Changeset.apply_changes()
+    |> Map.from_struct()
+    |> Enum.filter(fn {key, _} -> not Enum.member?([:__meta__, :__struct__, :language], key) end)
+    |> Map.new()
   end
-
 
   defp naive_date_now, do: NaiveDateTime.utc_now() |> NaiveDateTime.truncate(:second)
 end
