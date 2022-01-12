@@ -56,10 +56,11 @@ defmodule AteliwareWeb.Live.PageLive do
 
   def build_socket_by_params(%{"repo_id" => repo_id}, socket) do
     case GithubRepo.get_by_id(repo_id) do
-      nil -> assign(socket, show_modal: false )
-      repo -> assign(socket, repo_details: repo, show_modal: true)
+      nil -> assign(socket, show_modal: false)
+      repo -> IO.inspect repo
+        assign(socket, repo_details: repo, show_modal: true)
     end
-    
   end
-  def build_socket_by_params(_, socket), do: assign(socket, show_modal: false )
+
+  def build_socket_by_params(_, socket), do: assign(socket, show_modal: false)
 end

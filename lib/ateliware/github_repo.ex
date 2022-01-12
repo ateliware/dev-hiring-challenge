@@ -9,6 +9,8 @@ defmodule Ateliware.GithubRepo do
   alias Ateliware.Schemas.Language
   alias Ecto.Multi
 
+  @github_repo_store_count 5
+
   @doc """
   get all stored programming languages in the db
   """
@@ -26,8 +28,9 @@ defmodule Ateliware.GithubRepo do
   def get_by_id(repo_id), do: Repo.get(GithubRepo, repo_id)
 
   defp fetch_repos(language) do
-    case GithubAPI.get_repos(per_page: 5, language: language.name, order: :stars) do
-      {:error, _} -> language
+    case GithubAPI.get_repos(per_page: @github_repo_store_count, language: language.name, order: :stars) do
+      {:error, _} ->
+        language
 
       {:ok, %{items: repos}} ->
         repos = Enum.map(repos, &GithubRepo.apply_changeset_and_to_map(&1, language.id))

@@ -1,5 +1,6 @@
 defmodule AteliwareWeb.Components.RepoModal do
-  
+  @moduledoc false
+
   use Phoenix.Component
   import AteliwareWeb.Components.Modal
   alias Phoenix.LiveView.JS

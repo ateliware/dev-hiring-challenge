@@ -17,36 +17,39 @@ defmodule Ateliware.Repo.Migrations.CreateLanguages do
 
     flush()
 
-    Enum.each(languages(), fn lang -> Ateliware.Repo.insert!(Language.changeset(%Language{}, lang), on_conflict: :nothing) end)
+    Enum.each(languages(), fn lang ->
+      Ateliware.Repo.insert!(Language.changeset(lang), on_conflict: :nothing)
+    end)
 
     flush()
-    
   end
-    defp languages, do: [
+
+  defp languages,
+    do: [
       %{
         name: "elixir",
         display_name: "Elixir",
-        color: "#7f0aca",
+        color: "#7f0aca"
       },
       %{
         name: "rust",
         display_name: "Rust",
-        color: "#d83416",
+        color: "#d83416"
       },
       %{
         name: "typescript",
         display_name: "TypeScript",
-        color: "#007acc",
+        color: "#007acc"
       },
       %{
         name: "go",
         display_name: "Go",
-        color: "#79d4fd",
+        color: "#79d4fd"
       },
       %{
         name: "clojure",
         display_name: "Clojure",
-        color: "#93d643",
+        color: "#93d643"
       }
     ]
 end

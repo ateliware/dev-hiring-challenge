@@ -1,4 +1,6 @@
 defmodule AteliwareWeb.Components.Modal do
+  @moduledoc false
+
   import Phoenix.LiveView.Helpers
   alias Phoenix.LiveView.JS
 
@@ -33,8 +35,7 @@ defmodule AteliwareWeb.Components.Modal do
 
   defp hide_modal(id, js \\ %JS{}) do
     js
-      |> JS.hide(transition: "fade-out", to: "##{id}")
-      |> JS.hide(transition: "fade-out", to: "#content-#{id}")
+    |> JS.hide(transition: "fade-out", to: "##{id}")
+    |> JS.hide(transition: "fade-out", to: "#content-#{id}")
   end
-
 end
