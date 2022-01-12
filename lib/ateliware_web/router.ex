@@ -17,6 +17,7 @@ defmodule AteliwareWeb.Router do
   scope "/", AteliwareWeb.Live do
     pipe_through :browser
 
+    live "/:repo_id", PageLive, :index
     live "/", PageLive, :index
   end
 

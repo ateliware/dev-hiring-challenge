@@ -3,6 +3,7 @@ defmodule AteliwareWeb.Live.Components.LanguageCard do
 
   use Phoenix.LiveComponent
   alias AteliwareWeb.Components.Icons
+  alias AteliwareWeb.Router.Helpers, as: Routes
 
   @impl true
   def mount(socket), do: {:ok, assign(socket, collapsed?: true)}
@@ -26,9 +27,16 @@ defmodule AteliwareWeb.Live.Components.LanguageCard do
       <%= if not(@collapsed?) and has_repos_loaded(@language.github_repos) do %>
         <div class="grid grid-cols-1 divide-y divide-primary w-full bg-zinc-100"> 
           <%= for repo <- @language.github_repos do %>
-            <div class="py-6 px-4 cursor-ponter flex items-center justify-between" style={border_color(assigns.language.color)} >
-              <h4><%= repo.name %></h4>
-            </div>
+            <%= live_patch to: Routes.page_path(@socket, :index, repo.id), style: border_color(@language.color) do %>
+              <div class="py-6 px-4 cursor-ponter flex items-center justify-between">
+                <h4><%= repo.name %></h4>
+                <div class="flex items-center justify-center ">
+                  <span><%= repo.stargazers_count %></span>
+                  <div class="text-yellow-500"><Icons.star /></div>
+                  <Icons.arrow_right /> 
+                </div>
+              </div>
+            <% end %>
           <% end %>
         </div>
       <% end %>

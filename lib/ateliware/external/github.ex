@@ -9,7 +9,7 @@ defmodule Ateliware.External.Github do
   @base_url "https://api.github.com/search/repositories"
   # example https://api.github.com/search/repositories?q=language:ruby&sort=stars&order=desc&per_page=1
 
-  @spec get_repos([GetRepoOptions.t()]) :: {:ok, map()} | {:error, any()}
+  @spec get_repos([Keyword.t()]) :: {:ok, map()} | {:error, any()}
   def get_repos(opts \\ []) do
     with opts <- GetRepoOptions.prepare(opts),
          url <- URI.add_params_to_url(@base_url, opts),

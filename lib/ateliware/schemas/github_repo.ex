@@ -14,6 +14,8 @@ defmodule Ateliware.Schemas.GithubRepo do
     field :name, :string
     field :stargazers_count, :integer
     field :url, :string
+    field :html_url, :string
+    field :description, :string
     field :watchers, :integer
     belongs_to :language, Language
 
@@ -29,6 +31,8 @@ defmodule Ateliware.Schemas.GithubRepo do
       :watchers,
       :forks,
       :url,
+      :html_url,
+      :description,
       :stargazers_count,
       :homepage,
       :language_id

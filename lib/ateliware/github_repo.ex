@@ -23,10 +23,11 @@ defmodule Ateliware.GithubRepo do
     Enum.map(languages, &fetch_repos/1)
   end
 
+  def get_by_id(repo_id), do: Repo.get(GithubRepo, repo_id)
+
   defp fetch_repos(language) do
     case GithubAPI.get_repos(per_page: 5, language: language.name, order: :stars) do
-      {:error, _} ->
-        language
+      {:error, _} -> language
 
       {:ok, %{items: repos}} ->
         repos = Enum.map(repos, &GithubRepo.apply_changeset_and_to_map(&1, language.id))
