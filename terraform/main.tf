@@ -126,7 +126,13 @@ resource "aws_instance" "project-iac" {
         "sudo chmod +x /usr/local/bin/docker-compose",
         "sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose",
         "cd dev-hiring-challenge",
-        "docker-compose up -d"
+        "export db_user=${lookup(var.ateliwareprops, "db_user")}",
+        "export db_host=${lookup(var.ateliwareprops, "db_host")}",
+        "export db_password=${lookup(var.ateliwareprops, "db_password")}",
+        "export db_name=${lookup(var.ateliwareprops, "db_name")}",
+        "export main_app_container_name=${lookup(var.ateliwareprops, "main_app_container_name")}",
+        "export main_app_secret=${lookup(var.ateliwareprops, "main_app_secret")}",
+        "sudo docker-compose up -d"
 			]
 		}
   

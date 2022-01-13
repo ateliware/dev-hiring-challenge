@@ -1,36 +1,37 @@
-version: "3"
+version: "3.8"
 
 services:
   ateliware:
-    container_name: "${main_app_container_name}"
+    container_name: ${main_app_container_name}
     image: hammsv/ateliware:latest
     environment:
-      - DATABASE_URL="ecto://${db_user}:${db_password}@${db_host}/${db_name}"
-      - SECRET_KEY_BASE="${main_app_secret}"
+      - DATABASE_URL=ecto://postgres:${db_password}@${db_host}/${db_name}
+      - SECRET_KEY_BASE=${main_app_secret}
     ports:
       - 80:4000
     networks:
-      - internal
+      - appnetwork
     depends_on:
       - db
 
   db:
-    container_name: "${db_host}"
-    image: postgres:14
+    container_name: ${db_host}
+    image: postgres:latest
     ports:
       - 5432:5432
     volumes:
       - db-data:/var/lib/postgresql/data
     environment:
-      - POSTGRES_PASSWORD="${db_password}"
-      - POSTGRES_DB="${db_name}"
-      - POSTGRES_USER="${db_user}"
+      - POSTGRES_PASSWORD=${db_password}
+      - POSTGRES_DB=${db_name}
+      - POSTGRES_USER=postgres
+
     networks:
-      - internal
+      - appnetwork
 
 volumes:
    db-data:
+     driver: local
 networks:
-  internal:
-    external: false
+  appnetwork:
 
