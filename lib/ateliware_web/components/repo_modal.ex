@@ -21,8 +21,9 @@ defmodule AteliwareWeb.Components.RepoModal do
         </div>
       </:header>
       <div class="text-center p-5 flex-auto justify-center">
+        <p class="text-center w-full mt-4"><%= @repo_details.description %></p>
         <%= if @repo_details.homepage do %>
-          <div class="flex items-center justify-between mt-6 ">
+          <div class="flex items-center justify-between mt-7 ">
             <h4>Homepage:</h4>
             <a href={@repo_details.homepage} target="_blank" class="flex items-center hover:text-primary">
               <small class="text-sm"><%= @repo_details.homepage %></small>
