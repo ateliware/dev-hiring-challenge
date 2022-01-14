@@ -1,12 +1,15 @@
 @extends('repositories.layout')
+
 @section('content')
     <form method="post" action="#">
         <div class="flex justify-between">
-            <h2 class="text-5xl font-bold leading-7 text-gray-900 sm:text-3xl sm:truncate">GitHub List</h2>
+            <h2 class="">Repositorios Encontrados</h2>
             @csrf
-            <button type="submit" name="send" value="Submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+            <button type="submit" name="btnAtualizar" value="Submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4">
                 Buscar Repositórios
             </button>
         </div>
     </form>
+
+    <hr/>
 @endsection

@@ -13,8 +13,4 @@ use App\Http\Controllers\SaveRepositoriesController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/repositories', [SaveRepositoriesController::class, 'index'])->name('repositories.index');
+Route::get('/', [SaveRepositoriesController::class, 'index'])->name('repositories.index');
