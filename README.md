@@ -1,20 +1,56 @@
-# Ateliware
+<h1 align="center">
+    Ateliware Challenge
+</h1>
 
-To start your Phoenix server:
+<p align="center">
+ <a href="#-projeto">Projeto</a> •
+ <a href="#-Homepage">Homepage</a> •
+ <a href="#-como-executar">Como executar</a> • 
+ <a href="#-tecnologias">Tecnologias</a> • 
+</p>
 
-  * Create your dev assets file `cp config/sample.dev.exs config/dev.exs`
-  * Install dependencies with `mix deps.get`
-  * Create and migrate your database with `mix ecto.setup`
-  * Start Phoenix endpoint with `mix phx.server` or inside IEx with `iex -S mix phx.server`
+## Projeto
 
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
+Esta é uma aplicação proposta pela [Ateliware](https://ateliware.com/) para armazenar os repositórios destaques de 5 linguagens diferentes.
 
-Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
+Você pode acessar uma _live preview_ [aqui](http://54.232.54.3/) <br> deploy feito na aws usando terraform e docker-compose
 
-## Learn more
+<br>
 
-  * Official website: https://www.phoenixframework.org/
-  * Guides: https://hexdocs.pm/phoenix/overview.html
-  * Docs: https://hexdocs.pm/phoenix
-  * Forum: https://elixirforum.com/c/phoenix-forum
-  * Source: https://github.com/phoenixframework/phoenix
+## Homepage
+![](https://i.postimg.cc/02kX2xgt/image.png)
+![](https://i.postimg.cc/66nT5JVG/image.png)
+
+
+## Como executar
+<br>
+
+Configurando o ambiente local:
+  ##### Necessita ter o _elixir_ e suas ferramentas instaladas
+
+  ```bash
+  # copie a configuração base de desenvolvimento
+  cp config/sample.dev.exs config/dev.exs
+  # após isso, adicione suas credenciais do banco de dados 
+  mix deps.get
+  mix ecto.setup
+
+  # após isso você pode rodar testes com
+  mix test
+
+  # e rodar o servidor com
+  mix phx.server
+  
+  # o servidor estará disponível em localhost:4000
+  ```
+<br>
+
+  Utilizando docker compose:
+  ##### necessita ter docker e docker-compose instalado
+  
+  ```bash
+  docker-compose up -d
+  ```
+  O servidor e o banco serão executados e estará ouvindo em `localhost`
+
+

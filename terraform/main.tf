@@ -90,6 +90,18 @@ resource "aws_security_group" "ateliware-sg" {
   }
 }
 
+data "template_file" "init" {
+  template = "${file("init.sh")}"
+
+  vars = {
+    db_user="${lookup(var.ateliwareprops, "db_user")}"
+    db_host="${lookup(var.ateliwareprops, "db_host")}"
+    db_password="${lookup(var.ateliwareprops, "db_password")}"
+    db_name="${lookup(var.ateliwareprops, "db_name")}"
+    main_app_container_name="${lookup(var.ateliwareprops, "main_app_container_name")}"
+    main_app_secret="${lookup(var.ateliwareprops, "main_app_secret")}"
+  }
+}
 
 resource "aws_instance" "project-iac" {
   ami = lookup(var.awsprops, "ami")
@@ -110,19 +122,6 @@ resource "aws_instance" "project-iac" {
     Managed = "IAC"
   }
 
-  data "template_file" "init" {
-    template = "${file("init.sh")}"
-
-    vars = {
-      db_user="${lookup(var.ateliwareprops, "db_user")}"
-      db_host="${lookup(var.ateliwareprops, "db_host")}"
-      db_password="${lookup(var.ateliwareprops, "db_password")}"
-      db_name="${lookup(var.ateliwareprops, "db_name")}"
-      main_app_container_name="${lookup(var.ateliwareprops, "main_app_container_name")}"
-      main_app_secret="${lookup(var.ateliwareprops, "main_app_secret")}"
-      host_up=self.public_ip
-    }
-  }
   user_data = "${data.template_file.init.rendered}"
 
   depends_on = [ aws_security_group.ateliware-sg ]
