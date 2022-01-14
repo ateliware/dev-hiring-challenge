@@ -6,7 +6,9 @@ sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-
 sudo chmod +x /usr/local/bin/docker-compose
 sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
 curl -LJO https://raw.githubusercontent.com/hammsvietro/dev-hiring-challenge/master/docker-compose.yml
-sudo newgrp docker 
+sudo groupadd docker
+sudo usermod -aG docker $USER
+newgrp docker 
 export db_user=${db_user}
 export db_host=${db_host}
 export db_password=${db_password}
