@@ -90,6 +90,7 @@ resource "aws_security_group" "ateliware-sg" {
   }
 }
 
+
 resource "aws_instance" "project-iac" {
   ami = lookup(var.awsprops, "ami")
   instance_type = lookup(var.awsprops, "itype")
@@ -109,33 +110,20 @@ resource "aws_instance" "project-iac" {
     Managed = "IAC"
   }
 
-    connection {
-			type        = "ssh"
-			user        = "admin"
-			host        = self.public_ip
-			private_key = chomp(file(var.ssh_private_key_path))
-		}
-    # runs the project
-		provisioner "remote-exec" {
-			inline = [
-        "sudo apt-get update -y",
-        "sudo apt-get install git -y",
-        "curl -fsSL https://get.docker.com | /bin/bash",
-        "git clone https://github.com/hammsvietro/dev-hiring-challenge.git",
-        "sudo curl -L \"https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)\" -o /usr/local/bin/docker-compose",
-        "sudo chmod +x /usr/local/bin/docker-compose",
-        "sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose",
-        "cd dev-hiring-challenge",
-        "export db_user=${lookup(var.ateliwareprops, "db_user")}",
-        "export db_host=${lookup(var.ateliwareprops, "db_host")}",
-        "export db_password=${lookup(var.ateliwareprops, "db_password")}",
-        "export db_name=${lookup(var.ateliwareprops, "db_name")}",
-        "export main_app_container_name=${lookup(var.ateliwareprops, "main_app_container_name")}",
-        "export main_app_secret=${lookup(var.ateliwareprops, "main_app_secret")}",
-        "sudo docker-compose up -d"
-			]
-		}
-  
+  data "template_file" "init" {
+    template = "${file("init.sh")}"
+
+    vars = {
+      db_user="${lookup(var.ateliwareprops, "db_user")}"
+      db_host="${lookup(var.ateliwareprops, "db_host")}"
+      db_password="${lookup(var.ateliwareprops, "db_password")}"
+      db_name="${lookup(var.ateliwareprops, "db_name")}"
+      main_app_container_name="${lookup(var.ateliwareprops, "main_app_container_name")}"
+      main_app_secret="${lookup(var.ateliwareprops, "main_app_secret")}"
+      host_up=self.public_ip
+    }
+  }
+  user_data = "${data.template_file.init.rendered}"
 
   depends_on = [ aws_security_group.ateliware-sg ]
 }
