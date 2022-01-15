@@ -9,14 +9,17 @@ use GuzzleHttp\Client;
 class RepositoryService {
 
     public static function findNewRepositories($languages) {
+        $repositories = [];
         foreach ($languages as $key => $name) {
             $language = Language::firstOrCreate(['name' => $name]); // Faz um insert da linguagem caso não exista
-            self::deleteAllRepositoriesByLanguage($language); // Deleta todos os repositórios da linguagem
+            self::deleteAllRepositoriesByLanguage($language->id); // Deleta todos os repositórios da linguagem
 
-            $reponse = self::findByLanguage($name); // Busca os repositórios da linguagem
-            $repositories = self::formatReponse($reponse, $language); // Formata a resposta
+            $reponse = self::findByLanguage($language->name); // Busca os repositórios da linguagem
+            $repositories[] = self::formatReponse($reponse, $language); // Formata a resposta
+        }
 
-            Repository::insert($repositories);
+        foreach ($repositories as $repository) {
+            Repository::insert($repository); // Salva os repositórios
         }
     }
 
