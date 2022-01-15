@@ -91,7 +91,7 @@ terraform init
 
 terraform apply
 
-# revise as alteração que serão feitas e digite 'yes' caso decida prosseguir
+# revise as alterações que serão feitas e digite 'yes' caso decida prosseguir
 
 ```
 
