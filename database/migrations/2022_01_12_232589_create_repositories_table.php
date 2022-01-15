@@ -18,9 +18,9 @@ class CreateRepositoriesTable extends Migration
             $table->string('name')->nullable();
             $table->string('html_url')->nullable();
             $table->text('description')->nullable();
-            $table->timestamp('created_at')->nullable();
-            $table->timestamp('updated_at')->nullable();
-            $table->timestamp('pushed_at')->nullable();
+            $table->datetime('created_at')->nullable();
+            $table->datetime('updated_at')->nullable();
+            $table->datetime('pushed_at')->nullable();
             $table->integer('stargazers_count')->nullable();
             $table->integer('watchers_count')->nullable();
             $table->string('language')->nullable();

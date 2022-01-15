@@ -1,7 +1,7 @@
 @extends('repositories.layout')
 
 @section('content')
-    <form method="post" action="#">
+    <form method="post" action="{{ route('repositories.save') }}">
         <div class="flex justify-between">
             <h2 class="">Repositorios Encontrados</h2>
             @csrf
