@@ -15,49 +15,40 @@
         </h1>
     </div>
 
-    <div class="row">
-        <div class="col">
-            <strong>Linguagem Principal:</strong>
-            {{ $repository->languagename; }}
-        </div>
-    </div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Descrição</th>
+                <th>URL</th>
+                <th>Linguagem</th>
+                <th>Criado em</th>
+                <th>Atualizado em</th>
+                <th>Observadores</th>
+                <th>Estrelas</th>
+                <th>Issues</th>
+            </tr>
+        </thead>
 
-    <div class="row">
-        <div class="col">
-            <strong>Descrição:</strong>
-            {{ $repository->description }}
-        </div>
-    </div>
+        <tbody>
+            <tr>
+                <td>{{ $repository->description }}</td>
+                <td>
+                    <a href="{{ $repository->html_url }}" target="_blank">
+                        {{ $repository->html_url }}
+                    </a>
+                </td>
+                <td>{{ $repository->language->name }}</td>
+                <td>{{ $repository->created_at }}</td>
+                <td>{{ $repository->updated_at }}</td>
+                <td>{{ $repository->watchers_count }}</td>
+                <td>{{ $repository->stargazers_count }}</td>
+                <td>{{ $repository->open_issues_count }}</td>
+            </tr>
+        </tbody>
+    </table>
 
-    <div class="row">
-        <div class="col">
-            <strong>Criado em:</strong>
-            {{ $repository->created_at }}
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col">
-            <strong>Última atualização:</strong>
-            {{ $repository->pushed_at }}
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col">
-            <strong>Estrelas:</strong>
-            <i class="fa fa-start">{{ $repository->stargazers_count }}</i>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col">
-            <strong>Issues:</strong>
-            <i class="fa fa-code-fork">{{ $repository->open_issues_count }}</i>
-        </div>
-    </div>
-
-    <div class="row pt-4">
+    <hr>
+    <div class="">
         <a class="btn btn-primary btn-outline" href="{{ route('repositories.index') }}">Voltar</a>
     </div>
 @endsection
