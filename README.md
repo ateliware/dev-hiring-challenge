@@ -1,22 +1,109 @@
-# Desafio técnico para desenvolvedores
+<h1 align="center">
+    Ateliware Challenge
+</h1>
 
-Construa uma nova aplicação, utilizando o framework de sua preferência (Ruby on Rails, Elixir Phoenix, Python Django ou Flask, NodeJS Sails, Java Spring, ASP.NET ou outro), a qual deverá conectar na API do GitHub e disponibilizar as seguintes funcionalidades:
+<p align="center">
+ <a href="#projeto">Projeto</a> •
+ <a href="#homepage">Homepage</a> •
+ <a href="#como-executar">Como executar</a> • 
+ <a href="#tecnologias">Tecnologias</a>
+</p>
 
-- Botão para buscar e armazenar os repositórios destaques de 5 linguagens à sua escolha;
-- Listar os repositórios encontrados;
-- Visualizar os detalhes de cada repositório.
+## Projeto
 
-Alguns requisitos:
+Esta é uma aplicação proposta pela [Ateliware](https://ateliware.com/) para armazenar os repositórios destaques de 5 linguagens diferentes.
 
-- Deve ser uma aplicação totalmente nova;
-- A solução deve estar em um repositório público do GitHub;
-- A aplicação deve armazenar as informações encontradas;
-- Utilizar PostgreSQL, MySQL ou SQL Server;
-- O deploy deve ser realizado, preferencialmente, no Heroku, AWS ou no Azure;
-- A aplicação precisa ter testes automatizados;
-- Preferenciamente dockerizar a aplicação;
-- Por favor atualizar o readme da aplicação com passo a passo com instrução para subir o ambiente.
+Você pode acessar uma live preview [aqui](http://54.207.96.203/) _deploy feito na aws usando terraform e docker-compose_
 
-Quando terminar, faça um Pull Request neste repo e avise-nos por email.
+<br>
 
-**IMPORTANTE:** se você não conseguir finalizar o teste, por favor nos diga o motivo e descreva quais foram as suas dificuldades. Você pode também sugerir uma outra abordagem para avaliarmos seus skills técnicos, vender seu peixe, mostrar-nos do que é capaz.
+## Homepage
+![](https://i.postimg.cc/02kX2xgt/image.png)
+
+![](https://i.postimg.cc/66nT5JVG/image.png)
+
+
+## Como executar
+<br>
+
+### Local
+Configurando o ambiente local:
+
+Necessário:
+
+* `elixir`
+* `mix`
+
+```bash
+#!/bin/bash
+
+# copie a configuração base de desenvolvimento
+cp config/sample.dev.exs config/dev.exs
+# após isso, adicione suas credenciais do banco de dados
+mix tailwind.install 
+mix tailwind.default
+mix deps.get
+mix ecto.setup
+
+# após isso você pode rodar testes com
+# para isso é necessario inserir suas credenciais do banco de dados em config/test.exs
+mix test
+
+# e rodar o servidor com
+mix phx.server
+
+```
+o servidor estará disponível em http://localhost:4000
+
+<br>
+
+### Docker Compose
+
+Necessário:
+
+* `docker`
+* `docker-compose`
+
+```bash
+docker-compose up -d
+```
+O servidor e o banco serão executados e estará ouvindo em [localhost](http://localhost)
+
+<br>
+
+### IaC - Infrastructure as Code
+
+Para fazer um deploy na AWS utilizando Terraform
+
+Necessário:
+
+* `cli-aws` <b>autenticado</b>
+* `terraform`
+
+```bash
+#!/bin/bash
+cd terraform
+
+cp sample.tfvars terraform.tfvars
+
+# preencha o arquivo criado com as credenciais necessarias
+terraform init
+
+terraform apply
+
+# revise as alterações que serão feitas e digite 'yes' caso decida prosseguir
+
+```
+
+## Tecnologias
+* Elixir
+* Phoenix
+* Phoenix Live View
+* TailwindCSS
+* Postgres
+* Docker
+* Docker Compose
+* Terraform
+* AWS EC2
+
+<br> <br>

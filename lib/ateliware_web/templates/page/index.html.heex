@@ -1,0 +1,21 @@
+<div class="w-full h-full flex items-center md:items-end justify-center mt-10 flex-col">
+
+  <%= if @loading do %>
+    <div class="absolute top-0 left-0 w-full h-full bg-dimmed flex justify-center items-center">
+      <div style="border-top-color:transparent" class="w-12 h-12 border-2 border-primary border-solid rounded-full animate-spin"></div>
+    </div>
+  <% end %>
+  <%= if length(@languages) > 0 do %>
+    <button class="text-normal py-3 px-6 rounded-2xl bg-primary text-white md:mr-20 mb-6" phx-click="trigger_update_repos">Refetch top repos</button>
+    <div class="grid grid-cols-1 gap-y-4 place-items-center w-full px-4 mb-10">
+    <%= for language <- @languages do %>
+      <.live_component module={LanguageCard} id={"#{language.name}-card"} language={language} />
+    <% end %>
+    </div>
+  <% end %>
+
+  <%= if assigns[:show_modal] do %>
+    <AteliwareWeb.Components.RepoModal.render id="repo-modal" repo_details={@repo_details} show_modal={@show_modal} />
+  <% end %>
+
+</div>
