@@ -27,8 +27,9 @@ class RepositoryService {
         Repository::where('language_id', $language)->delete();
     }
 
-    public static function findByLanguage($language){
-        $client = new Client(['verify' => 'C:\xampp\php\cacert.pem']);
+    public static function findByLanguage($language) {
+        // ['verify' => 'C:\xampp\php\cacert.pem']
+        $client = new Client();
         $url = "https://api.github.com/search/repositories";
 
         $response = $client->request('GET', $url, [
