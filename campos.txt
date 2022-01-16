@@ -1,0 +1,12 @@
+https://api.github.com/search/repositories?q=php&sort=stars&order=desc
+
+name
+html_url
+description
+created_at
+updated_at
+pushed_at
+stargazers_count
+watchers_count
+language
+open_issues_count
