@@ -57,9 +57,9 @@ class RepositoryService {
                     'name'=> $repository['name'],
                     'html_url'=> $repository['html_url'],
                     'description'=> $repository['description'],
-                    'created_at'=> date('Y-m-d H:i:s', strtotime($repository['created_at'])),
-                    'updated_at'=> date('Y-m-d H:i:s', strtotime($repository['updated_at'])),
-                    'pushed_at'=> date('Y-m-d H:i:s', strtotime($repository['pushed_at'])),
+                    'created_at'=> self::formatDate(strtotime($repository['created_at'])),
+                    'updated_at'=> self::formatDate(strtotime($repository['updated_at'])),
+                    'pushed_at'=> self::formatDate(strtotime($repository['pushed_at'])),
                     'stargazers_count'=> $repository['stargazers_count'],
                     'watchers_count'=> $repository['watchers_count'],
                     'open_issues_count'=> $repository['open_issues_count'],
@@ -69,6 +69,14 @@ class RepositoryService {
         }
 
         return $repositories;
+    }
+
+    public static function formatDate($date) {
+        if (!isset($date)) {
+            return null;
+        }
+
+        return date('Y-m-d H:i:s', strtotime($date));
     }
 }
 
