@@ -14,3 +14,4 @@ use App\Http\Controllers\SaveRepositoriesController;
 */
 
 Route::get('/', [SaveRepositoriesController::class, 'index'])->name('repositories.index');
+Route::get('/{id}', [SaveRepositoriesController::class, 'show'])->name('repositories.show');

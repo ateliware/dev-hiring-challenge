@@ -16,7 +16,6 @@ class Repository extends Model {
         'pushed_at',
         'stargazers_count',
         'watchers_count',
-        'language',
         'open_issues_count',
         'language_id',
     ];

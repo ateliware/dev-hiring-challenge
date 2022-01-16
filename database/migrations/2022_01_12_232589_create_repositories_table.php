@@ -23,7 +23,6 @@ class CreateRepositoriesTable extends Migration
             $table->datetime('pushed_at')->nullable();
             $table->integer('stargazers_count')->nullable();
             $table->integer('watchers_count')->nullable();
-            $table->string('language')->nullable();
             $table->integer('open_issues_count')->nullable();
             $table->bigInteger('language_id')->unsigned()->nullable();
 

@@ -28,8 +28,12 @@ class RepositoryService {
     }
 
     public static function findByLanguage($language) {
-        // ['verify' => 'C:\xampp\php\cacert.pem']
-        $client = new Client();
+        $config = [];
+        if (env('APP_ENV') == 'local') {
+            $config = ['verify' => 'C:\xampp\php\cacert.pem'];
+        }
+
+        $client = new Client($config);
         $url = "https://api.github.com/search/repositories";
 
         $response = $client->request('GET', $url, [
@@ -58,7 +62,6 @@ class RepositoryService {
                     'pushed_at'=> date('Y-m-d H:i:s', strtotime($repository['pushed_at'])),
                     'stargazers_count'=> $repository['stargazers_count'],
                     'watchers_count'=> $repository['watchers_count'],
-                    'language'=> $repository['language'],
                     'open_issues_count'=> $repository['open_issues_count'],
                     'language_id'=> $language->id
                 ];
