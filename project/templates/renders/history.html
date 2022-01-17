@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    <div class="bg-primary text-white">
+        <div class="row mt-2 p-2">
+            <div class="col-6 mt-2">
+                <h2><i class="fa fa-github px-3"></i>GitHub Search History</h2>
+            </div>
+            <div class="col-6 mt-3 text-end">
+                <a href="/" class="text-white">[x] close</a>
+            </div>
+        </div>
+    </div>
+    <div class="row m-2">
+        <div class="col-auto list-group list-group-flush mb-3">
+            <section id="history_results">
+                <table class="table table-sm mx-2 mt-4">
+                  <tbody>
+                  {% for result in results %}
+                  <tr>
+                      <td class="border-0 m-0 p-0"><p class="m-0">#{{ loop.index }} - {{ result.email }}</p></td>
+                      <td class="border-0 m-0 p-0"></td>
+                      <td class="border-0 m-0 p-0 text-end"><p class="m-0">{{result.date}}</p></td>
+                  </tr>
+                  <tr class="border-bottom">
+                      <td class="border-0 m-0 p-2"><small class="font-weight-light"><a href="{{result.html_url}}">{{result.url}}</a></small></td>
+                      <td class="border-0 m-0 p-2"><span>{{result.fullname}}</span></td>
+                      <td class="border-0 m-0 p-2"><span>{{result.description}}</span></td>
+                  </tr>
+                  {% endfor %}
+                  </tbody>
+                </table>
+            </section>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

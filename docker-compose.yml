@@ -1,0 +1,22 @@
+version: "3.10"
+
+services:
+  webserver:
+    build: .
+    command: uwsgi --ini uwsgi.ini
+    volumes:
+      - .:/app
+    ports:
+      - 8001:8001
+    depends_on:
+      - postgresdb
+  postgresdb:
+    image: postgres:14
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=QWERTY
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+
+volumes:
+  postgres_data:
