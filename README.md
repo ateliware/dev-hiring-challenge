@@ -14,7 +14,7 @@ Visualizar os detalhes de cada repositório.
 - Frontend Frameworks: Flask, Bootstrap
 - Docker
 - Heroku
-- Unit Test
+- PyTest
 
 # Deploy on Heroku
 - https://ateliware-project-challange.herokuapp.com/
@@ -41,6 +41,7 @@ Visualizar os detalhes de cada repositório.
 
 - History:
     - Test page response
-
-
-
+    
+- Run test:
+  - python -m pytest -v
+  - python -m pytest --setup-show --cov=project    
