@@ -1,0 +1,22 @@
+{
+    "name": "Dev Hiring Challenge - Ateliware",
+    "description": "Aplicação web responsável pela a listagem de repositórios do github das principais linguagens.",
+    "image": "heroku/python",
+    "repository": "https://github.com/vitorgripa/dev-hiring-challenge",
+    "keywords": ["python", "django" ],
+    "addons": [ "heroku-postgresql" ],
+    "env": {
+      "SECRET_KEY": {
+        "description": "The secret key for the Django application.",
+        "generator": "secret"
+      }
+    },
+    "environments": {
+      "test": {
+        "scripts": {
+          "test-setup": "python manage.py collectstatic --noinput",
+          "test": "python manage.py test"
+        }
+      }
+    }
+  }
