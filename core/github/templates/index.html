@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Repositórios GITHUB</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    {% load static %}
+    <link href="{% static 'css/style.css' %}" rel="stylesheet"/>
+</head>
+<body>
+    <main>
+        {% if repositorios %}
+            <ul id="repositorios">
+                {% for repositorio in repositorios %}
+                    <li class="repositorio">
+                        <a class="nome-repositorio" href="{{repositorio.url}}">
+                            {{ repositorio.nome }}
+                        </a>
+                        <span class="estrelas">
+                           <i class="icone far fa-star"></i>{{ repositorio.estrelas}}
+                        </span>
+                        <span class="descricao">
+                            {{ repositorio.descricao | truncatechars:40}}
+                        </span>
+                        <span class="acompanhadores">
+                            <i class="icone far fa-eye"></i>{{ repositorio.acompanhadores}}
+                        </span>
+                        <span class="linguagem-repositorio">
+                            {{ repositorio.linguagem }}
+                        </span>
+                    </li>
+                {% endfor %}
+            </ul>
+            <a id="botao-voltar" href="/"> < </a>
+        {% else %}
+            <img src="https://media.graphcms.com/gJsd71c5SGh1RyV8tIrV" alt="Logo Ateliware" height="100px">
+            {% if linguagens %}
+                <ul id="linguagens">
+                    {% for linguagem in linguagens %}
+                        <li class="linguagem">{{linguagem.nome}}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+            <form action="" method="post">
+                {% csrf_token %}
+                <button type="submit" id="pesquisar">Pesquisar</button>
+            </form>
+        {% endif %}
+    </main>
+</body>
+</html> 

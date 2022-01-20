@@ -1,0 +1,191 @@
+/* CSS RESET */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+body {
+    font-size: 16px;
+    --cor-primaria: #ef0044;
+    --cor-secundaria: #222222;
+    --cor-terciaria: #333333;
+    --cinza-claro: #666;
+    --cor-python: #000;
+    --cor-javascript: #111;
+    --cor-rust: #222;
+    --cor-elixir: #333;
+    --cor-ruby: #444;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Meu estilo */
+
+main {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    row-gap: 5vh;
+    position: relative;
+}
+#linguagens {
+    width: 100%;
+    display: flex;
+    row-gap: 2vh;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.linguagem {
+    color: var(--cor-terciaria);
+    background-color: white;
+    text-align: center;
+    font-size: 4em;
+    padding: 32px;
+    text-transform: uppercase;
+    border: 1px solid var(--cor-secundaria);
+    transition-duration: 500ms;
+    cursor: default;
+}
+.linguagem:hover {
+    color: white;
+    background-color: var(--cor-terciaria);
+    transform: scale(1.1)
+}
+.linguagem a {
+    text-decoration: none;
+    color: white;
+}
+#pesquisar {
+    padding: 2vh 2vw;
+    font-size: 1.5rem;
+    transition-duration: 0.5s;
+    border: 1px solid var(--cor-primaria);
+    background-color: white;
+    color: var(--cor-primaria);
+    cursor: pointer;
+}
+#pesquisar:hover {
+    transform: scale(1.25);
+    background-color: var(--cor-primaria);
+    color: white;
+    border-color: crimson;
+    font-weight: bold;
+}
+#repositorios {
+    display: flex;
+    row-gap: 2vh;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 32px;
+
+}
+.repositorio {
+    display: grid;
+    grid-template-areas:
+        "titulo estrelas"
+        "descricao acompanhadores"
+        "descricao linguagem";
+    font-size: 0.75em;
+    padding: 16px;
+    row-gap: 8px;
+    column-gap: 8px;
+    border: 1px solid #ddd;
+    box-shadow: 5px 5px 16px -11px;
+    transition-duration: 250ms;
+    width: 250px;
+}
+.repositorio:hover {
+    transform: scale(1.1);
+    z-index: 9999;
+}
+.nome-repositorio {
+    grid-area: titulo;
+    font-size: 1.25em;
+    border-bottom: 1px solid var(--cor-terciaria);
+    padding-bottom: 4px;
+    font-weight: bold;
+    color: var(--cor-primaria)
+}
+.estrelas {
+    grid-area: estrelas;
+    text-align: right;
+}
+.descricao {
+    grid-area: descricao;
+    color: #666;
+    font-size: 0.85em;
+}
+.acompanhadores {
+    grid-area: acompanhadores;
+    text-align: right;
+}
+.linguagem-repositorio {
+    grid-area: linguagem;
+    text-transform: uppercase;
+    text-align: right;
+    font-weight: bold;
+    color: var(--cor-secundaria)
+}
+#botao-voltar {
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    background-color: var(--cor-primaria);
+    font-size: 2em;
+    color: white;
+    z-index: 9999;
+    opacity: 0.5;
+    transition-duration: 500ms;
+    cursor: pointer;
+    text-decoration: none;
+}
+#botao-voltar:hover {
+    opacity: 1;
+}
+.icone {
+    margin-right: 4px;
+}
