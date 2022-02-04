@@ -1,0 +1,12 @@
+version: '3.5'
+services:
+  server-test:
+    build:
+      context: ./docker/test
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000
+    volumes:
+      - ./server:/app
+      - ./docker/test:/docker
+    command: sh /docker/npm.sh      

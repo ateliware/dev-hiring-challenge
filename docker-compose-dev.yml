@@ -1,0 +1,12 @@
+version: '3.8'
+services:
+  server-dev:
+    build:
+      context: ./docker/dev
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000
+    volumes:
+      - ./server:/app
+      - ./docker/dev:/docker
+    command: sh /docker/npm.sh
