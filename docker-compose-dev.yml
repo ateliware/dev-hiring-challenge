@@ -1,5 +1,16 @@
 version: '3.8'
 services:
+  client-dev:
+    build:
+      context: ./docker/dev
+      dockerfile: client.Dockerfile
+    ports: 
+      - 3001:3001
+    volumes:
+      - ./client:/app
+      - ./docker/dev:/docker
+    command: sh /docker/client.sh
+
   server-dev:
     build:
       context: ./docker/dev
@@ -9,7 +20,8 @@ services:
     volumes:
       - ./server:/app
       - ./docker/dev:/docker
-    command: sh /docker/npm.sh
+    command: sh /docker/server.sh
+
   db-dev:
     image: postgres:alpine
     restart: always

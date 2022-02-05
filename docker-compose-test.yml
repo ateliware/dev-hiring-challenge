@@ -9,7 +9,8 @@ services:
     volumes:
       - ./server:/app
       - ./docker/test:/docker
-    command: sh /docker/npm.sh
+    command: sh /docker/server.sh
+    
   db-test:
     image: postgres:alpine   
     restart: always
