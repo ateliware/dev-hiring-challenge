@@ -1,7 +1,6 @@
 import { expect } from 'chai'
 import app from '../app'
 import request from 'supertest'
-import { TRepository } from '../interfaces/Repository'
 
 describe('Basic tests', function () {
   this.timeout(10000)

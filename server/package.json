@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "tsc-watch --onSuccess 'node build/app.js'",
+    "dev": "NODE_ENV=development tsc-watch --onSuccess 'node build/app.js'",
     "build": "tsc",
     "start": "node build/app.js",
-    "test": "tsc-watch --onSuccess 'mocha build/test/index.js'"
+    "test": "NODE_ENV=test tsc-watch --onSuccess 'mocha build/test/index.js'"
   },
   "repository": {
     "type": "git",
@@ -24,7 +24,10 @@
     "axios": "^0.25.0",
     "dotenv": "^15.0.0",
     "express": "^4.17.2",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "pg": "^8.7.3",
+    "reflect-metadata": "^0.1.13",
+    "typeorm": "^0.2.41"
   },
   "devDependencies": {
     "@types/chai": "^4.3.0",
