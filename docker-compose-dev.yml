@@ -11,7 +11,7 @@ services:
       - ./docker/dev:/docker
     command: sh /docker/npm.sh
   db-dev:
-    image: postgres:alpine   
+    image: postgres:alpine
     restart: always
     ports:
       - 14000:5432

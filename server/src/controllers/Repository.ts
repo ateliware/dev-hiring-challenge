@@ -1,11 +1,9 @@
 require('dotenv').config()
 import {Request, Response} from 'express'
+import { RepositoryCardDatabaseHandler } from '../database/functions/Repository'
 import { GitHubRepositoryPayload } from '../interfaces/GitHubRepository'
-import { TRepository } from '../interfaces/Repository'
 import APIHandler from '../services/xhr'
 import { GitHubToRepositoryEntityAdapter } from '../use-cases/RepositoryAdapter'
-
-let fake_db: TRepository[] = []
 
 const RepositoryController = {
 
@@ -15,10 +13,12 @@ const RepositoryController = {
 
       const {languages} = req.body
 
+      await RepositoryCardDatabaseHandler.deleteAll()
+
       for (let language of languages) {
         const ghRepositoryPayload: GitHubRepositoryPayload = await APIHandler.request('get', `https://api.github.com/search/repositories?q=${language}&sort=stars&order=desc`)
         const repositories = new GitHubToRepositoryEntityAdapter().formatRepositoryPayload(ghRepositoryPayload)
-        fake_db = fake_db.concat(repositories)
+        await RepositoryCardDatabaseHandler.insertMany(repositories)
       }
 
       res.sendStatus(200)
@@ -31,7 +31,10 @@ const RepositoryController = {
   },
 
   get: async (req: Request, res: Response) => {
-    res.json({repositories: fake_db})
+
+    const repositories = await RepositoryCardDatabaseHandler.getAll()
+
+    res.json({repositories: repositories})
   }
 }
 

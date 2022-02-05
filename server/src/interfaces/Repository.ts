@@ -1,4 +1,4 @@
-export interface TRepository {
+export interface TGitHubRepositoryCard {
   name?: string;
   url?: string;
   owner?: string;

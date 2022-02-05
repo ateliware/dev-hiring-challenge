@@ -1,18 +1,6 @@
 import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, DeleteDateColumn } from 'typeorm'
-
-export interface TRepository {
-  name?: string;
-  url?: string;
-  owner?: string;
-  description?: string;
-  language?: string;
-  forks?: number;
-  open_issues?: number;
-  watchers?: number;
-}
-
 @Entity()
-export class Repository {
+export class GitHubRepositoryCard {
 
   @PrimaryGeneratedColumn()
   id: number;
@@ -29,7 +17,7 @@ export class Repository {
   @Column()
   description: string;
   
-  @Column()
+  @Column({nullable: true})
   language: string;
   
   @Column()

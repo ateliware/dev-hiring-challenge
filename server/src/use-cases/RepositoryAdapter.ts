@@ -1,10 +1,10 @@
 import { GitHubRepository, GitHubRepositoryPayload } from "../interfaces/GitHubRepository";
-import { TRepository } from "../interfaces/Repository";
+import { TGitHubRepositoryCard } from "../interfaces/Repository";
 
 export class GitHubToRepositoryEntityAdapter {
 
   formatRepository  (ghRepository: GitHubRepository) {
-    const repository: TRepository = {
+    const repository: TGitHubRepositoryCard = {
       name: ghRepository.name,
       url: ghRepository.html_url,
       owner: ghRepository.owner.login,
@@ -20,7 +20,7 @@ export class GitHubToRepositoryEntityAdapter {
 
   formatRepositoryPayload (ghPayload: GitHubRepositoryPayload) {
 
-    let repositories: TRepository[] = []
+    let repositories: TGitHubRepositoryCard[] = []
 
     for (let ghRepository of ghPayload.items) {
       repositories.push(this.formatRepository(ghRepository))
