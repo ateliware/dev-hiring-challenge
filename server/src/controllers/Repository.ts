@@ -21,10 +21,15 @@ const RepositoryController = {
         await RepositoryCardDatabaseHandler.insertMany(repositories)
       }
 
-      res.sendStatus(200)
+      res.status(200).json({
+        success: true
+      })
 
     } catch (error) {
       console.log(error)
+      res.status(400).json({
+        success: false
+      })
     }
 
 
