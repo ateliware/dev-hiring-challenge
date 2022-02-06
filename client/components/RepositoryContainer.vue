@@ -58,11 +58,11 @@ export default Vue.extend({
         'Shell',
         'Ruby',
         'Typescript'                           
-      ],
-      chosen_languages: [],
-      chosen_language: undefined,
-      repositories: [],
-      loading: undefined
+      ] as string[],
+      chosen_languages: [] as string[],
+      chosen_language: undefined as string | undefined,
+      repositories: [] as any[],
+      loading: undefined as string | undefined
     }
   },
   computed: {
@@ -70,7 +70,9 @@ export default Vue.extend({
       
       let not_chosen_languages = []
 
-      for (let language of this.languages) {
+      const languages: string[] = this.languages
+
+      for (let language of languages) {
         if (this.chosen_languages.indexOf(language) === -1) not_chosen_languages.push(language)
       }
 
@@ -142,38 +144,16 @@ export default Vue.extend({
 })
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+
+@import '@/assets/scss/mixins.scss';
 
 .container {
   display: grid;
 }
 
 .loading {
-  display: flex;
-  padding: 1rem;
-  width: max-content;
-  border: 1px solid black;
-  border-radius: .3rem;
-  background: rgb(113, 220, 220);
-}
-
-.loading > .loading-text {
-  margin-right: 1rem;
-}
-
-.loader {
-  width: 1rem;
-  height: 1rem;
-  border: 2px solid black;
-  border-top-color: lightgray;
-  border-radius: 50%;
-  animation: rotate ease 1s infinite;
-}
-
-@keyframes rotate {
-  to {
-    transform: rotate(360deg);
-  }
+  @include loading-component;
 }
 
 </style>
