@@ -9,7 +9,7 @@ import IndexRouter from './routes'
 const app = express()
 
 app.use(express.json())
-app.use(morgan('combined'))
+if (process.env.NODE_ENV !== 'production') app.use(morgan('combined'))
 app.use(cors())
 
 app.use('/', IndexRouter)

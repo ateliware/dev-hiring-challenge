@@ -19,7 +19,10 @@ const config = {
   ],
   migrations: [
     'build/database/migration/**/*.js'
-  ]
+  ],
+  cli: {
+    migrationsDir: 'src/database/migration'
+  }
 }
 
 module.exports = config

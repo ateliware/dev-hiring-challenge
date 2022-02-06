@@ -1,0 +1,38 @@
+version: '3.8'
+services:
+  client-prod:
+    build:
+      context: ./docker/prod
+      dockerfile: client.Dockerfile
+    ports: 
+      - 3001:3001
+    volumes:
+      - ./client:/app
+      - ./docker/prod:/docker
+    command: sh /docker/client.sh
+
+  server-prod:
+    build:
+      context: ./docker/prod
+      dockerfile: server.Dockerfile
+    ports:
+      - 3000:3000
+    volumes:
+      - ./server:/app
+      - ./docker/prod:/docker
+    command: sh /docker/server.sh
+
+  db-prod:
+    image: postgres:alpine
+    restart: always
+    ports:
+      - 14000:5432
+    environment:
+      POSTGRES_DB: $PRODUCTION_DB_DATABASE
+      POSTGRES_USER: $PRODUCTION_DB_USER
+      POSTGRES_PASSWORD: $PRODUCTION_DB_PASSWORD
+    volumes:
+      - gh_db_prod:/var/lib/postgresql/data
+
+volumes:
+  gh_db_prod:

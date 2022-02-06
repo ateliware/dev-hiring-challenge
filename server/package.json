@@ -8,7 +8,9 @@
     "build": "tsc",
     "start": "node build/app.js",
     "test": "NODE_ENV=test tsc-watch --onSuccess 'mocha build/test/index.js'",
-    "prod": "NODE_ENV=production node build/app.js"
+    "prod": "NODE_ENV=production node build/app.js",
+    "migration:generate": "NODE_ENV=production typeorm -c default migration:generate -n",
+    "migration:run": "NODE_ENV=production typeorm -c default migration:run"    
   },
   "repository": {
     "type": "git",
