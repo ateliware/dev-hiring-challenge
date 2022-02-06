@@ -1,0 +1,17 @@
+@import 'mixins.scss';
+@import 'colors.scss';
+@import 'fonts.scss';
+
+body {
+  margin: 0px;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.loading {
+  @include loading-component;
+}

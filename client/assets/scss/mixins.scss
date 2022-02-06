@@ -1,10 +1,5 @@
 @mixin loading-component {
   display: flex;
-  padding: 1rem;
-  width: max-content;
-  border: 1px solid black;
-  border-radius: .3rem;
-  background: rgb(113, 220, 220);
   .loading-text {
     margin-right: 1rem;
   }
@@ -21,4 +16,19 @@
       transform: rotate(360deg);
     }
   }  
+}
+
+@mixin button-component {
+  background-color: $blue;
+  height: 3rem;
+  border: 1px solid $gray;
+  border-radius: .3rem;
+  color: white;
+  transition: .1s;
+  font-size: 1rem;
+  &:hover {
+    cursor: pointer;
+    background-color: lighten($blue, 10%);
+    font-size: 1.02rem;
+  }
 }

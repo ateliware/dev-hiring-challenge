@@ -4,10 +4,14 @@
   </div>
 </template>
 
-<script lang="ts">
+<script>
 import Vue from 'vue'
 
 export default Vue.extend({
-
+  head() {
+    return {
+      title: 'Teste Ateliware'
+    }
+  }
 })
 </script>
