@@ -1,11 +1,11 @@
 require('dotenv').config()
 import {Request, Response} from 'express'
-import { RepositoryCardDatabaseHandler } from '../database/functions/Repository'
+import { GitHubRepositoryCardDatabaseHandler } from '../database/functions/GitHubRepositoryCard'
 import { GitHubRepositoryPayload } from '../interfaces/GitHubRepository'
 import APIHandler from '../services/xhr'
 import { GitHubToRepositoryEntityAdapter } from '../use-cases/RepositoryAdapter'
 
-const RepositoryController = {
+const GitHubRepositoryCardController = {
 
   load: async (req: Request, res: Response) => {
 
@@ -13,12 +13,12 @@ const RepositoryController = {
 
       const {languages} = req.body
 
-      await RepositoryCardDatabaseHandler.deleteAll()
+      await GitHubRepositoryCardDatabaseHandler.deleteAll()
 
       for (let language of languages) {
         const ghRepositoryPayload: GitHubRepositoryPayload = await APIHandler.request('get', `https://api.github.com/search/repositories?q=${language}&sort=stars&order=desc`)
-        const repositories = new GitHubToRepositoryEntityAdapter().formatRepositoryPayload(ghRepositoryPayload)
-        await RepositoryCardDatabaseHandler.insertMany(repositories)
+        const repositories = GitHubToRepositoryEntityAdapter.formatRepositoryPayload(ghRepositoryPayload)
+        await GitHubRepositoryCardDatabaseHandler.insertMany(repositories)
       }
 
       res.status(200).json({
@@ -37,10 +37,10 @@ const RepositoryController = {
 
   get: async (req: Request, res: Response) => {
 
-    const repositories = await RepositoryCardDatabaseHandler.getAll()
+    const repositories = await GitHubRepositoryCardDatabaseHandler.getAll()
 
     res.json({repositories: repositories})
   }
 }
 
-export default RepositoryController
+export default GitHubRepositoryCardController

@@ -1,4 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, DeleteDateColumn } from 'typeorm'
+import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn } from 'typeorm'
 @Entity()
 export class GitHubRepositoryCard {
 
@@ -14,7 +14,7 @@ export class GitHubRepositoryCard {
   @Column()
   owner: string;
   
-  @Column()
+  @Column({nullable: true})
   description: string;
   
   @Column({nullable: true})
@@ -34,8 +34,5 @@ export class GitHubRepositoryCard {
 
   @UpdateDateColumn()
   updated_at: Date;
-
-  @DeleteDateColumn()
-  deleted_at: Date;  
 
 }

@@ -1,8 +1,8 @@
 import { getConnection, getRepository } from "typeorm";
-import { TGitHubRepositoryCard } from "../../interfaces/Repository";
-import { GitHubRepositoryCard } from "../entity/Repository";
+import { TGitHubRepositoryCard } from "../../interfaces/GitHubRepositoryCard";
+import { GitHubRepositoryCard } from "../entity/GitHubRepositoryCard";
 
-export class RepositoryCardDatabaseHandler {
+export class GitHubRepositoryCardDatabaseHandler {
 
   static async insertOne (repository: TGitHubRepositoryCard) {
     try {
