@@ -1,16 +1,17 @@
 import { expect } from 'chai'
 import app from '../app'
 import request from 'supertest'
-import { createConnection, getConnection } from 'typeorm'
+import { getConnection } from 'typeorm'
 
 describe('Basic tests with GitHub API as a dependency', function () {
 
-  this.beforeEach(async () => {
+  this.afterEach(async () => {
+
+    const db_connection = getConnection()
+
     if (process.env.NODE_ENV !== 'test') {
       console.log('Cant reset schema out of test mode. Aborting.')
     } else {
-      await createConnection()
-      const db_connection = getConnection()
       await db_connection.dropDatabase()
       await db_connection.synchronize()
     }
@@ -37,7 +38,7 @@ describe('Basic tests with GitHub API as a dependency', function () {
 
   })
 
-  it.only('should load repositories twice and only keep results from second (last) load', async () => {
+  it('should load repositories twice and only keep results from second (last) load', async () => {
 
     const first_mock_languages = ['Javascript', 'Ruby']
 

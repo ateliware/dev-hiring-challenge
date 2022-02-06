@@ -32,7 +32,6 @@ const GitHubRepositoryCardController = {
       })
     }
 
-
   },
 
   get: async (req: Request, res: Response) => {

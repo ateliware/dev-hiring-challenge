@@ -7,7 +7,8 @@
     "dev": "NODE_ENV=development tsc-watch --onSuccess 'node build/app.js'",
     "build": "tsc",
     "start": "node build/app.js",
-    "test": "NODE_ENV=test tsc-watch --onSuccess 'mocha build/test/index.js'"
+    "test": "NODE_ENV=test tsc-watch --onSuccess 'mocha build/test/index.js'",
+    "prod": "NODE_ENV=production node build/app.js"
   },
   "repository": {
     "type": "git",

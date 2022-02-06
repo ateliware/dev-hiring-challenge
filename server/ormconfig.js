@@ -13,7 +13,7 @@ const config = {
   schema: 'public',
   synchronize: process.env.NODE_ENV !== 'production',
   logging: false,
-  // dropSchema: process.env.NODE_ENV === 'test',
+  dropSchema: process.env.NODE_ENV === 'test',
   entities: [
     'build/database/entity/**/*.js'
   ],
