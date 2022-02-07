@@ -26,7 +26,7 @@
       </div>
       <div class="chosen">
         <div class="title">
-          Linguagens escolhidas:
+          Linguagens escolhidas
         </div>
         <div class="chosen-container">
           <div class="languages" v-if="chosen_languages.length > 0">
@@ -75,21 +75,12 @@ export interface TGitHubRepositoryCard {
   watchers?: number;
 }
 
+import {languages} from '@/static/json/languages.json'
+
 export default Vue.extend({
   data () {
     return {
-      languages: [
-        'Javascript',
-        'Python',
-        'Java',
-        'C#',
-        'PHP',
-        'C++',
-        'C',
-        'Shell',
-        'Ruby',
-        'Typescript'                           
-      ] as string[],
+      languages: languages as string[],
       chosen_languages: [] as string[],
       chosen_language: undefined as string | undefined,
       repositories: [] as TGitHubRepositoryCard[],
@@ -186,7 +177,10 @@ export default Vue.extend({
 
 select {
   font-family: Arial;
-  width: 10rem;
+  border: none;
+  border-radius: .1rem .2rem;
+  background: darken($light-gray, 3%);
+  outline: none;
 }
 
 .language-picker {
