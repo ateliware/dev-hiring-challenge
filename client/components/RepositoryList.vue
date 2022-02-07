@@ -46,4 +46,18 @@ export default Vue.extend({
   grid-template-columns: 1fr 1fr 1fr;
 }
 
+@media(max-width: 1200px) {
+  
+  .repository-list {
+    padding: 1rem;
+  }
+
+  .repository-cards {
+    display: grid;
+    height: auto;
+    grid-template-columns: 1fr;
+    padding: .5rem;
+  }
+}
+
 </style>

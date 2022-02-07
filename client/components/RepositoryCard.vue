@@ -162,6 +162,22 @@ export default Vue.extend({
       margin-right: 1rem;
       font-weight: bold;
     }
+    .field-value {
+      text-align: right;
+    }
+  }
+}
+
+@media(max-width: 1200px) {
+  
+  .repository-card {
+    padding: 1rem;
+  }
+
+  .togglable {
+    .field {
+      padding: 0 1rem;
+    }
   }
 }
 

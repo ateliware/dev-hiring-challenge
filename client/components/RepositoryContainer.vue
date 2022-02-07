@@ -49,7 +49,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div>  
     <RepositoryList v-if="!loading" :repositories="repositories" />
     <div class="loading" v-else>
       <div class="loading-text">
@@ -301,6 +301,36 @@ select {
 
 .loading {
   padding: 1rem 8rem;
+}
+
+@media(max-width: 1200px) {
+
+  select {
+    width: auto;
+  }
+
+  .language-picker {
+    display: grid;
+    padding: 0rem;
+    .control {
+      gap: 1rem;
+      .title {
+        width: auto;
+        font-size: 2.5rem;
+        padding: 1rem;
+      }
+      .selector {
+        padding: 0 1rem;
+        .picker {
+          width: auto;
+        }
+      }
+    }
+  }
+
+  .loading {
+    padding: 1rem;
+  }
 }
 
 </style>
