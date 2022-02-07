@@ -27,27 +27,23 @@ export default Vue.extend({
 @import '@/assets/scss/index.scss';
 
 .repository-list {
-  padding: 1rem;
-  display: grid;
-  gap: 1rem;
-  background: $blue;
-  color: $gray;
-  height: calc(100vh - 25rem);  
+  padding: 0 8rem;
 }
 
 .title {
-  font-size: 1.5rem;
-  color: white;
+  color: $blue;
 }
 
 .repository-cards {
-  border: 1px solid $gray;
-  border-radius: .3rem;
-  padding: 1rem;
+  margin-top: 1rem;
+  background: $gray;
+  border-radius: .1rem;
   overflow-y: auto;
+  height: 40vh;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  padding: 3rem;
   gap: 1rem;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 
 </style>

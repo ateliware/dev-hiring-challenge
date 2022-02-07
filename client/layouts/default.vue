@@ -21,12 +21,11 @@ export default Vue.extend({
 @import '@/assets/scss/index.scss';
 
 * {
-  background: $light-gray;
-  font-family: Sora;
+  font-family: Arial;
 }
 
 select {
-  font-family: Sora;
+  font-family: Arial;
 }
 
 .loading {

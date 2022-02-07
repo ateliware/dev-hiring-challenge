@@ -2,31 +2,31 @@
   <div class="repository-card">
     <div class="fixed">
       <div class="main-info">
-        <div class="main-field">
-          <div class="field-name">
-            Repositório
+        <div class="field">
+          <div class="icon">
+            <img src="/img/repository.svg">
           </div>
-          <div class="field-value">
-            {{repository.name}}
+          <div class="text">
+            Repositório: <b>{{repository.name}}</b>
           </div>
         </div>
-        <div class="main-field">
-          <div class="field-name">
-            Dono
+        <div class="field">
+          <div class="icon">
+            <img src="/img/person.svg">
           </div>
-          <div class="field-value">
-            {{repository.owner}}
+          <div class="text">
+            Dono: <b>{{repository.owner}}</b>
           </div>
-        </div>     
+        </div>       
       </div>
       <div class="buttons">
+        <div class="clickable-text" @click.prevent="toggleOpenCard()">
+          Detalhes
+        </div>        
         <button class="button">
           <a :href="repository.url" target="_blank">
             Acessar
           </a>        
-        </button>
-        <button class="button" @click.prevent="toggleOpenCard()">
-          {{isOpen ? '-' : '+'}} Info
         </button>
       </div>
     </div>
@@ -100,30 +100,53 @@ export default Vue.extend({
 @import '@/assets/scss/index.scss';
 
 .repository-card {
-  color: $darker-gray;
-  border-radius: .3rem;
+  // background: white;
+  padding: 2rem 1rem;
   display: block;
 }
 
 .fixed {
   display: grid;
-}
-
-.main-info, .buttons {
+  grid-template-rows: 1fr 1fr;
+  padding: 1rem 2rem;
   background: white;
-  display: flex;
-  text-align: center;
-  .main-field {
-    flex: 1;
+  .main-info {
     display: grid;
     grid-template-rows: 1fr 1fr;
-    justify-content: stretch;
-    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem 0;
+    .field {
+      display: flex;
+      align-items: center;
+      .icon {
+        margin-right: 1rem;
+      }
+    }
   }
-  .field-name {
-    color: $darker-gray;
-    font-weight: bold;
-    font-size: 1.1rem;
+  .buttons {
+    display: flex;
+    align-items: flex-end;
+    .clickable-text {
+      flex: 1;
+      color: $blue;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      text-align: left;
+      height: 3rem;
+      cursor: pointer;
+    }
+    .button {
+      flex: 1;
+      @include button-component;
+      a {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+      }
+    }
   }
 }
 
@@ -139,21 +162,6 @@ export default Vue.extend({
       margin-right: 1rem;
       font-weight: bold;
     }
-  }
-}
-
-.button {
-  @include button-component;
-  background-color: lighten($blue, 5%);
-  height: 2rem;
-  flex: 1;
-  padding: 0;
-  a {
-    border-radius: .3rem;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
   }
 }
 
