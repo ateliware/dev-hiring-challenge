@@ -255,7 +255,7 @@ select {
         border-radius: 50%;
         width: 1.3rem;
         height: 1.3rem;
-        background-color: $gray;
+        background-color: $dark-gray;
         img {
           margin: auto;
           width: .9rem;
@@ -263,7 +263,7 @@ select {
         }
         transition: .3s;
         &:hover {
-          background-color: darken($gray, 10%);
+          background-color: darken($dark-gray, 10%);
           cursor: pointer;
         }       
       }
