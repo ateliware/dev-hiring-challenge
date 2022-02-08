@@ -20,3 +20,69 @@ Alguns requisitos:
 Quando terminar, faça um Pull Request neste repo e avise-nos por email.
 
 **IMPORTANTE:** se você não conseguir finalizar o teste, por favor nos diga o motivo e descreva quais foram as suas dificuldades. Você pode também sugerir uma outra abordagem para avaliarmos seus skills técnicos, vender seu peixe, mostrar-nos do que é capaz.
+
+# Livesite
+
+https://gmtc.com.br
+
+# Stack utilizada
+
+* Client: Nuxt.js
+* Server: Express.js
+* Database: PostgreSQL
+* Testes: Mocha + Chai + Cypress
+
+# Inicializar projeto localmente
+
+**Requisitos:** docker e docker-compose instalados
+
+- Carregar as envs de exemplo
+
+```sh
+sh load-envs.sh
+```
+
+## Modo dev
+
+```sh
+docker-compose -f docker-compose-dev.yml up
+```
+
+## Modo test
+
+```sh
+docker-compose -f docker-compose-test.yml up
+```
+
+## Modo production
+
+```sh
+docker-compose -f docker-compose-build.yml up
+docker-compose -f docker-compose-prod.yml up
+```
+
+## Testes e2e com cypress
+
+- Instalar cypress na pasta raiz do projeto
+
+```sh
+npm i
+```
+
+- Ligar projeto com:
+
+```sh
+docker-compose -f docker-compose-e2e.yml up -d && npx cypress open
+```
+
+ou
+
+```sh
+docker-compose -f docker-compose-e2e.yml up
+```
+
+e em outro terminal
+
+```sh
+npx cypress open
+```
