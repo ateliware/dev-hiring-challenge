@@ -10,7 +10,8 @@
     "test": "NODE_ENV=test tsc-watch --onSuccess 'mocha build/test/index.js'",
     "prod": "NODE_ENV=production node build/app.js",
     "migration:generate": "NODE_ENV=production typeorm -c default migration:generate -n",
-    "migration:run": "NODE_ENV=production typeorm -c default migration:run"    
+    "migration:run": "NODE_ENV=production typeorm -c default migration:run",
+    "e2e": "NODE_ENV=e2e tsc-watch --onSuccess 'node build/app.js'"
   },
   "repository": {
     "type": "git",
