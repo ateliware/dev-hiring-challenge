@@ -1,0 +1,99 @@
+  <div class="input-field col s12">
+    <select id="language" style="display: block;">
+      <option value="">Choose your option</option>
+      <option value="elixir">Elixir</option>
+      <option value="python">Python</option>
+      <option value="javascript">Javascript</option>
+      <option value="php">PHP</option>
+      <option value="rust">Rust</option>
+    </select>
+  </div>
+  <div class="row">
+    <form class="col s12">
+      <div class="row">
+        <div class="input-field col s10">
+          <textarea id="search" class="materialize-textarea"></textarea>
+          <label for="search">Search the name of a stored repository </label>
+        </div>
+        <div class="input-field col s2">
+          <a class="waves-effect waves-light btn" id="btn-search">search</a>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div>
+    <ul id="list" class="collection">
+    </ul>
+  </div>
+
+  <div id="search-result">
+  </div>
+
+  <script>
+  document.getElementById("btn-search").addEventListener("click", () => {
+    document.getElementById('list').innerHTML = ""
+    const content = document.getElementById("search").value
+    const response = fetch(`/repo?name=${content}`)
+      .then(response => response.json())
+      .then(data => {
+        if(data.message) {
+          alert(data.message)
+        } else {
+          const li = document.createElement('li')
+
+          li.innerHTML =
+          `<ul class="collection">
+            <li class="collection-item avatar">
+              <img src=${data.owner.avatar_url} alt="" class="circle">
+              <b><span class="title">${data.name}</span></b>
+              <p>${data.description}</p>
+              <b><span>Forks: ${data.forks}</span></b>
+              <b><span>Stars: ${data.stars}</span></b>
+            </li>
+          </ul`
+          document.getElementById('search-result').appendChild(li)
+        }
+      });
+      document.getElementById('search').innerHTML = ""
+      document.getElementById('search-result').innerHTML = ""
+  })
+
+  document.getElementById("language").addEventListener("change", (event) => {
+    if(event.target.value !== '') {
+      const response = fetch(`/repos`, {
+            method: "POST",
+            headers: {
+              'Accept': 'application/json, text/plain, */*',
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              language: event.target.value
+            })
+      })
+      .then(response => response.json())
+      .then(data => {
+        if(data.message) {
+          alert(data.message)
+        } else {
+          const items = data.data
+          items.map(item => {
+            console.log(item)
+            const li = document.createElement('li')
+
+            li.innerHTML =
+            `<li class="collection-item avatar">
+              <img src=${item.owner.avatar_url} alt="" class="circle">
+              <b><span class="title">${item.name}</span></b>
+              <p>${item.description}</p>
+              <b><span>Forks: ${item.forks}</span></b>
+              <b><span>Stars: ${item.stars}</span></b>
+            </li>`
+            document.getElementById('list').appendChild(li)
+          })
+        }
+      });
+    }
+    document.getElementById('list').innerHTML = ""
+  })
+  </script>
