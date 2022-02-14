@@ -13,7 +13,7 @@ This application was built with the stack:
 
 **Database: [Postgres](https://www.postgresql.org)**
 
-**Database: [Docker](https://www.docker.com)**
+**Environment: [Docker](https://www.docker.com)**
 
 *Note: since this project's API is using the free githup repositories API, multiple searches at the same time
 or too much requests in a short period may exceed the Github's rate limit per request and an error will be returned.* 
@@ -58,7 +58,7 @@ type: `POST`
 
 **Params**
 
-* To be searched for: `language string`
+* Language to be searched on Git: `language string`
 
 **Body Params (JSON)**
 
