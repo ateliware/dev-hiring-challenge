@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Alert renderiza com ações 1`] = `
+<div>
+  <div
+    class="main success"
+    role="alert"
+  >
+    <main>
+      Mensagem de alerta de teste de sucessso e ações
+    </main>
+    <footer
+      class="footer"
+    >
+      <hr
+        class="hr"
+      />
+      <ul
+        class="actions"
+      >
+        <li>
+          <a
+            href="/cancelar"
+          >
+            cancelar
+          </a>
+        </li>
+        <li>
+          <a
+            href="/ok"
+          >
+            okay
+          </a>
+        </li>
+      </ul>
+    </footer>
+  </div>
+</div>
+`;

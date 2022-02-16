@@ -1,0 +1,101 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Layout renderiza o conteudo do aplicativo 1`] = `
+<div>
+  <header>
+    <section
+      class="container"
+    >
+      <div
+        class="main"
+      >
+        <h1
+          class="title"
+        >
+          Prova Ateliware
+        </h1>
+        <p
+          class="lead"
+        >
+          Desafio técnico para desenvolvedores
+        </p>
+        <section
+          class="userInfoSectionContainer"
+        >
+          <div
+            class="main"
+          >
+            <hr
+              class="divider"
+            />
+            <a
+              class="mailToButton"
+              href="mailto:hola@facundoleites.com"
+            >
+              hola@facundoleites.com
+            </a>
+          </div>
+        </section>
+      </div>
+    </section>
+  </header>
+  <main
+    class="container body"
+  >
+    <h1>
+      Texto do conteúdo do layout
+    </h1>
+  </main>
+  <footer>
+    <section
+      class="container"
+    >
+      <main
+        class="main"
+      >
+        <section
+          class="copyleft"
+        >
+          Facundo Leites copyleft 2022
+        </section>
+        <section
+          class="themeSwitcherContainer"
+        >
+          <div
+            class="main"
+          >
+            <span
+              class="label"
+              id="footer-theme-switcher"
+            >
+              tema
+            </span>
+            <hr
+              class="divider"
+            />
+            <select
+              aria-labelledby="footer-theme-switcher"
+              class="select"
+              data-testid="themeSwitcherSelect"
+              name="tema"
+              placeholder="tema"
+              title="tema"
+            >
+              <option
+                value="light"
+              >
+                claro
+              </option>
+              <option
+                value="dark"
+              >
+                escuro
+              </option>
+            </select>
+          </div>
+        </section>
+      </main>
+    </section>
+  </footer>
+</div>
+`;

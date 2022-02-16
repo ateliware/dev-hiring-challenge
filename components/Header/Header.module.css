@@ -1,0 +1,66 @@
+.main {
+  padding-top: 26pt;
+  padding-bottom: 12pt;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-column-gap: 1rem;
+  grid-row-gap: 1rem;
+  align-items: baseline;
+  border-bottom: 3px solid var(--text-color);
+}
+
+.title {
+  font-size: 16pt;
+  margin: 0;
+  grid-column-start: 1;
+  grid-column-end: 6;
+}
+
+.lead {
+  font-size: 14pt;
+  margin: 0;
+  grid-column-start: 1;
+  grid-column-end: 6;
+}
+
+.userInfoSectionContainer {
+  grid-column-start: 1;
+  grid-column-end: 6;
+}
+
+@media screen and (min-width: 501px) {
+  .title {
+    grid-column-end: 3;
+  }
+  .lead {
+    margin: 0;
+    grid-column-start: 3;
+  }
+  .userInfoSectionContainer {
+    grid-column-start: 3;
+  }
+}
+
+@media screen and (min-width: 651px) {
+  .title {
+    grid-column-end: 2;
+  }
+  .lead {
+    grid-column-start: 2;
+    grid-column-end: 6;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .title {
+    font-size: 20pt;
+    grid-column-end: 1;
+  }
+  .lead {
+    font-size: 16pt;
+    grid-column-end: 3;
+  }
+  .userInfoSectionContainer {
+    grid-column-start: 4;
+  }
+}

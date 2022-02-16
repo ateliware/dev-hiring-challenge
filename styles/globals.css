@@ -1,0 +1,60 @@
+:root[data-theme="light"] {
+  --primary-color: #0072a3;
+  --text-color: #111111;
+  --bg-color: #fafafa;
+  --color-error: #d34545;
+  --color-success: #45d353;
+}
+:root[data-theme="dark"] {
+  --primary-color: #49afd9;
+  --bg-color: #111111;
+  --text-color: #cccccc;
+  --color-error: #9a3939;
+  --color-success: #399a43;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  font-family: Helvetica, Helvetica Neue, Roboto, Ubuntu, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  max-width: 100vw;
+  max-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: relative;
+}
+
+html::before {
+  z-index: -1;
+  content: "";
+  display: block;
+  background: var(--primary-color);
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  opacity: 0.1;
+  mask-image: url("/circle.svg");
+  mask-repeat: no-repeat;
+  mask-size: 200% 200%;
+  mask-position: 50% 100%;
+  -webkit-mask-image: url("/circle.svg");
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: 200% 200%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}

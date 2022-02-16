@@ -1,0 +1,84 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  white-space: normal;
+}
+
+.hr {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid var(--text-color);
+  flex: 1;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  order: 2;
+}
+
+.error .hr {
+  border-bottom-color: var(--color-error);
+}
+
+.success .hr {
+  border-bottom-color: var(--color-success);
+}
+
+.footer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+}
+
+.actions {
+  display: block;
+  order: 2;
+  padding: 0;
+  list-style: none;
+  margin: 0;
+  order: 1;
+}
+
+.actions li {
+  display: block;
+}
+
+.actions a,
+.actions button {
+  text-transform: uppercase;
+  display: inline-block;
+  padding: 0.5rem 0;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: inherit;
+  border-bottom: 1px solid transparent;
+  border-top: 1px solid transparent;
+}
+.actions a:hover,
+.actions button:hover {
+  border-top-color: 1px solid var(--text-color);
+  border-bottom-color: 1px solid var(--text-color);
+}
+
+@media screen and (min-width: 501px) {
+  .hr {
+    order: 1;
+    margin-top: 1rem;
+    margin-bottom: 0;
+  }
+  .actions {
+    margin-left: 1rem;
+    order: 2;
+  }
+  .actions li {
+    display: inline-block;
+  }
+  .footer {
+    flex-direction: row;
+  }
+  .actions li + li {
+    margin-left: 1rem;
+  }
+}

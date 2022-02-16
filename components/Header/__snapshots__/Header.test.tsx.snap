@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header renderiza email do autor 1`] = `
+<div>
+  <header>
+    <section
+      class="container"
+    >
+      <div
+        class="main"
+      >
+        <h1
+          class="title"
+        >
+          Prova Ateliware
+        </h1>
+        <p
+          class="lead"
+        >
+          Desafio técnico para desenvolvedores
+        </p>
+        <section
+          class="userInfoSectionContainer"
+        >
+          <div
+            class="main"
+          >
+            <hr
+              class="divider"
+            />
+            <a
+              class="mailToButton"
+              href="mailto:hola@facundoleites.com"
+            >
+              hola@facundoleites.com
+            </a>
+          </div>
+        </section>
+      </div>
+    </section>
+  </header>
+</div>
+`;

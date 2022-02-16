@@ -1,22 +1,76 @@
 # Desafio técnico para desenvolvedores
 
-Construa uma nova aplicação, utilizando o framework de sua preferência (Ruby on Rails, Elixir Phoenix, Python Django ou Flask, NodeJS Sails, Java Spring, ASP.NET ou outro), a qual deverá conectar na API do GitHub e disponibilizar as seguintes funcionalidades:
+## Sobre a solução
 
-- Botão para buscar e armazenar os repositórios destaques de 5 linguagens à sua escolha;
-- Listar os repositórios encontrados;
-- Visualizar os detalhes de cada repositório.
+Para realizar o desafio utilizei:
 
-Alguns requisitos:
+- [Next.js](https://nextjs.org/) com [Typescript](https://www.typescriptlang.org/) para o front-end e backend
+- [MySQL](https://www.mysql.com/) para armazenar o banco de dados
+- [Jest](https://jestjs.io/) e [React Testing Library](https://testing-library.com/) para testes automáticos
+- CSS puro sem frameworks
 
-- Deve ser uma aplicação totalmente nova;
-- A solução deve estar em um repositório público do GitHub;
-- A aplicação deve armazenar as informações encontradas;
-- Utilizar PostgreSQL, MySQL ou SQL Server;
-- O deploy deve ser realizado, preferencialmente, no Heroku, AWS ou no Azure;
-- A aplicação precisa ter testes automatizados;
-- Preferenciamente dockerizar a aplicação;
-- Por favor atualizar o readme da aplicação com passo a passo com instrução para subir o ambiente.
+## Dependencias
 
-Quando terminar, faça um Pull Request neste repo e avise-nos por email.
+é preciso ter `docker` e `docker-compose` instalados
 
-**IMPORTANTE:** se você não conseguir finalizar o teste, por favor nos diga o motivo e descreva quais foram as suas dificuldades. Você pode também sugerir uma outra abordagem para avaliarmos seus skills técnicos, vender seu peixe, mostrar-nos do que é capaz.
+## Desenvolver
+
+obter as variaveis de ambiente executando:
+
+```shell
+sh envs.sh
+```
+
+executar:
+
+```shell
+docker-compose -f docker-compose.yml --env-file ./.env.development.local up
+```
+
+em outro terminal executar:
+
+```shell
+npm run dev
+```
+
+```shell
+docker-compose -f docker-compose-development.yml --env-file ./.env.development.local up
+```
+
+## Executar testes
+
+É preciso instalar as dependencias utilizando na pasta raiz do projeto utilizando:
+
+```shell
+npm install
+```
+
+obter as variaveis de ambiente executando:
+
+```shell
+sh envs.sh
+```
+
+com as dependencias instaladas (veja [Dependencias](#dependencias)), executar:
+
+```shell
+docker-compose -f docker-compose.yml --env-file ./.env.test.local up
+```
+
+e em outro terminal, executar:
+
+```shell
+npx jest
+```
+
+## Produção
+
+executar
+
+```shell
+docker-compose -f docker-compose-production.yml --env-file ./.env.production.local up --build
+```
+
+## versão disponivel online
+
+[http://34.125.243.67:3000](http://34.125.243.67:3000)
