@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UserInfoSection renderiza a seção de informação do autor 1`] = `
+<div>
+  <div
+    class="main"
+  >
+    <hr
+      class="divider"
+    />
+    <a
+      class="mailToButton"
+      href="mailto:hola@facundoleites.com"
+    >
+      hola@facundoleites.com
+    </a>
+  </div>
+</div>
+`;

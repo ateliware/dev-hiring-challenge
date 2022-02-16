@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`useFetchRepositories mostra mensagem de erro quando tem problema com a API 1`] = `
+<div>
+  <div>
+    <p>
+      error
+    </p>
+  </div>
+</div>
+`;
+
+exports[`useFetchRepositories renderiza o grupo de repositorios 1`] = `
+<div>
+  <div>
+    <ul>
+      <li>
+        <h2>
+          vue
+        </h2>
+      </li>
+      <li>
+        <h2>
+          prettier
+        </h2>
+      </li>
+    </ul>
+  </div>
+</div>
+`;

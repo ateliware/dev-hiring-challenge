@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer renderiza seletor de tema 1`] = `
+<div>
+  <footer>
+    <section
+      class="container"
+    >
+      <main
+        class="main"
+      >
+        <section
+          class="copyleft"
+        >
+          Facundo Leites copyleft 2022
+        </section>
+        <section
+          class="themeSwitcherContainer"
+        >
+          <div
+            class="main"
+          >
+            <span
+              class="label"
+              id="footer-theme-switcher"
+            >
+              tema
+            </span>
+            <hr
+              class="divider"
+            />
+            <select
+              aria-labelledby="footer-theme-switcher"
+              class="select"
+              data-testid="themeSwitcherSelect"
+              name="tema"
+              placeholder="tema"
+              title="tema"
+            >
+              <option
+                value="light"
+              >
+                claro
+              </option>
+              <option
+                value="dark"
+              >
+                escuro
+              </option>
+            </select>
+          </div>
+        </section>
+      </main>
+    </section>
+  </footer>
+</div>
+`;

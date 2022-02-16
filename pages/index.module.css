@@ -1,0 +1,138 @@
+.header {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-column-gap: 1rem;
+  grid-row-gap: 1rem;
+  align-items: baseline;
+  margin-bottom: 1rem;
+}
+.title {
+  font-size: 36pt;
+  word-break: break-all;
+  grid-column-start: 1;
+  grid-column-end: 6;
+  margin: 0;
+}
+
+.searchingTerm {
+  font-size: 12pt;
+  grid-column-start: 1;
+  grid-column-end: 6;
+  margin: 0;
+}
+
+.repositioriesListsContainer {
+  display: block;
+  overflow-x: auto;
+  white-space: nowrap;
+  width: 100%;
+}
+
+.repositoryCategoryContainer {
+  display: inline-block;
+  width: 90%;
+}
+
+.formContainer {
+  grid-column-start: 1;
+  grid-column-end: 6;
+  border: 1px solid var(--text-color);
+  outline: none;
+  display: flex;
+  align-items: stretch;
+  font-size: 12pt;
+  overflow: hidden;
+}
+
+.formContainer input {
+  flex: 1;
+  outline: none;
+  min-width: 50%;
+  border: none;
+  background: transparent;
+  color: var(--text-color);
+  padding: 1rem 0.5rem;
+  font-size: inherit;
+}
+
+.formContainer input:focus {
+  border: 1px solid var(--text-color);
+}
+
+.formContainer button {
+  font-size: inherit;
+  text-transform: uppercase;
+  outline: none;
+  border: none;
+  background: var(--text-color);
+  color: var(--bg-color);
+  padding: 1rem 0.5rem;
+  cursor: pointer;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.formContainer button:hover,
+.formContainer button:focus {
+  color: var(--text-color);
+  background: transparent;
+}
+
+.repositoryCategoryContainer + .repositoryCategoryContainer {
+  margin-left: 1rem;
+}
+
+@media screen and (min-width: 501px) {
+  .title {
+    font-size: 48pt;
+  }
+  .searchingTerm {
+    font-size: 16pt;
+  }
+}
+
+@media screen and (min-width: 651px) {
+  .formContainer {
+    grid-column-start: 2;
+  }
+  .repositoryCategoryContainer + .repositoryCategoryContainer {
+    margin-left: 0;
+  }
+  .repositoryCategoryContainer {
+    width: 100%;
+  }
+  .repositioriesListsContainer {
+    overflow-x: auto;
+    white-space: normal;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-column-gap: 1rem;
+    grid-row-gap: 1rem;
+    align-items: baseline;
+  }
+  .title {
+    font-size: 60pt;
+  }
+  .searchingTerm {
+    font-size: 20pt;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .formContainer {
+    grid-column-end: 5;
+  }
+  .title {
+    font-size: 72pt;
+    grid-column-end: 4;
+  }
+  .searchingTerm {
+    font-size: 24pt;
+  }
+}
+
+@media screen and (min-width: 1800px) {
+  .formContainer {
+    grid-column-end: 4;
+  }
+}

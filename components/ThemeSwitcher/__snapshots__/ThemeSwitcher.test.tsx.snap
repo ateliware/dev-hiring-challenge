@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ThemeSwitcher renderiza o seletor de temas 1`] = `
+<div>
+  <div
+    class="main"
+  >
+    <span
+      class="label"
+      id="themeSwitcherTest"
+    >
+      tema
+    </span>
+    <hr
+      class="divider"
+    />
+    <select
+      aria-labelledby="themeSwitcherTest"
+      class="select"
+      data-testid="themeSwitcherSelect"
+      name="tema"
+      placeholder="tema"
+      title="tema"
+    >
+      <option
+        value="light"
+      >
+        claro
+      </option>
+      <option
+        value="dark"
+      >
+        escuro
+      </option>
+    </select>
+  </div>
+</div>
+`;
