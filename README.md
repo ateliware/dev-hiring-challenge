@@ -6,7 +6,7 @@ Deploy feito no Heroku. Disponível aqui https://client-175963.herokuapp.com/.
 - Botão para buscar e armazenar os repositórios destaques de 5 linguagens;
 - Botão para excluir os repositórios armazenados;
 - Lista dos repositórios encontrados;
--- Botão para abrir um dialog com os detalhes de cada repositório;
+  - Botão para abrir um dialog com os detalhes de cada repositório;
 
 #### Detalhes:
 - Front-end em [React](https://reactjs.org/)
