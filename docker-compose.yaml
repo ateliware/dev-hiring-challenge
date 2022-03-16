@@ -1,0 +1,30 @@
+version: '3'
+services:
+  postgres:
+    image: postgres:latest
+    environment:
+      - POSTGRES_PASSWORD=admin
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    volumes:
+      - /app/node_modules
+      - ./client:/app
+    ports:
+      - '3000:3000'
+  server:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    ports:
+      - '3001:3001'
+    volumes:
+      - /app/node_modules
+      - ./server:/app
+    environment:
+      - PG_USER=postgres
+      - PG_PASSWORD=admin
+      - PG_HOST=postgres
+      - PG_PORT=5432
+      - PG_DATABASE=postgres

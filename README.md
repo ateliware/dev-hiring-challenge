@@ -1,22 +1,24 @@
-# Desafio técnico para desenvolvedores
+# Desafio técnico para desenvolvedores - Osvaldo
 
-Construa uma nova aplicação, utilizando o framework de sua preferência (Ruby on Rails, Elixir Phoenix, Python Django ou Flask, NodeJS Sails, Java Spring, ASP.NET ou outro), a qual deverá conectar na API do GitHub e disponibilizar as seguintes funcionalidades:
+Deploy feito no Heroku. Disponível aqui https://client-175963.herokuapp.com/.
 
-- Botão para buscar e armazenar os repositórios destaques de 5 linguagens à sua escolha;
-- Listar os repositórios encontrados;
-- Visualizar os detalhes de cada repositório.
+#### Funcionalidades:
+- Botão para buscar e armazenar os repositórios destaques de 5 linguagens;
+- Botão para excluir os repositórios armazenados;
+- Lista dos repositórios encontrados;
+  - Botão para abrir um dialog com os detalhes de cada repositório;
 
-Alguns requisitos:
+#### Detalhes:
+- Front-end em [React](https://reactjs.org/)
+- Back-end em [Node.js](https://nodejs.org/)
+- Banco [PostgreSQL](https://www.postgresql.org/)
+- Testes com [React Testing Library](https://testing-library.com/) e [Mock Service Worker](https://mswjs.io/)
+- Criação de containers [Docker](https://www.docker.com/) com docker-compose
 
-- Deve ser uma aplicação totalmente nova;
-- A solução deve estar em um repositório público do GitHub;
-- A aplicação deve armazenar as informações encontradas;
-- Utilizar PostgreSQL, MySQL ou SQL Server;
-- O deploy deve ser realizado, preferencialmente, no Heroku, AWS ou no Azure;
-- A aplicação precisa ter testes automatizados;
-- Preferenciamente dockerizar a aplicação;
-- Por favor atualizar o readme da aplicação com passo a passo com instrução para subir o ambiente.
+#### Outros:
+##### Testes:
+- cd client
+- npm test
 
-Quando terminar, faça um Pull Request neste repo e avise-nos por email.
-
-**IMPORTANTE:** se você não conseguir finalizar o teste, por favor nos diga o motivo e descreva quais foram as suas dificuldades. Você pode também sugerir uma outra abordagem para avaliarmos seus skills técnicos, vender seu peixe, mostrar-nos do que é capaz.
+##### Docker:
+- docker-compose up -d
