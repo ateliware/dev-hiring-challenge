@@ -14,11 +14,12 @@ func Test(c *gin.Context) {
 		c.JSON(http.StatusInternalServerError, gin.H{"success": false, "error": "error when querying"})
 	}
 
-	var resp models.Repositorie
+	var resp models.Resp
 	err := json.Unmarshal([]byte(body), &resp)
 
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"success": false, "error": "error when querying"})
 	}
+
 	c.JSON(http.StatusOK, gin.H{"success": true, "message": resp})
 }
