@@ -3,8 +3,7 @@ import './App.css';
 import 'axios';
 import React,{useEffect, useState} from "react";
 import axios from "axios";
-import "react-bootstrap"
-import {Col, Container, Row, Table} from "react-bootstrap";
+import {Button, Col, Container, Row, Table,Nav} from "react-bootstrap";
 import Header from "./components/Header";
 
 
@@ -22,40 +21,36 @@ function App() {
   return (
       <Container>
           <Row>
-              <Col>1 of 2</Col>
               <Header/>
           </Row>
           <Row>
-              <Table striped bordered>
-                  <thead>
-                  <tr>
-                      <th>#</th>
-                      <th>First Name</th>
-                      <th>Last Name</th>
-                      <th>Username</th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                  <tr>
-                      <td>1</td>
-                      <td>Mark</td>
-                      <td>Otto</td>
-                      <td>@mdo</td>
-                  </tr>
-                  <tr>
-                      <td>2</td>
-                      <td>Jacob</td>
-                      <td>Thornton</td>
-                      <td>@fat</td>
-                  </tr>
-                  <tr>
-                      <td>3</td>
-                      <td>Larry</td>
-                      <td>the Bird</td>
-                      <td>@twitter</td>
-                  </tr>
-                  </tbody>
-              </Table>
+              <Col>
+                  <p></p>
+              </Col>
+              <Col>
+                  <Button size="sm" variant="primary"> Carregar </Button>
+              </Col>
+          </Row>
+          <Row>
+              <Nav fill variant="tabs" >
+                  <Nav.Item>
+                      <Nav.Link>Go</Nav.Link>
+                  </Nav.Item>
+                  <Nav.Item>
+                      <Nav.Link>Python</Nav.Link>
+                  </Nav.Item>
+                  <Nav.Item>
+                      <Nav.Link>Javascript</Nav.Link>
+                  </Nav.Item>
+                  <Nav.Item>
+                      <Nav.Link>C#</Nav.Link>
+                  </Nav.Item>
+                  <Nav.Item>
+                      <Nav.Link>
+                          C++
+                      </Nav.Link>
+                  </Nav.Item>
+              </Nav>
           </Row>
       </Container>
   );
