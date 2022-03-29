@@ -32,7 +32,7 @@ yarn start
 
 ### 2 Configurar variáveis de ambiente
 
-Copie o arquivo .env `cp .env.example .env`
+Renomeie o arquivo .env `example.env` para `.env`
 
 ### 3. Instalar pacotes
 
