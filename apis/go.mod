@@ -7,10 +7,8 @@ require (
 	github.com/parnurzeal/gorequest v0.2.16
 	gorm.io/driver/postgres v1.3.1
 	gorm.io/gorm v1.23.1
-)
-
-require (
 	github.com/elazarl/goproxy v0.0.0-20220328115640-894aeddb713e // indirect
+	github.com/gin-contrib/cors v1.3.1 // indirect
 	github.com/gin-contrib/sse v0.1.0 // indirect
 	github.com/go-playground/locales v0.13.0 // indirect
 	github.com/go-playground/universal-translator v0.17.0 // indirect
