@@ -1,4 +1,4 @@
-const repositoryServices = require("../services/repositoryServices.js");
+const repositoryServices = require("../services/repository.service.js");
 
 const getMostStarredRepository = async (req, res) => {
   const language = req.params.language;

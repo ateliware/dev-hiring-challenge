@@ -1,6 +1,8 @@
 const axios = require("axios");
 const { FailedRequestError } = require("../lib/errors/failedRequest.error.js");
-const { Repository } = require("../models/index.js");
+const { getDbByName } = require("../models/index.js");
+
+const REPOSITORY_DB = "Repository";
 
 const getMostStarredRepository = async (language) => {
   const repositories = await getFromDb(language);
@@ -33,7 +35,7 @@ const getMostStarredRepository = async (language) => {
     };
 
     try {
-      await Repository.create(newItem);
+      await getDbByName(REPOSITORY_DB).create(newItem);
     } catch (error) {
       console.log(error);
     }
@@ -42,13 +44,15 @@ const getMostStarredRepository = async (language) => {
 };
 
 const getFromDb = async (language) => {
-  const repositories = await Repository.findAll({
+  const repositories = await getDbByName(REPOSITORY_DB).findAll({
     where: {
       language,
     },
   });
 
-  return repositories;
+  return repositories ?? [];
 };
 
-module.exports = { getMostStarredRepository };
+
+
+module.exports = { getMostStarredRepository, getFromDb };

@@ -41,4 +41,11 @@ Object.keys(db).forEach((modelName) => {
 
 db.sequelize = sequelize
 
-module.exports = db
+const getDbByName = (name) => {
+  if (!db) {
+    return null
+  }
+  return db[name]
+}
+
+module.exports = { ...db, getDbByName }

@@ -1,5 +1,5 @@
 const { Router } = require("express");
-const repositoryController = require("../controller/repositoryController.js")
+const repositoryController = require("../controller/repository.controller.js")
 
 const route = Router();
 

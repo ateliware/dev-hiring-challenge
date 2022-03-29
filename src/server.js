@@ -1,5 +1,5 @@
 const express = require("express");
-const route = require("./routes/repositoryRoutes.js");
+const route = require("./routes/repository.route.js");
 const morgan = require("morgan");
 const { sequelize } = require("./models/index.js");
 const Repository = require("./models/repository");
