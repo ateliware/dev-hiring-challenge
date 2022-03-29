@@ -1,9 +1,9 @@
-import * as repositoryServices from "../services/repositoryServices.js";
+const repositoryServices = require("../services/repositoryServices.js");
 
 const getMostStarredRepository = async (req, res) => {
   const language = req.params.language;
-  const data = await repositoryServices.getMostStarredRepository(language);
-  res.json({ data });
+  const result = await repositoryServices.getMostStarredRepository(language);
+  res.json(result);
 };
 
-export { getMostStarredRepository };
+module.exports = { getMostStarredRepository };

@@ -11,11 +11,29 @@ module.exports = {
       name: {
         type: Sequelize.STRING
       },
-      id: {
+      fullName: {
+        type: Sequelize.STRING
+      },
+      url: {
+        type: Sequelize.STRING
+      },
+      repoId: {
         type: Sequelize.INTEGER
       },
       stars: {
         type: Sequelize.INTEGER
+      },
+      language: {
+        type: Sequelize.STRING,
+      },
+      owner: {
+        type: Sequelize.STRING,
+      },
+      watchers: {
+        type: Sequelize.INTEGER,
+      },
+      cloneUrl: {
+        type: Sequelize.STRING
       },
       createdAt: {
         allowNull: false,
