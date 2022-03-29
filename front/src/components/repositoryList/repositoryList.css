@@ -1,0 +1,27 @@
+.repository__card--list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.repository__card--head {
+  display: flex;
+  padding-left: 55px;
+  margin-bottom: 10px;
+}
+.repository__card--head > div {
+  flex: 1;
+  color: rgb(92, 91, 91);
+  font-weight: bold;
+}
+
+.repository__card--head > div:last-child {
+  flex: 0.3;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 300px;
+}

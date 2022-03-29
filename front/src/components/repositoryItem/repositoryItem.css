@@ -1,0 +1,84 @@
+.repository__card {
+  display: flex;
+  height: 50px;
+  border: 1px solid rgba(0, 0, 0, 0.178);
+  transform: scale(1);
+  transition: all 0.3s ease;
+  border-radius: 6px;
+}
+
+.repository__card:hover {
+  transform: scale(1.01);
+  cursor: pointer;
+}
+
+.repository__card__data {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  position: relative;
+}
+
+.repository__card__data:last-child {
+  flex: 0.3;
+}
+
+.repository__card__data:last-child::before {
+  content: "";
+  position: absolute;
+  left: -15px;
+  height: 15px;
+  width: 15px;
+  top: 50%;
+  bottom: 50%;
+  transform: translateY(-50%);
+  background-image: url("../../assets/png/star.png");
+  background-size: contain;
+}
+
+@media (max-width: 768px) {
+  .repository__card__data:nth-child(3) {
+    display: none;
+  }
+}
+
+.repository__card__details {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+  border: 1px solid #c7d4ec;
+  border-top: none;
+  padding: 10px;
+}
+
+.repository__card__details__item {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  color: cornflowerblue;
+  font-weight: bold;
+  padding: 10px 10px;
+}
+
+.repository__card__details__content {
+  margin: 0 auto;
+}
+
+@media (max-width: 600px) {
+  .repository__card__details__item {
+    flex-basis: 45%;
+  }
+}
+
+@media (max-width: 400px) {
+  .repository__card__details__item {
+    flex-basis: 100%;
+  }
+}
+
+.repository__card__details__item span {
+  margin-top: 5px;
+  color: black;
+  font-weight: normal;
+}
