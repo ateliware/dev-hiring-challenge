@@ -20,11 +20,6 @@
  * Remove the margin in all browsers.
  */
 
-.main {
-  margin: 0 auto;
-  max-width: 1366px;
-}
-
 body {
   margin: 0;
 }
