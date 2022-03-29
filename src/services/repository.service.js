@@ -1,7 +1,6 @@
 const axios = require("axios");
 const { FailedRequestError } = require("../lib/errors/failedRequest.error.js");
 const { getDbByName } = require("../models/index.js");
-
 const REPOSITORY_DB = "Repository";
 
 const getMostStarredRepository = async (language) => {
@@ -52,7 +51,5 @@ const getFromDb = async (language) => {
 
   return repositories ?? [];
 };
-
-
 
 module.exports = { getMostStarredRepository, getFromDb };

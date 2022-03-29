@@ -11,9 +11,14 @@ services:
       - $MYSQLDB_LOCAL_PORT:$MYSQLDB_DOCKER_PORT
     volumes:
       - db:/var/lib/mysql
+    healthcheck:
+      test: [ "CMD", "mysqladmin", "ping", "-h", "localhost" ]
+      timeout: 20s
+      retries: 10
   app:
     depends_on:
-      - mysqldb
+      mysqldb:
+        condition: service_healthy
     build: .
     restart: unless-stopped
     env_file: ./.env
@@ -31,6 +36,6 @@ services:
     volumes:
       - .:/app
       - /app/node_modules
-volumes: 
+volumes:
   db:
   home_data:

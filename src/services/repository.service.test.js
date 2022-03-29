@@ -31,9 +31,7 @@ describe("Service Test", () => {
     });
 
     it("should get from Database", async () => {
-      const [{dataValues}] = await repositoryService.getFromDb(
-        "javascript"
-      );
+      const [{ dataValues }] = await repositoryService.getFromDb("javascript");
 
       expect(dataValues).toEqual(DEFAULT_JAVASCRIPT_REPOSITORY);
     });
