@@ -1,22 +1,29 @@
-# Desafio técnico para desenvolvedores
+# Ateliware-dev-hiring-challenge
 
-Construa uma nova aplicação, utilizando o framework de sua preferência (Ruby on Rails, Elixir Phoenix, Python Django ou Flask, NodeJS Sails, Java Spring, ASP.NET ou outro), a qual deverá conectar na API do GitHub e disponibilizar as seguintes funcionalidades:
+## Especificações
 
-- Botão para buscar e armazenar os repositórios destaques de 5 linguagens à sua escolha;
-- Listar os repositórios encontrados;
-- Visualizar os detalhes de cada repositório.
+Deploy feito no heroku disponivel [aqui](https://frontend-dev-hiring.herokuapp.com/).
 
-Alguns requisitos:
++ Frontend: [React](https://pt-br.reactjs.org).
+  + [Axios](https://axios-http.com). 
++ Backend: [Node.js](https://nodejs.org).
+  + [Sequelize](https://sequelize.org).
+  + [Express](https://expressjs.com).
++ Banco de dados: [PostgreSQL](https://www.postgresql.org).
+  + Subindo ao ar com [Supabase](https://supabase.com).
++ Testes:
+  + [React Testing Library](https://testing-library.com).
+  + [Mocha](https://mochajs.org).
+  + [Chai](https://www.chaijs.com).
+  + [Sinon](https://sinonjs.org).
++Conteiner: [Docker](https://www.docker.com).
 
-- Deve ser uma aplicação totalmente nova;
-- A solução deve estar em um repositório público do GitHub;
-- A aplicação deve armazenar as informações encontradas;
-- Utilizar PostgreSQL, MySQL ou SQL Server;
-- O deploy deve ser realizado, preferencialmente, no Heroku, AWS ou no Azure;
-- A aplicação precisa ter testes automatizados;
-- Preferenciamente dockerizar a aplicação;
-- Por favor atualizar o readme da aplicação com passo a passo com instrução para subir o ambiente.
 
-Quando terminar, faça um Pull Request neste repo e avise-nos por email.
 
-**IMPORTANTE:** se você não conseguir finalizar o teste, por favor nos diga o motivo e descreva quais foram as suas dificuldades. Você pode também sugerir uma outra abordagem para avaliarmos seus skills técnicos, vender seu peixe, mostrar-nos do que é capaz.
+## Funcionalidades
+
+### Testes:
+  `cd backend`\
+  `npm test`
+### Docker: 
+  `docker-compose up -d`
