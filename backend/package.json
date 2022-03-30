@@ -7,7 +7,8 @@
   "scripts": {
     "start": "node src/server.js",
     "dev": "nodemon --trace-warnings src/server.js -L",
-    "test": "jest --verbose"
+    "test": "jest --verbose",
+    "migrate": "npx sequelize-cli db:migrate"
   },
   "keywords": [],
   "author": "",

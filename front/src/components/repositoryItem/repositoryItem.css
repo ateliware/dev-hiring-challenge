@@ -12,6 +12,11 @@
   cursor: pointer;
 }
 
+.repository__card img {
+  height: 50px;
+  width: 50px;
+}
+
 .repository__card__data {
   flex: 1;
   display: flex;
