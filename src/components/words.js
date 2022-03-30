@@ -1,6 +1,2 @@
-const words = [
-  "GITPOPPING",
-  "What's Popping On GitHub",
-  "Just Cool Repositories",
-];
+const words = ["GITPOPPING", "What's Popping", "Cool Repositories"];
 export default words;

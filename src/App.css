@@ -51,9 +51,9 @@ a {
 }
 
 button {
-  width: 10rem;
-  height: 3.125rem;
-  margin: 0 0 0 1rem;
+  width: 13rem;
+  height: 100%;
+  margin: 0 0 0.5rem 1rem;
   background-color: transparent;
   cursor: pointer;
 }
@@ -68,29 +68,30 @@ button p {
 .title {
   text-align: center;
   position: relative;
-  top: 30%;
+  top: 30vh;
 }
 
 .title span {
   color: #ADBAC7;
   font-family: 'Raleway', sans-serif;
   font-weight: 800;
-  font-size: 8rem;
+  font-size: 11vmin;
 }
 
 .title h2 {
   color: #3070E2;
   font-family: 'Raleway', sans-serif;
   font-weight: 700;
-  max-width: 38rem;
+  font-size: 3vmin;
+  max-width: 85vmin;
   margin: auto;
   text-align: center;
   position: relative;
+  padding-top: 0.5rem;
 }
 
 .buttons {
   text-align: center;
   position: relative;
-  top: 50%;
-  transform: translateY(-300%);
+  top: 33vh;
 }
