@@ -1,0 +1,16 @@
+table, th, td {
+  border: 1px solid #040404;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 16px;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: #ccc;
+}
+
+.dtl:hover {
+  color: #222
+}
