@@ -1,0 +1,13 @@
+.button__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin: 40px 0;
+  flex-wrap: wrap;
+}
+
+h2 {
+  font-weight: normal;
+  color: rgb(58, 58, 58);
+}
