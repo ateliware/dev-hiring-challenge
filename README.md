@@ -1,6 +1,8 @@
 Projeto backend base com Node.js 14 + Express, configurado em contêineres do Docker com docker-compose.
 Frontend desenvolvido com React.js
 
+Url de deploy: http://ateliware-front.s3-website-sa-east-1.amazonaws.com/
+
 ## Estrutura de serviços do docker
 
 - **application**: Node.js 14
