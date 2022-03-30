@@ -17,20 +17,32 @@ git clone git@github.com:luizgzanella/ateliware-test-app.git
 ```
 
 ### FRONT END
+Acessar a pasta ``front``
 
-### 2. Instalar pacotes
+```bash
+cd front
+```
+
+### 2.1. Instalar pacotes
 
 ```bash
 yarn install
 ```
 
-### 3. Iniciar serviço
+### 2.2. Iniciar serviço
 
 ```bash
 yarn start
 ```
 
+### Acessar a aplicação em <http://localhost:3000>
+
 ### BACK END
+Acessar a pasta ``backend``
+
+```bash
+cd backend
+```
 
 ### 2 Configurar variáveis de ambiente
 
@@ -53,7 +65,7 @@ docker-compose up -d
 2.
 
 ```bash
-npx sequelize-cli db:migrate
+yarn migrate
 ```
 
 ### 7. Acessar a aplicação em <http://localhost:6868>
