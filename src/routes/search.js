@@ -39,28 +39,58 @@ export default class Search extends Component {
         </div>
         <div className="buttons">
           <Link to="/result1">
-            <button style={{ border: "0.3rem solid #F7DF1E" }}>
-              <p style={{ color: "black" }}>JavaScript</p>
+            <button style={{ background: " #ffef6b" }}>
+              <p style={{ color: "black" }}>
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/2048px-Unofficial_JavaScript_logo_2.svg.png"
+                  alt="JavaScript logo"
+                />
+                 JavaScript
+              </p>
             </button>
           </Link>
           <Link to="/result2">
-            <button style={{ border: "0.3rem solid #f4e8e8" }}>
-              <p style={{ color: "#0A6EB6" }}>Java</p>
+            <button style={{ background: "#f4e8e8" }}>
+              <p style={{ color: "#0A6EB6" }}>
+                <img
+                  src="https://www.blockachain.gr/wp-content/uploads/2018/03/java-coffee-cup-logo.png"
+                  alt="Java logo"
+                />
+                 Java
+              </p>
             </button>
           </Link>
           <Link to="/result3">
-            <button style={{ border: "0.3rem solid #2a7eb2" }}>
-              <p style={{ color: "#fbd35a" }}>Python</p>
+            <button style={{ background: "#58a6d6" }}>
+              <p style={{ color: "#fbd35a" }}>
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png"
+                  alt="Python logo"
+                />
+                 Python
+              </p>
             </button>
           </Link>
           <Link to="/result4">
-            <button style={{ border: "0.3rem solid #EF0E13" }}>
-              <p style={{ color: "#e3e6e9" }}>Ruby</p>
+            <button style={{ background: "#e65a5d" }}>
+              <p style={{ color: "#e3e6e9" }}>
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Ruby_logo.svg/1024px-Ruby_logo.svg.png"
+                  alt="Ruby logo"
+                />
+                 Ruby
+              </p>
             </button>
           </Link>
           <Link to="/result5">
-            <button style={{ border: "0.3rem solid #787CB4" }}>
-              <p style={{ color: "#e3e6e9" }}>PHP</p>
+            <button style={{ background: "#787CB4" }}>
+              <p style={{ color: "#e3e6e9" }}>
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/PHP-logo.svg/2560px-PHP-logo.svg.png"
+                  alt="PHP logo"
+                />
+                 PHP
+              </p>
             </button>
           </Link>
         </div>
