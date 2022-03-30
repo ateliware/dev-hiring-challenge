@@ -1,22 +1,26 @@
-# Desafio técnico para desenvolvedores
+# :rocket: GITPOPPING
 
-Construa uma nova aplicação, utilizando o framework de sua preferência (Ruby on Rails, Elixir Phoenix, Python Django ou Flask, NodeJS Sails, Java Spring, ASP.NET ou outro), a qual deverá conectar na API do GitHub e disponibilizar as seguintes funcionalidades:
+GITPOPPING is a web application that uses the GitHub API to display some of the most popular repositories of some of the most popular languages on GitHub.
 
-- Botão para buscar e armazenar os repositórios destaques de 5 linguagens à sua escolha;
-- Listar os repositórios encontrados;
-- Visualizar os detalhes de cada repositório.
+The application currently displays repositories using:
+ * JavaScript
+ * Java
+ * Python
+ * Ruby
+ * PHP
 
-Alguns requisitos:
+GITPOPPING was made using **React.js** and **Node.js**.
 
-- Deve ser uma aplicação totalmente nova;
-- A solução deve estar em um repositório público do GitHub;
-- A aplicação deve armazenar as informações encontradas;
-- Utilizar PostgreSQL, MySQL ou SQL Server;
-- O deploy deve ser realizado, preferencialmente, no Heroku, AWS ou no Azure;
-- A aplicação precisa ter testes automatizados;
-- Preferenciamente dockerizar a aplicação;
-- Por favor atualizar o readme da aplicação com passo a passo com instrução para subir o ambiente.
+## :computer: Setup
 
-Quando terminar, faça um Pull Request neste repo e avise-nos por email.
+To see GITPOPPING in action follow the instructions below to run it on your machine's localhost or access [GITPOPPING on Heroku](https://gitpopping.herokuapp.com/).
 
-**IMPORTANTE:** se você não conseguir finalizar o teste, por favor nos diga o motivo e descreva quais foram as suas dificuldades. Você pode também sugerir uma outra abordagem para avaliarmos seus skills técnicos, vender seu peixe, mostrar-nos do que é capaz.
+```bash
+git clone https://github.com/wheeout/gitpopping.git
+cd gitpopping
+npm install
+npm start
+```
+
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
