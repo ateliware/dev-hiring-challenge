@@ -16,7 +16,7 @@ Deploy feito no heroku disponivel [aqui](https://frontend-dev-hiring.herokuapp.c
   + [Mocha](https://mochajs.org).
   + [Chai](https://www.chaijs.com).
   + [Sinon](https://sinonjs.org).
-+Conteiner: [Docker](https://www.docker.com).
++ Conteiner: [Docker](https://www.docker.com).
 
 
 
