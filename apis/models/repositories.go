@@ -15,6 +15,7 @@ type Repository struct {
 	OwnerUrl    string `json:"owner_url"`
 	HtmlUrl     string `json:"html_url"`
 	Description string `json:"description"`
+	Language    string `json:"language"`
 }
 
 type Resp struct {

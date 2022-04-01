@@ -16,8 +16,8 @@ func HandleRequests() {
 		ExposeHeaders:    []string{"Content-Length"},
 		AllowCredentials: true,
 	}))
-	r.GET("/", controllers.Test)
-	r.GET("/repositories", controllers.Test2)
+	r.GET("/", controllers.CreateRepositories)
+	r.GET("/repositories", controllers.ListRepoLanguage)
 	err := r.Run()
 	if err != nil {
 		panic("Error on start")
