@@ -2,8 +2,3 @@ build:
   docker:
     web: ./frontend/Dockerfile
     worker: ./backend/Dockerfile
-run:
-  worker:
-    command:
-      - python app.py
-    image: web
