@@ -1,18 +1,13 @@
 version: '3.8'
 
 services:
-    db:
-      image: mysql:5.7
-      ports:
-        - "32000:3306"
-      environment:
-        MYSQL_ROOT_PASSWORD: root
-      volumes:
-        - ./db:/docker-entrypoint-initdb.d/:ro
-
     flask-ateliware:
         build: ./backend
-        links:
-          - db
         ports: 
             - 5000:5000
+
+    vue-ateliware:
+        build: ./frontend
+        ports: 
+            - 8080:8080
+        command: 'npm run serve'
