@@ -12,7 +12,8 @@ CORS(app)
 
 @app.route('/')
 def home():
-    return 'Docker'
+    repositories_bd = MySql().select_language('Java')
+    return repositories_bd
 
 @app.route('/repo', methods =['POST'])
 def get_Repo():
