@@ -1,7 +1,7 @@
 build:
   docker:
-    web: ./frontend/Dockerfile
-    worker: ./backend/Dockerfile
+    web: ./backend/Dockerfile
+    worker: ./frontend/Dockerfile
 run:
   worker:
     command:
