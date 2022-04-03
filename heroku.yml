@@ -6,4 +6,4 @@ run:
   worker:
     command:
       - python app.py
-    image: worker
+    image: web
