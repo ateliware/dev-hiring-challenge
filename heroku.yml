@@ -1,3 +1,4 @@
 build:
   docker:
-    web: ./backend/Dockerfile
+    web: ./frontend/Dockerfile
+    worker: ./backend/Dockerfile
