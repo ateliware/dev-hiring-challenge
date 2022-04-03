@@ -1,4 +1,0 @@
-build:
-  docker:
-    web: ./frontend/Dockerfile
-    worker: ./backend/Dockerfile
