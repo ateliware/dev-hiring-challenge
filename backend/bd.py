@@ -7,32 +7,21 @@ class MySql:
 
     def connect_with_db(self):
         config = {
-            'user': 'root',
-            'password': 'root',
-            'host': 'db',
-            'port': '3306',
-            'database': 'ateliware',
-            'auth_plugin':'mysql_native_password'
+            'user': 'pedro_werik',
+            'password': 'tcc2022puc',
+            'host': 'tccbase.cuotubehzepx.us-east-1.rds.amazonaws.com',
+            'database': 'tccbase',
+            'auth_plugin':'mysql_native_password',
+            'raise_on_warnings': True
         }
 
         cnx = mysql.connector.connect(**config)
         return cnx
 
-
-    def insert_into_med(cnx, value, id):
-        cursor = cnx.cursor()
-        query = """INSERT INTO TESTESCRIPT (firstname, lastname, email) VALUES (%s, %s, %s)"""
-        cursor.execute(query, (value[0], value[0], value[0]))
-        cnx.commit()
-        print(cursor.rowcount, "record inserted.")
-        
-        cursor.close()
-        cnx.close()
-
     def insert_new_language(self, repositories):
         cnx = self.connect_with_db()
         cursor = cnx.cursor()
-        query = """INSERT INTO REPOSITORIE (OWNER, URL, LANGUAGE, CREATED_AT, UPDATED_AT, STARGAZER, RELEASES) VALUES (%s, %s, %s, %s, %s, %s, %s)"""
+        query = """INSERT INTO REPOSITORIE_ATELIWARE (OWNER, URL, LANGUAGE, CREATED_AT, UPDATED_AT, STARGAZER, RELEASES) VALUES (%s, %s, %s, %s, %s, %s, %s)"""
         for repo in repositories:
             cursor.execute(
                 query, 
@@ -53,7 +42,7 @@ class MySql:
     def select_language(self, language):
         cnx = self.connect_with_db()
         cursor = cnx.cursor()
-        query = ("""SELECT * FROM REPOSITORIE WHERE LANGUAGE = %s""")
+        query = ("""SELECT * FROM REPOSITORIE_ATELIWARE WHERE LANGUAGE = %s""")
         cursor.execute(query, (language, ))
         row_headers=[x[0] for x in cursor.description]
         result = cursor.fetchall()

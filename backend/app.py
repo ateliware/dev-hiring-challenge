@@ -17,6 +17,7 @@ def home():
 @app.route('/repo', methods =['POST'])
 def get_Repo():
     repositories_bd = MySql().select_language(request.json['language'])
+    
     if(len(json.loads(repositories_bd)) < 1):
         repositories = Repository().get_repositories(request.json['language'])
         MySql().insert_new_language(repositories)

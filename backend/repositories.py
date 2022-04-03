@@ -2,7 +2,7 @@ import requests
 
 class Repository:
     def __init__(self):
-        self.token = "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"
+        self.token = "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"
         self.path = "https://api.github.com/graphql"
 
     def __get_query(self, language, after):
