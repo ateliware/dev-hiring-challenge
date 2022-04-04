@@ -1,22 +1,39 @@
-# Desafio técnico para desenvolvedores
+# Frontend (Vue 3)
 
-Construa uma nova aplicação, utilizando o framework de sua preferência (Ruby on Rails, Elixir Phoenix, Python Django ou Flask, NodeJS Sails, Java Spring, ASP.NET ou outro), a qual deverá conectar na API do GitHub e disponibilizar as seguintes funcionalidades:
+Aplicação Web desenvolvida em Vue 3 composition api e spectre-css, com a finalidade de demonstrar visualmente os repositorios minerados pela API do GitHub.
 
-- Botão para buscar e armazenar os repositórios destaques de 5 linguagens à sua escolha;
-- Listar os repositórios encontrados;
-- Visualizar os detalhes de cada repositório.
+# Backend (Flask)
 
-Alguns requisitos:
+API desenvolvida utilizando o framework Flask, para a realização da mineiração dos repositorios e conexão no banco de dados MYSQL para armanezar os dados encontrados, disponibilizando-a para aplicação web.
 
-- Deve ser uma aplicação totalmente nova;
-- A solução deve estar em um repositório público do GitHub;
-- A aplicação deve armazenar as informações encontradas;
-- Utilizar PostgreSQL, MySQL ou SQL Server;
-- O deploy deve ser realizado, preferencialmente, no Heroku, AWS ou no Azure;
-- A aplicação precisa ter testes automatizados;
-- Preferenciamente dockerizar a aplicação;
-- Por favor atualizar o readme da aplicação com passo a passo com instrução para subir o ambiente.
+- Atualmente na base de dados implantada na AWS RDS, possui 5 linguagens, sendo eles Java, Vue, Python, C#, JavaScript. Caso queira adicionar uma nova, é necessario apenas realizar a pesquisa pela aplicação web, que será buscado os 100 primeiros repositorios mais populares da linguagem pesquisada e salva no banco de dados.
 
-Quando terminar, faça um Pull Request neste repo e avise-nos por email.
+# Local
 
-**IMPORTANTE:** se você não conseguir finalizar o teste, por favor nos diga o motivo e descreva quais foram as suas dificuldades. Você pode também sugerir uma outra abordagem para avaliarmos seus skills técnicos, vender seu peixe, mostrar-nos do que é capaz.
+## Frontend (Porta 8080)
+
+``` bash
+  cd frontend
+  npm install
+  npm run dev
+  ```
+- Open localhost:8080 on browser
+
+## API (Porta 5000)
+
+``` bash
+  cd backend
+  pip install -r requirements.txt
+  python app.py
+  ```
+
+# Docker
+
+Na raiz do projeto rodar o seguinte comando:
+``` bash
+  docker-compose up -d --build
+  ```
+
+# Heroku
+
+https://ateliwarehiring.herokuapp.com/
