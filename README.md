@@ -4,7 +4,7 @@ O desafio foi desenvolvido com:
 
 - Front: React, React-Bootstrap
 - Back: Gin/golang
-- Test: Jest e Assert
+- Test: React Testing e Assert
 - Db: PostgreSQL
 
 Para iniciar a aplicação, execute o seguinte comando na pasta raiz do projeto:
