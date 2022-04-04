@@ -1,3 +1,4 @@
 .idea
 go.sum
 postgres-data
+node_modules

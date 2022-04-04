@@ -39,7 +39,7 @@ func CreateRepositories(c *gin.Context) {
 			database.DB.Create(&repo)
 		}
 	}
-	c.JSON(http.StatusAccepted, gin.H{"success": true, "message": "OK"})
+	c.JSON(http.StatusCreated, gin.H{"success": true, "message": "OK"})
 }
 
 func ListRepoLanguage(c *gin.Context) {
