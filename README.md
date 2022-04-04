@@ -17,6 +17,11 @@ API desenvolvida utilizando o framework Flask, para a realização da mineiraç�
   npm install
   npm run serve
   ```
+# Jest
+
+``` bash
+    npm run test:watch
+```
 - Open localhost:8080 on browser
 
 ## API (Porta 5000)
