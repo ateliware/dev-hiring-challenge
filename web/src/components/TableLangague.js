@@ -13,17 +13,29 @@ const TableLangague = props =>{
                 <th>
                     Linguagem
                 </th>
+                <th>
+                    Link do Repositório
+                </th>
+                <th>
+                    Descrição
+                </th>
+                <th>
+                    Criador
+                </th>
             </tr>
             </thead>
             <tbody>
-            {props.repositoreis.map((item,idx) => {
-                if(item.language === props.langague) {
+            {props.repositoreis
+                .filter(commentReply => commentReply.language ===  props.langague)
+                .map((item,idx) => {
                     return <tr key={idx}>
                         <td>{item.name}</td>
                         <td>{item.language}</td>
-                        <td>{item.html_url}</td>
+                        <td><a href={item.html_url}>{item.html_url}</a></td>
+                        <td>{item.description}</td>
+                        <td>{item.owner}</td>
                     </tr>
-                }
+
             })}
             </tbody>
         </Table>
