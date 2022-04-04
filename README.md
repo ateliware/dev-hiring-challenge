@@ -15,7 +15,7 @@ API desenvolvida utilizando o framework Flask, para a realização da mineiraç�
 ``` bash
   cd frontend
   npm install
-  npm run dev
+  npm run serve
   ```
 - Open localhost:8080 on browser
 
