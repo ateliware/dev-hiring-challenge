@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <title>Git search - saved</title>
+</head>
+<body>
+    <nav><a href="/searchapp">HOME</a> <a href="saved">SAVED</a></nav>
+    
+    <h3>Saved repositories</h3>
+    {% if existing_repositories %}
+    <form method="POST" action="inforemove">
+        {% csrf_token %}
+        <div>
+            <ul>
+            {% for repo in existing_repositories %}
+                <li>
+                    <!-- Lang -->
+                    <label class="label_language_name" for="{{ repo.id }}">
+                        {{ repo.lang }}
+                    </label>
+                    
+                    <!-- Decoration -->
+                    <label class="label_space_decoration" for="{{ repo.id }}">
+                        {{ repo.space_decoration }}
+                    </label>
+                    
+                    <!-- Checkbox -->
+                    <input type="checkbox" name="repository✱{{ repo.name }}" value="">
+                    
+                    <!-- Name -->
+                    <label for="{{ repo.id }}">
+                        <a href="{{ repo.html_url }}" target="_blank">{{ repo.name }}</a>
+                    </label>
+
+                    <!-- Stars -->
+                    <label class="label_star" for="{{ repo.id }}">
+                        ⭐{{ repo.stargazers_count }}
+                    </label>
+
+                    <!-- Description decoration -->
+                    <br>
+                    <label class="label_space_decoration" for="{{ repo.id }}">
+                        {{ repo.space_description }}
+                    </label>
+
+                    <!-- Description -->
+                    <label class="label_description" for="{{ repo.id }}">
+                        {{ repo.description }}
+                    </label>
+                </li>
+            {% endfor %}
+            </ul>
+        </div>
+        <p>Remove selected repositories?</p>
+        <input class="input_button" type="submit" name="remove_button_pressed" value="Remove">
+    </form>
+    {% else %}
+    <p>Nothing saved to show!</p>
+    {% endif %}
+</body>
+</html>

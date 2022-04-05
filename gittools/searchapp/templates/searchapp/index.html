@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <title>Git search - home</title>
+</head>
+<body>
+    <nav><a href="/searchapp">HOME</a> <a href="saved">SAVED</a></nav>
+    
+    <!-- Only search field -->
+    {% if not repo_save and not git_response %}
+    <h3>Featured repositories on GitHub</h3>
+
+    <form method="POST">
+        {% csrf_token %}
+        <label for="">Select a language and click on "Search" button</label>
+        <br>
+        <select name="programming_lang">
+            <option disabled selected value="None">Select a language</option>
+            <option value="C">C</option>
+            <option value="Elixir">Elixir</option>
+            <option value="Python">Python</option>
+            <option value="PHP">PHP</option>
+            <option value="Rust">Rust</option>
+        </select><input class="input_select" type="submit" value="Search" name="search_lang_button_pressed">
+    </form>
+    {% endif %}
+
+    <!-- Repo list -->
+    {% if not repo_save and git_response %}
+    <h3>Featured {{ programming_lang }} repositories on GitHub</h3>
+    <form method="POST" action="infosave">
+        {% csrf_token %}
+        <div>
+            <ul>
+            {% for repo in git_response %}
+                {% if repo.name not in existing_repositories %}
+                <li>
+                    <!-- Checkbox -->
+                    <input type="checkbox" name="repository✱{{ repo.id }}✱{{ repo.name }}✱{{ programming_lang }}✱{{ repo.description }}✱{{ repo.stargazers_count }}✱{{ repo.html_url }}" value="">
+
+                    <!-- Name -->
+                    <label for="{{ repo.id }}">
+                        <a href="{{ repo.html_url }}" target="_blank">{{ repo.name }}</a>
+                    </label>
+
+                    <!-- Star -->
+                    <label class="label_star" for="{{ repo.id }}">
+                        ⭐{{ repo.stargazers_count }}
+                    </label>
+                    
+                    <!-- Description -->
+                    <br>
+                    <label class="label_description" for="{{ repo.id }}">
+                        {{ repo.description }}
+                    </label>
+                </li>
+                {% endif %}
+            {% endfor %}
+            </ul>
+        </div>
+        <p>Save selected repositories?</p>
+        <input class="input_button" type="submit" name="save_button_pressed" value="Save">
+    </form>
+    {% endif %}
+
+</body>
+</html>

@@ -1,0 +1,18 @@
+#!/bin/bash
+clear
+python3 - << EOF
+s = """
++-------------------------------------------------------+
+|                                                       |
+|                                                       |
+|                                                       |
+|    Go to 'http://127.0.0.1:8000' in your browser.     |
+|                                                       |
+|                                                       |
+|                                                       |
++-------------------------------------------------------+
+"""
+print(s)
+EOF
+. venv/bin/activate
+python gittools/manage.py runserver

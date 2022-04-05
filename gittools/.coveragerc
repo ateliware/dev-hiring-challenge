@@ -1,0 +1,6 @@
+[report]
+exclude_lines =
+    pragma: no cover
+    except ImportError as exc:
+    raise
+    if
