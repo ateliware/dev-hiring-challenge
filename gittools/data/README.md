@@ -17,39 +17,51 @@ The tools needed to build the application locally are **Python 3** with **Pip** 
 sudo apt install -y python3 python3-pip python3-venv git docker docker-compose
 ```
 
-Use Git to download the project from the repository
+It only takes two steps. First we will download the project and then we will build the application.
+
+### Downloading the project
+
+Use **Git** to download the project from the repository, and **Docker** to download the environment's dependencies.
 
 ```console
-git clone https://github.com/w-a-gomes/dev-hiring-challenge.git
+git clone https://github.com/w-a-gomes/dev-hiring-challenge.git && cd dev-hiring-challenge/
 ```
 
-Run the install script
+```console
+sudo groupadd docker ; sudo usermod -aG docker $USER ; docker-compose up -d
+```
+
+**Pip** is for downloading project dependencies.
 
 ```console
-cd dev-hiring-challenge/ && sudo sh install.sh
+python3 -m pip install --upgrade pip && python3 -m venv venv && . venv/bin/activate
+```
+
+```console
+python -m pip install psycopg2-binary && python -m pip install -r requirements.txt
+```
+
+### Build the application
+
+Now just create the cache folder and make the database migrations.
+
+```console
+mkdir -p db/postgresql/data/ && cd gittools/
+```
+
+```console
+python manage.py makemigrations && python manage.py migrate
 ```
 
 🎉 Finished!
 
-To test, just run the app with `start-app` script, and access the address [127.0.0.1:8000](http://127.0.0.1:8000/) in your browser.
+To test, just run the server with `python manage.py runserver` command, and access the address [127.0.0.1:8000](http://127.0.0.1:8000/) in your browser.
 
 ```console
-./start-app
+python manage.py runserver
 ```
 
 ## Tests
-
-Activate the virtual environment
-
-```console
-. venv/bin/activate && cd gittools/
-```
-
-Run the tests
-
-```console
-python manage.py test searchapp
-```
 
 A test coverage report can be done with Coverage tool
 

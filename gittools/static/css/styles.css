@@ -1,0 +1,119 @@
+/* <p> font-family: 'Quicksand', sans-serif; */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
+
+/*font-family: 'Red Hat Mono', monospace;*/
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Mono:wght@300&display=swap');
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    font-family: 'Quicksand', sans-serif;
+}
+
+nav, nav a, nav a:active {
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #EF0044;
+    color: #FFF;
+    text-decoration: none;
+    padding: 5px 10px 5px 10px;
+}
+
+nav a:hover {
+    color: #FFF;
+    text-decoration: underline;
+}
+
+h1, h2, h3 {
+    text-align: center;
+    font-size: 30px;
+    padding: 10px;
+}
+
+form {
+    text-align: center;
+    padding: 0px;
+}
+
+form div {
+    height: 400px;
+    width: 600px;
+    margin: 20px auto 20px auto;
+    padding: 10px;
+    background-color: #EEE;
+    overflow-y: auto;
+}
+
+select {
+    font-size: 15px;
+    padding: 10px;
+    border: 0px;
+    border-radius: 3px 0px 0px 3px;
+    margin: 20px 0px 20px 0px;
+    background-color: #DDD;
+}
+
+p {
+    text-align: center;
+}
+
+li {
+    list-style: none;
+    text-align: left;
+    font-size: 15px;
+    padding: 0px 0px 15px 0px;
+    font-family: 'Red Hat Mono', monospace;
+}
+
+label a, label a:active, label a:visited {
+    color: #EF0044;
+    text-decoration: none;
+}
+
+label a:hover {
+    text-decoration: underline;
+}
+
+.input_button {
+    background-color: #EF0044;
+    color: #FFF;
+    font-size: 15px;
+    padding: 10px;
+    border: 0px;
+    border-radius: 3px;
+    margin: 20px;
+}
+
+.input_select {
+    background-color: #EF0044;
+    color: #FFF;
+    font-size: 15px;
+    padding: 10px;
+    border: 0px;
+    border-radius: 0px 3px 3px 0px;
+    margin: 20px 0px 20px 0px;
+}
+
+.input_select:hover, .input_button:hover {
+    background-color: #FF5686;
+}
+
+.label_space_decoration {
+    color: #EEE;
+}
+
+.label_language_name {
+    color: #888;
+}
+
+.label_description {
+    color: #555;
+    font-size: 12px;
+}
+
+.label_star {
+    font-size: 12px;
+    color: #555;
+}

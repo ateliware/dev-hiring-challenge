@@ -1,0 +1,28 @@
+version: "3"
+   
+services:
+  db:
+    image: postgres
+    volumes:
+      - ./db/postgresql/data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=12345
+    ports:
+      - "5432:5432"
+
+  web:
+    build: .
+    volumes:
+      - .:/dev-hiring-challenge
+    ports:
+      - "8000:8000"
+    environment:
+      - POSTGRES_NAME=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=12345
+    links:
+      - db
+    depends_on:
+      - db

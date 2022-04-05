@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <title>Git search - Remove info</title>
+</head>
+<body>
+    <nav><a href="/searchapp">HOME</a> <a href="saved">SAVED</a></nav>
+
+    {% if repo_remove %}
+    <h3>The selected repositories have been removed!</h3>
+    {% else %}
+    <h3>No repository was selected. Nothing to remove!</h3>
+    {% endif %}
+    <form method="POST" action="saved">
+        {% csrf_token %}
+        <input class="input_button" type="submit" value="Back to 'SAVED'">
+    </form>
+</body>
+</html>
