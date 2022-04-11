@@ -53,32 +53,7 @@ function Repo(){
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            {/* aulas de hooks */}
                                             
-                                            <input type="text" name="nome" placeholder="nome" onChange={novoEvento} />
-                                            <input type="text" name="email"  placeholder="email" onChange={novoEvento} />
-                                            <input type="text" name="cidade" placeholder="cidade" onChange={novoEvento} />
-
-                                            <p>{formulario.nome}</p>
-                                            <p>{formulario.email}</p>
-                                            <p>{formulario.cidade}</p>
-                                            {/* <p>{JSON.stringfy(formulario)}</p> */}
-
-                                            <hr />
-                                            <input type="number" placeholder="nota 1" onChange={e => setNota1(parseFloat(e.target.value))} />
-                                            <input type="number" placeholder="nota 2" onChange={e => setNota2(parseFloat(e.target.value))} />
-                                            {nota1 && nota2 ? <h1>{situacao} com média: {media}</h1>: ''}
-                                            <hr />
-                                            <input type="text" placeholder="Nome" onChange={e => setNome(e.target.value)} />
-                                            <input type="number" placeholder="Idade" onChange={e => setIdade(e.target.value)} />
-                                            <p>{nome}</p>
-                                            <p>{idade}</p>
-
-                                            <hr/>
-                                            <input type="text" onChange={evento} />
-                                            <p> teste : {repo}</p>
-
-                                            {/* aulas de hooks */}
                                             {repositories.map(item => <RepositorysRow key={item.id} data={item} onClick={onDeleteClick} />)}
                                             
                                         </tbody>
