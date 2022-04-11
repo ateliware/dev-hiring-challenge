@@ -10,40 +10,7 @@ function Repo(){
 
     const [repositories, setRepositories] = useState([])
 
-    //AULAS DE HOOKS
-
-    const [nota1, setNota1] = useState(0)
-    const [nota2, setNota2] = useState(0)
-
-    let media = (nota1 + nota2) / 2
-    let situacao = media >= 7 ? 'Aprovado': 'Reprovado'
-
-    const [repo, setRepo] = useState('endrigo valente')
-
-    const [nome, setNome] = useState('')
-
-    const [idade, setIdade] = useState(0)
-
-    const evento = (e) => {
-        setRepo(e.target.value)
-    }
-//MODELO JSON
-    const modelo = {nome:'', email:'', cidade:''}
-
-// useState
-    const[formulario, setFormulario] = useState(modelo)
-
-// EVENTO
-    const novoEvento = (e) =>{
-        let nome = e.target.name;
-        let valor = e.target.value
-
-        setFormulario({...formulario, [nome]:valor})
-    }
-
-
-    // aulas de hook
-
+    
     useEffect(() =>{
         getRepositorysTodos()
         .then(result => {
