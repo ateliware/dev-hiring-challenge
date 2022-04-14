@@ -1,22 +1,17 @@
-# Desafio técnico para desenvolvedores
+# Resposta Desafio técnico para desenvolvedores
 
-Construa uma nova aplicação, utilizando o framework de sua preferência (Ruby on Rails, Elixir Phoenix, Python Django ou Flask, NodeJS Sails, Java Spring, ASP.NET ou outro), a qual deverá conectar na API do GitHub e disponibilizar as seguintes funcionalidades:
+Arquivo escrito em php + framework bootstrap para listagem dos repositorios destaques do GitHub conforme escolha da linguagem de programação.
 
-- Botão para buscar e armazenar os repositórios destaques de 5 linguagens à sua escolha;
-- Listar os repositórios encontrados;
-- Visualizar os detalhes de cada repositório.
+O script faz a consulta na api do GitHub e armazena o resultado no banco de dados mysql configurado para aplicação.
 
-Alguns requisitos:
+#### Repositório público do GitHub
 
-- Deve ser uma aplicação totalmente nova;
-- A solução deve estar em um repositório público do GitHub;
-- A aplicação deve armazenar as informações encontradas;
-- Utilizar PostgreSQL, MySQL ou SQL Server;
-- O deploy deve ser realizado, preferencialmente, no Heroku, AWS ou no Azure;
-- A aplicação precisa ter testes automatizados;
-- Preferenciamente dockerizar a aplicação;
-- Por favor atualizar o readme da aplicação com passo a passo com instrução para subir o ambiente.
+O script do desafio encontra-se no repositório: https://github.com/rafael-tavares/desafio-dev
 
-Quando terminar, faça um Pull Request neste repo e avise-nos por email.
+#### Microsoft Azure
 
-**IMPORTANTE:** se você não conseguir finalizar o teste, por favor nos diga o motivo e descreva quais foram as suas dificuldades. Você pode também sugerir uma outra abordagem para avaliarmos seus skills técnicos, vender seu peixe, mostrar-nos do que é capaz.
+O deploy foi realizado na numem Azure e pode ser conferido no endereço: https://desafiodev.azurewebsites.net/
+
+#### Docker
+
+No Docker o desafio pode ser encontrado no endereço: https://github.com/rafael-tavares/docker-desafio
