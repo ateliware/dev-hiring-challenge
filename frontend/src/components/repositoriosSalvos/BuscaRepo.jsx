@@ -74,8 +74,6 @@ function Repo(){
                                             </tr>
                                         </thead>
                                         <tbody>
-                                        <tr>
-                                    </tr>
                                             {repositories.map(item => <RepositorysRow key={item.id} data={item} onClick={onDeleteClick} />)}
                                             
                                         </tbody>
