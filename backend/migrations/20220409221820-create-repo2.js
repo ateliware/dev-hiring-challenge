@@ -9,14 +9,22 @@ module.exports = {
         allowNull: false,
         primaryKey: true
     },
-    login:{
+    name:{
         type: Sequelize.STRING,
         allowNull: false
     },
-    html_url:{
-      type: Sequelize.STRING,
-      allowNull: false
-    },
+    description:{
+        type: Sequelize.STRING,
+        allowNull: false
+      },
+      language:{
+        type: Sequelize.STRING,
+        allowNull: false
+      },
+      html_url:{
+        type: Sequelize.STRING,
+        allowNull: false
+      },
     createdAt: Sequelize.STRING,
     updatedAt: Sequelize.STRING
     })

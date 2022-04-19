@@ -17,11 +17,13 @@ async function getRepoPorId(req, res, next){
 
 async function inserirRepo(req, res, next){
 
-    const {login, html_url} = req.body
-    //const newRepo = req.body;
+    const {name, description, language, html_url} = req.body
+    console.log('backend = '+name, description, language, html_url)
 
     const repo = await repoRepository.insertRepo({
-        login,
+        name,
+        description,
+        language,
         html_url
     })
     res.status(201).json(repo.get({ plain: true}))

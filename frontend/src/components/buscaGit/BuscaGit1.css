@@ -1,0 +1,20 @@
+table{
+    width: 100%;
+    margin: 2% auto
+  } 
+   table, th, td {
+    border: 1px solid;
+  }
+  tr:hover {
+    background: linear-gradient(135deg, #e33307 0%, #e0dfdf 100%);
+    }
+
+    th, td {
+      padding-top: 15px;
+      padding-bottom: 15px;
+      /* padding-left: 30px;
+      padding-right: 40px; */
+    }
+    th{
+      font-size: larger;
+    }

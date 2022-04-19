@@ -1,4 +1,4 @@
-const repoModel = require('../models/repoModels2')
+const repoModel = require('../models/repoModels')
 //const Sequelize = require('sequelize')
 
 function getRepoTodos(){    

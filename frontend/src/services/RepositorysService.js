@@ -16,9 +16,15 @@ export async function deleteRepositorysService(id) {
     return response.data
 }
 
-export async function salvarRepositorysService(login, html_url) {
-    
+export async function salvarRepositorysService(name, description, language, html_url) {
+   
     let response
-    response = await axios.post(login, html_url);
+    try {
+        response = await axios.post(`${API_URL}/repo/`,{name, description, language, html_url});
+        alert('repositório salvo com sucesso !')
+    } catch (error) {
+        alert('não é possivel salvar o respositório !')
+    }
+    
     return response.data
 }
