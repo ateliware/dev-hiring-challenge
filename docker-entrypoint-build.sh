@@ -10,7 +10,7 @@ if [ $status -ne 0 ]; then
   exit $status
 fi
 
-_build/$MIX_ENV/rel/api/bin/api start
+_build/$MIX_ENV/rel/dev_challenge/bin/dev_challenge start
 status=$?
 if [ $status -ne 0 ]; then
   echo "Failed get deps: $status"
