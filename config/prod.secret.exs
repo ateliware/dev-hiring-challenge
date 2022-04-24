@@ -27,7 +27,7 @@ database_password = get_env!.("DB_PASSWORD", "postgres")
 database_name = get_env!.("DB_DATABASE", "dev_challenge")
 
 config :dev_challenge, DevChallenge.Repo,
-  ssl: true
+  ssl: true,
   username: database_user,
   password: database_password,
   database: database_name,
