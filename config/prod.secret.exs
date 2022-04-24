@@ -4,6 +4,22 @@
 # remember to add this file to your .gitignore.
 use Mix.Config
 
+get_env! = fn env_name, default ->
+  case System.fetch_env(env_name) do
+    {:ok, env} ->
+      env
+
+    :error when is_nil(default) ->
+      raise(
+        ArgumentError,
+        ~s(could not fetch environment variable "#{env_name}" because it is not set)
+      )
+
+    :error ->
+      default
+  end
+end
+
 database_url =
   System.get_env("DATABASE_URL") ||
     raise """
@@ -11,10 +27,20 @@ database_url =
     For example: ecto://USER:PASS@HOST/DATABASE
     """
 
+database_host = get_env!.("DB_HOST", "db")
+database_port = String.to_integer(get_env!.("DB_PORT", "5432"))
+database_user = get_env!.("DB_USER", "postgres")
+database_password = get_env!.("DB_PASSWORD", "postgres")
+database_name = get_env!.("DB_DATABASE", "dev_challenge")
+
 config :dev_challenge, DevChallenge.Repo,
-  # ssl: true,
-  url: database_url,
-  pool_size: String.to_integer(System.get_env("POOL_SIZE") || "10")
+  username: database_user,
+  password: database_password,
+  database: database_name,
+  port: database_port,
+  hostname: database_host,
+  show_sensitive_data_on_connection_error: true,
+  pool_size: 5
 
 secret_key_base =
   System.get_env("SECRET_KEY_BASE") ||
