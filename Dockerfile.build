@@ -15,7 +15,7 @@ COPY mix.exs .
 COPY mix.lock .
 RUN mix deps.get
 
-COPY config_runtime ./config
+#COPY config_runtime ./config
 COPY lib ./lib
 COPY test ./test
 COPY priv ./priv
