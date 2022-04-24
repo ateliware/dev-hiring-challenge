@@ -81,7 +81,7 @@ defmodule DevChallenge.Repositories.Featured do
   end
 
   def teste_env() do
-    DevChallenge.get_env!("TESTE")
+    DevChallenge.get_env!("GITHUB_BASE_URL")
     |> IO.inspect()
   end
 end

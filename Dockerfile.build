@@ -31,7 +31,8 @@ ENV MIX_ENV=prod
 
 RUN apt-get update \
     && apt-get install build-essential git -y \
-    && echo "root:Docker!" | chpasswd
+    && echo "root:Docker!" | chpasswd \
+    && mix local.hex --force
 
 WORKDIR /app
 
