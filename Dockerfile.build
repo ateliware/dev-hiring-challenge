@@ -1,0 +1,57 @@
+FROM elixir:1.12-slim as release_stage
+
+ENV MIX_ENV=prod
+
+WORKDIR /app
+
+RUN apt-get update \
+    && apt-get install build-essential git wkhtmltopdf -y
+
+RUN mix local.hex --force && \
+    mix local.rebar --force &&\
+    mix archive.install hex phx_new --force
+
+COPY mix.exs .
+COPY mix.lock .
+RUN mix deps.get
+
+COPY config_runtime ./config
+COPY lib ./lib
+COPY test ./test
+COPY priv ./priv
+
+RUN mix release
+
+# FROM elixir:1.12-alpine as run_stage
+
+FROM elixir:1.12-slim as run_stage
+
+ENV MIX_ENV=prod
+
+RUN apt-get update \
+    && apt-get install build-essential git wkhtmltopdf \
+    openssh-server -y \
+    && echo "root:Docker!" | chpasswd
+
+WORKDIR /app
+
+COPY sshd_config /etc/ssh/
+COPY docker-entrypoint-build.sh .
+
+RUN cd /etc/ssh/ && ssh-keygen -A
+
+COPY --from=release_stage /app .
+
+RUN rm -rf config
+
+RUN apt-get install -y wget xfonts-75dpi
+RUN wget https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.5/wkhtmltox_0.12.5-1.buster_amd64.deb
+RUN dpkg -i wkhtmltox_0.12.5-1.buster_amd64.deb
+RUN cp /usr/local/bin/wkhtmltopdf /usr/bin/
+RUN cp /usr/local/bin/wkhtmltoimage /usr/bin/
+
+COPY config ./config
+
+EXPOSE 2222 80
+
+CMD ["./docker-entrypoint-build.sh"]

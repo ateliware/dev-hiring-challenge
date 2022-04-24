@@ -13,5 +13,6 @@ ENV APP_HOME /app
 RUN mkdir $APP_HOME
 VOLUME [ "/app" ]
 WORKDIR $APP_HOME
+CMD [ "./docker-entrypoint.sh" ]
 
 #CMD ["mix deps.get && phx.server"]
