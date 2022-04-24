@@ -1,0 +1,57 @@
+<header>
+   <section class="container">
+      <nav role="navigation">
+         <h1>Github Featured Repositories</h1>
+         <ul class="menu">
+            <%= for repo <- @repos do%>
+            <li class="menu_item"><a href="#<%= repo.language%>"><%= repo.language %></a></li>
+            <% end %>
+         </ul>
+      </nav>
+   </section>
+</header>
+<ul class="row">
+<%= for repo <- @repos do%>
+<div id="<%= repo.language%>" class="card">
+   <li class="card_title">
+      <%= repo.language %>
+      <button class="store_button" phx-click="search_repos" phx-value-language="<%= repo.language %>">
+      <svg class="search_icon" style="width:24px;height:24px" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" />
+</svg>
+      <%= length(repo.repos) == 1 && "Procurar mais repositórios" || "Procurar repositórios"%></button>
+   </li>
+   <div class="language_card">
+      <%= for repo <- repo.repos do%>
+      <div class="card_content">
+        <h1 class="repo_name"><%= repo.name %></h1>
+        <p class="repo_description"><%= repo.description%></p>
+        <ul class="repo_info">
+        <li><strong>url:</strong> <%= repo.url%></li>
+        <li><strong>stars:</strong><%= repo.stargazers_count%></li>
+        <li><strong>owner:</strong><img src="<%= repo.avatar_url%>"><%= repo.owner_login%></li>
+        </ul>
+        <div class="card_actions">
+        <button <%= Map.has_key?(repo, :id) && "disabled" || "enabled" %> class="store_button" phx-click="store_data"
+        phx-value-language="<%=repo.language%> "
+        phx-value-description="<%=repo.description%>"
+        phx-value-owner_login="<%=repo.owner_login%>"
+        phx-value-stargazers_count="<%=repo.stargazers_count%>"
+        phx-value-url="<%=repo.url%>"
+        phx-value-avatar_url="<%=repo.avatar_url%>"
+        phx-value-name="<%=repo.name%>">
+        <svg class="database_icon" style="width:24px;height:24px" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M20 13.09V7C20 4.79 16.42 3 12 3S4 4.79 4 7V17C4 19.21 7.59 21 12 21C12.46 21 12.9 21 13.33 20.94C13.12 20.33 13 19.68 13 19L13 18.95C12.68 19 12.35 19 12 19C8.13 19 6 17.5 6 17V14.77C7.61 15.55 9.72 16 12 16C12.65 16 13.27 15.96 13.88 15.89C14.93 14.16 16.83 13 19 13C19.34 13 19.67 13.04 20 13.09M18 12.45C16.7 13.4 14.42 14 12 14S7.3 13.4 6 12.45V9.64C7.47 10.47 9.61 11 12 11S16.53 10.47 18 9.64V12.45M12 9C8.13 9 6 7.5 6 7S8.13 5 12 5 18 6.5 18 7 15.87 9 12 9M22 20L19 23L16 20H18V16H20V20H22Z" />
+</svg>
+        <%= Map.has_key?(repo, :saved) && "Dados salvos" || "Armazenar dados"%></button>
+        <%= if Map.has_key?(repo, :id) do %>
+        <button phx-click="delete_repo" phx-value-id="<%=repo.id%>", phx-value-language="<%=repo.language%>" class="delete_button">Deletar</button>
+              <% end %>
+
+        </div>
+      </div>
+      <% end %>
+   </div>
+</div>
+<% end %>
+</section>

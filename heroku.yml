@@ -1,0 +1,12 @@
+setup:
+  addons:
+    - plan: heroku-postgresql
+      as: DATABASE
+build:
+  docker:
+    web: Dockerfile
+  config:
+    MIX_ENV: prod
+    POSTGRES_USER: postgres
+    POSTGRES_PASSWORD: postgres
+    PGDATA: /var/lib/postgresql/data/pgdata
