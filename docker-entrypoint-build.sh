@@ -3,6 +3,7 @@
 while read p; do
   export ${p}
 done <.env
+mix local.hex --force
 
 mix phx.server
 status=$?
