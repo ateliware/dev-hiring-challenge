@@ -13,4 +13,4 @@ ENV APP_HOME /app
 RUN mkdir $APP_HOME
 WORKDIR $APP_HOME
 
-CMD ["mix deps.get && phx.server"]
+#CMD ["mix deps.get && phx.server"]
