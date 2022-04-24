@@ -1,0 +1,129 @@
+.row {
+    display: flex;
+    flex-direction: column;
+    margin-top: 5em;
+}
+
+.card {
+    padding-top: 20px;
+    width: 90%;
+    margin: auto;
+}
+
+.card_content {
+    border: 1px solid #3a7100;
+    min-height: 20em;
+    width: 48%;
+    background-color: #c7ff8c8f;
+    border-radius: 8px;
+}
+
+.repo_name {
+    background: white;
+    color: #224200;
+    padding-left: 5px;
+    text-align: center;
+    border-start-end-radius: 8px;
+    border-start-start-radius: 8px;
+}
+
+.language_card {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.card_title {
+    color: #3a7100;
+    font-size: x-large;
+    font-weight: 600;
+    list-style: none;
+    border-bottom: #224200 1px solid;
+    width: 80%;
+    margin-bottom: 20px;
+}
+
+.menu {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.menu_item {
+    padding-inline: 10px;
+    font-size: 20px;
+}
+
+a {
+    color: #3a7100;
+}
+
+a:hover {
+    border-bottom: #3a7100 1px solid;
+    color: #3a7100
+}
+
+.container {
+    margin: 0;
+    padding: 0 2.0rem;
+    background: white;
+    width: 100%;
+    color: #3a7100;
+    z-index: 1;
+    position: fixed;
+    box-shadow: #224200 0px 0px 4px 1px;
+    border-bottom: 1px solid;
+}
+
+header nav {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.store_button {
+    margin: 0 0px 5px 25px;
+    background-color: #3a7100;
+    border: none;
+    display: flex;
+}
+
+.repo_description {
+    margin-left: 8px;
+}
+
+.repo_info {}
+
+img {
+    width: 30px;
+    padding-inline: 8px;
+}
+
+body {
+    margin: 0;
+}
+
+.search_icon {
+    margin-top: 8px;
+}
+
+.database_icon {
+    margin-top: 6px;
+}
+
+.store_button:hover,
+.store_button:disabled:hover {
+    background-color: #012600;
+    border-color: #a1ff3f;
+}
+
+.card_actions {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+}
+
+.delete_button {
+    background: #8f3434;
+    border: #000 2px solid;
+}
