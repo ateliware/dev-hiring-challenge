@@ -13,6 +13,7 @@ RUN mix local.hex --force && \
 
 COPY mix.exs .
 COPY mix.lock .
+COPY .env .
 RUN mix deps.get
 
 #COPY config_runtime ./config
