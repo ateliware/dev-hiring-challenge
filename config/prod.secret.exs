@@ -36,12 +36,7 @@ config :dev_challenge, DevChallenge.Repo,
   show_sensitive_data_on_connection_error: true,
   pool_size: 5
 
-secret_key_base =
-  System.get_env("SECRET_KEY_BASE") ||
-    raise """
-    environment variable SECRET_KEY_BASE is missing.
-    You can generate one by calling: mix phx.gen.secret
-    """
+secret_key_base = "vflfO0WHLjx8tAtBviDMAvE//s+1CslEAiCUmNLLqdHh8uJQBItUqJjax9jI250U"
 
 config :dev_challenge, DevChallengeWeb.Endpoint,
   http: [
