@@ -10,3 +10,5 @@ build:
     POSTGRES_USER: fxusfjlwlvxvkm
     POSTGRES_PASSWORD: 89c73c2ce2b21247c00a082f5acf6099c60eefeb26278d5ee4f278713e842d7d
     PGDATA: /var/lib/postgresql/data/pgdata
+  env_file:
+    - .env
