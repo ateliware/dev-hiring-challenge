@@ -4,7 +4,7 @@ setup:
       as: DATABASE
 build:
   docker:
-    web: Dockerfile
+    web: Dockerfile.build
   config:
     MIX_ENV: prod
     POSTGRES_USER: postgres
