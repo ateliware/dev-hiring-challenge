@@ -20,13 +20,6 @@ get_env! = fn env_name, default ->
   end
 end
 
-database_url =
-  System.get_env("DATABASE_URL") ||
-    raise """
-    environment variable DATABASE_URL is missing.
-    For example: ecto://USER:PASS@HOST/DATABASE
-    """
-
 database_host = get_env!.("DB_HOST", "db")
 database_port = String.to_integer(get_env!.("DB_PORT", "5432"))
 database_user = get_env!.("DB_USER", "postgres")
@@ -34,6 +27,7 @@ database_password = get_env!.("DB_PASSWORD", "postgres")
 database_name = get_env!.("DB_DATABASE", "dev_challenge")
 
 config :dev_challenge, DevChallenge.Repo,
+  ssl: true
   username: database_user,
   password: database_password,
   database: database_name,

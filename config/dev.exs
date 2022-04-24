@@ -1,13 +1,37 @@
 use Mix.Config
 
+get_env! = fn env_name, default ->
+  case System.fetch_env(env_name) do
+    {:ok, env} ->
+      env
+
+    :error when is_nil(default) ->
+      raise(
+        ArgumentError,
+        ~s(could not fetch environment variable "#{env_name}" because it is not set)
+      )
+
+    :error ->
+      default
+  end
+end
+
 # Configure your database
+database_host = get_env!.("DB_HOST", "db")
+database_port = String.to_integer(get_env!.("DB_PORT", "5432"))
+database_user = get_env!.("DB_USER", "postgres")
+database_password = get_env!.("DB_PASSWORD", "postgres")
+database_name = get_env!.("DB_DATABASE", "dev_challenge")
+
 config :dev_challenge, DevChallenge.Repo,
-  username: "postgres",
-  password: "postgres",
-  database: "dev_challenge",
-  hostname: "db",
+  ssl: true,
+  username: database_user,
+  password: database_password,
+  database: database_name,
+  port: database_port,
+  hostname: database_host,
   show_sensitive_data_on_connection_error: true,
-  pool_size: 10
+  pool_size: 5
 
 # For development, we disable any cache and enable
 # debugging and code reloading.
