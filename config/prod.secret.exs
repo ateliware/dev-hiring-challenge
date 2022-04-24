@@ -20,11 +20,11 @@ get_env! = fn env_name, default ->
   end
 end
 
-database_host = get_env!.("DB_HOST", "db")
+database_host = "ec2-23-20-224-166.compute-1.amazonaws.com"
 database_port = String.to_integer(get_env!.("DB_PORT", "5432"))
-database_user = get_env!.("DB_USER", "postgres")
-database_password = get_env!.("DB_PASSWORD", "postgres")
-database_name = get_env!.("DB_DATABASE", "dev_challenge")
+database_user = "fxusfjlwlvxvkm"
+database_password = "89c73c2ce2b21247c00a082f5acf6099c60eefeb26278d5ee4f278713e842d7d"
+database_name = "d1jbqcm334osks"
 
 config :dev_challenge, DevChallenge.Repo,
   ssl: true,
