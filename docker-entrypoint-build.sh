@@ -1,5 +1,8 @@
 #!/bin/sh
 
+while read p; do
+  export ${p}
+done <.env
 
 _build/$MIX_ENV/rel/dev_challenge/bin/dev_challenge start
 status=$?
