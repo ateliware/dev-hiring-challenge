@@ -11,6 +11,7 @@ RUN apt-get update && \
 
 ENV APP_HOME /app
 RUN mkdir $APP_HOME
+VOLUME [ "/app" ]
 WORKDIR $APP_HOME
 
 #CMD ["mix deps.get && phx.server"]
