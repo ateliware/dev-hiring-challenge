@@ -10,7 +10,7 @@ use Mix.Config
 # which you should run after static files are built and
 # before starting your production server.
 config :dev_challenge, DevChallengeWeb.Endpoint,
-  url: [host: "safe-ocean-15807.herokuapp.com", port: 443]
+  url: [host: "challenge.guixavier.com.br", port: 443]
 
 # Do not print debug messages in production
 config :logger, level: :info
