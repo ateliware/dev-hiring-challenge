@@ -3,7 +3,7 @@
 # Ateliware Hiring Caallenge
 
 ## Como acessar 
- O projeto está hospedado no Heroku e é acessível através [deste link](challenge.guixavier.com.br).
+ O projeto está hospedado no Heroku e é acessível através [deste link](https://challenge.guixavier.com.br).
 
 ## Funcionalidades
 
