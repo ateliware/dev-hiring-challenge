@@ -1,0 +1,27 @@
+
+ <div class={"shadow-lg rounded lg p-4 mb-2 " <> @repo.language} id={@id}>
+    <img src={@repo.avatar_url} alt="profile" class="h-40 mb-4 mx-auto" data-role="product-img" data-id={@id} />
+    <div class="text-center">
+        <h2 class="mb-4 text-lg" data-role="name" data-id={@id}><%= @repo.name %></h2>
+        <div class="flex items-center justify-between">
+            <div class="flex-1 justify-end text-yellow-500">
+                <%= render AteliwareWeb.SharedView, "star.html", %{} %>
+            </div>
+            <span class="inline text-black text-sm" data-role="watcher" data-id={@id}><%= @repo.watchers_count %></span>
+        </div>  
+        <div class="flex items-center justify-end">
+            <a href="#" data-role="button-action" data-id={@id} phx-click="add-repo" phx-target={@myself} class={@repo.language}>
+                <%= render AteliwareWeb.SharedView, @icon, %{} %>
+            </a>
+        </div>  
+        <div class="flex items-center justify-between">
+            <p class="text-sm text-green-500" data-role="show-message" data-id={@id}>
+                <%= if @message != nil do %>
+                Repositório adicionado!
+                <% end %>
+                &nbsp;
+            </p>
+        </div>
+    </div>
+</div>
+
