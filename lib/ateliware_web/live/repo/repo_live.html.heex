@@ -1,0 +1,11 @@
+<div id="list-repos-git" class="dark:bg-slate-200 w-full rounded-lg shaddow p-4">
+    <h1 class="text-xl font-bold mb-8 dark:text-black" data-role="items-info" data-id="repos">Meus Repositórios</h1>
+    <a href="/">
+        <%= render AteliwareWeb.SharedView, "back.html", %{} %>
+    </a>
+    <div class="grid grid-cols-1 mid:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 col-gap-12 row-gap-16 items-center" id="all-repos" phx-update="append">
+        <%= for repo <- @repos do %>
+        <.live_component module={RepoDetail} id={Integer.to_string(repo.git_id)} git_id={repo.git_id} repo={repo} saved_repos={nil} />
+        <% end %>
+    </div>
+</div>

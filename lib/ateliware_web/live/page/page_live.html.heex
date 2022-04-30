@@ -1,0 +1,33 @@
+<section class="menu container mx-auto py-8">
+    <div class="mx-auto flex items-center justify-center py-4">
+        <button data-role="btn-language-select" data-id="elixir" phx-click="select-language" phx-value-language="elixir"
+            class="bg-purple-500 houver:bg-purple-700 text-white font-bold m-8 py-2 px-4 rounded-full">
+            Elixir
+        </button>
+        <button data-role="btn-language-select" data-id="ruby" phx-click="select-language" phx-value-language="ruby"
+            class="bg-red-500 houver:bg-red-700 text-white font-bold m-8 py-2 px-4 rounded-full">
+            Ruby
+        </button>
+        <button data-role="btn-language-select" data-id="python" phx-click="select-language" phx-value-language="python"
+            class="bg-blue-500 houver:bg-blue-700 text-white font-bold m-8 py-2 px-4 rounded-full">
+            Python
+        </button>
+        <button data-role="btn-language-select" data-id="javascript" phx-click="select-language" phx-value-language="javascript"
+            class="bg-yellow-500 houver:bg-yellow-700 text-white font-bold m-8 py-2 px-4 rounded-full">
+            Javascript
+        </button>
+        <button data-role="btn-language-select" data-id="vue" phx-click="select-language" phx-value-language="vue"
+            class="bg-green-500 houver:bg-green-700 text-white font-bold m-8 py-2 px-4 rounded-full">
+            Vue
+        </button>
+    </div>
+    <div id="list-repos" class="dark:bg-slate-200 w-full rounded-lg shaddow p-4">
+        <h1 class="text-xl font-bold mb-8 dark:text-black" data-role="items-info" data-id="repos">Repositórios</h1>
+        <div class="grid grid-cols-1 mid:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 col-gap-12 row-gap-16 items-center" id="all-repos" phx-update="append">
+            <%= for repo <- @repos do %>
+            <.live_component module={RepoDetail} id={Integer.to_string(repo.git_id)} git_id={repo.git_id} repo={repo} saved_repos={@saved_repos} />
+            <% end %>
+        </div>
+    </div>
+    <div id="load-repos" phx-hook="LoadRepos"></div>
+</section>
