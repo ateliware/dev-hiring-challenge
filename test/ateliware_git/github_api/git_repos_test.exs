@@ -1,4 +1,4 @@
-defmodule SmartGit.GithubApi.GetReposTest do
+defmodule Ateliware.GithubApi.GetReposTest do
   use Ateliware.DataCase
   import Tesla.Mock
   alias Ateliware.GithubApi.GetRepos
