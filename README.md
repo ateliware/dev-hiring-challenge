@@ -1,22 +1,26 @@
-# Desafio técnico para desenvolvedores
+## Definição de Estruturas foi feita
 
-Construa uma nova aplicação, utilizando o framework de sua preferência (Ruby on Rails, Elixir Phoenix, Python Django ou Flask, NodeJS Sails, Java Spring, ASP.NET ou outro), a qual deverá conectar na API do GitHub e disponibilizar as seguintes funcionalidades:
+- Docker/Compose.
+- PHP 8.1.
+- AngularJS.
+- Banco Dados - PostgreSQL.
+- Laravel 9x.
+- DDD (driven domain design) - App\Domain
 
-- Botão para buscar e armazenar os repositórios destaques de 5 linguagens à sua escolha;
-- Listar os repositórios encontrados;
-- Visualizar os detalhes de cada repositório.
+## Como Instalar - Passos a Passos
 
-Alguns requisitos:
+- 1 - Faça um clone nesse projeto - [git clone https://github.com/gustavossouza/teste.git]
+- 2 - Inicialize o docker utilizando nesse comando [docker-compose up -d --build] e aguarde...
+- 3 - Agora iremos entrar dentro da imagem para usar terminal [docker exec -it testapi sh] e aguarde...
+- 4 - Agora iremos navegar até a pasta do projeto [cd /usr/share/nginx] e aguarde...
+- 5 - Agora iremos instalar as bibliotecas(composer) [composer install] e aguarde...
+- 6 - Agora iremos criar um arquivo de variaveis [cp .env-example .env] e aguarde...
+- 7 - Agora iremos criar novas tabelas para Banco Dados [php artisan migrate --seed] e aguarde...
+- 8 - Agora iremos gerar uma nova key [php artisan key:generate] e aguarde...
+- 9 - Agora iremos criar uma nova aba navegador favorito.. [http://localhost:8080]
+- 10 - Prontinho!
 
-- Deve ser uma aplicação totalmente nova;
-- A solução deve estar em um repositório público do GitHub;
-- A aplicação deve armazenar as informações encontradas;
-- Utilizar PostgreSQL, MySQL ou SQL Server;
-- O deploy deve ser realizado, preferencialmente, no Heroku, AWS ou no Azure;
-- A aplicação precisa ter testes automatizados;
-- Preferenciamente dockerizar a aplicação;
-- Por favor atualizar o readme da aplicação com passo a passo com instrução para subir o ambiente.
+## Rotas
 
-Quando terminar, faça um Pull Request neste repo e avise-nos por email.
-
-**IMPORTANTE:** se você não conseguir finalizar o teste, por favor nos diga o motivo e descreva quais foram as suas dificuldades. Você pode também sugerir uma outra abordagem para avaliarmos seus skills técnicos, vender seu peixe, mostrar-nos do que é capaz.
+- [http://localhost:8080/api/github] - API Cidade
+- [http://localhost:8080/api/topics] - API Grupos

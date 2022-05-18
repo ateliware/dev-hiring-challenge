@@ -1,0 +1,57 @@
+﻿<!--
+Author: Ranjithprabhu K
+Page Description: Dashboard Home page
+Date: 05 Jan 2016
+-->
+
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+           Github
+        </h1>
+    </section>
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-md-8">
+            <select ng-model="topicSelected" class="form-control">
+                <option value="{{topic.name}}" data-ng-repeat="topic in topics">{{topic.name}}</option>
+            </select>
+            </div>
+            <div class="col-md-4">
+                <button class="btn btn-primary" ng-click="pesquisar(topicSelected)">
+                    Pesquisar
+                </button>
+            </div>
+        </div>
+        <br/><br/>
+        <!-- Info boxes -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="box">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <td>Nome</td>
+                                <td>Descrição</td>
+                                <td>Link do Projeto</td>
+                                <td>Stars</td>
+                                <td>Watch</td>
+                                <td>Forks</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr data-ng-repeat="repository in repositories">
+                                <td>{{repository.full_name}}</td>
+                                <td>{{repository.description}}</td>
+                                <td><a href="{{repository.html_url}}" target="_blank">Abrir</a></td>
+                                <td>{{repository.stargazers_count}}</td>
+                                <td>{{repository.watchers_count}}</td>
+                                <td>{{repository.forks_count}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+    </section><!-- /.content -->

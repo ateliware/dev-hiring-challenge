@@ -1,0 +1,1 @@
+* * * * * root php /usr/share/nginx/artisan schedule:run >/var/log/gustavoppk 2>&1
