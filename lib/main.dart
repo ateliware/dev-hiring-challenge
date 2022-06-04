@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:github_repository/pages/dashboard/dashboard.dart';
+import 'package:github_repository/shared/routes.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,7 +16,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Dashboard(),
+      home: const Dashboard(),
+      initialRoute: '/',
+      onGenerateRoute: RouteGenerator.generateRoute,
     );
   }
 }
