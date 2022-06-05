@@ -2,7 +2,8 @@ class DatabaseScripts {
   static List<String> create = [
     """
     CREATE TABLE repository (
-      id INTEGER PRIMARY KEY,
+      id_repository INTEGER PRIMARY KEY AUTOINCREMENT,
+      id INTEGER,
       name TEXT NOT NULL,
       description TEXT,
       owner_name TEXT NOT NULL,

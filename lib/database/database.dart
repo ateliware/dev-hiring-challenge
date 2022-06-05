@@ -48,8 +48,20 @@ class DatabaseHelper {
     await batch.commit();
   }
 
+  Future<bool> insertRepositoryByLang(RepositoryModel repository) async {
+    Database db = await datebase;
+    try {
+      int result = await db.insert('repository', repository.toMap());
+
+      if (result > 0) return true;
+      return false;
+    } catch (e) {
+      return false;
+    }
+  }
+
   Future<List<RepositoryModel>> fetchRepositoryByLang(int lang) async {
-    Database? db = await datebase;
+    Database db = await datebase;
 
     try {
       List result = await db.query('repositories');
