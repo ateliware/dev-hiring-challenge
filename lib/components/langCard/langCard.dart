@@ -10,6 +10,7 @@ class LangCard extends StatelessWidget {
     return Card(
       key: Key(langName),
       child: InkWell(
+        borderRadius: BorderRadius.circular(4),
         onTap: () {
           Navigator.pushNamed(context, '/repositories', arguments: langId);
         },
@@ -18,7 +19,7 @@ class LangCard extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Image.asset('assets/${langName.toLowerCase()}.png', height: 90),
+              Image.asset('assets/${langName.toLowerCase()}.png', height: 80),
               const SizedBox(height: 10),
               Text(
                 langName,

@@ -25,6 +25,7 @@ class Api {
         return null;
       }
     } catch (err) {
+      print(err);
       return null;
     }
   }

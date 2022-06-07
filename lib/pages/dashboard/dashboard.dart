@@ -29,19 +29,19 @@ class _DashboardState extends State<Dashboard> {
               ),
               const SizedBox(height: 10),
               const Text(
-                'Escolha uma linguagem para visualizar seus repositórios',
+                'Escolha uma linguagem para visualizar os 10 repositórios em destaque',
                 style: TextStyle(
                   fontSize: 15,
                 ),
                 textAlign: TextAlign.center,
               ),
-              const SizedBox(height: 60),
+              const SizedBox(height: 40),
               Expanded(
                 child: GridView.count(
                   crossAxisCount: 2,
                   mainAxisSpacing: 16,
                   crossAxisSpacing: 16,
-                  childAspectRatio: 1.1,
+                  childAspectRatio: 1.2,
                   primary: false,
                   children: const [
                     LangCard(
@@ -59,6 +59,10 @@ class _DashboardState extends State<Dashboard> {
                     LangCard(
                       langName: 'PHP',
                       langId: 4,
+                    ),
+                    LangCard(
+                      langName: 'Swift',
+                      langId: 5,
                     ),
                   ],
                 ),

@@ -13,6 +13,9 @@ class Utils {
       case 4:
         return 'PHP';
 
+      case 5:
+        return 'Swift';
+
       default:
         return '';
     }
