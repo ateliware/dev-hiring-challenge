@@ -1,16 +1,16 @@
-# github_repository
+# Desafio técnico para desenvolvedores
 
-A new Flutter project.
+  
 
-## Getting Started
+ - O desenvolvimento do desafio foi feito com o framework Flutter.
+ - O Flutter Test foi utilizado para efetuar o teste unitário e teste de componente. 
+ - Para salvar as informações no banco de dados, foi utilizado o SQLite.
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+O Flutter precisa ser instalado para a utilização da aplicação local. Após instalado, é necessário rodar o comando:
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+    flutter run
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+Para testar o aplicativo, baixe o APK que está disponibilizado no link abaixo
+[Github Repository](https://github.com/RogerBrusamarello/Github-Repository/tree/master/aplicativo)
