@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:github_repository/pages/dashboard/dashboard.dart';
 import 'package:github_repository/shared/routes.dart';
 
 void main() {
