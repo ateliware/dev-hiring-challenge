@@ -14,4 +14,4 @@ O Flutter precisa ser instalado para a utilização da aplicação local. Após 
 
 
 Para testar o aplicativo, baixe o APK que está disponibilizado no link abaixo
-[Github Repository](https://github.com/RogerBrusamarello/Github-Repository/tree/master/aplicativo)
+[Github Repository](https://github.com/RogerBrusamarello/dev-hiring-challenge/tree/master/aplicativo)
