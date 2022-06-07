@@ -34,7 +34,7 @@ class _RepositoriesState extends State<Repositories> {
     }
 
     //Busca os repositorios na API do Github
-    dynamic response = await Api.fetchRepositoriesByLang(widget.langId);
+    Map? response = await Api.fetchRepositoriesByLang(widget.langId);
 
     if (response != null && response['items'] != null) {
       for (Map it in (response['items'] as List)) {

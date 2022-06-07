@@ -11,7 +11,7 @@ class Repository extends StatelessWidget {
     return Scaffold(
       appBar: const CustomAppBar(title: 'Respositório'),
       body: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -46,6 +46,7 @@ class Repository extends StatelessWidget {
             const Divider(),
             Text('Desenvolvido por ${repositoryModel.ownerName}'),
             Padding(
+              key: const Key('forks'),
               padding: const EdgeInsets.only(top: 8.0),
               child: Row(
                 children: [

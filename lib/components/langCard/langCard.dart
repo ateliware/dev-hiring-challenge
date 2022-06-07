@@ -8,6 +8,7 @@ class LangCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      key: Key(langName),
       child: InkWell(
         onTap: () {
           Navigator.pushNamed(context, '/repositories', arguments: langId);
