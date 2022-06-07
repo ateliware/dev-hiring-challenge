@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:github_repository/api/api.dart';
 import 'package:github_repository/components/customAppBar/customAppBar.dart';
+import 'package:github_repository/components/repositoryCard/repostoryCard.dart';
 import 'package:github_repository/database/database.dart';
 import 'package:github_repository/models/repositoryModel.dart';
-import 'package:github_repository/pages/repository/repository.dart';
 import 'package:github_repository/shared/utils.dart';
 import 'package:skeleton_loader/skeleton_loader.dart';
 
@@ -65,23 +65,13 @@ class _RepositoriesState extends State<Repositories> {
     }
   }
 
-  void navigateTo(RepositoryModel repo) {
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (conxtet) => Repository(
-          repositoryModel: repo,
-        ),
-      ),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar(title: 'Repositórios ${Utils.getLangById(widget.langId)}'),
       body: Visibility(
         replacement: SkeletonLoader(
+          key: const Key('loader'),
           builder: Container(
             padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
             child: Row(
@@ -123,49 +113,8 @@ class _RepositoriesState extends State<Repositories> {
               padding: EdgeInsets.only(top: i == 0 ? 10 : 0),
               child: Column(
                 children: [
-                  InkWell(
-                    borderRadius: BorderRadius.circular(10),
-                    onTap: () {
-                      navigateTo(repositories[i]);
-                    },
-                    child: Padding(
-                      padding: const EdgeInsets.all(4.0),
-                      child: Row(
-                        children: [
-                          CircleAvatar(
-                            radius: 20,
-                            backgroundColor: Colors.white,
-                            backgroundImage: NetworkImage(
-                              repositories[i].ownerPicture,
-                            ),
-                          ),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.only(left: 8.0),
-                                child: Text(
-                                  repositories[i].name,
-                                  style: const TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                              ),
-                              SizedBox(
-                                width: MediaQuery.of(context).size.width * 0.8,
-                                child: Padding(
-                                  padding: const EdgeInsets.only(left: 8.0),
-                                  child: Text(
-                                    repositories[i].description,
-                                    overflow: TextOverflow.ellipsis,
-                                  ),
-                                ),
-                              ),
-                            ],
-                          )
-                        ],
-                      ),
-                    ),
+                  RepositoryCard(
+                    repositoryModel: repositories[i],
                   ),
                   const Divider(),
                 ],
