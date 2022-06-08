@@ -1,11 +1,14 @@
+
 # Desafio técnico para desenvolvedores
 
   
 
- - O desenvolvimento do desafio foi feito com o framework Flutter.
- - O Flutter Test foi utilizado para efetuar o teste unitário e teste de componente. 
- - Para salvar as informações no banco de dados, foi utilizado o SQLite.
- - Feito esteira de CI para rodar testes, assim todos os pushs em master irá rodar os testes
+- O desenvolvimento do desafio foi feito com o framework Flutter.
+- O Flutter Test foi utilizado para efetuar o teste unitário e teste de componente. 
+- Para salvar as informações no banco de dados, foi utilizado o SQLite.
+- Feito esteira de CI para rodar testes, assim todos os pushs em master irá rodar os testes
+
+![Build and Test Status](https://github.com/RogerBrusamarello/dev-hiring-challenge-test/actions/workflows/ci.yml/badge.svg)
 
 
 O Flutter precisa ser instalado para a utilização da aplicação local. Após instalado, é necessário rodar o comando:
