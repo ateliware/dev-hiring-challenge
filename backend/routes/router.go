@@ -20,6 +20,9 @@ func SetupBackEndRoutes(router *gin.Engine) {
 	router.POST("/repositorios", controllers.SalvarRepositorios(githubRepository))
 	router.DELETE("/repositorios", controllers.ExcluirRepositorios(githubRepository))
 
+	// Declarando a rota de healthcheck para testar a conectividade da API
+	router.GET("/ping", controllers.HealthCheck())
+
 	// Tratando as requisições de EndPoints que não existem
 	router.NoRoute(func(c *gin.Context) {
 		c.JSON(400, models.Error{Error: "Recurso não encontrado"})
