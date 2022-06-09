@@ -7,10 +7,16 @@ import (
 
 func SetupFrontEndRoutes(router *gin.Engine) {
 
-	// Habilitando o CORS
 	router.Use(cors.Default())
 
-	// Declarando as páginas e arquivos da aplicação
+	setupApplicationRoutes(router)
+	setupNotFoundEndPointMiddleware(router)
+	setupPanicRecoveryMiddleware(router)
+
+	router.Run(":80")
+}
+
+func setupApplicationRoutes(router *gin.Engine) {
 	router.StaticFile("", "frontend/pages/index/index.html")
 	router.StaticFile("index.html", "frontend/pages/index/index.html")
 	router.StaticFile("index.css", "frontend/pages/index/index.css")
@@ -22,13 +28,15 @@ func SetupFrontEndRoutes(router *gin.Engine) {
 	router.StaticFile("favicon.ico", "frontend/assets/favicon.ico")
 	router.StaticFile("icon.png", "frontend/assets/icon.png")
 	router.StaticFile("apple-touch-icon.png", "frontend/assets/apple-touch-icon.png")
+}
 
-	// Tratando as requisições de páginas que não existem
+func setupNotFoundEndPointMiddleware(router *gin.Engine) {
 	router.NoRoute(func(c *gin.Context) {
 		c.Redirect(302, "./404.html")
 	})
+}
 
-	// Tratando as requisições que deram algum erro inesperado
+func setupPanicRecoveryMiddleware(router *gin.Engine) {
 	router.Use(func(c *gin.Context) {
 		defer func() {
 			if r := recover(); r != nil {
@@ -37,7 +45,4 @@ func SetupFrontEndRoutes(router *gin.Engine) {
 		}()
 		c.Next()
 	})
-
-	// Inicializando o servidor na porta padrão 80
-	router.Run(":80")
 }

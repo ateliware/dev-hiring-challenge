@@ -18,24 +18,31 @@ import (
 
 func SetupBackEndRoutes(router *gin.Engine) {
 
-	// Habilitando o CORS
 	router.Use(cors.Default())
 
-	// Declarando as rotas da aplicação
+	setupApplicationRoutes(router)
+	setupNotFoundEndPointMiddleware(router)
+	setupPanicRecoveryMiddleware(router)
+	setupSwaggerDocumentationRoutes(router)
+
+	go router.Run(":8080")
+}
+
+func setupApplicationRoutes(router *gin.Engine) {
 	githubRepository := repositories.RepositoryGitHub{}
 	router.GET("/repositorios", controllers.BuscarRepositorios(githubRepository))
 	router.POST("/repositorios", controllers.SalvarRepositorios(githubRepository))
 	router.DELETE("/repositorios", controllers.ExcluirRepositorios(githubRepository))
+	router.GET("/health-check", controllers.HealthCheck())
+}
 
-	// Declarando a rota de healthcheck para testar a conectividade da API
-	router.GET("/ping", controllers.HealthCheck())
-
-	// Tratando as requisições de EndPoints que não existem
+func setupNotFoundEndPointMiddleware(router *gin.Engine) {
 	router.NoRoute(func(c *gin.Context) {
 		c.JSON(400, models.Error{Error: "Recurso não encontrado"})
 	})
+}
 
-	// Tratando as requisições que deram algum erro inesperado
+func setupPanicRecoveryMiddleware(router *gin.Engine) {
 	router.Use(func(c *gin.Context) {
 		defer func() {
 			if r := recover(); r != nil {
@@ -51,21 +58,13 @@ func SetupBackEndRoutes(router *gin.Engine) {
 		}()
 		c.Next()
 	})
-
-	setupSwaggerDocumentationRoutes(router)
-
-	// Inicializando o servidor na porta 8080
-	go router.Run(":8080")
 }
 
 func setupSwaggerDocumentationRoutes(router *gin.Engine) {
-
 	docs.SwaggerInfo.Title = "Desafio Ateliware"
 	docs.SwaggerInfo.Description = "Documentação da API de gerenciamento de repositórios do GitHub"
 	docs.SwaggerInfo.Version = "1.0.0"
 	docs.SwaggerInfo.Schemes = []string{"http", "https"}
-
 	swagger := router.Group("/docs")
 	swagger.GET("/*any", swaggerGin.WrapHandler(swaggerFiles.Handler))
-
 }
