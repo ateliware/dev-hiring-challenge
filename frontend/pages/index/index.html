@@ -61,7 +61,7 @@
                 <span>Veja em tempo real os melhores repositórios das melhores linguagens de programação da atualidade!</span>
             </div>
 
-            <div class="col-12 d-flex justify-content-center mt-5 mb-1">
+            <div class="col-12 d-flex justify-content-center mb-1 mt-3 mt-sm-5">
                 <div class="form-floating col-8">
                     <select class="form-select form-select-lg" id="linguagem-programacao">
                         <option selected disabled></option>
@@ -75,7 +75,7 @@
                 </div>
             </div>
 
-            <div class="col-12 mt-4" id="dados-linguagem" style="display: none;">
+            <div class="col-12 mt-1 mt-sm-4" id="dados-linguagem" style="display: none;">
                 <div class="row d-flex justify-content-between">
                     <div class="col-12 col-md-4 mt-3">
                         <button id="buscar-repositorios-github" type="button" class="col-12 btn btn-success"
@@ -93,12 +93,12 @@
                 <table class="table mt-1">
                     <thead>
                         <tr>
-                            <th scope="col">#</th>
+                            <th scope="col" class="col-sequencial-number">#</th>
                             <th scope="col">Repositório</th>
                             <th scope="col">Owner</th>
                             <th scope="col">Data de Criação</th>
                             <th scope="col">Stars</th>
-                            <th scope="col">Ações</th>
+                            <th scope="col" class="col-actions">Ações</th>
                         </tr>
                     </thead>
                     <tbody class="table-group-divider">

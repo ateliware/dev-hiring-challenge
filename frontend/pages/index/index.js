@@ -38,7 +38,7 @@ function renderTable(repositorios) {
     $("table tbody tr").remove();
     repositorios.forEach((repositorio, i) => {
         let tableRow = $("<tr/>");
-        tableRow.append(`<td>${i + 1}</td>`);
+        tableRow.append(`<td class="col-sequencial-number">${i + 1}</td>`);
         tableRow.append(`<td>${repositorio.nome}</td>`);
         tableRow.append(`
                         <td>
@@ -47,7 +47,7 @@ function renderTable(repositorios) {
                         </td>`);
         tableRow.append(`<td>${new Date(repositorio.data_criacao).toLocaleDateString()}</td>`);
         tableRow.append(`<td>${repositorio.estrelas}</td>`);
-        tableRow.append(`<td></td>`);
+        tableRow.append(`<td class="col-actions"></td>`);
         $("table tbody").append(tableRow);
     });
 }
@@ -222,7 +222,7 @@ function showNotification(tipo, mensagem) {
 
     const toastID = new Date().getTime();
     const toastTemplate = `
-    <div class="toast-container position-fixed top-0 end-0 p-3">
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
         <div class="toast" id="${toastID}" data-bs-delay="3000" role="alert" aria-live="assertive" aria-atomic="true">
             <div class="toast-header">
                 <strong class="me-auto toast-title-icon ${clazz}">${titulo}</strong>

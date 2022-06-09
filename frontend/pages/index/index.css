@@ -143,3 +143,27 @@ div.spinner {
         transform: rotate(360deg);
     }
 }
+
+@media (max-width: 576px) {
+    .col-sequencial-number,
+    .col-actions {
+        display: none;
+    }
+    .fade {
+        opacity: 1px !important;
+    }
+    .table>:not(caption)>*>* {
+        padding: 0.5rem 0.3rem !important;
+        font-size: 14px !important;
+    }
+    select {
+        text-align: center !important;
+        height: calc(3.5rem + 25px) !important;
+    }
+    option {
+        text-align: center !important;
+    }
+    .form-floating>.form-select {
+        padding-top: 2.925rem !important
+    }
+}
