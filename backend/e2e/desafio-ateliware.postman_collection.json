@@ -1,0 +1,423 @@
+{
+	"info": {
+		"_postman_id": "e83b5548-11ee-45c7-bdc6-d11f0888bdaa",
+		"name": "Desafio Ateliware",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7073921"
+	},
+	"item": [
+		{
+			"name": "HealthCheck",
+			"item": [
+				{
+					"name": "Verificar HealthCheck",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Verificar o StatusCode retornado\", function () {",
+									"    pm.expect(pm.response.code).to.be.equals(200);",
+									"});",
+									"",
+									"pm.test(\"Verificar o Status da API\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData).haveOwnProperty(\"status\");",
+									"    pm.expect(jsonData.status).to.equals(\"available\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_url}}/health-check",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"health-check"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Repositórios",
+			"item": [
+				{
+					"name": "Salvar repositórios",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Verificar o StatusCode retornado\", function () {",
+									"    pm.expect(pm.response.code).to.be.equals(200);",
+									"});",
+									"",
+									"pm.test(\"Verificar as informações retornadas\", function () {",
+									"    pm.expect(pm.response.json()).to.deep.equals({ \"message\": \"Repositórios salvos com sucesso\" });",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n        \"nome\": \"public-apis\",\n        \"linguagem\": \"Python\",\n        \"descricao\": \"A collective list of free APIs\",\n        \"data_criacao\": \"2016-03-20T23:49:42Z\",\n        \"data_ultima_atualizacao\": \"2022-06-09T15:35:05Z\",\n        \"tamanho\": 5027,\n        \"estrelas\": 195743,\n        \"forks\": 22557,\n        \"issues_abertas\": 11,\n        \"owner_tipo\": \"Organization\",\n        \"owner_nome\": \"public-apis\",\n        \"owner_url\": \"https://github.com/public-apis\"\n    },\n    {\n        \"nome\": \"system-design-primer\",\n        \"linguagem\": \"Python\",\n        \"descricao\": \"Learn how to design large-scale systems. Prep for the system design interview.  Includes Anki flashcards.\",\n        \"data_criacao\": \"2017-02-26T16:15:28Z\",\n        \"data_ultima_atualizacao\": \"2022-06-09T15:49:03Z\",\n        \"tamanho\": 11165,\n        \"estrelas\": 183209,\n        \"forks\": 33318,\n        \"issues_abertas\": 312,\n        \"owner_tipo\": \"User\",\n        \"owner_nome\": \"donnemartin\",\n        \"owner_url\": \"https://github.com/donnemartin\"\n    },\n    {\n        \"nome\": \"Python\",\n        \"linguagem\": \"Python\",\n        \"descricao\": \"All Algorithms implemented in Python\",\n        \"data_criacao\": \"2016-07-16T09:44:01Z\",\n        \"data_ultima_atualizacao\": \"2022-06-09T15:49:30Z\",\n        \"tamanho\": 12536,\n        \"estrelas\": 136840,\n        \"forks\": 35685,\n        \"issues_abertas\": 244,\n        \"owner_tipo\": \"Organization\",\n        \"owner_nome\": \"TheAlgorithms\",\n        \"owner_url\": \"https://github.com/TheAlgorithms\"\n    },\n    {\n        \"nome\": \"awesome-python\",\n        \"linguagem\": \"Python\",\n        \"descricao\": \"A curated list of awesome Python frameworks, libraries, software and resources\",\n        \"data_criacao\": \"2014-06-27T21:00:06Z\",\n        \"data_ultima_atualizacao\": \"2022-06-09T15:59:52Z\",\n        \"tamanho\": 6616,\n        \"estrelas\": 129647,\n        \"forks\": 21273,\n        \"issues_abertas\": 251,\n        \"owner_tipo\": \"User\",\n        \"owner_nome\": \"vinta\",\n        \"owner_url\": \"https://github.com/vinta\"\n    },\n    {\n        \"nome\": \"Python-100-Days\",\n        \"linguagem\": \"Python\",\n        \"descricao\": \"Python - 100天从新手到大师\",\n        \"data_criacao\": \"2018-03-01T16:05:52Z\",\n        \"data_ultima_atualizacao\": \"2022-06-09T15:43:54Z\",\n        \"tamanho\": 309850,\n        \"estrelas\": 119679,\n        \"forks\": 45764,\n        \"issues_abertas\": 643,\n        \"owner_tipo\": \"User\",\n        \"owner_nome\": \"jackfrued\",\n        \"owner_url\": \"https://github.com/jackfrued\"\n    }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api_url}}/repositorios",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"repositorios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Salvar repositórios (Erro)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Verificar o StatusCode retornado\", function () {",
+									"    pm.expect(pm.response.code).to.be.equals(500);",
+									"});",
+									"",
+									"pm.test(\"Verificar as informações retornadas\", function () {",
+									"    pm.expect(pm.response.json()).to.deep.equals({ \"error\": \"Ocorreu um erro interno ao tentar salvar os repositórios da linguagem\" });",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{api_url}}/repositorios",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"repositorios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar repositórios",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Verificar o StatusCode retornado\", function () {",
+									"    pm.expect(pm.response.code).to.be.equals(200);",
+									"});",
+									"",
+									"pm.test(\"Verificar as informações retornadas\", function () {",
+									"    pm.expect(pm.response.json().length).to.be.equals(5) ;",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_url}}/repositorios?linguagem=python",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"repositorios"
+							],
+							"query": [
+								{
+									"key": "linguagem",
+									"value": "python"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar repositórios (Erro)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Verificar o StatusCode retornado\", function () {",
+									"    pm.expect(pm.response.code).to.be.equals(400);",
+									"});",
+									"",
+									"pm.test(\"Verificar as informações retornadas\", function () {",
+									"    pm.expect(pm.response.json()).to.deep.equals({ \"error\": \"Você deve informar a linguagem de programação de que você quer buscar os repositórios\" });",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_url}}/repositorios",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"repositorios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Excluir Repositórios",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Verificar o StatusCode retornado\", function () {",
+									"    pm.expect(pm.response.code).to.be.equals(200);",
+									"});",
+									"",
+									"pm.test(\"Verificar as informações retornadas\", function () {",
+									"    pm.expect(pm.response.json()).to.deep.equals({ \"message\": \"Repositórios excluídos com sucesso\" });",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{api_url}}/repositorios?linguagem=python",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"repositorios"
+							],
+							"query": [
+								{
+									"key": "linguagem",
+									"value": "python"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Excluir Repositórios (Erro)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Verificar o StatusCode retornado\", function () {",
+									"    pm.expect(pm.response.code).to.be.equals(400);",
+									"});",
+									"",
+									"pm.test(\"Verificar as informações retornadas\", function () {",
+									"    pm.expect(pm.response.json()).to.deep.equals({ \"error\": \"Você deve informar a linguagem de programação de que você quer excluir os repositórios\" });",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{api_url}}/repositorios",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"repositorios"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.sendRequest(\"http://localhost:8080/gerar-token-jwt\", function (err, response) {",
+							"    pm.variables.set(\"token\", response.json().token);",
+							"});"
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "api_url",
+			"value": "http://localhost:8080"
+		}
+	]
+}
