@@ -1,24 +1,33 @@
 const apiURL = "http://localhost:8080";
 window._app = {}
 
+Sentry.init({
+    dsn: "https://10b9fbe56794482094eb2e985c7bc942@o332903.ingest.sentry.io/6489350",
+    normalizeDepth: 10,
+    ignoreErrors: ["Non-Error exception captured"]
+});
+
 function handleError(data) {
     hideLoader();
 
     if (data) {
-        if (data.responseJSON && data.responseJSON) {
+
+        if (data.responseJSON) {
             if (data.responseJSON.error) {
                 showNotification("error", data.responseJSON.error)
                 return;
             }
-
             if (data.responseJSON.message) {
                 showNotification("error", data.responseJSON.message)
                 return;
             }
-        } else if (data.responseText) {
+        }
+        
+        if (data.responseText) {
             showNotification("error", data.responseText)
             return;
         }
+
     } else {
         showNotification("error", "Ocorreu um erro ao tentar realizar a operaçãos")
     }
