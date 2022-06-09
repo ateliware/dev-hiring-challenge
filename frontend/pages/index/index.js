@@ -1,8 +1,28 @@
 const apiURL = "http://localhost:8080";
 window._app = {}
 
-function handleError() {
+function handleError(data) {
     hideLoader();
+
+    if (data) {
+        if (data.responseJSON && data.responseJSON) {
+            if (data.responseJSON.error) {
+                showNotification("error", data.responseJSON.error)
+                return;
+            }
+
+            if (data.responseJSON.message) {
+                showNotification("error", data.responseJSON.message)
+                return;
+            }
+        } else if (data.responseText) {
+            showNotification("error", data.responseText)
+            return;
+        }
+    } else {
+        showNotification("error", "Ocorreu um erro ao tentar realizar a operaçãos")
+    }
+
 }
 
 function renderTable(repositorios) {
@@ -46,6 +66,7 @@ $(document).ready(function () {
                 if (result.length > 0) {
                     $("#excluir-repositorios-do-cache").prop("disabled", false);
                     $("#salvar-repositorios-em-cache").prop("disabled", true);
+                    showNotification("success", "Repositórios buscados com sucesso no Cache")
                 } else {
                     $("#excluir-repositorios-do-cache").prop("disabled", true);
                     $("#salvar-repositorios-em-cache").prop("disabled", true);
@@ -86,19 +107,22 @@ $(document).ready(function () {
                     };
                 });
                 window._app.repositorios = repositorios;
-                
+
                 renderTable(repositorios);
-                hideLoader();
 
                 // Ao buscar os dados no GitHub então habilitamos o botão de salvar os dados do GitHub no cache
                 $("#salvar-repositorios-em-cache").prop("disabled", false);
 
+                showNotification("success", "Repositórios buscados com sucesso no GitHub");
+                hideLoader();
             });
 
     });
 
     // Handle Save Click
     $("#salvar-repositorios-em-cache").on("click", function () {
+        showLoader();
+
         $.ajax({
             url: `${apiURL}/repositorios`,
             type: "POST",
@@ -113,11 +137,16 @@ $(document).ready(function () {
                 $("#excluir-repositorios-do-cache").prop("disabled", false);
                 $("#salvar-repositorios-em-cache").prop("disabled", true);
 
+                showNotification("success", "Repositórios salvos com sucesso");
+                hideLoader();
+
             });
     });
 
     // Handle Delete Click
     $("#excluir-repositorios-do-cache").on("click", function () {
+        showLoader();
+
         let linguagemSelecionada = $("#linguagem-programacao").val();
         $.ajax({
             url: `${apiURL}/repositorios?linguagem=${linguagemSelecionada}`,
@@ -132,6 +161,9 @@ $(document).ready(function () {
 
                 // Removendo os registros da tabela
                 $("table tbody tr").remove();
+
+                showNotification("success", "Repositórios excluídos com sucesso");
+                hideLoader();
 
             });
     });
@@ -167,4 +199,36 @@ function showLoader() {
 function hideLoader() {
     $("div.loader").remove();
     $("body").removeClass("loader");
+}
+
+function showNotification(tipo, mensagem) {
+    var titulo, clazz;
+    if (tipo == "error") {
+        titulo = "Erro";
+        clazz = "error";
+    } else {
+        titulo = "Sucesso";
+        clazz = "success";
+    }
+
+    const toastID = new Date().getTime();
+    const toastTemplate = `
+    <div class="toast-container position-fixed top-0 end-0 p-3">
+        <div class="toast" id="${toastID}" data-bs-delay="3000" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <strong class="me-auto toast-title-icon ${clazz}">${titulo}</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+                ${mensagem}
+            </div>
+        </div>
+    </div>
+    `;
+
+    $(document.body).append($(toastTemplate));
+
+    const toast = new bootstrap.Toast($(`#${toastID}`)[0]);
+    toast.show();
+
 }

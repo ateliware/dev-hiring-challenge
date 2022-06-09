@@ -8,10 +8,28 @@ select {
     height: calc(3.5rem + 10px) !important;
 }
 
-option {
+option,
+.toast-body {
     text-align: start !important;
 }
 
+.toast-title-icon::before {
+    display: inline-block;
+    min-height: 12px;
+    min-width: 12px;
+    margin-right: 4px;
+    margin-bottom: -1px;
+    border-radius: 8px;
+    content: "";
+}
+
+.toast-title-icon.success::before {
+    background: green;
+}
+
+.toast-title-icon.error::before {
+    background: red;
+}
 
 /***** Loader *****/
 body.loader {
