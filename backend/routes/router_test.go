@@ -16,13 +16,10 @@ var router *gin.Engine
 // Init router on init tests
 func init() {
 	router = gin.Default()
-	SetupBackEndRoutes(router)
+	go SetupBackEndRoutes(router)
 }
 
 func TestMiddlewareNotFound(t *testing.T) {
-
-	server := httptest.NewServer(router)
-	defer server.Close()
 
 	request, err := http.NewRequest("GET", "http://localhost:8080/end-point-inexistente ", nil)
 	assert.Equal(t, nil, err)
@@ -44,9 +41,6 @@ func TestPanicRecovery(t *testing.T) {
 	router.GET("/panic-recovery", func(c *gin.Context) {
 		panic("teste")
 	})
-
-	server := httptest.NewServer(router)
-	defer server.Close()
 
 	request, err := http.NewRequest("GET", "http://localhost:8080/panic-recovery", nil)
 	assert.Equal(t, nil, err)
