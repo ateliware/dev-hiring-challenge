@@ -8,9 +8,12 @@ import (
 
 	"github.com/getsentry/sentry-go"
 	"github.com/gin-gonic/gin"
+	"github.com/joho/godotenv"
 )
 
 func main() {
+
+	loadEnviromentVariables()
 
 	initSentry()
 
@@ -34,4 +37,8 @@ func initSentry() {
 		AttachStacktrace: true,
 	})
 	defer sentry.Flush(2 * time.Second)
+}
+
+func loadEnviromentVariables() {
+	godotenv.Load()
 }
