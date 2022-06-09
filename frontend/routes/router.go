@@ -19,6 +19,9 @@ func SetupFrontEndRoutes(router *gin.Engine) {
 	router.StaticFile("404.css", "frontend/pages/404/404.css")
 	router.StaticFile("500.html", "frontend/pages/500/500.html")
 	router.StaticFile("500.css", "frontend/pages/500/500.css")
+	router.StaticFile("favicon.ico", "frontend/assets/favicon.ico")
+	router.StaticFile("icon.png", "frontend/assets/icon.png")
+	router.StaticFile("apple-touch-icon.png", "frontend/assets/apple-touch-icon.png")
 
 	// Tratando as requisições de páginas que não existem
 	router.NoRoute(func(c *gin.Context) {
