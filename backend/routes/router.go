@@ -4,6 +4,9 @@ import (
 	"desafio_ateliware/backend/controllers"
 	"desafio_ateliware/backend/models"
 	"desafio_ateliware/backend/repositories"
+	"desafio_ateliware/backend/util"
+	"fmt"
+	"runtime/debug"
 
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
@@ -32,7 +35,14 @@ func SetupBackEndRoutes(router *gin.Engine) {
 	router.Use(func(c *gin.Context) {
 		defer func() {
 			if r := recover(); r != nil {
+
+				debug.PrintStack()
+
 				c.JSON(500, models.Error{Error: "Ocorreu um erro interno ao tentar realizar a operação"})
+
+				err := fmt.Errorf("%v", r)
+				util.GravarErroNoSentry(err, c)
+
 			}
 		}()
 		c.Next()
