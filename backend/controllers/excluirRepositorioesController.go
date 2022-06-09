@@ -8,6 +8,14 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+// @Tags GitHub
+// @Summary Excluir todos os repositórios de uma linguagem
+// @Description Exclui todos os repositórios de uma linguagem de programação.
+// @Produce json
+// @Param linguagem query string true "Linguagem"
+// @Success 200 {object} models.Success
+// @Failure 400,500 {object} models.Error
+// @Router /repositorios [delete]
 func ExcluirRepositorios(repositoryGitHub domain.IRepoitoryGitHub) gin.HandlerFunc {
 	return func(c *gin.Context) {
 

@@ -1,0 +1,162 @@
+definitions:
+  Error:
+    properties:
+      error:
+        example: Ocorreu um erro ao tentar realizar a operação
+        type: string
+    type: object
+  HealthCheck:
+    properties:
+      application:
+        example: available
+        type: string
+    type: object
+  Repositorio:
+    properties:
+      data_criacao:
+        example: "2018-12-06T08:01:22Z"
+        type: string
+      data_ultima_atualizacao:
+        example: "2022-06-07T19:52:01Z"
+        type: string
+      descricao:
+        example: Demonstrate all the questions on LeetCode in the form of animation.
+        type: string
+      estrelas:
+        example: 70436
+        type: integer
+      forks:
+        example: 13535
+        type: integer
+      issues_abertas:
+        example: 13
+        type: integer
+      linguagem:
+        example: Java
+        type: string
+      nome:
+        example: LeetCodeAnimation
+        type: string
+      owner_nome:
+        example: MisterBooo
+        type: string
+      owner_tipo:
+        example: User
+        type: string
+      owner_url:
+        example: https://github.com/MisterBooo
+        type: string
+      tamanho:
+        example: 509807
+        type: integer
+    type: object
+  Success:
+    properties:
+      message:
+        example: Operação realizada com sucesso
+        type: string
+    type: object
+info:
+  contact: {}
+paths:
+  /health-check:
+    get:
+      description: Testa a conectividade da API.
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/HealthCheck'
+      summary: Testar a conectividade da API
+      tags:
+      - HealthCheck
+  /repositorios:
+    delete:
+      description: Exclui todos os repositórios de uma linguagem de programação.
+      parameters:
+      - description: Linguagem
+        in: query
+        name: linguagem
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/Success'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/Error'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/Error'
+      summary: Excluir todos os repositórios de uma linguagem
+      tags:
+      - GitHub
+    get:
+      description: Busca todos os repositórios de uma linguagem de programação.
+      parameters:
+      - description: Linguagem
+        in: query
+        name: linguagem
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/Repositorio'
+            type: array
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/Error'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/Error'
+      summary: Buscar todos os repositórios de uma linguagem
+      tags:
+      - GitHub
+    post:
+      consumes:
+      - application/json
+      description: Salva uma lista de repositórios de uma linguagem de programação,
+        sobreescrevendo os já existentes.
+      parameters:
+      - description: Request body
+        in: body
+        name: Request
+        required: true
+        schema:
+          items:
+            $ref: '#/definitions/Repositorio'
+          type: array
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/Success'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/Error'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/Error'
+      summary: Salvar uma lista de repositórios de uma linguagem
+      tags:
+      - GitHub
+swagger: "2.0"

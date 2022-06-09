@@ -1,0 +1,240 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "contact": {}
+    },
+    "paths": {
+        "/health-check": {
+            "get": {
+                "description": "Testa a conectividade da API.",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "HealthCheck"
+                ],
+                "summary": "Testar a conectividade da API",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/HealthCheck"
+                        }
+                    }
+                }
+            }
+        },
+        "/repositorios": {
+            "get": {
+                "description": "Busca todos os repositórios de uma linguagem de programação.",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "GitHub"
+                ],
+                "summary": "Buscar todos os repositórios de uma linguagem",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Linguagem",
+                        "name": "linguagem",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Repositorio"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "description": "Salva uma lista de repositórios de uma linguagem de programação, sobreescrevendo os já existentes.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "GitHub"
+                ],
+                "summary": "Salvar uma lista de repositórios de uma linguagem",
+                "parameters": [
+                    {
+                        "description": "Request body",
+                        "name": "Request",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Repositorio"
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Success"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "description": "Exclui todos os repositórios de uma linguagem de programação.",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "GitHub"
+                ],
+                "summary": "Excluir todos os repositórios de uma linguagem",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Linguagem",
+                        "name": "linguagem",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Success"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "Error": {
+            "type": "object",
+            "properties": {
+                "error": {
+                    "type": "string",
+                    "example": "Ocorreu um erro ao tentar realizar a operação"
+                }
+            }
+        },
+        "HealthCheck": {
+            "type": "object",
+            "properties": {
+                "application": {
+                    "type": "string",
+                    "example": "available"
+                }
+            }
+        },
+        "Repositorio": {
+            "type": "object",
+            "properties": {
+                "data_criacao": {
+                    "type": "string",
+                    "example": "2018-12-06T08:01:22Z"
+                },
+                "data_ultima_atualizacao": {
+                    "type": "string",
+                    "example": "2022-06-07T19:52:01Z"
+                },
+                "descricao": {
+                    "type": "string",
+                    "example": "Demonstrate all the questions on LeetCode in the form of animation."
+                },
+                "estrelas": {
+                    "type": "integer",
+                    "example": 70436
+                },
+                "forks": {
+                    "type": "integer",
+                    "example": 13535
+                },
+                "issues_abertas": {
+                    "type": "integer",
+                    "example": 13
+                },
+                "linguagem": {
+                    "type": "string",
+                    "example": "Java"
+                },
+                "nome": {
+                    "type": "string",
+                    "example": "LeetCodeAnimation"
+                },
+                "owner_nome": {
+                    "type": "string",
+                    "example": "MisterBooo"
+                },
+                "owner_tipo": {
+                    "type": "string",
+                    "example": "User"
+                },
+                "owner_url": {
+                    "type": "string",
+                    "example": "https://github.com/MisterBooo"
+                },
+                "tamanho": {
+                    "type": "integer",
+                    "example": 509807
+                }
+            }
+        },
+        "Success": {
+            "type": "object",
+            "properties": {
+                "message": {
+                    "type": "string",
+                    "example": "Operação realizada com sucesso"
+                }
+            }
+        }
+    }
+}

@@ -13,6 +13,10 @@ option,
     text-align: start !important;
 }
 
+.toast {
+    border: 0px !important;
+}
+
 .toast-title-icon::before {
     display: inline-block;
     min-height: 12px;

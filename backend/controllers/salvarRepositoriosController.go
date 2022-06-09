@@ -8,6 +8,15 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+// @Tags GitHub
+// @Summary Salvar uma lista de repositórios de uma linguagem
+// @Description Salva uma lista de repositórios de uma linguagem de programação, sobreescrevendo os já existentes.
+// @Produce json
+// @Accept json
+// @Param Request body []models.Repositorio true "Request body"
+// @Success 200 {object} models.Success
+// @Failure 400,500 {object} models.Error
+// @Router /repositorios [post]
 func SalvarRepositorios(repositoryGitHub domain.IRepoitoryGitHub) gin.HandlerFunc {
 	return func(c *gin.Context) {
 
