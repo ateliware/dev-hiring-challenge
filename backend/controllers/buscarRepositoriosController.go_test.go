@@ -19,7 +19,7 @@ func TestBuscarRepositoriosSucesso(t *testing.T) {
 	c, _ := gin.CreateTestContext(response)
 	c.Request, _ = http.NewRequest("GET", "http://localhost/repositorios?linguagem=java", nil)
 
-	expectedResponseRepositorios := []models.Repositorio{{Nome: "Teste", Linguagem: "Java", Tamanho: 9000, Estrelas: 100, Forks: 20}}
+	expectedResponseRepositorios := []models.Repositorio{{Nome: "Teste", Linguagem: "java", Tamanho: 9000, Estrelas: 100, Forks: 20}}
 
 	repositoryGitHub := new(mocks.IRepoitoryGitHub)
 	repositoryGitHub.On("BuscarRepositorios", "java").Return(expectedResponseRepositorios, nil)
