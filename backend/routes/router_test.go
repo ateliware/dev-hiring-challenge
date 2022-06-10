@@ -11,15 +11,13 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-var router *gin.Engine
-
-// Init router on init tests
-func init() {
-	router = gin.Default()
-	go SetupBackEndRoutes(router, "8080")
-}
-
 func TestMiddlewareNotFound(t *testing.T) {
+
+	router := gin.Default()
+	setupNotFoundEndPointMiddleware(router)
+
+	server := httptest.NewServer(router)
+	defer server.Close()
 
 	request, err := http.NewRequest("GET", "http://localhost:8080/end-point-inexistente ", nil)
 	assert.Equal(t, nil, err)
@@ -37,6 +35,12 @@ func TestMiddlewareNotFound(t *testing.T) {
 }
 
 func TestPanicRecovery(t *testing.T) {
+
+	router := gin.Default()
+	setupPanicRecoveryMiddleware(router)
+
+	server := httptest.NewServer(router)
+	defer server.Close()
 
 	router.GET("/panic-recovery", func(c *gin.Context) {
 		panic("teste")
