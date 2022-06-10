@@ -16,7 +16,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func SetupBackEndRoutes(router *gin.Engine) {
+func SetupBackEndRoutes(router *gin.Engine, port ...string) {
 
 	router.Use(cors.Default())
 
@@ -25,7 +25,11 @@ func SetupBackEndRoutes(router *gin.Engine) {
 	setupPanicRecoveryMiddleware(router)
 	setupSwaggerDocumentationRoutes(router)
 
-	go router.Run(":8080")
+	if len(port) == 0 {
+		port[0] = "8080"
+	}
+
+	go router.Run(":" + port[0])
 }
 
 func setupApplicationRoutes(router *gin.Engine) {

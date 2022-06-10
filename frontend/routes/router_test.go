@@ -21,13 +21,13 @@ func init() {
 		panic("teste")
 	})
 
-	go SetupFrontEndRoutes(router)
+	go SetupFrontEndRoutes(router, "8085")
 	time.Sleep(time.Second * 2)
 }
 
 func TestMiddlewareNotFound(t *testing.T) {
 
-	request, err := http.NewRequest("GET", "http://localhost/pagina-inexistente ", nil)
+	request, err := http.NewRequest("GET", "http://localhost:8085/pagina-inexistente ", nil)
 	assert.Equal(t, nil, err)
 
 	response := httptest.NewRecorder()

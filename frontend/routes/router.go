@@ -5,7 +5,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func SetupFrontEndRoutes(router *gin.Engine) {
+func SetupFrontEndRoutes(router *gin.Engine, port ...string) {
 
 	router.Use(cors.Default())
 
@@ -13,7 +13,11 @@ func SetupFrontEndRoutes(router *gin.Engine) {
 	setupNotFoundEndPointMiddleware(router)
 	setupPanicRecoveryMiddleware(router)
 
-	router.Run(":80")
+	if len(port) == 0 {
+		port[0] = "80"
+	}
+
+	router.Run(":" + port[0])
 }
 
 func setupApplicationRoutes(router *gin.Engine) {

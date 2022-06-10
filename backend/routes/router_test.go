@@ -16,7 +16,7 @@ var router *gin.Engine
 // Init router on init tests
 func init() {
 	router = gin.Default()
-	go SetupBackEndRoutes(router)
+	go SetupBackEndRoutes(router, "8080")
 }
 
 func TestMiddlewareNotFound(t *testing.T) {
