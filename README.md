@@ -24,6 +24,11 @@ Quando terminar, faça um Pull Request neste repo e avise-nos por email.
 
 # Configuring application
 
+## Configuring Frontend
+
+env variables to set
+DEV_HIRING_CHALLENGE_FRONTEND_HOST        # The frontend host
+
 ## Configuring Database
 
 env variables to set
