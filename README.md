@@ -40,6 +40,10 @@ Run all tests
 $ poetry run pytest test --asyncio-mode=strict
 ````
 
+### Access Heroku
+````sh
+$ http://dev-hiring-challenge-backend.herokuapp.com/search
+````
 
 ### Migrations
 

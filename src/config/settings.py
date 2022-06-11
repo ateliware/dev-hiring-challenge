@@ -27,8 +27,6 @@ class Settings(BaseSettings):
 
     @validator("DATABASE_URL", pre=True)
     def assemble_db_connection(cls, v: Optional[str]) -> Any:
-        if isinstance(v, str):
-            return v
         return PostgresDsn.build(
             scheme="postgresql+asyncpg",
             user=os.getenv("POSTGRES_USER"),
