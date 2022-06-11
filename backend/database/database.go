@@ -22,9 +22,14 @@ func SetupDB() *gorm.DB {
 	pass := os.Getenv("DB_PASSWORD")
 	dbname := os.Getenv("DB_NAME")
 	host := os.Getenv("DB_HOST")
+	port := os.Getenv("DB_PORT")
+	if port == "" {
+		port = "5432"
+	}
+
 	logMode, _ := strconv.ParseBool(os.Getenv("DB_LOG_MODE"))
 
-	settings := "host=" + host + " user=" + user + " password=" + pass + " dbname=" + dbname + " sslmode=disable"
+	settings := "host=" + host + " port=" + port + " user=" + user + " password=" + pass + " dbname=" + dbname + " sslmode=disable"
 
 	db, err := gorm.Open("postgres", settings)
 	if err != nil {
