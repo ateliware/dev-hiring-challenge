@@ -9,9 +9,9 @@ func SetupFrontEndRoutes(router *gin.Engine, port ...string) {
 
 	router.Use(cors.Default())
 
-	setupApplicationRoutes(router)
 	setupNotFoundEndPointMiddleware(router)
 	setupPanicRecoveryMiddleware(router)
+	setupApplicationRoutes(router)
 
 	if len(port) == 0 {
 		port = []string{"80"}

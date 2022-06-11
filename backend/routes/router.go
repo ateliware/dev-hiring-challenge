@@ -20,10 +20,10 @@ func SetupBackEndRoutes(router *gin.Engine, port ...string) {
 
 	router.Use(cors.Default())
 
-	setupApplicationRoutes(router)
 	setupNotFoundEndPointMiddleware(router)
 	setupPanicRecoveryMiddleware(router)
 	setupSwaggerDocumentationRoutes(router)
+	setupApplicationRoutes(router)
 
 	if len(port) == 0 {
 		port = []string{"8080"}

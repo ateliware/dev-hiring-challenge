@@ -40,7 +40,7 @@ func TestPanicRecovery(t *testing.T) {
 		panic("teste")
 	})
 
-	request, err := http.NewRequest("GET", "http://localhost:8080/panic-recovery", nil)
+	request, err := http.NewRequest("GET", "http://localhost/panic-recovery", nil)
 	assert.Equal(t, nil, err)
 
 	response := httptest.NewRecorder()
