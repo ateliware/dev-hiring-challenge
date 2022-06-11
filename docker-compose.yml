@@ -1,0 +1,27 @@
+version: "3"
+services:
+
+  desafio-ateliware:
+    container_name: desafio-ateliware 
+    build: . 
+    ports:
+      - "80:80"
+      - "8080:8080"
+    links:
+      - postgres
+    env_file: 
+      - .env
+    restart: always 
+
+  postgres:
+    container_name: postgres 
+    image: postgres:9.6
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=masterkey
+    volumes: 
+      - ./postgres:/var/lib/postgresql/data/
+      - ./backend/sql/init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports: 
+      - "5433:5432"
+    restart: always  

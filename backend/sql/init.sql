@@ -1,3 +1,7 @@
+CREATE DATABASE ateliware;
+
+\connect ateliware
+
 CREATE TABLE repositorio (
     id serial NOT NULL PRIMARY KEY,
     linguagem text NOT NULL,
@@ -12,4 +16,4 @@ CREATE TABLE repositorio (
     owner_nome text NOT NULL,
     owner_tipo text NOT NULL,
     owner_url text NOT NULL
-)
+);
