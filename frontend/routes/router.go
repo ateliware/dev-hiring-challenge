@@ -14,7 +14,7 @@ func SetupFrontEndRoutes(router *gin.Engine, port ...string) {
 	setupPanicRecoveryMiddleware(router)
 
 	if len(port) == 0 {
-		port[0] = "80"
+		port = []string{"80"}
 	}
 
 	router.Run(":" + port[0])

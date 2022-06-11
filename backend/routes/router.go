@@ -26,7 +26,7 @@ func SetupBackEndRoutes(router *gin.Engine, port ...string) {
 	setupSwaggerDocumentationRoutes(router)
 
 	if len(port) == 0 {
-		port[0] = "8080"
+		port = []string{"8080"}
 	}
 
 	go router.Run(":" + port[0])
