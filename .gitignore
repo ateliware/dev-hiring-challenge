@@ -440,3 +440,4 @@ tags
 
 # End of https://www.toptal.com/developers/gitignore/api/venv,vim,linux,python,django,node
 
+.dev-hirigin-challenge_pgpass

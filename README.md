@@ -20,3 +20,15 @@ Alguns requisitos:
 Quando terminar, faça um Pull Request neste repo e avise-nos por email.
 
 **IMPORTANTE:** se você não conseguir finalizar o teste, por favor nos diga o motivo e descreva quais foram as suas dificuldades. Você pode também sugerir uma outra abordagem para avaliarmos seus skills técnicos, vender seu peixe, mostrar-nos do que é capaz.
+
+
+# Configuring application
+
+## Configuring Database
+
+env variables to set
+DEV_HIRING_CHALLENGE_DB_NAME              # The database name
+DEV_HIRING_CHALLENGE_DB_USERNAME          # The database username to login on databse
+DEV_HIRING_CHALLENGE_DB_PASSWORD          # The password to login on database
+DEV_HIRING_CHALLENGE_DB_HOST              # The database host
+DEV_HIRING_CHALLENGE_DB_PORT              # The database port
