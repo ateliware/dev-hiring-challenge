@@ -10,16 +10,16 @@ router = APIRouter()
 templates = Jinja2Templates(directory="templates")
 
 
+@router.get("/search", response_class=HTMLResponse)
+async def read_item(request: Request):
+    return templates.TemplateResponse("search.html", {"request": request})
+
+
 @router.get("/list", response_class=HTMLResponse)
 async def read_item(request: Request, repository_controller: RepositoriesController = Depends(repositories_controller)):
     await repository_controller.save_repositories()
     result = await repository_controller.find_repositories()
     return templates.TemplateResponse("list.html", {"request": request, "repositories_language": result})
-
-
-@router.get("/search", response_class=HTMLResponse)
-async def read_item(request: Request):
-    return templates.TemplateResponse("search.html", {"request": request})
 
 
 @router.get("/item/{id}", response_class=HTMLResponse)

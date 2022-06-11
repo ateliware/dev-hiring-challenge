@@ -34,6 +34,12 @@ $ poetry run uvicorn src.main:app --reload --port 8000
 $ http://localhost:8000/search
 ```
 
+### Tests
+Run all tests
+````sh
+$ poetry run pytest test --asyncio-mode=strict
+````
+
 
 ### Migrations
 

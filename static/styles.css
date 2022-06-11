@@ -4,12 +4,12 @@ body {
     color: #fafafa;
 }
 
-.link-repo {
+#link-repo {
     text-decoration: none;
     cursor: pointer;
     color: #fafafa;
 }
 
-.nav-link{
+#nav-link{
     text-decoration: none;
 }

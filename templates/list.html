@@ -15,9 +15,9 @@
 </head>
 <body>
     {% for repository_language in repositories_language %}
-    <h1>{{ repository_language.language }}</h1>
+    <h1 id="{{repository_language.language}}">{{ repository_language.language }}</h1>
         {% for repo in repository_language.repositories %}
-        <a class="link-repo" href="{{  '/item/%s'%repo.id }}">{{ repo.name }}</a>
+        <a id="link-repo" href="{{  '/item/%s'%repo.id }}">{{ repo.name }}</a>
         <br />
         {% endfor %}
     {% endfor %}
