@@ -180,7 +180,7 @@ const docTemplate = `{
         "HealthCheck": {
             "type": "object",
             "properties": {
-                "application": {
+                "status": {
                     "type": "string",
                     "example": "available"
                 }
