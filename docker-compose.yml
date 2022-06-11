@@ -23,5 +23,5 @@ services:
       - ./postgres:/var/lib/postgresql/data/
       - ./backend/sql/init.sql:/docker-entrypoint-initdb.d/init.sql
     ports: 
-      - "5433:5432"
+      - "5432:5432"
     restart: always  
