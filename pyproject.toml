@@ -1,0 +1,44 @@
+[tool.poetry]
+name = "src"
+version = "0.1.0"
+description = ""
+authors = []
+
+[tool.poetry.dependencies]
+python = "^3.8"
+pydantic = "^1.9.0"
+uvicorn = {extras = ["standard"], version = "^0.17.6"}
+SQLAlchemy = "^1.4.31"
+asyncpg = "^0.25.0"
+alembic = "^1.7.6"
+python-dotenv = "^0.19.2"
+Jinja2 = "^3.0.3"
+aiofiles = "^0.8.0"
+aiohttp-jinja2 = "^1.5"
+fastapi = "^0.78.0"
+requests = "^2.28.0"
+lxml = "^4.9.0"
+pytest-mock = "^3.7.0"
+pytest-asyncio = "^0.18.3"
+
+[tool.poetry.dev-dependencies]
+pytest = "^7.0.1"
+black = "^22.1.0"
+pre-commit = "^2.17.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 110
+extend-exclude = "src/db/migrations"
+target-version = ["py39"]
+
+[tool.isort]
+profile = "black"
+line_length = 110
+src_paths = ["src", "tests"]
+combine_as_imports = true
+multi_line_output = 3
+use_parentheses = true

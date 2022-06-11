@@ -1,0 +1,15 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background: #333;
+    color: #fafafa;
+}
+
+#link-repo {
+    text-decoration: none;
+    cursor: pointer;
+    color: #fafafa;
+}
+
+#nav-link{
+    text-decoration: none;
+}

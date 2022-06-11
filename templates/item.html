@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Ateliware</title>
+    <link href="{{ url_for('static', path='/styles.css') }}" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <h1>O repositório: {{result.name}}</h1>
+    <h3>Nome completo: {{result.full_name}}</h3>
+    <h3>Link: <a href="{{  result.html_url }}">{{result.html_url}}</a></h3>
+    <h3>Liguagem principal: {{result.language}}</h3>
+    <br />
+
+    <h2>O autor: {{result.owner.login}}</h2>
+    <img src="{{result.owner.avatar_url}}" />
+    <h3>Link: <a href="{{  result.owner.html_url }}">{{result.owner.html_url}}</a></h3>
+</body>
+
+</html>

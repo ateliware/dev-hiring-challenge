@@ -1,0 +1,16 @@
+.venv/
+.docker/
+.pytest_cache/
+.mypy_cache/
+__pycache__/
+*.egg-info/
+.coverage
+.idea/
+.env
+
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.vscode/

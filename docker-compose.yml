@@ -1,0 +1,32 @@
+version: "3.7"
+
+
+services:
+  postgres:
+    image: postgres:13
+    volumes:
+      - db-data:/var/lib/postgresql/data/pgdata
+      - ./api/scripts/wait-for-postgres.sh:/home/wait-for-postgres.sh
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: ateliware
+      PGDATA: /var/lib/postgresql/data/pgdata
+    ports:
+      - 5432:5432
+
+  backend:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+        POSTGRES_HOST: postgres
+        POSTGRES_USER: postgres
+        POSTGRES_PASSWORD: postgres
+        POSTGRES_DB: ateliware
+        POSTGRES_PORT: 5432
+        ALLOWED_HOSTS: '["*"]'
+
+volumes:
+  db-data:
