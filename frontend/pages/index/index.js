@@ -29,7 +29,7 @@ function handleError(data) {
         }
 
     } else {
-        showNotification("error", "Ocorreu um erro ao tentar realizar a operaçãos")
+        showNotification("error", "Ocorreu um erro ao tentar realizar a operação")
     }
 
 }
@@ -146,7 +146,7 @@ $(document).ready(function () {
                 $("#excluir-repositorios-do-cache").prop("disabled", false);
                 $("#salvar-repositorios-em-cache").prop("disabled", true);
 
-                showNotification("success", "Repositórios salvos com sucesso");
+                showNotification("success", "Repositórios salvos com sucesso no Cache");
                 hideLoader();
 
             });
@@ -171,7 +171,7 @@ $(document).ready(function () {
                 // Removendo os registros da tabela
                 $("table tbody tr").remove();
 
-                showNotification("success", "Repositórios excluídos com sucesso");
+                showNotification("success", "Repositórios excluídos com sucesso do Cache");
                 hideLoader();
 
             });
