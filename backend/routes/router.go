@@ -29,7 +29,12 @@ func SetupBackEndRoutes(router *gin.Engine, port ...string) {
 		port = []string{"8080"}
 	}
 
-	go router.Run(":" + port[0])
+	go func() {
+		err := router.Run(":" + port[0])
+		if err != nil {
+			panic(err)
+		}
+	}()
 }
 
 func setupApplicationRoutes(router *gin.Engine) {

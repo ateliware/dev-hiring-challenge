@@ -17,7 +17,10 @@ func SetupFrontEndRoutes(router *gin.Engine, port ...string) {
 		port = []string{"80"}
 	}
 
-	router.Run(":" + port[0])
+	err := router.Run(":" + port[0])
+	if err != nil {
+		panic(err)
+	}
 }
 
 func setupApplicationRoutes(router *gin.Engine) {
