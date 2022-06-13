@@ -3,6 +3,14 @@
     text-align: center;
 }
 
+a {
+    text-decoration: none !important;
+}
+
+a:hover {
+    text-decoration: underline !important;
+}
+
 select {
     text-align: start !important;
     height: calc(3.5rem + 10px) !important;
@@ -33,6 +41,36 @@ option,
 
 .toast-title-icon.error::before {
     background: red;
+}
+
+th.col-actions {
+    width: 80px !important;
+}
+
+td.col-actions {
+    width: 80px !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.col-actions button {
+    border: none;
+    padding: 3px 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+}
+
+.modal-body .row div {
+    display: flex;
+    justify-content: flex-start;
+
+}
+
+.modal-body .row div b {
+    margin-right: 4px;
 }
 
 /***** Loader *****/
@@ -143,6 +181,8 @@ div.spinner {
         transform: rotate(360deg);
     }
 }
+
+/***** Mobile fixes *****/
 
 @media (max-width: 576px) {
     .col-sequencial-number,
