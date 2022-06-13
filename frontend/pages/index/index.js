@@ -285,7 +285,13 @@ function showRepositoryInfoModal(repositorio) {
                             <svg height="16" viewBox="0 0 16 16" width="16">
                                 <path fill-rule="evenodd" d="M5 3.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm0 2.122a2.25 2.25 0 10-1.5 0v.878A2.25 2.25 0 005.75 8.5h1.5v2.128a2.251 2.251 0 101.5 0V8.5h1.5a2.25 2.25 0 002.25-2.25v-.878a2.25 2.25 0 10-1.5 0v.878a.75.75 0 01-.75.75h-4.5A.75.75 0 015 6.25v-.878zm3.75 7.378a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm3-8.75a.75.75 0 100-1.5.75.75 0 000 1.5z"></path>
                             </svg> 
-                            <b>Forks </b>  ${repositorio.forks}
+                            <b>Forks </b> ${repositorio.forks}
+                        </div>
+                        <div class="col-12">
+                            <svg height="16" viewBox="0 0 16 16" width="16">
+                                <path fill-rule="evenodd" d="M8.878.392a1.75 1.75 0 00-1.756 0l-5.25 3.045A1.75 1.75 0 001 4.951v6.098c0 .624.332 1.2.872 1.514l5.25 3.045a1.75 1.75 0 001.756 0l5.25-3.045c.54-.313.872-.89.872-1.514V4.951c0-.624-.332-1.2-.872-1.514L8.878.392zM7.875 1.69a.25.25 0 01.25 0l4.63 2.685L8 7.133 3.245 4.375l4.63-2.685zM2.5 5.677v5.372c0 .09.047.171.125.216l4.625 2.683V8.432L2.5 5.677zm6.25 8.271l4.625-2.683a.25.25 0 00.125-.216V5.677L8.75 8.432v5.516z"></path>
+                            </svg>
+                            <b>Tamanho do repositório </b> ${bytesToSize(repositorio.tamanho * 1024)}
                         </div>
                         <div class="col-12">
                             <svg height="16" viewBox="0 0 16 16" width="16">
@@ -314,3 +320,10 @@ function showRepositoryInfoModal(repositorio) {
     modal.show();
 
 }
+
+function bytesToSize(bytes) {
+    var sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
+    if (bytes == 0) return '0 Byte';
+    var i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)));
+    return Math.round(bytes / Math.pow(1024, i), 2) + ' ' + sizes[i];
+ }
