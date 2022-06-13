@@ -40,14 +40,15 @@ function renderTable(repositorios) {
 
         let tableRow = $("<tr/>");
         tableRow.append(`<td class="col-sequencial-number">${i + 1}</td>`);
-        tableRow.append(`<td><a title="Clique para visitar o repositório" target="_blank" href="${repositorio.owner_url + "/" + repositorio.nome}">${repositorio.nome}</a></td>`);
+        tableRow.append(`<td class="col-owner"><a title="Clique para visitar o repositório" target="_blank" href="${repositorio.owner_url + "/" + repositorio.nome}">${repositorio.nome}</a></td>`);
         tableRow.append(`
-                        <td>
+                        <td class="col-repository">
                             <span title="O owner deste repositório é ${repositorio.owner_tipo == "Organization" ? "uma organização" : "um usuário"}">${repositorio.owner_tipo == "Organization" ? "🏢" : "👤"}</span> 
                             <a href="${repositorio.owner_url}" target="_blank" title="Clique para visitar o perfil">${repositorio.owner_nome}</a>
-                        </td>`);
-        tableRow.append(`<td>${new Date(repositorio.data_criacao).toLocaleDateString()}</td>`);
-        tableRow.append(`<td>${repositorio.estrelas}</td>`);
+                        </td>
+                        `);
+        tableRow.append(`<td class="col-creation-date">${new Date(repositorio.data_criacao).toLocaleDateString()}</td>`);
+        tableRow.append(`<td class="col-stars">${repositorio.estrelas}</td>`);
         let tdDtalhes = $(`<td class="col-actions"><button>ℹ️</button></td>`);
         tableRow.append(tdDtalhes);
 
@@ -273,7 +274,7 @@ function showRepositoryInfoModal(repositorio) {
                             <svg height="16" viewBox="0 0 16 16" width="16">
                                 <path fill-rule="evenodd" d="M0 1.75A.75.75 0 01.75 1h4.253c1.227 0 2.317.59 3 1.501A3.744 3.744 0 0111.006 1h4.245a.75.75 0 01.75.75v10.5a.75.75 0 01-.75.75h-4.507a2.25 2.25 0 00-1.591.659l-.622.621a.75.75 0 01-1.06 0l-.622-.621A2.25 2.25 0 005.258 13H.75a.75.75 0 01-.75-.75V1.75zm8.755 3a2.25 2.25 0 012.25-2.25H14.5v9h-3.757c-.71 0-1.4.201-1.992.572l.004-7.322zm-1.504 7.324l.004-5.073-.002-2.253A2.25 2.25 0 005.003 2.5H1.5v9h3.757a3.75 3.75 0 011.994.574z"></path>
                             </svg>
-                            <b>Data de criação </b> ${new Date(repositorio.data_criacao).toLocaleString()}
+                            <b>Data de criação </b> ${new Date(repositorio.data_criacao).toLocaleString().substring(0, 16)}
                         </div>
                         <div class="col-12">
                             <svg height="16" viewBox="0 0 16 16" width="16">
@@ -303,7 +304,7 @@ function showRepositoryInfoModal(repositorio) {
                             <svg text="gray" height="16" viewBox="0 0 16 16" width="16">
                                 <path fill-rule="evenodd" d="M1.643 3.143L.427 1.927A.25.25 0 000 2.104V5.75c0 .138.112.25.25.25h3.646a.25.25 0 00.177-.427L2.715 4.215a6.5 6.5 0 11-1.18 4.458.75.75 0 10-1.493.154 8.001 8.001 0 101.6-5.684zM7.75 4a.75.75 0 01.75.75v2.992l2.028.812a.75.75 0 01-.557 1.392l-2.5-1A.75.75 0 017 8.25v-3.5A.75.75 0 017.75 4z"></path>
                             </svg>
-                            <b>Data do último commit </b> ${new Date(repositorio.data_ultima_atualizacao).toLocaleString()}
+                            <b>Data do último commit </b> ${new Date(repositorio.data_ultima_atualizacao).toLocaleString().substring(0, 16)}
                         </div>
                     </div>
                 </div>
