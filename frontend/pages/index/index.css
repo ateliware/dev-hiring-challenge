@@ -66,11 +66,22 @@ td.col-actions {
 .modal-body .row div {
     display: flex;
     justify-content: flex-start;
+    align-items: center;
+}
 
+.modal-body .row div svg {
+    color: #212529;
+    fill: #212529;
 }
 
 .modal-body .row div b {
     margin-right: 4px;
+    margin-left: 5px;
+}
+
+.modal-body .row .repositorio-descricao {
+    text-align: start;
+    margin-bottom: 12px;
 }
 
 /***** Loader *****/
