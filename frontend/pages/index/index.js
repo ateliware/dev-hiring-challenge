@@ -40,7 +40,7 @@ function renderTable(repositorios) {
 
         let tableRow = $("<tr/>");
         tableRow.append(`<td class="col-sequencial-number">${i + 1}</td>`);
-        tableRow.append(`<td>${repositorio.nome}</td>`);
+        tableRow.append(`<td><a title="Clique para visitar o repositório" target="_blank" href="${repositorio.owner_url + "/" + repositorio.nome}">${repositorio.nome}</a></td>`);
         tableRow.append(`
                         <td>
                             <span title="O owner deste repositório é ${repositorio.owner_tipo == "Organization" ? "uma organização" : "um usuário"}">${repositorio.owner_tipo == "Organization" ? "🏢" : "👤"}</span> 
