@@ -65,6 +65,7 @@ $(document).ready(function () {
 
     // Handle Select Languange OnChange
     $("#linguagem-programacao").on("change", function () {
+        showLoader();
 
         $("#dados-linguagem").show();
         $("table tbody tr").remove();
