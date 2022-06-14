@@ -26,18 +26,15 @@ SECRET_KEY = 'django-insecure-yw&18hbsggp0##b4jyvhp$hjkw&qk!=wsbh)82763iz_*lj7bu
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [
-    os.environ['DEV_HIRING_CHALLENGE_FRONTEND_HOST']
-]
-
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
-    ),
-    'DEFAULT_FILTER_BACKENDS': (
-        'django_filters.rest_framework.DjangoFilterBackend',
-    ),
+    )
 }
+
+ALLOWED_HOSTS = [
+    os.environ['DEV_HIRING_CHALLENGE_FRONTEND_HOST']
+]
 
 # Application definition
 
@@ -49,8 +46,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'django_filters',
-    'github',
+    'apps.github',
+    'apps.vocabulary',
+    'apps.repositories',
 ]
 
 MIDDLEWARE = [

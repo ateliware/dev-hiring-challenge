@@ -27,13 +27,23 @@ Quando terminar, faça um Pull Request neste repo e avise-nos por email.
 ## Configuring Frontend
 
 env variables to set
+
 DEV_HIRING_CHALLENGE_FRONTEND_HOST        # The frontend host
 
 ## Configuring Database
 
 env variables to set
+
 DEV_HIRING_CHALLENGE_DB_NAME              # The database name
+
 DEV_HIRING_CHALLENGE_DB_USERNAME          # The database username to login on databse
+
 DEV_HIRING_CHALLENGE_DB_PASSWORD          # The password to login on database
+
 DEV_HIRING_CHALLENGE_DB_HOST              # The database host
+
 DEV_HIRING_CHALLENGE_DB_PORT              # The database port
+
+DEV_HIRING_CHALLENGE_GITHUB_USERNAME      # The github username to call the api
+
+DEV_HIRING_CHALLENGE_GITHUB_TOKEN         # The github token to call the api
