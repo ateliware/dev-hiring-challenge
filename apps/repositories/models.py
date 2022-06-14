@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.db import models
 
 class Repositorie(models.Model):
@@ -5,7 +6,7 @@ class Repositorie(models.Model):
     html_url = models.CharField(max_length=100)
     description = models.CharField(max_length=255)
     created_at = models.CharField(max_length=100)
-    creator = models.ForeignKey('auth.User', related_name='repositories', on_delete=models.CASCADE)
+    users = models.ManyToManyField(User, related_name="repositories")
 
-    class Meta:
-        ordering = ['-created_at']
+    def __str__(self):
+        return self.html_url

@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'apps.github',
     'apps.vocabulary',
     'apps.repositories',
+    'apps.authentication',
 ]
 
 MIDDLEWARE = [
