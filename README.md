@@ -85,3 +85,19 @@ Se você tiver o GO e o PostgreSQL insalado na sua maquina você pode executar m
 ```bash
 $ go run main.go
 ```
+
+
+## Screenshots
+Veja abaixo algumas screenshots do projeto:
+### ⁃⁃⁃⁃⁃⁃⁃⁃⁃
+![image](https://user-images.githubusercontent.com/32434418/173470350-10621e49-1a93-476a-a674-646553a984ff.png)
+### ⁃⁃⁃⁃⁃⁃⁃⁃⁃
+![image](https://user-images.githubusercontent.com/32434418/173470366-0eecac31-b2ce-4e62-bffe-7b48f81e9b42.png)
+### ⁃⁃⁃⁃⁃⁃⁃⁃⁃
+![image](https://user-images.githubusercontent.com/32434418/173470396-8e4915a7-cdc3-40b2-b6d1-29d81e5c4396.png)
+### ⁃⁃⁃⁃⁃⁃⁃⁃⁃
+![image](https://user-images.githubusercontent.com/32434418/173470414-fa7e799c-6427-4afa-8eca-fb78bd3972e9.png)
+### ⁃⁃⁃⁃⁃⁃⁃⁃⁃
+![image](https://user-images.githubusercontent.com/32434418/173469985-ecb0f5c6-f652-422e-b0f2-7c61b3f4b56a.png)
+![image](https://user-images.githubusercontent.com/32434418/173470045-95ed2d0f-6397-44bd-ae91-54d278cfac2b.png)
+
