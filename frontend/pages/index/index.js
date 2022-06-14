@@ -61,6 +61,20 @@ function renderTable(repositorios) {
     });
 }
 
+function renderNoResultsMessage() {
+    $("table tbody tr").remove();
+    let tableRow = $("<tr/>");
+    tableRow.append(`
+    <td colspan="5" style="padding-top: 40px !important; padding-bottom: 40px !important">
+        <span>Nenhum repositório disponível no Cache (DB)!</span>
+        <br>
+        <span>Para procurar repositórios atualizados em tempo real clique no botão:</span>
+        <br>
+        <button id="buscar-repositorios-github-table" type="button" class="btn btn-success" title="Clique para buscar no GitHub a lista atualizada dos TOP repositórios da sua linguagem de programação favorita" onclick="$('#buscar-repositorios-github').trigger('click')">🐙 Buscar dados no GitHub</button>
+    </td>`);
+    $("table tbody").append(tableRow);
+}
+
 $(document).ready(function () {
 
     // Handle Select Languange OnChange
@@ -78,15 +92,16 @@ $(document).ready(function () {
         })
             .fail(handleError)
             .done(function (result) {
-                renderTable(result);
-
+                
                 // Se já tiver algum repositório cadastrado no cache do banco de dados então habilitamos o botão de excluir e deixamos o de salvar desabilitado
                 // Se não tiver nenhum repositório cadastrado no cache do banco de dados então deixamos tanto o botão de excluir quanto de salvar desabilitados
                 if (result.length > 0) {
+                    renderTable(result);
                     $("#excluir-repositorios-do-cache").prop("disabled", false);
                     $("#salvar-repositorios-em-cache").prop("disabled", true);
                     showNotification("success", "Repositórios buscados com sucesso no Cache")
                 } else {
+                    renderNoResultsMessage();
                     $("#excluir-repositorios-do-cache").prop("disabled", true);
                     $("#salvar-repositorios-em-cache").prop("disabled", true);
                 }
@@ -182,6 +197,7 @@ $(document).ready(function () {
                 $("table tbody tr").remove();
 
                 showNotification("success", "Repositórios excluídos com sucesso do Cache");
+                renderNoResultsMessage();
                 hideLoader();
 
             });
