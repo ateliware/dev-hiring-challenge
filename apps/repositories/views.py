@@ -1,9 +1,9 @@
 from apps.repositories.models import Repositorie
+from apps.vocabulary.messages import could_not_perform_repo_creation
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 from .serializers import RepositorieSerializer
-from vocabulary.messages import couldNotPerformRepoCreation
 
 @api_view(['GET', 'POST'])
 @permission_classes([IsAuthenticated])
@@ -35,6 +35,6 @@ def get_handler(request):
     return Response(serializer.data)
 
 def error_handler():
-    response = Response({'message': couldNotPerformRepoCreation})
+    response = Response({'message': could_not_perform_repo_creation})
     response.status_code = 502
     return response

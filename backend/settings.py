@@ -33,7 +33,7 @@ REST_FRAMEWORK = {
 }
 
 ALLOWED_HOSTS = [
-    os.environ['DEV_HIRING_CHALLENGE_FRONTEND_HOST']
+    os.environ['DEV_HIRING_CHALLENGE_FRONTEND_HOST'].split(', ')
 ]
 
 # Application definition
