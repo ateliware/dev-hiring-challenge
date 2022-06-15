@@ -1,4 +1,4 @@
 
-githubNotWorking = "github is not responding or not configured"
+github_not_working = "github is not responding or not configured"
 
-couldNotPerformRepoCreation = "couldn't perform repositorie creation"
+could_not_perform_repo_creation = "couldn't perform repositorie creation"

@@ -10,14 +10,14 @@ from vocabulary.messages import couldNotPerformRepoCreation
 def repositories(request):
     try:
         if request.method == 'POST':
-            return postHandler(request)
+            return post_handler(request)
 
         if request.method == 'GET':
-            return getHandler(request)
+            return get_handler(request)
     except:
-        return errorHandler()
+        return error_handler()
 
-def postHandler(request):
+def post_handler(request):
     defaults = request.data.copy()
     del defaults['id']
 
@@ -29,12 +29,12 @@ def postHandler(request):
     repositorie.users.add(request.user.id)
     return Response(RepositorieSerializer(repositorie).data)
 
-def getHandler(request):
+def get_handler(request):
     repositories = request.user.repositories
     serializer = RepositorieSerializer(repositories, many=True)
     return Response(serializer.data)
 
-def errorHandler():
+def error_handler():
     response = Response({'message': couldNotPerformRepoCreation})
     response.status_code = 502
     return response
