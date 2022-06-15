@@ -28,6 +28,8 @@ Quando terminar, faça um Pull Request neste repo e avise-nos por email.
 
 env variables to set
 
+DEV_HIRING_CHALLENGE_ALLOWED_HOST         # List of allowed hosts
+
 DEV_HIRING_CHALLENGE_FRONTEND_HOST        # The frontend host
 
 ## Configuring Database
