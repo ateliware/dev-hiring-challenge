@@ -1,4 +1,8 @@
 export interface Repositorie {
-  html_url: string
+  id: number;
+  full_name: string;
+  html_url: string;
+  description: string;
+  created_at: string; 
 }
 

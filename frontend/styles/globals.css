@@ -55,6 +55,22 @@ body {
   border-color: #a0a0a0;
 }
 
+.border-inset {
+  border-style: inset;
+}
+
+.border-b-solid {
+  border-bottom-style: solid;
+}
+
+.border-b-white {
+  border-bottom-color: #FFF;
+}
+
+.mb-2px {
+  margin-bottom: 2px;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
