@@ -1,5 +1,6 @@
 import React from "react"
-import { Repositorie } from "../repositorie"
+import { Paginator } from "../paginator";
+import { RemoteDataState, Repositorie, Repositories } from "../shared"
 
 export enum Language {
   PYTHON=0,
@@ -20,61 +21,54 @@ export interface GithubRepositoriesResponse {
   total_count: number;
 }
 
-export interface Paginator {
-  totalCount: number;
-  numPages: number;
-  page: number;
-}
-
 interface GithubRepositoriesHook {
-  repositories: Repositorie[];
+  repositories: Repositories;
   searchParams: GithubRepositoriesParams;
-  searchRepositories: (paginator: Paginator) => void;
+  searchRepositories: (paginator: Paginator) => Promise<GithubRepositoriesResponse>;
   setSearchParams: React.Dispatch<React.SetStateAction<GithubRepositoriesParams>>;
-  isLoading: boolean;
-  updatePage: (pageTo: number) => void;
-  paginator: Paginator;
 }
-
-export const requestGithubRepositories = (params: GithubRepositoriesParams, paginator: Paginator): Promise<GithubRepositoriesResponse> => (
-  console.log('OIOI', paginator.page),
-  fetch(`${process.env.NEXT_PUBLIC_BACKEND_API}/api/v1/github/repositories/?label=${params.label}&language=${languageToLabel(params.language)}&page=${paginator.page}`)
-    .then((res): Promise<GithubRepositoriesResponse> => res.json())
-)
 
 export const useGithubRepositories = (initialSearchParams: GithubRepositoriesParams): GithubRepositoriesHook => {
-  const [ repositories, setRepositories ] = React.useState<Repositorie[]>([]);
-  const [ searchParams, setSearchParams ] = React.useState<GithubRepositoriesParams>(initialSearchParams);
-  const [ isLoading, setLoading ] = React.useState<boolean>(false);
-  const [ paginator, setPaginator ] = React.useState<Paginator>({
-    page: 1,
-    numPages: 0,
-    totalCount: 0
+  const [ repositories, setRepositories ] = React.useState<Repositories>({
+    state: RemoteDataState.WAITING,
+    items: []
   });
+  const [ searchParams, setSearchParams ] = React.useState<GithubRepositoriesParams>(initialSearchParams);
 
-  const searchRepositories = (paginator: Paginator) => {
-    setLoading(true);
-    requestGithubRepositories(searchParams, paginator)
-      .then((repos) => {
-        setRepositories(repos.items);
-        setPaginator({
-          page: paginator.page,
-          numPages: calcNumPages(repos.total_count),
-          totalCount: repos.total_count,
-        });
-        setLoading(false);
-      });
-  }
-
-  const updatePage = (page: number): void => {
-    setPaginator({
-      ...paginator,
-      page,
+  const setState = (state: RemoteDataState) => {
+    setRepositories({
+      ...repositories,
+      state
     });
   }
 
-  return { repositories, searchParams, searchRepositories, setSearchParams, isLoading, updatePage, paginator }
+  const searchRepositories = async (paginator: Paginator): Promise<GithubRepositoriesResponse> => {
+    setState(RemoteDataState.LOADING);
+    const repos = await requestGithubRepositories(searchParams, paginator)
+    setRepositories({
+      state: RemoteDataState.LOADED,
+      items: repos.items,
+    });
+    return repos;
+  }
+
+  return {
+    repositories,
+    searchParams,
+    searchRepositories,
+    setSearchParams,
+  }
 }
+
+export const selectors = {
+  isLoading: (state: GithubRepositoriesHook): boolean => (
+    state.repositories.state === RemoteDataState.LOADING
+  ),
+
+  isWaiting: (state: GithubRepositoriesHook): boolean => (
+    state.repositories.state === RemoteDataState.WAITING
+  ),
+};
 
 export const stringToLanguage = (value: string): Language => {
   const lang = ({
@@ -98,7 +92,8 @@ export const languageToLabel = (lang: Language): string => {
   })[lang];
 }
 
-const calcNumPages = (totalItems: number): number => (
-  Math.ceil(totalItems / 5)
+const requestGithubRepositories = (params: GithubRepositoriesParams, paginator: Paginator): Promise<GithubRepositoriesResponse> => (
+  fetch(`${process.env.NEXT_PUBLIC_BACKEND_API}/api/v1/github/repositories/?label=${params.label}&language=${languageToLabel(params.language)}&page=${paginator.page}`)
+    .then((res): Promise<GithubRepositoriesResponse> => res.json())
 )
 

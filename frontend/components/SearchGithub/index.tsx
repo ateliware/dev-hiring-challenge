@@ -1,30 +1,40 @@
-import { useEffect, useState } from "react";
-import { Language, languageToLabel, stringToLanguage, useGithubRepositories } from "../../libs/github";
-import { Repositorie } from "../../libs/repositorie";
+import { useCallback, useEffect, useState } from "react";
+import { Language, languageToLabel, selectors, stringToLanguage, useGithubRepositories } from "../../libs/github";
+import { usePaginator } from "../../libs/paginator";
+import { Repositorie } from "../../libs/shared";
+import { Loading } from "../Loading";
 
 const MAX_REPOSITORIES_TO_SHOW = 10
 
 export const SearchGithub = (): JSX.Element => {
-  const { repositories, paginator, updatePage, searchParams, searchRepositories, setSearchParams, isLoading } = useGithubRepositories({
+  const { paginator, updatePage, updatePaginator } = usePaginator();
+  const [ lastPaginator, setLastPaginator ] = useState<number>(paginator.page);
+  const githubRepos = useGithubRepositories({
     label: "",
     language: Language.PYTHON,
   });
-  const [ lastPaginator, setLastPaginator ] = useState<number>(paginator.page);
 
   const updateTerm = (label: string) => {
-    setSearchParams({ ...searchParams, label });
+    githubRepos.setSearchParams({ ...githubRepos.searchParams, label });
   }
 
   const updateLanguage = (language: Language) => {
-    setSearchParams({ ...searchParams, language });
+    githubRepos.setSearchParams({ ...githubRepos.searchParams, language });
   }
 
+  const searchRepositories = useCallback((): void => {
+    githubRepos.searchRepositories(paginator)
+      .then((repos) => {
+        updatePaginator({ totalCount: repos.total_count });
+        setLastPaginator(paginator.page);
+      });
+  }, [ paginator, setLastPaginator, updatePaginator, githubRepos ]);
+
   useEffect(() => {
-    if (repositories.length > 0 && lastPaginator !== paginator.page) {
-      searchRepositories(paginator);
-      setLastPaginator(paginator.page);
+    if (!selectors.isWaiting(githubRepos)) {
+      searchRepositories();
     }
-  }, [ paginator, lastPaginator, repositories, searchRepositories, setLastPaginator ]);
+  }, [ paginator, lastPaginator, searchRepositories, githubRepos ]);
 
  return (
     <>
@@ -55,7 +65,7 @@ export const SearchGithub = (): JSX.Element => {
               ))
           }
         </select>
-        <div className="btn btn-primary h-fit p-1 w-2/12 text-center ml-2" onClick={() => searchRepositories(paginator)}>
+        <div className="btn btn-primary h-fit p-1 w-2/12 text-center ml-2" onClick={() => searchRepositories()}>
           Pesquisar
         </div>
       </div>
@@ -72,7 +82,7 @@ export const SearchGithub = (): JSX.Element => {
           </thead>
           <tbody>
             {
-              repositories.map((repositorie: Repositorie) => (
+              githubRepos.repositories.items.map((repositorie: Repositorie) => (
                 <tr key={repositorie.id}>
                   <td className="p-1 bg-slate-100 align-top">{wrapText(repositorie.full_name, 120)}</td>
                   <td className="p-1 bg-slate-100 align-top">{wrapText(repositorie.description, 120)}</td>
@@ -91,9 +101,7 @@ export const SearchGithub = (): JSX.Element => {
             })
           }
         </ul>
-        <div className={`${isLoading ? "block" : "hidden"} absolute w-full h-full bg-neutral-600 flex top-0 left-0`}>
-          <div>Loading...</div>
-        </div>
+        <Loading isLoading={selectors.isLoading(githubRepos)} />
       </div>
     </>
   )
