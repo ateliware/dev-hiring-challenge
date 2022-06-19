@@ -1,13 +1,10 @@
+import { Dispatch, SetStateAction } from "react";
+
 export type ApiResponse<T> = RemoteDataError | RemoteDataLoading | RemoteDataWaiting | RemoteDataLoaded<T>;
 
 export enum TypeUser {
   PROFILE="profile",
   ANONYMOUS="anonymous"
-}
-
-export enum TypeResponse {
-  SUCCESS="success",
-  ERROR="error",
 }
 
 export enum RemoteDataState {
@@ -25,15 +22,8 @@ export interface Repositorie {
   created_at: string; 
 }
 
-export interface Repositories {
-  state: RemoteDataState;
-  items: Repositorie[];
-  detail?: string;
-}
-
 export interface User {
   username: string;
-  repositories: Repositories;
 }
 
 export interface RemoteDataLoading {
@@ -60,23 +50,52 @@ export interface RemoteDataError {
   detail: FeedbackMessage;
 }
 
-export const createPostParams = <T>(body: T): RequestInit => {
-  const headers = new Headers({
-    "Content-Type": "application/json"
+export const setLoading = <T>(dispatch: Dispatch<SetStateAction<ApiResponse<T>>>) => (): void => {
+  dispatch({
+    state: RemoteDataState.LOADING
   });
-
-  return {
-    headers,
-    method: "POST",
-    body: JSON.stringify(body)
-  }
 }
 
-export const verifyResponse = <T>(response: Response): Promise<ApiResponse<T>> => (
-  okStatusCodes.some(status => response.status === status)
-    ? response.json().then((data: T) => ({ data, state: RemoteDataState.LOADED, type: TypeResponse.SUCCESS }))
-    : response.json().then((detail: FeedbackMessage) => ({ detail, state: RemoteDataState.ERROR, type: TypeResponse.ERROR }))
+export const setLoaded = <T>(dispatch: Dispatch<SetStateAction<ApiResponse<T>>>) => (data: T, detail: string): void => {
+  dispatch({
+    state: RemoteDataState.LOADED,
+    data,
+    detail: { success: detail }
+  });
+}
+
+export const setWaiting = <T>(dispatch: Dispatch<SetStateAction<ApiResponse<T>>>) => (detail: string): void => {
+  dispatch({
+    state: RemoteDataState.WAITING,
+    detail: { success: detail }
+  });
+}
+
+export const setAsError = <T>(dispatch: Dispatch<SetStateAction<ApiResponse<T>>>) => (detail: FeedbackMessage): void => {
+  dispatch({
+    state: RemoteDataState.ERROR,
+    detail
+  });
+}
+
+export const isApiLoading = <T>(data?: ApiResponse<T>): boolean => (
+  !!data
+    && data.state === RemoteDataState.LOADING
 )
 
-const okStatusCodes = [200, 201, 202]
+export const isApiWaiting = <T>(data?: ApiResponse<T>): boolean => (
+  !!data
+    && data.state === RemoteDataState.WAITING
+)
 
+export const isApiLoaded = <T>(data?: ApiResponse<T>): boolean => (
+  !!data
+    && data.state === RemoteDataState.LOADED
+)
+
+export const getApiFeedback = <T>(data?: ApiResponse<T>): FeedbackMessage | undefined => (
+  !!data
+    && (data.state === RemoteDataState.WAITING || data.state == RemoteDataState.ERROR || data.state === RemoteDataState.LOADED)
+    && data.detail
+    || undefined
+)

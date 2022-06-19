@@ -1,6 +1,4 @@
 import type { NextPage } from "next";
-import { useRouter } from "next/router";
-import { useEffect } from "react";
 import { Container, Position, Size } from "../components/Container";
 import { FavoriteDashboard } from "../components/FavoritesDashboard";
 import { SearchGithub } from "../components/SearchGithub";
@@ -11,7 +9,7 @@ const Home: NextPage = () => {
     <Container
       position={Position.STATIC}
       size={Size.MEDIUM}
-      title="Search Repositories"
+      title="Repositories Dashboard"
     >
       <Tabs
         tabsLabel={['Search repositories', 'My favorites']}

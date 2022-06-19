@@ -1,8 +1,9 @@
 import { useRouter } from "next/router";
 import { Dispatch, SetStateAction, useContext, useEffect, useState } from "react";
-import { selectors, UserHook, UserPayload, UserRegisterPayload } from "../../libs/users";
+import { selectors, UserPayload, UserRegisterPayload } from "../../libs/users";
 import { DataContext } from "../AppProvider";
 import { Container, Position, Size } from "../Container";
+import { Feedback } from "../Feedback";
 import { Loading } from "../Loading";
 
 export const RegisterContainer = (): JSX.Element => {
@@ -29,7 +30,10 @@ export const RegisterContainer = (): JSX.Element => {
       title="Register"
     >
       <div className="text-center">
-        <Feedback state={auth} />
+        <Feedback
+          isPositiveMessage={selectors.isWaiting(auth) || selectors.isLoggedIn(auth)}
+          message={selectors.getFeedback(auth)}
+        />
       </div>
       <div className="flex p-5">
         <div className="flex flex-col w-2/4 pr-4">
@@ -107,40 +111,6 @@ export const RegisterContainer = (): JSX.Element => {
       </div>
       <Loading isLoading={selectors.isLoading(auth)} />
     </Container>
-  )
-}
-
-interface FeedbackProps {
-  state?: UserHook;
-}
-const Feedback = (props: FeedbackProps): JSX.Element => {
-  const feedback = selectors.getFeedback(props.state);
-
-  if (!feedback) {
-    return <></>;
-  }
-
-  return (
-    <ul>
-      {
-        Object.keys(feedback).flatMap((key, index) => {
-          const feedbackMessages: string | string[] = feedback[key];
-          if (Array.isArray(feedbackMessages)) {
-            return feedbackMessages.map((message, innerIndex) => (
-              <li key={`${index}-${innerIndex}`} className="text-red-600">{key}: {message}</li>
-            ));
-          } else {
-            return (
-              <li>
-                {selectors.isWaiting(props.state) || selectors.isLoggedIn(props.state)
-                  ? <span className="text-green-600">{feedback[key]}</span>
-                  : <span className="text-red-600">{feedback[key]}</span>}
-              </li>
-            );
-          }
-        })
-      }
-    </ul>
   )
 }
 

@@ -1,5 +1,6 @@
-import { useState } from "react"
-import { ApiResponse, createPostParams, FeedbackMessage, RemoteDataState, User, verifyResponse } from "../shared";
+import { Dispatch, SetStateAction, useCallback, useEffect, useState } from "react"
+import { ApiResponse, FeedbackMessage, getApiFeedback, isApiLoaded, isApiLoading, isApiWaiting, RemoteDataState, setAsError, setLoaded, setLoading, setWaiting, User } from "../shared";
+import { post } from "../shared/api";
 
 export interface UserPayload {
   username: string;
@@ -22,56 +23,31 @@ export type Token = AccessToken & RefreshToken;
 
 export interface UserHook {
   user: ApiResponse<User>;
+  token: Token;
   login: (payload: UserPayload) => Promise<void>;
   signup: (payload: UserRegisterPayload) => Promise<void>;
-  refresh: () => Promise<void>;
+  refresh: () => Promise<AccessToken>;
 }
-
 
 export const useUser = (): UserHook => {
   const [ user, setUser ] = useState<ApiResponse<User>>(initialUser);
   const [ token, setToken ] = useState<Token>(initialToken);
+  const [ hasTryToLoadUserToken, setHasTryToLoadUserToken ] = useState<boolean>(false);
 
-  const setUserLoading = (): void => {
-    setUser({
-      state: RemoteDataState.LOADING
-    });
-  }
-
-  const setUserLoaded = (data: User, detail: string): void => {
-    setUser({
-      state: RemoteDataState.LOADED,
-      data,
-      detail: { success: detail }
-    });
-  }
-
-  const setUserWaiting = (detail: string): void => {
-    setUser({
-      state: RemoteDataState.WAITING,
-      detail: { success: detail }
-    });
-  }
-
-  const setUserAsError = (detail: FeedbackMessage): void => {
-    setUser({
-      state: RemoteDataState.ERROR,
-      detail
-    });
-  }
-
-  const updateToken = (token: Token): void => {
-    localStorage.setItem('token', JSON.stringify(token));
-    setToken(token);
-  }
+  const setUserLoading = setLoading(setUser);
+  const setUserLoaded = setLoaded(setUser);
+  const setUserAsError = setAsError(setUser);
+  const setUserWaiting = setWaiting(setUser);
+  const updateToken = updateTokenAction(setToken);
+  const loadToken = loadTokenAction(setToken, setUserLoaded);
 
   const login = async (body: UserPayload): Promise<void> => {
     setUserLoading();
     const tokenResponse = await requestLogin(body);
     switch(tokenResponse.state) {
       case(RemoteDataState.LOADED):
-        updateToken(tokenResponse.data);
-        setUserLoaded(ofUser(body.username), "User loaded. We are redirecting you");
+        updateToken(tokenResponse.data, body.username);
+        setUserLoaded({ username: body.username }, LOGIN_MESSAGE);
         break;
       case(RemoteDataState.ERROR):
         updateToken(initialToken);
@@ -86,7 +62,7 @@ export const useUser = (): UserHook => {
     switch(profileResponse.state) {
       case(RemoteDataState.LOADED):
         updateToken(initialToken);
-        setUserWaiting('User signup with success!');
+        setUserWaiting(SIGNUP_MESSAGE);
         break;
       case(RemoteDataState.ERROR):
         updateToken(initialToken);
@@ -95,83 +71,71 @@ export const useUser = (): UserHook => {
     }
   }
 
-  const refresh = async (): Promise<void> => {
+  const refresh = useCallback(async (): Promise<AccessToken> => {
     setUserLoading();
     const tokenResponse = await requestRefresh({ refresh: token.refresh });
     switch(tokenResponse.state) {
       case(RemoteDataState.LOADED):
-        updateToken({ ...token, access: tokenResponse.data.access });
-        break;
+        const nextToken = { ...token, access: tokenResponse.data.access };
+        updateToken(nextToken);
+        const username = user.state !== RemoteDataState.LOADED ? 'NO_NAME?!?' : user.data.username;
+        setUserLoaded({ username }, LOGIN_MESSAGE);
+        return nextToken;
       case(RemoteDataState.ERROR):
         updateToken(initialToken);
         setUserAsError(tokenResponse.detail);
         break;
     }
-  }
+    return initialToken;
+  }, [ setUserLoading, token, updateToken, setUserAsError, user, setUserLoaded ]);
 
-  const userHook = { user, login, signup, refresh };
-
-  return userHook;
+  useEffect(() => {
+    if (!hasTryToLoadUserToken) {
+      setHasTryToLoadUserToken(true);
+      loadToken();
+    } else if (user.state === RemoteDataState.WAITING && token.refresh && token.refresh !== '') {
+      refresh();
+    }
+  }, [ hasTryToLoadUserToken, token, loadToken, refresh, user.state ]);
+  
+  return { user, login, signup, refresh, token };
 }
 
 export const selectors = {
-  isLoading: (state?: UserHook): boolean => (
-    !!state
-      && state.user.state === RemoteDataState.LOADING
-  ),
-  isWaiting: (state?: UserHook): boolean => (
-    !!state
-      && state.user.state === RemoteDataState.WAITING
-  ),
-  isLoggedIn: (state?: UserHook): boolean => (
-    !!state
-      && state.user.state === RemoteDataState.LOADED
-  ),
-  getFeedback: (state?: UserHook): FeedbackMessage | null => (
-    !!state
-      && (state.user.state === RemoteDataState.WAITING || state?.user.state == RemoteDataState.ERROR || state?.user.state === RemoteDataState.LOADED)
-      && state?.user?.detail
-      || null
-  )
+  isLoading: (state?: UserHook): boolean => isApiLoading(state?.user),
+  isWaiting: (state?: UserHook): boolean => isApiWaiting(state?.user),
+  isLoggedIn: (state?: UserHook): boolean => isApiLoaded(state?.user),
+  getFeedback: (state?: UserHook): FeedbackMessage | undefined => getApiFeedback(state?.user),
 }
 
-const initialUser: ApiResponse<User> = {
+export const initialUser: ApiResponse<User> = {
   state: RemoteDataState.WAITING,
 }
 
-const initialToken: Token = {
+export const initialToken: Token = {
   access: '',
   refresh: '',
 }
 
-const requestLogin = (body: UserPayload): Promise<ApiResponse<Token>> => (
-  fetch(
-    `${process.env.NEXT_PUBLIC_BACKEND_API}/api/v1/auth/token/`,
-    createPostParams(body)
-  )
-    .then((res): Promise<ApiResponse<Token>> => verifyResponse<Token>(res))
-)
+const requestLogin = post<Token, UserPayload>("/api/v1/auth/token/")
+const requestSignup = post<User, UserRegisterPayload>("/api/v1/auth/register/")
+const requestRefresh = post<AccessToken, RefreshToken>("/api/v1/auth/token/refresh/")
 
-const requestSignup = (body: UserRegisterPayload): Promise<ApiResponse<User>> => (
-  fetch(
-    `${process.env.NEXT_PUBLIC_BACKEND_API}/api/v1/auth/register/`,
-    createPostParams(body)
-  )
-    .then((res): Promise<ApiResponse<User>> => verifyResponse<User>(res))
-)
+const updateTokenAction = (dispatch: Dispatch<SetStateAction<Token>>) => (token: Token, username?: string): void => {
+  localStorage.setItem('token', JSON.stringify({ ...token, username }));
+  dispatch(token);
+}
 
-const requestRefresh = (body: RefreshToken): Promise<ApiResponse<AccessToken>> => (
-  fetch(
-    `${process.env.NEXT_PUBLIC_BACKEND_API}/api/v1/auth/refresh/`,
-    createPostParams(body)
-  )
-    .then((res): Promise<ApiResponse<AccessToken>> => verifyResponse<AccessToken>(res))
-)
+const loadTokenAction = (dispatch: Dispatch<SetStateAction<Token>>, dispatchUser: (data: User, detail: string) => void) => (): void => {
+  try {
+    const token = JSON.parse(localStorage.getItem('token') || '');
+    if (token.username) {
+      dispatchUser({ username: token.username }, "User loaded. We are redirecting you");
+    }
+    dispatch(token);
+  } catch(err) {}
+}
 
-const ofUser = (username: string): User => ({
-  username,
-  repositories: {
-    state: RemoteDataState.WAITING,
-    items: [],
-  }
-});
+const LOGIN_MESSAGE = "User loaded. We are redirecting you";
+
+const SIGNUP_MESSAGE = "User signup with success!";

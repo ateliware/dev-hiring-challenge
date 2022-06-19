@@ -11,14 +11,14 @@ export const Tabs = (props: Tabs): JSX.Element => {
 
   useEffect(() => {
     const fromUrl = Number(router.query.panel) - 1;
-    if (router.query.panel && fromUrl !== currentTab) {
+    if (router.query.panel) {
+      router.query.panel = undefined;
       setTab(fromUrl)
     }
   }, [router, currentTab]);
 
 
   const jumpToTab = (index: number) => () => {
-    router.query.panel = index.toString();
     setTab(index);
   }
 
