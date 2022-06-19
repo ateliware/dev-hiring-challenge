@@ -1,5 +1,7 @@
 import React from "react"
-import { Repositorie } from "../repositorie"
+import { Paginator } from "../paginator";
+import { ApiResponse, FeedbackMessage, getApiFeedback, isApiLoaded, isApiLoading, isApiWaiting, RemoteDataState, Repositorie, setAsError, setLoaded, setLoading } from "../shared"
+import { get } from "../shared/api";
 
 export enum Language {
   PYTHON=0,
@@ -20,61 +22,58 @@ export interface GithubRepositoriesResponse {
   total_count: number;
 }
 
-export interface Paginator {
-  totalCount: number;
-  numPages: number;
-  page: number;
-}
-
 interface GithubRepositoriesHook {
-  repositories: Repositorie[];
+  repositories: ApiResponse<Repositorie[]>;
   searchParams: GithubRepositoriesParams;
-  searchRepositories: (paginator: Paginator) => void;
+  searchRepositories: (paginator: Paginator, updatePaginator: (nextPaginator: Partial<Paginator>) => void) => Promise<void>;
   setSearchParams: React.Dispatch<React.SetStateAction<GithubRepositoriesParams>>;
-  isLoading: boolean;
-  updatePage: (pageTo: number) => void;
-  paginator: Paginator;
 }
-
-export const requestGithubRepositories = (params: GithubRepositoriesParams, paginator: Paginator): Promise<GithubRepositoriesResponse> => (
-  console.log('OIOI', paginator.page),
-  fetch(`${process.env.NEXT_PUBLIC_BACKEND_API}/api/v1/github/repositories/?label=${params.label}&language=${languageToLabel(params.language)}&page=${paginator.page}`)
-    .then((res): Promise<GithubRepositoriesResponse> => res.json())
-)
 
 export const useGithubRepositories = (initialSearchParams: GithubRepositoriesParams): GithubRepositoriesHook => {
-  const [ repositories, setRepositories ] = React.useState<Repositorie[]>([]);
+  const [ repositories, setRepositories ] = React.useState<ApiResponse<Repositorie[]>>(initialRepositories);
   const [ searchParams, setSearchParams ] = React.useState<GithubRepositoriesParams>(initialSearchParams);
-  const [ isLoading, setLoading ] = React.useState<boolean>(false);
-  const [ paginator, setPaginator ] = React.useState<Paginator>({
-    page: 1,
-    numPages: 0,
-    totalCount: 0
-  });
 
-  const searchRepositories = (paginator: Paginator) => {
-    setLoading(true);
-    requestGithubRepositories(searchParams, paginator)
-      .then((repos) => {
-        setRepositories(repos.items);
-        setPaginator({
-          page: paginator.page,
-          numPages: calcNumPages(repos.total_count),
-          totalCount: repos.total_count,
-        });
-        setLoading(false);
-      });
-  }
+  const setReposLoading = setLoading(setRepositories);
+  const setReposLoaded = setLoaded(setRepositories);
+  const setReposAsError = setAsError(setRepositories);
 
-  const updatePage = (page: number): void => {
-    setPaginator({
-      ...paginator,
-      page,
+  const searchRepositories = async (
+    paginator: Paginator,
+    updatePaginator: (nextPaginator: Partial<Paginator>) => void
+  ): Promise<void> => {
+    setReposLoading();
+    const reposResponse = await requestGithubRepositories({
+      ...searchParams,
+      language: languageToLabel(searchParams.language).toLowerCase(),
+      page: paginator.page.toString()
     });
+    switch(reposResponse.state) {
+      case(RemoteDataState.LOADED):
+        setReposLoaded(reposResponse.data.items, "Repositories loaded.");
+        updatePaginator({
+          totalCount: reposResponse.data.total_count
+        });
+        break;
+      case(RemoteDataState.ERROR):
+        setReposAsError(reposResponse.detail);
+        break;
+    }
   }
 
-  return { repositories, searchParams, searchRepositories, setSearchParams, isLoading, updatePage, paginator }
+  return {
+    repositories,
+    searchParams,
+    searchRepositories,
+    setSearchParams,
+  }
 }
+
+export const selectors = {
+  isLoading: (state?: GithubRepositoriesHook): boolean => isApiLoading(state?.repositories),
+  isWaiting: (state?: GithubRepositoriesHook): boolean => isApiWaiting(state?.repositories),
+  isLoaded: (state?: GithubRepositoriesHook): boolean => isApiLoaded(state?.repositories),
+  getFeedback: (state?: GithubRepositoriesHook): FeedbackMessage | null => getApiFeedback(state?.repositories),
+};
 
 export const stringToLanguage = (value: string): Language => {
   const lang = ({
@@ -98,7 +97,8 @@ export const languageToLabel = (lang: Language): string => {
   })[lang];
 }
 
-const calcNumPages = (totalItems: number): number => (
-  Math.ceil(totalItems / 5)
-)
+const requestGithubRepositories = get<GithubRepositoriesResponse>("/api/v1/github/repositories/");
 
+const initialRepositories: ApiResponse<Repositorie[]> = {
+  state: RemoteDataState.WAITING,
+}

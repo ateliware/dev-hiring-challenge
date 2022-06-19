@@ -1,4 +1,5 @@
-import { ReactNode, useState } from "react";
+import { useRouter } from "next/router";
+import { ReactNode, useEffect, useState } from "react";
 
 export interface Tabs {
   tabsLabel: string[];
@@ -6,8 +7,20 @@ export interface Tabs {
 }
 export const Tabs = (props: Tabs): JSX.Element => {
   const [ currentTab, setTab ] = useState<number>(0);
+  const router = useRouter();
 
-  const jumpToTab = (index: number) => () => setTab(index);
+  useEffect(() => {
+    const fromUrl = Number(router.query.panel) - 1;
+    if (router.query.panel) {
+      router.query.panel = undefined;
+      setTab(fromUrl)
+    }
+  }, [router, currentTab]);
+
+
+  const jumpToTab = (index: number) => () => {
+    setTab(index);
+  }
 
   return (
     <>
