@@ -5,7 +5,7 @@ from .models import Repositorie
 class RepositorieSerializer(serializers.ModelSerializer):
     class Meta:
         model = Repositorie
-        fields = ('id', 'fullname', 'html_url', 'description', 'created_at', 'users')
+        fields = ('id', 'full_name', 'html_url', 'description', 'created_at', 'users')
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:

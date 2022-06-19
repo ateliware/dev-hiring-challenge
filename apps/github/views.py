@@ -18,6 +18,6 @@ def get_repositories(request):
         page = request.query_params.get('page')
         return Response(request_github_api(label, language, page).json())
     except:
-        response = Response({'message': github_not_working})
+        response = Response({'detail': github_not_working})
         response.status_code = 502
         return response

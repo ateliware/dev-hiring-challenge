@@ -14,7 +14,10 @@ def repositories(request):
 
         if request.method == 'GET':
             return get_handler(request)
-    except:
+    except Exception as ex:
+        template = "An exception of type {0} occurred. Arguments:\n{1!r}"
+        message = template.format(type(ex).__name__, ex.args)
+        print(message)
         return error_handler()
 
 def post_handler(request):
@@ -35,6 +38,6 @@ def get_handler(request):
     return Response(serializer.data)
 
 def error_handler():
-    response = Response({'message': could_not_perform_repo_creation})
+    response = Response({'detail': could_not_perform_repo_creation})
     response.status_code = 502
     return response
