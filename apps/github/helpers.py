@@ -8,6 +8,6 @@ def mount_api_string(label, language, page):
     return GITHUB_API + '?q=label:' + label + '+language:' + language + '&page=' + page + '&per_page=5'
 
 def request_github_api(label, language, page):
-    gitUsername = os.environ['DEV_HIRING_CHALLENGE_GITHUB_USERNAME']
-    gitToken = os.environ['DEV_HIRING_CHALLENGE_GITHUB_TOKEN']
+    gitUsername = os.environ.get('DEV_HIRING_CHALLENGE_GITHUB_USERNAME', '')
+    gitToken = os.environ.get('DEV_HIRING_CHALLENGE_GITHUB_TOKEN', '')
     return requests.get(mount_api_string(label, language, page), auth=(gitUsername, gitToken))

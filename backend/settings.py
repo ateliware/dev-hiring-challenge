@@ -10,7 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
-import os
+import os, dj_database_url
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -32,9 +32,9 @@ REST_FRAMEWORK = {
     )
 }
 
-ALLOWED_HOSTS = os.environ['DEV_HIRING_CHALLENGE_ALLOWED_HOST'].split(', ')
+ALLOWED_HOSTS = os.environ.get('DEV_HIRING_CHALLENGE_ALLOWED_HOST', '').split(', ')
 
-CORS_ALLOWED_ORIGINS = os.environ['DEV_HIRING_CHALLENGE_FRONTEND_HOST'].split(', ')
+CORS_ALLOWED_ORIGINS = os.environ.get('DEV_HIRING_CHALLENGE_FRONTEND_HOST', '').split(', ')
 
 # Application definition
 
@@ -44,13 +44,13 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',
     'corsheaders',
     'rest_framework',
     'apps.github',
     'apps.vocabulary',
     'apps.repositories',
     'apps.authentication',
+    'apps.home',
 ]
 
 MIDDLEWARE = [
@@ -69,7 +69,7 @@ ROOT_URLCONF = 'backend.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, "out")],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -89,16 +89,8 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ['DEV_HIRING_CHALLENGE_DB_NAME'],
-        'USER': os.environ['DEV_HIRING_CHALLENGE_DB_USERNAME'],
-        'PASSWORD': os.environ['DEV_HIRING_CHALLENGE_DB_PASSWORD'],
-        'HOST': os.environ['DEV_HIRING_CHALLENGE_DB_HOST'],
-        'PORT': os.environ['DEV_HIRING_CHALLENGE_DB_PORT'],
-    }
+    'default': dj_database_url.config(default=os.environ.get('DATABASE_URL', ''), conn_max_age=600, ssl_require=False)
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
@@ -134,7 +126,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = 'out/'
+STATIC_ROOT = 'out/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field

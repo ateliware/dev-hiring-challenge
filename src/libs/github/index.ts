@@ -72,7 +72,7 @@ export const selectors = {
   isLoading: (state?: GithubRepositoriesHook): boolean => isApiLoading(state?.repositories),
   isWaiting: (state?: GithubRepositoriesHook): boolean => isApiWaiting(state?.repositories),
   isLoaded: (state?: GithubRepositoriesHook): boolean => isApiLoaded(state?.repositories),
-  getFeedback: (state?: GithubRepositoriesHook): FeedbackMessage | null => getApiFeedback(state?.repositories),
+  getFeedback: (state?: GithubRepositoriesHook): FeedbackMessage | undefined => getApiFeedback(state?.repositories),
 };
 
 export const stringToLanguage = (value: string): Language => {
