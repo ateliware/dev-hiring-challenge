@@ -1,0 +1,82 @@
+body {
+  font-family: monospace;
+}
+
+.t-shadow {
+  text-shadow: 1px 1px 2px black;
+}
+
+.card {
+  border-top: 2px solid white;
+  border-left: 2px solid white;
+  border-right: 2px solid #393939;
+  border-bottom: 2px solid #393939;
+  background: #c0c0c0;
+}
+
+.btn {
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s ease;
+  border-radius: 0.125rem;
+}
+
+.btn:active:before,
+.btn:active:focus:before,
+.btn.active:before {
+  border-color: transparent;
+  color: #000;
+}
+
+.btn:before,
+.btn:after {
+  content: "";
+  position: absolute;
+  box-sizing: border-box;
+  display: block;
+  background: transparent;
+  z-index: 9;
+  top: 0;
+  left: 0;
+}
+
+.btn:before {
+  width: 100%;
+  height: 100%;
+  border-top: 2px solid white;
+  border-left: 2px solid white;
+  border-right: 2px solid #858585;
+  border-bottom: 2px solid #858585;
+}
+
+.btn-primary {
+  color: #000;
+  background-color: #c0c0c0;
+  border-color: #a0a0a0;
+}
+
+.border-inset {
+  border-style: inset;
+}
+
+.border-b-solid {
+  border-bottom-style: solid;
+}
+
+.border-b-white {
+  border-bottom-color: #FFF;
+}
+
+.mb-2px {
+  margin-bottom: 2px;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+button,
+input,
+select {
+  outline: none;
+}
