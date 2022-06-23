@@ -2,6 +2,9 @@
 /dist
 /node_modules
 
+# Package
+yarn.lock
+
 # Logs
 logs
 *.log
