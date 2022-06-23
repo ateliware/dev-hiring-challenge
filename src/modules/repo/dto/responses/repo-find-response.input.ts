@@ -1,9 +1,9 @@
 import { Repo } from '../../entities/repo.entity'
 
-interface RepoFindAllResponseInput {
+interface RepoFindResponseInput {
   total_count: number
   incomplete_results: boolean
   items: Repo[]
 }
 
-export { RepoFindAllResponseInput }
+export { RepoFindResponseInput }

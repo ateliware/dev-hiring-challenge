@@ -1,8 +1,8 @@
 import { RepoFindAllOutput } from '../dto/outputs/repo-find-all.output'
-import { RepoFindAllResponseInput } from '../dto/responses/repo-find-all-response.input'
+import { RepoFindResponseInput } from '../dto/responses/repo-find-response.input'
 
 function formatGithubRepositories(
-  apiResponse: RepoFindAllResponseInput
+  apiResponse: RepoFindResponseInput
 ): RepoFindAllOutput {
   const repos = apiResponse.items.map(apiResponseItemData => ({
     id: apiResponseItemData.id,
