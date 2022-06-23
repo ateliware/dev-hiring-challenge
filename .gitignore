@@ -5,6 +5,7 @@
 # Application
 yarn.lock
 *.gql
+.env
 
 # Logs
 logs
