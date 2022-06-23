@@ -1,5 +1,6 @@
 enum GithubApiRoutes {
-  Repositories = '/repos'
+  RepositorySearch = '/search/repositories',
+  Search = '/search'
 }
 
 export { GithubApiRoutes }
