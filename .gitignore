@@ -2,8 +2,9 @@
 /dist
 /node_modules
 
-# Package
+# Application
 yarn.lock
+*.gql
 
 # Logs
 logs
