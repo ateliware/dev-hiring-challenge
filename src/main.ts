@@ -8,7 +8,7 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule)
   await app.listen(APP_PORT)
 
-  console.log(`🎊  Server is up on ${APP_PORT}!  🚀\n`)
+  console.log(`🎊  Server is up on ${APP_PORT} 🚀\n`)
 }
 
 bootstrap()
