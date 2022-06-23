@@ -11,6 +11,14 @@ export class RepoService {
     return ''
   }
 
+  async findOne(repository_full_name: string) {
+    const repository = await this.githubApiRepository.findByName(
+      repository_full_name
+    )
+
+    return repository
+  }
+
   async findAll() {
     try {
       const repositories = await Promise.all([
