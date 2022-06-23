@@ -1,4 +1,4 @@
-import { Resolver, Query, Mutation, Args, Int } from '@nestjs/graphql'
+import { Resolver, Query, Mutation, Args } from '@nestjs/graphql'
 import { Repo } from '../entities/repo.entity'
 import { CreateRepoInput } from '../dto/create-repo.input'
 import { RepoFindAllOutput } from '../dto/outputs/repo-find-all.output'
@@ -11,6 +11,16 @@ export class RepoResolver {
   @Mutation(() => Repo)
   async createRepo(@Args('createRepoInput') createRepoInput: CreateRepoInput) {
     return this.repoService.create(createRepoInput)
+  }
+
+  @Query(() => Repo, { name: 'repoFindOne' })
+  async findOne(
+    @Args('repository_full_name', { type: () => String })
+    repository_full_name: string
+  ) {
+    const repositories = await this.repoService.findOne(repository_full_name)
+
+    return repositories
   }
 
   @Query(() => [RepoFindAllOutput], { name: 'repoFindAll' })
