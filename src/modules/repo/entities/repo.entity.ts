@@ -1,5 +1,5 @@
 import { ObjectType, Field, Int } from '@nestjs/graphql'
-import { REPO_TABLE_NAME } from 'src/modules/shared/constantes/database.constant'
+import { REPO_TABLE_NAME } from '../../shared/constants/database.constant'
 import {
   CreateDateColumn,
   UpdateDateColumn,

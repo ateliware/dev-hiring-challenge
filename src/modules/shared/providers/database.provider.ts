@@ -1,5 +1,5 @@
-import { AppDataSource } from 'src/data-source'
-import { DATASOURCE_PROVIDER } from '../constantes/database.constant'
+import { DATASOURCE_PROVIDER } from '../constants/database.constant'
+import { AppDataSource } from '../data-source'
 
 const databaseProviders = [
   {

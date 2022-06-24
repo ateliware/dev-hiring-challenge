@@ -4,7 +4,7 @@ import {
   Table,
   TableColumnOptions
 } from 'typeorm'
-import { REPO_TABLE_NAME } from '../constantes/database.constant'
+import { REPO_TABLE_NAME } from '../constants/database.constant'
 
 export class createRepoTable1656028161511 implements MigrationInterface {
   constructor(

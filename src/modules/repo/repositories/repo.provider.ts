@@ -1,4 +1,4 @@
-import { DATASOURCE_PROVIDER } from 'src/modules/shared/constantes/database.constant'
+import { DATASOURCE_PROVIDER } from '../../shared/constants/database.constant'
 import { DataSource } from 'typeorm'
 import { Repo } from '../entities/repo.entity'
 
