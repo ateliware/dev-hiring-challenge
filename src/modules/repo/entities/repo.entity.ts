@@ -66,7 +66,7 @@ export class Repo {
   watchers?: number
 
   @Column()
-  @Field(() => Boolean)
+  @Field(() => Boolean, { defaultValue: false })
   is_storaged?: boolean
 
   @CreateDateColumn()
