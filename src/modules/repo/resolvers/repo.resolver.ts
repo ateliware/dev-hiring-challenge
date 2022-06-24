@@ -18,7 +18,9 @@ export class RepoResolver {
     @Args('repository_full_name', { type: () => String })
     repository_full_name: string
   ) {
-    const repositories = await this.repoService.findOne(repository_full_name)
+    const repositories = await this.repoService.findOne({
+      repository_full_name
+    })
 
     return repositories
   }
