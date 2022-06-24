@@ -13,7 +13,6 @@ function formatGithubRepositories(
     name: apiResponseItemData.name,
     open_issues: apiResponseItemData.open_issues,
     url: apiResponseItemData.url,
-    owner: apiResponseItemData.owner,
     watchers: apiResponseItemData.watchers,
     watchers_count: apiResponseItemData.watchers_count,
     description: apiResponseItemData.description,

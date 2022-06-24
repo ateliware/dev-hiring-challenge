@@ -8,67 +8,62 @@ import {
   PrimaryGeneratedColumn,
   Entity
 } from 'typeorm'
-import { Owner } from './owner.entity'
 
 @ObjectType()
 @Entity(REPO_TABLE_NAME)
 export class Repo {
-  @Field(() => Int)
   @Column()
+  @Field(() => Int)
   @PrimaryGeneratedColumn()
   db_id?: number
 
-  @Field(() => Int)
   @Column()
+  @Field(() => Int)
   id: number
 
-  @Field(() => String)
   @Column()
+  @Field(() => String)
   name?: string
 
-  @Field(() => String)
   @Column()
+  @Field(() => String)
   full_name?: string
 
-  @Field(() => String)
   @Column()
+  @Field(() => String)
   description?: string
 
-  @Field(() => String)
   @Column()
+  @Field(() => String)
   html_url?: string
 
-  @Field(() => String)
   @Column()
+  @Field(() => String)
   url?: string
 
-  @Field(() => Int)
   @Column()
+  @Field(() => Int)
   stargazers_count?: number
 
-  @Field(() => Int)
   @Column()
+  @Field(() => Int)
   watchers_count?: number
 
-  @Field(() => String)
   @Column()
+  @Field(() => String)
   language?: string
 
-  @Field(() => Int)
   @Column()
+  @Field(() => Int)
   open_issues?: number
 
-  @Field(() => Int)
   @Column()
+  @Field(() => Int)
   forks?: number
 
+  @Column()
   @Field(() => Int)
-  @Column()
   watchers?: number
-
-  @Field(() => Owner)
-  @Column()
-  owner?: Owner
 
   @CreateDateColumn()
   @Field(() => Date)
