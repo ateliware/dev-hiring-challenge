@@ -78,6 +78,11 @@ export class createRepoTable1656028161511 implements MigrationInterface {
         isNullable: true
       },
       {
+        name: 'is_storaged',
+        type: 'boolean',
+        default: false
+      },
+      {
         name: 'created_at',
         type: 'timestamptz',
         default: 'now()'
