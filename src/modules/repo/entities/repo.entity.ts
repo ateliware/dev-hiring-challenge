@@ -1,44 +1,84 @@
 import { ObjectType, Field, Int } from '@nestjs/graphql'
+import { REPO_TABLE_NAME } from 'src/modules/shared/constantes/database.constant'
+import {
+  CreateDateColumn,
+  UpdateDateColumn,
+  DeleteDateColumn,
+  Column,
+  PrimaryGeneratedColumn,
+  Entity
+} from 'typeorm'
 import { Owner } from './owner.entity'
 
 @ObjectType()
+@Entity(REPO_TABLE_NAME)
 export class Repo {
   @Field(() => Int)
+  @Column()
+  @PrimaryGeneratedColumn()
+  db_id?: number
+
+  @Field(() => Int)
+  @Column()
   id: number
 
   @Field(() => String)
-  name: string
+  @Column()
+  name?: string
 
   @Field(() => String)
-  full_name: string
+  @Column()
+  full_name?: string
 
   @Field(() => String)
+  @Column()
   description?: string
 
   @Field(() => String)
-  html_url: string
+  @Column()
+  html_url?: string
 
   @Field(() => String)
-  url: string
+  @Column()
+  url?: string
 
   @Field(() => Int)
+  @Column()
   stargazers_count?: number
 
   @Field(() => Int)
-  watchers_count: number
+  @Column()
+  watchers_count?: number
 
   @Field(() => String)
-  language: string
+  @Column()
+  language?: string
 
   @Field(() => Int)
-  open_issues: number
+  @Column()
+  open_issues?: number
 
   @Field(() => Int)
-  forks: number
+  @Column()
+  forks?: number
 
   @Field(() => Int)
-  watchers: number
+  @Column()
+  watchers?: number
 
   @Field(() => Owner)
-  owner: Owner
+  @Column()
+  owner?: Owner
+
+  @CreateDateColumn()
+  @Field(() => Date)
+  created_at?: Date
+
+  @UpdateDateColumn()
+  @Field(() => Date)
+  updated_at?: Date
+
+  @DeleteDateColumn()
+  @Field(() => Date)
+  deleted_at?: Date
 }
