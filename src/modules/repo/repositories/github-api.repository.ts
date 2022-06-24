@@ -1,17 +1,24 @@
 import { Injectable } from '@nestjs/common'
-import { GithubApiRoutes } from 'src/modules/shared/http/enums/github-api-routes.enum'
-import { githubApi } from 'src/modules/shared/http/github-api.http'
+import { GithubApiRoutes } from '../../../modules/shared/http/enums/github-api-routes.enum'
+import { githubApi } from '../../../modules/shared/http/github-api.http'
 import { RepoFindResponseInput } from '../dto/responses/repo-find-response.input'
 import { Repo } from '../entities/repo.entity'
 
+export interface FindByNameInput {
+  repository_full_name: string
+}
 @Injectable()
 class GithubApiRepository {
-  public async findByName(repository_name: string): Promise<Repo> {
+  public async findByName({
+    repository_full_name
+  }: {
+    repository_full_name: string
+  }): Promise<Repo> {
     const { data } = await githubApi.get<RepoFindResponseInput>(
       GithubApiRoutes.RepositorySearch,
       {
         params: {
-          q: `${repository_name} in:name`,
+          q: `${repository_full_name} in:name`,
           per_page: 1
         }
       }
