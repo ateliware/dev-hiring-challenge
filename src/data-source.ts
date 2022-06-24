@@ -10,6 +10,10 @@ const migrationPath = `${
   isTypeOrmCliExec ? 'src' : '.'
 }/modules/shared/migrations/*.{ts,js}`
 
+const entitiesPath = `${
+  isTypeOrmCliExec ? '.' : __dirname
+}/modules/**/entities/*.entity{.ts,.js}`
+
 export const AppDataSource = new DataSource({
   type: 'postgres',
   host: DB_HOST,
@@ -17,7 +21,6 @@ export const AppDataSource = new DataSource({
   username: DB_USERNAME,
   password: DB_PASSWORD,
   database: DB_DATABASE,
-  entities: ['./modules/**/entities/*.entity{.ts,.js}'],
-  migrations: [migrationPath],
-  synchronize: process.env.NODE_ENV !== 'production'
+  entities: [entitiesPath],
+  migrations: [migrationPath]
 })
