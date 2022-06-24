@@ -65,6 +65,10 @@ export class Repo {
   @Field(() => Int)
   watchers?: number
 
+  @Column()
+  @Field(() => Boolean)
+  is_storaged?: boolean
+
   @CreateDateColumn()
   @Field(() => Date)
   created_at?: Date
