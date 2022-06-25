@@ -45,16 +45,42 @@ export class RepoService {
   }
 
   async findOne({ repository_full_name }: FindByNameInput) {
-    const repository = await this.githubApiRepository.findByName({
-      repository_full_name
+    let repository: Repo
+
+    try {
+      repository = await this.githubApiRepository.findByName({
+        repository_full_name
+      })
+    } catch (error) {
+      throw new HttpException(
+        `Error to connect with GitHub API =(`,
+        HttpStatus.FAILED_DEPENDENCY
+      )
+    }
+
+    const formattedRepository = formatGithubRepositories({
+      incomplete_results: false,
+      items: [repository],
+      total_count: 1
+    }).repositories[0]
+
+    const storagedRepository = await this.repoRepository.findOne({
+      where: { id: repository.id }
     })
 
-    return repository
+    if (storagedRepository) {
+      formattedRepository.db_id = storagedRepository.db_id
+      formattedRepository.is_storaged = true
+      formattedRepository.storaged_at = storagedRepository.storaged_at
+    }
+
+    return formattedRepository
   }
 
   async findAll() {
     try {
       const repositories = await Promise.all([
+        this.githubApiRepository.findAllRepos('typescript'),
         this.githubApiRepository.findAllRepos('javascript'),
         this.githubApiRepository.findAllRepos('python'),
         this.githubApiRepository.findAllRepos('c'),
