@@ -20,5 +20,9 @@ export const AppDataSource = new DataSource({
   database: DB_DATABASE,
   entities: [entitiesPath],
   migrations: [migrationPath],
-  ssl: DB_URL ? true : false
+  ssl: DB_URL
+    ? {
+        rejectUnauthorized: false
+      }
+    : false
 })
