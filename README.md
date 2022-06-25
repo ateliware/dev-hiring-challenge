@@ -1,22 +1,67 @@
-# Desafio técnico para desenvolvedores
+# Ateliware - Dev Hiring Challenge
 
-Construa uma nova aplicação, utilizando o framework de sua preferência (Ruby on Rails, Elixir Phoenix, Python Django ou Flask, NodeJS Sails, Java Spring, ASP.NET ou outro), a qual deverá conectar na API do GitHub e disponibilizar as seguintes funcionalidades:
+> The challenge is to create a application to comunicate with GithubAPI and implement the features bellow.
+>
+> - Button to search and save most featured repositories of five languages.
+> - List found repositories.
+> - Create repository details view.
 
-- Botão para buscar e armazenar os repositórios destaques de 5 linguagens à sua escolha;
-- Listar os repositórios encontrados;
-- Visualizar os detalhes de cada repositório.
+## Technologies
 
-Alguns requisitos:
+- [ChakraUI](https://chakra-ui.com)
+- [GraphQL](https://graphql.org)
+- [NestJS](https://nestjs.com)
+- [Next.js](https://nextjs.org)
+- [TypeORM](https://typeorm.io)
 
-- Deve ser uma aplicação totalmente nova;
-- A solução deve estar em um repositório público do GitHub;
-- A aplicação deve armazenar as informações encontradas;
-- Utilizar PostgreSQL, MySQL ou SQL Server;
-- O deploy deve ser realizado, preferencialmente, no Heroku, AWS ou no Azure;
-- A aplicação precisa ter testes automatizados;
-- Preferenciamente dockerizar a aplicação;
-- Por favor atualizar o readme da aplicação com passo a passo com instrução para subir o ambiente.
+## Application Architecture
 
-Quando terminar, faça um Pull Request neste repo e avise-nos por email.
+### API
 
-**IMPORTANTE:** se você não conseguir finalizar o teste, por favor nos diga o motivo e descreva quais foram as suas dificuldades. Você pode também sugerir uma outra abordagem para avaliarmos seus skills técnicos, vender seu peixe, mostrar-nos do que é capaz.
+- [Dev Hiring Challenge API](https://github.com/Leonardo-Figueiredo/dev-hiring-challenge/tree/main) (this repository)
+
+### Client
+
+- [Dev Hiring Challenge Client](https://github.com/Leonardo-Figueiredo/dev-hiring-challenge-frontend)
+
+---
+
+## Dependencies
+
+- [Node ^16.15.1](https://nodejs.org/dist/v16.15.1/docs/api/)
+- [Postgres ^14.4](https://www.postgresql.org)
+
+---
+
+## Base Setup
+
+- Create a Postgres database.
+- Run `$ cp .env.sample .env` (or just make a copy), populate .env file with valid keys.
+
+## Local Setup
+
+- Follow the steps above on [Base Setup](#base-setup)
+- Run `$ yarn` to install all dependencies.
+- Run `$ yarn yarn ts-typeorm -d ./src/modules/shared/data-source.ts migration:run` to populate the database.
+- Run test with: `$ yarn test`.
+- To start Ateliware Challenge API in development mode with `$ yarn start:dev`.
+- Build production Ateliware Challenge API with `$ yarn build`.
+- To start Ateliware Challenge API in production mode with `$ yarn start:prod`.
+
+Open [http://localhost:3450](http://localhost:3450) with your browser to see the result.
+
+_If you change the default port on .env, you should enter on <http://localhost:APP_PORT>_
+
+### Migration Commands
+
+```bash
+# create
+$ yarn ts-typeorm migration:create ./src/modules/shared/migrations/MIGRATION_NAME
+
+# run
+$ yarn ts-typeorm -d ./src/modules/shared/data-source.ts migration:run
+
+# revert
+$ yarn ts-typeorm -d ./src/modules/shared/data-source.ts migration:revert
+
+```
