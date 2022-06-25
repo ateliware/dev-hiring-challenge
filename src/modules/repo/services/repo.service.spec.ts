@@ -51,7 +51,9 @@ describe('RepoService', () => {
   it('should be able to create a new Repo', async () => {
     const repository = await service.create({
       id: 1,
-      name: 'Test Repository'
+      name: 'Test Repository',
+      created_at: new Date(),
+      updated_at: new Date()
     })
 
     expect(repository.id).toBe(1)
