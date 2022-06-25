@@ -35,6 +35,8 @@ class GithubApiRepository {
         params: {
           q: `language:${language}`,
           sort: 'stars',
+          order: 'desc',
+          type: 'Repositories',
           per_page: 5
         }
       }

@@ -10,7 +10,9 @@ export class RepoResolver {
 
   @Mutation(() => Repo)
   async createRepo(@Args('createRepoInput') createRepoInput: CreateRepoInput) {
-    return this.repoService.create(createRepoInput)
+    const repository = await this.repoService.create(createRepoInput)
+
+    return repository
   }
 
   @Query(() => Repo, { name: 'repoFindOne' })
@@ -27,8 +29,11 @@ export class RepoResolver {
 
   @Query(() => [RepoFindAllOutput], { name: 'repoFindAll' })
   async findAll() {
-    const repositories = await this.repoService.findAll()
-
-    return repositories
+    try {
+      const repositories = await this.repoService.findAll()
+      return repositories
+    } catch (error) {
+      console.log({ error })
+    }
   }
 }

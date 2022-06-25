@@ -2,7 +2,7 @@ import { InputType, Int, Field } from '@nestjs/graphql'
 
 @InputType()
 export class CreateRepoInput {
-  @Field(() => Int)
+  @Field(() => Number)
   id: number
 
   @Field(() => String, { nullable: true })

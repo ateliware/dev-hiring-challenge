@@ -28,9 +28,9 @@ export class RepoService {
       const repo = this.repoRepository.create()
 
       Object.assign(repo, createRepoInput)
+      repo.is_storaged = true
 
       const createdRepo = await this.repoRepository.save(repo)
-      repo.is_storaged = true
 
       return createdRepo
     } else

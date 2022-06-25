@@ -13,56 +13,56 @@ import {
 @Entity(REPO_TABLE_NAME)
 export class Repo {
   @Column()
-  @Field(() => Int)
   @PrimaryGeneratedColumn()
-  db_id?: number
+  @Field(() => String, { nullable: true })
+  db_id?: string
 
   @Column()
-  @Field(() => Int)
+  @Field(() => Number)
   id: number
 
   @Column()
-  @Field(() => String)
+  @Field(() => String, { nullable: true })
   name?: string
 
   @Column()
-  @Field(() => String)
+  @Field(() => String, { nullable: true })
   full_name?: string
 
   @Column()
-  @Field(() => String)
+  @Field(() => String, { nullable: true })
   description?: string
 
   @Column()
-  @Field(() => String)
+  @Field(() => String, { nullable: true })
   html_url?: string
 
   @Column()
-  @Field(() => String)
+  @Field(() => String, { nullable: true })
   url?: string
 
   @Column()
-  @Field(() => Int)
+  @Field(() => Int, { nullable: true })
   stargazers_count?: number
 
   @Column()
-  @Field(() => Int)
+  @Field(() => Int, { nullable: true })
   watchers_count?: number
 
   @Column()
-  @Field(() => String)
+  @Field(() => String, { nullable: true })
   language?: string
 
   @Column()
-  @Field(() => Int)
+  @Field(() => Int, { nullable: true })
   open_issues?: number
 
   @Column()
-  @Field(() => Int)
+  @Field(() => Int, { nullable: true })
   forks?: number
 
   @Column()
-  @Field(() => Int)
+  @Field(() => Int, { nullable: true })
   watchers?: number
 
   @Column()
@@ -70,14 +70,14 @@ export class Repo {
   is_storaged?: boolean
 
   @CreateDateColumn()
-  @Field(() => Date)
+  @Field(() => Date, { nullable: true })
   created_at?: Date
 
   @UpdateDateColumn()
-  @Field(() => Date)
+  @Field(() => Date, { nullable: true })
   updated_at?: Date
 
   @DeleteDateColumn()
-  @Field(() => Date)
+  @Field(() => Date, { nullable: true })
   deleted_at?: Date
 }
