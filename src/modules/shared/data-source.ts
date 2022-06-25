@@ -2,17 +2,10 @@ import 'dotenv/config'
 
 import { DataSource } from 'typeorm'
 
-const { DB_HOST, DB_PORT, DB_USERNAME, DB_PASSWORD, DB_DATABASE, NODE_ENV } =
-  process.env
+const { DB_HOST, DB_PORT, DB_USERNAME, DB_PASSWORD, DB_DATABASE } = process.env
 
-const isTypeOrmCliExec = NODE_ENV === 'typeorm'
-const migrationPath = `${
-  isTypeOrmCliExec ? 'src' : '.'
-}/modules/shared/migrations/*.{ts,js}`
-
-const entitiesPath = `${
-  isTypeOrmCliExec ? '.' : __dirname
-}/modules/**/entities/*.entity{.ts,.js}`
+const migrationPath = `${__dirname}/migrations/*.{ts,js}`
+const entitiesPath = `${__dirname}/../**/entities/*.entity{.ts,.js}`
 
 export const AppDataSource = new DataSource({
   type: 'postgres',
