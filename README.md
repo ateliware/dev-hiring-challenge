@@ -1,4 +1,4 @@
-# Ateliware - Dev Hiring Challenge
+# Ateliware - Dev Hiring Challenge API
 
 > The challenge is to create a application to comunicate with GithubAPI and implement the features bellow.
 >
