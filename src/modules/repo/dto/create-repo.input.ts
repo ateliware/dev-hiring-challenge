@@ -37,4 +37,10 @@ export class CreateRepoInput {
 
   @Field(() => Int, { nullable: true })
   watchers?: number
+
+  @Field(() => Date)
+  created_at: Date
+
+  @Field(() => Date)
+  updated_at: Date
 }

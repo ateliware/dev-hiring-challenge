@@ -16,7 +16,9 @@ function formatGithubRepositories(
     watchers: apiResponseItemData.watchers,
     watchers_count: apiResponseItemData.watchers_count,
     description: apiResponseItemData.description,
-    stargazers_count: apiResponseItemData.stargazers_count
+    stargazers_count: apiResponseItemData.stargazers_count,
+    created_at: new Date(apiResponseItemData.created_at),
+    updated_at: new Date(apiResponseItemData.updated_at)
   }))
 
   const language = repos[0].language

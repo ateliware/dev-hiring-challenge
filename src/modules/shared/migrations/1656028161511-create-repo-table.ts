@@ -80,12 +80,11 @@ export class createRepoTable1656028161511 implements MigrationInterface {
       {
         name: 'is_storaged',
         type: 'boolean',
-        default: false
+        default: true
       },
       {
         name: 'created_at',
-        type: 'timestamptz',
-        default: 'now()'
+        type: 'timestamptz'
       },
       {
         name: 'updated_at',
@@ -93,9 +92,9 @@ export class createRepoTable1656028161511 implements MigrationInterface {
         isNullable: true
       },
       {
-        name: 'deleted_at',
+        name: 'storaged_at',
         type: 'timestamptz',
-        isNullable: true
+        default: 'now()'
       }
     ]
   ) {}

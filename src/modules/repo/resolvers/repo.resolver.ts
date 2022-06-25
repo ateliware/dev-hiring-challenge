@@ -20,20 +20,17 @@ export class RepoResolver {
     @Args('repository_full_name', { type: () => String })
     repository_full_name: string
   ) {
-    const repositories = await this.repoService.findOne({
+    const repository = await this.repoService.findOne({
       repository_full_name
     })
 
-    return repositories
+    return repository
   }
 
   @Query(() => [RepoFindAllOutput], { name: 'repoFindAll' })
   async findAll() {
-    try {
-      const repositories = await this.repoService.findAll()
-      return repositories
-    } catch (error) {
-      console.log({ error })
-    }
+    const repositories = await this.repoService.findAll()
+
+    return repositories
   }
 }

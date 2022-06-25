@@ -7,6 +7,7 @@ import { Repo } from '../entities/repo.entity'
 export interface FindByNameInput {
   repository_full_name: string
 }
+
 @Injectable()
 class GithubApiRepository {
   public async findByName({
