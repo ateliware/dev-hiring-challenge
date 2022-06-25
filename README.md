@@ -1,4 +1,4 @@
-# Ateliware - Dev Hiring Challenge API
+# Ateliware - Dev Hiring Challenge - API
 
 > The challenge is to create a application to comunicate with GithubAPI and implement the features bellow.
 >
@@ -9,6 +9,7 @@
 ## Technologies
 
 - [GraphQL](https://graphql.org)
+- [Jest](https://jestjs.io/pt-BR/)
 - [NestJS](https://nestjs.com)
 - [TypeORM](https://typeorm.io)
 
@@ -28,6 +29,7 @@
 
 - [Node ^16.15.1](https://nodejs.org/dist/v16.15.1/docs/api/)
 - [Postgres ^14.4](https://www.postgresql.org)
+- [Yarn ^1.22.19](https://yarnpkg.com)
 
 ---
 
@@ -40,7 +42,7 @@
 
 - Follow the steps above on [Base Setup](#base-setup)
 - Run `$ yarn` to install all dependencies.
-- Run `$ yarn yarn ts-typeorm -d ./src/modules/shared/data-source.ts migration:run` to populate the database.
+- Run `$ yarn ts-typeorm -d ./src/modules/shared/data-source.ts migration:run` to create database tables.
 - Run test with: `$ yarn test`.
 - To start Ateliware Challenge API in development mode with `$ yarn start:dev`.
 - Build production Ateliware Challenge API with `$ yarn build`.
