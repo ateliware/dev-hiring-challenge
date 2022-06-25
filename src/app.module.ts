@@ -11,7 +11,8 @@ import { SharedModule } from './modules/shared/shared.module'
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
       playground: process.env.NODE_ENV !== 'production',
-      autoSchemaFile: true
+      autoSchemaFile: true,
+      cache: 'bounded'
     })
   ]
 })
