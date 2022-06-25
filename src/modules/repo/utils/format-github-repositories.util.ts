@@ -1,9 +1,7 @@
 import { RepoFindAllOutput } from '../dto/outputs/repo-find-all.output'
 import { RepoFindResponseInput } from '../dto/responses/repo-find-response.input'
 
-function formatGithubRepositories(
-  apiResponse: RepoFindResponseInput
-): RepoFindAllOutput {
+function formatGithubRepositories(apiResponse: RepoFindResponseInput): RepoFindAllOutput {
   const repos = apiResponse.items.map(apiResponseItemData => ({
     id: apiResponseItemData.id,
     forks: apiResponseItemData.forks,

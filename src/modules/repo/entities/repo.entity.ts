@@ -1,13 +1,6 @@
 import { ObjectType, Field, Int } from '@nestjs/graphql'
 import { REPO_TABLE_NAME } from '../../shared/constants/database.constant'
-import {
-  CreateDateColumn,
-  UpdateDateColumn,
-  DeleteDateColumn,
-  Column,
-  PrimaryGeneratedColumn,
-  Entity
-} from 'typeorm'
+import { CreateDateColumn, Column, PrimaryGeneratedColumn, Entity } from 'typeorm'
 
 @ObjectType()
 @Entity(REPO_TABLE_NAME)

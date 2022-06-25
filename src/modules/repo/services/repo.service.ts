@@ -2,10 +2,7 @@ import { HttpException, HttpStatus, Inject, Injectable } from '@nestjs/common'
 import { Repository } from 'typeorm'
 import { CreateRepoInput } from '../dto/create-repo.input'
 import { Repo } from '../entities/repo.entity'
-import {
-  FindByNameInput,
-  GithubApiRepository
-} from '../repositories/github-api.repository'
+import { FindByNameInput, GithubApiRepository } from '../repositories/github-api.repository'
 import { REPO_REPOSITORY_PROVIDER } from '../repositories/repo.provider'
 import { formatGithubRepositories } from '../utils/format-github-repositories.util'
 
@@ -36,9 +33,7 @@ export class RepoService {
     } else
       throw new HttpException(
         `This repo ${
-          repoAlreadyExists?.full_name ||
-          repoAlreadyExists.name ||
-          repoAlreadyExists.id
+          repoAlreadyExists?.full_name || repoAlreadyExists.name || repoAlreadyExists.id
         } is already saved, try another repo!`,
         HttpStatus.CONFLICT
       )
@@ -52,10 +47,7 @@ export class RepoService {
         repository_full_name
       })
     } catch (error) {
-      throw new HttpException(
-        `Error to connect with GitHub API =(`,
-        HttpStatus.FAILED_DEPENDENCY
-      )
+      throw new HttpException(`Error to connect with GitHub API =(`, HttpStatus.FAILED_DEPENDENCY)
     }
 
     const formattedRepository = formatGithubRepositories({
@@ -94,10 +86,7 @@ export class RepoService {
 
       return formattedRepositories
     } catch (error) {
-      throw new HttpException(
-        `Error to connect with GitHub API =(`,
-        HttpStatus.FAILED_DEPENDENCY
-      )
+      throw new HttpException(`Error to connect with GitHub API =(`, HttpStatus.FAILED_DEPENDENCY)
     }
   }
 }

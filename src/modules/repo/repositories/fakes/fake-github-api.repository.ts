@@ -11,12 +11,8 @@ class FakeGithubApiRepository implements GithubApiRepository {
     return repo
   }
 
-  public async findByName({
-    repository_full_name
-  }: FindByNameInput): Promise<Repo> {
-    const repo = this.repositories.find(
-      repository => repository.full_name === repository_full_name
-    )
+  public async findByName({ repository_full_name }: FindByNameInput): Promise<Repo> {
+    const repo = this.repositories.find(repository => repository.full_name === repository_full_name)
 
     return repo
   }

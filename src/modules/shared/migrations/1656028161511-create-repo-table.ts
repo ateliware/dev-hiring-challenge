@@ -1,9 +1,4 @@
-import {
-  MigrationInterface,
-  QueryRunner,
-  Table,
-  TableColumnOptions
-} from 'typeorm'
+import { MigrationInterface, QueryRunner, Table, TableColumnOptions } from 'typeorm'
 import { REPO_TABLE_NAME } from '../constants/database.constant'
 
 export class createRepoTable1656028161511 implements MigrationInterface {

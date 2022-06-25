@@ -15,33 +15,27 @@ class GithubApiRepository {
   }: {
     repository_full_name: string
   }): Promise<Repo> {
-    const { data } = await githubApi.get<RepoFindResponseInput>(
-      GithubApiRoutes.RepositorySearch,
-      {
-        params: {
-          q: `${repository_full_name} in:name`,
-          per_page: 1
-        }
+    const { data } = await githubApi.get<RepoFindResponseInput>(GithubApiRoutes.RepositorySearch, {
+      params: {
+        q: `${repository_full_name} in:name`,
+        per_page: 1
       }
-    )
+    })
 
     const repository = data?.items[0]
 
     return repository
   }
   public async findAllRepos(language: string): Promise<RepoFindResponseInput> {
-    const { data } = await githubApi.get<RepoFindResponseInput>(
-      GithubApiRoutes.RepositorySearch,
-      {
-        params: {
-          q: `language:${language}`,
-          sort: 'stars',
-          order: 'desc',
-          type: 'Repositories',
-          per_page: 5
-        }
+    const { data } = await githubApi.get<RepoFindResponseInput>(GithubApiRoutes.RepositorySearch, {
+      params: {
+        q: `language:${language}`,
+        sort: 'stars',
+        order: 'desc',
+        type: 'Repositories',
+        per_page: 5
       }
-    )
+    })
 
     return data
   }

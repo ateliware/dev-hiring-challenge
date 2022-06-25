@@ -12,9 +12,7 @@ class FakeRepoProvider {
   }
 
   async findOne(name: string): Promise<Repo> {
-    const repository = this.repositories.find(
-      repository => repository.name === name
-    )
+    const repository = this.repositories.find(repository => repository.name === name)
     return repository
   }
 
