@@ -8,10 +8,8 @@
 
 ## Technologies
 
-- [ChakraUI](https://chakra-ui.com)
 - [GraphQL](https://graphql.org)
 - [NestJS](https://nestjs.com)
-- [Next.js](https://nextjs.org)
 - [TypeORM](https://typeorm.io)
 
 ## Application Architecture
@@ -65,3 +63,5 @@ $ yarn ts-typeorm -d ./src/modules/shared/data-source.ts migration:run
 $ yarn ts-typeorm -d ./src/modules/shared/data-source.ts migration:revert
 
 ```
+
+If you have any problems, send me a e-mail [leo.nardorf22@gmail.com](mailto:leo.nardorf22@gmail.com)
