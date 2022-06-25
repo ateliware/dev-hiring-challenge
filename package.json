@@ -1,8 +1,7 @@
 {
   "name": "dev-hiring-challenge",
   "version": "0.0.1",
-  "description": "",
-  "author": "",
+  "author": "Leonardo Figueiredo <leo.nardorf22@gmail.com>",
   "private": true,
   "license": "UNLICENSED",
   "engines": {
