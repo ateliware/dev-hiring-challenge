@@ -1,5 +1,5 @@
 import { HttpException, HttpStatus, Inject, Injectable } from '@nestjs/common'
-import { githubApiErrorDecoder } from 'src/modules/shared/utils/github-api-error-decoder.util'
+import { githubApiErrorDecoder } from '../../shared/utils/github-api-error-decoder.util'
 import { Repository } from 'typeorm'
 import { CreateRepoInput } from '../dto/create-repo.input'
 import { DestroyRepoInput } from '../dto/destroy-repo.input'
