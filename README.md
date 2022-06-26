@@ -6,7 +6,7 @@
 > - List found repositories.
 > - Create repository details view.
 
-## Live preview
+## Live Preview
 
 [https://ateliware-prod-frontend.herokuapp.com](https://ateliware-prod-frontend.herokuapp.com)
 
