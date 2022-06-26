@@ -57,7 +57,7 @@ describe('RepoService', () => {
     })
 
     expect(repository.id).toBe(1)
-    expect(repository.is_storaged).toBe(true)
+    expect(repository.is_stored).toBe(true)
   })
 
   it('should be able to find one repository', async () => {

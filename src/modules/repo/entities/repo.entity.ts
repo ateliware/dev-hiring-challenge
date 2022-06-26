@@ -60,7 +60,7 @@ export class Repo {
 
   @Column()
   @Field(() => Boolean, { defaultValue: false })
-  is_storaged?: boolean
+  is_stored?: boolean
 
   @Column()
   @Field(() => Date, { nullable: true })
@@ -71,5 +71,5 @@ export class Repo {
 
   @CreateDateColumn()
   @Field(() => Date, { nullable: true })
-  storaged_at?: Date
+  stored_at?: Date
 }

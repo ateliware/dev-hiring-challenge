@@ -27,7 +27,7 @@ export class RepoService {
       const repo = this.repoRepository.create()
 
       Object.assign(repo, createRepoInput)
-      repo.is_storaged = true
+      repo.is_stored = true
 
       const createdRepo = await this.repoRepository.save(repo)
 
@@ -66,8 +66,8 @@ export class RepoService {
 
     if (storagedRepository) {
       formattedRepository.db_id = storagedRepository.db_id
-      formattedRepository.is_storaged = true
-      formattedRepository.storaged_at = storagedRepository.storaged_at
+      formattedRepository.is_stored = true
+      formattedRepository.stored_at = storagedRepository.stored_at
     }
 
     return formattedRepository
@@ -103,7 +103,7 @@ export class RepoService {
       throw new HttpException('This repository is not storaged to be deleted', HttpStatus.NOT_FOUND)
 
     await this.repoRepository.remove(repositoryExists)
-    repositoryExists.is_storaged = false
+    repositoryExists.is_stored = false
 
     return repositoryExists
   }
