@@ -1,4 +1,4 @@
-import { Resolver, Query, Mutation, Args } from '@nestjs/graphql'
+import { Resolver, Query, Mutation, Args, Int } from '@nestjs/graphql'
 import { Repo } from '../entities/repo.entity'
 import { CreateRepoInput } from '../dto/create-repo.input'
 import { RepoFindAllOutput } from '../dto/outputs/repo-find-all.output'
@@ -32,5 +32,12 @@ export class RepoResolver {
     const repositories = await this.repoService.findAll()
 
     return repositories
+  }
+
+  @Mutation(() => Repo)
+  async destroyOne(@Args('repository_github_id', { type: () => Int }) github_id: number) {
+    const deletedRepository = await this.repoService.destroyOne({ github_id })
+
+    return deletedRepository
   }
 }
