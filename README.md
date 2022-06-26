@@ -35,6 +35,11 @@
 - [Postgres ^14.4](https://www.postgresql.org)
 - [Yarn ^1.22.19](https://yarnpkg.com)
 
+_The dependencies above are unnecessary if you use docker, the ones below are required._
+
+- [Docker Engine ^20.10.12](https://docs.docker.com/engine/install/)
+- [Docker Compose ^1.29.2](https://docs.docker.com/compose/install/)
+
 ---
 
 ## Base Setup
