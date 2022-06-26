@@ -1,6 +1,8 @@
 import { HttpException, HttpStatus, Inject, Injectable } from '@nestjs/common'
+import { githubApiErrorDecoder } from 'src/modules/shared/utils/github-api-error-decoder.util'
 import { Repository } from 'typeorm'
 import { CreateRepoInput } from '../dto/create-repo.input'
+import { DestroyRepoInput } from '../dto/destroy-repo.input'
 import { Repo } from '../entities/repo.entity'
 import { FindByNameInput, GithubApiRepository } from '../repositories/github-api.repository'
 import { REPO_REPOSITORY_PROVIDER } from '../repositories/repo.provider'
@@ -47,7 +49,9 @@ export class RepoService {
         repository_full_name
       })
     } catch (error) {
-      throw new HttpException(`Error to connect with GitHub API =(`, HttpStatus.FAILED_DEPENDENCY)
+      const { message, code } = githubApiErrorDecoder(error)
+
+      throw new HttpException(message, code)
     }
 
     const formattedRepository = formatGithubRepositories({
@@ -86,7 +90,21 @@ export class RepoService {
 
       return formattedRepositories
     } catch (error) {
-      throw new HttpException(`Error to connect with GitHub API =(`, HttpStatus.FAILED_DEPENDENCY)
+      const { message, code } = githubApiErrorDecoder(error)
+
+      throw new HttpException(message, code)
     }
+  }
+
+  async destroyOne({ github_id }: DestroyRepoInput) {
+    const repositoryExists = await this.repoRepository.findOne({ where: { id: github_id } })
+
+    if (!repositoryExists)
+      throw new HttpException('This repository is not storaged to be deleted', HttpStatus.NOT_FOUND)
+
+    await this.repoRepository.remove(repositoryExists)
+    repositoryExists.is_storaged = false
+
+    return repositoryExists
   }
 }
