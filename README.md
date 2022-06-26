@@ -6,6 +6,10 @@
 > - List found repositories.
 > - Create repository details view.
 
+## Live preview
+
+[https://ateliware-prod-frontend.herokuapp.com](https://ateliware-prod-frontend.herokuapp.com)
+
 ## Technologies
 
 - [GraphQL](https://graphql.org)
@@ -78,10 +82,6 @@ $ yarn ts-typeorm -d ./src/modules/shared/data-source.ts migration:run
 $ yarn ts-typeorm -d ./src/modules/shared/data-source.ts migration:revert
 
 ```
-
-## Live preview
-
-[https://ateliware-prod-frontend.herokuapp.com](https://ateliware-prod-frontend.herokuapp.com)
 
 [Challenge Original Repository](https://github.com/ateliware/dev-hiring-challenge)
 
