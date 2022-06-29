@@ -1,0 +1,33 @@
+version: "3.8"
+
+services:
+  api:
+    container_name: dev-hiring-challenge-api
+    restart: unless-stopped
+    image: dev-hiring-challenge-api:1.0.0
+    build:
+      context: api
+      target: production
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000
+    networks:
+      - shared-network
+
+  client:
+    container_name: dev-hiring-challenge-client
+    restart: unless-stopped
+    image: dev-hiring-challenge-client:1.0.0
+    build:
+      context: client
+      target: production
+      dockerfile: Dockerfile
+    ports:
+      - 3001:3001
+    networks:
+      - shared-network
+    depends_on:
+      - api
+
+networks:
+  shared-network:
