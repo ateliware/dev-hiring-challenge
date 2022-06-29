@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "scripts": {
     "start:dev": "vite",
-    "build": "tsc && vite build",
+    "start:production": "tsc && vite build",
     "preview": "vite preview"
   },
   "dependencies": {
