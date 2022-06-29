@@ -22,7 +22,7 @@ A aplicação foi desenvolvida 100% com TypeScript, tanto no frontend quanto no 
 
 ## Heroku
 
-O deploy da aplicação completa (frontend, backend e banco de dados) foi feita no heroku. Segue o link: [dev-hiring-challenge](https://google.com)
+O deploy da aplicação completa (frontend, backend e banco de dados) foi feita no heroku. Segue o link: [dev-hiring-challenge](https://eric-dev-hiring-challenge.herokuapp.com)
 
 ## Rodando a aplicação localmente
 
