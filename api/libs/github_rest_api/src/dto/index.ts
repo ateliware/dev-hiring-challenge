@@ -1,0 +1,1 @@
+export { GithubRepositorySearchResponse } from './GithubRepositorySearchResponse';
