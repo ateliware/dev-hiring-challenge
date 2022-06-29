@@ -33,7 +33,7 @@ Como o frontend e o backend foram feitos em [NodeJS (Run JavaScript Everywhere)]
 2. Após clonar o repositório e entrar no diretório raíz do projeto, é necessário configurar as variáveis de ambiente para o correto funcionamento da aplicação. Para isso, execute o seguinte comando:
 
 ```bash
-npm run create-api-dotenv
+npm run create-dotenvs
 ```
 
 3. Agora, para instalar todas as dependências necessárias da api e do client, é preciso executar o seguinte comando:
@@ -54,10 +54,16 @@ npm run create-db
 npm run test-api
 ```
 
-6. Para inicializar a aplicação:
+6. Para inicializar a API:
 
 ```bash
-npm run start:dev
+npm run api-start:dev
 ```
 
-7. Api estará sendo executada em http://localhost:3000 e client em http://localhost:3001
+7. Para inicializar o client:
+
+```bash
+npm run client-start:dev
+```
+
+8. Api estará sendo executada em http://localhost:3000 e client em http://localhost:3001

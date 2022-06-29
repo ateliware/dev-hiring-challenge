@@ -8,8 +8,9 @@
     "install-dependencies": "cd api && npm install && cd ../client && npm install",
     "build": "cd api && npm run build",
     "start:production": "cd api && npm run start:production && cd ../client && npm run start:production",
-    "start:dev": "cd api && npm run start:dev && cd ../client && npm run start:dev",
-    "create-api-dotenv": "cd api && cp .env.example .env",
+    "api-start:dev": "cd api && npm run start:dev",
+    "client-start:dev": "cd client && npm run start:dev",
+    "create-dotenvs": "cd api && cp .env.example .env && cd ../client && cp .env.example .env",
     "create-db": "cd api && npx prisma migrate dev"
   },
   "repository": {
