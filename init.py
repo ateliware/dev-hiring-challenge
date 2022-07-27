@@ -53,7 +53,7 @@ def show_elements(type_select, value):
 sqlite.create_table()
 
 st.markdown("<h1 style='text-align: center; color: #fff;'>GITHUB</h1>", unsafe_allow_html=True)
-st.markdown("<p style='text-align: center; color: #fff;'>Para vizualizar o historico de pesquisas aperte no menu lateral</p>", unsafe_allow_html=True)
+st.markdown("<p style='text-align: center; color: #fff;'>Para visualizar o historico de pesquisas aperte no menu lateral</p>", unsafe_allow_html=True)
 
 word_repository = st.text_input("Por favor, informe uma palavra para ser pesquisada nos repositorios")
 language = st.text_input("Por favor, informe uma linguaguem")
