@@ -12,7 +12,7 @@ def show_elements(type_select, value):
                                 unsafe_allow_html=True)
             st.sidebar.markdown(f"<h5 style='text-align: center; color: #fff;'>URL -> {element[2]}</h5>",
                                 unsafe_allow_html=True)
-            st.sidebar.markdown(f"<h5 style='text-align: center; color: #fff;'>URL -> {element[3]}</h5>",
+            st.sidebar.markdown(f"<h5 style='text-align: center; color: #fff;'>Criador -> {element[3]}</h5>",
                                 unsafe_allow_html=True)
             st.sidebar.markdown(f"<h5 style='text-align: center; color: #fff;'>Linguaguem -> {element[4]}</h5>",
                                 unsafe_allow_html=True)
