@@ -1,0 +1,4 @@
+Programa desenvolvido em python 3.10.5
+IDE utilizada foi Anaconda3(jupyterNotebook)
+extensões extras utilizadas estao comentadas no arquivo principal
+Banco de dados Utilizado foi Google Firebase
