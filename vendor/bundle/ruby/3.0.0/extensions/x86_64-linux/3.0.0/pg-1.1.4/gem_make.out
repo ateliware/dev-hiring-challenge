@@ -1,0 +1,64 @@
+current directory: /home/lucasspanholo/Desktop/implementandoRSpec/Dev-Hiring-Challenge/vendor/bundle/ruby/3.0.0/gems/pg-1.1.4/ext
+/usr/bin/ruby3.0 -I /usr/lib/ruby/vendor_ruby -r ./siteconf20220901-52987-6hu9vd.rb extconf.rb
+checking for pg_config... yes
+Using config values from /usr/bin/pg_config
+checking for libpq-fe.h... yes
+checking for libpq/libpq-fs.h... yes
+checking for pg_config_manual.h... yes
+checking for PQconnectdb() in -lpq... yes
+checking for PQsetSingleRowMode()... yes
+checking for PQconninfo()... yes
+checking for PQsslAttribute()... yes
+checking for PQencryptPasswordConn()... yes
+checking for timegm()... yes
+checking for rb_gc_adjust_memory_usage()... yes
+checking for PG_DIAG_TABLE_NAME in libpq-fe.h... yes
+checking for unistd.h... yes
+checking for inttypes.h... yes
+checking for C99 variable length arrays... yes
+creating extconf.h
+creating Makefile
+
+current directory: /home/lucasspanholo/Desktop/implementandoRSpec/Dev-Hiring-Challenge/vendor/bundle/ruby/3.0.0/gems/pg-1.1.4/ext
+make DESTDIR\= clean
+
+current directory: /home/lucasspanholo/Desktop/implementandoRSpec/Dev-Hiring-Challenge/vendor/bundle/ruby/3.0.0/gems/pg-1.1.4/ext
+make DESTDIR\=
+compiling gvl_wrappers.c
+compiling pg.c
+compiling pg_binary_decoder.c
+compiling pg_binary_encoder.c
+compiling pg_coder.c
+compiling pg_connection.c
+pg_connection.c: In function ‘pgconn_set_client_encoding_async’:
+pg_connection.c:3839:75: warning: passing argument 3 of ‘rb_rescue’ from incompatible pointer type [-Wincompatible-pointer-types]
+ 3839 |         return rb_rescue(pgconn_set_client_encoding_async1, (VALUE)&args, pgconn_set_client_encoding_async2, Qnil);
+      |                                                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                                                           |
+      |                                                                           VALUE (*)(VALUE) {aka long unsigned int (*)(long unsigned int)}
+In file included from /usr/include/ruby-3.0.0/ruby/ruby.h:38,
+                 from /usr/include/ruby-3.0.0/ruby.h:38,
+                 from pg.h:20,
+                 from pg_connection.c:7:
+/usr/include/ruby-3.0.0/ruby/internal/iterator.h:50:39: note: expected ‘VALUE (*)(VALUE,  VALUE)’ {aka ‘long unsigned int (*)(long unsigned int,  long unsigned int)’} but argument is of type ‘VALUE (*)(VALUE)’ {aka ‘long unsigned int (*)(long unsigned int)’}
+   50 | VALUE rb_rescue(VALUE(*)(VALUE),VALUE,VALUE(*)(VALUE,VALUE),VALUE);
+      |                                       ^~~~~~~~~~~~~~~~~~~~~
+compiling pg_copy_coder.c
+compiling pg_errors.c
+compiling pg_result.c
+compiling pg_text_decoder.c
+compiling pg_text_encoder.c
+compiling pg_tuple.c
+compiling pg_type_map.c
+compiling pg_type_map_all_strings.c
+compiling pg_type_map_by_class.c
+compiling pg_type_map_by_column.c
+compiling pg_type_map_by_mri_type.c
+compiling pg_type_map_by_oid.c
+compiling pg_type_map_in_ruby.c
+compiling util.c
+linking shared-object pg_ext.so
+
+current directory: /home/lucasspanholo/Desktop/implementandoRSpec/Dev-Hiring-Challenge/vendor/bundle/ruby/3.0.0/gems/pg-1.1.4/ext
+make DESTDIR\= install
+/usr/bin/install -c -m 0755 pg_ext.so ./.gem.20220901-52987-lami5y
