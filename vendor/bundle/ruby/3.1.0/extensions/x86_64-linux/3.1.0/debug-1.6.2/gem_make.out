@@ -1,0 +1,16 @@
+current directory: /home/lucasspanholo/Desktop/implementandoRSpec/Dev-Hiring-Challenge/vendor/bundle/ruby/3.1.0/gems/debug-1.6.2/ext/debug
+/home/lucasspanholo/.rbenv/versions/3.1.2/bin/ruby -I /home/lucasspanholo/.rbenv/versions/3.1.2/lib/ruby/3.1.0 -r ./siteconf20220901-6072-ubqelh.rb extconf.rb
+creating Makefile
+
+current directory: /home/lucasspanholo/Desktop/implementandoRSpec/Dev-Hiring-Challenge/vendor/bundle/ruby/3.1.0/gems/debug-1.6.2/ext/debug
+make DESTDIR\= clean
+
+current directory: /home/lucasspanholo/Desktop/implementandoRSpec/Dev-Hiring-Challenge/vendor/bundle/ruby/3.1.0/gems/debug-1.6.2/ext/debug
+make DESTDIR\=
+compiling debug.c
+compiling iseq_collector.c
+linking shared-object debug/debug.so
+
+current directory: /home/lucasspanholo/Desktop/implementandoRSpec/Dev-Hiring-Challenge/vendor/bundle/ruby/3.1.0/gems/debug-1.6.2/ext/debug
+make DESTDIR\= install
+/usr/bin/install -c -m 0755 debug.so ./.gem.20220901-6072-zw6glo/debug

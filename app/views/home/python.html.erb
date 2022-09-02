@@ -1,0 +1,30 @@
+<h1>Repositórios Pyhton</h1>
+<h2>Quantidade Total de Repositórios em Python</h2>
+<h2> <%=@python['total_count'] %></h2>
+<a href="/"> Home </a>
+<hr>
+<table>
+    <thead>
+    <td>Nome do Repositório</td>
+    <td>Nome completo</td>
+    <td>Proprietário</td>
+    <td>Link Repositório</td>
+    <td>SSH URL</td>
+    <td>Data de Criação</td>
+    <td>Descrição</td>
+    </thead>
+
+    <tbody>
+        <% @python['items'].each do |linha|%>
+            <tr>
+            <td><%= linha['name'] %></td>
+            <td><%= linha['full_name'] %></td>
+            <td><%= linha['owner']['login'] %></td>
+            <td><%= linha['owner']['html_url'] %></td>
+            <td><%= linha['ssh_url'] %></td>
+            <td><%= linha['created_at'] %></td>
+            <td><%= linha['description'] %></td>
+            <tr>
+        <% end %>
+    </tbody>
+</table>

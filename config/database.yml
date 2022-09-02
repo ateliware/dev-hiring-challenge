@@ -1,0 +1,16 @@
+host: <%= ENV['POSTGRES_IP'] %>
+
+
+postgres:
+  image: postgres:latest
+  ports:
+    - "5432:5432"
+  environment:
+    - POSTGRES_PASSWORD=password
+development: 
+  adapter: postgresql
+  host: 
+  port: 5487
+  password: password
+  encoding: unicode
+  pool: 5

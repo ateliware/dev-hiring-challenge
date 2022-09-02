@@ -1,0 +1,16 @@
+current directory: /home/lucasspanholo/DevHiringChallenge/dev-hiring-challenge/vendor/bundle/ruby/3.0.0/gems/debug-1.6.2/ext/debug
+/usr/bin/ruby3.0 -I /usr/lib/ruby/vendor_ruby -r ./siteconf20220823-9479-1cfk9a.rb extconf.rb
+creating Makefile
+
+current directory: /home/lucasspanholo/DevHiringChallenge/dev-hiring-challenge/vendor/bundle/ruby/3.0.0/gems/debug-1.6.2/ext/debug
+make DESTDIR\= clean
+
+current directory: /home/lucasspanholo/DevHiringChallenge/dev-hiring-challenge/vendor/bundle/ruby/3.0.0/gems/debug-1.6.2/ext/debug
+make DESTDIR\=
+compiling debug.c
+compiling iseq_collector.c
+linking shared-object debug/debug.so
+
+current directory: /home/lucasspanholo/DevHiringChallenge/dev-hiring-challenge/vendor/bundle/ruby/3.0.0/gems/debug-1.6.2/ext/debug
+make DESTDIR\= install
+/usr/bin/install -c -m 0755 debug.so ./.gem.20220823-9479-ezeec8/debug

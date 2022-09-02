@@ -1,0 +1,15 @@
+current directory: /home/lucasspanholo/Desktop/implementandoRSpec/Dev-Hiring-Challenge/vendor/bundle/ruby/3.1.0/gems/bootsnap-1.13.0/ext/bootsnap
+/home/lucasspanholo/.rbenv/versions/3.1.2/bin/ruby -I /home/lucasspanholo/.rbenv/versions/3.1.2/lib/ruby/3.1.0 -r ./siteconf20220901-6072-102usd.rb extconf.rb
+creating Makefile
+
+current directory: /home/lucasspanholo/Desktop/implementandoRSpec/Dev-Hiring-Challenge/vendor/bundle/ruby/3.1.0/gems/bootsnap-1.13.0/ext/bootsnap
+make DESTDIR\= clean
+
+current directory: /home/lucasspanholo/Desktop/implementandoRSpec/Dev-Hiring-Challenge/vendor/bundle/ruby/3.1.0/gems/bootsnap-1.13.0/ext/bootsnap
+make DESTDIR\=
+compiling bootsnap.c
+linking shared-object bootsnap/bootsnap.so
+
+current directory: /home/lucasspanholo/Desktop/implementandoRSpec/Dev-Hiring-Challenge/vendor/bundle/ruby/3.1.0/gems/bootsnap-1.13.0/ext/bootsnap
+make DESTDIR\= install
+/usr/bin/install -c -m 0755 bootsnap.so ./.gem.20220901-6072-da849n/bootsnap

@@ -1,0 +1,30 @@
+current directory: /home/lucasspanholo/DevHiringChallenge/dev-hiring-challenge/vendor/bundle/ruby/3.0.0/gems/msgpack-1.5.6/ext/msgpack
+/usr/bin/ruby3.0 -I /usr/lib/ruby/vendor_ruby -r ./siteconf20220823-9479-sf3c1x.rb extconf.rb
+checking for ruby/st.h... yes
+checking for st.h... no
+checking for rb_enc_interned_str() in ruby.h... yes
+checking for rb_hash_new_capa() in ruby.h... no
+creating Makefile
+
+current directory: /home/lucasspanholo/DevHiringChallenge/dev-hiring-challenge/vendor/bundle/ruby/3.0.0/gems/msgpack-1.5.6/ext/msgpack
+make DESTDIR\= clean
+
+current directory: /home/lucasspanholo/DevHiringChallenge/dev-hiring-challenge/vendor/bundle/ruby/3.0.0/gems/msgpack-1.5.6/ext/msgpack
+make DESTDIR\=
+compiling buffer.c
+compiling buffer_class.c
+compiling extension_value_class.c
+compiling factory_class.c
+compiling packer.c
+compiling packer_class.c
+compiling packer_ext_registry.c
+compiling rbinit.c
+compiling rmem.c
+compiling unpacker.c
+compiling unpacker_class.c
+compiling unpacker_ext_registry.c
+linking shared-object msgpack/msgpack.so
+
+current directory: /home/lucasspanholo/DevHiringChallenge/dev-hiring-challenge/vendor/bundle/ruby/3.0.0/gems/msgpack-1.5.6/ext/msgpack
+make DESTDIR\= install
+/usr/bin/install -c -m 0755 msgpack.so ./.gem.20220823-9479-3k8pgy/msgpack

@@ -1,0 +1,15 @@
+current directory: /home/lucasspanholo/DevHiringChallenge/dev-hiring-challenge/vendor/bundle/ruby/3.0.0/gems/bindex-0.8.1/ext/skiptrace
+/usr/bin/ruby3.0 -I /usr/lib/ruby/vendor_ruby -r ./siteconf20220823-9479-7hfsax.rb extconf.rb
+creating Makefile
+
+current directory: /home/lucasspanholo/DevHiringChallenge/dev-hiring-challenge/vendor/bundle/ruby/3.0.0/gems/bindex-0.8.1/ext/skiptrace
+make DESTDIR\= clean
+
+current directory: /home/lucasspanholo/DevHiringChallenge/dev-hiring-challenge/vendor/bundle/ruby/3.0.0/gems/bindex-0.8.1/ext/skiptrace
+make DESTDIR\=
+compiling cruby.c
+linking shared-object skiptrace/internal/cruby.so
+
+current directory: /home/lucasspanholo/DevHiringChallenge/dev-hiring-challenge/vendor/bundle/ruby/3.0.0/gems/bindex-0.8.1/ext/skiptrace
+make DESTDIR\= install
+/usr/bin/install -c -m 0755 cruby.so ./.gem.20220823-9479-h0yaha/skiptrace/internal
