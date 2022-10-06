@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <!-- General -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Veja os melhores repositórios das melhores linguagens de programação!">
+    <meta name="author" content="Eduardo Mior">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Top GitHub Repositórios 😎</title>
+
+    <!-- Icons -->
+    <link rel="icon" type="image/png" href="icon.png" sizes="192x192">
+    <link rel="apple-touch-icon" type="image/png" href="apple-touch-icon.png" sizes="180x180">
+
+    <!-- Android -->
+    <meta name="theme-color" content="#FFFFFF">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Top GitHub Repositórios 😎">
+
+    <!-- iOS -->
+    <meta name="apple-mobile-web-app-title" content="Top GitHub Repositórios 😎">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <!-- OG -->
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Top GitHub Repositórios 😎">
+    <meta property="og:site_name" content="Top GitHub Repositórios 😎">
+    <meta property="og:description" content="Veja os melhores repositórios das melhores linguagens de programação!">
+    <meta property="og:url" content="https://url-aqui.com">
+    <meta property="og:image" content="https://url-aqui.com/images/logo2.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:alt" content="Top GitHub Repositórios 😎">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
+
+    <!-- JS -->
+    <script src="https://browser.sentry-cdn.com/7.1.1/bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="index.js"></script>
+
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="row d-flex justify-content-center">
+
+            <div class="col-12 mt-3">
+                <h1 class="mb-2">Top GitHub Repositórios 😎</h1>
+            </div>
+
+            <div class="col-12">
+                <span>Veja em tempo real os melhores repositórios das melhores linguagens de programação da atualidade!</span>
+            </div>
+
+            <div class="col-12 d-flex justify-content-center mb-1 mt-3 mt-sm-5">
+                <div class="form-floating col-8">
+                    <select class="form-select form-select-lg" id="linguagem-programacao">
+                        <option selected disabled></option>
+                        <option value="java">☕ Java</option>
+                        <option value="ocaml">🐫 OCaml</option>
+                        <option value="lua">🌙 Lua</option>
+                        <option value="python">🐍 Python</option>
+                        <option value="ruby">💎 Ruby</option>
+                    </select>
+                    <label for="linguagem-programacao">Selecione a sua linguagem de programação favorita</label>
+                </div>
+            </div>
+
+            <div class="col-12 mt-1 mt-sm-4" id="dados-linguagem" style="display: none;">
+                <div class="row d-flex justify-content-between">
+                    <div class="col-12 col-md-4 mt-3">
+                        <button id="buscar-repositorios-github" type="button" class="col-12 btn btn-success"
+                            title="Clique para buscar no GitHub a lista atualizada dos TOP repositórios da sua linguagem de programação favorita">🐙 Buscar dados no GitHub</button>
+                    </div>
+                    <div class="col-12 col-md-4 mt-3">
+                        <button id="salvar-repositorios-em-cache" type="button" class="col-12 btn btn-primary" disabled
+                            title="Clique para salvar no banco de dados a lista de repositórios buscados no GitHub">💾 Salvar dados no DB</button>
+                    </div>
+                    <div class="col-12 col-md-4 mt-3">
+                        <button id="excluir-repositorios-do-cache" type="button" class="col-12 btn btn-danger" disabled
+                            title="Clique para apagar do banco de dados toda a lista de repositórios buscados no GitHub">🗑 Limpar dados do DB</button>
+                    </div>
+                </div>
+                <table class="table mt-1">
+                    <thead>
+                        <tr>
+                            <th scope="col" class="col-sequencial-number">#</th>
+                            <th scope="col" class="col-repository">Repositório</th>
+                            <th scope="col" class="col-owner">Owner</th>
+                            <th scope="col" class="col-creation-date">Data de Criação</th>
+                            <th scope="col" class="col-stars">Stars</th>
+                            <th scope="col" class="col-actions">Detalhes</th>
+                        </tr>
+                    </thead>
+                    <tbody class="table-group-divider">
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+    </div>
+</body>
+
+</html>
