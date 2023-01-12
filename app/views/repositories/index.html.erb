@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Repositories</h1>
+
+<div id="repositories">
+  <% @repositories.each do |repository| %>
+    <%= render repository %>
+    <p>
+      <%= link_to "Show this repository", repository %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New repository", new_repository_path %>

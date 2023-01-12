@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_11_222750) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_12_012548) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -21,4 +21,25 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_11_222750) do
     t.string "slug", default: "", null: false
   end
 
+  create_table "repositories", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.string "node_id"
+    t.integer "github_id"
+    t.string "full_name"
+    t.integer "stars"
+    t.string "url"
+    t.integer "forks"
+    t.integer "open_issues"
+    t.string "license"
+    t.datetime "origin_created_at"
+    t.string "origin_updated_at"
+    t.string "topics", default: [], array: true
+    t.bigint "language_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["language_id"], name: "index_repositories_on_language_id"
+  end
+
+  add_foreign_key "repositories", "languages"
 end
