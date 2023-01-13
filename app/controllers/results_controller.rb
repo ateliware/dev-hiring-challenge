@@ -15,7 +15,7 @@ class ResultsController < ApplicationController
       res_body_json = ActiveSupport::JSON.decode(res.body)
       repository = res_body_json['items'][0]
       begin
-        new_repository = Repository.new(
+        new_repository = Repository.create!(
         name: repository['name'],
         description: repository['description'],
         node_id: repository['node_id'],
@@ -31,7 +31,6 @@ class ResultsController < ApplicationController
         topics: repository['topics'],
         language: language
         )
-        new_repository.save!
       rescue => exception
         Repository.find_by(github_id: repository['id'])
       end
