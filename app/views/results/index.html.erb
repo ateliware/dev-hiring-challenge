@@ -1,8 +1,9 @@
-<% @result.each do |repo| %>
-  Name: <%= repo['name'] %><br>
-  Full name: <%= repo['full_name'] %><br>
-  Stars: <%= repo['stars'] %><br>
-  Forks: <%= repo['forks'] %><br>
-  Url: <%= link_to "repo url", repo['url'] %><br>
+<% @results.each do |repo| %>
+  Name: <%= repo.name %><br>
+  Full name: <%= repo.full_name %><br>
+  Stars: <%= repo.stars %><br>
+  Forks: <%= repo.forks %><br>
+  Url: <%= link_to "repo url", repo.url, target: :_blank %><br>
+  Language: <%= link_to "#{repo.language.name}", language_path(repo.language) %><br>
   <br>
 <% end %>

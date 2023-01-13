@@ -4,8 +4,8 @@ require 'httparty'
 class ResultsController < ApplicationController
   def index
     @languages = Language.all
-    @result = @languages.map do |language|
-      uri = URI.parse("https://api.github.com/search/repositories?q=#{language.name}&per_page=1")
+    @results = @languages.map do |language|
+      uri = URI.parse("https://api.github.com/search/repositories?q=language:#{language.name}&per_page=1")
       res = HTTParty.get(uri, {
         headers: {
           "User-Agent" => "Httparty",
