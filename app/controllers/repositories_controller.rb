@@ -1,10 +1,5 @@
 class RepositoriesController < ApplicationController
-  before_action :set_repository, only: %i[ show edit update destroy ]
-
-  # GET /repositories or /repositories.json
-  def index
-    @repositories = Repository.all
-  end
+  before_action :set_repository, only: %i[ show ]
 
   # GET /repositories/1 or /repositories/1.json
   def show
