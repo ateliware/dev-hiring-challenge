@@ -5,5 +5,6 @@
   Forks: <%= repo.forks %><br>
   Url: <%= link_to "repo url", repo.url, target: :_blank %><br>
   Language: <%= link_to "#{repo.language.name}", language_path(repo.language) %><br>
+  <%= link_to "Check all details of the repo", repository_path(repo) %><br>
   <br>
 <% end %>
