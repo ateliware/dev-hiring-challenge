@@ -1,10 +1,22 @@
-<p style="color: green"><%= notice %></p>
-
-<%= render @repository %>
-
-<div>
-  <%= link_to "Edit this repository", edit_repository_path(@repository) %> |
-  <%= link_to "Back to repositories", repositories_path %>
-
-  <%= button_to "Destroy this repository", @repository, method: :delete %>
+<div class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
+    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"><%= @repository.name %></h5>
+    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Full name: <%= @repository.full_name %></p>
+    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Description: <%= @repository.description %></p>
+    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Stars: <%= @repository.stars %></p>
+    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Open issues: <%= @repository.open_issues %></p>
+    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Forks: <%= @repository.forks %></p>
+    <% if @repository.license != nil %>
+      <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">License: <%= @repository.license %></p>
+    <% end %>
+    <% if @repository.topics.length() > 0 %>
+      <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Topics: <%= @repository.topics.join(", ")%></p>
+    <% end %>
+    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Created at: <%= @repository.origin_created_at %></p>
+    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Last update: <%= @repository.origin_updated_at %></p>
+    <p class="mb-3 font-bold text-gray-700 dark:text-gray-400 hover:text-white duration-300">
+      <%= link_to "Github Repository", @repository.url, target: :_blank %>
+    </p>
+    <p class="mb-3 text-gray-700 dark:text-gray-400">
+      Language: <%= link_to "#{@repository.language.name.capitalize}", language_path(@repository.language), {:class => "font-bold hover:text-white duration-300"} %>
+    </p>
 </div>
