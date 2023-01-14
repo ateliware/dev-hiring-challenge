@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "Languages", type: :request do
-  describe "GET /index" do
+  describe "GET #index" do
     it 'should get all languages' do
       language1 = Language.create!(name: 'javascript')
       language2 = Language.create!(name: 'ruby')
@@ -9,13 +9,13 @@ RSpec.describe "Languages", type: :request do
       expect(assigns(:languages)).to eq([language1, language2])
     end
 
-    it "renders the index template" do
+    it "renders the languages#index template" do
       get "/"
       expect(response).to render_template(:index)
     end
   end
 
-  describe "GET /show" do
+  describe "GET #show" do
     it 'should get language by slug' do
       language = Language.create!(name: 'javascript')
       get "/languages/#{language.slug}"
