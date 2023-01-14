@@ -15,10 +15,6 @@ class LanguagesController < ApplicationController
     @language = Language.new
   end
 
-  # GET /languages/1/edit
-  def edit
-  end
-
   # POST /languages or /languages.json
   def create
     @language = Language.new(language_params)
@@ -31,29 +27,6 @@ class LanguagesController < ApplicationController
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @language.errors, status: :unprocessable_entity }
       end
-    end
-  end
-
-  # PATCH/PUT /languages/1 or /languages/1.json
-  def update
-    respond_to do |format|
-      if @language.update(language_params)
-        format.html { redirect_to language_url(@language), notice: "Language was successfully updated." }
-        format.json { render :show, status: :ok, location: @language }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @language.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /languages/1 or /languages/1.json
-  def destroy
-    @language.destroy
-
-    respond_to do |format|
-      format.html { redirect_to languages_url, notice: "Language was successfully destroyed." }
-      format.json { head :no_content }
     end
   end
 
