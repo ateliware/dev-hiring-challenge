@@ -13,10 +13,10 @@
     <% end %>
     <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Created at: <%= @repository.origin_created_at %></p>
     <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Last update: <%= @repository.origin_updated_at %></p>
-    <p class="mb-3 font-bold text-gray-700 dark:text-gray-400 hover:text-white duration-300">
+    <p class="mb-3 font-bold text-gray-700 dark:text-gray-400 hover:text-black dark:hover:text-white duration-300">
       <%= link_to "Github Repository", @repository.url, target: :_blank %>
     </p>
     <p class="mb-3 text-gray-700 dark:text-gray-400">
-      Language: <%= link_to "#{@repository.language.name.capitalize}", language_path(@repository.language), {:class => "font-bold hover:text-white duration-300"} %>
+      Language: <%= link_to "#{@repository.language.name.capitalize}", language_path(@repository.language), {:class => "font-bold hover:text-black dark:hover:text-white duration-300"} %>
     </p>
 </div>
