@@ -28,4 +28,11 @@ RSpec.describe Language, type: :model do
       expect(language.slug).to eq('language-name')
     end
   end
+
+  context 'when creating a new language with the same name of an existing language name' do
+    it 'should raise error' do
+      Language.create!(name: 'javascript')
+      expect { Language.create!(name: 'javascript') }.to raise_error(ActiveRecord::RecordNotUnique)
+    end
+  end
 end

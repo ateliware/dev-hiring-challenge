@@ -98,5 +98,10 @@ RSpec.describe Repository, type: :model do
       repository_data[:language] = nil
       expect { Repository.create!(repository_data) }.to raise_error(ActiveRecord::RecordInvalid)
     end
+
+    it "has the same github_id of an existing repository" do
+      Repository.create!(repository_data)
+      expect { Repository.create!(repository_data) }.to raise_error(ActiveRecord::RecordNotUnique)
+    end
   end
 end
