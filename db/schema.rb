@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_14_224041) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_15_012404) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -27,18 +27,18 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_14_224041) do
   end
 
   create_table "repositories", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.text "description"
-    t.string "node_id"
-    t.integer "github_id"
-    t.string "full_name"
-    t.integer "stars"
-    t.string "url"
-    t.integer "forks"
-    t.integer "open_issues"
+    t.string "node_id", null: false
+    t.integer "github_id", null: false
+    t.string "full_name", null: false
+    t.integer "stars", null: false
+    t.string "url", null: false
+    t.integer "forks", null: false
+    t.integer "open_issues", null: false
     t.string "license"
-    t.datetime "origin_created_at"
-    t.string "origin_updated_at"
+    t.datetime "origin_created_at", null: false
+    t.string "origin_updated_at", null: false
     t.string "topics", default: [], array: true
     t.bigint "language_id", null: false
     t.datetime "created_at", null: false
