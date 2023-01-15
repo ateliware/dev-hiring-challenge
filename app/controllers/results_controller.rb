@@ -5,10 +5,11 @@ class ResultsController < ApplicationController
     @languages = Language.all
     @results = @languages.map do |language|
       repository_response = GithubApiModel.retrieve_language_repo(language.name)
+
       begin
-        repository = Repository.find_by(github_id: repository_response['id'])
+        Repository.find_by!(github_id: repository_response['id'])
       rescue => e
-        repository = Repository.create!(
+        Repository.create(
           name: repository_response['name'],
           description: repository_response['description'],
           node_id: repository_response['node_id'],
@@ -24,9 +25,7 @@ class ResultsController < ApplicationController
           topics: repository_response['topics'],
           language: language
           )
-          repository
       end
-      repository
     end
   end
 end
