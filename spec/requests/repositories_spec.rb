@@ -16,7 +16,9 @@ RSpec.describe "Repositories", type: :request do
         origin_created_at: DateTime.now,
         origin_updated_at: DateTime.now,
         url: "https://github.com/TheAlgorithms/Python",
-        language: language
+        language: language,
+        github_id: 123,
+        node_id: "123abc"
       )
       get "/repositories/#{repository.id}"
       expect(response).to render_template(:show)
@@ -36,7 +38,9 @@ RSpec.describe "Repositories", type: :request do
         origin_created_at: DateTime.now,
         origin_updated_at: DateTime.now,
         url: "https://github.com/TheAlgorithms/Python",
-        language: language
+        language: language,
+        github_id: 123,
+        node_id: "123abc"
       )
       get "/repositories/#{repository.id}"
       expect(assigns(:repository)).to eq(repository)
