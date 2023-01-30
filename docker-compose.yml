@@ -1,0 +1,22 @@
+version: '3.1'
+
+services:
+  api:
+    container_name: container-api
+    build: api
+    ports:
+      - 9000:9000
+    networks:
+      - dev
+  ui:
+    container_name: container-ui
+    build: ui
+    ports:
+      - 80:8080
+    networks:
+      - dev
+    depends_on:
+      - api
+
+networks:
+  dev:
