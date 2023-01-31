@@ -15,14 +15,13 @@
           class="fs-3 text fw-boldertext-center text-muted border-bottom-0">No selection</td>
       </tr>
       <tr v-for="repo in repos" :key="repo.id">
-        <th class="text-start text small">{{ repo.id }}</th>
+        <th class="text-start text small">{{ repo._id }}</th>
         <td><a :href="repo.url" target="_blank" :title="repo.description" data-bs-toggle="tooltip"
             data-bs-placement="top">{{
               repo.full_name
             }}</a></td>
         <td><a :href="repo.homepage" target="_blank" :title="repo.homepage">{{ repo.homepage }}</a></td>
-        <td v-if="repo.license">{{ repo.license.name }}</td>
-        <td class="text-muted" v-else>None</td>
+        <td>{{ repo.license || '&nbsp;' }}</td>
         <td>{{ repo.stars }}</td>
       </tr>
     </tbody>

@@ -4,6 +4,7 @@
     <TableRepos :repos="repos" v-if="!loading"  />
     <p v-if="loading" class="text-muted border-bottom-0"><font-awesome-icon
               icon="fa-solid fa-spinner" /> Loading...</p>
+    <p v-if="loading || !repos" class="text-right mt-3"><a :href="downloadUrl">Download</a></p>
   </div>
 </template>
 
@@ -24,9 +25,14 @@ export default {
       loading: false,
     };
   },
+  computed: {
+    downloadUrl() {
+      return `${import.meta.env.VITE_HOST}/download`;
+    }
+  },
   methods: {
     chooseLanguage(language) {
-      const url = `${import.meta.env.VITE_HOST}/search?q=${language}`
+      const url = `${import.meta.env.VITE_HOST}/search?q=language:${language}`
       this.loading = true
       this.repos = []
       this.axios.get(url)

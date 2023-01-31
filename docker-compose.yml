@@ -4,12 +4,17 @@ services:
   api:
     container_name: container-api
     build: api
+    environment:
+      DB_HOST: db
+      DB_USER: root
+      DB_PASS: secret
+      DB_NAME: testdb
     ports:
       - 9000:9000
-    depends_on:
-      - db
     networks:
       - app-network
+    depends_on:
+      - db
   ui:
     container_name: container-ui
     build: ui
@@ -23,8 +28,8 @@ services:
     container_name: container-db
     build: db
     environment:
-      MYSQL_ROOT_PASSWORD: "${DB_PASSWORD:-secret}"
-      MYSQL_DATABASE: "${DB_DATABASE:-testdb}"
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_DATABASE: testdb
     ports:
       - 3306:3306
     volumes:
