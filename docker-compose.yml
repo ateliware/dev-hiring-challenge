@@ -1,0 +1,41 @@
+version: '3.1'
+
+services:
+  api:
+    container_name: container-api
+    build: api
+    environment:
+      DB_HOST: db
+      DB_USER: root
+      DB_PASS: secret
+      DB_NAME: testdb
+    ports:
+      - 9000:9000
+    networks:
+      - app-network
+    depends_on:
+      - db
+  ui:
+    container_name: container-ui
+    build: ui
+    ports:
+      - 80:8080
+    depends_on:
+      - api
+    networks:
+      - app-network
+  db:
+    container_name: container-db
+    build: db
+    environment:
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_DATABASE: testdb
+    ports:
+      - 3306:3306
+    volumes:
+      - ./db/data:/var/lib/mysql
+    networks:
+      - app-network
+
+networks:
+  app-network:
