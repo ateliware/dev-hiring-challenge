@@ -1,0 +1,7 @@
+Flask==2.1.1
+Flask-Cors==3.0.10
+MarkupSafe==2.1.1
+mysql-connector==2.2.9
+mysql-connector-python==8.0.28
+mysql-connector-python-rf==2.2.2
+requests==2.27.1
