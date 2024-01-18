@@ -1,0 +1,22 @@
+footer {
+  display: flex;
+  justify-content: center;
+  margin: 12px 0;
+}
+
+button {
+  border: 1px solid #666;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 15px;
+  margin: 0 42px;
+  padding: 14px;
+}
+
+.delete {
+  background-color: #ff3030;
+}
+
+.search {
+  background-color: #3030ff;
+}
