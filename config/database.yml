@@ -1,0 +1,19 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  host: <%= ENV['DATABASE_HOST'] %>
+  username: <%= ENV['DATABASE_USERNAME'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  pool: 5
+
+development:
+  <<: *default
+  database: github-search_development
+
+test:
+  <<: *default
+  database: github-search_test
+
+production:
+  <<: *default
+  database: github-search_production

@@ -1,0 +1,27 @@
+<section class="flex flex-col p-8">
+  <h1 class="text-4xl font-bold mb-4">Results</h1>
+  <div class="grid gap-2 gap-y-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-4 mb-4">
+    <% @results.each do |repo| %>
+      <div class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700 relative h-[340px] min-h-full w-[300px] min-w-full">
+          <h1 class="mb-2 text-lg font-bold tracking-tight text-gray-900 dark:text-white"><%= repo.name %></h1>
+          <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 break-all">
+            Full name: <%= repo.full_name.truncate(45) %>
+          </p>
+          <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+            Stars: <%= repo.stars %>
+          </p>
+          <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+            Forks: <%= repo.forks %>
+          </p>
+          <p class="mb-3 text-gray-700 dark:text-gray-400">
+            Language: <%= link_to "#{repo.language.name.capitalize}", language_path(repo.language), {:class => "font-bold hover:text-black dark:hover:text-white duration-300"} %>
+          </p>
+          <p class="mb-3 font-bold text-gray-700 dark:text-gray-400 hover:text-black dark:hover:text-white duration-300">
+            <%= link_to "Github Repository", repo.url, target: :_blank %>
+          </p>
+          <%= link_to "Check all repository's details", repository_path(repo), {:class => "rounded-lg px-4 py-2 text-md font-bold text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 duration-300 absolute left-0 right-0 w-[260px] bottom-4 mx-auto"} %>
+      </div>
+    <% end %>
+  </div>
+  <%= link_to "Back to Home", languages_path, {:class => "rounded-lg px-4 py-2 text-md font-bold text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 duration-300"} %>
+</section>
