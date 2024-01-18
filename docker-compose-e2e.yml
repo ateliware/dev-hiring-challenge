@@ -1,0 +1,39 @@
+version: '3.3'
+services:
+
+  client-e2e:
+    build:
+      context: ./docker/e2e
+      dockerfile: client.Dockerfile
+    ports: 
+      - 3001:3001
+    volumes:
+      - ./client:/app
+      - ./docker/e2e:/docker
+    command: sh /docker/client.sh
+
+  server-e2e:
+    build:
+      context: ./docker/e2e
+      dockerfile: server.Dockerfile
+    ports:
+      - 3000:3000
+    volumes:
+      - ./server:/app
+      - ./docker/e2e:/docker
+    command: sh /docker/server.sh
+    
+  db-e2e:
+    image: postgres:alpine
+    restart: always
+    ports:
+      - 14000:5432
+    environment:
+      POSTGRES_DB: $E2E_DB_DATABASE
+      POSTGRES_USER: $E2E_DB_USER
+      POSTGRES_PASSWORD: $E2E_DB_PASSWORD
+    volumes:
+      - gh_db_e2e:/var/lib/postgresql/data
+
+volumes:
+  gh_db_e2e:

@@ -1,0 +1,19 @@
+version: '3.3'
+services:
+  client-build:
+    build:
+      context: ./docker/build
+      dockerfile: client.Dockerfile
+    volumes:
+      - ./client:/app
+      - ./docker/build:/docker
+    command: sh /docker/client.sh
+
+  server-build:
+    build:
+      context: ./docker/build
+      dockerfile: server.Dockerfile
+    volumes:
+      - ./server:/app
+      - ./docker/build:/docker
+    command: sh /docker/server.sh

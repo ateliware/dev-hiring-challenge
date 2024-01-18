@@ -1,0 +1,27 @@
+version: '3.3'
+services:
+  server-test:
+    build:
+      context: ./docker/test
+      dockerfile: server.Dockerfile
+    ports:
+      - 3000:3000
+    volumes:
+      - ./server:/app
+      - ./docker/test:/docker
+    command: sh /docker/server.sh
+    
+  db-test:
+    image: postgres:alpine   
+    restart: always
+    ports:
+      - 14000:5432
+    environment:
+      POSTGRES_DB: $TEST_DB_DATABASE
+      POSTGRES_USER: $TEST_DB_USER
+      POSTGRES_PASSWORD: $TEST_DB_PASSWORD
+    volumes:
+      - gh_db_test:/var/lib/postgresql/data
+
+volumes:
+  gh_db_test:

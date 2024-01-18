@@ -1,0 +1,38 @@
+version: '3.3'
+services:
+  client-dev:
+    build:
+      context: ./docker/dev
+      dockerfile: client.Dockerfile
+    ports: 
+      - 3001:3001
+    volumes:
+      - ./client:/app
+      - ./docker/dev:/docker
+    command: sh /docker/client.sh
+
+  server-dev:
+    build:
+      context: ./docker/dev
+      dockerfile: server.Dockerfile
+    ports:
+      - 3000:3000
+    volumes:
+      - ./server:/app
+      - ./docker/dev:/docker
+    command: sh /docker/server.sh
+
+  db-dev:
+    image: postgres:alpine
+    restart: always
+    ports:
+      - 14000:5432
+    environment:
+      POSTGRES_DB: $DEVELOPMENT_DB_DATABASE
+      POSTGRES_USER: $DEVELOPMENT_DB_USER
+      POSTGRES_PASSWORD: $DEVELOPMENT_DB_PASSWORD
+    volumes:
+      - gh_db_dev:/var/lib/postgresql/data
+
+volumes:
+  gh_db_dev:
