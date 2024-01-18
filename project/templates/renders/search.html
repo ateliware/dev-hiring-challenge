@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    <div class="bg-primary text-white">
+        <div class="row mt-2 p-2">
+            <div class="col-6 mt-2">
+                <h2><i class="fa fa-github px-3"></i>GitHub Repositories Search</h2>
+            </div>
+            <div class="col-6 mt-3 text-end">
+                <a href="/history" class="text-white">view history</a>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <section id="search_form">
+                <form id="repo_search" action="/search" method="post" class="gy-2 gx-3 align-items-center mt-5 needs-validation">
+                    <div class="row">
+                        <div class="col-6 m-2">
+                          <label class="visually-hidden" for="email">Username</label>
+                          <div class="input-group">
+                            <div class="input-group-text">@</div>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="your e-mail" required>
+                          </div>
+                        </div>
+                        <div class="col-5 m-2">
+                            <button type="submit" class="btn btn-primary" style="width:100%">Search<i class="fa fa-search px-2"></i></button>
+                        </div>
+                    </div>
+                    <div class="row mt-5">
+                        <span class="m-2 mb-3 border-bottom">Select 5 programming languages to search</span>
+
+                        <div class="col-3 m-2">
+                          <select class="form-select" id="lang_one" name="lang_one" required>
+                              <option value="" selected>Choose...</option>
+                              {% for language in languages %}
+                                <option value="{{ language }}">{{ language }}</option>
+                              {% endfor %}
+                          </select>
+                        </div>
+                        <div class="col-3 m-2">
+                          <select class="form-select" id="lang_two" name="lang_two" >
+                              <option value="" selected>Choose...</option>
+                              {% for language in languages %}
+                                <option value="{{ language }}">{{ language }}</option>
+                              {% endfor %}
+                          </select>
+                        </div>
+                        <div class="col-3 m-2">
+                          <select class="form-select" id="lang_three" name="lang_three" >
+                              <option value="" selected>Choose...</option>
+                              {% for language in languages %}
+                                <option value="{{ language }}">{{ language }}</option>
+                              {% endfor %}
+                          </select>
+                        </div>
+                        <div class="col-3 m-2">
+                          <select class="form-select" id="lang_four" name="lang_four" >
+                              <option value="" selected>Choose...</option>
+                              {% for language in languages %}
+                                <option value="{{ language }}">{{ language }}</option>
+                              {% endfor %}
+                          </select>
+                        </div>
+                        <div class="col-3 m-2">
+                          <select class="form-select" id="lang_five" name="lang_five" >
+                              <option value="" selected>Choose...</option>
+                              {% for language in languages %}
+                                <option value="{{ language }}">{{ language }}</option>
+                              {% endfor %}
+                          </select>
+                        </div>
+                    </div>
+                </form>
+            </section>
+        </div>
+
+        <div class="col-6 list-group list-group-flush mb-3">
+            <section id="search_results">
+                {% if qty %}
+                <p class="mt-1 mx-4 p-2 px-4 text-white bg-dark"><small>About {{qty}} results found,<br/>showing the two best ranked of each selected language</small></p>
+                <div id="table" style="overflow-y: scroll;overflow-x: hidden;max-height: 460px;">
+                {% endif %}
+                    <table class="table table-sm mt-2 mx-4 px-2 border-start">
+                      <tbody>
+                      {% for result in results | sort(attribute='stargazers_count', reverse = True) %}
+                      <tr><td class="border-0 px-4"><i class="fa fa-star" aria-hidden="true"></i> {{result.stargazers_count}}</td></tr>
+                      <tr><td class="border-0 px-4"><small class="font-weight-light"><a href="{{result.html_url}}">{{result.html_url}}</a></small></td></tr>
+                      <tr><td class="border-0 px-4"><h4 class="font-weight-bold text-primary">{{result.language}} - {{result.full_name}}</h4></td></tr>
+                      <tr><td class="border-0 px-4"><p>{{result.description}}</p></td></tr>
+                      <tr><td class="border-0 pb-3"></td></tr>
+                      {% endfor %}
+                      </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+
+    </div>
+</div>
+{% endblock %}
