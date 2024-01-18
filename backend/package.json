@@ -1,0 +1,25 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node -r dotenv/config ./src/server",
+    "dev": "npx nodemon -r dotenv/config ./src/server",
+    "createdb": "npx sequelize-cli db:create",
+    "migratedb": "npx sequelize-cli db:migrate",
+    "seeddb": "npx sequelize-cli db:seed:all"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "express-async-errors": "^3.1.1",
+    "helmet": "^5.0.2",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.18.0"
+  }
+}
