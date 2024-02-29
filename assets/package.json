@@ -1,0 +1,8 @@
+{  
+    "dependencies": {
+        "materialize-css": "^1.0.0-rc.2"
+    },
+    "scripts": {
+        "deploy": "cd .. && mix assets.deploy && rm -f _build/esbuild"
+    }
+}

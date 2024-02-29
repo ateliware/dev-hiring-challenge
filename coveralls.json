@@ -1,0 +1,19 @@
+{
+    "skip_files": [
+      "lib/highlight_repo.ex",
+      "lib/highlight_repo/application.ex",
+      "lib/highlight_repo/release.ex",
+      "lib/highlight_repo/mailer.ex", 
+      "lib/highlight_repo_web.ex",
+      "lib/highlight_repo_web/router.ex",
+      "lib/highlight_repo_web/views/error_helpers.ex",
+      "test/support/channel_case.ex",
+      "test/support/data_case.ex", 
+      "lib/highlight_repo_web/telemetry.ex"
+    ],
+    "coverage_options": {
+      "treat_no_relevant_lines_as_covered": true,
+      "output_dir": "cover/",
+      "minimum_coverage": 90
+    }
+  }
