@@ -1,0 +1,32 @@
+name: github_repository
+description: A flutter project searches repositories in GitHub
+
+publish_to: 'none' 
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.16.2 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.2
+  http: ^0.13.4
+  sqflite: ^2.0.2+1
+  path_provider: ^2.0.10
+  skeleton_loader: ^2.0.0+4
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^1.0.0
+
+flutter:
+
+  uses-material-design: true
+  
+  assets:
+    - assets/
+
